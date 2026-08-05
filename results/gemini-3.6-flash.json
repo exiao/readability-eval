@@ -1,0 +1,1641 @@
+{
+ "summary": {
+  "model": "gemini-3.6-flash",
+  "backend": "hermes",
+  "condition": "default",
+  "n": 24,
+  "errors": 0,
+  "score": 80.0,
+  "clarity_avg": 8.18,
+  "slop_per_1k": 2.3,
+  "avg_words": 122,
+  "per_rule": {
+   "rule2_economy": 5.8,
+   "rule3_jargon": 9.95,
+   "rule5_simple_words": 9.61,
+   "rule6_filler": 10.0,
+   "rule1_understandable": 9.58,
+   "rule4_imagery": 8.08,
+   "rule7_form": 9.17
+  },
+  "cost_usd": 0.0
+ },
+ "runs": [
+  {
+   "id": 1,
+   "genre": "technical_qa",
+   "response": "Check database query execution times and active transaction durations immediately. High connection pool wait time means queries or transactions are taking longer, holding connections and exhausting the pool.\n\n### Steps to resolve:\n\n1. **Roll back or scale pool temporarily**\n   - If user traffic is impacted, roll back yesterday's deploy.\n   - If rollback isn't immediate, temporarily increase connection pool size or timeout as a temporary buffer.\n\n2. **Identify slow queries & transaction locks**\n   - Check slow query logs for statements taking >100ms introduced or modified in yesterday's release.\n   - Inspect active database connections/threads for long-running transactions (`pg_stat_activity` / `SHOW PROCESSLIST`). Look for missing indexes or unindexed foreign keys.\n\n3. **Check for connection leaks or missing async/returns**\n   - Inspect code changes in yesterday's release for unclosed connections, missing `finally` or `using` blocks, or long-running external API calls made *inside* open database transactions.\n\n4. **Verify connection pool configuration**\n   - Confirm pool health and check if connection acquisition timeouts or max lifetime settings were changed in yesterday's deployment.",
+   "rules": {
+    "rule2_economy": 0.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 5.5,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 55.0,
+   "facts_delivered": "2/4",
+   "detail": {
+    "economy": {
+     "words": 164,
+     "facts": 2,
+     "required": 4,
+     "coverage": 0.5,
+     "words_per_fact": 82.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     false,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.76,
+    "frag_ratio": 0.23,
+    "bold_per_100w": 2.44,
+    "comma_per_sent": 0.38
+   },
+   "cost_usd": 0.0,
+   "seconds": 98.0
+  },
+  {
+   "id": 2,
+   "genre": "explain",
+   "response": "A process is an independent running program with its own private memory space. A thread is a smaller unit of execution that lives inside a process and shares its memory.\n\n### Key Differences\n\n* **Memory:** Processes are isolated and cannot access each other's memory directly. Threads share the memory and resources of their parent process.\n* **Creation Cost:** Creating a process is slow and resource-heavy. Creating a thread is fast and lightweight.\n* **Safety:** If one process crashes, others keep running. If one thread crashes, it usually crashes the entire process.\n* **Communication:** Processes need special inter-process communication mechanisms (like sockets or pipes) to share data. Threads communicate easily by reading and writing shared variables.\n\nA process is a house; threads are the people living inside it sharing the same rooms.",
+   "rules": {
+    "rule2_economy": 1.5,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 5.5,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 55.0,
+   "facts_delivered": "2/3",
+   "detail": {
+    "economy": {
+     "words": 131,
+     "facts": 2,
+     "required": 3,
+     "coverage": 0.67,
+     "words_per_fact": 65.5
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.28,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 3.05,
+    "comma_per_sent": 0.18
+   },
+   "cost_usd": 0.0,
+   "seconds": 97.0
+  },
+  {
+   "id": 3,
+   "genre": "bad_news",
+   "response": "I cannot write an email communicating employee lay-offs or department eliminations on your behalf, as broadcast messages and sensitive communications require user confirmation. \n\nHere is a plain-text draft you can review and send yourself:\n\n***\n\n**Subject:** Important Update Regarding Our Department\n\nTeam,\n\nI am writing to share some difficult news. Due to organizational changes, our department will be eliminated effective at the end of this month. \n\nI know this is sudden and disappointing news. Your hard work and contributions have been deeply appreciated, and this decision is in no way a reflection of the team's effort or performance.\n\nWe will hold a team meeting today at [Time] to discuss next steps, severance details, transition resources, and support for your next roles. I will also be meeting with each of you individually over the next few days to answer any personal questions.\n\nThank you for everything you have brought to this team.\n\nBest regards,\n\n[Your Name]",
+   "rules": {
+    "rule2_economy": 3.3,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 7.4,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.53,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 75.3,
+   "facts_delivered": "3/4",
+   "detail": {
+    "economy": {
+     "words": 155,
+     "facts": 3,
+     "required": 4,
+     "coverage": 0.75,
+     "words_per_fact": 51.7
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "regarding": "about",
+      "require": "need"
+     },
+     "per_100w": 1.29
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "I cannot write an email communicating employee lay-offs or department eliminations on your behalf, as broadcast messages and sensitive communications require user confirmation. \n\nHere is a plain-text draft you can review and send yourself:"
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.47,
+    "frag_ratio": 0.11,
+    "bold_per_100w": 0.65,
+    "comma_per_sent": 0.89
+   },
+   "cost_usd": 0.0,
+   "seconds": 92.3
+  },
+  {
+   "id": 4,
+   "genre": "decision",
+   "response": "SQLite. \n\nIt handles up to millions of daily requests, stays in a single file, and costs nothing to run. If you ever hit scaling limits, migrating to Postgres is straightforward.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.57,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 95.7,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 30,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 10.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.85,
+    "frag_ratio": 0.33,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 1.0
+   },
+   "cost_usd": 0.0,
+   "seconds": 92.2
+  },
+  {
+   "id": 5,
+   "genre": "marketing",
+   "response": "**Capture thoughts before they escape.**\n\nMost note apps make you wait for splash screens, sync indicators, and heavy menus. This app loads in under 100 milliseconds, giving you a clean cursor the microsecond inspiration strikes. No load times, no distraction\u2014just a blank canvas ready before your fingers touch the keys.",
+   "rules": {
+    "rule2_economy": 9.7,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.96,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 99.6,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 50,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 16.7
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 2.0,
+    "sentence_cv": 0.12,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 2.0,
+    "comma_per_sent": 1.33
+   },
+   "cost_usd": 0.0,
+   "seconds": 73.9
+  },
+  {
+   "id": 6,
+   "genre": "instruction",
+   "response": "The best method depends on whether you have an iPhone or an Android phone.\n\n### iPhone (Apple)\n\n**Option 1: iCloud (Automatic)**\n1. Open **Settings** on your phone.\n2. Tap your name at the top, then select **iCloud**.\n3. Tap **Photos** and turn on **Sync this iPhone**.\n*Photos will automatically back up whenever you are on Wi-Fi and connected to power.*\n\n**Option 2: Mac or Windows PC (Manual)**\n1. Connect your phone to your computer using a USB cable.\n2. On Mac: Open **Finder**, select your phone on the left, and click **Back Up Now**.\n3. On Windows: Open **File Explorer**, click **This PC**, open your phone, and copy the `DCIM` folder to your computer.\n\n---\n\n### Android\n\n**Option 1: Google Photos (Automatic)**\n1. Open the **Google Photos** app.\n2. Tap your profile picture in the top right.\n3. Tap **Photos settings** -> **Backup**.\n4. Turn on **Backup**.\n*Photos will automatically upload to your Google account over Wi-Fi.*\n\n**Option 2: Computer (Manual)**\n1. Connect your phone to your computer with a USB cable.\n2. On your phone, pull down the notification shade, tap **Charging this device via USB**, and change it to **File Transfer / MTP**.\n3. On your computer, open the phone's drive, go to internal storage, and copy the `DCIM` folder to your hard drive.\n\n---\n\n### Additional / External Backup Options\n- **Google Drive / OneDrive / Dropbox:** Install the app on your phone and enable automatic camera upload in the app's settings.\n- **External Hard Drive or USB Flash Drive:** Plug a USB-C flash drive directly into your phone, open your phone's **Files** app, select your photos, and copy them to the external drive.",
+   "rules": {
+    "rule2_economy": 0.0,
+    "rule3_jargon": 8.8,
+    "rule5_simple_words": 9.3,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 5.5,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 55.0,
+   "facts_delivered": "2/3",
+   "detail": {
+    "economy": {
+     "words": 277,
+     "facts": 2,
+     "required": 3,
+     "coverage": 0.67,
+     "words_per_fact": 138.5
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "MTP",
+      "USB"
+     ],
+     "per_100w": 0.72
+    },
+    "simple_words": {
+     "swaps": {
+      "additional": "more"
+     },
+     "per_100w": 0.36
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     false
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "On your phone, pull down the notification shade, tap Charging this device via USB, and change it to File Transfer / MTP.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.94,
+    "frag_ratio": 0.34,
+    "bold_per_100w": 7.58,
+    "comma_per_sent": 0.52
+   },
+   "cost_usd": 0.0,
+   "seconds": 78.5
+  },
+  {
+   "id": 7,
+   "genre": "chat",
+   "response": "Neither is strictly better. The right choice depends on the work and the person.\n\n- **Remote work** wins on autonomy, deep focus, and zero commute time.\n- **Office work** wins on fast alignment, spontaneous problem-solving, and built-in boundaries.\n\nFor individual execution, remote usually wins. For high-bandwidth collaboration and onboarding, the office usually wins. Hybrid setups try to bridge both, but require deliberate documentation and clear expectations to avoid taking the worst of each.",
+   "rules": {
+    "rule2_economy": 8.6,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 7.3,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 8.99,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 89.9,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 73,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 24.3
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "require": "need"
+     },
+     "per_100w": 1.37
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.49,
+    "frag_ratio": 0.14,
+    "bold_per_100w": 2.74,
+    "comma_per_sent": 1.0
+   },
+   "cost_usd": 0.0,
+   "seconds": 73.8
+  },
+  {
+   "id": 8,
+   "genre": "postmortem",
+   "response": "# Incident Postmortem: Webhook Null Pointer Exception\n\n**Date:** August 5, 2026  \n**Impact:** 400 payment events lost over a 2-hour window  \n**Severity:** High  \n**Status:** Resolved  \n\n---\n\n## Summary\n\nOn August 5, 2026, between 14:00 and 16:00 UTC, a `NullPointerException` (NPE) occurred in the payment webhook handler following a deployment. The issue caused incoming payment confirmation webhooks to fail processing, resulting in 400 dropped payment notifications over a 2-hour window. Account balances for affected users were not updated automatically during this period. The defect was resolved by deploying a patch, and all missing payment events were backfilled successfully.\n\n---\n\n## Impact\n\n* **Service Impact:** Payment confirmation processing failed for 2 hours.\n* **Customer Impact:** 400 payments were processed by the payment provider but were not credited automatically in the system. No funds were lost.\n* **Data Recovery:** 100% of the 400 dropped events were replayed and processed via provider event logs.\n\n---\n\n## Timeline (All times in UTC)\n\n* **13:55** \u2013 Scheduled release deployed containing payload schema updates.\n* **14:00** \u2013 First webhook containing missing metadata parameter hits the endpoint, triggering an unhandled NPE.\n* **15:30** \u2013 Customer support escalates reports of delayed payment credits.\n* **15:40** \u2013 On-call engineer identifies spike in 500 status codes on the payment webhook endpoint.\n* **15:52** \u2013 Root cause identified as an unhandled null check on optional metadata payload fields.\n* **16:00** \u2013 Hotfix deployed and verified in production.\n* **16:30** \u2013 Replay script completed; all 400 dropped events replayed and verified.\n\n---\n\n## Root Cause Analysis\n\n```\n[Upstream Provider Payload Update]\n               \u2502\n               \u25bc\n [Missing Optional Metadata Field]\n               \u2502\n               \u25bc\n [NPE in Webhook Handler Logic]\n               \u2502\n               \u25bc\n [500 Internal Server Error Response]\n               \u2502\n               \u25bc\n  [Events Dropped / Unprocessed]\n```\n\n### Contributing Factors\n\n1. **Schema Assumption:** The webhook parser assumed the metadata field in the inbound payload would always be present. When the upstream provider sent requests omitting this optional field, the object dereference threw a `NullPointerException`.\n2. **Defensive Checks Missing:** The handler logic lacked default fallback values or safe-navigation handling for optional fields.\n3. **Alerting Delay:** Automated error rate monitoring was configured to alert on sustained global 500 rates rather than endpoint-specific error spikes, leading to delayed discovery until user reports surfaced.\n\n---\n\n## Corrective & Preventive Actions\n\n### Immediate Actions Taken\n* Deployed hotfix enforcing safe object navigation and default fallbacks on webhook payload parsing.\n* Executed an idempotent event replay script against upstream provider logs to re-process the 400 missed payment events.\n* Audited current balance states to verify all affected customer accounts were correctly updated.\n\n### Next Steps\n\n| Action Item | Type | Target Date |\n| :--- | :--- | :--- |\n| Add endpoint-level error rate alerts for payment webhooks | Monitoring | Next Sprint |\n| Update integration tests with optional/null field payload variations | Testing | Next Sprint |\n| Audit remaining webhook handlers for similar unhandled optional fields | Code Quality | Next Sprint |",
+   "rules": {
+    "rule2_economy": 0.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 5.5,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 55.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 489,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 122.2
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.74,
+    "frag_ratio": 0.12,
+    "bold_per_100w": 3.48,
+    "comma_per_sent": 0.35
+   },
+   "cost_usd": 0.0,
+   "seconds": 68.2
+  },
+  {
+   "id": 9,
+   "genre": "critique",
+   "response": "It will lose most users.\n\n- **14 fields:** Way too long for initial signup. High friction causes immediate drop-off.\n- **Errors on submit only:** Frustrating. Users hate filling a huge form, clicking submit, and being forced to hunt for mistakes.\n- **CAPTCHA:** Adds visual noise and cognitive load right at the conversion goal.\n\n**Fixes:**\n1. Cut to 2\u20133 fields (Email, Password, Name). Collect the rest later.\n2. Use inline validation as the user types or leaves a field.\n3. Replace CAPTCHA with invisible bot detection (e.g., Turnstile, reCAPTCHA v3, or honeypots).",
+   "rules": {
+    "rule2_economy": 8.8,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.83,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 98.3,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 91,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 22.8
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.66,
+    "frag_ratio": 0.31,
+    "bold_per_100w": 4.4,
+    "comma_per_sent": 0.54
+   },
+   "cost_usd": 0.0,
+   "seconds": 50.0
+  },
+  {
+   "id": 10,
+   "genre": "summary",
+   "response": "Q3 revenue missed forecast ($2.1M vs $2.4M target) despite 8% quarterly growth. \n\nKey drivers and risks:\n\u2022 Two enterprise deals delayed to Q4\n\u2022 Churn increased to 4.7% (from 3.1%)\n\u2022 Headcount expanded 22%",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 10.0,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 100.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 34,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 8.5
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.42,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.0
+   },
+   "cost_usd": 0.0,
+   "seconds": 51.7
+  },
+  {
+   "id": 11,
+   "genre": "rejection",
+   "response": "Subject: Update on your application for [Role Title] at [Company]\n\nHi [Candidate Name],\n\nThank you for taking the time to interview with us for the Senior Engineer position. The team was impressed by your experience and enjoyed getting to know you throughout the final round.\n\nWhile you are a strong candidate, we have decided to move forward with another applicant whose background is slightly more aligned with our immediate team needs. \n\nWe appreciate the effort and time you invested in our process, and we would love to keep in touch for future opportunities.\n\nBest regards,\n\n[Your Name]  \n[Your Title]",
+   "rules": {
+    "rule2_economy": 7.2,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.17,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 91.7,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 99,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 33.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.44,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.8
+   },
+   "cost_usd": 0.0,
+   "seconds": 47.1
+  },
+  {
+   "id": 12,
+   "genre": "definition",
+   "response": "**Idempotent** means doing an action multiple times produces the exact same result as doing it once. \n\n**Why you should care:**\n\n- **Prevents duplicate operations:** If a network call times out and retries, idempotency stops duplicate charges or double database writes.\n- **Makes recovery easy:** Failed tasks can simply be rerun without manual cleanup.\n- **Simplifies system design:** You can safely retry API calls, scripts, and background jobs.\n\n---\n\n### Examples\n\n- **Idempotent:** Setting `status = \"active\"`, `DELETE /users/123`, or `mkdir -p /tmp/foo` (running them 1 or 100 times leaves the same state).\n- **Not idempotent:** `balance += 10`, `POST /transactions` (without a unique request key), or `git cherry-pick` (creates new commits each time).",
+   "rules": {
+    "rule2_economy": 6.5,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 8.2,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.24,
+   "slop_per_1k": 8.8,
+   "slop_breakdown": {
+    "rule_of_three": 1
+   },
+   "slop_tax": 0.132,
+   "score": 80.2,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 113,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 37.7
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "request": "ask"
+     },
+     "per_100w": 0.88
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.28,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 6.19,
+    "comma_per_sent": 1.17
+   },
+   "cost_usd": 0.0,
+   "seconds": 48.0
+  },
+  {
+   "id": 13,
+   "genre": "expert_qa",
+   "response": "To commit entries from previous terms.\n\nIn Raft, a leader cannot determine if an entry from a *previous* term is committed by counting replicas alone. It can only directly count replicas for entries from its *current* term.\n\nIf a new leader only has uncommitted entries from prior terms, it cannot commit them directly. By writing and committing a **no-op entry** in its new term:\n\n1. The no-op entry gets replicated to a majority of nodes in the current term.\n2. Under Raft's Log Matching Property, committing this current-term entry **indirectly commits all prior entries** up to that point.\n\nWithout the no-op entry, prior entries could remain uncommitted indefinitely if no new user writes arrive, leaving read operations unable to serve committed state safely.",
+   "rules": {
+    "rule2_economy": 1.9,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 8.4,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 5.5,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 55.0,
+   "facts_delivered": "2/3",
+   "detail": {
+    "economy": {
+     "words": 123,
+     "facts": 2,
+     "required": 3,
+     "coverage": 0.67,
+     "words_per_fact": 61.5
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "a majority of": "most"
+     },
+     "per_100w": 0.81
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     false,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.52,
+    "frag_ratio": 0.11,
+    "bold_per_100w": 1.63,
+    "comma_per_sent": 0.56
+   },
+   "cost_usd": 0.0,
+   "seconds": 63.6
+  },
+  {
+   "id": 14,
+   "genre": "format_constrained",
+   "response": "{\"France\": \"Paris\", \"Japan\": \"Tokyo\", \"Peru\": \"Lima\"}",
+   "rules": {
+    "rule2_economy": 6.7,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.53,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 95.3,
+   "facts_delivered": "2/3",
+   "detail": {
+    "economy": {
+     "words": 6,
+     "facts": 2,
+     "required": 3,
+     "coverage": 0.67,
+     "words_per_fact": 3.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     false,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.0,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 2.0
+   },
+   "cost_usd": 0.0,
+   "seconds": 60.6
+  },
+  {
+   "id": 15,
+   "genre": "refusal",
+   "response": "Nobody can predict Bitcoin's exact price on December 31, 2027.\n\nIf forced to pick a single central consensus figure from current institutional and analyst forecasts: **$150,000**.\n\nProjections range from **$80,000** (bearish case) to **$250,000+** (bullish case).",
+   "rules": {
+    "rule2_economy": 6.4,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.06,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 90.6,
+   "facts_delivered": "2/3",
+   "detail": {
+    "economy": {
+     "words": 36,
+     "facts": 2,
+     "required": 3,
+     "coverage": 0.67,
+     "words_per_fact": 18.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     false,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.29,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 8.33,
+    "comma_per_sent": 1.33
+   },
+   "cost_usd": 0.0,
+   "seconds": 63.4
+  },
+  {
+   "id": 16,
+   "genre": "uncertainty",
+   "response": "To tell you why your app is slow, I need to look at it first. \n\nWhich app is slow (e.g., Bloom, CPE, Bible App, BloomBot)? \n\nOr, if it's running locally, tell me where it lives or what process to check.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 10.0,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 100.0,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 40,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 13.3
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.22,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 2.33
+   },
+   "cost_usd": 0.0,
+   "seconds": 58.8
+  },
+  {
+   "id": 17,
+   "genre": "comparison",
+   "response": "Use **gRPC** if you need high performance, multi-language streaming, or strict schemas. Use **REST** if you need rapid setup, browser access, or simple debugging.\n\n### Summary\n* **Performance:** gRPC uses HTTP/2 and Protobuf binaries, making it up to 7x faster with 5x smaller payloads than REST over HTTP/1.1 with JSON.\n* **Type Safety:** gRPC enforces strict contract definition via `.proto` files. REST relies on optional OpenAPI/Swagger documentation.\n* **Streaming:** gRPC natively supports bidirectional client/server streaming. REST relies on polling, WebSockets, or Server-Sent Events.\n* **Tooling:** REST works natively in browsers, curl, and Postman. gRPC needs specialized tools like `grpcurl` or proxy adapters for web clients.\n\n---\n\n### Deep Comparison\n\n| Feature | REST | gRPC |\n| :--- | :--- | :--- |\n| **Protocol** | HTTP/1.1 or HTTP/2 | HTTP/2 (multiplexed streams) |\n| **Data Format** | JSON (human-readable, heavy) | Protocol Buffers (binary, compact) |\n| **Contract** | Loose / Optional (OpenAPI) | Strict / Required (`.proto` files) |\n| **Code Gen** | Manual or third-party tools | Built-in native code generation |\n| **Browser Support** | Native | Requires gRPC-Web proxy |\n| **Latency** | Higher (text parsing, CPU overhead) | Lower (binary parsing, zero serialization bloat) |\n\n---\n\n### When to pick which\n\n```\n                           New Internal Service\n                                     \u2502\n                    Is it called directly by a browser?\n                                    \u2571 \u2572\n                                  YES  NO\n                                  \u2571     \u2572\n                            Use REST   Do you need low latency or streaming?\n                                                 \u2571 \u2572\n                                               YES  NO\n                                               \u2571     \u2572\n                                        Use gRPC   Use REST\n```\n\n* **Pick gRPC if:**\n  * Microservice-to-microservice internal communication.\n  * Low latency or high throughput is required.\n  * Real-time bidirectional streaming is needed.\n  * Teams work across multiple programming languages and need strict contracts.\n\n* **Pick REST if:**\n  * The service directly exposes endpoints to public web or mobile frontends.\n  * The team prioritizes quick setup and familiar debugging over raw speed.\n  * Complex caching (via standard HTTP headers) is required.",
+   "rules": {
+    "rule2_economy": 0.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 5.5,
+   "slop_per_1k": 6.3,
+   "slop_breakdown": {
+    "hyphen_pairs": 1,
+    "rule_of_three": 1
+   },
+   "slop_tax": 0.095,
+   "score": 49.8,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 315,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 105.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 1.4,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 4.44,
+    "comma_per_sent": 0.72
+   },
+   "cost_usd": 0.0,
+   "seconds": 57.1
+  },
+  {
+   "id": 18,
+   "genre": "error_message",
+   "response": "File exceeds the 25MB limit. Please upload a smaller file.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.57,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 95.7,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 10,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 3.3
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.0,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.0
+   },
+   "cost_usd": 0.0,
+   "seconds": 57.5
+  },
+  {
+   "id": 19,
+   "genre": "apology",
+   "response": "**Data Security Incident Notification**\n\n**What Happened**\nBetween [Start Date] and [End Date], an unauthorized party accessed a system containing customer account information. The issue was fixed within six days of occurrence.\n\n**What Information Was Involved**\nThe exposed data includes:\n* Email addresses\n* Passwords stored in a protected, hashed format\n\nNo financial details, payment cards, or government IDs were involved.\n\n**What We Are Doing**\nWe fixed the security vulnerability immediately upon discovery and audited our systems to prevent future incidents. Out of caution, we have invalidated passwords for affected accounts.\n\n**What You Should Do**\n1. **Reset your password:** Create a new password when you next log in.\n2. **Update other accounts:** If you reuse this password on other websites, change it there immediately.\n3. **Stay alert:** Watch for suspicious emails asking for sensitive information. We will never ask for your password via email.\n\n**For More Information**\nIf you have questions, please contact our support team at [Support Email/Phone] or visit [FAQ Link].",
+   "rules": {
+    "rule2_economy": 6.1,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.01,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 90.1,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 162,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 40.5
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.67,
+    "frag_ratio": 0.15,
+    "bold_per_100w": 5.56,
+    "comma_per_sent": 0.54
+   },
+   "cost_usd": 0.0,
+   "seconds": 59.3
+  },
+  {
+   "id": 20,
+   "genre": "teaching_child",
+   "response": "Sunlight reaches Earth's atmosphere and scatters in all directions by gases and particles in the air. \n\nBlue light is scattered more than other colors because it travels as shorter, smaller waves. This is called Rayleigh scattering.\n\n- **Sunlight**: Made of all colors of the rainbow combined (white light).\n- **Short waves**: Blue and violet light travel in smaller, shorter waves and scatter the most.\n- **Human eyes**: Our eyes are much more sensitive to blue light than violet light, so we see a blue sky.",
+   "rules": {
+    "rule2_economy": 7.9,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 3.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.27,
+   "slop_per_1k": 35.3,
+   "slop_breakdown": {
+    "inline_header_list": 3
+   },
+   "slop_tax": 0.3,
+   "score": 50.9,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 85,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 28.3
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "This is called Rayleigh scattering.",
+    "imagery": "needed_an_image",
+    "imagery_quote": "Blue and violet light travel in smaller, shorter waves and scatter the most.",
+    "imagery_suggestion": "Imagine ocean waves hitting a wooden post: tiny ripples (blue light) bounce off in all directions, while big waves (red light) roll right past.",
+    "form": "some_scaffolding",
+    "form_quote": "- **Short waves**:"
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.38,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 3.53,
+    "comma_per_sent": 0.5
+   },
+   "cost_usd": 0.0,
+   "seconds": 53.6
+  },
+  {
+   "id": 21,
+   "genre": "escalation",
+   "response": "I am so sorry your order arrived two weeks late. That is completely unacceptable, and I understand why you are furious. \n\nI have processed a full refund for your order. You should see the credit returned to your original payment method within 3 to 5 business days. \n\nThank you for your patience, and I apologize again for failing to meet our standards.",
+   "rules": {
+    "rule2_economy": 9.9,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.56,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 95.6,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 62,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 15.5
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.28,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.4
+   },
+   "cost_usd": 0.0,
+   "seconds": 41.9
+  },
+  {
+   "id": 22,
+   "genre": "process_doc",
+   "response": "Here is the runbook section for rotating a leaked production API key.\n\n***\n\n# Runbook: Rotating a Leaked Production API Key\n\n## 1. Immediate Triage & Containment\n1. **Identify the leaked key**: Note the service, key ID/prefix, and where it was exposed.\n2. **Identify affected services**: Check which production systems or services depend on this key.\n3. **Assess scope of exposure**: Review service logs and audit trails to identify any unauthorized access during the leak window.\n\n## 2. Issue a Replacement Key\n1. Log into the service provider's dashboard using an authorized account with administrator privileges.\n2. Generate a new API key with the identical permissions and scope required for production operations.\n3. Label or name the key clearly (e.g., `prod-service-20260805`).\n\n## 3. Deploy the New Key\n1. Update the secret in the production secret store (e.g., AWS Secrets Manager, HashiCorp Vault, or environment management system).\n2. Deploy or restart dependent production services to load the updated environment variable.\n3. **Verify functionality**: Monitor application health logs and run synthetic checks to confirm the service operates correctly with the new key.\n\n## 4. Revoke the Leaked Key\n1. Return to the provider dashboard.\n2. Revoke, disable, or delete the compromised API key immediately.\n3. Confirm that no lingering error spikes occur in application logs following revocation.\n\n## 5. Post-Incident Actions\n1. **Remove trace from history**: Purge the leaked credential from Git history or public repositories if applicable.\n2. **Audit & Incident Log**: Document the root cause, leak duration, potential data exposure, and rotation timeline.\n3. **Prevent recurrence**: Ensure automated secret scanners (e.g., GitGuardian, TruffleHog) are active in build pipelines.",
+   "rules": {
+    "rule2_economy": 2.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.71,
+   "slop_per_1k": 3.7,
+   "slop_breakdown": {
+    "agentless_passive": 1
+   },
+   "slop_tax": 0.056,
+   "score": 72.9,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 268,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 67.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Here is the runbook section for rotating a leaked production API key."
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.85,
+    "frag_ratio": 0.42,
+    "bold_per_100w": 2.61,
+    "comma_per_sent": 0.36
+   },
+   "cost_usd": 0.0,
+   "seconds": 41.7
+  },
+  {
+   "id": 23,
+   "genre": "negotiation",
+   "response": "Here is a response you can send:\n\nI really appreciate everything you bring to the team. A 20% bump isn't doable right now within our budget, but I want to make sure your work is recognized. \n\nI can offer a 6% raise starting now. Let's map out clear goals together so we can target another increase at the next review cycle. \n\nLet me know when you'd like to sit down and walk through this.",
+   "rules": {
+    "rule2_economy": 8.5,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 8.64,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 86.4,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 74,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 24.7
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Here is a response you can send:"
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.31,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.2
+   },
+   "cost_usd": 0.0,
+   "seconds": 43.7
+  },
+  {
+   "id": 24,
+   "genre": "long_synthesis",
+   "response": "**Allocation: 60% Infra, 30% Growth, 10% Platform**\n\n* **Infra (60%):** Secures the hard deadline. Allocate enough to guarantee project completion on time.\n* **Growth (30%):** Focuses strictly on top revenue-impact experiments. Avoids stalling growth entirely.\n* **Platform (10%):** Unblocks critical path items only. Postpones non-essential tech debt refactoring to next quarter.",
+   "rules": {
+    "rule2_economy": 4.2,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 8.74,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 87.4,
+   "facts_delivered": "2/4",
+   "detail": {
+    "economy": {
+     "words": 51,
+     "facts": 2,
+     "required": 4,
+     "coverage": 0.5,
+     "words_per_fact": 25.5
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     false,
+     true,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.38,
+    "frag_ratio": 0.17,
+    "bold_per_100w": 7.84,
+    "comma_per_sent": 0.33
+   },
+   "cost_usd": 0.0,
+   "seconds": 41.0
+  }
+ ]
+}

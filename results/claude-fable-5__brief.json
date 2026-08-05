@@ -1,0 +1,791 @@
+{
+ "summary": {
+  "model": "claude-fable-5",
+  "backend": "hermes",
+  "condition": "brief",
+  "n": 12,
+  "errors": 0,
+  "score": 90.1,
+  "clarity_avg": 9.49,
+  "slop_per_1k": 3.4,
+  "avg_words": 48,
+  "per_rule": {
+   "rule2_economy": 8.22,
+   "rule3_jargon": 9.72,
+   "rule5_simple_words": 10.0,
+   "rule6_filler": 10.0,
+   "rule1_understandable": 10.0,
+   "rule4_imagery": 9.0
+  },
+  "cost_usd": 0.0
+ },
+ "runs": [
+  {
+   "id": 1,
+   "genre": "technical_qa",
+   "response": "High pool wait = requests queuing for connections. Likely a new query holding connections longer.\n\n1. Check pg_stat_activity for slow or idle-in-transaction queries.\n2. Diff yesterday's deploy for new queries, transactions, or missing awaits.\n3. Rollback now if users hurt; diagnose after.\n\nWhich repo? I can dig in.",
+   "rules": {
+    "rule2_economy": 1.2,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 8.03,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 80.3,
+   "facts_delivered": "1/4",
+   "detail": {
+    "economy": {
+     "words": 48,
+     "facts": 1,
+     "required": 4,
+     "coverage": 0.25,
+     "words_per_fact": 48.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     false,
+     false,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.71,
+    "frag_ratio": 0.5,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.2
+   },
+   "cost_usd": 0.0,
+   "seconds": 138.8
+  },
+  {
+   "id": 2,
+   "genre": "explain",
+   "response": "A process is a running program with its own private memory. A thread is a smaller unit inside a process; all threads in a process share that memory.\n\n- Process: isolated, heavier to create\n- Thread: shared memory, lightweight, faster to switch\n\nOne process can hold many threads.",
+   "rules": {
+    "rule2_economy": 9.8,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 9.47,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 94.7,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 48,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 16.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.29,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 1.0
+   },
+   "cost_usd": 0.0,
+   "seconds": 130.1
+  },
+  {
+   "id": 3,
+   "genre": "bad_news",
+   "response": "Draft (needs your approval to send):\n\nSubject: Department closure - end of month\n\nTeam,\n\nOur department will be eliminated at month's end. Your roles end then. HR will contact each of you this week about severance, benefits, and internal openings. I'll answer questions in tomorrow's meeting or anytime directly.\n\nThank you for everything.\n\nEric",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 10.0,
+   "slop_per_1k": 18.5,
+   "slop_breakdown": {
+    "rule_of_three": 1
+   },
+   "slop_tax": 0.278,
+   "score": 72.2,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 54,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 13.5
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.87,
+    "frag_ratio": 0.5,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.5
+   },
+   "cost_usd": 0.0,
+   "seconds": 131.4
+  },
+  {
+   "id": 4,
+   "genre": "decision",
+   "response": "SQLite.\n\n- 3 users needs nothing more. One file, zero ops.\n- Handles thousands of users fine on one server.\n- If growth ever forces it, migrating to Postgres later is a solved problem.\n\nPick Postgres now only if you already need multiple app servers writing at once.",
+   "rules": {
+    "rule2_economy": 9.8,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 9.97,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 99.7,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 48,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 16.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.67,
+    "frag_ratio": 0.33,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.33
+   },
+   "cost_usd": 0.0,
+   "seconds": 130.2
+  },
+  {
+   "id": 5,
+   "genre": "marketing",
+   "response": "Headline: Open. Type. Done.\n\nParagraph: Your best ideas last about four seconds. Most notes apps spend three of them loading. This one opens before you finish reaching for the keyboard, so the thought goes straight onto the page instead of dying in a splash screen.",
+   "rules": {
+    "rule2_economy": 5.9,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 9.32,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 93.2,
+   "facts_delivered": "2/3",
+   "detail": {
+    "economy": {
+     "words": 45,
+     "facts": 2,
+     "required": 3,
+     "coverage": 0.67,
+     "words_per_fact": 22.5
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 1.22,
+    "frag_ratio": 0.5,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.17
+   },
+   "cost_usd": 0.0,
+   "seconds": 141.6
+  },
+  {
+   "id": 6,
+   "genre": "instruction",
+   "response": "For iPhone:\n\n1. Settings > your name > iCloud > Photos.\n2. Turn on \"Sync this iPhone.\"\n3. Stay on Wi-Fi and power until upload finishes.\n\nFree tier is 5 GB. Most photo libraries need the 50 GB plan ($0.99/month).\n\nAlso found: Google Photos app works too, 15 GB free.",
+   "rules": {
+    "rule2_economy": 5.6,
+    "rule3_jargon": 6.7,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 8.72,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 87.2,
+   "facts_delivered": "2/3",
+   "detail": {
+    "economy": {
+     "words": 50,
+     "facts": 2,
+     "required": 3,
+     "coverage": 0.67,
+     "words_per_fact": 25.0
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "GB"
+     ],
+     "per_100w": 2.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.5,
+    "frag_ratio": 0.25,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.12
+   },
+   "cost_usd": 0.0,
+   "seconds": 130.2
+  },
+  {
+   "id": 7,
+   "genre": "chat",
+   "response": "It depends on the work, honestly.\n\n- Solo deep work (coding, research memos): remote wins. Fewer interruptions.\n- Early careers, new teams, messy problems: office wins. Faster feedback, trust builds quicker.\n- Hybrid beats both extremes for most teams.\n\nFor you, running six projects solo: remote plus agents is the right setup.",
+   "rules": {
+    "rule2_economy": 9.6,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 9.93,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 99.3,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 52,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 17.3
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.47,
+    "frag_ratio": 0.14,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.86
+   },
+   "cost_usd": 0.0,
+   "seconds": 168.4
+  },
+  {
+   "id": 8,
+   "genre": "postmortem",
+   "response": "Postmortem: Payment webhook outage\n\nImpact: 400 payments dropped over 2 hours.\nCause: Webhook handler dereferenced a null customer object when events arrived before account creation finished.\nDetection: Manual, via support tickets.\nFix: Null check plus retry queue; dropped payments replayed.\nPrevention: Alert on webhook error rate, add race-condition test.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 10.0,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 100.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 49,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 12.2
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.37,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.4
+   },
+   "cost_usd": 0.0,
+   "seconds": 170.2
+  },
+  {
+   "id": 9,
+   "genre": "critique",
+   "response": "Too much friction. 14 fields will kill conversions; ask for 3 to 5, collect the rest later. Silent errors until submit frustrate people; validate each field as they type. Drop the CAPTCHA or use an invisible one. Every extra step loses real users.",
+   "rules": {
+    "rule2_economy": 7.5,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 9.58,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 95.8,
+   "facts_delivered": "3/4",
+   "detail": {
+    "economy": {
+     "words": 43,
+     "facts": 3,
+     "required": 4,
+     "coverage": 0.75,
+     "words_per_fact": 14.3
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     false,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.52,
+    "frag_ratio": 0.2,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.2
+   },
+   "cost_usd": 0.0,
+   "seconds": 170.4
+  },
+  {
+   "id": 10,
+   "genre": "summary",
+   "response": "Q3 missed. Revenue $2.1M, up 8% but $300K under forecast. Churn jumped 3.1% to 4.7%. Two enterprise deals slipped to Q4. Headcount grew 22% while revenue lagged, so costs are outpacing growth.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 9.5,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 95.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 32,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 8.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.53,
+    "frag_ratio": 0.2,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.4
+   },
+   "cost_usd": 0.0,
+   "seconds": 169.5
+  },
+  {
+   "id": 11,
+   "genre": "rejection",
+   "response": "Draft below. Not sending anything without your OK.\n\nSubject: Your interview with [Company]\n\nHi [Name],\n\nThank you for the time you invested with us. You reached our final round, which few do. We chose another candidate whose experience fit this role slightly better. We were impressed and would welcome you for future openings.\n\nBest,\n[Your name]",
+   "rules": {
+    "rule2_economy": 9.4,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 9.4,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 94.0,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 56,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 18.7
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.61,
+    "frag_ratio": 0.29,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.43
+   },
+   "cost_usd": 0.0,
+   "seconds": 165.4
+  },
+  {
+   "id": 12,
+   "genre": "definition",
+   "response": "Idempotent: doing something twice gives the same result as doing it once.\n\nWhy care: retries are safe. If a payment API call is idempotent, a network hiccup and retry won't charge twice. Design your endpoints, scripts, and deploys this way so failures can be retried blindly.",
+   "rules": {
+    "rule2_economy": 9.9,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 9.98,
+   "slop_per_1k": 21.7,
+   "slop_breakdown": {
+    "rule_of_three": 1
+   },
+   "slop_tax": 0.3,
+   "score": 69.9,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 46,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 15.3
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.39,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.75
+   },
+   "cost_usd": 0.0,
+   "seconds": 172.4
+  }
+ ]
+}

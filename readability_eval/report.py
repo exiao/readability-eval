@@ -9,12 +9,14 @@ RULES = [("rule1_understandable", "Understand"), ("rule2_economy", "Economy"),
          ("rule5_simple_words", "Simple"), ("rule6_filler", "Filler")]
 
 
-def load():
+def load(condition="default"):
+    """Only one condition per leaderboard; mixing them compares different tests."""
     out = []
     for f in glob.glob(os.path.join(ROOT, "results", "*.json")):
         d = json.load(open(f))
-        if "summary" in d:
-            out.append(d["summary"])
+        s = d.get("summary")
+        if s and s.get("condition", "default") == condition:
+            out.append(s)
     return sorted(out, key=lambda s: -s["score"])
 
 

@@ -22,10 +22,12 @@ def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;")
 
 
-def load():
+def load(condition="default"):
     out = []
     for f in glob.glob(os.path.join(ROOT, "results", "*.json")):
         s = json.load(open(f))["summary"]
+        if s.get("condition", "default") != condition:
+            continue
         out.append({"model": s["model"], "score": s["score"],
                     "words": s["avg_words"],
                     "economy": s["per_rule"]["rule2_economy"],

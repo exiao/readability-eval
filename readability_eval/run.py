@@ -27,9 +27,20 @@ def slop_tax(hits_per_1k):
     return min(0.30, hits_per_1k / SLOP_CEILING * 0.30)
 
 
-def eval_one(item, model, backend, provider, judge_model, judge_backend, judge_provider):
+# Condition = an instruction appended to every prompt. Lets you separate a
+# model property from a prompting artifact: if "answer in 50 words" closes the
+# economy gap, the benchmark is measuring default verbosity, not capability.
+CONDITIONS = {
+    "default": "",
+    "brief": "\n\nAnswer in 50 words or less.",
+    "short": "\n\nGive a short answer.",
+}
+
+
+def eval_one(item, model, backend, provider, judge_model, judge_backend,
+             judge_provider, condition="default"):
     t0 = time.time()
-    out = call(model, item["prompt"], backend, provider)
+    out = call(model, item["prompt"] + CONDITIONS[condition], backend, provider)
     text = out["text"]
     if not text.strip():
         return {"id": item["id"], "error": "empty response"}
@@ -74,6 +85,8 @@ def main():
     ap.add_argument("--judge-model", default="google/gemini-3.5-flash")
     ap.add_argument("--judge-backend", default=None)
     ap.add_argument("--judge-provider", default=None)
+    ap.add_argument("--condition", default="default", choices=list(CONDITIONS),
+                    help="instruction appended to every prompt")
     ap.add_argument("--label", default=None, help="name for the results file")
     ap.add_argument("--workers", type=int, default=4)
     a = ap.parse_args()
@@ -85,7 +98,7 @@ def main():
     with ThreadPoolExecutor(max_workers=a.workers) as ex:
         rows = list(ex.map(lambda it: eval_one(
             it, a.model, a.backend, a.provider,
-            a.judge_model, jb, a.judge_provider), items))
+            a.judge_model, jb, a.judge_provider, a.condition), items))
 
     ok = [r for r in rows if "error" not in r]
     errs = [r for r in rows if "error" in r]
@@ -99,7 +112,7 @@ def main():
         per_rule[k] = round(statistics.mean(r["rules"][k] for r in ok), 2)
 
     summary = {
-        "model": a.model, "backend": a.backend,
+        "model": a.model, "backend": a.backend, "condition": a.condition,
         "n": len(ok), "errors": len(errs),
         "score": round(statistics.mean(r["score"] for r in ok), 1),
         "clarity_avg": round(statistics.mean(r["clarity_avg"] for r in ok), 2),

@@ -72,6 +72,20 @@ Both fixed. Both would have quietly invalidated the results.
 
 **Curly quotes counted as slop.** They were 9 of GPT-5.6's 12 slop hits, costing it 6 points for correct typography. Removed from the pattern set.
 
+## Conditions
+
+`--condition` appends an instruction to every prompt, so you can separate a model property from a prompting artifact.
+
+| Condition | Appended |
+|---|---|
+| `default` | nothing |
+| `brief` | "Answer in 50 words or less." |
+| `short` | "Give a short answer." |
+
+Results are tagged with their condition and the leaderboard only compares within one, since mixing them compares different tests.
+
+This exists because the default-condition ranking is largely a verbosity ranking. Opus gains 6.1 points under `brief` while Gemini loses 8.0, so "which model writes best" and "which model writes best when you don't ask it to be brief" are different questions with different answers. Report which one you ran.
+
 ## Adding prompts
 
 Each entry in `data/prompts.json` needs:

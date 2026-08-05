@@ -77,6 +77,27 @@ Three layers. A word list alone catches maybe half.
 
 Sources: [Wikipedia's Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), the [humanizer](https://github.com/blader/humanizer) pattern set, a personal kill list.
 
+## Limitations
+
+**Can't you just prompt your way around this?**
+Yes. This is a readability score of the model on its own: no system prompt, no harness, no skills, no style guide. Of course a prompt fixes it. The point is measuring whether you have to.
+
+**Can you just ask for a short answer?**
+Sometimes. Adding *"Answer in 50 words or less"* moved Opus +6.1 and Gemini -8.0 (see above). It helps verbose models and hurts terse ones, because shorter answers drop facts. Word count is not the same as clarity.
+
+**What counts as AI slop?**
+Three things, all measured, none of them "writing I dislike":
+- 173 banned terms (`delve`, `testament to`, `boasts`, `headwinds`)
+- 12 sentence patterns (`It's not X. It's Y.`, `not just X, but Y`)
+- Shape signals: em dashes, bold density, fragment ratio, sentence-length variance
+
+Slop only subtracts, capped at 30%. Clean writing earns nothing by itself. The scorer strips code, fences and quotes first, so a document *about* slop doesn't score as slop.
+
+**Other known limits**
+- One judge model. Judge and subject from the same family inflate scores; use `rejudge.py` to check.
+- 12 prompts per model is a small sample. Treat gaps under ~3 points as noise.
+- English only, and one declared audience per prompt.
+
 ## Run it
 
 ```bash

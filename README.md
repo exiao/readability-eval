@@ -12,35 +12,36 @@ Score = clarity x (1 - slop tax)
 
 | Score | Model | Slop/1k | Words | Economy |
 |:---:|---|---:|---:|---:|
-| 🥇 **95.5** | `gemini-3.5-flash` | 0.0 | 44 | 8.3 |
-| 🥈 **90.0** | `claude-fable-5` | 1.1 | 138 | 6.4 |
-| 🥉 **88.2** | `moonshotai/kimi-k3` | 3.5 | 132 | 6.4 |
-| **87.3** | `grok-4.5` | 1.9 | 156 | 6.1 |
-| **87.2** | `claude-opus-5` | 0.3 | 177 | 5.0 |
-| **87.0** | `gpt-5.6-sol` | 5.6 | 102 | 7.7 |
+| 🥇 **86.8** | `claude-fable-5` | 1.6 | 138 | 6.7 |
+| 🥈 **85.4** | `gemini-3.5-flash` | 1.0 | 43 | 7.2 |
+| 🥉 **84.5** | `gpt-5.6-sol` | 3.6 | 54 | 7.2 |
+| **82.9** | `moonshotai/kimi-k3` | 3.5 | 132 | 6.4 |
+| **82.4** | `claude-opus-5` | 0.4 | 177 | 5.0 |
+| **80.0** | `gemini-3.6-flash` | 2.3 | 122 | 5.8 |
+| **77.0** | `grok-4.5` | 3.7 | 136 | 5.3 |
 
-12 prompts per model, judged by `gemini-3.5-flash`.
+24 prompts per model, judged by `gemini-3.5-flash`. Full table with all seven rules in [`results/LEADERBOARD.md`](results/LEADERBOARD.md).
 
 ![Readability scores, and economy against answer length](results/chart.png)
 
-**Length is the whole story.** Every model scored 10.0 on understandability and near-perfect on filler. Frontier models have largely stopped saying `delve`. What separates them is economy, and it tracks word count almost exactly: 44 words for first place, 177 for fifth. The remaining slop problem is volume, not vocabulary.
+**Length is the whole story.** Every model scored near 10 on understandability and filler. Frontier models have largely stopped saying `delve`. What separates them is economy: the top score has 6.7 there, the bottom 5.3, and nothing else moves as much. The remaining slop problem is volume, not vocabulary.
 
 ### Can you just ask for a short answer?
 
-Mostly yes, and that is the most useful result here. Re-running with `--condition brief`, which appends *"Answer in 50 words or less"* to every prompt:
+Yes, and that is the most useful result here. Re-running with `--condition brief`, which appends *"Answer in 50 words or less"* to every prompt:
 
 | Model | Default | Brief | Change |
 |---|---:|---:|---:|
-| `claude-opus-5` | 87.2 (177w) | **93.3** (53w) | **+6.1** |
-| `grok-4.5` | 87.3 (156w) | 87.8 (34w) | +0.5 |
-| `claude-fable-5` | 90.0 (138w) | 90.1 (48w) | +0.1 |
-| `gemini-3.5-flash` | **95.5** (44w) | 87.5 (43w) | **-8.0** |
+| `grok-4.5` | 77.0 (136w) | **87.0** (32w) | **+10.0** |
+| `claude-opus-5` | 82.4 (177w) | **91.5** (47w) | **+9.1** |
+| `claude-fable-5` | 86.8 (138w) | **93.3** (46w) | +6.5 |
+| `gemini-3.5-flash` | 85.4 (43w) | 87.4 (40w) | +2.0 |
 
-Opus cuts 177 words to 53 and gains 6.1 points. Most of what this benchmark measures in the default condition is **default verbosity, not capability**. If a one-line instruction recovers the gap, the model was never unable to write tightly; it just doesn't by default.
+Every model improves, and the gain tracks how verbose it was by default. Grok and Opus cut roughly three quarters of their words and gain 10 and 9 points. Gemini was already terse at 43 words, so the instruction changed almost nothing and it gained 2.
 
-The flip side is the more interesting half. Gemini was already terse at 44 words, so "be brief" bought it nothing and cost it facts: coverage fell from 85% to 76%, and the score dropped 8 points. Its answers got no shorter, only emptier.
+So most of what the default condition measures is **default verbosity, not capability**. If one line of instruction recovers 10 points, the model was never unable to write tightly. It just doesn't unless asked.
 
-Brevity instructions help verbose models and hurt terse ones. This is exactly what rule 2's coverage gate exists to catch, and it is why raw word count is a bad proxy for good writing.
+Cutting words did not cost facts. Coverage held for the three verbose models (Opus 95% → 91%, Fable 95% → 93%) and rose slightly for Gemini (81% → 85%). Rule 2's coverage gate exists to catch answers that get shorter by getting emptier, and in this run none of them did.
 
 ```bash
 python3 -m readability_eval.run --model X --condition brief
@@ -48,9 +49,9 @@ python3 -m readability_eval.run --model X --condition brief
 
 Full per-prompt scores in [`results/`](results/). Methodology and known limits in [METHODOLOGY.md](METHODOLOGY.md).
 
-## The six rules
+## The seven rules
 
-From Orwell's *Politics and the English Language*. Each scored 0-10.
+Rules 1-6 come from Orwell's *Politics and the English Language*. Rule 7 was added after clean-but-report-shaped answers kept scoring well. Each scored 0-10.
 
 | # | Rule | Scored by |
 |---|------|-----------|
@@ -60,10 +61,13 @@ From Orwell's *Politics and the English Language*. Each scored 0-10.
 | 4 | Would imagery make it clearer? | Judge, must name the image it wanted |
 | 5 | Complex phrases instead of simple words? | `utilize`→`use`, `in order to`→`to` |
 | 6 | Filler, pretentious diction, euphemism? | Three counters, euphemism weighted 3x |
+| 7 | Is it shaped like the answer, or like a report? | Judge, must quote the heading doing no work |
 
-Rules 2, 3, 5, 6 are deterministic counters. Rules 1 and 4 use a judge that must quote its evidence.
+Rules 2, 3, 5, 6 are deterministic counters. Rules 1, 4 and 7 use a judge that must quote its evidence.
 
 **Rule 2 is the one that bites.** Scored as raw brevity it crowns the emptiest answer, so every prompt ships a checklist of facts a complete answer must deliver. You cannot win by saying less.
+
+**Rule 7 catches what the word list can't.** Scaffolding is made of headers, tables and section labels, not tic phrases. A report-shaped answer to a four-fact question scored 88 with zero slop hits: clean sentence by sentence, unreadable as a whole.
 
 ## Slop detection
 
@@ -83,7 +87,7 @@ Sources: [Wikipedia's Signs of AI writing](https://en.wikipedia.org/wiki/Wikiped
 Yes. This is a readability score of the model on its own: no system prompt, no harness, no skills, no style guide. Of course a prompt fixes it. The point is measuring whether you have to.
 
 **Can you just ask for a short answer?**
-Sometimes. Adding *"Answer in 50 words or less"* moved Opus +6.1 and Gemini -8.0 (see above). It helps verbose models and hurts terse ones, because shorter answers drop facts. Word count is not the same as clarity.
+Yes, and it is the single biggest lever. Adding *"Answer in 50 words or less"* gained every model 2 to 10 points (see above), without dropping facts. That is the headline finding, not a caveat: the default condition mostly measures how verbose a model is when nobody asks it to be brief.
 
 **What counts as AI slop?**
 Three things, all measured, none of them "writing I dislike":
@@ -95,7 +99,7 @@ Slop only subtracts, capped at 30%. Clean writing earns nothing by itself. The s
 
 **Other known limits**
 - One judge model. Judge and subject from the same family inflate scores; use `rejudge.py` to check.
-- 12 prompts per model is a small sample. Treat gaps under ~3 points as noise.
+- 24 prompts per model is a small sample. Treat gaps under ~3 points as noise.
 - English only, and one declared audience per prompt.
 
 ## Run it

@@ -1,0 +1,789 @@
+{
+ "summary": {
+  "model": "claude-opus-5",
+  "backend": "hermes",
+  "condition": "brief",
+  "n": 12,
+  "errors": 0,
+  "score": 93.3,
+  "clarity_avg": 9.33,
+  "slop_per_1k": 0.0,
+  "avg_words": 53,
+  "per_rule": {
+   "rule2_economy": 8.29,
+   "rule3_jargon": 10.0,
+   "rule5_simple_words": 9.35,
+   "rule6_filler": 10.0,
+   "rule1_understandable": 9.58,
+   "rule4_imagery": 8.75
+  },
+  "cost_usd": 0.0
+ },
+ "runs": [
+  {
+   "id": 1,
+   "genre": "technical_qa",
+   "response": "Roll back first. Diagnose after.\n\n- Revert yesterday's deploy, confirm p99 recovers. That proves it's the deploy.\n- Then read the diff for new queries, N+1 loops, or a missing await holding connections.\n- Pool wait time is a symptom: something is holding connections longer, not too few connections.\n\nWant me to pull the diff?",
+   "rules": {
+    "rule2_economy": 4.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 8.5,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 85.0,
+   "facts_delivered": "2/4",
+   "detail": {
+    "economy": {
+     "words": 55,
+     "facts": 2,
+     "required": 4,
+     "coverage": 0.5,
+     "words_per_fact": 27.5
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     false,
+     false,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.74,
+    "frag_ratio": 0.29,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.57
+   },
+   "cost_usd": 0.0,
+   "seconds": 127.4
+  },
+  {
+   "id": 2,
+   "genre": "explain",
+   "response": "A process is a running program with its own memory. A thread is a worker inside that process.\n\n- Processes don't share memory. Crashing one leaves others alive.\n- Threads share the process memory. Faster to start and talk to, but one bad thread can take down the whole process.",
+   "rules": {
+    "rule2_economy": 9.7,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 9.45,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 94.5,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 50,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 16.7
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.51,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.17
+   },
+   "cost_usd": 0.0,
+   "seconds": 129.7
+  },
+  {
+   "id": 3,
+   "genre": "bad_news",
+   "response": "Draft (do not send until you approve; tell them in person first, email after):\n\nSubject: Department closing August 31\n\nTeam,\n\nI'm sorry. We're eliminating this department effective August 31. All eight roles end that day.\n\nThis is my decision, not your performance.\n\nSeverance and references: details tomorrow, 10am, then 1:1s.\n\nAsk me anything.\n\nEric",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 10.0,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 100.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 54,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 13.5
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.88,
+    "frag_ratio": 0.29,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.71
+   },
+   "cost_usd": 0.0,
+   "seconds": 131.3
+  },
+  {
+   "id": 4,
+   "genre": "decision",
+   "response": "SQLite.\n\n3 users doesn't need a server. One file, zero ops, no connection pool, backups are a copy.\n\nIf it grows past a few thousand writes/day or you need concurrent writers, migrate then. Use an ORM so the swap is a config change, not a rewrite.",
+   "rules": {
+    "rule2_economy": 9.9,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 9.98,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 99.8,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 46,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 15.3
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.62,
+    "frag_ratio": 0.2,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 1.0
+   },
+   "cost_usd": 0.0,
+   "seconds": 128.6
+  },
+  {
+   "id": 5,
+   "genre": "marketing",
+   "response": "Opens before you finish thinking.\n\nNo splash screen, no sync spinner, no loading bar. Hit the shortcut and the cursor is already blinking. Your thought survives the trip from head to screen because nothing stood in the way. Everything else a notes app does can wait. This part can't.",
+   "rules": {
+    "rule2_economy": 9.8,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 9.97,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 99.7,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 49,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 16.3
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.5,
+    "frag_ratio": 0.17,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.33
+   },
+   "cost_usd": 0.0,
+   "seconds": 129.2
+  },
+  {
+   "id": 6,
+   "genre": "instruction",
+   "response": "iPhone: Settings > tap your name > iCloud > Photos > turn on \"Sync this iPhone.\" Free tier is 5GB, so buy more storage if it fills.\n\nAndroid: open Google Photos > tap your profile picture > \"Turn on backup.\"\n\nBoth: also plug into a computer once and copy the photo folder off. Cloud alone is one copy.",
+   "rules": {
+    "rule2_economy": 5.2,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 7.87,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 78.7,
+   "facts_delivered": "2/3",
+   "detail": {
+    "economy": {
+     "words": 58,
+     "facts": 2,
+     "required": 3,
+     "coverage": 0.67,
+     "words_per_fact": 29.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     false
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Both: also plug into a computer once and copy the photo folder off.",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.64,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.33
+   },
+   "cost_usd": 0.0,
+   "seconds": 129.8
+  },
+  {
+   "id": 7,
+   "genre": "chat",
+   "response": "Depends on the work, not the worker.\n\nRemote wins for deep focus, hiring reach, and no commute. Office wins for onboarding juniors, fast messy debate, and trust-building early.\n\nHonest take: hybrid mostly gets the worst of both unless days are coordinated. Pick one and design around its weakness.",
+   "rules": {
+    "rule2_economy": 5.7,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 9.28,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 92.8,
+   "facts_delivered": "2/3",
+   "detail": {
+    "economy": {
+     "words": 48,
+     "facts": 2,
+     "required": 3,
+     "coverage": 0.67,
+     "words_per_fact": 24.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     false,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.27,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 1.0
+   },
+   "cost_usd": 0.0,
+   "seconds": 153.7
+  },
+  {
+   "id": 8,
+   "genre": "postmortem",
+   "response": "POSTMORTEM: payment webhook NPE\n\nImpact: 400 payments dropped, 2 hours.\nCause: handler assumed a field always present; a nil value threw and the request 500'd, so retries never landed.\nFix: null guard + dead-letter queue for failed webhooks; replay the 400.\nBlameless: the contract allowed nil, tests didn't.\n\nWant me to file this as a kanban card?",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 6.5,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 8.92,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 89.2,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 57,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 14.2
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "request": "ask"
+     },
+     "per_100w": 1.75
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.4,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.6
+   },
+   "cost_usd": 0.0,
+   "seconds": 156.0
+  },
+  {
+   "id": 9,
+   "genre": "critique",
+   "response": "That form will bleed users. Three real problems:\n\n- 14 fields: cut to email + password. Ask the rest later, in-product.\n- Errors only on submit: validate on blur. Otherwise people fix one thing, resubmit, fail again.\n- CAPTCHA: it taxes every honest user. Use invisible bot detection instead.\n\nExpect heavy drop-off at the last field.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 10.0,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 100.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 56,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 14.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.3,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.38
+   },
+   "cost_usd": 0.0,
+   "seconds": 167.2
+  },
+  {
+   "id": 10,
+   "genre": "summary",
+   "response": "Q3 revenue $2.1M, up 8% from last quarter but $300K short of forecast. Two enterprise deals pushed to Q4. Churn nearly doubled, up from 3.1% to 4.7%. Headcount grew 22%.\n\nCosts rose faster than revenue, and customers left faster too. The churn jump is the bigger problem: slipped deals come back, lost customers usually don't.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 10.0,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 100.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 55,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 13.8
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.49,
+    "frag_ratio": 0.17,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.67
+   },
+   "cost_usd": 0.0,
+   "seconds": 161.8
+  },
+  {
+   "id": 11,
+   "genre": "rejection",
+   "response": "Draft below. Say the word and I'll send it.\n\nSubject: Your final interview with us\n\nHi [Name],\n\nWe went with another candidate for this role. It was close, and your systems design work stood out.\n\nI'd like to keep in touch for future senior openings, if you're open to that.\n\nThanks for your time,\n[Your name]",
+   "rules": {
+    "rule2_economy": 5.3,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 8.72,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 87.2,
+   "facts_delivered": "2/3",
+   "detail": {
+    "economy": {
+     "words": 56,
+     "facts": 2,
+     "required": 3,
+     "coverage": 0.67,
+     "words_per_fact": 28.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     false,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.58,
+    "frag_ratio": 0.17,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.67
+   },
+   "cost_usd": 0.0,
+   "seconds": 170.9
+  },
+  {
+   "id": 12,
+   "genre": "definition",
+   "response": "Idempotent means doing it twice changes nothing beyond doing it once.\n\nWhy you care:\n- Retries are safe. A timed-out request can be resent without double-charging or double-creating.\n- Deploy scripts and migrations can rerun after a failure.\n- Fewer duplicate rows, fewer refunds, fewer 3am fixes.",
+   "rules": {
+    "rule2_economy": 9.9,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 5.7,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 9.27,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 92.7,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 47,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 15.7
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "request": "ask"
+     },
+     "per_100w": 2.13
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.16,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.4
+   },
+   "cost_usd": 0.0,
+   "seconds": 169.3
+  }
+ ]
+}

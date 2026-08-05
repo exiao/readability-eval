@@ -1,0 +1,791 @@
+{
+ "summary": {
+  "model": "grok-4.5",
+  "backend": "hermes",
+  "condition": "brief",
+  "n": 12,
+  "errors": 0,
+  "score": 87.8,
+  "clarity_avg": 9.25,
+  "slop_per_1k": 9.3,
+  "avg_words": 34,
+  "per_rule": {
+   "rule2_economy": 8.62,
+   "rule3_jargon": 9.5,
+   "rule5_simple_words": 10.0,
+   "rule6_filler": 10.0,
+   "rule1_understandable": 10.0,
+   "rule4_imagery": 7.42
+  },
+  "cost_usd": 0.0
+ },
+ "runs": [
+  {
+   "id": 1,
+   "genre": "technical_qa",
+   "response": "**Pool exhaustion.** Requests wait for free DB connections.\n\n1. Check active/idle/max pool size vs concurrent load  \n2. Find leaks (unclosed connections) or long transactions  \n3. Raise pool size/timeouts temporarily; fix leaks permanently  \n4. Roll back deploy if it introduced N+1 or missing closes",
+   "rules": {
+    "rule2_economy": 4.5,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 8.58,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 85.8,
+   "facts_delivered": "2/4",
+   "detail": {
+    "economy": {
+     "words": 43,
+     "facts": 2,
+     "required": 4,
+     "coverage": 0.5,
+     "words_per_fact": 21.5
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     false,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.44,
+    "frag_ratio": 0.17,
+    "bold_per_100w": 2.33,
+    "comma_per_sent": 0.0
+   },
+   "cost_usd": 0.0,
+   "seconds": 138.6
+  },
+  {
+   "id": 2,
+   "genre": "explain",
+   "response": "A **process** is an independent program with its own memory. A **thread** is a lighter unit of work inside a process that shares that memory with other threads.",
+   "rules": {
+    "rule2_economy": 6.7,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 3.0
+   },
+   "clarity_avg": 8.28,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 82.8,
+   "facts_delivered": "2/3",
+   "detail": {
+    "economy": {
+     "words": 28,
+     "facts": 2,
+     "required": 3,
+     "coverage": 0.67,
+     "words_per_fact": 14.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "needed_an_image",
+    "imagery_quote": "A thread is a lighter unit of work inside a process that shares that memory with other threads.",
+    "imagery_suggestion": "Think of a process as a house with its own private yard, and threads as roommates sharing the same kitchen."
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.4,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 7.14,
+    "comma_per_sent": 0.0
+   },
+   "cost_usd": 0.0,
+   "seconds": 144.3
+  },
+  {
+   "id": 3,
+   "genre": "bad_news",
+   "response": "Subject: Department closing end of month\n\nTeam,\n\nOur department is being eliminated effective month-end. Your roles end then. HR will share next steps on severance, benefits, and outplacement this week. Thank you for your work.\n\n[Manager]",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 9.5,
+   "slop_per_1k": 27.8,
+   "slop_breakdown": {
+    "rule_of_three": 1
+   },
+   "slop_tax": 0.3,
+   "score": 66.5,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 36,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 9.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.77,
+    "frag_ratio": 0.4,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.6
+   },
+   "cost_usd": 0.0,
+   "seconds": 137.3
+  },
+  {
+   "id": 4,
+   "genre": "decision",
+   "response": "**SQLite.**\n\n- Zero setup, one file, fine for 3 users.\n- Switch to Postgres later if you actually grow (or need concurrency/writes at scale).\n\nYAGNI until it hurts.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 4.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 8.5,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 85.0,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 28,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 9.3
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "YAGNI"
+     ],
+     "per_100w": 3.57
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.54,
+    "frag_ratio": 0.33,
+    "bold_per_100w": 3.57,
+    "comma_per_sent": 0.67
+   },
+   "cost_usd": 0.0,
+   "seconds": 131.3
+  },
+  {
+   "id": 5,
+   "genre": "marketing",
+   "response": "**Open. Write. Done.**\n\nNotes appear the moment you tap. No splash. No spin. Just your thoughts, ready.",
+   "rules": {
+    "rule2_economy": 6.7,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 9.45,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 94.5,
+   "facts_delivered": "2/3",
+   "detail": {
+    "economy": {
+     "words": 17,
+     "facts": 2,
+     "required": 3,
+     "coverage": 0.67,
+     "words_per_fact": 8.5
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.82,
+    "frag_ratio": 0.83,
+    "bold_per_100w": 5.88,
+    "comma_per_sent": 0.17
+   },
+   "cost_usd": 0.0,
+   "seconds": 138.5
+  },
+  {
+   "id": 6,
+   "genre": "instruction",
+   "response": "**iPhone:** Settings \u2192 [Your Name] \u2192 iCloud \u2192 Photos \u2192 turn on iCloud Photos. Or connect to a computer and use Finder/Photos.\n\n**Android:** Settings \u2192 Google \u2192 Backup \u2192 turn on Photos. Or open Google Photos \u2192 Library \u2192 Utilities \u2192 Back up.\n\nUse a cable to a computer as a second copy.",
+   "rules": {
+    "rule2_economy": 5.5,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 8.75,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 87.5,
+   "facts_delivered": "2/3",
+   "detail": {
+    "economy": {
+     "words": 53,
+     "facts": 2,
+     "required": 3,
+     "coverage": 0.67,
+     "words_per_fact": 26.5
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.21,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 3.77,
+    "comma_per_sent": 0.0
+   },
+   "cost_usd": 0.0,
+   "seconds": 134.6
+  },
+  {
+   "id": 7,
+   "genre": "chat",
+   "response": "No. It depends.\n\nRemote often boosts focus, happiness, and productivity for solo work. Office wins for collaboration, mentoring, and culture. Most people prefer hybrid.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 9.5,
+   "slop_per_1k": 83.3,
+   "slop_breakdown": {
+    "rule_of_three": 2
+   },
+   "slop_tax": 0.3,
+   "score": 66.5,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 24,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 8.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.77,
+    "frag_ratio": 0.6,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.8
+   },
+   "cost_usd": 0.0,
+   "seconds": 185.7
+  },
+  {
+   "id": 8,
+   "genre": "postmortem",
+   "response": "**Postmortem:** Null pointer in payment webhook handler dropped 400 payments over 2 hours.\n\n- Root cause: Unchecked null on optional field after API change.\n- Impact: 400 lost payments, 2h window.\n- Fix: Null guard + replay queue.\n- Follow-up: Add contract tests for webhooks.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 10.0,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 100.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 45,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 11.2
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.31,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 2.22,
+    "comma_per_sent": 0.2
+   },
+   "cost_usd": 0.0,
+   "seconds": 174.8
+  },
+  {
+   "id": 9,
+   "genre": "critique",
+   "response": "**Brutal take:** Too long. 14 fields kills conversion. Validate inline, not only on submit. CAPTCHA adds friction\u2014use invisible or skip if possible. Cut fields hard; ask only what you need now.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 9.5,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 95.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 31,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 7.8
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 3.23,
+    "sentence_cv": 0.37,
+    "frag_ratio": 0.4,
+    "bold_per_100w": 3.23,
+    "comma_per_sent": 0.2
+   },
+   "cost_usd": 0.0,
+   "seconds": 178.9
+  },
+  {
+   "id": 10,
+   "genre": "summary",
+   "response": "Q3 revenue hit $2.1M (+8% QoQ), missing $2.4M forecast. Churn jumped 3.1%\u21924.7%. Two enterprise deals slipped to Q4. Headcount +22%.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 9.5,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 95.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 20,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 5.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.63,
+    "frag_ratio": 0.5,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.25
+   },
+   "cost_usd": 0.0,
+   "seconds": 177.7
+  },
+  {
+   "id": 11,
+   "genre": "rejection",
+   "response": "Subject: Update on your application\n\nHi [Name],\n\nThanks for the strong final-round interviews. We chose another candidate whose background fit this role more closely.\n\nI appreciated your time and thinking. Happy to stay in touch.\n\nBest,\n[Your name]\n\n(49 words)",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 9.5,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 95.0,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 40,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 13.3
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.47,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.4
+   },
+   "cost_usd": 0.0,
+   "seconds": 177.0
+  },
+  {
+   "id": 12,
+   "genre": "definition",
+   "response": "**Idempotent** means doing an action once or many times gives the same result.\n\nExample: setting a light to \"on\" twice still leaves it on. Adding +1 twice does not.\n\nYou care because retries, double-clicks, and failed network calls won't corrupt data or charge twice.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 10.0,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 100.0,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 44,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 14.7
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.39,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 2.27,
+    "comma_per_sent": 0.5
+   },
+   "cost_usd": 0.0,
+   "seconds": 171.6
+  }
+ ]
+}

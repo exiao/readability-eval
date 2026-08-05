@@ -5,7 +5,7 @@ Detail that would bloat the README. Read this before trusting a number.
 ## Scoring
 
 ```
-clarity  = mean of the six rule scores (0-10 each)
+clarity  = mean of the seven rule scores (0-10 each)
 slop_tax = min(0.30, slop_hits_per_1k / 20 * 0.30)
 Score    = clarity * 10 * (1 - slop_tax)
 ```
@@ -25,6 +25,12 @@ Slop can only subtract. Clean writing earns nothing on its own; it avoids losing
 **Rule 5, simple words.** Frozen table of ~60 long-form to short-form substitutions. Purely mechanical, zero judgment, cheapest signal in the suite.
 
 **Rule 6, filler.** Three counters: filler phrases, pretentious diction, euphemism. Euphemism is weighted 3x because the defect there is dishonesty rather than style. A layoff email saying "rightsizing" has failed to communicate on purpose.
+
+**Rule 7, form.** Judge emits `fits` / `some_scaffolding` / `report_theater`, and must quote the heading, label or table row that is doing no work. No quote, no penalty.
+
+This axis exists because the lexicon is blind to structure. Scaffolding is made of headers, tables and section labels, not tic phrases, so a report-shaped answer to a four-fact question scored **88/100 with zero slop hits** — clean sentence by sentence, unreadable as a whole. The reader had to disassemble a deliverable to find an answer that fits in a paragraph.
+
+What it catches: section headers over one or two sentences each, confidence tables, restated titles, process narration about how the answer was produced, named frameworks nobody asked for. What it must not catch: numbered steps in instructions, real tabular data, or a structured format the prompt explicitly requested. Terse is not a form defect, and a response with no headings at all cannot be report theater.
 
 ## What is deliberately not scored
 
@@ -72,6 +78,32 @@ Both fixed. Both would have quietly invalidated the results.
 
 **Curly quotes counted as slop.** They were 9 of GPT-5.6's 12 slop hits, costing it 6 points for correct typography. Removed from the pattern set.
 
+## Testing the scorer
+
+A benchmark nobody validates is a benchmark that measures whatever its bugs measure. `data/controls.json` holds 15 hand-written answers with known verdicts, plus 7 pairwise assertions.
+
+```bash
+python3 -m readability_eval.selftest                             # counters only, free
+python3 -m readability_eval.selftest --judge google/gemini-2.5-flash   # full pipeline
+```
+
+The controls are chosen as cases where a naive implementation gets it wrong:
+
+- `terse_and_empty` — three clear sentences saying nothing. Must lose to a complete answer.
+- `jargon_but_defined` vs `correct_but_jargon_dense` — identical precision, one expands terms on first use. Must beat the other.
+- `expert_precise` vs `expert_oversimplified` — dumbing down for a distributed-systems engineer is a failure, not a clarity win.
+- `format_clean` — 52 characters of JSON, exactly what was asked. Must not be punished for being short.
+- `meta_slop_discussion` — quotes banned words while telling you not to use them. Must not be scored as using them.
+- `euphemism_layoff` vs `direct_bad_news` — same news, one hides behind "rightsizing".
+
+**Pairs matter more than bands.** Absolute scores drift with judge choice and prompt wording, but "defining a term must beat not defining it" has to hold under any judge. The pairwise checks are the real contract.
+
+Three scorer bugs were found this way and fixed:
+
+1. **Mention-vs-use, second location.** `clarity.py` counted quoted words that `lexicon.py` already excluded. A text saying *don't write "delve"* was penalized for writing it. The same bug, in a file I had not thought to check.
+2. **A zero could be averaged away.** An answer delivering no facts scored 0 on economy and 10 on everything else, averaging to 71.7 and landing mid. Communication is conjunctive: failing one axis badly is not offset by polish elsewhere. The score now caps at 55 when any rule is under 2.
+3. **No passive-voice detection.** "An incident has been identified" scored clean. Added an agentless-passive pattern that fires on be-verb plus participle with no trailing "by X". The breach-notification control went from 75.8 to 53.1.
+
 ## Conditions
 
 `--condition` appends an instruction to every prompt, so you can separate a model property from a prompting artifact.
@@ -112,4 +144,6 @@ Genres covered: technical Q&A, explanation, bad news, decision, marketing, instr
 - **English only.**
 - **The judge is a single model.** A median-of-three panel would be better; `rejudge` is the workaround.
 - **Rule 4 rarely fires.** The evidence requirement is doing its job, but it means imagery contributes little signal.
+- **Rule 7 is judge-only.** There is no deterministic backstop, so `selftest` without `--judge` cannot see structural theater at all: the no-judge stub grants rule 7 a free 10. Run the selftest with a judge before trusting it.
+- **Bare-payload prompts are the flakiest.** On a response like `{"France": "Paris"}` the judge has almost no text to reason over and its fact count wobbles between runs. Pair checks hold; the absolute band does not.
 - **Scores are not comparable across prompt-set versions.** The set is versioned in `data/prompts.json` for this reason.

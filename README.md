@@ -1,8 +1,8 @@
 # readability-eval
 
-**Does the model write like a person, or like a model?**
+A readability evaluation benchmark.
 
-Six clarity rules, minus a penalty for AI slop. Runs on OpenRouter, so you can score any model in one command.
+Scores model output on six clarity rules, minus a penalty for AI slop. Runs on OpenRouter, so you can score any model in one command.
 
 ```
 Score = clarity x (1 - slop tax)

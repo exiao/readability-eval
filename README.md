@@ -10,16 +10,18 @@ Score = clarity x (1 - slop tax)
 
 ## Results
 
+| Score | Model | Slop/1k | Words | Economy |
+|:---:|---|---:|---:|---:|
+| 🥇 **95.5** | `gemini-3.5-flash` | 0.0 | 44 | 8.3 |
+| 🥈 **90.0** | `claude-fable-5` | 1.1 | 138 | 6.4 |
+| 🥉 **88.2** | `moonshotai/kimi-k3` | 3.5 | 132 | 6.4 |
+| **87.3** | `grok-4.5` | 1.9 | 156 | 6.1 |
+| **87.2** | `claude-opus-5` | 0.3 | 177 | 5.0 |
+| **87.0** | `gpt-5.6-sol` | 5.6 | 102 | 7.7 |
+
 12 prompts per model, judged by `gemini-3.5-flash`.
 
-| # | Model | Score | Slop/1k | Words | Economy |
-|---|---|---:|---:|---:|---:|
-| 1 | `gemini-3.5-flash` | **95.5** | 0.0 | 44 | 8.3 |
-| 2 | `claude-fable-5` | **90.0** | 1.1 | 138 | 6.4 |
-| 3 | `moonshotai/kimi-k3` | **88.2** | 3.5 | 132 | 6.4 |
-| 4 | `grok-4.5` | **87.3** | 1.9 | 156 | 6.1 |
-| 5 | `claude-opus-5` | **87.2** | 0.3 | 177 | 5.0 |
-| 6 | `gpt-5.6-sol` | **87.0** | 5.6 | 102 | 7.7 |
+![Readability scores, and economy against answer length](results/chart.png)
 
 **Length is the whole story.** Every model scored 10.0 on understandability and near-perfect on filler. Frontier models have largely stopped saying `delve`. What separates them is economy, and it tracks word count almost exactly: 44 words for first place, 177 for fifth. The remaining slop problem is volume, not vocabulary.
 

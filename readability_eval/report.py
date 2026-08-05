@@ -18,15 +18,20 @@ def load():
     return sorted(out, key=lambda s: -s["score"])
 
 
+MEDALS = ["\U0001F947", "\U0001F948", "\U0001F949"]
+
+
 def table(rows):
-    head = "| # | Model | Score | Clarity | Slop/1k | Words | " + \
+    """Score first and visually weighted; detail columns trail behind it."""
+    head = "| Score | Model | Clarity | Slop/1k | Words | " + \
            " | ".join(n for _, n in RULES) + " |"
-    sep = "|---|---|---:|---:|---:|---:|" + "---:|" * len(RULES)
+    sep = "|:---:|---|---:|---:|---:|" + "---:|" * len(RULES)
     lines = [head, sep]
-    for i, s in enumerate(rows, 1):
+    for i, s in enumerate(rows):
         pr = s["per_rule"]
         cells = " | ".join(f"{pr.get(k, 0):.1f}" for k, _ in RULES)
-        lines.append(f"| {i} | `{s['model']}` | **{s['score']}** | "
+        medal = MEDALS[i] + " " if i < len(MEDALS) else ""
+        lines.append(f"| {medal}**{s['score']}** | `{s['model']}` | "
                      f"{s['clarity_avg']} | {s['slop_per_1k']} | "
                      f"{s['avg_words']} | {cells} |")
     return "\n".join(lines)
@@ -39,5 +44,5 @@ if __name__ == "__main__":
     with open(md, "w") as f:
         f.write("# Leaderboard\n\nScore = clarity x (1 - slop tax). "
                 "Each rule 0-10, higher is better.\n\n")
-        f.write(table(rows) + "\n")
+        f.write(table(rows) + "\n\n![scores](chart.png)\n")
     print(f"\n-> {md}")

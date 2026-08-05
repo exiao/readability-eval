@@ -1,0 +1,812 @@
+{
+ "summary": {
+  "model": "claude-opus-5",
+  "backend": "hermes",
+  "n": 12,
+  "errors": 0,
+  "score": 87.2,
+  "clarity_avg": 8.75,
+  "slop_per_1k": 0.3,
+  "avg_words": 177,
+  "per_rule": {
+   "rule2_economy": 5.0,
+   "rule3_jargon": 8.96,
+   "rule5_simple_words": 9.79,
+   "rule6_filler": 10.0,
+   "rule1_understandable": 10.0,
+   "rule4_imagery": 8.75
+  },
+  "cost_usd": 0.0
+ },
+ "runs": [
+  {
+   "id": 1,
+   "genre": "technical_qa",
+   "response": "Read yesterday's 24 commits in ~/projects/cpe. Here's the shape.\n\n**Most likely cause: slow queries holding a 10-connection pool.**\n\nThe pool is hard-capped at 10 for the whole warm container:\ncpe/web/app.py:527 `store.create_pool(min_size=1, max_size=10)`\n\nYesterday's deploy added expensive per-request SQL that holds those 10 slots much longer. High wait time is the symptom, not the disease.\n\nTwo new query costs, both shipped 8/3-8/4:\n- `source_coverage_rows` (cpe/web/data.py:1925) now runs a LATERAL subquery over every ticker on each page load. It filters `run` by ticker + status + two JSONB key checks, sorted by completed_at. Only index on `run` is `run_ticker_idx ON run(ticker)` (001_init.sql:22). The JSONB and status parts are unindexed, so it scans.\n- `_ACTIVE_QUESTION_JOB_JOIN` (data.py:2120) runs a LATERAL per question row against `job`. No index on `job(question_id)` anywhere in migrations.\n\n**Do this, in order:**\n\n1. Add the two indexes. This is the actual fix.\n   `job(question_id, phase, status)` and `run(ticker, status, completed_at DESC)`.\n2. Raise `max_size` from 10 to 30 as the stopgap while indexes build. One-line change, ships in minutes.\n3. Confirm before/after with `pg_stat_statements` ordered by total_exec_time. If those two queries top the list, you've got it.\n\n**Also found**\n\n- cpe/store.py:181, commit 9d3fdeb2 \"retry initial database connection timeout\" retries `asyncpg.connect` on TimeoutError with no timeout argument set. A hung connect now takes 2x as long before failing. Under pool pressure this compounds the wait. Worth reverting.\n- The cadence LATERAL is duplicated verbatim in two places (data.py:1929 and data.py:1080). Fix once, patch both.\n\nWant me to open the PR with the indexes and the max_size bump?",
+   "rules": {
+    "rule2_economy": 0.0,
+    "rule3_jargon": 8.7,
+    "rule5_simple_words": 9.2,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 7.48,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 74.8,
+   "facts_delivered": "3/4",
+   "detail": {
+    "economy": {
+     "words": 255,
+     "facts": 3,
+     "required": 4,
+     "coverage": 0.75,
+     "words_per_fact": 85.0
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "JSONB",
+      "ON"
+     ],
+     "per_100w": 0.78
+    },
+    "simple_words": {
+     "swaps": {
+      "request": "ask"
+     },
+     "per_100w": 0.39
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.79,
+    "frag_ratio": 0.22,
+    "bold_per_100w": 1.18,
+    "comma_per_sent": 0.52
+   },
+   "cost_usd": 0.0,
+   "seconds": 419.8
+  },
+  {
+   "id": 2,
+   "genre": "explain",
+   "response": "A process is a running program with its own memory. A thread is a worker inside that process.\n\n- Process: isolated. Crash one, others survive. Talking between them is slow (pipes, sockets).\n- Thread: shares memory with its siblings. Talking is instant, but one bad write corrupts everyone.\n- Cost: starting a process is expensive. Starting a thread is cheap.\n\nRough analogy: a process is a house, threads are the people in it. Separate houses stay safe. Housemates share the fridge and fight over it.",
+   "rules": {
+    "rule2_economy": 7.9,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 9.65,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 96.5,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 85,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 28.3
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.4,
+    "frag_ratio": 0.25,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.33
+   },
+   "cost_usd": 0.0,
+   "seconds": 22.8
+  },
+  {
+   "id": 3,
+   "genre": "bad_news",
+   "response": "Draft below. Don't send this cold \u2014 tell them in a live meeting first, then send this as the written record the same hour.\n\n---\n\nSubject: Our team is closing \u2014 details and what happens next\n\nTeam,\n\nI have hard news, and I want you to hear it straight.\n\nWe are closing [Department] at the end of this month. Your last day is [DATE]. This affects all eight of you. The decision is final and it is not about your work or your performance. [One sentence of the real reason: budget, strategy shift, acquisition.]\n\nI know what this costs you. You did good work here and this is not the ending you earned.\n\nWhat you get:\n- Severance: [X weeks] pay, paid [how and when]\n- Health coverage through [DATE], then COBRA details from HR\n- PTO balance paid out on [DATE]\n- Equipment: keep [X] / return [X] by [DATE]\n- Your final paycheck arrives [DATE]\n\nWhat happens now:\n- I am meeting each of you one-on-one this week. [Calendar invites are out / I'll send times today.]\n- HR ([Name], [email]) can answer benefits and paperwork questions.\n- You are not expected to keep shipping. Focus on wrapping up and on your next thing.\n- I will write references and make introductions for any of you. Ask me. I mean it.\n\nI am available today and every day until your last. Come to me with anything, including anger.\n\nI'm sorry.\n\n[Your name]\n\n---\n\nFill in every bracket before sending. Vague numbers make people panic.",
+   "rules": {
+    "rule2_economy": 2.5,
+    "rule3_jargon": 8.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 7.92,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 79.2,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 256,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 64.0
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "COBRA",
+      "DATE",
+      "PTO"
+     ],
+     "per_100w": 1.17
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.78,
+    "sentence_cv": 1.0,
+    "frag_ratio": 0.19,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.43
+   },
+   "cost_usd": 0.0,
+   "seconds": 39.1
+  },
+  {
+   "id": 4,
+   "genre": "decision",
+   "response": "SQLite.\n\n- 3 users doesn't need a server, a connection pool, or a monthly bill.\n- One file. Backups are `cp`. Local dev matches prod exactly.\n- With WAL mode on, it handles far more concurrent reads than you'll ever hit.\n- If you outgrow it, migrating to Postgres is a day of work, and you'll know your real schema by then.\n\nShip it now, don't pre-pay for scale you don't have.",
+   "rules": {
+    "rule2_economy": 8.6,
+    "rule3_jargon": 7.7,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 9.38,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 93.8,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 72,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 24.0
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "WAL"
+     ],
+     "per_100w": 1.39
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.79,
+    "frag_ratio": 0.38,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.75
+   },
+   "cost_usd": 0.0,
+   "seconds": 20.5
+  },
+  {
+   "id": 5,
+   "genre": "marketing",
+   "response": "Headline options:\n\n1. Open it before the thought is gone\n2. The notes app that's already open\n3. Faster than the thought\n4. From key press to cursor, no wait\n\nParagraph:\n\nYou had the thought in the elevator, and by the time the app finished loading you had lost it. So we built the opposite. Press the shortcut and the cursor is there, blinking, ready. No splash screen, no sync spinner, no \"setting things up.\" Everything else in the app is ordinary on purpose, because the only thing that matters is whether you can catch the thought while you still have it.",
+   "rules": {
+    "rule2_economy": 7.1,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 9.52,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 95.2,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 102,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 34.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.97,
+    "frag_ratio": 0.12,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.88
+   },
+   "cost_usd": 0.0,
+   "seconds": 29.8
+  },
+  {
+   "id": 6,
+   "genre": "instruction",
+   "response": "iPhone, two options.\n\niCloud (automatic)\n1. Settings > tap your name > iCloud > Photos\n2. Turn on \"Sync this iPhone\"\n3. Free tier is 5GB. Upgrade under iCloud > Manage Storage if it fills.\n\nMac (free, full copy)\n1. Plug phone into Mac, unlock, tap Trust\n2. Open Image Capture\n3. Select all, pick a folder, click Import\n\nAlso found\n- Google Photos app is the cross-platform option: install, sign in, turn on Backup. 15GB free.\n- Do both. Cloud sync deletes everywhere if you delete on the phone; the Mac copy does not.",
+   "rules": {
+    "rule2_economy": 3.3,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 8.38,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 83.8,
+   "facts_delivered": "2/3",
+   "detail": {
+    "economy": {
+     "words": 95,
+     "facts": 2,
+     "required": 3,
+     "coverage": 0.67,
+     "words_per_fact": 47.5
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.82,
+    "frag_ratio": 0.46,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.62
+   },
+   "cost_usd": 0.0,
+   "seconds": 27.4
+  },
+  {
+   "id": 7,
+   "genre": "chat",
+   "response": "Honest answer: neither wins outright. It depends on what you're optimizing.\n\nRemote wins on\n- Focused solo work. Fewer interruptions.\n- Hiring. You pick from everywhere.\n- Cost and commute time.\n\nOffice wins on\n- New people learning the ropes. Watching beats reading docs.\n- Fast, messy problems that need five people in a room.\n- Trust building early on. Weak ties form by accident in person.\n\nWhat the evidence actually says: hybrid (2-3 days in) shows the least downside in the better studies. Fully remote productivity findings are mixed and mostly measure short-term output, not the slow stuff like mentoring and culture, which is where remote quietly loses.\n\nThe real trade: remote trades serendipity and speed of coordination for focus and reach. Fully remote works when the work is well defined and written down. It struggles when the work is ambiguous and the team is new.\n\nFor you, solo across six projects: remote is clearly better. The office advantages need a team you don't have.",
+   "rules": {
+    "rule2_economy": 3.8,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 8.97,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 89.7,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 166,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 55.3
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.65,
+    "frag_ratio": 0.21,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.21
+   },
+   "cost_usd": 0.0,
+   "seconds": 35.3
+  },
+  {
+   "id": 8,
+   "genre": "postmortem",
+   "response": "\u250a review diff\na//Users/testuser/postmortems/2026-08-05-payment-webhook-null-pointer.md \u2192 b//Users/testuser/postmortems/2026-08-05-payment-webhook-null-pointer.md\n@@ -0,0 +1,79 @@\n+# Postmortem: Payment webhook handler dropped 400 payments\n+\n+Status: draft (blameless)\n+Date of incident: [YYYY-MM-DD]\n+Duration: 2 hours ([start] - [end] UTC)\n+Impact: ~400 payment webhooks dropped. Customers charged by the provider,\n+not credited in our system.\n+Author: [name]   Reviewers: [names]\n+\n+## Summary\n+\n+A null pointer error in the payment webhook handler caused it to return an\n+error on every event that was missing an optional field. Our provider retried,\n+hit the same error, and gave up. About 400 payments were never recorded.\n+\n+## Impact\n+\n+- ~400 payments taken by the provider but not applied to accounts.\n+- [N] customers with locked or downgraded accounts during the window.\n+- [N] support tickets.\n+- Revenue at risk: [$X] (recoverable by replay).\n+\n+## Timeline (UTC)\n+\n+- [T0] Deploy [sha] ships the handler change.\n+- [T0+Xm] First webhook fails. Error rate climbs.\n+- [T0+Xm] Provider begins retrying, then dead-letters events.\n+- [T1] Alert fires / first customer report.\n+- [T1+Xm] On-call acknowledges, identifies the handler.\n+- [T1+Xm] Rollback to [sha] deployed. Errors stop.\n+- [T2] Dead-lettered events replayed. Backlog cleared.\n+\n+## Root cause\n+\n+The handler read a nested field on the event payload without checking that the\n+parent object existed. The provider omits that object for [event type], which\n+is normal and documented. Any such event threw a null pointer and returned 500.\n+\n+Three conditions had to line up:\n+1. The field was assumed to always be present.\n+2. Tests only used fixtures where it was present.\n+3. The handler returned 500 on any unexpected error, so the provider retried\n+   and then dropped the event instead of parking it for us.\n+\n+No one person caused this. The code passed review, tests, and staging because\n+every fixture we had contained the field.\n+\n+## What went well\n+\n+- Rollback took [N] minutes once the handler was identified.\n+- The provider's dead-letter queue kept the events, so replay was possible.\n+- No data corruption. Every replayed payment applied correctly.\n+\n+## What went wrong\n+\n+- No alert on webhook error rate. We learned from customers.\n+- Fixtures did not cover the optional-field case.\n+- Handler failures were unbounded: an error meant permanent event loss after\n+  the provider's retry budget ran out.\n+\n+## Where we got lucky\n+\n+The provider retained dead-lettered events for [N] days. With a shorter\n+window, the 400 payments would have been unrecoverable.\n+\n+## Action items\n+\n+| # | Action | Type | Owner | Due |\n+|---|--------|------|-------|-----|\n+| 1 | Null-safe parsing of the whole event payload; unknown shape logs and 200s | Fix | [ ] | [ ] |\n+| 2 | Persist every raw webhook before parsing, so replay never depends on the provider | Prevent | [ ] | [ ] |\n+| 3 | Alert on webhook 5xx rate > [X]% for 5 min, paging | Detect | [ ] | [ ] |\n+| 4 | Add fixtures from real provider payloads, including optional-field-absent cases | Prevent | [ ] | [ ] |\n+| 5 | Daily reconciliation: provider charges vs. our recorded payments | Detect | [ ] | [ ] |\n+\n+## Open questions\n+\n+- Should the handler ever return 5xx, or always 200 with internal queueing?\n\u2026 omitted 1 diff line(s) across 1 additional file(s)/section(s)\nWritten: /Users/testuser/postmortems/2026-08-05-payment-webhook-null-pointer.md\n\nStructure: summary, impact, timeline, root cause, what went well/wrong, luck, 5 action items.\n\nRoot cause framed as three conditions lining up, not a person's mistake. Fixtures never contained the optional-field-absent case, so review and staging both passed.\n\nKey action item: persist raw webhooks before parsing. Replay then never depends on the provider's retention window.\n\nBracketed placeholders need your real timestamps, SHAs, and owners.",
+   "rules": {
+    "rule2_economy": 0.0,
+    "rule3_jargon": 9.0,
+    "rule5_simple_words": 9.7,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 8.12,
+   "slop_per_1k": 3.1,
+   "slop_breakdown": {
+    "rule_of_three": 2
+   },
+   "slop_tax": 0.046,
+   "score": 77.4,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 639,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 159.8
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "DD",
+      "MM",
+      "SHAs",
+      "YYYY"
+     ],
+     "per_100w": 0.63
+    },
+    "simple_words": {
+     "swaps": {
+      "additional": "more"
+     },
+     "per_100w": 0.16
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 1.31,
+    "frag_ratio": 0.17,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.56
+   },
+   "cost_usd": 0.0,
+   "seconds": 47.2
+  },
+  {
+   "id": 9,
+   "genre": "critique",
+   "response": "This form is broken in three ways.\n\n- 14 fields: cut to email + password. Ask the rest later, after they care.\n- Errors only on submit: people retype everything. Validate as they type, per field.\n- CAPTCHA: it blocks real people more than bots. Use invisible checks instead.\n\nExpect most signups to quit here.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 10.0,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 100.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 55,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 13.8
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.23,
+    "frag_ratio": 0.12,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.25
+   },
+   "cost_usd": 0.0,
+   "seconds": 33.5
+  },
+  {
+   "id": 10,
+   "genre": "summary",
+   "response": "Q3 missed plan. Revenue $2.1M, up 8% from last quarter but $300K short of the $2.4M forecast.\n\n- Churn jumped 3.1% to 4.7%, the biggest red flag\n- Two enterprise deals pushed to Q4, likely the miss\n- Headcount up 22% while revenue grew 8%, costs outrunning sales",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 9.5,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 95.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 48,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "words_per_fact": 12.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.88,
+    "frag_ratio": 0.33,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 1.33
+   },
+   "cost_usd": 0.0,
+   "seconds": 28.5
+  },
+  {
+   "id": 11,
+   "genre": "rejection",
+   "response": "Draft below. I won't send it \u2014 you approve and send.\n\nSubject: Update on your <Role> application\n\nHi <Name>,\n\nThank you for the time you put into our process. I want to be direct: we've decided to move forward with another candidate for this role.\n\nThis was a close call. You were one of two finalists, and the decision came down to a narrow difference in fit for what this specific role needs right now, not a gap in your ability. Your <specific thing they did well, e.g. system design walkthrough> was one of the strongest we've seen.\n\nIf you're open to it, I'd like to stay in touch. We expect to open <other role / more senior roles> in the next few months, and I'd reach out to you first.\n\nHappy to give you detailed feedback on a call if that's useful. Just reply and I'll set it up.\n\nThanks again,\n<Your name>\n\nNotes\n- Fill the two brackets with one real detail each. Generic praise reads as insincere.\n- Only offer the feedback call and future contact if you mean it.\n- Send it yourself, not from a no-reply address.\n\nWant a shorter version, or one that doesn't offer a feedback call?",
+   "rules": {
+    "rule2_economy": 1.8,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0
+   },
+   "clarity_avg": 8.13,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 81.3,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 204,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 68.0
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.49,
+    "sentence_cv": 0.59,
+    "frag_ratio": 0.06,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.53
+   },
+   "cost_usd": 0.0,
+   "seconds": 34.1
+  },
+  {
+   "id": 12,
+   "genre": "definition",
+   "response": "Idempotent means: doing it twice gives the same result as doing it once.\n\n- Pressing an elevator button 5 times. Still one elevator.\n- `DELETE /user/42` twice. User is gone either way. Safe.\n- `POST /charge $10` twice. Customer charged $20. Not safe.\n\nWhy you care:\n- Retries become free. Network times out, you just run it again, no double charge, no duplicate row.\n- Cron jobs stop corrupting things when they overlap.\n- Deploys and migrations can be re-run after a failure instead of hand-cleaning state.\n\nHow you get it: give each operation a unique key (order ID, request ID), and have the server ignore a key it already processed. In SQL that's `INSERT ... ON CONFLICT DO NOTHING` or an upsert.\n\nRule of thumb: if a bad Wi-Fi connection could cost your user money, that endpoint needs an idempotency key.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 4.1,
+    "rule5_simple_words": 8.6,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0
+   },
+   "clarity_avg": 7.95,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 79.5,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 142,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "words_per_fact": 47.3
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "DELETE",
+      "DO",
+      "INSERT",
+      "ON",
+      "POST"
+     ],
+     "per_100w": 3.52
+    },
+    "simple_words": {
+     "swaps": {
+      "request": "ask"
+     },
+     "per_100w": 0.7
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.77,
+    "frag_ratio": 0.29,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.35
+   },
+   "cost_usd": 0.0,
+   "seconds": 28.3
+  }
+ ]
+}

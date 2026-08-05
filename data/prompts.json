@@ -1,0 +1,103 @@
+{
+  "version": "1.0",
+  "system_prompt": "You are a helpful assistant.",
+  "notes": "Each prompt carries a `facts` checklist: the atomic things a complete answer must deliver. Rule 2 scores words-per-fact-delivered, so a short empty answer cannot win. `assumed` lists acronyms the declared audience already knows, so precise terms are not penalized as jargon.",
+  "prompts": [
+    {
+      "id": 1,
+      "genre": "technical_qa",
+      "audience": "backend engineer",
+      "prompt": "Our p99 API latency jumped from 200ms to 3s after yesterday's deploy. Connection pool metrics show high wait times. What do we do?",
+      "facts": ["names connection pool exhaustion as cause", "gives a specific config change", "mentions verifying with metrics after", "mentions restart or rollout requirement"],
+      "assumed": ["API", "P99", "DB", "TTL"]
+    },
+    {
+      "id": 2,
+      "genre": "explain",
+      "audience": "junior developer",
+      "prompt": "Explain the difference between a process and a thread.",
+      "facts": ["processes have separate memory", "threads share memory within a process", "gives a consequence of sharing (races or cheaper switching)"],
+      "assumed": ["CPU", "OS", "RAM"]
+    },
+    {
+      "id": 3,
+      "genre": "bad_news",
+      "audience": "an employee being laid off",
+      "prompt": "Write an email telling a team of 8 that their department is being eliminated at the end of the month.",
+      "facts": ["states the department is eliminated", "gives the date", "states severance or next steps", "names who to contact"],
+      "assumed": ["HR"]
+    },
+    {
+      "id": 4,
+      "genre": "decision",
+      "audience": "a solo founder",
+      "prompt": "Postgres or SQLite for a side project with 3 users that might grow? Pick one.",
+      "facts": ["makes an explicit recommendation", "gives the deciding reason", "names the condition that would change the answer"],
+      "assumed": ["SQL", "DB", "ORM"]
+    },
+    {
+      "id": 5,
+      "genre": "marketing",
+      "audience": "a busy consumer",
+      "prompt": "Write the homepage headline and one paragraph for a note-taking app whose whole pitch is that it opens instantly.",
+      "facts": ["names the speed benefit concretely", "says what the product is", "gives a reason to believe"],
+      "assumed": []
+    },
+    {
+      "id": 6,
+      "genre": "instruction",
+      "audience": "a non-technical person",
+      "prompt": "How do I back up the photos on my phone? Give me steps.",
+      "facts": ["names a specific method or service", "gives ordered steps", "says how to verify it worked"],
+      "assumed": ["OK", "TV"]
+    },
+    {
+      "id": 7,
+      "genre": "chat",
+      "audience": "a friend",
+      "prompt": "Is remote work better than office work? Be honest.",
+      "facts": ["takes a position", "gives at least one concrete tradeoff", "names what it depends on"],
+      "assumed": []
+    },
+    {
+      "id": 8,
+      "genre": "postmortem",
+      "audience": "an engineering team",
+      "prompt": "Write a blameless postmortem for a null pointer in the payment webhook handler that dropped 400 payments over 2 hours.",
+      "facts": ["states the impact with numbers", "names the technical cause", "gives at least one prevention action", "avoids blaming an individual"],
+      "assumed": ["API", "NPE", "SDK"]
+    },
+    {
+      "id": 9,
+      "genre": "critique",
+      "audience": "a designer who worked hard on it",
+      "prompt": "Give honest feedback on a signup form with 14 fields, no error messages until submit, and a CAPTCHA.",
+      "facts": ["names the field count as a problem", "names the late error validation", "names the CAPTCHA cost", "gives at least one concrete fix"],
+      "assumed": ["UX", "UI", "CAPTCHA"]
+    },
+    {
+      "id": 10,
+      "genre": "summary",
+      "audience": "an investor",
+      "prompt": "Summarize this: Q3 revenue was $2.1M, up 8% QoQ but below the $2.4M forecast. Churn rose from 3.1% to 4.7%. Two enterprise deals slipped to Q4. Headcount grew 22%.",
+      "facts": ["gives the revenue number", "notes the miss vs forecast", "names the churn increase", "notes the slipped deals or headcount"],
+      "assumed": ["QoQ", "ARR", "Q3", "Q4"]
+    },
+    {
+      "id": 11,
+      "genre": "rejection",
+      "audience": "a candidate who interviewed 4 times",
+      "prompt": "Write a rejection email to a senior engineer who made it to the final round but lost to another candidate.",
+      "facts": ["states the decision clearly", "gives a reason", "says what happens next or leaves a door open"],
+      "assumed": []
+    },
+    {
+      "id": 12,
+      "genre": "definition",
+      "audience": "a product manager",
+      "prompt": "What does idempotent mean and why should I care?",
+      "facts": ["defines it as safe to repeat with the same result", "gives a concrete example", "says why it matters practically"],
+      "assumed": ["API", "PM", "HTTP"]
+    }
+  ]
+}

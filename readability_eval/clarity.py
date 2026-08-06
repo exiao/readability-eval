@@ -5,6 +5,8 @@ Each returns 0-10, higher is better.
 """
 import re
 
+from . import lexicon
+
 # Rule 5: long form -> short form. Purely mechanical, cheapest signal here.
 COMPLEX_PHRASES = {
     "utilize": "use", "utilizes": "uses", "utilizing": "using",
@@ -50,12 +52,40 @@ EUPHEMISM = ["rightsizing", "right-sizing", "headwinds", "challenging quarter",
              "streamlining operations", "transition period", "let go"]
 
 ACRONYM = re.compile(r"\b[A-Z]{2,6}s?\b")
+
+# Ordinary English words written in caps for emphasis are not acronyms. Backed by
+# the system word list where available, with a small fallback for portability.
+_WORDS_FILE = "/usr/share/dict/words"
+try:
+    with open(_WORDS_FILE) as _f:
+        _ENGLISH = {w.strip().upper() for w in _f if 2 <= len(w.strip()) <= 6}
+except OSError:  # pragma: no cover - platform dependent
+    _ENGLISH = set()
+_FALLBACK = {
+    "THE", "AND", "NOT", "ALL", "BIG", "FUN", "NEW", "OLD", "YES", "NO", "IS",
+    "IN", "ON", "AT", "TO", "OF", "IT", "BE", "DO", "GO", "SO", "UP", "WE",
+    "YOU", "ONE", "TWO", "SIX", "TEN", "WHAT", "WHY", "HOW", "WHO", "NOW",
+    "STOP", "GOOD", "BEST", "REAL", "SAME", "LIFE", "TIME", "WEEK", "YEAR",
+    "SHAPE", "RULE", "GREAT", "EQUAL", "FLAT", "ROLL", "MEET", "HIDE", "SIDES",
+    "THREE", "CIRCLE", "SQUARE", "OVAL", "SCENE", "SCRIPT", "SECRET", "VIDEO",
+    "LESSON", "NOTE", "TIP", "STEP", "WARM", "COOL", "DOWN", "OVER", "END",
+}
+
+
+def _is_shouted_word(token):
+    """True when an all-caps token is just an English word being emphasised."""
+    base = token.rstrip("s").upper()
+    return base in _ENGLISH or base in _FALLBACK or token.upper() in _FALLBACK
 COMMON_ACRONYMS = {"AI", "API", "URL", "HTTP", "HTTPS", "JSON", "CSV", "PDF",
                    "USA", "UK", "EU", "CEO", "CTO", "FAQ", "OK", "TV", "PC",
                    "ID", "IT", "PR", "QA", "UI", "UX", "SQL", "HTML", "CSS"}
 
 
 def _hits(text, terms):
+    # Strip quoted/code spans first. Same mention-vs-use bug the slop lexicon
+    # had: a text SAYING don't write "delve" was scored as writing it. Fixed in
+    # lexicon.py but missed here, caught by the meta_slop_discussion control.
+    text = lexicon.strip_quoted(text)
     low = text.lower()
     return sum(len(re.findall(r"\b" + re.escape(t) + r"\b", low)) for t in terms)
 
@@ -69,30 +99,39 @@ def _to10(rate, ceiling):
     return round(max(0.0, 10.0 * (1 - min(1.0, rate / ceiling))), 1)
 
 
-def rule2_economy(text, facts, required=None):
-    """Words per fact delivered, gated by coverage. NOT raw brevity.
+def rule2_economy(text, facts, required=None, budget=None):
+    """Length against the budget the QUESTION deserves, gated by coverage.
 
-    Tested: a plain 70-word answer beat a jargon-heavy 95-word answer on all six
-    rules while being useless. Scored on length alone, the emptiest text wins.
+    Not raw brevity: a plain 70-word answer beat a jargon-heavy 95-word answer
+    on all six rules while being useless. Scored on length alone, the emptiest
+    text wins.
 
-    First run of this eval exposed the weaker version of the same bug: a model
-    answered in 44 words, delivered 2 of 4 required facts, and took the top
-    economy score for it. Words-per-fact alone still rewards omission, because
-    dropping a fact removes more words than it removes credit.
+    Not words-per-fact either. That was the previous version and it had no
+    sense of what was asked, so it punished every genre whose deliverable is
+    long. A complete 460-word postmortem hitting 4/4 facts scored 0.0, the same
+    as a rambling non-answer, because the fact list only has 4 entries.
 
-    Fix: multiply by coverage. Answering half the question caps economy at half,
-    no matter how tersely you did it.
+    Each prompt now declares a `budget`: the words a good answer to THAT
+    question needs. "Why is the sky blue?" gets 100. A leaked-key runbook gets
+    250. A bare JSON payload gets 20. Under budget is free — terse is never
+    punished. Over budget decays, and 3x budget scores 0. This is what makes a
+    long answer to a simple question score badly while a long answer to a
+    genuinely long question does not.
+
+    Coverage still multiplies: answering half the question caps economy at
+    half, no matter how tersely you did it.
     """
     words = len(text.split())
     if facts <= 0:
         return 0.0, {"words": words, "facts": 0, "note": "no facts delivered"}
-    wpf = words / facts
-    # 15 w/fact is tight, 80 is padded.
-    base = max(0.0, min(10.0, 10 * (1 - (wpf - 15) / 65)))
+    budget = budget or 150
+    overrun = max(0.0, (words - budget) / (2.0 * budget))  # 0 at budget, 1 at 3x
+    base = max(0.0, 10.0 * (1 - min(1.0, overrun)))
     coverage = 1.0 if not required else facts / required
     s = round(base * coverage, 1)
-    return s, {"words": words, "facts": facts, "required": required,
-               "coverage": round(coverage, 2), "words_per_fact": round(wpf, 1)}
+    return s, {"words": words, "budget": budget, "facts": facts,
+               "required": required, "coverage": round(coverage, 2),
+               "over_budget": round(words / budget, 2)}
 
 
 def rule3_jargon(text, assumed=()):
@@ -100,10 +139,18 @@ def rule3_jargon(text, assumed=()):
 
     Audience-relative: a term the reader is assumed to know costs nothing, and a
     term defined inline costs nothing. Precision is not a defect.
+
+    SHOUTING IS NOT AN ACRONYM. The regex matches any 2-6 letter run of capitals,
+    which also catches emphasis and headings. A grade-2 lesson plan containing
+    "SHAPE HUNT!" and "THE BIG RULE" scored 6.2 with 31 "undefined acronyms",
+    every one of them an ordinary English word in caps. Any all-caps token that
+    is a real lowercase English word is treated as emphasis, not jargon.
     """
     words = len(text.split())
     assumed = {a.upper() for a in assumed} | COMMON_ACRONYMS
-    found = [a for a in ACRONYM.findall(text) if a.rstrip("s") not in assumed]
+    scan = lexicon.strip_quoted(text)
+    found = [a for a in ACRONYM.findall(scan)
+             if a.rstrip("s") not in assumed and not _is_shouted_word(a)]
     undefined = []
     for a in set(found):
         # defined if followed/preceded by an expansion in parens
@@ -118,7 +165,7 @@ def rule3_jargon(text, assumed=()):
 
 def rule5_simple_words(text):
     words = len(text.split())
-    low = text.lower()
+    low = lexicon.strip_quoted(text).lower()
     found = {}
     for long, short in COMPLEX_PHRASES.items():
         n = len(re.findall(r"\b" + re.escape(long) + r"\b", low))
@@ -139,8 +186,8 @@ def rule6_filler(text):
                               "per_100w": round(rate, 2)}
 
 
-def score_all(text, facts, assumed=(), required=None):
-    r2, d2 = rule2_economy(text, facts, required)
+def score_all(text, facts, assumed=(), required=None, budget=None):
+    r2, d2 = rule2_economy(text, facts, required, budget)
     r3, d3 = rule3_jargon(text, assumed)
     r5, d5 = rule5_simple_words(text)
     r6, d6 = rule6_filler(text)

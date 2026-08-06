@@ -10,7 +10,7 @@ import statistics
 from . import lexicon
 from .clarity import score_all
 from .judge import to_scores
-from .run import slop_tax
+from .run import clarity_score, slop_tax
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ITEMS = {p["id"]: p for p in json.load(
@@ -28,10 +28,11 @@ def main():
             item = ITEMS[r["id"]]
             delivered = sum(1 for x in r["judge"].get("facts_delivered", []) if x)
             det, detail = score_all(r["response"], delivered,
-                                    item.get("assumed", ()), required=len(item["facts"]))
+                                    item.get("assumed", ()), required=len(item["asks"]),
+                                    budget=item.get("budget"))
             rules = {**det, **to_scores(r["judge"])}
             hits, breakdown = lexicon.score(r["response"])
-            clarity = statistics.mean(rules.values())
+            clarity = clarity_score(rules)
             tax = slop_tax(hits)
             r.update(rules=rules, clarity_avg=round(clarity, 2),
                      slop_per_1k=hits, slop_breakdown=breakdown,

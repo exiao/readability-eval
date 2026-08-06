@@ -16,7 +16,7 @@ from concurrent.futures import ThreadPoolExecutor
 from . import judge, lexicon
 from .clarity import score_all
 from .providers import call
-from .run import slop_tax
+from .run import clarity_score, slop_tax
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ITEMS = {p["id"]: p for p in json.load(
@@ -40,6 +40,11 @@ def main():
     ap.add_argument("--judge-backend", default="hermes")
     ap.add_argument("--judge-provider", default=None)
     ap.add_argument("--workers", type=int, default=3)
+    ap.add_argument("--write", action="store_true",
+                    help="save the new judge output and scores back to the "
+                         "results file. Required after adding a rule: rescore "
+                         "reuses saved judge dicts, so a new judged axis would "
+                         "silently default for every model.")
     a = ap.parse_args()
 
     src = os.path.join(ROOT, "results", f"{a.label}.json")
@@ -61,19 +66,40 @@ def main():
         if not p:
             continue
         delivered = sum(1 for x in p.get("facts_delivered", []) if x)
-        det, _ = score_all(r["response"], delivered,
-                           ITEMS[r["id"]].get("assumed", ()),
-                           required=len(ITEMS[r["id"]]["facts"]))
+        det, detail = score_all(r["response"], delivered,
+                                ITEMS[r["id"]].get("assumed", ()),
+                                required=len(ITEMS[r["id"]]["asks"]),
+                                budget=ITEMS[r["id"]].get("budget"))
         rules = {**det, **judge.to_scores(p)}
-        clarity = statistics.mean(rules.values())
-        hits, _ = lexicon.score(r["response"])
-        scores.append(clarity * 10 * (1 - slop_tax(hits)))
+        clarity = clarity_score(rules)
+        hits, breakdown = lexicon.score(r["response"])
+        tax = slop_tax(hits)
+        score = clarity * 10 * (1 - tax)
+        scores.append(score)
+        if a.write:
+            r.update(judge=p, rules=rules, clarity_avg=round(clarity, 2),
+                     slop_per_1k=hits, slop_breakdown=breakdown,
+                     slop_tax=round(tax, 3), detail=detail,
+                     facts_delivered=f"{delivered}/{len(ITEMS[r['id']]['asks'])}",
+                     score=round(score, 1))
 
     orig = d["summary"]["score"]
     new = round(statistics.mean(scores), 1)
     print(f"\n{d['summary']['model']}")
     print(f"  original judge : {orig}")
     print(f"  {a.judge_model:15}: {new}   (n={len(scores)}, delta {new - orig:+.1f})")
+
+    if a.write:
+        ok = [r for r in runs if r["id"] in by_id]
+        s = d["summary"]
+        s["score"] = new
+        s["judge_model"] = a.judge_model
+        s["clarity_avg"] = round(statistics.mean(r["clarity_avg"] for r in ok), 2)
+        s["slop_per_1k"] = round(statistics.mean(r["slop_per_1k"] for r in ok), 1)
+        s["per_rule"] = {k: round(statistics.mean(r["rules"][k] for r in ok), 2)
+                         for k in ok[0]["rules"]}
+        json.dump(d, open(src, "w"), indent=1)
+        print(f"  -> wrote {src}")
 
 
 if __name__ == "__main__":

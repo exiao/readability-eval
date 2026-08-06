@@ -3,7 +3,7 @@
 cd ~/projects/readability-eval
 run() {
   python3 -m readability_eval.run --backend hermes \
-    --judge-model gemini-3.5-flash --judge-provider google \
+    --judge-model claude-opus-5 --judge-provider anthropic --judge-reasoning low \
     --workers 6 --condition brief \
     --model "$1" --provider "$2" --label "$1__brief"
 }

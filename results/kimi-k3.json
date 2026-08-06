@@ -1,53 +1,60 @@
 {
  "summary": {
   "model": "moonshotai/kimi-k3",
-  "backend": "hermes",
-  "n": 12,
+  "backend": "openrouter",
+  "condition": "default",
+  "n": 5,
   "errors": 0,
-  "score": 88.2,
-  "clarity_avg": 9.1,
-  "slop_per_1k": 3.5,
-  "avg_words": 132,
+  "score": 83.6,
+  "clarity_avg": 9.59,
+  "slop_per_1k": 11.9,
+  "avg_words": 740,
   "per_rule": {
-   "rule2_economy": 6.37,
-   "rule3_jargon": 9.32,
-   "rule5_simple_words": 9.68,
+   "rule2_economy": 7.54,
+   "rule3_jargon": 9.6,
+   "rule5_simple_words": 10.0,
    "rule6_filler": 10.0,
    "rule1_understandable": 10.0,
-   "rule4_imagery": 9.25
+   "rule4_imagery": 10.0,
+   "rule7_form": 10.0
   },
-  "cost_usd": 0.0
+  "cost_usd": 0.2239
  },
  "runs": [
   {
    "id": 1,
-   "genre": "technical_qa",
-   "response": "Also found: Bloom DB has no app-side pool (`CONN_MAX_AGE: 0`), so \"pool wait\" is upstream (PgBouncer/RDS Proxy) \u2014 meaning some client is holding connections longer.\n\n**Where we are:** yesterday's only backend-affecting deploy was PR #2235 (split ingestion via FMP). Its new code does async FMP calls with `sync_to_async` cache access from a Huey/task context.\n\n**Do now:**\n\n1. Confirm timing: does pool-wait graph inflect at the Aug 4 ~13:20 deploy?\n2. Check prod task queue: is `update_insider_transactions --splits` or a split backfill running? (asks FMP global calendar, loops chunked windows)\n3. Look for lock waits in PG: `select * from pg_stat_activity where wait_event is not null` \u2014 split repair does `bulk_sync` upserts on `InvestmentSplit`.\n\n**Prime suspect (P1):** `fmp.py`'s `sync_to_async(cache.get, thread_sensitive=True)` inside async split fetch. If that async code now runs inside a **sync task thread** (Huey `db_task`), `sync_to_async(thread_sensitive=True)` requires the main thread's event loop. Called from a worker thread it will deadlock or serialize on a single thread, holding the task's DB connection open for the whole FMP calendar fetch \u2014 exactly \"pool wait up, p99 3s.\"\n\n**Mitigation now:** stop the split refresh task / don't run `--splits` until fixed.\n\n**Want me to:** write a failing repro (call `fetch_and_save_splits_data` from a thread, assert it completes), then patch `fmp.py` cache access to `thread_sensitive=False` (cache is thread-safe, no ORM)?",
+   "genre": "practical_guidance",
+   "response": "# \ud83c\udfac Video Script: \"Shape Detectives \u2013 The 2D Shape Adventure!\"\n\n**Grade Level:** 2 | **Topic:** Identification and Properties of 2D Shapes | **Estimated Length:** 8\u201310 minutes\n\n**Characters:**\n- **Teacher T** \u2013 the friendly host\n- **Shapy** \u2013 a silly star-shaped puppet who loves shapes but always mixes them up\n\n---\n\n## \ud83c\udfb5 SEGMENT 1: Fun Introduction (1\u20132 minutes)\n\n*(Upbeat music. Teacher T waves at the camera. Shapy the puppet pops up from below the screen.)*\n\n**Shapy:** Oooh! Oooh! I found a shape! It's a... a... squangle!\n\n**Teacher T:** *(laughing)* A squangle? Shapy, there's no such thing as a squangle!\n\n**Shapy:** There isn't? But it has straight sides and pointy corners... Help me, friends! What shape IS this?\n\n*(On screen: a triangle appears. Pause 3 seconds for learners to shout the answer.)*\n\n**Teacher T:** That's right \u2014 it's a **triangle**! Today, we're all going to become **Shape Detectives**! \ud83d\udd75\ufe0f By the end of this video, you'll be able to name shapes AND describe their special features. Are you ready, detectives?\n\n**Shapy:** Let's go, let's go! Shape Detectives, on the case!\n\n---\n\n## \ud83d\udcda SEGMENT 2: What Is a 2D Shape? (1 minute)\n\n*(On screen: the words \"2D SHAPES = FLAT SHAPES\" appear with animations.)*\n\n**Teacher T:** Detectives, 2D shapes are **flat shapes**. They are the shapes we can draw on paper. If shapes were cookies, 2D shapes would be the flat cookie drawings \u2014 not the real cookie you can hold!\n\n**Shapy:** Mmm... cookies... \ud83c\udf6a\n\n**Teacher T:** Focus, Shapy! 2D shapes have special features we can count:\n- **SIDES** \u2013 the straight or curved lines that make the shape\n- **CORNERS** \u2013 the pointy spots where two sides meet. *(The grown-up word for corners is **vertices**!)*\n\n---\n\n## \ud83d\udd0d SEGMENT 3: Meet the Shapes! (3 minutes)\n\n*(Each shape appears on screen in a bright color while a counting animation highlights its sides and corners.)*\n\n**Teacher T:** Detectives, let's meet our five shape friends!\n\n### \u2b55 Circle\n**Teacher T:** Round and smooth like a coin. A circle has **no straight sides and no corners** \u2014 just one smooth curve all the way around!\n\n**Shapy:** Like my face when I smile! \ud83d\ude04\n\n### \ud83d\udd3a Triangle\n**Teacher T:** A triangle has **3 straight sides** and **3 corners**. Count with me: 1, 2, 3 sides... 1, 2, 3 corners!\n\n**Shapy:** Tri means three \u2014 like a tricycle has three wheels!\n\n### \u2b1b Square\n**Teacher T:** A square has **4 straight sides that are ALL the same length**, and **4 corners**.\n\n**Shapy:** All equal! Nobody is left out. I like that, square!\n\n### \u25ac Rectangle\n**Teacher T:** A rectangle has **4 straight sides** \u2014 but look closely! It has **2 long sides and 2 short sides**, and **4 corners**.\n\n**Shapy:** Square's taller, stretchier cousin!\n\n### \ud83e\udd5a Oval\n**Teacher T:** An oval looks like a squished circle! It has **no straight sides and no corners** \u2014 just a smooth curve, longer than a circle.\n\n*(On screen: a summary table appears)*\n\n| Shape | Straight Sides | Corners |\n|-------|---------------|---------|\n| Circle | 0 | 0 |\n| Triangle | 3 | 3 |\n| Square | 4 (all equal) | 4 |\n| Rectangle | 4 (2 long, 2 short) | 4 |\n| Oval | 0 | 0 |\n\n---\n\n## \ud83c\udfe0 SEGMENT 4: Shapes in Real Life \u2013 Shape Hunt! (2 minutes)\n\n**Teacher T:** Detectives, shapes are hiding EVERYWHERE! Let's go on a shape hunt. I'll show you an object \u2014 you shout out the shape!\n\n*(Each object appears for 3\u20134 seconds before the answer is revealed.)*\n\n1. \ud83d\udd50 **A clock** \u2192 **Circle!**\n2. \ud83c\udf55 **A slice of pizza** \u2192 **Triangle!**\n3. \ud83d\udcd7 **A book** \u2192 **Rectangle!**\n4. \ud83e\ude9f **A square window** \u2192 **Square!**\n5. \ud83e\udd5a **An egg** \u2192 **Oval!**\n\n**Shapy:** Wow! Shapes in my kitchen, shapes in my bedroom, shapes on the street!\n\n**Teacher T:** Exactly! Builders use shapes to make houses, artists use shapes to make pictures, and you use shapes every time you look at a clock or read a book!\n\n---\n\n## \u270f\ufe0f SEGMENT 5: Detective Training \u2013 Exercise Time! (2\u20133 minutes)\n\n**Teacher T:** Time to earn your Shape Detective badge! Grab your thinking caps!\n\n### \ud83e\udde9 Exercise 1: Name That Shape!\n*(Shapes appear one at a time. Pause 5 seconds each.)*\n1. *(3 sides, 3 corners)* \u2192 **Answer: Triangle**\n2. *(4 equal sides)* \u2192 **Answer: Square**\n3. *(round, no corners)* \u2192 **Answer: Circle**\n\n### \ud83e\udde9 Exercise 2: Count With Me!\n*(A rectangle appears.)*\n**Teacher T:** How many sides does a rectangle have? *(pause)* **4!** How many corners? *(pause)* **4!** Are all the sides equal? *(pause)* **No \u2014 2 long and 2 short!**\n\n### \ud83e\udde9 Exercise 3: True or False with Shapy!\n**Shapy:** A square has 5 sides! True or false? *(pause)* \u2192 **FALSE! A square has 4 sides.**\n**Shapy:** A circle has no corners! True or false? *(pause)* \u2192 **TRUE!**\n\n### \ud83e\udde9 Exercise 4: Take-Home Detective Mission \ud83d\udd75\ufe0f\n**Teacher T:** Your final mission: find **one object at home for each shape** \u2014 circle, triangle, square, rectangle, and oval. Draw them or tell your family about them!\n\n---\n\n## \ud83c\udf89 SEGMENT 6: Goodbye Wrap-Up (30 seconds)\n\n**Teacher T:** You did it, detectives! Today you learned to **identify** 2D shapes and describe their **sides and corners**.\n\n**Shapy:** And no more \"squangles\" for me! From now on, I'm counting sides and corners like a pro!\n\n**Teacher T:** Sing our goodbye chant with us!\n\n> \ud83c\udfb5 *\"Circle, triangle, square, rectangle,*\n> *Oval too \u2014 we're shape experts!*\n> *Count the sides, count the corners,*\n> *2D shapes are all around us!\"* \ud83c\udfb5\n\n**Both:** See you next time, Shape Detectives! \ud83d\udc4b\n\n*(End screen: shape table + mission reminder.)*\n\n---\n\n### \u2705 Teaching Notes\n- Pause the video at each question to give learners time to respond aloud.\n- Reinforce the vocabulary: **2D, sides, corners (vertices), flat**.\n- All shape properties in this script align with standard Grade 2 mathematics curricula.\n\nWould you like me to adapt this script into a shorter version, add more shapes (like pentagon and hexagon), or create a printable worksheet to go with it?",
    "rules": {
-    "rule2_economy": 0.0,
-    "rule3_jargon": 9.2,
+    "rule2_economy": 5.8,
+    "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
    },
-   "clarity_avg": 7.7,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 77.0,
-   "facts_delivered": "0/4",
+   "clarity_avg": 9.4,
+   "slop_per_1k": 2.0,
+   "slop_breakdown": {
+    "chatbot": 1,
+    "rule_of_three": 1
+   },
+   "slop_tax": 0.03,
+   "score": 91.2,
+   "facts_delivered": "5/5",
    "detail": {
     "economy": {
-     "words": 216,
-     "facts": 0,
-     "note": "no facts delivered"
+     "words": 1014,
+     "budget": 550,
+     "facts": 5,
+     "required": 5,
+     "coverage": 1.0,
+     "over_budget": 1.84
     },
     "jargon": {
-     "undefined_acronyms": [
-      "PG"
-     ],
-     "per_100w": 0.46
+     "undefined_acronyms": [],
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {},
@@ -62,124 +69,63 @@
    },
    "judge": {
     "facts_delivered": [
-     false,
-     false,
-     false,
-     false
+     true,
+     true,
+     true,
+     true,
+     true
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "abstract_but_fine",
+    "imagery": "concrete",
     "imagery_quote": "",
-    "imagery_suggestion": ""
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
    },
    "shape": {
-    "em_dash_per_100w": 1.39,
-    "sentence_cv": 0.71,
-    "frag_ratio": 0.15,
-    "bold_per_100w": 2.78,
-    "comma_per_sent": 0.69
+    "em_dash_per_100w": 0.99,
+    "sentence_cv": 0.98,
+    "frag_ratio": 0.22,
+    "bold_per_100w": 7.2,
+    "comma_per_sent": 0.51
    },
-   "cost_usd": 0.0,
-   "seconds": 200.8
+   "cost_usd": 0.0448602,
+   "seconds": 77.3
   },
   {
    "id": 2,
-   "genre": "explain",
-   "response": "A process is a running program with its own private memory. A thread is a worker inside a process that shares that memory with other threads.\n\n- Processes are isolated; one crashing doesn't kill others.\n- Threads are lighter and faster to create, but a crash or bug in one can break the whole process.\n- Use processes for safety, threads for shared data.",
+   "genre": "practical_guidance",
+   "response": "# Lesson Plan: The Butterfly Life Cycle Dance\n\n**Grade Level:** Kindergarten\u20132nd Grade\n**Time:** 45\u201360 minutes (can be split into two sessions)\n**Subjects:** Science + Creative Movement/Dance\n\n---\n\n## Objectives\n\nStudents will be able to:\n- Identify and sequence the four stages of the butterfly life cycle (egg \u2192 caterpillar \u2192 chrysalis \u2192 butterfly)\n- Create body movements that represent each stage\n- Perform a short dance sequence individually and as a group\n- Use vocabulary: egg, caterpillar (larva), chrysalis (pupa), butterfly, metamorphosis\n\n## Materials\n\n- Open floor space (gym, cleared classroom, or outdoor area)\n- Music player and 3\u20134 contrasting music clips (see suggestions below)\n- Picture cards or poster of the butterfly life cycle\n- Optional: *The Very Hungry Caterpillar* by Eric Carle\n- Optional: scarves or fabric pieces for \"wings\"\n\n## Music Suggestions by Stage\n\n| Stage | Music Mood |\n|-------|-----------|\n| Egg | Soft, quiet, slow |\n| Caterpillar | Playful, bouncy, steady beat |\n| Chrysalis | Calm, dreamy, suspended |\n| Butterfly | Soaring, joyful, flowing (e.g., Vivaldi's \"Spring\") |\n\n---\n\n## Procedure\n\n### 1. Hook / Introduction (8\u201310 min)\n- Read *The Very Hungry Caterpillar* or show life cycle pictures.\n- Ask: *\"How does a tiny egg become a butterfly?\"*\n- Review the four stages using picture cards. Have students put them in order as a class.\n\n### 2. Movement Warm-Up (5 min)\n- Lead a quick body warm-up: stretching tall, curling small, wiggling, freezing.\n- Practice a **\"freeze\" signal** (raised hand or drum tap) \u2014 essential for management!\n- Establish movement boundaries (\"Stay in our bubble space \u2014 no touching friends\").\n\n### 3. Build the Dance \u2014 Stage by Stage (15\u201320 min)\n\nTeach each movement, then let students add their own ideas:\n\n**\ud83e\udd5a Egg:** Curl into the tiniest ball possible on the floor. Hold very still. Maybe wiggle slightly \u2014 something is growing inside!\n\n**\ud83d\udc1b Caterpillar:** Hatch! Crawl, wiggle, and inch along the floor. Make big munching motions \u2014 caterpillars eat LOTS of leaves. Stretch and grow bigger.\n\n**\ud83e\udd8b Chrysalis:** Stand or kneel very still, arms wrapped tight around your body like a shell. Show the magic happening inside with tiny finger wiggles only.\n\n**\ud83e\udd8b Butterfly:** Slowly unfold and stretch your \"wings\" (arms). Flap gently at first \u2014 wings are wet! Then fly around the space: soaring, dipping, fluttering, landing gently on a \"flower.\"\n\n### 4. Put It All Together (10 min)\n- Perform the full sequence with music, narrating the stages as you go: *\"Egg... caterpillar... chrysalis... butterfly!\"*\n- Repeat 2\u20133 times so students gain confidence.\n- **Extension:** End with the butterfly laying an egg \u2014 curl back into a ball to show the cycle starts again!\n\n### 5. Performance & Sharing (5\u201310 min)\n- Split the class in half: one group performs while the other watches as the audience, then switch.\n- Ask the audience: *\"Which stage did you see? How could you tell?\"*\n\n### 6. Cool Down & Closure (5 min)\n- Slow breathing: flap wings slowly as you breathe in and out, then settle onto the floor like a resting butterfly.\n- Closing questions:\n  - *\"What are the four stages, in order?\"*\n  - *\"Which stage was your favorite to dance? Why?\"*\n  - *\"What was happening inside the chrysalis?\"* (Introduce the word **metamorphosis**!)\n\n---\n\n## Assessment (Observation-Based)\n\nUse a simple checklist during the lesson:\n- \u2610 Correctly sequences the four stages\n- \u2610 Uses movements that clearly match each stage\n- \u2610 Transitions between stages with the music\n- \u2610 Participates and respects movement space\n\n## Differentiation\n\n- **Kindergarten:** Keep it teacher-led; use simpler movements and heavy repetition.\n- **2nd Grade:** Let small groups choreograph their own versions, or add details (caterpillar forming a \"J\" shape, butterfly drying its wings).\n- **Mobility accommodations:** All movements can be adapted for seated participation (curl small in chair, wiggle arms, wrap arms tight, flap and \"fly\" arms).\n\n## Extension Ideas\n\n- Compare the butterfly's life cycle to a frog's or chicken's through dance.\n- Students draw their favorite dance stage and label it.\n- Perform the dance for another class or at a family night.\n- Set up a real caterpillar observation station in the classroom if timing allows!\n\n---\n\n**Teacher Tip:** Practice the \"freeze\" signal before adding music, and keep the first run-through slow. Young dancers get very excited during the butterfly stage \u2014 having a designated \"flower\" spot where butterflies land helps bring the energy back down! \ud83c\udf38",
    "rules": {
-    "rule2_economy": 9.0,
+    "rule2_economy": 7.9,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
    },
-   "clarity_avg": 9.33,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 93.3,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 64,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 21.3
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.37,
-    "frag_ratio": 0.0,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.4
-   },
-   "cost_usd": 0.0,
-   "seconds": 77.4
-  },
-  {
-   "id": 3,
-   "genre": "bad_news",
-   "response": "Draft below. Placeholders in brackets need your real details before it goes out. I did not invent severance terms or reasons, since those have to be true.\n\nSubject: Your department is being eliminated\n\nTeam,\n\nI'm writing to tell you directly: [Company] is eliminating the [Department name] department. Your last day of employment will be [date, e.g. August 31, 2026].\n\nThis affects all 8 of you. It is not a reflection of your work or your performance. [One true sentence about why: e.g. \"The company is ending the [X] business line, and this team's work ends with it.\"]\n\nHere's what happens next:\n\n- Pay and benefits: You will receive your regular pay through [last day]. [Severance details, if any: weeks of pay, benefits continuation, PTO payout.]\n- Timeline: [What they're expected to do between now and the end date, or if they're released immediately with pay through the date.]\n- References: I am happy to serve as a reference for any of you, and [HR contact] can confirm employment dates and titles.\n- Questions: [HR contact name/email] handles severance paperwork, benefits, and COBRA. I'm available one-on-one this week for anything else.\n\nI'd like to meet with each of you individually in the next few days. [Name] will send calendar holds today.\n\nThis is a hard message to send and a harder one to receive. Thank you for what you've built here.\n\n[Your name]\n\nFill in before sending: the real reason (one sentence), exact severance terms, and who signs it. Want me to adjust tone, or draft the one-on-one talking points too?",
-   "rules": {
-    "rule2_economy": 2.3,
-    "rule3_jargon": 8.7,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 8.5,
-   "slop_per_1k": 3.8,
+   "clarity_avg": 9.7,
+   "slop_per_1k": 1.4,
    "slop_breakdown": {
     "rule_of_three": 1
    },
-   "slop_tax": 0.057,
-   "score": 80.2,
+   "slop_tax": 0.021,
+   "score": 95.0,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
-     "words": 260,
+     "words": 738,
+     "budget": 520,
      "facts": 4,
      "required": 4,
      "coverage": 1.0,
-     "words_per_fact": 65.0
+     "over_budget": 1.42
     },
     "jargon": {
-     "undefined_acronyms": [
-      "COBRA",
-      "PTO"
-     ],
-     "per_100w": 0.77
+     "undefined_acronyms": [],
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {},
@@ -203,175 +149,135 @@
     "clarity_quote": "",
     "imagery": "concrete",
     "imagery_quote": "",
-    "imagery_suggestion": ""
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
    },
    "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.92,
-    "frag_ratio": 0.11,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.79
+    "em_dash_per_100w": 1.08,
+    "sentence_cv": 1.61,
+    "frag_ratio": 0.21,
+    "bold_per_100w": 1.9,
+    "comma_per_sent": 0.83
    },
-   "cost_usd": 0.0,
-   "seconds": 129.1
+   "cost_usd": 0.0379692,
+   "seconds": 73.6
+  },
+  {
+   "id": 3,
+   "genre": "practical_guidance",
+   "response": "# The Art of Negotiation \u2014 Complete Self-Study Curriculum\n\n**Duration:** 12\u201316 weeks (3\u20135 hours/week) | **Level:** Beginner to Advanced | **Cost:** Free (audit mode)\n\n> **Note on \"free\" access:** Coursera and edX courses below can be *audited* for free \u2014 full access to videos and readings, but no certificate. Alison, OpenLearn, MIT OCW, YouTube, and Saylor are fully free. Availability changes, so verify before enrolling.\n\n---\n\n## Module 1: Foundations of Negotiation (Week 1\u20132)\nUnderstand what negotiation really is, distributive vs. integrative bargaining, and core concepts like BATNA, ZOPA, reservation price, and value creation vs. value claiming.\n\n**Skills Required:**\n- Analytical & logical thinking\n- Research and information gathering\n- Conceptual understanding of game theory basics\n- Opportunity-cost reasoning\n- Objective self-assessment\n\n**Free Courses:**\n1. **Successful Negotiation: Essential Strategies and Skills** \u2013 University of Michigan (Coursera, audit free) \u2014 the gold-standard starting point\n2. **Negotiation Fundamentals** \u2013 ESSEC Business School (Coursera, audit free)\n3. **Negotiation and Conflict Management (15.667)** \u2013 MIT OpenCourseWare (fully free)\n\n---\n\n## Module 2: Negotiation Preparation & Strategy (Week 3)\nLearn to plan systematically: setting targets, developing your BATNA, analyzing the other party's interests, and building a negotiation checklist.\n\n**Skills Required:**\n- Strategic planning and scenario mapping\n- Data analysis and market research\n- Goal-setting and prioritization\n- Risk assessment\n- Decision-tree thinking\n\n**Free Courses:**\n1. **Introduction to Negotiation: A Strategic Playbook** \u2013 Yale University, Barry Nalebuff (Coursera, audit free)\n2. **Negotiation Planning & Strategy lectures** \u2013 Harvard Program on Negotiation (PON) free video/article library at pon.harvard.edu\n3. **Diploma in Business Management & Negotiation Planning** \u2013 Alison\n\n---\n\n## Module 3: Communication Skills for Negotiators (Week 4\u20135)\nMaster questioning techniques, framing and reframing, non-verbal communication, and the single most underrated skill: active listening.\n\n**Skills Required:**\n- Active and empathetic listening\n- Clear articulation and precise language\n- Reading body language and tone\n- Asking open-ended, calibrated questions\n- Managing silence and pauses\n\n**Free Courses:**\n1. **Improving Communication Skills** \u2013 University of Pennsylvania (Coursera, audit free)\n2. **Effective Communication Skills** \u2013 OpenLearn (Open University, fully free with free certificate)\n3. **Communication Skills: Active Listening & Questioning** \u2013 YouTube: Harvard PON channel + TED talks (e.g., William Ury, Celeste Headlee)\n\n---\n\n## Module 4: Emotional Intelligence & Negotiation Psychology (Week 6)\nManage your own emotions under pressure, read the emotional state of counterparts, and understand cognitive biases (anchoring, loss aversion, reactive devaluation).\n\n**Skills Required:**\n- Self-awareness and self-regulation\n- Empathy and perspective-taking\n- Stress and pressure management\n- Recognizing cognitive biases (yours and theirs)\n- Impulse control\n\n**Free Courses:**\n1. **Inspiring Leadership through Emotional Intelligence** \u2013 Case Western Reserve University (Coursera, audit free)\n2. **Introduction to Psychology** \u2013 Yale, Paul Bloom (Coursera, audit free) \u2014 covers bias and social psychology\n3. **Emotional Intelligence at Work** \u2013 Alison\n\n---\n\n## Module 5: Persuasion & Influence (Week 7)\nApply Cialdini's six principles of influence, build credibility, and use storytelling and rhetoric to move people toward agreement.\n\n**Skills Required:**\n- Persuasive argumentation and rhetoric\n- Storytelling and framing\n- Building trust and credibility\n- Social proof and reciprocity techniques\n- Logical and emotional appeal balancing\n\n**Free Courses:**\n1. **Rhetoric: The Art of Persuasive Writing and Public Speaking** \u2013 Harvard University (edX, audit free)\n2. **The Power of Influence** \u2013 Alison\n3. **Robert Cialdini's \"Science of Persuasion\" lectures** \u2013 YouTube (free)\n\n---\n\n## Module 6: Tactics, Counter-Tactics & Difficult Negotiators (Week 8\u20139)\nAnchoring, making concessions strategically, handling hardball tactics, breaking deadlocks, and dealing with aggressive or manipulative counterparts.\n\n**Skills Required:**\n- Tactical flexibility and adaptability\n- Assertiveness without aggression\n- Concession planning and trading\n- De-escalation under provocation\n- Recognizing manipulation and bluffing\n\n**Free Courses:**\n1. **Never Split the Difference concepts** \u2013 Chris Voss's free content (YouTube: Black Swan Group, MasterClass teasers, FBI negotiation talks)\n2. **Introduction to Negotiation: A Strategic Playbook** \u2013 Yale (Coursera) \u2014 advanced tactical sections\n3. **Dealing with Difficult People & Situations** \u2013 OpenLearn\n\n---\n\n## Module 7: Conflict Resolution & Mediation (Week 10)\nTransform disputes into problem-solving sessions; learn third-party mediation and interest-based conflict resolution.\n\n**Skills Required:**\n- Mediation and facilitation\n- Interest-based problem solving\n- Neutral language and reframing\n- Patience and process management\n- Win\u2013win solution design\n\n**Free Courses:**\n1. **Conflict Management Specialization (course 1: Types of Conflict)** \u2013 UC Irvine (Coursera, audit free)\n2. **Conflict Resolution and Mediation** \u2013 Alison\n3. **Transforming Conflict** \u2013 OpenLearn\n\n---\n\n## Module 8: Cross-Cultural & International Negotiation (Week 11)\nNavigate cultural differences in communication style, time perception, hierarchy, and deal-making etiquette across regions.\n\n**Skills Required:**\n- Cultural intelligence (CQ)\n- Adaptability and humility\n- Awareness of high-context vs. low-context cultures\n- Protocol and etiquette sensitivity\n- Bias suppression toward other norms\n\n**Free Courses:**\n1. **International and Cross-Cultural Negotiation** \u2013 ESSEC Business School (Coursera, audit free)\n2. **Intercultural Communication** \u2013 Saylor Academy (fully free)\n3. **Cultural Intelligence for Leaders** \u2013 Alison\n\n---\n\n## Module 9: Applied Negotiation Contexts (Week 12\u201313)\nApply everything to real scenarios: salary and job offers, sales and procurement, business partnerships, and everyday life negotiations.\n\n**Skills Required:**\n- Salary benchmarking and articulating value\n- Contract and term-sheet literacy\n- Stakeholder management\n- Walking away at the right moment\n- Applying theory to real-time pressure\n\n**Free Courses:**\n1. **AAUW Work Smart Online** \u2013 Free salary negotiation course (aauw.org) \u2014 excellent for pay negotiations\n2. **Negotiation Skills for Buyers & Procurement** \u2013 Alison\n3. **Salary Negotiation playlists** \u2013 YouTube (Harvard PON, \"Ask For It\" / Linda Babcock talks)\n\n---\n\n## Module 10: Ethics, Trust & Long-Term Relationships (Week 14)\nNegotiate with integrity: understand ethical boundaries, when disclosure is required, and how to build reputations that make future deals easier.\n\n**Skills Required:**\n- Ethical reasoning and integrity\n- Trust-building and credibility management\n- Long-term relationship thinking\n- Transparency judgment (what to reveal/withhold)\n- Reputation awareness\n\n**Free Courses:**\n1. **Ethics in Negotiation readings & videos** \u2013 Harvard Program on Negotiation (free resource library)\n2. **Business Ethics** \u2013 OpenLearn\n3. **Ethical Decision-Making** \u2013 Alison\n\n---\n\n## Module 11: Capstone \u2014 Practice, Simulation & Feedback (Week 15\u201316)\nNegotiation is a skill, not knowledge \u2014 you improve only by doing.\n\n**Skills Required:**\n- Role-play and simulation discipline\n- Giving and receiving feedback\n- Self-recording and review\n- Reflection journaling\n- Iterative improvement mindset\n\n**How to Practice for Free:**\n1. **Harvard PON Teaching Negotiation Resource Center** \u2013 free role-play scenarios and case exercises\n2. **Practice with a partner** \u2013 pick any scenario (salary, rent, freelance rate), negotiate live, debrief\n3. **Record yourself** in mock negotiations and review against Modules 3\u20136 checklists\n4. **Real-world micro-negotiations** \u2013 negotiate one small thing weekly (bills, deadlines, prices) and journal outcomes\n\n---\n\n## Supplementary Free Resources\n- **Books (library / free summaries):** *Getting to Yes* (Fisher & Ury), *Never Split the Difference* (Chris Voss), *Influence* (Cialdini)\n- **TED Talks:** William Ury \u2014 \"The Power of Listening\"; Margaret Neale \u2014 \"Getting What You Want\"\n- **Podcasts:** *Negotiate Anything* (Kwame Christian), Harvard PON's *Deal or No Deal*\n\n**Suggested weekly rhythm:** 2 hrs course videos \u2192 1 hr notes/concept review \u2192 1 hr role-play or real-world application \u2192 30 min reflection journal.\n\nWould you like me to turn this into a week-by-week study schedule, or create practice role-play scenarios with scoring rubrics?",
+   "rules": {
+    "rule2_economy": 6.5,
+    "rule3_jargon": 9.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.36,
+   "slop_per_1k": 5.9,
+   "slop_breakdown": {
+    "hyphen_pairs": 4,
+    "chatbot": 1,
+    "rule_of_three": 2
+   },
+   "slop_tax": 0.089,
+   "score": 85.3,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 1190,
+     "budget": 700,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.7
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "AAUW",
+      "BATNA",
+      "ESSEC",
+      "MIT",
+      "OCW",
+      "UC",
+      "ZOPA"
+     ],
+     "per_100w": 0.59
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.84,
+    "sentence_cv": 0.67,
+    "frag_ratio": 0.02,
+    "bold_per_100w": 5.38,
+    "comma_per_sent": 1.26
+   },
+   "cost_usd": 0.0789525,
+   "seconds": 17.3
   },
   {
    "id": 4,
-   "genre": "decision",
-   "response": "Postgres.\n\n\"Might grow\" settles it. SQLite handles 3 users fine, but migrating later means downtime and rewrite pain. Postgres costs almost nothing now: one Docker container or a free managed tier.\n\nSQLite wins only when growth is truly never coming, like a personal tool or embedded app.",
+   "genre": "practical_guidance",
+   "response": "# Robot Voice Effects\n\nHere are some classic and modern approaches:\n\n## The Classics\n\n- **Vocoder** \u2013 The quintessential robot voice. It imposes the spectral shape of your voice onto a synthesizer carrier signal. Think Daft Punk, Kraftwerk, or classic sci-fi robots.\n- **Ring modulation** \u2013 Multiplies the voice with a carrier frequency, creating metallic, inharmonic sidebands. The Daleks from *Doctor Who* used this (with a ~30Hz carrier).\n- **Bitcrushing** \u2013 Reducing bit depth and sample rate gives that crunchy, lo-fi \"old computer\" sound. Great for retro 8-bit aesthetics.\n\n## Pitch & Formant Processing\n\n- **Hard pitch correction (Auto-Tune style)** \u2013 Snapping every note to exact pitches removes natural human drift and vibrato, sounding instantly synthetic.\n- **Formant shifting** \u2013 Alters the vocal tract characteristics without changing pitch, making the voice sound \"wrong\" in an uncanny way.\n- **Frequency shifting** \u2013 Unlike pitch shifting, this moves all frequencies by a fixed amount, destroying harmonic relationships for a very alien result.\n\n## Texture & Character\n\n- **Band-pass EQ / filtering** \u2013 Cutting lows and highs simulates a small speaker or radio transmission.\n- **Distortion/saturation** \u2013 Adds grit and harmonic harshness.\n- **Flanger/chorus/phaser** \u2013 Creates sweeping metallic resonances.\n- **Comb filtering** \u2013 Very short delays produce hollow, metallic tones.\n- **Gating/stutter effects** \u2013 Rhythmic chopping for a glitchy, malfunctioning feel.\n\n## Pro Tips\n\n- **Layer effects**: A typical chain might be EQ \u2192 distortion \u2192 ring mod \u2192 bitcrush \u2192 subtle chorus.\n- **Performance matters**: Speak in monotone with staccato, even pacing.\n- **Remove the human**: Edit out breaths, de-ess, and compress heavily to flatten natural dynamics.\n- **Layer a synth**: Double the voice with a quiet sawtooth or square wave an octave down.\n\nWant me to suggest a specific chain for a particular robot \"character\" (menacing AI, cute helper bot, malfunctioning android, etc.)?",
    "rules": {
-    "rule2_economy": 9.9,
-    "rule3_jargon": 10.0,
+    "rule2_economy": 10.0,
+    "rule3_jargon": 9.4,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
    },
-   "clarity_avg": 9.98,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 99.8,
-   "facts_delivered": "3/3",
+   "clarity_avg": 9.91,
+   "slop_per_1k": 13.2,
+   "slop_breakdown": {
+    "inline_header_list": 4
+   },
+   "slop_tax": 0.198,
+   "score": 79.5,
+   "facts_delivered": "4/4",
    "detail": {
     "economy": {
-     "words": 47,
-     "facts": 3,
-     "required": 3,
+     "words": 302,
+     "budget": 350,
+     "facts": 4,
+     "required": 4,
      "coverage": 1.0,
-     "words_per_fact": 15.7
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.69,
-    "frag_ratio": 0.4,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.4
-   },
-   "cost_usd": 0.0,
-   "seconds": 75.5
-  },
-  {
-   "id": 5,
-   "genre": "marketing",
-   "response": "Headline: Your notes, before the thought leaves.\n\nParagraph: Open the app and you're typing. No splash screen, no sync spinner, no \"loading your workspace.\" Most note apps make you wait while they wake up, and by then the idea you grabbed your phone for is already half gone. This one treats speed as the whole product: launch, write, done. Everything else, search, sync, folders, is built on top of that first instant, not in front of it.",
-   "rules": {
-    "rule2_economy": 8.4,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 9.73,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 97.3,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 77,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 25.7
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.74,
-    "frag_ratio": 0.0,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 2.2
-   },
-   "cost_usd": 0.0,
-   "seconds": 107.4
-  },
-  {
-   "id": 6,
-   "genre": "instruction",
-   "response": "Assuming iPhone (tell me if Android):\n\n1. Open Settings.\n2. Tap your name at the top.\n3. Tap iCloud, then Photos.\n4. Turn on \"Sync this iPhone.\"\n\nPhotos upload on Wi-Fi. Free iCloud is 5 GB; you may need a paid plan.\n\nAndroid instead: open Google Photos, tap your profile picture, then Photos settings, Backup, turn it on.",
-   "rules": {
-    "rule2_economy": 5.2,
-    "rule3_jargon": 7.1,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 8.72,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 87.2,
-   "facts_delivered": "2/3",
-   "detail": {
-    "economy": {
-     "words": 58,
-     "facts": 2,
-     "required": 3,
-     "coverage": 0.67,
-     "words_per_fact": 29.0
+     "over_budget": 0.86
     },
     "jargon": {
      "undefined_acronyms": [
-      "GB"
+      "EQ"
      ],
-     "per_100w": 1.72
+     "per_100w": 0.33
     },
     "simple_words": {
      "swaps": {},
@@ -386,412 +292,102 @@
    },
    "judge": {
     "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.41,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 4.97,
+    "comma_per_sent": 0.85
+   },
+   "cost_usd": 0.0208452,
+   "seconds": 59.2
+  },
+  {
+   "id": 5,
+   "genre": "practical_guidance",
+   "response": "# Evacuating the Internet: A Plan\n\nFirst, a key reframe: the internet isn't a building people are trapped inside\u2014it's the wiring of society's trust. The pipes (cables, routers, servers) work fine. What's burning is the *content layer* and human cognition. So the goal isn't demolition; it's moving critical functions and public trust onto channels where authenticity can be verified.\n\n## Phase 1: Triage \u2014 get the vulnerable out first\n- **Critical infrastructure** (power, water, hospitals): verify these are air-gapped or segmented. They should never have depended on public internet content in the first place.\n- **Financial system**: shift high-value transactions to out-of-band verification with pre-shared keys between institutions; physical/in-person confirmation as fallback.\n- **Government communications**: pre-announce official broadcast channels (radio, TV, SMS) with code words or cryptographic signatures so citizens can distinguish real alerts from fakes.\n\n## Phase 2: Open evacuation routes \u2014 trusted channels\n- **Broadcast layer**: secured radio/TV transmitters, wartime-broadcaster style. Low bandwidth, but physically hard to spoof at scale.\n- **Signed content**: adopt cryptographic provenance standards (like C2PA) so authentic media carries proof of origin. Unsigned content defaults to \"unverified.\"\n- **Verified intranets**: whitelist networks for hospitals, banks, and agencies where every participant and file is authenticated.\n- **Local meshes and sneakernets**: community networks, ham radio, even USB drives for distributing verified knowledge.\n\n## Phase 3: The shelters \u2014 where society relocates\n- **Verified enclaves**: curated networks where identity and provenance are prerequisites, not options.\n- **Return of gatekeepers**: libraries, journals of record, and professional institutions resume their old verification role.\n- **Slow media**: deliberately high-latency formats (daily digests instead of infinite feeds) to blunt the speed of manipulation.\n- **Analog fallbacks**: paper records, in-person assemblies, physical notice boards for civic life.\n\n## Phase 4: The personal go-bag \u2014 what individuals do now\n- Download offline copies of essentials: Wikipedia, maps, medical and repair guides.\n- Establish family contact trees with verification phrases that don't rely on any platform.\n- Default to distrust: treat unsolicited digital content as suspect until confirmed via a second, independent channel.\n- Exit algorithmic feeds entirely; subscribe only to signed or institutionally verified sources.\n\n## Phase 5: Rebuild with fire codes\n- **Provenance by default**: signing at the point of capture (cameras, recording devices), so real media proves itself.\n- **Verification institutions**: an \"information fire department\"\u2014publicly accountable bodies that authenticate and debunk.\n- **Literacy as doctrine**: teach that manipulation's target is emotion; sudden outrage is the tell.\n- **Redundancy forever**: no critical function may ever again depend on a single information channel.\n\nThe end state looks less like a demolished city and more like one rebuilt after a fire code: same buildings, but now with exits, sprinklers, and inspectors. You don't abandon the internet\u2014you stop believing it for free.",
+   "rules": {
+    "rule2_economy": 7.5,
+    "rule3_jargon": 9.6,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.59,
+   "slop_per_1k": 37.2,
+   "slop_breakdown": {
+    "isnt_its": 1,
+    "inline_header_list": 14,
+    "rule_of_three": 2
+   },
+   "slop_tax": 0.3,
+   "score": 67.1,
+   "facts_delivered": "3/4",
+   "detail": {
+    "economy": {
+     "words": 457,
+     "budget": 500,
+     "facts": 3,
+     "required": 4,
+     "coverage": 0.75,
+     "over_budget": 0.91
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "USB"
+     ],
+     "per_100w": 0.22
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
      true,
      true,
      false
     ],
     "clarity": "clear",
-    "clarity_quote": "",
+    "clarity_quote": "You don't abandon the internet\u2014you stop believing it for free.",
     "imagery": "concrete",
     "imagery_quote": "",
-    "imagery_suggestion": ""
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
    },
    "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.87,
-    "frag_ratio": 0.5,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.5
-   },
-   "cost_usd": 0.0,
-   "seconds": 65.9
-  },
-  {
-   "id": 7,
-   "genre": "chat",
-   "response": "Honest answer: neither wins for everyone. It depends on the work.\n\n- Remote wins for deep focus, solo builders, and saving commute time. Your situation.\n- Office wins for training juniors, fast brainstorming, and team trust.\n- Fully distributed teams struggle most with culture and mentoring.\n\nFor you, running six projects alone, remote is better. No contest.",
-   "rules": {
-    "rule2_economy": 9.4,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 9.9,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 99.0,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 57,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 19.0
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.55,
-    "frag_ratio": 0.25,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.75
-   },
-   "cost_usd": 0.0,
-   "seconds": 79.4
-  },
-  {
-   "id": 8,
-   "genre": "postmortem",
-   "response": "No postmortem skill exists, so I'll write it directly. Plain, blameless, short sections.\n\n---\n\nPOSTMORTEM: Payment webhook null pointer dropped 400 payments\n\nStatus: resolved\nImpact: 400 payments dropped over 2 hours. All replayed, no money lost.\nDuration: 14:05 to 16:10 UTC, 2026-08-04\n\nSummary\n\nA null pointer in the payment webhook handler crashed on payment events missing a customer field. The handler returned 500 to the payment provider, which retried twice then stopped. Those payments were never recorded.\n\nTimeline (all UTC)\n\n14:05  Provider deploys new payload format. `customer` field now omitted for guest checkouts.\n14:07  First null pointer crash. Handler returns 500.\n14:10  Error alerts fire. Paged engineer investigates high error rate.\n14:40  Root cause found: `event.customer.id` read without a null check.\n15:00  Fix written and reviewed (null check + default \"guest\" customer).\n15:20  Fix deployed. New events process normally.\n15:30  Dropped events identified from provider logs (400 total).\n16:10  All 400 events replayed from provider's event log. Ledger reconciles.\n\nRoot cause\n\nThe handler assumed `customer` is always present in the payload:\n\n    customer_id = event[\"customer\"][\"id\"]\n\nGuest checkout events have no `customer` key, so this raised. The provider's payload change removed the field for guest checkouts. Our code had no schema validation and no null check, so one missing field killed the whole event.\n\nWhy it went 2 hours\n\n- Detection was fast (5 min) but diagnosis took 30: the crash log pointed at the line, not at the missing-field cause.\n- Fix and deploy took 40: normal review + deploy pipeline.\n- Replay took 40: we had to confirm each dropped event against provider logs before replaying, to avoid double-charging.\n\nWhat went well\n\n- Provider keeps a 72h event log, so nothing was lost.\n- Replay tooling existed and was idempotent (safe to run twice).\n- Alerts fired within minutes of the first failure.\n\nWhat went poorly\n\n- No schema validation on inbound webhooks. One unexpected field shape took down the whole handler.\n- Crash killed the event before any logging of the raw payload, so we couldn't see which events failed from our own logs.\n- No dead-letter queue. Failed events had nowhere to go.\n\nAction items\n\n1. Add payload schema validation at the webhook edge; reject malformed events with 400 and log the raw body. (owner: payments team, due 08-12)\n2. Wrap per-event processing in try/except that sends failures to a dead-letter queue instead of 500ing. (due 08-12)\n3. Log raw payload on any handler exception before re-raising. (due 08-08)\n4. Add a dashboard panel: webhook 5xx rate + dead-letter depth. (due 08-15)\n5. Ask provider for advance notice of payload changes; subscribe to their changelog. (due 08-08)\n\nLessons\n\nNever trust a third-party payload shape. Validate at the edge, isolate failures per event, and always keep the raw body when something breaks.",
-   "rules": {
-    "rule2_economy": 0.0,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 8.33,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 83.3,
-   "facts_delivered": "4/4",
-   "detail": {
-    "economy": {
-     "words": 463,
-     "facts": 4,
-     "required": 4,
-     "coverage": 1.0,
-     "words_per_fact": 115.8
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.64,
-    "frag_ratio": 0.24,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.33
-   },
-   "cost_usd": 0.0,
-   "seconds": 150.3
-  },
-  {
-   "id": 9,
-   "genre": "critique",
-   "response": "Honest take: this form serves the company, not the user.\n\n- **14 fields**: way too many. Each one cuts completion. Start with email + password, ask the rest after signup.\n- **Errors only on submit**: worst combo with 14 fields. Users get a wall of red after all that work. Validate inline, per field, as they type.\n- **CAPTCHA**: punishes real users for your bot problem. Use invisible risk-based checks instead.\n\nFix order: fields, then inline errors, then CAPTCHA.",
-   "rules": {
-    "rule2_economy": 9.3,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 9.88,
-   "slop_per_1k": 38.0,
-   "slop_breakdown": {
-    "inline_header_list": 3
-   },
-   "slop_tax": 0.3,
-   "score": 69.2,
-   "facts_delivered": "4/4",
-   "detail": {
-    "economy": {
-     "words": 79,
-     "facts": 4,
-     "required": 4,
-     "coverage": 1.0,
-     "words_per_fact": 19.8
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.29,
-    "frag_ratio": 0.1,
-    "bold_per_100w": 3.8,
-    "comma_per_sent": 0.6
-   },
-   "cost_usd": 0.0,
-   "seconds": 549.8
-  },
-  {
-   "id": 10,
-   "genre": "summary",
-   "response": "Q3 missed. Revenue $2.1M, up 8% QoQ but under the $2.4M forecast.\n\n- Churn jumped 3.1% to 4.7%\n- Two enterprise deals slipped to Q4\n- Headcount grew 22%\n\nTakeaway: costs rising while revenue falls short and churn worsens.",
-   "rules": {
-    "rule2_economy": 10.0,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 10.0,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 100.0,
-   "facts_delivered": "4/4",
-   "detail": {
-    "economy": {
-     "words": 39,
-     "facts": 4,
-     "required": 4,
-     "coverage": 1.0,
-     "words_per_fact": 9.8
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.98,
-    "frag_ratio": 0.33,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.33
-   },
-   "cost_usd": 0.0,
-   "seconds": 61.4
-  },
-  {
-   "id": 11,
-   "genre": "rejection",
-   "response": "Draft below. Replace [brackets] with real specifics before sending. The honest reason and one true compliment are what make final-round rejections land.\n\nSubject: Senior Engineer role, our decision\n\nHi [Name],\n\nThank you for going through our full process. You reached the final round, and the team genuinely enjoyed every conversation.\n\nWe've decided to move forward with another candidate. It was a close call. The deciding factor was [real reason, e.g. their deeper experience with payments infra at our scale], not a shortcoming on your part. Your [system design session] was one of the strongest we've seen.\n\nTwo offers, both optional. I'm happy to share detailed feedback on a 15-minute call. And if a role opens that fits your background better, I'd like to reach out.\n\nThank you for the time you put into this. It was substantial, and it showed.\n\n[Your name]\n\nNotes:\n- Never invent the reason. If you can't share it, cut that sentence instead.\n- Only offer the feedback call if you'll actually take it.\n- This is a draft. Nothing sent.",
-   "rules": {
-    "rule2_economy": 3.3,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
-   },
-   "clarity_avg": 8.38,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 83.8,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 175,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 58.3
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.47,
-    "frag_ratio": 0.15,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.45
-   },
-   "cost_usd": 0.0,
-   "seconds": 96.8
-  },
-  {
-   "id": 12,
-   "genre": "definition",
-   "response": "Idempotent means: doing it twice has the same effect as doing it once.\n\nWhy you care: retries become safe. If a request times out and you retry, nothing doubles up. No duplicate charges, no duplicate records. It is why DELETE is safe to repeat but a naive \"charge card\" call is not.",
-   "rules": {
-    "rule2_economy": 9.6,
-    "rule3_jargon": 6.8,
-    "rule5_simple_words": 6.2,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 8.77,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 87.7,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 52,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 17.3
-    },
-    "jargon": {
-     "undefined_acronyms": [
-      "DELETE"
-     ],
-     "per_100w": 1.92
-    },
-    "simple_words": {
-     "swaps": {
-      "request": "ask"
-     },
-     "per_100w": 1.92
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.42,
+    "em_dash_per_100w": 1.53,
+    "sentence_cv": 0.32,
     "frag_ratio": 0.0,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.4
+    "bold_per_100w": 3.28,
+    "comma_per_sent": 0.96
    },
-   "cost_usd": 0.0,
-   "seconds": 77.9
+   "cost_usd": 0.041241,
+   "seconds": 58.4
   }
  ]
 }

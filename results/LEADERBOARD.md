@@ -1,15 +1,26 @@
 # Leaderboard
 
-Score = clarity x (1 - slop tax). Each rule 0-10, higher is better.
+Score = clarity x (1 - slop tax). Each rule 0-10, higher is better. Prompts are real ChatGPT conversations sampled from WildChat-1M; see README for the sampling method.
 
-| Score | Model | Clarity | Slop/1k | Words | Understand | Economy | Jargon | Imagery | Simple | Filler | Form |
-|:---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 🥇 **86.8** | `claude-fable-5` | 8.87 | 1.6 | 138 | 10.0 | 6.7 | 9.9 | 8.8 | 9.6 | 9.8 | 8.8 |
-| 🥈 **85.4** | `gemini-3.5-flash` | 8.66 | 1.0 | 43 | 10.0 | 7.2 | 9.6 | 8.5 | 10.0 | 10.0 | 9.2 |
-| 🥉 **84.5** | `gpt-5.6-sol` | 8.86 | 3.6 | 54 | 9.6 | 7.2 | 10.0 | 8.2 | 9.7 | 10.0 | 9.8 |
-| **82.9** | `moonshotai/kimi-k3` | 8.57 | 3.5 | 132 | 10.0 | 6.4 | 9.3 | 8.8 | 9.7 | 10.0 | 8.3 |
-| **82.4** | `claude-opus-5` | 8.27 | 0.4 | 177 | 10.0 | 5.0 | 9.5 | 9.2 | 9.8 | 10.0 | 7.9 |
-| **80.0** | `gemini-3.6-flash` | 8.18 | 2.3 | 122 | 9.6 | 5.8 | 9.9 | 8.1 | 9.6 | 10.0 | 9.2 |
-| **77.0** | `grok-4.5` | 8.13 | 3.7 | 136 | 9.6 | 5.3 | 9.5 | 8.1 | 9.9 | 10.0 | 8.1 |
 
-![scores](chart.png)
+## Full run (30 prompts)
+
+| Score | Model | n | Clarity | Slop/1k | Words | Understand | Economy | Jargon | Imagery | Simple | Filler | Form |
+|:---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 🥇 **84.1** | `claude-opus-5` | 30 | 8.89 | 3.7 | 558 | 9.8 | 5.9 | 9.5 | 9.9 | 9.8 | 10.0 | 8.7 |
+| 🥈 **76.1** | `claude-opus-4-6` | 30 | 8.42 | 10.4 | 571 | 9.5 | 6.3 | 9.8 | 9.7 | 9.8 | 9.8 | 7.2 |
+| 🥉 **75.4** | `claude-sonnet-4-6` | 30 | 8.53 | 13.3 | 531 | 9.8 | 6.8 | 9.7 | 9.4 | 9.6 | 9.8 | 6.8 |
+| **74.7** | `claude-haiku-4-5` | 30 | 8.45 | 9.7 | 329 | 9.5 | 7.3 | 9.8 | 8.2 | 9.4 | 9.9 | 5.3 |
+
+
+## Smoke sample (5 prompts) — NOT comparable to the full run
+
+Too few prompts to rank. Treat gaps under ~5 points as noise.
+
+| Score | Model | n | Clarity | Slop/1k | Words | Understand | Economy | Jargon | Imagery | Simple | Filler | Form |
+|:---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| **85.6** | `google/gemini-3.5-flash` | 5 | 9.25 | 5.0 | 989 | 10.0 | 5.0 | 9.8 | 10.0 | 9.9 | 10.0 | 10.0 |
+| **83.6** | `moonshotai/kimi-k3` | 5 | 9.59 | 11.9 | 740 | 10.0 | 7.5 | 9.6 | 10.0 | 10.0 | 10.0 | 10.0 |
+| **83.4** | `x-ai/grok-4.5` | 5 | 9.48 | 9.2 | 804 | 10.0 | 7.5 | 9.9 | 10.0 | 10.0 | 10.0 | 9.0 |
+| **77.3** | `openai/gpt-5.6-sol` | 5 | 8.59 | 6.9 | 1372 | 10.0 | 4.6 | 9.8 | 10.0 | 9.9 | 10.0 | 10.0 |
+| **50.3** | `qwen/qwen3.8-max` | 5 | 5.5 | 5.8 | 2577 | 10.0 | 0.0 | 9.9 | 10.0 | 9.8 | 10.0 | 9.0 |

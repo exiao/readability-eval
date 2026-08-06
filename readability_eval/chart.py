@@ -35,10 +35,19 @@ def load(condition="default"):
     return sorted(out, key=lambda r: -r["score"])
 
 
+def axis_floor(rows):
+    """Lowest multiple of 5 that clears the worst score, capped at 80."""
+    return min(80, int(min(r["score"] for r in rows) // 5 * 5) - 5)
+
+
 def bars(rows, x0, y0, w, row_h):
-    """Score bars. Zero-baseline would compress 87-95 into nothing, so the
-    axis starts at 80 and the label says so."""
-    lo, hi = 80, 100
+    """Score bars. Zero-baseline would compress the field into nothing, so the
+    axis starts below the lowest score and the label says where.
+
+    The floor was hardcoded to 80, which broke the moment a model scored under
+    it: rule 7 dropped grok to 77.0 and it rendered as a 2px sliver. Derive it.
+    """
+    lo, hi = axis_floor(rows), 100
     out = []
     for i, r in enumerate(rows):
         y = y0 + i * row_h
@@ -102,7 +111,7 @@ def build(rows):
 <rect width="{W}" height="{h}" fill="{BG}"/>
 
 <text x="40" y="48" fill="{FG}" font-size="22" font-weight="700">Readability score</text>
-<text x="40" y="72" fill="{MUTED}" font-size="14">clarity x (1 - slop tax) · axis starts at 80</text>
+<text x="40" y="72" fill="{MUTED}" font-size="14">clarity x (1 - slop tax) · axis starts at {axis_floor(rows)}</text>
 {bars(rows, 210, BAR_TOP_Y, 560, ROW_H)}
 
 <line x1="40" y1="{divider}" x2="{W - 40}" y2="{divider}" stroke="{GRID}"/>

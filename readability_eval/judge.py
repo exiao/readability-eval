@@ -4,9 +4,11 @@ The judge emits ordered LABELS, never numbers, and must quote the offending
 sentence. No quote means no penalty — this stops the judge inventing vague
 complaints, which is the main failure mode of LLM-as-judge setups.
 
-Fact delivery is judged too, because rule 2 needs a denominator. A regex cannot
-tell whether "you should probably restart things" delivers "mentions restart
-requirement"; a judge can.
+Coverage is judged too, because rule 2 needs a denominator: an answer must not
+win on brevity by ignoring half the request. The judge marks which parts of the
+ask were addressed, NOT whether the answer is factually right. This is a
+readability benchmark; correctness is out of scope and would need ground truth
+the real user prompts do not come with.
 """
 import json
 import re
@@ -27,7 +29,7 @@ AUDIENCE: {audience}
 THE PROMPT THEY ANSWERED:
 {prompt}
 
-REQUIRED FACTS (did the response deliver each one?):
+WHAT THE USER WANTED ADDRESSED (did the response address each one?):
 {facts}
 
 THE RESPONSE:
@@ -45,7 +47,7 @@ of prose is what was ordered, not a failure.
 Return ONLY valid JSON, no prose, no code fence:
 
 {{
-  "facts_delivered": [true/false for each required fact, in order],
+  "facts_delivered": [true/false for each item above, in order],
   "clarity": "clear" | "needs_a_reread" | "opaque",
   "clarity_quote": "the exact sentence that is hardest to understand, or empty string if none",
   "imagery": "concrete" | "abstract_but_fine" | "needed_an_image",
@@ -67,8 +69,11 @@ Rules for grading:
 - Only say "needed_an_image" if the text explains a relationship, process, or
   comparison in pure abstraction AND you can name the concrete image that fixes
   it. If you cannot name one, answer "abstract_but_fine".
-- A fact counts as delivered if the meaning is present, even if worded
-  differently. It does not count if only gestured at vaguely.
+- An item counts as addressed if the response engages with it substantively,
+  even if worded differently. It does not count if only gestured at vaguely.
+  Do NOT check whether the answer is factually CORRECT — this benchmark scores
+  readability, not truth. A confidently wrong but clear answer still counts the
+  item as addressed.
 - Judge FORM against what the audience asked for, not against a house style.
   Ask: is every heading, section label, table and bullet list carrying content
   that would be lost as plain sentences?
@@ -92,7 +97,7 @@ Rules for grading:
 
 
 def build_prompt(item, response):
-    facts = "\n".join(f"  {i+1}. {f}" for i, f in enumerate(item["facts"]))
+    facts = "\n".join(f"  {i+1}. {f}" for i, f in enumerate(item["asks"]))
     return TEMPLATE.format(audience=item["audience"], prompt=item["prompt"],
                            facts=facts, response=response)
 

@@ -1,8 +1,8 @@
 # readability-eval
 
-A readability evaluation benchmark.
+A readability benchmark for LLM writing.
 
-Scores model output on six clarity rules, minus a penalty for AI slop. Runs on OpenRouter, so you can score any model in one command.
+Scores model output on seven clarity rules, minus a penalty for AI slop. Prompts are **real ChatGPT conversations**, not authored test cases.
 
 ```
 Score = clarity x (1 - slop tax)
@@ -10,64 +10,91 @@ Score = clarity x (1 - slop tax)
 
 ## Results
 
-| Score | Model | Slop/1k | Words | Economy |
-|:---:|---|---:|---:|---:|
-| 🥇 **86.8** | `claude-fable-5` | 1.6 | 138 | 6.7 |
-| 🥈 **85.4** | `gemini-3.5-flash` | 1.0 | 43 | 7.2 |
-| 🥉 **84.5** | `gpt-5.6-sol` | 3.6 | 54 | 7.2 |
-| **82.9** | `moonshotai/kimi-k3` | 3.5 | 132 | 6.4 |
-| **82.4** | `claude-opus-5` | 0.4 | 177 | 5.0 |
-| **80.0** | `gemini-3.6-flash` | 2.3 | 122 | 5.8 |
-| **77.0** | `grok-4.5` | 3.7 | 136 | 5.3 |
+30 real user prompts per model. Judge: `claude-opus-5`.
 
-24 prompts per model, judged by `gemini-3.5-flash`. Full table with all seven rules in [`results/LEADERBOARD.md`](results/LEADERBOARD.md).
+| Score | Model | Slop/1k | Words | Economy | Form |
+|:---:|---|---:|---:|---:|---:|
+| 🥇 **84.1** | `claude-opus-5` | 3.7 | 558 | 5.9 | 8.7 |
+| 🥈 **76.1** | `claude-opus-4-6` | 10.4 | 571 | 6.3 | 7.2 |
+| 🥉 **75.4** | `claude-sonnet-4-6` | 13.3 | 531 | 6.8 | 6.8 |
+| **74.7** | `claude-haiku-4-5` | 9.7 | 329 | 7.3 | 5.3 |
 
-![Readability scores, and economy against answer length](results/chart.png)
+Full table with all seven rules in [`results/LEADERBOARD.md`](results/LEADERBOARD.md).
 
-**Length is the whole story.** Every model scored near 10 on understandability and filler. Frontier models have largely stopped saying `delve`. What separates them is economy: the top score has 6.7 there, the bottom 5.3, and nothing else moves as much. The remaining slop problem is volume, not vocabulary.
+**Nobody writes to length.** Every prompt carries a word budget for what that question actually deserves, set from the ask alone: a two-line question gets ~60 words, a full lesson plan gets 500. Models run 1.5x to 2.5x over. The failure is not vocabulary, it is volume: understandability, filler and simple-word scores sit near 10 for everyone, while economy ranges 4.6 to 7.5 and does almost all the separating.
+
+### Smoke sample: other families
+
+Five prompts only, judged by `claude-opus-5`. **Not comparable to the table above** and not a ranking. Included because the length finding is so lopsided it survives the small sample.
+
+| Score | Model | Words | Economy |
+|:---:|---|---:|---:|
+| 85.6 | `google/gemini-3.5-flash` | 989 | 5.0 |
+| 83.6 | `moonshotai/kimi-k3` | 740 | 7.5 |
+| 83.4 | `x-ai/grok-4.5` | 804 | 7.5 |
+| 77.3 | `openai/gpt-5.6-sol` | 1372 | 4.6 |
+| 50.3 | `qwen/qwen3.8-max` | 2577 | 0.0 |
+
+Qwen wrote 2577 words on average against budgets of 55-550. That is not a scoring artifact; it is a 2500-word answer to a question that wanted sixty.
 
 ### Can you just ask for a short answer?
 
-Yes, and that is the most useful result here. Re-running with `--condition brief`, which appends *"Answer in 50 words or less"* to every prompt:
+Yes, and it is the biggest single lever. `--condition brief` appends *"Answer in 50 words or less"*:
 
-| Model | Default | Brief | Change |
-|---|---:|---:|---:|
-| `grok-4.5` | 77.0 (136w) | **87.0** (32w) | **+10.0** |
-| `claude-opus-5` | 82.4 (177w) | **91.5** (47w) | **+9.1** |
-| `claude-fable-5` | 86.8 (138w) | **93.3** (46w) | +6.5 |
-| `gemini-3.5-flash` | 85.4 (43w) | 87.4 (40w) | +2.0 |
+| Model | Default | Brief | Change | Coverage |
+|---|---:|---:|---:|---:|
+| `claude-opus-5` | 84.1 (558w) | **86.3** (48w) | +2.2 | 97% → 78% |
+| `claude-opus-4-6` | 76.1 (571w) | **83.6** (47w) | +7.5 | 91% → 66% |
+| `claude-sonnet-4-6` | 75.4 (531w) | **82.1** (49w) | +6.7 | 89% → 60% |
+| `claude-haiku-4-5` | 74.7 (329w) | 74.3 (51w) | -0.4 | 80% → 59% |
 
-Every model improves, and the gain tracks how verbose it was by default. Grok and Opus cut roughly three quarters of their words and gain 10 and 9 points. Gemini was already terse at 43 words, so the instruction changed almost nothing and it gained 2.
+Every model collapses to ~48 words when told to. So **the length is a default, not a limit** — they can all write tightly, they just don't unless asked.
 
-So most of what the default condition measures is **default verbosity, not capability**. If one line of instruction recovers 10 points, the model was never unable to write tightly. It just doesn't unless asked.
+**But brevity is not free.** Look at the coverage column: the share of the request actually addressed falls 19 to 29 points. Opus-5 gains 2.2 points overall while dropping from answering 97% of what was asked to 78%. Haiku, already terse at 329 words, gains nothing and loses coverage anyway.
 
-Cutting words did not cost facts. Coverage held for the three verbose models (Opus 95% → 91%, Fable 95% → 93%) and rose slightly for Gemini (81% → 85%). Rule 2's coverage gate exists to catch answers that get shorter by getting emptier, and in this run none of them did.
+So "just ask for 50 words" trades completeness for concision. The score still rises for verbose models because they were *so* far over budget that the trade is worth it — but that is a real trade, not a free win.
 
 ```bash
 python3 -m readability_eval.run --model X --condition brief
 ```
 
-Full per-prompt scores in [`results/`](results/). Methodology and known limits in [METHODOLOGY.md](METHODOLOGY.md).
+## Prompts
+
+Real first-turn English prompts from [WildChat-1M](https://huggingface.co/datasets/allenai/WildChat-1M), a corpus of 1M real ChatGPT conversations. Verbatim, typos included.
+
+Sampled to the topic distribution OpenAI reported for its own 700M users ([NBER w34255](https://www.nber.org/papers/w34255)):
+
+| Share | Category | n |
+|---:|---|---:|
+| 29% | Practical guidance (how-to, tutoring, ideation) | 9 |
+| 24% | Seeking information | 6 |
+| 24% | Writing — mostly *editing text the user pasted* | 11 |
+| 5% | Technical help | 3 |
+| 2% | Self-expression | 1 |
+
+Two filter passes before selection: classify into the taxonomy, then vet each prompt for scorability. Rejected: prompts that prescribe their own output format (which confounds form scoring), depend on private context, are image-generation tag dumps, or are NSFW/incoherent. 881 candidates → 30.
+
+**This benchmark does not score factual correctness.** Real prompts do not come with ground truth. Each prompt carries an `asks` list — the parts of the request a response should engage with — and the judge is explicitly told a confidently wrong but clear answer still counts as addressing the item. Coverage exists to stop a model winning on brevity by ignoring half the question, nothing more.
 
 ## The seven rules
 
-Rules 1-6 come from Orwell's *Politics and the English Language*. Rule 7 was added after clean-but-report-shaped answers kept scoring well. Each scored 0-10.
+Rules 1-6 come from Orwell's *Politics and the English Language*. Rule 7 was added after clean-but-report-shaped answers kept scoring well.
 
 | # | Rule | Scored by |
 |---|------|-----------|
-| 1 | Easy to understand? | Judge, relative to a declared audience |
-| 2 | Fewer words rather than more? | Words per fact delivered |
+| 1 | Easy to understand? | Judge, relative to the inferred audience |
+| 2 | Is it as long as the question deserves? | Words against a per-prompt budget, gated by coverage |
 | 3 | Avoids jargon and acronyms? | Undefined acronyms per 100 words |
 | 4 | Would imagery make it clearer? | Judge, must name the image it wanted |
 | 5 | Complex phrases instead of simple words? | `utilize`→`use`, `in order to`→`to` |
 | 6 | Filler, pretentious diction, euphemism? | Three counters, euphemism weighted 3x |
-| 7 | Is it shaped like the answer, or like a report? | Judge, must quote the heading doing no work |
+| 7 | Shaped like the answer, or like a report? | Judge, must quote the heading doing no work |
 
-Rules 2, 3, 5, 6 are deterministic counters. Rules 1, 4 and 7 use a judge that must quote its evidence.
+Rules 2, 3, 5, 6 are deterministic counters. Rules 1, 4 and 7 use a judge that must quote its evidence — no quote, no penalty.
 
-**Rule 2 is the one that bites.** Scored as raw brevity it crowns the emptiest answer, so every prompt ships a checklist of facts a complete answer must deliver. You cannot win by saying less.
+**Rule 2 is the one that bites.** Scored as raw brevity it crowns the emptiest answer, so coverage multiplies in: answering half the question caps economy at half however tersely you did it. Under budget is free — terse is never punished. Over budget decays to zero at 3x.
 
-**Rule 7 catches what the word list can't.** Scaffolding is made of headers, tables and section labels, not tic phrases. A report-shaped answer to a four-fact question scored 88 with zero slop hits: clean sentence by sentence, unreadable as a whole.
+**Rule 7 catches what the word list can't.** Scaffolding is headers, tables and section labels, not tic phrases, so a report-shaped answer to a simple question can score clean sentence-by-sentence and still be unreadable as a whole.
 
 ## Slop detection
 
@@ -81,26 +108,24 @@ Three layers. A word list alone catches maybe half.
 
 Sources: [Wikipedia's Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), the [humanizer](https://github.com/blader/humanizer) pattern set, a personal kill list.
 
+Slop only subtracts, capped at 30%. Clean writing earns nothing by itself. The scorer strips code, fences and quotes first, so a document *about* slop doesn't score as slop.
+
 ## Limitations
 
 **Can't you just prompt your way around this?**
-Yes. This is a readability score of the model on its own: no system prompt, no harness, no skills, no style guide. Of course a prompt fixes it. The point is measuring whether you have to.
+Yes. This scores the model on its own: no system prompt beyond "You are a helpful assistant", no harness, no skills, no style guide. Of course a prompt fixes it. The point is measuring whether you have to.
 
-**Can you just ask for a short answer?**
-Yes, and it is the single biggest lever. Adding *"Answer in 50 words or less"* gained every model 2 to 10 points (see above), without dropping facts. That is the headline finding, not a caveat: the default condition mostly measures how verbose a model is when nobody asks it to be brief.
+**Isn't the judge biased?**
+Yes, and this table has it. `claude-opus-5` judges the four Claude models including itself, and it comes first. That is exactly where self-preference would show up. `rejudge.py` re-scores saved responses with a different judge and no regeneration; run it before trusting any cross-family ranking here.
 
-**What counts as AI slop?**
-Three things, all measured, none of them "writing I dislike":
-- 173 banned terms (`delve`, `testament to`, `boasts`, `headwinds`)
-- 12 sentence patterns (`It's not X. It's Y.`, `not just X, but Y`)
-- Shape signals: em dashes, bold density, fragment ratio, sentence-length variance
-
-Slop only subtracts, capped at 30%. Clean writing earns nothing by itself. The scorer strips code, fences and quotes first, so a document *about* slop doesn't score as slop.
+**Where do the word budgets come from?**
+A model set them from each prompt. They are defensible per-prompt but they are not ground truth, so the absolute scores are softer than the relative ones.
 
 **Other known limits**
-- One judge model. Judge and subject from the same family inflate scores; use `rejudge.py` to check.
-- 24 prompts per model is a small sample. Treat gaps under ~3 points as noise.
-- English only, and one declared audience per prompt.
+- The non-Claude table is 5 prompts. It is a smoke test, not a result.
+- 30 prompts is still a small sample. Treat gaps under ~3 points as noise.
+- English only.
+- Scores are not comparable across prompt-set versions; the set is versioned in `data/prompts.json`.
 
 ## Run it
 
@@ -109,11 +134,13 @@ git clone https://github.com/exiao/readability-eval
 cd readability-eval
 export OPENROUTER_API_KEY=sk-or-...
 
-python3 -m readability_eval.run --model anthropic/claude-sonnet-4.5
+python3 -m readability_eval.run --model google/gemini-3.5-flash
 python3 -m readability_eval.report
 ```
 
-Standard library only. A full run is 12 prompts plus 12 judge calls, a few cents on a cheap judge.
+Standard library only. A run is 30 prompts plus 30 judge calls, well under a dollar on most models.
+
+Every run starts with a **contamination probe**: it asks the backend what tools it has and refuses to run if the answer looks like an agent rather than a bare model. This exists because two full runs were thrown away after being scored through a local agent CLI that silently attached a persona, memory and 31 tools. Scoring a harness and calling it a model is the easiest way to get this wrong.
 
 Use a judge from a different family than the model under test, and verify with `rejudge.py`.
 

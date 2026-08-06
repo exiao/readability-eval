@@ -96,6 +96,12 @@ PATTERNS = {
     "inline_header_list": r"(?m)^[\s]*[-*]\s+\*\*[^*]+\*\*\s*[:—-]",
     "emoji_bullet": r"(?m)^[\s]*[\U0001F300-\U0001FAFF\u2705\u2728\u26A1\U0001F4A1]",
     "artifact": r"oaicite|turn\d+search\d+|contentReference|\[cite:\s*\d+\]|grok_card|attached_file|ppl-ai-file-upload",
+
+    # Agentless passive: be-verb + past participle with no actor named.
+    # This is how bad news hides who did it ("an incident has been identified"
+    # vs "we exposed your data"). Wikipedia lists it; no word list catches it.
+    # Only fires without a trailing "by X", which is legitimate passive.
+    "agentless_passive": r"\b(?:has|have|had|is|are|was|were)\s+(?:been\s+)?(?:\w+ly\s+)?(?:identified|accessed|determined|taken|implemented|affected|exposed|compromised|discovered|noticed|addressed|resolved|notified|advised|considered|reported|conducted|performed|initiated|completed|experienced)\b(?!\s+by\b)",
 }
 
 

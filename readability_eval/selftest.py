@@ -48,12 +48,12 @@ def score_case(c, judge_model=None, backend="hermes", provider=None):
         # No judge: assume all facts land and both judged rules are perfect.
         # This is deliberately GENEROUS, so a control that still lands in "low"
         # failed on deterministic grounds alone.
-        delivered = len(item["facts"])
+        delivered = len(item["asks"])
         jud = {"rule1_understandable": 10.0, "rule4_imagery": 10.0,
                "rule7_form": 10.0}
 
-    det, detail = score_all(text, delivered, item.get("assumed", ()),
-                            required=len(item["facts"]))
+    det, detail = score_all(text, delivered, item.get("assumed", ()), budget=item.get("budget"),
+                            required=len(item["asks"]))
     rules = {**det, **jud}
     hits, breakdown = lexicon.score(text)
     clarity = clarity_score(rules)

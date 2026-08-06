@@ -5,13 +5,13 @@
   "condition": "brief",
   "n": 30,
   "errors": 0,
-  "score": 82.1,
-  "clarity_avg": 8.46,
+  "score": 82.3,
+  "clarity_avg": 8.48,
   "slop_per_1k": 3.5,
   "avg_words": 47,
   "per_rule": {
    "rule2_economy": 6.6,
-   "rule3_jargon": 9.4,
+   "rule3_jargon": 9.66,
    "rule5_simple_words": 9.57,
    "rule6_filler": 9.62,
    "rule1_understandable": 9.83,
@@ -675,18 +675,18 @@
    "response": "A single 2.9 GHz CPU core running WireGuard can typically handle **~3\u20135 Gbps** of throughput, depending on the architecture (x86_64 with AES-NI/AVX support). RAM is not the bottleneck at 1 GB. Actual performance depends on packet size, kernel version, and NIC capabilities.",
    "rules": {
     "rule2_economy": 5.0,
-    "rule3_jargon": 6.0,
+    "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 8.85,
+   "clarity_avg": 9.44,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 88.5,
+   "score": 94.4,
    "facts_delivered": "2/4",
    "detail": {
     "economy": {
@@ -698,11 +698,9 @@
      "over_budget": 0.15
     },
     "jargon": {
-     "undefined_acronyms": [
-      "NIC"
-     ],
+     "undefined_acronyms": [],
      "undefined_terms": [],
-     "per_100w": 2.38
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {},
@@ -1676,7 +1674,7 @@
    "response": "**Data Science Platform Engineer** with hands-on experience building scalable data infrastructure and ML pipelines. Skilled in designing robust platforms that empower data teams to deploy machine learning models efficiently. Passionate about bridging the gap between data science and engineering to drive impactful, production-ready AI solutions.",
    "rules": {
     "rule2_economy": 0.0,
-    "rule3_jargon": 6.3,
+    "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 2.6,
     "rule1_understandable": 10.0,
@@ -1700,11 +1698,9 @@
      "note": "no facts delivered"
     },
     "jargon": {
-     "undefined_acronyms": [
-      "ML"
-     ],
+     "undefined_acronyms": [],
      "undefined_terms": [],
-     "per_100w": 2.22
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {},

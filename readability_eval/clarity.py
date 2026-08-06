@@ -81,11 +81,18 @@ COMMON_ACRONYMS = {"AI", "API", "URL", "HTTP", "HTTPS", "JSON", "CSV", "PDF",
                    "ID", "IT", "PR", "QA", "UI", "UX", "SQL", "HTML", "CSS"}
 
 
-# Filler is mostly a GRAMMAR shape, not a vocabulary. The fixed list below
-# catches one exact wording each, so "worth noting" scores and "it is worth
-# mentioning" walks past. Tested against 16 textbook filler constructions, the
-# phrase list caught 1. These patterns cover the shapes that list cannot:
-# expletive subjects, nominalised verbs, and stacked hedges.
+# Filler is a GRAMMAR shape, not a vocabulary: an exact-phrase list catches
+# one wording each, so "worth noting" scores and "it is worth mentioning"
+# walks past.
+#
+# HONESTY NOTE ON COVERAGE. 18 of the 21 patterns in the first draft never
+# fired once across 265 real responses. They were written against textbook
+# filler ("due to the fact that", "at this point in time") that current
+# models simply do not produce. They are kept because the eval is meant to
+# outlive this corpus and a human writing the same answer WOULD produce them,
+# but they are unvalidated: the only three with real evidence behind them are
+# the empty-intro, ceremonial-opener and "great question" patterns. Do not
+# read a clean filler score as proof the rule works.
 FILLER_PATTERNS = [
     # "there is a X that ..." -- an expletive subject delaying the real one
     r"\bthere (?:is|are|was|were)\s+(?:a|an|the|no|some|several|many)?\s*"
@@ -196,27 +203,29 @@ def rule2_economy(text, facts, required=None, budget=None):
                "over_budget": round(words / budget, 2)}
 
 
-# Domain terms a general reader cannot decode from context. Kept deliberately
-# short and specific: the rule is audience-relative, so a term the prompt marks
-# as assumed costs nothing, and anything defined inline costs nothing. These
-# are words that carry a precise meaning inside one field and none outside it.
+# Domain terms a general reader cannot decode from context.
+#
+# This list is deliberately SMALL and every entry is here because it was
+# observed in the corpus, not because it sounded like jargon. The first draft
+# had 49 curated terms across backend, ML, product and finance; 43 of them
+# never appeared once in 265 real responses. That is a detector written
+# against imagined text, and it validates itself: you invent "the idempotent
+# handler debounces the mutation", your rule catches it, and you have proved
+# nothing except that you can write a sentence to match your own regex.
+#
+# The corpus here is teachers, negotiation curricula and butterfly lesson
+# plans. Jargon in that setting is business-speak, not distributed systems.
+# Add a term when a real answer uses it and a real reader would stumble.
 JARGON_TERMS = {
-    # distributed systems / backend
-    "idempotent", "idempotency", "eventual consistency", "backpressure",
-    "tail latency", "quorum", "sharding", "shard", "denormalized",
-    "denormalization", "backfill", "cutover", "failover", "throughput",
-    "contention", "reconciliation", "reconcile", "orchestration",
-    "serialization", "deserialization", "middleware", "webhook",
-    # data / ml
-    "embedding", "vectorize", "inference", "fine-tune", "fine-tuning",
-    "hyperparameter", "overfitting", "regularization", "gradient descent",
-    "tokenization", "quantization", "ablation",
-    # product / process
-    "north star metric", "actionable insights", "value-add", "synergy",
-    "bandwidth", "circle back", "double-click on", "socialize",
-    "stakeholder alignment", "operationalize",
-    # finance
-    "amortization", "arbitrage", "basis points", "liquidity", "hedging",
+    # observed in this corpus
+    "throughput", "bandwidth", "quantization", "liquidity", "orchestration",
+    "stakeholder alignment",
+    # business-speak: the register that actually shows up when a model pads
+    # a plain answer for a non-technical reader
+    "value-add", "synergy", "circle back", "double-click on", "socialize",
+    "north star metric", "actionable insights", "operationalize",
+    "core competency", "boil the ocean", "move the needle",
+    "low-hanging fruit", "table stakes", "paradigm shift",
 }
 _JARGON_RX = re.compile(
     r"\b(" + "|".join(sorted((re.escape(t) for t in JARGON_TERMS),
@@ -269,6 +278,10 @@ def rule3_jargon(text, assumed=(), audience=""):
     Audience-relative: a term the reader is assumed to know costs nothing, and a
     term defined inline costs nothing. Precision is not a defect.
 
+    The audience gate covers acronyms too, not just terms. "CPU" is not an
+    undefined acronym to a sysadmin sizing a VPN server, and expanding it for
+    that reader would be worse writing, not better.
+
     SHOUTING IS NOT AN ACRONYM. The regex matches any 2-6 letter run of capitals,
     which also catches emphasis and headings. A grade-2 lesson plan containing
     "SHAPE HUNT!" and "THE BIG RULE" scored 6.2 with 31 "undefined acronyms",
@@ -278,8 +291,10 @@ def rule3_jargon(text, assumed=(), audience=""):
     words = len(text.split())
     assumed = {a.upper() for a in assumed} | COMMON_ACRONYMS
     scan = lexicon.strip_quoted(text)
-    found = [a for a in ACRONYM.findall(scan)
-             if a.rstrip("s") not in assumed and not _is_shouted_word(a)]
+    expert = bool(EXPERT_AUDIENCE.search(audience or ""))
+    found = [] if expert else [
+        a for a in ACRONYM.findall(scan)
+        if a.rstrip("s") not in assumed and not _is_shouted_word(a)]
     undefined = []
     for a in set(found):
         # defined if followed/preceded by an expansion in parens

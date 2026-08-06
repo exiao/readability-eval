@@ -5,13 +5,13 @@
   "condition": "default",
   "n": 30,
   "errors": 0,
-  "score": 86.1,
-  "clarity_avg": 8.98,
+  "score": 86.2,
+  "clarity_avg": 9.0,
   "slop_per_1k": 2.8,
   "avg_words": 571,
   "per_rule": {
    "rule2_economy": 7.13,
-   "rule3_jargon": 9.75,
+   "rule3_jargon": 9.83,
    "rule5_simple_words": 9.78,
    "rule6_filler": 9.75,
    "rule1_understandable": 9.5,
@@ -726,20 +726,20 @@
    "response": "# WireGuard Performance on a Single 2.9 GHz Core\n\nThere's no single definitive answer, as it depends on several factors, but here are reasonable estimates:\n\n## Typical Throughput\n\n| Metric | Estimate |\n|---|---|\n| **Throughput** | ~2\u20135 Gbps |\n| **Packets per second (small packets)** | ~500K\u20131M pps |\n\n## Key Context\n\n- **WireGuard is extremely lightweight** \u2014 it's ~4,000 lines of code and runs inside the kernel. It's one of the fastest VPN protocols available.\n- **1 GB RAM is more than enough** \u2014 WireGuard uses very little memory (a few MB for thousands of peers).\n- The **bottleneck is usually the CPU for encryption**, specifically **ChaCha20-Poly1305** (or AES-NI if available via the kernel crypto API).\n\n## Major Factors That Affect This\n\n1. **AES-NI / hardware crypto support**: If the CPU supports AES-NI or has optimized ChaCha20 instructions, throughput increases significantly.\n2. **Packet size**: Large packets (1420-byte MTU) \u2192 higher Gbps; small packets (64-byte) \u2192 CPU-limited by per-packet overhead.\n3. **Number of peers**: Minimal impact unless you have thousands.\n4. **NIC and bus speed**: A 1 Gbps NIC will bottleneck before the CPU does; you'd need 10G+ to see the CPU limit.\n5. **Kernel version**: Newer kernels (5.6+) have WireGuard built-in with better optimizations.\n\n## Real-World Benchmarks\n\n- On modern x86_64 CPUs at ~3 GHz, WireGuard commonly achieves **3\u20135 Gbps per core** with large packets.\n- With small packets, it can become CPU-bound at **~500K\u20131M packets/second**.\n- Some benchmarks on comparable hardware show WireGuard reaching near **line rate on 10 Gbps** NICs with 2\u20133 cores.\n\n## Bottom Line\n\n> On a single 2.9 GHz core, you can realistically expect **~3\u20134 Gbps** of encrypted throughput with typical traffic patterns, assuming the NIC isn't the bottleneck. The 1 GB RAM is a non-issue for WireGuard itself.\n\nWould you like help with tuning or a specific deployment scenario?",
    "rules": {
     "rule2_economy": 4.8,
-    "rule3_jargon": 8.4,
+    "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.44,
+   "clarity_avg": 8.68,
    "slop_per_1k": 0.7,
    "slop_breakdown": {
     "inline_header_list": 2
    },
    "slop_tax": 0.01,
-   "score": 83.6,
+   "score": 85.9,
    "facts_delivered": "2/4",
    "detail": {
     "economy": {
@@ -751,13 +751,9 @@
      "over_budget": 1.1
     },
     "jargon": {
-     "undefined_acronyms": [
-      "NIC",
-      "NICs",
-      "VPN"
-     ],
+     "undefined_acronyms": [],
      "undefined_terms": [],
-     "per_100w": 0.98
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {},
@@ -1754,14 +1750,14 @@
    "response": "# LinkedIn Summary for a Data Science Platform Engineer\n\nHere are a few options \u2014 pick the one that best fits your tone:\n\n---\n\n## Option 1: Professional & Comprehensive\n\n**Data Science Platform Engineer | ML Infrastructure | Enabling Scalable AI Solutions**\n\nI design, build, and maintain the platforms and infrastructure that empower data science teams to move from experimentation to production \u2014 faster and more reliably.\n\nWith a strong foundation in software and data engineering, I specialize in building end-to-end data science platforms that streamline the ML lifecycle \u2014 from data ingestion and feature engineering to model training, deployment, and monitoring. My hands-on exposure to machine learning projects gives me a unique edge: I don't just build the tools \u2014 I understand how data scientists and ML engineers use them.\n\n**What I bring to the table:**\n\n\ud83d\udd39 Designing and scaling ML platforms and data pipelines for high-performance workloads\n\ud83d\udd39 Building robust MLOps workflows \u2014 CI/CD for models, experiment tracking, model registry, and monitoring\n\ud83d\udd39 Working with cloud-native architectures (AWS/GCP/Azure), Kubernetes, Docker, and distributed computing frameworks\n\ud83d\udd39 Hands-on experience in ML projects involving supervised/unsupervised learning, NLP, and predictive analytics\n\ud83d\udd39 Bridging the gap between data science experimentation and production-grade engineering\n\n**Core Tech Stack:** Python | SQL | Spark | Airflow | Kubernetes | Docker | MLflow | TensorFlow/PyTorch | Kafka | Terraform | Cloud Services (AWS/GCP)\n\nI'm passionate about reducing friction in the ML development lifecycle and enabling organizations to unlock the full potential of their data and AI investments. I thrive at the intersection of engineering excellence and data-driven innovation.\n\nLet's connect if you're working on interesting problems in ML infrastructure, data platforms, or AI at scale!\n\n---\n\n## Option 2: Concise & Punchy\n\nPlatforms don't just support data science \u2014 they accelerate it. That's where I come in.\n\nAs a Data Science Platform Engineer, I build the infrastructure, tooling, and pipelines that help data science and ML teams ship models faster, more reliably, and at scale. From feature stores to model serving, from experiment tracking to automated retraining \u2014 I architect systems that make the ML lifecycle seamless.\n\nWhat sets me apart? I've been on the other side too \u2014 working directly on machine learning projects involving predictive modeling, classification, and NLP. This dual perspective allows me to build platforms that truly serve the needs of data practitioners.\n\nIf it involves ML infrastructure, scalable data platforms, or turning AI prototypes into production-grade systems \u2014 I'm all in.\n\n\ud83d\udce9 Always open to connecting with fellow engineers, data scientists, and leaders building the future of AI.\n\n---\n\n## Option 3: Story-Driven & Engaging\n\nI started my career fascinated by what machine learning could do \u2014 building models, running experiments, and chasing that extra percentage of accuracy. But I quickly realized something: even the best model is useless if it can't make it to production.\n\nThat realization shaped my career.\n\nToday, as a Data Science Platform Engineer, I focus on building the foundational systems that take ML from notebooks to real-world impact. I design scalable data pipelines, develop MLOps frameworks, and create self-service platforms that let data scientists focus on what they do best \u2014 while I make sure everything runs smoothly under the hood.\n\nMy hands-on ML experience isn't just a line on my r\u00e9sum\u00e9 \u2014 it's what makes me a better platform engineer. I understand the pain points, the bottlenecks, and the workflows because I've lived them.\n\n\ud83d\ude80 Currently excited about: ML platform democratization, feature engineering at scale, and real-time model serving.\n\nLet's connect \u2014 I'd love to exchange ideas on building the next generation of AI infrastructure.\n\n---\n\n**Tips to personalize:**\n- Add specific **industry context** (e.g., fintech, healthcare, e-commerce)\n- Mention **specific tools/platforms** you've used\n- Include **quantifiable achievements** (e.g., \"Reduced model deployment time by 60%\")\n- Add any **certifications** (AWS, GCP, Databricks, etc.)\n\nWould you like me to tailor any of these further to your specific experience or industry?",
    "rules": {
     "rule2_economy": 5.0,
-    "rule3_jargon": 9.0,
+    "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 9.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.41,
+   "clarity_avg": 8.56,
    "slop_per_1k": 13.0,
    "slop_breakdown": {
     "ai_vocab": 4,
@@ -1772,7 +1768,7 @@
     "rule_of_three": 1
    },
    "slop_tax": 0.195,
-   "score": 67.7,
+   "score": 68.9,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -1784,14 +1780,9 @@
      "over_budget": 2.51
     },
     "jargon": {
-     "undefined_acronyms": [
-      "CD",
-      "CI",
-      "ML",
-      "NLP"
-     ],
+     "undefined_acronyms": [],
      "undefined_terms": [],
-     "per_100w": 0.61
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {},

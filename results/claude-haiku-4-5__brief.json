@@ -11,7 +11,7 @@
   "avg_words": 51,
   "per_rule": {
    "rule2_economy": 5.87,
-   "rule3_jargon": 9.66,
+   "rule3_jargon": 9.77,
    "rule5_simple_words": 9.89,
    "rule6_filler": 10.0,
    "rule1_understandable": 9.5,
@@ -1671,7 +1671,7 @@
    "response": "# LinkedIn Summary\n\nResults-driven Data Science Platform Engineer with proven expertise in building scalable ML infrastructure and deploying machine learning solutions. Skilled in designing data pipelines, optimizing model performance, and bridging data science and engineering. Passionate about enabling teams to deliver impactful AI/ML projects efficiently.\n\n---\n*Word count: 47*",
    "rules": {
     "rule2_economy": 0.0,
-    "rule3_jargon": 6.6,
+    "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
@@ -1693,11 +1693,9 @@
      "note": "no facts delivered"
     },
     "jargon": {
-     "undefined_acronyms": [
-      "ML"
-     ],
+     "undefined_acronyms": [],
      "undefined_terms": [],
-     "per_100w": 2.04
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {},

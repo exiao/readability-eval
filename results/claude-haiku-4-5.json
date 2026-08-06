@@ -5,13 +5,13 @@
   "condition": "default",
   "n": 30,
   "errors": 0,
-  "score": 83.1,
-  "clarity_avg": 8.58,
+  "score": 83.2,
+  "clarity_avg": 8.59,
   "slop_per_1k": 2.2,
   "avg_words": 329,
   "per_rule": {
    "rule2_economy": 7.44,
-   "rule3_jargon": 9.8,
+   "rule3_jargon": 9.88,
    "rule5_simple_words": 9.45,
    "rule6_filler": 9.85,
    "rule1_understandable": 9.5,
@@ -631,14 +631,14 @@
    "response": "# Understanding GARCH Models: A Journey into Financial Mathematics\n\nHello! Let me take you on a fascinating exploration of one of the most important discoveries in modern finance and statistics.\n\n## The Problem That Started It All\n\nImagine you're tracking stock prices. Here's something remarkable that economists noticed: **when markets are volatile, they tend to *stay* volatile**. Similarly, calm periods tend to persist. This isn't random\u2014there's a *pattern* to randomness itself.\n\nTraditional statistics assumed that randomness stays constant over time. But markets laughed at this assumption. We needed a new tool.\n\n## Meet GARCH: The Complete Picture\n\n**GARCH** stands for **Generalized AutoRegressive Conditional Heteroskedasticity**. Let me break this into digestible pieces:\n\n### What Each Word Means:\n\n- **Heteroskedasticity** = variance that changes over time (hetero = different, skedasticity = spread/variance)\n- **Conditional** = depends on past information\n- **AutoRegressive** = uses its own past values\n- **Generalized** = it's a flexible framework\n\n### The Core Idea (Simple Version First)\n\nThink of volatility like the mood of a crowd:\n- When everyone is anxious, nervousness spreads \u2192 high volatility\n- When calm returns, people relax \u2192 low volatility\n- Today's mood influences tomorrow's mood\n\nThat's GARCH in essence.\n\n## The Mathematical Heart\n\nA basic GARCH(1,1) model looks like this:\n\n$$\\sigma_t^2 = \\omega + \\alpha \\epsilon_{t-1}^2 + \\beta \\sigma_{t-1}^2$$\n\nLet me decode this equation (this is where rigor meets intuition):\n\n| Component | Meaning | What It Captures |\n|-----------|---------|-----------------|\n| $\\sigma_t^2$ | Today's variance | How \"jumpy\" is the market right now? |\n| $\\omega$ | Long-term baseline | The market's natural volatility when nothing unusual happens |\n| $\\alpha \\epsilon_{t-1}^2$ | Shock term | Recent surprises (if yesterday had big price swings, expect volatility today) |\n| $\\beta \\sigma_{t-1}^2$ | Persistence | How much yesterday's volatility echoes into today |\n\n### Why This Structure Is Genius\n\n**The $\\alpha$ term (shock response):** When you see $\\epsilon_{t-1}^2$ (squared past errors), large surprises create disproportionately large impacts because they're squared. A surprise of \u00b110 creates 100 units of impact.\n\n**The $\\beta$ term (momentum):** This captures *volatility clustering*\u2014the tendency of high-volatility periods to persist. It's like inertia in physics.\n\n**The constraint:** We need $\\alpha + \\beta < 1$ for stability. Think of it this way: if shocks and momentum added up to more than 1, volatility would explode to infinity.\n\n## A Real-World Example\n\nSuppose we're tracking a stock:\n- $\\omega = 0.00001$ (baseline daily variance)\n- $\\alpha = 0.1$ (shocks matter moderately)\n- $\\beta = 0.88$ (momentum is very strong\u2014volatility persists)\n- Yesterday's squared return: $\\epsilon_{t-1}^2 = 0.0004$\n- Yesterday's variance: $\\sigma_{t-1}^2 = 0.0005$\n\n**Today's variance:**\n$$\\sigma_t^2 = 0.00001 + 0.1(0.0004) + 0.88(0.0005) = 0.00054$$\n\nNotice how $\\beta$ dominates\u2014yesterday's volatility heavily influences today's.\n\n## Why This Matters: Three Powerful Applications\n\n### 1. **Risk Management**\nBanks use GARCH to calculate **Value at Risk (VaR)**. They need to know: \"What's the worst loss we might face tomorrow?\" GARCH updates this forecast dynamically as market conditions change.\n\n### 2. **Option Pricing**\nOptions (like the right to buy a stock at a fixed price) become more valuable when future volatility is high. GARCH predicts tomorrow's volatility better than assuming it's constant.\n\n### 3. **Portfolio Optimization**\nIf you're building an investment portfolio, knowing which assets will be volatile helps you diversify intelligently.\n\n## Extensions: Making GARCH Even Better\n\nResearchers didn't stop at GARCH(1,1). They created variations:\n\n- **EGARCH**: Captures the \"leverage effect\" (bad news causes more volatility than good news)\n- **GARCH-M**: Includes volatility directly in returns (volatile assets demand higher returns)\n- **Multivariate GARCH**: Tracks how volatility spreads between multiple assets\n\n## The Beautiful Truth\n\nWhat makes GARCH special is that it respects **two mathematical requirements simultaneously**:\n\n1. **Practical realism**: Volatility genuinely clusters in real markets\n2. **Mathematical elegance**: The model is tractable\u2014we can actually compute it, estimate parameters, and make predictions\n\n## Common Misconception to Avoid\n\n\u274c **Wrong**: \"GARCH predicts if prices will go up or down\"\n\n\u2713 **Correct**: \"GARCH predicts how uncertain we should be about price movements\"\n\nIt forecasts *volatility*, not direction.\n\n## Why You Should Care\n\nGARCH represents a paradigm shift: **acknowledging that uncertainty itself changes over time**. This thinking extends far beyond finance\u2014it applies to weather patterns, disease spreading, earthquake frequencies, and any system where stability periods are interrupted by turbulent periods.\n\n---\n\n**Final thought**: The beauty of GARCH is that it captures something profoundly true about complex systems\u2014chaos has patterns, randomness has structure, and volatility has memory.\n\nDoes this clarify things? What aspect would you like to explore deeper?",
    "rules": {
     "rule2_economy": 7.5,
-    "rule3_jargon": 9.8,
+    "rule3_jargon": 9.6,
     "rule5_simple_words": 9.7,
     "rule6_filler": 9.8,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.88,
+   "clarity_avg": 8.85,
    "slop_per_1k": 2.1,
    "slop_breakdown": {
     "ai_vocab": 1,
@@ -646,7 +646,7 @@
     "inline_header_list": 3
    },
    "slop_tax": 0.032,
-   "score": 86.0,
+   "score": 85.7,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -661,8 +661,10 @@
      "undefined_acronyms": [
       "EGARCH"
      ],
-     "undefined_terms": [],
-     "per_100w": 0.13
+     "undefined_terms": [
+      "paradigm shift"
+     ],
+     "per_100w": 0.27
     },
     "simple_words": {
      "swaps": {
@@ -1733,21 +1735,21 @@
    "response": "# LinkedIn Summary: Data Science Platform Engineer\n\n---\n\nI'm a Data Science Platform Engineer passionate about building scalable, robust infrastructure that empowers data science and machine learning teams to innovate faster and deliver impactful results.\n\n**What I do:**\nI bridge the gap between data science and engineering by designing and maintaining platforms that streamline ML workflows\u2014from experimentation and model development to deployment and monitoring. My work ensures data scientists can focus on solving business problems while I handle the technical complexity behind the scenes.\n\n**My expertise spans:**\n- **MLOps & Platform Engineering:** Building end-to-end ML pipelines, CI/CD systems for models, and automation frameworks\n- **Machine Learning:** Hands-on experience with model development, training, evaluation, and optimization across various domains\n- **Cloud & Infrastructure:** Deploying and scaling ML solutions on cloud platforms with containerization, orchestration, and monitoring\n- **Data Engineering:** ETL pipelines, data quality management, and optimization for analytical workloads\n- **Collaboration:** Working closely with data scientists, analysts, and stakeholders to translate requirements into robust technical solutions\n\n**I'm energized by:**\n- Solving complex technical challenges that accelerate ML time-to-value\n- Creating tools and systems that make data science more accessible and efficient\n- Staying current with emerging technologies in AI/ML and cloud infrastructure\n\nI'm always open to discussing how platform engineering can unlock potential in data-driven organizations. Let's connect if you're interested in MLOps, data infrastructure, or building high-performing data science teams.\n\n---\n\n*Feel free to customize this with specific technologies, companies, or metrics relevant to your experience!*",
    "rules": {
     "rule2_economy": 7.5,
-    "rule3_jargon": 7.3,
+    "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 8.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 3.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 7.25,
+   "clarity_avg": 7.65,
    "slop_per_1k": 14.2,
    "slop_breakdown": {
     "ai_vocab": 3,
     "hyphen_pairs": 2
    },
    "slop_tax": 0.213,
-   "score": 57.0,
+   "score": 60.2,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -1759,14 +1761,9 @@
      "over_budget": 0.95
     },
     "jargon": {
-     "undefined_acronyms": [
-      "CD",
-      "CI",
-      "ETL",
-      "ML"
-     ],
+     "undefined_acronyms": [],
      "undefined_terms": [],
-     "per_100w": 1.63
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {},

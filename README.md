@@ -108,7 +108,11 @@ Worst gain from halving an answer: **+41.3 → +4.4**.
 
 **Rule 2 needs the coverage gate.** Scored as raw brevity it crowns the emptiest answer, so coverage multiplies in: answering half the question caps economy at half however tersely you did it. Under budget is free — terse is never punished.
 
-**Rule 6 needed patterns, not a word list.** Filler is a grammatical shape, not a vocabulary: an exact-phrase list scores `worth noting` and lets `it is worth mentioning` through. Against 16 textbook filler constructions the list caught 1; with patterns for expletive subjects (`there are several factors that...`), wordy connectives (`in order to`, `due to the fact that`), redundant causation (`the reason why X is because`) and stacked hedges (`may potentially`), it catches 16 with no false positives on plain technical prose. Note the line it has to walk: `there is no index on user_id` states a fact and must not fire, while `there are several factors that matter` delays the real subject and must.
+**Rule 6 needed patterns, not a word list.** Filler is a grammatical shape, not a vocabulary: an exact-phrase list scores `worth noting` and lets `it is worth mentioning` through. Patterns now cover expletive subjects (`there are several factors that...`), wordy connectives, redundant causation and stacked hedges. Note the line it has to walk: `there is no index on user_id` states a fact and must not fire, while `there are several factors that matter` delays the real subject and must.
+
+**Caveat, and it applies to rules 3 and 6 both: most of those patterns never fire on this corpus.** 18 of 21 filler patterns and 43 of 49 first-draft jargon terms appeared zero times in 265 real responses. They were written against textbook bad writing that current models do not produce. Validating a detector on sentences you invented for it proves only that you can write to your own regex, so the jargon list was cut to terms actually observed, and the test fixtures are now verbatim corpus sentences. Treat a clean score on those rules as unproven, not as evidence.
+
+The acronym half of rule 3 is the part with real evidence: `BATNA` and `ZOPA` dropped unexplained on a self-taught negotiator, `EMI` on someone planning a house purchase.
 
 **Rule 7 catches what the word list can't.** Scaffolding is headers, tables and section labels, not tic phrases, so a report-shaped answer to a simple question can score clean sentence-by-sentence and still be unreadable as a whole.
 

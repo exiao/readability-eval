@@ -5,13 +5,13 @@
   "condition": "default",
   "n": 30,
   "errors": 0,
-  "score": 91.8,
-  "clarity_avg": 9.31,
+  "score": 92.0,
+  "clarity_avg": 9.33,
   "slop_per_1k": 0.9,
   "avg_words": 558,
   "per_rule": {
    "rule2_economy": 6.94,
-   "rule3_jargon": 9.44,
+   "rule3_jargon": 9.59,
    "rule5_simple_words": 9.81,
    "rule6_filler": 9.98,
    "rule1_understandable": 9.83,
@@ -711,20 +711,20 @@
    "response": "## Short answer\n\n**Roughly 1\u20133 Gbit/s of bulk traffic (\u2248100k\u2013250k packets/sec) for the in-kernel Linux WireGuard on one modern 2.9 GHz core**, assuming full-size (~1400 byte) packets. RAM is essentially irrelevant \u2014 1 GB is far more than WireGuard needs.\n\n## More detail\n\nWireGuard's cost is dominated by **per-packet** work (crypto + network stack traversal), not by bandwidth per se, so packet size is the single biggest variable.\n\n| Scenario (1 core @ 2.9 GHz) | Throughput | Approx. packet rate |\n|---|---|---|\n| Kernel module, 1420 B packets, AVX2 CPU | ~1.5\u20133 Gbit/s | ~150k\u2013250k pps |\n| Kernel module, same but core does *both* encrypt & decrypt (routing between two peers) | ~0.8\u20131.5 Gbit/s | ~80k\u2013150k pps |\n| Kernel module, small packets (64\u2013200 B, e.g. VoIP/gaming/DNS) | ~100\u2013400 Mbit/s | ~200k\u2013400k pps |\n| `wireguard-go` / userspace (macOS, Windows, containers w/o kernel module) | ~300\u2013800 Mbit/s | ~40k\u201380k pps |\n| BoringTun (userspace, Rust) | ~0.5\u20131.5 Gbit/s | \u2014 |\n\n## What moves the number\n\n- **CPU features**: WireGuard uses ChaCha20-Poly1305, which does *not* benefit from AES-NI but does benefit a lot from AVX2/AVX-512. An older core without AVX2 can be 2\u20133\u00d7 slower.\n- **Kernel version**: Linux 6.x added GSO/GRO batching for WireGuard, which significantly raised single-core throughput vs. older kernels (5.x).\n- **Virtualization**: on a cloud VM, virtio-net/interrupt overhead and the provider's own bandwidth cap (often 1\u20135 Gbit/s for small instances) frequently bind before the CPU does.\n- **Number of flows**: a single TCP flow through one tunnel is handled largely by one core; many flows/peers spread across cores if you have them (here you have one, so no scaling).\n- **MTU/fragmentation**: mismatched MTU causing fragmentation can halve effective throughput.\n\n## About the 1 GB of RAM\n\nThe kernel module uses on the order of a few KB per peer plus queue buffers. 1 GB comfortably supports **thousands of peers** \u2014 you will run out of CPU long before RAM. Only userspace implementations with many peers, or heavy conntrack/NAT tables alongside, would make memory worth thinking about.\n\n## Recommendation\n\nBenchmark your specific box rather than trusting estimates:\n\n```bash\n# on server\niperf3 -s\n# on client, through the tunnel\niperf3 -c <wg-server-ip> -t 30 -P 4      # bulk throughput\niperf3 -c <wg-server-ip> -u -b 0 -l 100  # small-packet / pps stress\n```\n\nWatch `mpstat -P ALL 1` \u2014 if one core hits 100% `%sys`/`%soft`, you've found the ceiling.",
    "rules": {
     "rule2_economy": 8.2,
-    "rule3_jargon": 7.1,
+    "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.37,
+   "clarity_avg": 9.8,
    "slop_per_1k": 1.2,
    "slop_breakdown": {
     "inline_header_list": 5
    },
    "slop_tax": 0.018,
-   "score": 92.0,
+   "score": 96.2,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -736,17 +736,9 @@
      "over_budget": 1.44
     },
     "jargon": {
-     "undefined_acronyms": [
-      "AVX",
-      "GRO",
-      "GSO",
-      "KB",
-      "MTU",
-      "TCP",
-      "VM"
-     ],
+     "undefined_acronyms": [],
      "undefined_terms": [],
-     "per_100w": 1.74
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {},
@@ -1772,21 +1764,21 @@
    "response": "# LinkedIn \"About\" Summary \u2014 Data Science Platform Engineer\n\nBelow are three versions you can pick from (or mix and match). Replace the `[bracketed]` parts with your specifics.\n\n---\n\n## Version 1 \u2014 Balanced & Professional (recommended)\n\n> I build the infrastructure that turns data science from experiments into products.\n>\n> As a Data Science Platform Engineer with [X] years of experience, I design and operate the pipelines, environments, and tooling that let data scientists and ML engineers move fast without breaking production. My work sits at the intersection of data engineering, DevOps, and machine learning \u2014 building scalable data pipelines, reproducible training environments, feature stores, model registries, and CI/CD workflows that shorten the path from notebook to deployment.\n>\n> Beyond platform work, I've contributed hands-on to machine learning projects including [e.g., demand forecasting, churn prediction, recommendation systems] \u2014 from feature engineering and model experimentation to deployment, monitoring, and drift detection. That exposure helps me build platforms that solve real modeling problems, not theoretical ones.\n>\n> **What I work with:**\n> Python, SQL, Spark | Airflow, dbt, Kafka | Docker, Kubernetes, Terraform | MLflow, Kubeflow, [Databricks/SageMaker/Vertex AI] | AWS / Azure / GCP\n>\n> **What I care about:**\n> Reproducibility, cost efficiency, observability, and building self-service tooling that scales with the team rather than the headcount.\n>\n> Currently [open to opportunities in / focused on] [domain or role]. Always happy to connect with people working on data platforms, MLOps, and applied ML.\n>\n> \ud83d\udce9 [your.email@domain.com]\n\n---\n\n## Version 2 \u2014 Short & Punchy\n\n> Data Science Platform Engineer who makes machine learning boringly reliable.\n>\n> I build and scale the data and ML infrastructure \u2014 pipelines, feature stores, model registries, CI/CD, and monitoring \u2014 that lets teams ship models to production with confidence. I've also worked hands-on across ML projects in [domain], so I understand both sides: the model and the machinery behind it.\n>\n> Toolkit: Python \u00b7 Spark \u00b7 Airflow \u00b7 Kubernetes \u00b7 Docker \u00b7 Terraform \u00b7 MLflow \u00b7 [Cloud]\n>\n> Let's connect if you're building data platforms, scaling MLOps, or trying to get models out of notebooks and into the real world.\n\n---\n\n## Version 3 \u2014 Impact/Metrics-Led (great for job hunting)\n\n> I help organizations ship machine learning that actually reaches users.\n>\n> Over the past [X] years, I've built data science platforms that [reduced model deployment time from weeks to hours / cut compute costs by X% / supported X data scientists across Y teams]. My focus is on the unglamorous but critical layer: reliable data pipelines, containerized and reproducible environments, automated model training and deployment, and monitoring that catches drift before customers do.\n>\n> **Selected highlights:**\n> \u2022 Designed and deployed [an end-to-end ML pipeline / feature store] serving [X] models in production\n> \u2022 Built self-service tooling that removed [X] hours of manual work per sprint for the data science team\n> \u2022 Contributed to ML projects in [forecasting / NLP / computer vision / recommendations], covering feature engineering through production monitoring\n> \u2022 Standardized [CI/CD, IaC, experiment tracking] practices across [X] teams\n>\n> **Stack:** Python, SQL, Spark, Airflow, Kubernetes, Docker, Terraform, MLflow, [AWS/Azure/GCP]\n>\n> Open to [roles/collaborations] where platform engineering and applied ML meet. Reach out at [email].\n\n---\n\n### Quick tips to make it stronger\n- **Lead with a hook**, not your job title \u2014 LinkedIn only shows the first ~2 lines before \"see more.\"\n- **Add numbers** wherever possible (models in production, data volume, latency, cost savings, team size served).\n- **Front-load keywords** recruiters search: *MLOps, data platform, Kubernetes, Airflow, Spark, model deployment, feature store, CI/CD*.\n- **Name the ML exposure explicitly** \u2014 \"contributed to ML projects\" is vague; \"built feature pipelines and deployed a churn model serving 2M users\" is not.\n- **End with a call to action** (connect, email, portfolio/GitHub link).",
    "rules": {
     "rule2_economy": 5.0,
-    "rule3_jargon": 8.4,
+    "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.47,
+   "clarity_avg": 8.7,
    "slop_per_1k": 0.5,
    "slop_breakdown": {
     "hyphen_pairs": 1,
     "inline_header_list": 1
    },
    "slop_tax": 0.007,
-   "score": 84.0,
+   "score": 86.4,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -1798,16 +1790,9 @@
      "over_budget": 2.48
     },
     "jargon": {
-     "undefined_acronyms": [
-      "AWS",
-      "CD",
-      "CI",
-      "GCP",
-      "ML",
-      "NLP"
-     ],
+     "undefined_acronyms": [],
      "undefined_terms": [],
-     "per_100w": 0.93
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {},

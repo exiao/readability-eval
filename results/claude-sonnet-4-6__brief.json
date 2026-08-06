@@ -11,7 +11,7 @@
   "avg_words": 49,
   "per_rule": {
    "rule2_economy": 6.0,
-   "rule3_jargon": 9.62,
+   "rule3_jargon": 9.73,
    "rule5_simple_words": 9.57,
    "rule6_filler": 9.76,
    "rule1_understandable": 9.67,
@@ -1678,7 +1678,7 @@
    "response": "Here's a LinkedIn summary:\n\n**\"Data Science Platform Engineer | ML Enthusiast**\n\nBuilding scalable data science infrastructure that empowers teams to deliver impactful ML solutions. Experienced in designing robust pipelines, deploying models, and bridging the gap between engineering and data science. Passionate about turning complex data challenges into production-ready platforms.\"",
    "rules": {
     "rule2_economy": 2.5,
-    "rule3_jargon": 6.6,
+    "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 6.6,
     "rule1_understandable": 10.0,
@@ -1703,11 +1703,9 @@
      "over_budget": 0.19
     },
     "jargon": {
-     "undefined_acronyms": [
-      "ML"
-     ],
+     "undefined_acronyms": [],
      "undefined_terms": [],
-     "per_100w": 2.04
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {},

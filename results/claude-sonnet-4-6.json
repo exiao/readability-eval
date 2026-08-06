@@ -5,13 +5,13 @@
   "condition": "default",
   "n": 30,
   "errors": 0,
-  "score": 83.9,
-  "clarity_avg": 8.83,
+  "score": 84.0,
+  "clarity_avg": 8.84,
   "slop_per_1k": 3.4,
   "avg_words": 531,
   "per_rule": {
    "rule2_economy": 7.44,
-   "rule3_jargon": 9.66,
+   "rule3_jargon": 9.77,
    "rule5_simple_words": 9.59,
    "rule6_filler": 9.83,
    "rule1_understandable": 9.83,
@@ -712,18 +712,18 @@
    "response": "## WireGuard Throughput Estimation\n\nThis is a nuanced question with several variables, but here's a practical breakdown:\n\n---\n\n## Theoretical Performance\n\nWireGuard is known for being **very efficient**. On a single 2.9 GHz CPU core:\n\n| Packet Size | Approximate Throughput |\n|-------------|----------------------|\n| 1500 byte (large) | **~1\u20135 Gbps** |\n| 512 byte (mixed) | **~500 Mbps\u20132 Gbps** |\n| 64 byte (small/worst case) | **~100\u2013400 Mbps** |\n\n---\n\n## Key Limiting Factors\n\n### CPU Cryptography\n- WireGuard uses **ChaCha20-Poly1305** (or AES-GCM with hardware acceleration)\n- ChaCha20 is very fast in software: ~**2\u20134 Gbps per core** on modern CPUs\n- AES-NI hardware acceleration can push higher if supported\n\n### Real-World Estimates\n- Typical observed throughput: **~500 Mbps \u2013 1 Gbps** per core in real deployments\n- With small packets (64 bytes): possibly **~50,000\u2013200,000 packets/sec**\n- With large packets (1500 bytes): possibly **~80,000\u2013400,000 packets/sec**\n\n### 1 GB RAM\n- RAM is **not the bottleneck** here\n- WireGuard uses minimal memory; 1 GB is more than sufficient for thousands of peers\n\n---\n\n## Honest Caveats\n\n- Results **vary significantly** by:\n  - Linux kernel version\n  - NIC driver and hardware offloading\n  - Whether AES-NI is available\n  - Number of active peers\n  - IRQ affinity / CPU pinning\n- Real benchmarks on similar hardware show **~1\u20133 Gbps** under ideal conditions\n\n---\n\n## Bottom Line\n\n> A single 2.9 GHz core can realistically handle **~500 Mbps to ~1 Gbps** of WireGuard traffic under typical real-world conditions, with potential for higher in optimal scenarios.\n\nFor precise numbers, tools like **`iperf3`** through a WireGuard tunnel on your specific hardware are the best measure.",
    "rules": {
     "rule2_economy": 7.5,
-    "rule3_jargon": 8.8,
+    "rule3_jargon": 10.0,
     "rule5_simple_words": 9.3,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.7,
+   "clarity_avg": 8.88,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 87.0,
+   "score": 88.8,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -735,12 +735,9 @@
      "over_budget": 0.95
     },
     "jargon": {
-     "undefined_acronyms": [
-      "IRQ",
-      "NIC"
-     ],
+     "undefined_acronyms": [],
      "undefined_terms": [],
-     "per_100w": 0.75
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {
@@ -1746,14 +1743,14 @@
    "response": "# LinkedIn Summary \u2013 Data Science Platform Engineer\n\n---\n\n**\ud83d\ude80 Building the Infrastructure That Powers Intelligence**\n\nI'm a **Data Science Platform Engineer** passionate about bridging the gap between cutting-edge machine learning research and production-ready systems. I specialize in designing, building, and scaling the platforms and pipelines that enable data scientists and ML engineers to move faster, experiment smarter, and deploy with confidence.\n\n---\n\n**What I bring to the table:**\n\n\ud83d\udd27 **Platform Engineering** \u2014 Architecting robust, scalable data infrastructure including data lakes, feature stores, ML pipelines, and model serving frameworks that power end-to-end ML workflows.\n\n\ud83e\udd16 **Machine Learning Exposure** \u2014 Hands-on experience contributing to ML projects across the full lifecycle \u2014 from data ingestion and feature engineering to model training, evaluation, and deployment.\n\n\u2601\ufe0f **Cloud & MLOps** \u2014 Proficient in building cloud-native solutions (AWS/GCP/Azure) with a strong focus on MLOps practices including CI/CD for ML, model monitoring, and experiment tracking.\n\n\u2699\ufe0f **Tooling & Ecosystem** \u2014 Experienced with tools like **Spark, Kubernetes, Airflow, MLflow, Kubeflow, Terraform**, and modern data stack technologies.\n\n---\n\n**My Philosophy:**\n\n> *Great ML products don't just need great models \u2014 they need great platforms. I build the foundation that lets teams focus on what matters most: solving real problems with data.*\n\nI thrive in collaborative environments where **engineering rigor meets data-driven curiosity**, and I'm always looking for opportunities to push the boundaries of what's possible at the intersection of software engineering and machine learning.\n\n---\n\n\ud83d\udcec **Let's connect** if you're working on exciting data platforms, MLOps challenges, or innovative AI solutions. I'm always open to meaningful conversations and new opportunities!\n\n---\n\n*#DataScience #PlatformEngineering #MLOps #MachineLearning #DataEngineering #CloudComputing #AI*",
    "rules": {
     "rule2_economy": 9.8,
-    "rule3_jargon": 8.1,
+    "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 9.4,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.87,
+   "clarity_avg": 9.15,
    "slop_per_1k": 13.9,
    "slop_breakdown": {
     "ai_vocab": 2,
@@ -1762,7 +1759,7 @@
     "rule_of_three": 1
    },
    "slop_tax": 0.209,
-   "score": 70.2,
+   "score": 72.4,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -1774,13 +1771,9 @@
      "over_budget": 1.04
     },
     "jargon": {
-     "undefined_acronyms": [
-      "CD",
-      "CI",
-      "ML"
-     ],
+     "undefined_acronyms": [],
      "undefined_terms": [],
-     "per_100w": 1.11
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {},

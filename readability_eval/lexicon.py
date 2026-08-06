@@ -15,6 +15,7 @@ import statistics
 # ---------------------------------------------------------------- WORDS
 WORDS = {
     "ai_vocab": ["delve", "realm", "robust", "seamless", "harness", "utilize",
+                 "load-bearing", "load bearing",
                  "leverage", "empower", "underscore", "streamline", "ignite",
                  "unleash", "etched", "foster", "multifaceted", "intricate",
                  "intricacies", "interplay", "garner", "showcase", "enhance",

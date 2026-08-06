@@ -13,7 +13,7 @@ import sys
 import time
 from concurrent.futures import ThreadPoolExecutor
 
-from . import judge, lexicon
+from . import judge, lexicon, scaffold
 from .clarity import score_all
 from .providers import call, probe_contamination
 
@@ -81,6 +81,15 @@ def eval_one(item, model, backend, provider, judge_model, judge_backend,
                                 budget=item.get("budget"))
     jud = judge.to_scores(parsed)
 
+    # Rule 7, deterministic half. The judge grades form subjectively and is
+    # forgiving: it quotes one bad heading and calls the rest fine. Scaffolding
+    # density catches what it waves through -- 14 responses in the v3 corpus
+    # scored a perfect 10 on form while carrying up to 69 headings and 134 list
+    # items. Cap rather than average, so the judge can still fail an answer the
+    # counter thinks is fine, but cannot pass one it doesn't.
+    scaf, scaf_detail = scaffold.score(text, item.get("budget") or 300)
+    jud["rule7_form"] = min(jud["rule7_form"], scaf)
+
     rules = {**det, **jud}
     clarity = clarity_score(rules)
     hits, breakdown = lexicon.score(text)
@@ -95,7 +104,7 @@ def eval_one(item, model, backend, provider, judge_model, judge_backend,
         "slop_per_1k": hits, "slop_breakdown": breakdown, "slop_tax": round(tax, 3),
         "score": final,
         "facts_delivered": f"{delivered}/{len(item['asks'])}",
-        "detail": det_detail, "judge": parsed,
+        "detail": det_detail, "judge": parsed, "scaffold": scaf_detail,
         "shape": lexicon.shape(text),
         "cost_usd": out.get("cost_usd", 0.0) + jraw.get("cost_usd", 0.0),
         "seconds": round(time.time() - t0, 1),

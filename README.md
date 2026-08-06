@@ -88,13 +88,15 @@ Rules 1-6 come from Orwell's *Politics and the English Language*. Rule 7 was add
 | 4 | Would imagery make it clearer? | Judge, must name the image it wanted |
 | 5 | Complex phrases instead of simple words? | `utilize`→`use`, `in order to`→`to` |
 | 6 | Filler, pretentious diction, euphemism? | Three counters, euphemism weighted 3x |
-| 7 | Shaped like the answer, or like a report? | Judge, must quote the heading doing no work |
+| 7 | Shaped like the answer, or like a report? | Judge quote + scaffolding density per budget |
 
 Rules 2, 3, 5, 6 are deterministic counters. Rules 1, 4 and 7 use a judge that must quote its evidence — no quote, no penalty.
 
 **Rule 2 is the one that bites.** Scored as raw brevity it crowns the emptiest answer, so coverage multiplies in: answering half the question caps economy at half however tersely you did it. Under budget is free — terse is never punished. Over budget decays to zero at 3x.
 
 **Rule 7 catches what the word list can't.** Scaffolding is headers, tables and section labels, not tic phrases, so a report-shaped answer to a simple question can score clean sentence-by-sentence and still be unreadable as a whole.
+
+Rule 7 is scored twice and takes the worse result. The judge grades shape subjectively and must quote the heading it objects to; a counter measures heading and list-item density against the prompt's *budget*, not against the answer's own length. Scoring density against its own length is circular, since a 2500-word answer with 90 headings looks normally structured for its size, which is exactly the failure. The counter exists because the judge is forgiving: it quotes one bad heading and passes the rest. Fourteen responses here scored a perfect 10 on form while carrying up to 69 headings and 134 list items. Modest structure is free, so a list-shaped answer to a list-shaped question is never punished.
 
 ## Slop detection
 

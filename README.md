@@ -21,6 +21,12 @@ Score = clarity x (1 - slop tax)
 
 Full table with all seven rules in [`results/LEADERBOARD.md`](results/LEADERBOARD.md).
 
+```bash
+python3 -m readability_eval.chart --limit 5   # every model on the same 5 prompts
+```
+
+`--limit N` re-scores each model over its first N prompts. Without it the chart plots 30-prompt and 5-prompt runs on one axis, which compares different tests; the command prints `MIXED n=[5, 30]` when that happens.
+
 **Nobody writes to length.** Every prompt carries a word budget for what that question actually deserves, set from the ask alone: a two-line question gets ~60 words, a full lesson plan gets 500. Models run 1.5x to 2.5x over. The failure is not vocabulary, it is volume: understandability, filler and simple-word scores sit near 10 for everyone, while economy ranges 4.6 to 7.5 and does almost all the separating.
 
 ### Smoke sample: other families

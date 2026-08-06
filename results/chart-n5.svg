@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="910" viewBox="0 0 900 910" font-family="Helvetica,Arial,sans-serif">
+<rect width="900" height="910" fill="#0f1115"/>
+
+<text x="40" y="48" fill="#ffffff" font-size="22" font-weight="700">Readability score</text>
+<text x="40" y="72" fill="#8b93a1" font-size="14">clarity x (1 - slop tax) · axis starts at 45</text>
+<text x="198" y="117" fill="#ffffff" font-size="14" text-anchor="end">moonshotai/kimi-k3</text>
+<rect x="210" y="100" width="491" height="24" rx="3" fill="#4ade80"/>
+<text x="711" y="117" fill="#ffffff" font-size="14" font-weight="700">93.2</text>
+<text x="198" y="157" fill="#ffffff" font-size="14" text-anchor="end">x-ai/grok-4.5</text>
+<rect x="210" y="140" width="481" height="24" rx="3" fill="#3b82f6"/>
+<text x="701" y="157" fill="#ffffff" font-size="14" font-weight="700">92.2</text>
+<text x="198" y="197" fill="#ffffff" font-size="14" text-anchor="end">google/gemini-3.5-flash</text>
+<rect x="210" y="180" width="475" height="24" rx="3" fill="#3b82f6"/>
+<text x="695" y="197" fill="#ffffff" font-size="14" font-weight="700">91.7</text>
+<text x="198" y="237" fill="#ffffff" font-size="14" text-anchor="end">openai/gpt-5.6-sol</text>
+<rect x="210" y="220" width="409" height="24" rx="3" fill="#3b82f6"/>
+<text x="629" y="237" fill="#ffffff" font-size="14" font-weight="700">85.2</text>
+<text x="198" y="277" fill="#ffffff" font-size="14" text-anchor="end">claude-haiku-4-5</text>
+<rect x="210" y="260" width="392" height="24" rx="3" fill="#3b82f6"/>
+<text x="612" y="277" fill="#ffffff" font-size="14" font-weight="700">83.5</text>
+<text x="198" y="317" fill="#ffffff" font-size="14" text-anchor="end">claude-opus-5</text>
+<rect x="210" y="300" width="370" height="24" rx="3" fill="#3b82f6"/>
+<text x="590" y="317" fill="#ffffff" font-size="14" font-weight="700">81.3</text>
+<text x="198" y="357" fill="#ffffff" font-size="14" text-anchor="end">claude-sonnet-4-6</text>
+<rect x="210" y="340" width="257" height="24" rx="3" fill="#3b82f6"/>
+<text x="477" y="357" fill="#ffffff" font-size="14" font-weight="700">70.2</text>
+<text x="198" y="397" fill="#ffffff" font-size="14" text-anchor="end">claude-opus-4-6</text>
+<rect x="210" y="380" width="216" height="24" rx="3" fill="#3b82f6"/>
+<text x="436" y="397" fill="#ffffff" font-size="14" font-weight="700">66.2</text>
+<text x="198" y="437" fill="#ffffff" font-size="14" text-anchor="end">qwen/qwen3.8-max</text>
+<rect x="210" y="420" width="94" height="24" rx="3" fill="#3b82f6"/>
+<text x="314" y="437" fill="#ffffff" font-size="14" font-weight="700">54.2</text>
+
+<line x1="40" y1="500" x2="860" y2="500" stroke="#2b3240"/>
+
+<text x="40" y="550" fill="#ffffff" font-size="22" font-weight="700">Shorter answers score better</text>
+<text x="40" y="574" fill="#8b93a1" font-size="14">economy vs average answer length, in words</text>
+<line x1="100" y1="600" x2="100" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="100" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">0</text>
+<line x1="112" y1="600" x2="112" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="112" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">50</text>
+<line x1="124" y1="600" x2="124" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="124" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">100</text>
+<line x1="136" y1="600" x2="136" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="136" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">150</text>
+<line x1="149" y1="600" x2="149" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="149" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">200</text>
+<line x1="161" y1="600" x2="161" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="161" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">250</text>
+<line x1="173" y1="600" x2="173" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="173" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">300</text>
+<line x1="185" y1="600" x2="185" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="185" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">350</text>
+<line x1="197" y1="600" x2="197" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="197" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">400</text>
+<line x1="209" y1="600" x2="209" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="209" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">450</text>
+<line x1="221" y1="600" x2="221" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="221" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">500</text>
+<line x1="234" y1="600" x2="234" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="234" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">550</text>
+<line x1="246" y1="600" x2="246" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="246" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">600</text>
+<line x1="258" y1="600" x2="258" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="258" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">650</text>
+<line x1="270" y1="600" x2="270" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="270" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">700</text>
+<line x1="282" y1="600" x2="282" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="282" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">750</text>
+<line x1="294" y1="600" x2="294" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="294" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">800</text>
+<line x1="307" y1="600" x2="307" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="307" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">850</text>
+<line x1="319" y1="600" x2="319" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="319" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">900</text>
+<line x1="331" y1="600" x2="331" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="331" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">950</text>
+<line x1="343" y1="600" x2="343" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="343" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1000</text>
+<line x1="355" y1="600" x2="355" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="355" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1050</text>
+<line x1="367" y1="600" x2="367" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="367" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1100</text>
+<line x1="379" y1="600" x2="379" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="379" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1150</text>
+<line x1="392" y1="600" x2="392" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="392" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1200</text>
+<line x1="404" y1="600" x2="404" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="404" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1250</text>
+<line x1="416" y1="600" x2="416" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="416" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1300</text>
+<line x1="428" y1="600" x2="428" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="428" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1350</text>
+<line x1="440" y1="600" x2="440" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="440" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1400</text>
+<line x1="452" y1="600" x2="452" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="452" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1450</text>
+<line x1="464" y1="600" x2="464" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="464" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1500</text>
+<line x1="477" y1="600" x2="477" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="477" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1550</text>
+<line x1="489" y1="600" x2="489" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="489" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1600</text>
+<line x1="501" y1="600" x2="501" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="501" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1650</text>
+<line x1="513" y1="600" x2="513" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="513" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1700</text>
+<line x1="525" y1="600" x2="525" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="525" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1750</text>
+<line x1="537" y1="600" x2="537" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="537" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1800</text>
+<line x1="549" y1="600" x2="549" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="549" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1850</text>
+<line x1="562" y1="600" x2="562" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="562" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1900</text>
+<line x1="574" y1="600" x2="574" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="574" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">1950</text>
+<line x1="586" y1="600" x2="586" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="586" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2000</text>
+<line x1="598" y1="600" x2="598" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="598" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2050</text>
+<line x1="610" y1="600" x2="610" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="610" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2100</text>
+<line x1="622" y1="600" x2="622" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="622" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2150</text>
+<line x1="634" y1="600" x2="634" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="634" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2200</text>
+<line x1="647" y1="600" x2="647" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="647" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2250</text>
+<line x1="659" y1="600" x2="659" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="659" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2300</text>
+<line x1="671" y1="600" x2="671" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="671" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2350</text>
+<line x1="683" y1="600" x2="683" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="683" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2400</text>
+<line x1="695" y1="600" x2="695" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="695" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2450</text>
+<line x1="707" y1="600" x2="707" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="707" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2500</text>
+<line x1="720" y1="600" x2="720" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="720" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2550</text>
+<line x1="732" y1="600" x2="732" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="732" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2600</text>
+<line x1="744" y1="600" x2="744" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="744" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2650</text>
+<line x1="756" y1="600" x2="756" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="756" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2700</text>
+<line x1="768" y1="600" x2="768" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="768" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2750</text>
+<line x1="780" y1="600" x2="780" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="780" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2800</text>
+<line x1="792" y1="600" x2="792" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="792" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2850</text>
+<line x1="805" y1="600" x2="805" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="805" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2900</text>
+<line x1="817" y1="600" x2="817" y2="840" stroke="#2b3240" stroke-width="1"/>
+<text x="817" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2950</text>
+<circle cx="280" cy="623" r="7" fill="#f87171"/>
+<text x="267" y="628" fill="#ffffff" font-size="13" text-anchor="end">kimi-k3</text>
+<circle cx="295" cy="623" r="7" fill="#f87171"/>
+<line x1="295" y1="630" x2="289" y2="642" stroke="#8b93a1" stroke-width="1" opacity="0.5"/>
+<text x="282" y="646" fill="#ffffff" font-size="13" text-anchor="end">grok-4.5</text>
+<circle cx="340" cy="682" r="7" fill="#f87171"/>
+<text x="327" y="687" fill="#ffffff" font-size="13" text-anchor="end">gemini-3.5-flash</text>
+<circle cx="433" cy="691" r="7" fill="#f87171"/>
+<line x1="433" y1="698" x2="427" y2="701" stroke="#8b93a1" stroke-width="1" opacity="0.5"/>
+<text x="420" y="705" fill="#ffffff" font-size="13" text-anchor="end">gpt-5.6-sol</text>
+<circle cx="281" cy="682" r="7" fill="#f87171"/>
+<line x1="281" y1="689" x2="275" y2="701" stroke="#8b93a1" stroke-width="1" opacity="0.5"/>
+<text x="268" y="705" fill="#ffffff" font-size="13" text-anchor="end">claude-haiku-4-5</text>
+<circle cx="334" cy="712" r="7" fill="#f87171"/>
+<text x="321" y="723" fill="#ffffff" font-size="13" text-anchor="end">claude-opus-5</text>
+<circle cx="378" cy="726" r="7" fill="#f87171"/>
+<line x1="378" y1="733" x2="372" y2="737" stroke="#8b93a1" stroke-width="1" opacity="0.5"/>
+<text x="365" y="741" fill="#ffffff" font-size="13" text-anchor="end">claude-sonnet-4-6</text>
+<circle cx="381" cy="698" r="7" fill="#f87171"/>
+<line x1="381" y1="705" x2="374" y2="755" stroke="#8b93a1" stroke-width="1" opacity="0.5"/>
+<text x="368" y="759" fill="#ffffff" font-size="13" text-anchor="end">claude-opus-4-6</text>
+<circle cx="726" cy="798" r="7" fill="#f87171"/>
+<text x="713" y="803" fill="#ffffff" font-size="13" text-anchor="end">qwen3.8-max</text>
+<text x="460" y="886" fill="#8b93a1" font-size="13" text-anchor="middle">average words per answer</text>
+<text x="34" y="720" fill="#8b93a1" font-size="13" text-anchor="middle" transform="rotate(-90 34 720)">economy</text>
+</svg>

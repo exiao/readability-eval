@@ -89,10 +89,22 @@ Rules for grading:
     deliverable to find an answer that fits in a paragraph.
 - Process narration counts against form. The reader asked for an answer, not a
   description of the procedure that produced it.
+- THUMB TEST for sentences, not just headings. Cover any sentence. If the rest
+  of the answer still delivers the same fact, number, instruction and stake,
+  that sentence was never doing work. Two cases to look for:
+    - a second sentence that only renames what the first already said, adding
+      no constraint, number, consequence or next action
+    - a sentence that only announces content that follows ("Here is the
+      answer", "Three questions, in order") where numbered items and headings
+      already announce their own structure
+  A sentence that fails the thumb test is scaffolding even with no heading
+  attached, and it is quotable in form_quote.
 - Do NOT penalize structure that is load-carrying: numbered steps in
   instructions, real tabular data, or a format the prompt explicitly requested.
-- A response containing NO headings, no section labels and no tables cannot be
-  "report_theater". If there is no scaffolding to quote, the form "fits".
+- A response containing NO headings, no section labels and no tables can still
+  be "some_scaffolding" if it fails the thumb test above, but reserve
+  "report_theater" for answers whose STRUCTURE is the costume. If you cannot
+  quote either a heading or a specific do-nothing sentence, the form "fits".
 """
 
 

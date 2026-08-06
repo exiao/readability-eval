@@ -59,7 +59,8 @@ def score_case(c, judge_model=None, backend="openrouter", provider=None):
                "rule7_form": 10.0}
 
     det, detail = score_all(text, delivered, item.get("assumed", ()), budget=item.get("budget"),
-                            required=len(item["asks"]))
+                            required=len(item["asks"]),
+                            audience=item.get("audience", ""))
     rules = {**det, **jud}
     hits, breakdown = lexicon.score(text)
     clarity = clarity_score(rules, detail["economy"].get("coverage"))

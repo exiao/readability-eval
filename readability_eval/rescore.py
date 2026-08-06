@@ -29,7 +29,8 @@ def main():
             delivered = sum(1 for x in r["judge"].get("facts_delivered", []) if x)
             det, detail = score_all(r["response"], delivered,
                                     item.get("assumed", ()), required=len(item["asks"]),
-                                    budget=item.get("budget"))
+                                    budget=item.get("budget"),
+                                    audience=item.get("audience", ""))
             rules = {**det, **to_scores(r["judge"])}
             hits, breakdown = lexicon.score(r["response"])
             clarity = clarity_score(rules, detail["economy"].get("coverage"))

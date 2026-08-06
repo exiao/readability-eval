@@ -14,7 +14,7 @@
    "rule3_jargon": 9.3,
    "rule5_simple_words": 9.72,
    "rule6_filler": 9.89,
-   "rule1_understandable": 9.33,
+   "rule1_understandable": 9.5,
    "rule4_imagery": 8.93,
    "rule7_form": 9.83
   },
@@ -51,6 +51,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -122,6 +123,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -195,6 +197,7 @@
       "BATNA",
       "ZOPA"
      ],
+     "undefined_terms": [],
      "per_100w": 3.77
     },
     "simple_words": {
@@ -269,6 +272,7 @@
      "undefined_acronyms": [
       "EQ"
      ],
+     "undefined_terms": [],
      "per_100w": 1.82
     },
     "simple_words": {
@@ -339,6 +343,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -411,6 +416,7 @@
      "undefined_acronyms": [
       "EMI"
      ],
+     "undefined_terms": [],
      "per_100w": 2.63
     },
     "simple_words": {
@@ -481,6 +487,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -551,6 +558,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -600,7 +608,7 @@
     "rule3_jargon": 10.0,
     "rule5_simple_words": 5.8,
     "rule6_filler": 10.0,
-    "rule1_understandable": 5.0,
+    "rule1_understandable": 10.0,
     "rule4_imagery": 7.0,
     "rule7_form": 10.0
    },
@@ -621,6 +629,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -693,6 +702,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -765,6 +775,7 @@
      "undefined_acronyms": [
       "WARCs"
      ],
+     "undefined_terms": [],
      "per_100w": 2.33
     },
     "simple_words": {
@@ -837,6 +848,7 @@
      "undefined_acronyms": [
       "CBCT"
      ],
+     "undefined_terms": [],
      "per_100w": 2.0
     },
     "simple_words": {
@@ -907,6 +919,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -976,6 +989,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1047,6 +1061,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1117,6 +1132,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1187,6 +1203,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1257,6 +1274,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1327,6 +1345,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1397,6 +1416,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1467,6 +1487,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1537,6 +1558,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1607,6 +1629,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1679,6 +1702,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1749,6 +1773,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1819,6 +1844,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1889,6 +1915,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1959,6 +1986,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -2029,6 +2057,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -2098,6 +2127,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {

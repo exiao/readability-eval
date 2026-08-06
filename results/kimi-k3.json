@@ -5,13 +5,13 @@
   "condition": "default",
   "n": 5,
   "errors": 0,
-  "score": 94.4,
-  "clarity_avg": 9.71,
+  "score": 94.3,
+  "clarity_avg": 9.7,
   "slop_per_1k": 1.9,
   "avg_words": 740,
   "per_rule": {
    "rule2_economy": 7.94,
-   "rule3_jargon": 9.6,
+   "rule3_jargon": 9.54,
    "rule5_simple_words": 10.0,
    "rule6_filler": 10.0,
    "rule1_understandable": 10.0,
@@ -53,6 +53,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -124,6 +125,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -205,6 +207,7 @@
       "UC",
       "ZOPA"
      ],
+     "undefined_terms": [],
      "per_100w": 0.59
     },
     "simple_words": {
@@ -279,6 +282,7 @@
      "undefined_acronyms": [
       "EQ"
      ],
+     "undefined_terms": [],
      "per_100w": 0.33
     },
     "simple_words": {
@@ -325,21 +329,21 @@
    "response": "# Evacuating the Internet: A Plan\n\nFirst, a key reframe: the internet isn't a building people are trapped inside\u2014it's the wiring of society's trust. The pipes (cables, routers, servers) work fine. What's burning is the *content layer* and human cognition. So the goal isn't demolition; it's moving critical functions and public trust onto channels where authenticity can be verified.\n\n## Phase 1: Triage \u2014 get the vulnerable out first\n- **Critical infrastructure** (power, water, hospitals): verify these are air-gapped or segmented. They should never have depended on public internet content in the first place.\n- **Financial system**: shift high-value transactions to out-of-band verification with pre-shared keys between institutions; physical/in-person confirmation as fallback.\n- **Government communications**: pre-announce official broadcast channels (radio, TV, SMS) with code words or cryptographic signatures so citizens can distinguish real alerts from fakes.\n\n## Phase 2: Open evacuation routes \u2014 trusted channels\n- **Broadcast layer**: secured radio/TV transmitters, wartime-broadcaster style. Low bandwidth, but physically hard to spoof at scale.\n- **Signed content**: adopt cryptographic provenance standards (like C2PA) so authentic media carries proof of origin. Unsigned content defaults to \"unverified.\"\n- **Verified intranets**: whitelist networks for hospitals, banks, and agencies where every participant and file is authenticated.\n- **Local meshes and sneakernets**: community networks, ham radio, even USB drives for distributing verified knowledge.\n\n## Phase 3: The shelters \u2014 where society relocates\n- **Verified enclaves**: curated networks where identity and provenance are prerequisites, not options.\n- **Return of gatekeepers**: libraries, journals of record, and professional institutions resume their old verification role.\n- **Slow media**: deliberately high-latency formats (daily digests instead of infinite feeds) to blunt the speed of manipulation.\n- **Analog fallbacks**: paper records, in-person assemblies, physical notice boards for civic life.\n\n## Phase 4: The personal go-bag \u2014 what individuals do now\n- Download offline copies of essentials: Wikipedia, maps, medical and repair guides.\n- Establish family contact trees with verification phrases that don't rely on any platform.\n- Default to distrust: treat unsolicited digital content as suspect until confirmed via a second, independent channel.\n- Exit algorithmic feeds entirely; subscribe only to signed or institutionally verified sources.\n\n## Phase 5: Rebuild with fire codes\n- **Provenance by default**: signing at the point of capture (cameras, recording devices), so real media proves itself.\n- **Verification institutions**: an \"information fire department\"\u2014publicly accountable bodies that authenticate and debunk.\n- **Literacy as doctrine**: teach that manipulation's target is emotion; sudden outrage is the tell.\n- **Redundancy forever**: no critical function may ever again depend on a single information channel.\n\nThe end state looks less like a demolished city and more like one rebuilt after a fire code: same buildings, but now with exits, sprinklers, and inspectors. You don't abandon the internet\u2014you stop believing it for free.",
    "rules": {
     "rule2_economy": 7.5,
-    "rule3_jargon": 9.6,
+    "rule3_jargon": 9.3,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.66,
+   "clarity_avg": 9.62,
    "slop_per_1k": 5.3,
    "slop_breakdown": {
     "isnt_its": 1,
     "inline_header_list": 14
    },
    "slop_tax": 0.08,
-   "score": 88.9,
+   "score": 88.5,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -354,7 +358,10 @@
      "undefined_acronyms": [
       "USB"
      ],
-     "per_100w": 0.22
+     "undefined_terms": [
+      "bandwidth"
+     ],
+     "per_100w": 0.44
     },
     "simple_words": {
      "swaps": {},

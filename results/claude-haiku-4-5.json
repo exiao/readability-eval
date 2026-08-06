@@ -5,8 +5,8 @@
   "condition": "default",
   "n": 30,
   "errors": 0,
-  "score": 82.4,
-  "clarity_avg": 8.5,
+  "score": 83.1,
+  "clarity_avg": 8.58,
   "slop_per_1k": 2.2,
   "avg_words": 329,
   "per_rule": {
@@ -16,7 +16,7 @@
    "rule6_filler": 9.85,
    "rule1_understandable": 9.5,
    "rule4_imagery": 8.23,
-   "rule7_form": 5.33
+   "rule7_form": 6.17
   },
   "cost_usd": 0.0
  },
@@ -55,6 +55,7 @@
      "undefined_acronyms": [
       "TIPS"
      ],
+     "undefined_terms": [],
      "per_100w": 0.09
     },
     "simple_words": {
@@ -130,6 +131,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -209,6 +211,7 @@
       "MIT",
       "UC"
      ],
+     "undefined_terms": [],
      "per_100w": 0.17
     },
     "simple_words": {
@@ -285,6 +288,7 @@
      "undefined_acronyms": [
       "EQ"
      ],
+     "undefined_terms": [],
      "per_100w": 0.51
     },
     "simple_words": {
@@ -355,6 +359,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -431,6 +436,7 @@
      "undefined_acronyms": [
       "EMI"
      ],
+     "undefined_terms": [],
      "per_100w": 0.5
     },
     "simple_words": {
@@ -503,6 +509,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -577,6 +584,7 @@
      "undefined_acronyms": [
       "CRUD"
      ],
+     "undefined_terms": [],
      "per_100w": 0.17
     },
     "simple_words": {
@@ -653,6 +661,7 @@
      "undefined_acronyms": [
       "EGARCH"
      ],
+     "undefined_terms": [],
      "per_100w": 0.13
     },
     "simple_words": {
@@ -727,6 +736,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -799,6 +809,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -871,6 +882,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -945,6 +957,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1016,6 +1029,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1085,6 +1099,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1157,6 +1172,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1208,13 +1224,13 @@
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 5.0
+    "rule7_form": 10.0
    },
-   "clarity_avg": 9.1,
+   "clarity_avg": 9.84,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 91.0,
+   "score": 98.4,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -1227,6 +1243,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1280,13 +1297,13 @@
     "rule6_filler": 10.0,
     "rule1_understandable": 5.0,
     "rule4_imagery": 7.0,
-    "rule7_form": 5.0
+    "rule7_form": 10.0
    },
-   "clarity_avg": 7.8,
+   "clarity_avg": 8.54,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 78.0,
+   "score": 85.4,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -1299,6 +1316,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1369,6 +1387,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1443,6 +1462,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1517,6 +1537,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1592,6 +1613,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1664,6 +1686,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1742,6 +1765,7 @@
       "ETL",
       "ML"
      ],
+     "undefined_terms": [],
      "per_100w": 1.63
     },
     "simple_words": {
@@ -1793,7 +1817,7 @@
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 3.0,
-    "rule7_form": 0.0
+    "rule7_form": 10.0
    },
    "clarity_avg": 5.5,
    "slop_per_1k": 0.0,
@@ -1812,6 +1836,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1884,6 +1909,7 @@
      "undefined_acronyms": [
       "GMT"
      ],
+     "undefined_terms": [],
      "per_100w": 0.49
     },
     "simple_words": {
@@ -1959,6 +1985,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -2031,6 +2058,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -2082,13 +2110,13 @@
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 5.0
+    "rule7_form": 10.0
    },
-   "clarity_avg": 8.96,
+   "clarity_avg": 9.7,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 89.6,
+   "score": 97.0,
    "facts_delivered": "3/3",
    "detail": {
     "economy": {
@@ -2101,6 +2129,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -2173,6 +2202,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {

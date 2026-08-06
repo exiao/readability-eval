@@ -111,7 +111,8 @@ def eval_one(item, model, backend, provider, judge_model, judge_backend,
     delivered = sum(1 for x in parsed.get("facts_delivered", []) if x)
     det, det_detail = score_all(text, delivered, item.get("assumed", ()),
                                 required=len(item["asks"]),
-                                budget=item.get("budget"))
+                                budget=item.get("budget"),
+                                audience=item.get("audience", ""))
     jud = judge.to_scores(parsed)
 
     # Rule 7, deterministic half. The judge grades form subjectively and is

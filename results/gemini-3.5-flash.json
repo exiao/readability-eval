@@ -51,6 +51,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -122,6 +123,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -194,6 +196,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -264,6 +267,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -342,6 +346,7 @@
       "SMS",
       "SSDs"
      ],
+     "undefined_terms": [],
      "per_100w": 0.65
     },
     "simple_words": {

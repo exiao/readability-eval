@@ -5,13 +5,13 @@
   "condition": "default",
   "n": 5,
   "errors": 0,
-  "score": 93.5,
-  "clarity_avg": 9.61,
+  "score": 93.4,
+  "clarity_avg": 9.59,
   "slop_per_1k": 1.8,
   "avg_words": 804,
   "per_rule": {
    "rule2_economy": 8.0,
-   "rule3_jargon": 9.92,
+   "rule3_jargon": 9.8,
    "rule5_simple_words": 9.98,
    "rule6_filler": 9.98,
    "rule1_understandable": 10.0,
@@ -51,6 +51,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -122,6 +123,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -199,6 +201,7 @@
       "WATNA",
       "ZOPA"
      ],
+     "undefined_terms": [],
      "per_100w": 0.22
     },
     "simple_words": {
@@ -247,21 +250,21 @@
    "response": "Here are some common voice effects used to create a classic \u201crobot\u201d voice:\n\n1. **Pitch shifting / Vocoding**  \n   - Slight downward or metallic pitch shift.  \n   - Full vocoder (carrier = your voice, modulator = synth tone) for the classic \u201csinging robot\u201d sound.\n\n2. **Ring modulation**  \n   - Multiplies your voice by a sine wave (often 30\u2013100 Hz) to create metallic, inharmonic sidebands.\n\n3. **Bit-crushing / Sample-rate reduction**  \n   - Reduces bit depth (e.g., to 8-bit or 4-bit) and/or sample rate for that gritty, digital lo-fi robot quality.\n\n4. **Formant shifting**  \n   - Moves formants without changing pitch, giving an unnatural, resonant \u201ctalking machine\u201d character.\n\n5. **Heavy robotic stutter / granular gating**  \n   - Rapid amplitude gating or granular freeze/stutter to chop the voice into rhythmic, mechanical fragments.\n\n6. **Flanging / phasing + metallic resonance**  \n   - Strong comb-filtering or resonant peaks that sweep slightly, adding a hollow, mechanical sheen.\n\n7. **Monotone / pitch quantization**  \n   - Force the voice onto a single pitch or a limited scale so it sounds flat and synthetic.\n\n8. **Distortion + EQ sculpting**  \n   - Light waveshaping or overdrive, then boost odd frequencies (e.g., 1\u20132 kHz and 3\u20135 kHz) while cutting warmth for a thin, metallic tone.\n\n**Typical quick chain many people use:**  \nVoice \u2192 Vocoder or pitch-shift \u2192 Bit-crusher \u2192 Ring mod (subtle) \u2192 EQ (scoop mids, boost highs) \u2192 optional short robotic delay/reverb.\n\nThese can be done in any DAW (// with built-in plugins, or free tools like Graillon, Vocoder plugins, etc.) or even real-time with apps like Voicemod, MorphVOX, or hardware vocoders.  \n\nLet me know if you want specific plugin recommendations or parameter starting points!",
    "rules": {
     "rule2_economy": 10.0,
-    "rule3_jargon": 10.0,
+    "rule3_jargon": 9.4,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 10.0,
+   "clarity_avg": 9.91,
    "slop_per_1k": 4.7,
    "slop_breakdown": {
     "hyphen_pairs": 1,
     "chatbot": 1
    },
    "slop_tax": 0.071,
-   "score": 93.0,
+   "score": 92.1,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -274,7 +277,10 @@
     },
     "jargon": {
      "undefined_acronyms": [],
-     "per_100w": 0.0
+     "undefined_terms": [
+      "quantization"
+     ],
+     "per_100w": 0.38
     },
     "simple_words": {
      "swaps": {},
@@ -347,6 +353,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {

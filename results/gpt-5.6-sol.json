@@ -51,6 +51,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -124,6 +125,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -201,6 +203,7 @@
       "MIT",
       "ZOPA"
      ],
+     "undefined_terms": [],
      "per_100w": 0.11
     },
     "simple_words": {
@@ -277,6 +280,7 @@
      "undefined_acronyms": [
       "EQ"
      ],
+     "undefined_terms": [],
      "per_100w": 0.41
     },
     "simple_words": {
@@ -351,6 +355,7 @@
      "undefined_acronyms": [
       "SMS"
      ],
+     "undefined_terms": [],
      "per_100w": 0.17
     },
     "simple_words": {

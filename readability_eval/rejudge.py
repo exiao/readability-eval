@@ -70,7 +70,8 @@ def main():
         det, detail = score_all(r["response"], delivered,
                                 ITEMS[r["id"]].get("assumed", ()),
                                 required=len(ITEMS[r["id"]]["asks"]),
-                                budget=ITEMS[r["id"]].get("budget"))
+                                budget=ITEMS[r["id"]].get("budget"),
+                                audience=ITEMS[r["id"]].get("audience", ""))
         rules = {**det, **judge.to_scores(p)}
         clarity = clarity_score(rules, detail["economy"].get("coverage"))
         hits, breakdown = lexicon.score(r["response"])

@@ -11,7 +11,7 @@
   "avg_words": 558,
   "per_rule": {
    "rule2_economy": 6.94,
-   "rule3_jargon": 9.46,
+   "rule3_jargon": 9.44,
    "rule5_simple_words": 9.81,
    "rule6_filler": 9.98,
    "rule1_understandable": 9.83,
@@ -54,6 +54,7 @@
       "EYES",
       "HANDS"
      ],
+     "undefined_terms": [],
      "per_100w": 0.14
     },
     "simple_words": {
@@ -131,6 +132,7 @@
       "NGSS",
       "SL"
      ],
+     "undefined_terms": [],
      "per_100w": 0.21
     },
     "simple_words": {
@@ -209,6 +211,7 @@
       "MIT",
       "OCW"
      ],
+     "undefined_terms": [],
      "per_100w": 1.92
     },
     "simple_words": {
@@ -285,6 +288,7 @@
       "LPC",
       "MIDI"
      ],
+     "undefined_terms": [],
      "per_100w": 0.51
     },
     "simple_words": {
@@ -361,6 +365,7 @@
       "BBS",
       "RSS"
      ],
+     "undefined_terms": [],
      "per_100w": 0.18
     },
     "simple_words": {
@@ -436,6 +441,7 @@
       "EMIs",
       "PMAY"
      ],
+     "undefined_terms": [],
      "per_100w": 0.54
     },
     "simple_words": {
@@ -506,6 +512,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -584,6 +591,7 @@
       "FK",
       "PM"
      ],
+     "undefined_terms": [],
      "per_100w": 0.57
     },
     "simple_words": {
@@ -656,6 +664,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -736,6 +745,7 @@
       "TCP",
       "VM"
      ],
+     "undefined_terms": [],
      "per_100w": 1.74
     },
     "simple_words": {
@@ -808,6 +818,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -888,6 +899,7 @@
       "EPT",
       "TMD"
      ],
+     "undefined_terms": [],
      "per_100w": 0.4
     },
     "simple_words": {
@@ -958,6 +970,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1031,6 +1044,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1121,6 +1135,7 @@
       "UNEP",
       "UNIDO"
      ],
+     "undefined_terms": [],
      "per_100w": 1.57
     },
     "simple_words": {
@@ -1193,6 +1208,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1265,6 +1281,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1337,6 +1354,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1409,6 +1427,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1481,6 +1500,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1555,6 +1575,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1627,6 +1648,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -1703,6 +1725,7 @@
       "DS",
       "SEVIS"
      ],
+     "undefined_terms": [],
      "per_100w": 0.23
     },
     "simple_words": {
@@ -1783,6 +1806,7 @@
       "ML",
       "NLP"
      ],
+     "undefined_terms": [],
      "per_100w": 0.93
     },
     "simple_words": {
@@ -1858,6 +1882,7 @@
       "II",
       "III"
      ],
+     "undefined_terms": [],
      "per_100w": 0.22
     },
     "simple_words": {
@@ -1932,6 +1957,7 @@
      "undefined_acronyms": [
       "GMT"
      ],
+     "undefined_terms": [],
      "per_100w": 0.13
     },
     "simple_words": {
@@ -2002,6 +2028,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -2048,20 +2075,20 @@
    "response": "## Setting up the numbers\n\nTake a bond with face value 1,000, annual coupon 6.00% (= 60 per year), 10 years to maturity, YTM = 6.45%.\n\n**Purchase price (PV at 6.45%):**\n\n$$P_0 = 60\\cdot\\frac{1-1.0645^{-10}}{0.0645} + \\frac{1000}{1.0645^{10}} = 60(7.2052)+535.26 \\approx 967.58$$\n\n(It trades at a discount, since the coupon 6.00% < YTM 6.45%.)\n\n**Terminal wealth after 10 years** (coupons reinvested at 6.45%):\n\n$$FV = 60\\cdot\\frac{1.0645^{10}-1}{0.0645} + 1000 = 60(13.461)+1000 = 807.7+1000 \\approx 1{,}807.7$$\n\n**Realized (total) return:**\n\n$$r=\\left(\\frac{1807.7}{967.58}\\right)^{1/10}-1 = (1.8682)^{1/10}-1 = 6.45\\%\\ \\text{p.a.}$$\n\ni.e. the money grows by ~86.8% in total over the 10 years.\n\n## The assumptions behind this result\n\nThe expected total return equals the promised YTM of **6.45% p.a.**, but only because we implicitly assume:\n\n1. **Reinvestment at the YTM:** every coupon received is immediately reinvested at 6.45% until maturity (a flat, constant yield curve / unchanged rates). This is the crucial \u2013 and unrealistic \u2013 assumption; it creates **reinvestment risk**.\n2. **Hold to maturity:** the bond is not sold early, so no price risk from interest-rate changes is realized (the bond pulls to par).\n3. **No default:** issuer pays all coupons and the principal in full and on time (no credit/liquidity risk).\n4. **No taxes, no transaction costs, no call/put features.**\n\n## Why it matters\n\nIf coupons can only be reinvested at, say, 5%, terminal wealth is 60(12.578)+1000 = 1,754.7 and the realized return drops to\n\n$$(1754.7/967.58)^{1/10}-1 \\approx 6.13\\%\\ \\text{p.a.}$$\n\nConversely, higher reinvestment rates push the realized return above 6.45%. In this example the coupon interest-on-interest (~808 \u2212 600 = 208) is a substantial part of total earnings, so the assumption is far from trivial. Only a **zero-coupon bond held to maturity** guarantees the promised YTM exactly, since it has no coupons to reinvest.",
    "rules": {
     "rule2_economy": 8.7,
-    "rule3_jargon": 9.4,
+    "rule3_jargon": 8.8,
     "rule5_simple_words": 9.3,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.66,
+   "clarity_avg": 9.57,
    "slop_per_1k": 3.5,
    "slop_breakdown": {
     "ai_vocab": 1
    },
    "slop_tax": 0.052,
-   "score": 91.6,
+   "score": 90.7,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -2076,7 +2103,10 @@
      "undefined_acronyms": [
       "FV"
      ],
-     "per_100w": 0.35
+     "undefined_terms": [
+      "liquidity"
+     ],
+     "per_100w": 0.7
     },
     "simple_words": {
      "swaps": {
@@ -2148,6 +2178,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -2219,6 +2250,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {

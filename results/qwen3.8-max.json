@@ -55,6 +55,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -128,6 +129,7 @@
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -211,7 +213,10 @@
       "OCW",
       "ZOPA"
      ],
-     "per_100w": 0.1
+     "undefined_terms": [
+      "stakeholder alignment"
+     ],
+     "per_100w": 0.12
     },
     "simple_words": {
      "swaps": {
@@ -285,6 +290,7 @@
      "undefined_acronyms": [
       "EQ"
      ],
+     "undefined_terms": [],
      "per_100w": 0.07
     },
     "simple_words": {
@@ -361,6 +367,7 @@
      "undefined_acronyms": [
       "SMS"
      ],
+     "undefined_terms": [],
      "per_100w": 0.06
     },
     "simple_words": {

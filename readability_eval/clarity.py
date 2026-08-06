@@ -196,7 +196,74 @@ def rule2_economy(text, facts, required=None, budget=None):
                "over_budget": round(words / budget, 2)}
 
 
-def rule3_jargon(text, assumed=()):
+# Domain terms a general reader cannot decode from context. Kept deliberately
+# short and specific: the rule is audience-relative, so a term the prompt marks
+# as assumed costs nothing, and anything defined inline costs nothing. These
+# are words that carry a precise meaning inside one field and none outside it.
+JARGON_TERMS = {
+    # distributed systems / backend
+    "idempotent", "idempotency", "eventual consistency", "backpressure",
+    "tail latency", "quorum", "sharding", "shard", "denormalized",
+    "denormalization", "backfill", "cutover", "failover", "throughput",
+    "contention", "reconciliation", "reconcile", "orchestration",
+    "serialization", "deserialization", "middleware", "webhook",
+    # data / ml
+    "embedding", "vectorize", "inference", "fine-tune", "fine-tuning",
+    "hyperparameter", "overfitting", "regularization", "gradient descent",
+    "tokenization", "quantization", "ablation",
+    # product / process
+    "north star metric", "actionable insights", "value-add", "synergy",
+    "bandwidth", "circle back", "double-click on", "socialize",
+    "stakeholder alignment", "operationalize",
+    # finance
+    "amortization", "arbitrage", "basis points", "liquidity", "hedging",
+}
+_JARGON_RX = re.compile(
+    r"\b(" + "|".join(sorted((re.escape(t) for t in JARGON_TERMS),
+                             key=len, reverse=True)) + r")\b", re.I)
+
+
+# Readers who own the vocabulary. A term is only jargon relative to someone:
+# "throughput" is the correct word for a sysadmin sizing a VPN and pretentious
+# noise in a lesson plan. Without this gate the rule flagged 22 uses of
+# "throughput" in answers written FOR a sysadmin, which is not a defect, it is
+# the right word for the reader.
+EXPERT_AUDIENCE = re.compile(
+    r"\b(?:engineer|developer|programmer|sysadmin|admin|devops|sre|architect|"
+    r"data scientist|analyst|technical|scientist|researcher|trader|quant|"
+    r"lawyer|clinician|physician|specialist|professional)\b", re.I)
+
+
+def _undefined_jargon(text, assumed, audience=""):
+    """Jargon terms that are neither assumed, explained, nor native to the reader.
+
+    Three exemptions, because precision is not the defect:
+
+    1. The prompt marks the term as assumed.
+    2. The answer explains it on the spot. Generous on purpose: a
+       parenthetical, a dash gloss, or "that is / which means" all count. A
+       term named precisely and then unpacked is doing its job.
+    3. The reader is an expert in the field the term belongs to. Only 8 of the
+       30 prompts declare `assumed`, so the audience string has to carry this.
+    """
+    if EXPERT_AUDIENCE.search(audience or ""):
+        return []
+    scan = lexicon.strip_quoted(text)
+    low_assumed = {a.lower() for a in assumed}
+    out = []
+    for m in _JARGON_RX.finditer(scan):
+        term = m.group(1).lower()
+        if term in low_assumed:
+            continue
+        after = scan[m.end():m.end() + 90]
+        if re.match(r"\s*[(\u2014-]|\s*(?:,\s*)?(?:that is|which means|i\.e\.|"
+                    r"meaning|or\b)", after, re.I):
+            continue
+        out.append(term)
+    return out
+
+
+def rule3_jargon(text, assumed=(), audience=""):
     """Undefined terms + unexpanded acronyms per 100 words.
 
     Audience-relative: a term the reader is assumed to know costs nothing, and a
@@ -220,8 +287,10 @@ def rule3_jargon(text, assumed=()):
            re.search(r"\([^)]*" + re.escape(a) + r"[^)]*\)", text):
             continue
         undefined.append(a)
-    rate = _per100(len(undefined), words)
+    terms = _undefined_jargon(text, assumed, audience)
+    rate = _per100(len(undefined) + len(terms), words)
     return _to10(rate, 6.0), {"undefined_acronyms": sorted(undefined),
+                              "undefined_terms": sorted(set(terms)),
                               "per_100w": round(rate, 2)}
 
 
@@ -264,9 +333,9 @@ def rule6_filler(text):
                               "grammar": g, "per_100w": round(rate, 2)}
 
 
-def score_all(text, facts, assumed=(), required=None, budget=None):
+def score_all(text, facts, assumed=(), required=None, budget=None, audience=""):
     r2, d2 = rule2_economy(text, facts, required, budget)
-    r3, d3 = rule3_jargon(text, assumed)
+    r3, d3 = rule3_jargon(text, assumed, audience)
     r5, d5 = rule5_simple_words(text)
     r6, d6 = rule6_filler(text)
     return {"rule2_economy": r2, "rule3_jargon": r3,

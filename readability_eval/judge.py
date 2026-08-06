@@ -61,7 +61,15 @@ Rules for grading:
 - Judge clarity FOR THE STATED AUDIENCE. A precise technical term a backend
   engineer knows is not a clarity problem. Replacing it with vague everyday
   words would be worse.
-- "clear" means a competent member of that audience gets it on one read.
+- "clear" means a competent member of that audience gets it on one read,
+  START TO FINISH. Do not award it for an answer that is mostly readable with
+  one sentence you had to parse twice: that is exactly "needs_a_reread", and
+  it is the most common real verdict. Reserve "clear" for answers where you
+  can honestly point at no sentence that slowed you down.
+- Sentences that earn "needs_a_reread": a pronoun whose referent you had to
+  hunt for, a clause stacked three deep, a sentence over about 40 words with
+  no punctuation to break it, a term used before it is introduced, or a
+  negation you had to read twice to resolve. Quote the worst one.
 - When the audience is a machine or a script and the prompt asked for a data
   format (JSON, CSV, a single value), a bare well-formed payload is "clear" and
   its form "fits". Do not mark it opaque for lacking sentences, and do not
@@ -139,16 +147,35 @@ def parse(raw):
         raise
 
 
+def _is_sentence(quote, min_words=4):
+    """A quote counts as evidence only if it is prose.
+
+    Judges under instruction to name the worst sentence will sometimes quote a
+    fragment of markdown instead. Requiring a few real words keeps a penalty
+    from resting on punctuation.
+    """
+    q = (quote or "").strip()
+    if not q:
+        return False
+    words = re.findall(r"[A-Za-z']{2,}", q)
+    return len(words) >= min_words
+
+
 def to_scores(parsed):
     """Labels -> numbers. Quote required, else the penalty is dropped."""
     clarity = LABELS_CLARITY.get(parsed.get("clarity"), 5)
-    if clarity < 10 and not (parsed.get("clarity_quote") or "").strip():
-        clarity = 10  # unsubstantiated complaint
+    if clarity < 10 and not _is_sentence(parsed.get("clarity_quote")):
+        # Unsubstantiated complaint. The quote must be an actual sentence:
+        # a judge pressed to find something hard to read will otherwise point
+        # at markup ("*(\n---") and the penalty stands on nothing.
+        clarity = 10
     imagery = LABELS_IMAGERY.get(parsed.get("imagery"), 7)
     if imagery < 7 and not (parsed.get("imagery_suggestion") or "").strip():
         imagery = 7   # could not name the image it wanted
     form = LABELS_FORM.get(parsed.get("form"), 10)
-    if form < 10 and not (parsed.get("form_quote") or "").strip():
-        form = 10     # could not point at the scaffolding it objected to
+    if form < 10 and not _is_sentence(parsed.get("form_quote"), min_words=2):
+        # Same evidence standard, lower bar: a heading is legitimately short
+        # ("## Summary"), so two words is enough to name one.
+        form = 10
     return {"rule1_understandable": float(clarity), "rule4_imagery": float(imagery),
             "rule7_form": float(form)}

@@ -72,7 +72,8 @@ def main():
                                 required=len(ITEMS[r["id"]]["asks"]),
                                 budget=ITEMS[r["id"]].get("budget"),
                                 audience=ITEMS[r["id"]].get("audience", ""))
-        rules = {**det, **judge.to_scores(p)}
+        det, jud = judge.merge_judged(det, judge.to_scores(p))
+        rules = {**det, **jud}
         clarity = clarity_score(rules, detail["economy"].get("coverage"))
         hits, breakdown = lexicon.score(r["response"])
         tax = slop_tax(hits)

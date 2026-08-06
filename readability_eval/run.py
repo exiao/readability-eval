@@ -124,6 +124,14 @@ def eval_one(item, model, backend, provider, judge_model, judge_backend,
     scaf, scaf_detail = scaffold.score(text, item.get("budget") or 300)
     jud["rule7_form"] = min(jud["rule7_form"], scaf)
 
+    # Rules 2, 3, 5 and 6: same treatment. The counters only see the phrases
+    # on their lists, and most of those lists never fire on real answers (43
+    # of 49 jargon terms, 18 of 21 filler patterns). The judge reads for the
+    # same defect in wording nobody enumerated. Take the worse of the two: the
+    # judge can fail an answer the counter waved through, and the counter can
+    # fail one the judge found pleasant.
+    det, jud = judge.merge_judged(det, jud)
+
     rules = {**det, **jud}
     clarity = clarity_score(rules, det_detail["economy"].get("coverage"))
     hits, breakdown = lexicon.score(text)

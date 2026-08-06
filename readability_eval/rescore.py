@@ -9,7 +9,7 @@ import statistics
 
 from . import lexicon
 from .clarity import score_all
-from .judge import to_scores
+from .judge import merge_judged, to_scores
 from .run import clarity_score, slop_tax
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,7 +31,8 @@ def main():
                                     item.get("assumed", ()), required=len(item["asks"]),
                                     budget=item.get("budget"),
                                     audience=item.get("audience", ""))
-            rules = {**det, **to_scores(r["judge"])}
+            det, jud = merge_judged(det, to_scores(r["judge"]))
+            rules = {**det, **jud}
             hits, breakdown = lexicon.score(r["response"])
             clarity = clarity_score(rules, detail["economy"].get("coverage"))
             tax = slop_tax(hits)

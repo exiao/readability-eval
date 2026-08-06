@@ -96,7 +96,9 @@ Rules 1-6 come from Orwell's *Politics and the English Language*. Rule 7 was add
 | 6 | Filler, pretentious diction, euphemism? | Phrase list + 20 grammar patterns, euphemism 3x |
 | 7 | Shaped like the answer, or like a report? | Judge quote + scaffolding density per budget |
 
-Rules 2, 3, 5, 6 are deterministic counters. Rules 1, 4 and 7 use a judge that must quote its evidence — no quote, no penalty.
+Every rule is judged. Rules 2, 3, 5 and 6 are ALSO counted mechanically, and the score is the worse of the two — the judge can fail an answer the counter waved through, and the counter can fail one the judge found pleasant. Rules 1, 4 and 7 are judge-only. Every judged verdict must quote its evidence: no quote, no penalty.
+
+The second opinion exists because the counters are precise but blind. They only see the phrases on their lists, and most of those lists never fire (see the caveat below). On a 20-response sample the judge was stricter than the counter in 36 of 79 rule-judgements, catching `tCO₂e`, `solar irradiance`, `borne by the sender` and "the unglamorous but critical layer" — none of which any list would have contained.
 
 **Economy is weighted at 0.75, the other six at 1.0.** It is the only rule with real variance, so at equal weight it quietly became the benchmark: 65% of saved answers scored *higher* when truncated to half their length, the worst by 41 points. Truncation cannot improve an answer, so a metric that rewards it is measuring the wrong thing. Three fixes, in order of size:
 

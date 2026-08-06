@@ -22,6 +22,18 @@ LABELS_IMAGERY = {"concrete": 10, "abstract_but_fine": 7, "needed_an_image": 3}
 # place depends on what was asked.
 LABELS_FORM = {"fits": 10, "some_scaffolding": 5, "report_theater": 0}
 
+# Rules 2, 3, 5 and 6 are counted mechanically AND judged, then the worse of
+# the two is taken (same belt-and-braces as rule 7). The counters are precise
+# but blind: they only see the phrases on their lists, and 43 of 49 jargon
+# terms plus 18 of 21 filler patterns never fire on real answers. A judge
+# reading for the same defect catches the wording nobody thought to list.
+# The counter still guards the other direction, since a judge waves through
+# padding it finds pleasant.
+LABELS_ECONOMY = {"tight": 10, "some_padding": 5, "bloated": 0}
+LABELS_JARGON = {"plain": 10, "some_jargon": 5, "impenetrable": 0}
+LABELS_SIMPLE = {"simple": 10, "some_complex": 5, "needlessly_complex": 0}
+LABELS_FILLER = {"no_filler": 10, "some_filler": 5, "padded": 0}
+
 TEMPLATE = """You are grading ONE response for readability. Be strict and literal.
 
 AUDIENCE: {audience}
@@ -54,7 +66,15 @@ Return ONLY valid JSON, no prose, no code fence:
   "imagery_quote": "the exact abstract sentence that needed a concrete image, or empty string if none",
   "imagery_suggestion": "the concrete image or example you would have used, or empty string",
   "form": "fits" | "some_scaffolding" | "report_theater",
-  "form_quote": "the exact heading, label or table row that is doing no work, or empty string if none"
+  "form_quote": "the exact heading, label or table row that is doing no work, or empty string if none",
+  "economy": "tight" | "some_padding" | "bloated",
+  "economy_quote": "the exact sentence you would cut with no loss, or empty string if none",
+  "jargon": "plain" | "some_jargon" | "impenetrable",
+  "jargon_quote": "the exact undefined term, acronym or figure of speech this reader would stumble on, or empty string if none",
+  "simple_words": "simple" | "some_complex" | "needlessly_complex",
+  "simple_words_quote": "the exact complex word or phrase used where a simple one would do, or empty string if none",
+  "filler": "no_filler" | "some_filler" | "padded",
+  "filler_quote": "the exact filler, pretentious phrase or euphemism, or empty string if none"
 }}
 
 Rules for grading:
@@ -107,6 +127,42 @@ Rules for grading:
       already announce their own structure
   A sentence that fails the thumb test is scaffolding even with no heading
   attached, and it is quotable in form_quote.
+- ECONOMY: can words come out and the answer still be clear? Judge against
+  what the QUESTION deserves, not against short-is-better. A long answer to a
+  genuinely long question is "tight". Quote a sentence you would cut with no
+  loss of fact, number, instruction or stake.
+  - "tight" — nothing to cut without losing content.
+  - "some_padding" — you can name a sentence or section that could go.
+  - "bloated" — you could cut a third and lose nothing.
+  Terse is never a defect here. An answer that skips half the request is
+  already punished through coverage; do not punish it twice for being short.
+- JARGON: would THIS audience stumble? Include undefined acronyms (BATNA,
+  ZOPA, EMI) and figures of speech that assume shared context ("boil the
+  ocean", "move the needle"). A precise term the stated reader knows is not
+  jargon, and a term explained on the spot is not jargon. Quote the exact
+  term, not the sentence around it.
+- SIMPLE WORDS: a complex word where a simple one carries the same meaning
+  ("utilize" for "use", "commence" for "start", "in order to" for "to").
+  Do NOT flag a precise word that has no short synonym: "chrysalis" is not a
+  complex word for "cocoon", it is a different thing. Quote the word.
+- FILLER: words occupying space without carrying meaning. Four kinds, all
+  count: empty intros ("it is worth noting that"), pretentious diction
+  ("leverage", "seamless"), meaningless connective padding, and euphemism
+  ("rightsizing" for layoffs). Euphemism is the worst of the four because the
+  defect is dishonesty, not wordiness. Quote the exact phrase.
+- For all four of the above: if you cannot quote it, the answer is the clean
+  label. An unquotable complaint is not evidence.
+- AND THE DEFAULT FOR ALL FOUR IS THE CLEAN LABEL. You are looking for real
+  defects, not filling in a form. Most good answers are genuinely "tight",
+  "plain", "simple" and "no_filler" on all four at once, and marking one down
+  to look thorough is the failure mode here. Two specific traps:
+  - A common short word is not jargon because it is informal. "infra", "app",
+    "repo" read fine to the audience that uses them. Flag a term only if this
+    reader would have to look it up.
+  - A vivid sentence that carries an argument is not filler. "Neither promise
+    survives contact with a deadline" states the reason for the decision.
+    Filler is a phrase you can delete with NO loss of meaning, not a phrase
+    you personally would have worded plainly.
 - Do NOT penalize structure that is load-carrying: numbered steps in
   instructions, real tabular data, or a format the prompt explicitly requested.
 - A response containing NO headings, no section labels and no tables can still
@@ -161,6 +217,23 @@ def _is_sentence(quote, min_words=4):
     return len(words) >= min_words
 
 
+def merge_judged(det, jud):
+    """Fold judged opinions on the counted rules into the counter scores.
+
+    Takes the worse of the two. The counters only see the phrases on their
+    lists; the judge reads for the same defect in wording nobody enumerated.
+    Mutates and returns `det`, and returns `jud` stripped of judged_* keys so
+    callers can splat both without leaking scratch keys into the rule set.
+    """
+    judged = {k[len("judged_"):]: v for k, v in jud.items()
+              if k.startswith("judged_")}
+    clean = {k: v for k, v in jud.items() if not k.startswith("judged_")}
+    for rule, jscore in judged.items():
+        if rule in det:
+            det[rule] = min(det[rule], jscore)
+    return det, clean
+
+
 def to_scores(parsed):
     """Labels -> numbers. Quote required, else the penalty is dropped."""
     clarity = LABELS_CLARITY.get(parsed.get("clarity"), 5)
@@ -177,5 +250,23 @@ def to_scores(parsed):
         # Same evidence standard, lower bar: a heading is legitimately short
         # ("## Summary"), so two words is enough to name one.
         form = 10
-    return {"rule1_understandable": float(clarity), "rule4_imagery": float(imagery),
-            "rule7_form": float(form)}
+    out = {"rule1_understandable": float(clarity),
+           "rule4_imagery": float(imagery),
+           "rule7_form": float(form)}
+    # Judged opinions on the four counted rules. Returned under judged_* so the
+    # caller can combine them with the counters rather than overwrite them.
+    for rule, field, labels, floor in (
+            ("rule2_economy", "economy", LABELS_ECONOMY, 4),
+            ("rule3_jargon", "jargon", LABELS_JARGON, 1),
+            ("rule5_simple_words", "simple_words", LABELS_SIMPLE, 1),
+            ("rule6_filler", "filler", LABELS_FILLER, 1)):
+        quote_key = field + "_quote"
+        key = rule
+        score = labels.get(parsed.get(field))
+        if score is None:
+            continue          # judge omitted it: fall back to the counter alone
+        if score < 10 and not _is_sentence(parsed.get(quote_key),
+                                           min_words=floor):
+            score = 10        # unquotable complaint is not evidence
+        out["judged_" + key] = float(score)
+    return out

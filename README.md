@@ -104,9 +104,12 @@ Three layers. A word list alone catches maybe half.
 
 | Layer | Catches |
 |---|---|
-| 173 terms | `delve`, `testament to`, `boasts`, `great question`, `headwinds` |
+| 175 terms | `delve`, `testament to`, `boasts`, `great question`, `load-bearing` |
 | 12 patterns | `It's not X. It's Y.` · `not just X, but Y` · `serves as` |
+| Structure | staccato runs, rule-of-three padding |
 | Shape | em dashes, sentence-length variance, fragment ratio, bold density |
+
+**Staccato** is period-spam: three or more consecutive short declarative sentences that refuse to join a clause. *"Little words. Short sentences. Cut the fat. Redo it."* reads like a drill sergeant and contains no banned vocabulary at all, so the word list cannot see it. Only declaratives count, because rhetorical question pairs and classroom exclamations are cadence a reader expects; an earlier version that ignored this flagged 25 runs in the corpus and nearly all were lesson plans. Its contribution is capped, since a rate per 1000 words would let one tic in a 50-word answer outweigh every vocabulary offence combined.
 
 Sources: [Wikipedia's Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), the [humanizer](https://github.com/blader/humanizer) pattern set, a personal kill list.
 

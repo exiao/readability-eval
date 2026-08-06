@@ -12,6 +12,9 @@ register. They generate false positives on good human writing.
 import re
 import statistics
 
+# Max slop-per-1k a structural tic may contribute, regardless of text length.
+STACCATO_CAP = 5.0
+
 # ---------------------------------------------------------------- WORDS
 WORDS = {
     "ai_vocab": ["delve", "realm", "robust", "seamless", "harness", "utilize",
@@ -142,8 +145,71 @@ def score(text):
     if b_three:
         b["rule_of_three"] = b_three
 
+    # Period-spam: 3+ consecutive short declaratives, no banned words needed.
+    # Counted per RUN, not per sentence: one structural tic is one hit.
+    b_stac = len(staccato_runs(text))
+    if b_stac:
+        b["staccato"] = b_stac
+
     total = sum(b.values())
-    return round(total / words * 1000, 1), b
+    hits = total / words * 1000
+
+    # Structural tics are capped, vocabulary offences are not. A rate per 1000
+    # words detonates on short text: one run in a 50-word answer reads as 20
+    # hits/1k and costs 28 points, more than any banned word, purely because
+    # the answer is short. The brief condition makes 50-word answers routine.
+    # Capping only the staccato contribution fixes that without a denominator
+    # floor, which would have inflated every brief score by 2-4 points and
+    # rewritten a headline finding to fix three responses.
+    if b_stac:
+        capped = (total - b_stac) / words * 1000 + min(
+            b_stac / words * 1000, STACCATO_CAP)
+        hits = min(hits, capped)
+
+    return round(hits, 1), b
+
+
+def staccato_runs(text, maxw=6, need=3):
+    """Runs of 3+ consecutive short DECLARATIVE sentences. Period-spam.
+
+    "Little words. Short sentences. Cut the fat. Redo it." reads like a drill
+    sergeant, not a person, and contains no banned vocabulary at all.
+
+    Only declaratives count. An earlier version flagged 25 runs in the corpus
+    and nearly all were false: rhetorical question pairs ("Shared history?
+    Territory?"), classroom exclamations ("Now FLY!"), and worksheet lines.
+    Questions and exclamations are cadence the reader expects. So are list
+    items, headings and bold labels, which are skipped outright.
+
+    Sentences carrying a comma, semicolon or colon are excluded too: the
+    defect is refusing to join clauses, so a sentence that joins one is not
+    part of a run.
+    """
+    out, cur = [], []
+
+    def flush():
+        nonlocal cur
+        if len(cur) >= need:
+            out.append(cur)
+        cur = []
+
+    for raw in strip_quoted(text).split("\n"):
+        line = raw.strip()
+        if not line or re.match(r'^([-*+#>|]|\d+[.)])', line) or \
+                line.startswith("**"):
+            flush()
+            continue
+        for s in re.split(r'(?<=[.!?])\s+', line):
+            s = s.strip()
+            if not s:
+                continue
+            w = len(s.split())
+            if s.endswith(".") and 2 <= w <= maxw and not re.search(r"[,;:]", s):
+                cur.append(s)
+            else:
+                flush()
+    flush()
+    return out
 
 
 def shape(text):
@@ -159,6 +225,7 @@ def shape(text):
         "frag_ratio": round(frags / max(1, len(lens)), 2),  # staccato stacking
         "bold_per_100w": round(len(re.findall(r"\*\*[^*]+\*\*", text)) / words * 100, 2),
         "comma_per_sent": round(text.count(",") / max(1, len(sents)), 2),
+        "staccato_runs": len(staccato_runs(text)),
     }
 
 

@@ -123,10 +123,21 @@ def rule2_economy(text, facts, required=None, budget=None):
     """
     words = len(text.split())
     if facts <= 0:
-        return 0.0, {"words": words, "facts": 0, "note": "no facts delivered"}
+        # Coverage must still be reported. The early return used to omit it,
+        # so a total non-answer looked like "coverage unknown" to the caller
+        # and skipped the empty-answer cap entirely -- the exact case this
+        # branch exists to catch.
+        return 0.0, {"words": words, "facts": 0, "required": required,
+                     "coverage": 0.0, "note": "no facts delivered"}
     budget = budget or 150
-    overrun = max(0.0, (words - budget) / (2.0 * budget))  # 0 at budget, 1 at 3x
-    base = max(0.0, 10.0 * (1 - min(1.0, overrun)))
+    # Decay is geometric rather than linear-to-zero. The old curve hit exactly
+    # 0.0 at 3x budget and stayed there, which made every word past that point
+    # free and let a 5000-word answer tie a 1050-word one. It also meant an
+    # answer could gain ~31 points by being cut in half, purely by climbing off
+    # the floor. Halving every 1.5x over budget keeps the penalty real without
+    # ever bottoming out: 2x -> 6.3, 3x -> 4.0, 5x -> 1.6.
+    over = max(0.0, (words - budget) / float(budget))
+    base = 10.0 * (0.5 ** (over / 1.5))
     coverage = 1.0 if not required else facts / required
     s = round(base * coverage, 1)
     return s, {"words": words, "budget": budget, "facts": facts,

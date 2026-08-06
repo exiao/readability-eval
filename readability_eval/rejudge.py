@@ -72,7 +72,7 @@ def main():
                                 required=len(ITEMS[r["id"]]["asks"]),
                                 budget=ITEMS[r["id"]].get("budget"))
         rules = {**det, **judge.to_scores(p)}
-        clarity = clarity_score(rules)
+        clarity = clarity_score(rules, detail["economy"].get("coverage"))
         hits, breakdown = lexicon.score(r["response"])
         tax = slop_tax(hits)
         score = clarity * 10 * (1 - tax)

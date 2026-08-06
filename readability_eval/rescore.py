@@ -32,7 +32,7 @@ def main():
                                     budget=item.get("budget"))
             rules = {**det, **to_scores(r["judge"])}
             hits, breakdown = lexicon.score(r["response"])
-            clarity = clarity_score(rules)
+            clarity = clarity_score(rules, detail["economy"].get("coverage"))
             tax = slop_tax(hits)
             r.update(rules=rules, clarity_avg=round(clarity, 2),
                      slop_per_1k=hits, slop_breakdown=breakdown,

@@ -34,20 +34,53 @@ def slop_tax(hits_per_1k):
     return min(0.30, hits_per_1k / SLOP_CEILING * 0.30)
 
 
-def clarity_score(rules):
-    """Mean of the six rules, but a near-zero rule caps the whole thing.
+# Economy is weighted below the other rules. It is the only rule with real
+# variance, so at equal weight it silently became the benchmark: 81% of saved
+# answers scored HIGHER when truncated to half their length, some by 42 points.
+# Truncation cannot improve an answer, so any metric that rewards it is
+# measuring the wrong thing. Being long is a real defect, but a smaller one
+# than being unclear or wrong, and it is the defect a reader can skim past.
+# 0.75 rather than 0.5. At 0.5 a 2577-word answer to a 524-word question
+# scored 90.6 against a 95.1 winner, which is not a 4 point defect. At 1.0 the
+# truncation exploit is still worth +5.7. 0.75 keeps the worst gain from
+# halving an answer at +4.4 while a 5x-over answer still loses ~7 points.
+RULE_WEIGHTS = {"rule2_economy": 0.75}
+DEFAULT_RULE_WEIGHT = 1.0
+
+# Rules where a near-zero score means the answer failed, not that it was
+# merely bloated.
+CONJUNCTIVE = ("rule1_understandable", "rule3_jargon", "rule5_simple_words",
+               "rule6_filler", "rule7_form")
+
+
+def clarity_score(rules, coverage=None):
+    """Weighted mean, with a cap when a rule that matters bottoms out.
 
     A plain mean lets five 10s carry one 0: an answer that delivered NOTHING
     ("they're different, use whichever fits") averaged 71.7 and landed mid,
     because it was clear, jargon-free and unpadded -- about nothing. Caught by
     the terse_and_empty control.
 
-    Communication is conjunctive. Failing one axis badly is not offset by
-    polish elsewhere, so the score is capped at 55 when any rule is under 2.
+    Communication is conjunctive, so a rule under 2 still caps the score at 55.
+
+    Economy is deliberately NOT one of those rules, because it conflates two
+    different failures. It multiplies length against coverage, so it reads 0.0
+    both for an answer that said nothing and for one that answered fully at
+    great length. Capping on it punished those identically: 15 of the 19 caps
+    in the saved corpus were verbosity, costing ~31 points each.
+
+    The empty case is caught by `coverage` instead, which is the half of
+    economy that actually means failure. Answering under a third of what was
+    asked caps the score however clean the prose is.
     """
-    vals = list(rules.values())
-    mean = statistics.mean(vals)
-    return min(mean, 5.5) if min(vals) < 2.0 else mean
+    num = sum(v * RULE_WEIGHTS.get(k, DEFAULT_RULE_WEIGHT)
+              for k, v in rules.items())
+    den = sum(RULE_WEIGHTS.get(k, DEFAULT_RULE_WEIGHT) for k in rules)
+    mean = num / den
+    floor = min((v for k, v in rules.items() if k in CONJUNCTIVE), default=10.0)
+    if floor < 2.0 or (coverage is not None and coverage < 0.34):
+        return min(mean, 5.5)
+    return mean
 
 
 # Condition = an instruction appended to every prompt. Lets you separate a
@@ -91,7 +124,7 @@ def eval_one(item, model, backend, provider, judge_model, judge_backend,
     jud["rule7_form"] = min(jud["rule7_form"], scaf)
 
     rules = {**det, **jud}
-    clarity = clarity_score(rules)
+    clarity = clarity_score(rules, det_detail["economy"].get("coverage"))
     hits, breakdown = lexicon.score(text)
     tax = slop_tax(hits)
     final = round(clarity * 10 * (1 - tax), 1)

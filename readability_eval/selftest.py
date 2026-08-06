@@ -36,7 +36,13 @@ def band(score):
 
 
 def score_case(c, judge_model=None, backend="openrouter", provider=None):
-    item = ITEMS[c["prompt_id"]]
+    # Each control embeds the prompt it answers. They used to reference
+    # prompts.json by id, and when that file was re-numbered every control
+    # began grading its answer against an unrelated question: the judge
+    # returned 0/4 facts on all 17, economy collapsed to 0.0 through the
+    # coverage multiplier, and the suite reported failures that had nothing to
+    # do with the scorer. A fixture that can drift is not a fixture.
+    item = c.get("item") or ITEMS[c["prompt_id"]]
     text = c["text"]
 
     if judge_model:
@@ -56,7 +62,7 @@ def score_case(c, judge_model=None, backend="openrouter", provider=None):
                             required=len(item["asks"]))
     rules = {**det, **jud}
     hits, breakdown = lexicon.score(text)
-    clarity = clarity_score(rules)
+    clarity = clarity_score(rules, detail["economy"].get("coverage"))
     return round(clarity * 10 * (1 - slop_tax(hits)), 1), hits, breakdown, rules
 
 

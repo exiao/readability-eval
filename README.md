@@ -14,10 +14,10 @@ Score = clarity x (1 - slop tax)
 
 | Score | Model | Slop/1k | Words | Economy | Form |
 |:---:|---|---:|---:|---:|---:|
-| 🥇 **87.7** | `claude-opus-5` | 0.9 | 558 | 5.9 | 8.7 |
-| 🥈 **81.9** | `claude-haiku-4-5` | 2.2 | 329 | 7.3 | 5.3 |
-| 🥉 **80.9** | `claude-sonnet-4-6` | 3.4 | 531 | 6.8 | 6.8 |
-| **80.6** | `claude-opus-4-6` | 2.8 | 571 | 6.3 | 7.2 |
+| 🥇 **91.8** | `claude-opus-5` | 0.9 | 558 | 6.9 | 8.7 |
+| 🥈 **85.9** | `claude-opus-4-6` | 2.8 | 571 | 7.1 | 7.2 |
+| 🥉 **83.9** | `claude-sonnet-4-6` | 3.4 | 531 | 7.4 | 6.8 |
+| **82.4** | `claude-haiku-4-5` | 2.2 | 329 | 7.4 | 5.3 |
 
 Full table with all seven rules in [`results/LEADERBOARD.md`](results/LEADERBOARD.md).
 
@@ -35,13 +35,13 @@ Five prompts only, judged by `claude-opus-5`. **Not comparable to the table abov
 
 | Score | Model | Words | Economy |
 |:---:|---|---:|---:|
-| 93.2 | `moonshotai/kimi-k3` | 740 | 7.5 |
-| 92.2 | `x-ai/grok-4.5` | 804 | 7.5 |
-| 91.7 | `google/gemini-3.5-flash` | 989 | 5.0 |
-| 85.2 | `openai/gpt-5.6-sol` | 1372 | 4.6 |
-| 54.2 | `qwen/qwen3.8-max` | 2577 | 0.0 |
+| 94.5 | `google/gemini-3.5-flash` | 989 | 6.2 |
+| 94.4 | `moonshotai/kimi-k3` | 740 | 7.9 |
+| 94.0 | `openai/gpt-5.6-sol` | 1372 | 5.5 |
+| 93.5 | `x-ai/grok-4.5` | 804 | 8.0 |
+| 87.9 | `qwen/qwen3.8-max` | 2577 | 2.0 |
 
-Qwen wrote 2577 words on average against budgets of 55-550. That is not a scoring artifact; it is a 2500-word answer to a question that wanted sixty.
+Qwen wrote 2577 words on average against budgets of 55-550. That is not a scoring artifact; it is a 2500-word answer to a question that wanted sixty. It still lands within 7 points of the top, because being long is the only thing it does wrong.
 
 ### Can you just ask for a short answer?
 
@@ -49,16 +49,16 @@ Yes, and it is the biggest single lever. `--condition brief` appends *"Answer in
 
 | Model | Default | Brief | Change | Coverage |
 |---|---:|---:|---:|---:|
-| `claude-opus-5` | 87.7 (558w) | **91.3** (48w) | +3.6 | 97% → 78% |
-| `claude-opus-4-6` | 80.6 (571w) | **86.1** (47w) | +5.5 | 91% → 66% |
-| `claude-sonnet-4-6` | 80.9 (531w) | **85.0** (49w) | +4.1 | 89% → 60% |
-| `claude-haiku-4-5` | 81.9 (329w) | 77.1 (51w) | -4.8 | 80% → 59% |
+| `claude-opus-5` | 91.8 (558w) | 91.2 (48w) | -0.6 | 97% → 78% |
+| `claude-opus-4-6` | 85.9 (571w) | 82.1 (47w) | -3.8 | 91% → 66% |
+| `claude-sonnet-4-6` | 83.9 (531w) | 78.5 (49w) | -5.4 | 89% → 60% |
+| `claude-haiku-4-5` | 82.4 (329w) | 74.1 (51w) | -8.3 | 80% → 59% |
 
 Every model collapses to ~48 words when told to. So **the length is a default, not a limit** — they can all write tightly, they just don't unless asked.
 
-**But brevity is not free.** Look at the coverage column: the share of the request actually addressed falls 19 to 29 points. Opus-5 gains 3.6 points overall while dropping from answering 97% of what was asked to 78%. Haiku, already terse at 329 words, has no bloat left to cut and **loses 4.8 points**: it pays the coverage cost without the length saving.
+**But brevity is not free, and it is not even a win.** Look at the coverage column: the share of the request actually addressed falls 19 to 29 points. **Every model scores worse under the brief condition**, from -0.6 to -8.3, and the models that lose most are the ones that were already closest to budget. Haiku had no bloat left to cut, so it paid the full coverage cost for nothing.
 
-So "just ask for 50 words" trades completeness for concision. The score still rises for the three verbose models because they were *so* far over budget that the trade is worth it. For the model that was already close to budget, the same instruction is a straight loss.
+So "just ask for 50 words" is not a free upgrade. It buys concision with completeness, and once verbosity is weighted honestly against the other six rules, that trade never comes out ahead. Length is a real defect, but it is a smaller one than not answering the question.
 
 ```bash
 python3 -m readability_eval.run --model X --condition brief
@@ -98,7 +98,15 @@ Rules 1-6 come from Orwell's *Politics and the English Language*. Rule 7 was add
 
 Rules 2, 3, 5, 6 are deterministic counters. Rules 1, 4 and 7 use a judge that must quote its evidence — no quote, no penalty.
 
-**Rule 2 is the one that bites.** Scored as raw brevity it crowns the emptiest answer, so coverage multiplies in: answering half the question caps economy at half however tersely you did it. Under budget is free — terse is never punished. Over budget decays to zero at 3x.
+**Economy is weighted at 0.75, the other six at 1.0.** It is the only rule with real variance, so at equal weight it quietly became the benchmark: 65% of saved answers scored *higher* when truncated to half their length, the worst by 41 points. Truncation cannot improve an answer, so a metric that rewards it is measuring the wrong thing. Three fixes, in order of size:
+
+- **Economy no longer trips the conjunctive cap.** A rule under 2 caps the score at 55, which is right for an answer nobody can follow and wrong for one that is merely long. 15 of the 19 caps in the corpus were verbosity, costing ~31 points each.
+- **The decay curve no longer bottoms out.** It hit exactly 0.0 at 3x budget and stayed there, so every word past that point was free and a 5000-word answer tied a 1050-word one. It now halves every 1.5x over: 2x → 6.3, 3x → 4.0, 5x → 1.6.
+- **Coverage carries the empty case instead.** Economy multiplies length by coverage, so it read 0.0 both for an answer that said nothing and for one that answered fully at length. Coverage under a third now caps the score on its own.
+
+Worst gain from halving an answer: **+41.3 → +4.4**.
+
+**Rule 2 needs the coverage gate.** Scored as raw brevity it crowns the emptiest answer, so coverage multiplies in: answering half the question caps economy at half however tersely you did it. Under budget is free — terse is never punished.
 
 **Rule 7 catches what the word list can't.** Scaffolding is headers, tables and section labels, not tic phrases, so a report-shaped answer to a simple question can score clean sentence-by-sentence and still be unreadable as a whole.
 

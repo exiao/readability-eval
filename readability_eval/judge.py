@@ -120,7 +120,23 @@ def parse(raw):
     m = re.search(r"\{.*\}", raw, re.S)
     if not m:
         raise ValueError(f"no JSON in judge output: {raw[:200]}")
-    return json.loads(m.group(0))
+    blob = m.group(0)
+    try:
+        return json.loads(blob)
+    except json.JSONDecodeError:
+        # A judge that emits the object then keeps talking ("...}\n\nNote: I
+        # scored form as...") produces trailing data the greedy match swallows.
+        # Walk braces to find the first balanced object instead of failing the
+        # whole run on one chatty response.
+        depth = 0
+        for i, ch in enumerate(blob):
+            if ch == "{":
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    return json.loads(blob[:i + 1])
+        raise
 
 
 def to_scores(parsed):

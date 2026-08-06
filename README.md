@@ -93,7 +93,7 @@ Rules 1-6 come from Orwell's *Politics and the English Language*. Rule 7 was add
 | 3 | Avoids jargon and acronyms? | Undefined acronyms per 100 words |
 | 4 | Would imagery make it clearer? | Judge, must name the image it wanted |
 | 5 | Complex phrases instead of simple words? | `utilize`→`use`, `in order to`→`to` |
-| 6 | Filler, pretentious diction, euphemism? | Three counters, euphemism weighted 3x |
+| 6 | Filler, pretentious diction, euphemism? | Phrase list + 20 grammar patterns, euphemism 3x |
 | 7 | Shaped like the answer, or like a report? | Judge quote + scaffolding density per budget |
 
 Rules 2, 3, 5, 6 are deterministic counters. Rules 1, 4 and 7 use a judge that must quote its evidence — no quote, no penalty.
@@ -107,6 +107,8 @@ Rules 2, 3, 5, 6 are deterministic counters. Rules 1, 4 and 7 use a judge that m
 Worst gain from halving an answer: **+41.3 → +4.4**.
 
 **Rule 2 needs the coverage gate.** Scored as raw brevity it crowns the emptiest answer, so coverage multiplies in: answering half the question caps economy at half however tersely you did it. Under budget is free — terse is never punished.
+
+**Rule 6 needed patterns, not a word list.** Filler is a grammatical shape, not a vocabulary: an exact-phrase list scores `worth noting` and lets `it is worth mentioning` through. Against 16 textbook filler constructions the list caught 1; with patterns for expletive subjects (`there are several factors that...`), wordy connectives (`in order to`, `due to the fact that`), redundant causation (`the reason why X is because`) and stacked hedges (`may potentially`), it catches 16 with no false positives on plain technical prose. Note the line it has to walk: `there is no index on user_id` states a fact and must not fire, while `there are several factors that matter` delays the real subject and must.
 
 **Rule 7 catches what the word list can't.** Scaffolding is headers, tables and section labels, not tic phrases, so a report-shaped answer to a simple question can score clean sentence-by-sentence and still be unreadable as a whole.
 

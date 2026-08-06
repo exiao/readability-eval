@@ -81,6 +81,57 @@ COMMON_ACRONYMS = {"AI", "API", "URL", "HTTP", "HTTPS", "JSON", "CSV", "PDF",
                    "ID", "IT", "PR", "QA", "UI", "UX", "SQL", "HTML", "CSS"}
 
 
+# Filler is mostly a GRAMMAR shape, not a vocabulary. The fixed list below
+# catches one exact wording each, so "worth noting" scores and "it is worth
+# mentioning" walks past. Tested against 16 textbook filler constructions, the
+# phrase list caught 1. These patterns cover the shapes that list cannot:
+# expletive subjects, nominalised verbs, and stacked hedges.
+FILLER_PATTERNS = [
+    # "there is a X that ..." -- an expletive subject delaying the real one
+    r"\bthere (?:is|are|was|were)\s+(?:a|an|the|no|some|several|many)?\s*"
+    r"\w*\s*(?:that|which|who)\b",
+    # "it is worth mentioning / important to remember"
+    r"\bit(?:'s| is| was) (?:worth|important|useful|helpful|essential|critical|"
+    r"interesting|necessary)\s+(?:to\s+)?\w+(?:ing|e|t|r)?\b",
+    # wordy connectives with a one-word equivalent
+    r"\bin order to\b",
+    r"\bdue to the fact that\b",
+    r"\bfor the (?:purpose|reason) of\b",
+    r"\bin the event that\b",
+    r"\bwith regard to\b",
+    r"\bin spite of the fact that\b",
+    # "the reason why X is because" -- says the same thing twice
+    r"\bthe (?:reason|fact) (?:why|that)\b[^.]{0,40}\bis (?:because|that)\b",
+    # time padding
+    r"\bat (?:this|that) (?:point in time|moment in time)\b",
+    r"\bin (?:today's|the modern) (?:world|landscape|era)\b",
+    # restating instead of stating
+    r"\bwhat (?:this|that) means is\b",
+    r"\bthe (?:thing|point) (?:is|here) is that\b",
+    # ceremonial openers
+    r"\b(?:it goes without saying|first and foremost|last but not least)\b",
+    r"\blet me (?:start|begin) by\b",
+    r"\b(?:great|excellent|good) question\b",
+    # stacked hedging: two or more qualifiers doing one qualifier's work
+    r"\b(?:i think|i believe|it seems)\b[^.]{0,25}\b(?:probably|maybe|perhaps|"
+    r"might|could possibly)\b",
+    r"\b(?:may|might|can) (?:potentially|possibly)\b",
+    r"\b(?:generally|typically|usually) (?:speaking|tends? to)\b",
+    # "one of the most important things" -- ranking with no rank
+    r"\bone of the (?:most|biggest|best|key) \w+ (?:things?|factors?|aspects?|"
+    r"reasons?|ways?)\b",
+    # filler adverbs opening a sentence
+    r"(?:^|\. )(?:Basically|Essentially|Simply put|In essence|Needless to say)"
+    r"\b",
+]
+_FILLER_RX = [re.compile(p, re.I) for p in FILLER_PATTERNS]
+
+
+def _pattern_hits(text):
+    text = lexicon.strip_quoted(text)
+    return sum(len(rx.findall(text)) for rx in _FILLER_RX)
+
+
 def _hits(text, terms):
     # Strip quoted/code spans first. Same mention-vs-use bug the slop lexicon
     # had: a text SAYING don't write "delve" was scored as writing it. Fixed in
@@ -188,13 +239,29 @@ def rule5_simple_words(text):
 
 
 def rule6_filler(text):
+    """Words that occupy space without carrying meaning.
+
+    Three sources, weighted differently because they are different defects:
+    a fixed phrase list, a set of grammatical patterns, and euphemism.
+
+    The phrase list alone was close to useless. It matches one exact wording
+    per entry, so "worth noting" scored and "it is worth mentioning" did not;
+    against 16 textbook filler constructions it caught 1, and across 265 real
+    responses it fired 3 times total. Filler is a shape ("there is X that...",
+    "in order to", stacked hedges), not a vocabulary, so the patterns do the
+    real work and the list is kept for the specific phrases it already knows.
+
+    Euphemism still counts triple. The defect there is dishonesty rather than
+    wordiness: "rightsizing" is not a long way to say "layoffs", it is a way
+    to avoid saying it.
+    """
     words = len(text.split())
     f, p, e = _hits(text, FILLER), _hits(text, PRETENTIOUS), _hits(text, EUPHEMISM)
-    # euphemism x3: the defect is dishonesty, not style
-    weighted = f + p + (e * 3)
+    g = _pattern_hits(text)
+    weighted = f + p + g + (e * 3)
     rate = _per100(weighted, words)
     return _to10(rate, 6.0), {"filler": f, "pretentious": p, "euphemism": e,
-                              "per_100w": round(rate, 2)}
+                              "grammar": g, "per_100w": round(rate, 2)}
 
 
 def score_all(text, facts, assumed=(), required=None, budget=None):

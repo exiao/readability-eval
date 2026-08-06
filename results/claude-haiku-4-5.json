@@ -6,14 +6,14 @@
   "n": 30,
   "errors": 0,
   "score": 82.4,
-  "clarity_avg": 8.51,
+  "clarity_avg": 8.5,
   "slop_per_1k": 2.2,
   "avg_words": 329,
   "per_rule": {
    "rule2_economy": 7.44,
    "rule3_jargon": 9.8,
    "rule5_simple_words": 9.45,
-   "rule6_filler": 9.87,
+   "rule6_filler": 9.85,
    "rule1_understandable": 9.5,
    "rule4_imagery": 8.23,
    "rule7_form": 5.33
@@ -67,6 +67,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -141,6 +142,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -219,6 +221,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -292,6 +295,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -363,6 +367,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -436,6 +441,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -507,6 +513,7 @@
      "filler": 0,
      "pretentious": 1,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.52
     }
    },
@@ -580,6 +587,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -657,6 +665,7 @@
      "filler": 0,
      "pretentious": 1,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.13
     }
    },
@@ -728,6 +737,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -799,6 +809,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -872,6 +883,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -943,6 +955,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -1013,6 +1026,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -1083,6 +1097,7 @@
      "filler": 0,
      "pretentious": 1,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.42
     }
    },
@@ -1152,6 +1167,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -1223,6 +1239,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -1292,6 +1309,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -1365,6 +1383,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -1436,6 +1455,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -1510,6 +1530,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -1581,6 +1602,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -1652,6 +1674,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -1729,6 +1752,7 @@
      "filler": 0,
      "pretentious": 3,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 1.22
     }
    },
@@ -1798,6 +1822,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -1871,6 +1896,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -1943,6 +1969,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -2014,6 +2041,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -2085,6 +2113,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -2122,16 +2151,16 @@
     "rule2_economy": 7.5,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
+    "rule6_filler": 9.2,
     "rule1_understandable": 10.0,
     "rule4_imagery": 3.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 7.94,
+   "clarity_avg": 7.83,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 79.4,
+   "score": 78.3,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -2154,7 +2183,8 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
-     "per_100w": 0.0
+     "grammar": 1,
+     "per_100w": 0.48
     }
    },
    "judge": {

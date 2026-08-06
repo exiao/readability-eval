@@ -5,9 +5,9 @@
   "condition": "default",
   "n": 5,
   "errors": 0,
-  "score": 77.3,
+  "score": 85.2,
   "clarity_avg": 8.59,
-  "slop_per_1k": 6.9,
+  "slop_per_1k": 0.5,
   "avg_words": 1372,
   "per_rule": {
    "rule2_economy": 4.6,
@@ -85,7 +85,8 @@
     "sentence_cv": 1.26,
     "frag_ratio": 0.27,
     "bold_per_100w": 4.01,
-    "comma_per_sent": 0.25
+    "comma_per_sent": 0.25,
+    "staccato_runs": 0
    },
    "cost_usd": 0.066945,
    "seconds": 38.1
@@ -104,13 +105,12 @@
     "rule7_form": 10.0
    },
    "clarity_avg": 9.43,
-   "slop_per_1k": 10.6,
+   "slop_per_1k": 0.5,
    "slop_breakdown": {
-    "inline_header_list": 5,
-    "rule_of_three": 5
+    "inline_header_list": 5
    },
-   "slop_tax": 0.159,
-   "score": 79.3,
+   "slop_tax": 0.007,
+   "score": 93.6,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -156,7 +156,8 @@
     "sentence_cv": 0.94,
     "frag_ratio": 0.17,
     "bold_per_100w": 3.08,
-    "comma_per_sent": 0.66
+    "comma_per_sent": 0.66,
+    "staccato_runs": 0
    },
    "cost_usd": 0.041915,
    "seconds": 32.7
@@ -175,13 +176,12 @@
     "rule7_form": 10.0
    },
    "clarity_avg": 5.5,
-   "slop_per_1k": 10.7,
+   "slop_per_1k": 0.1,
    "slop_breakdown": {
-    "hyphen_pairs": 1,
-    "rule_of_three": 39
+    "hyphen_pairs": 1
    },
-   "slop_tax": 0.16,
-   "score": 46.2,
+   "slop_tax": 0.002,
+   "score": 54.9,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -236,7 +236,8 @@
     "sentence_cv": 2.0,
     "frag_ratio": 0.33,
     "bold_per_100w": 2.55,
-    "comma_per_sent": 0.85
+    "comma_per_sent": 0.85,
+    "staccato_runs": 0
    },
    "cost_usd": 0.20938,
    "seconds": 203.6
@@ -306,7 +307,8 @@
     "sentence_cv": 0.55,
     "frag_ratio": 0.0,
     "bold_per_100w": 6.12,
-    "comma_per_sent": 1.12
+    "comma_per_sent": 1.12,
+    "staccato_runs": 0
    },
    "cost_usd": 0.01277,
    "seconds": 18.3
@@ -325,13 +327,12 @@
     "rule7_form": 10.0
    },
    "clarity_avg": 9.49,
-   "slop_per_1k": 13.3,
+   "slop_per_1k": 1.7,
    "slop_breakdown": {
-    "isnt_its": 1,
-    "rule_of_three": 7
+    "isnt_its": 1
    },
-   "slop_tax": 0.2,
-   "score": 75.9,
+   "slop_tax": 0.025,
+   "score": 92.4,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -379,7 +380,8 @@
     "sentence_cv": 1.28,
     "frag_ratio": 0.39,
     "bold_per_100w": 0.0,
-    "comma_per_sent": 1.44
+    "comma_per_sent": 1.44,
+    "staccato_runs": 0
    },
    "cost_usd": 0.027325,
    "seconds": 55.5

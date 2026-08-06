@@ -14,10 +14,10 @@ Score = clarity x (1 - slop tax)
 
 | Score | Model | Slop/1k | Words | Economy | Form |
 |:---:|---|---:|---:|---:|---:|
-| 🥇 **84.1** | `claude-opus-5` | 3.7 | 558 | 5.9 | 8.7 |
-| 🥈 **76.1** | `claude-opus-4-6` | 10.4 | 571 | 6.3 | 7.2 |
-| 🥉 **75.4** | `claude-sonnet-4-6` | 13.3 | 531 | 6.8 | 6.8 |
-| **74.7** | `claude-haiku-4-5` | 9.7 | 329 | 7.3 | 5.3 |
+| 🥇 **87.7** | `claude-opus-5` | 0.9 | 558 | 5.9 | 8.7 |
+| 🥈 **81.9** | `claude-haiku-4-5` | 2.2 | 329 | 7.3 | 5.3 |
+| 🥉 **80.9** | `claude-sonnet-4-6` | 3.4 | 531 | 6.8 | 6.8 |
+| **80.6** | `claude-opus-4-6` | 2.8 | 571 | 6.3 | 7.2 |
 
 Full table with all seven rules in [`results/LEADERBOARD.md`](results/LEADERBOARD.md).
 
@@ -29,11 +29,11 @@ Five prompts only, judged by `claude-opus-5`. **Not comparable to the table abov
 
 | Score | Model | Words | Economy |
 |:---:|---|---:|---:|
-| 85.6 | `google/gemini-3.5-flash` | 989 | 5.0 |
-| 83.6 | `moonshotai/kimi-k3` | 740 | 7.5 |
-| 83.4 | `x-ai/grok-4.5` | 804 | 7.5 |
-| 77.3 | `openai/gpt-5.6-sol` | 1372 | 4.6 |
-| 50.3 | `qwen/qwen3.8-max` | 2577 | 0.0 |
+| 93.2 | `moonshotai/kimi-k3` | 740 | 7.5 |
+| 92.2 | `x-ai/grok-4.5` | 804 | 7.5 |
+| 91.7 | `google/gemini-3.5-flash` | 989 | 5.0 |
+| 85.2 | `openai/gpt-5.6-sol` | 1372 | 4.6 |
+| 54.2 | `qwen/qwen3.8-max` | 2577 | 0.0 |
 
 Qwen wrote 2577 words on average against budgets of 55-550. That is not a scoring artifact; it is a 2500-word answer to a question that wanted sixty.
 
@@ -43,16 +43,16 @@ Yes, and it is the biggest single lever. `--condition brief` appends *"Answer in
 
 | Model | Default | Brief | Change | Coverage |
 |---|---:|---:|---:|---:|
-| `claude-opus-5` | 84.1 (558w) | **86.3** (48w) | +2.2 | 97% → 78% |
-| `claude-opus-4-6` | 76.1 (571w) | **83.6** (47w) | +7.5 | 91% → 66% |
-| `claude-sonnet-4-6` | 75.4 (531w) | **82.1** (49w) | +6.7 | 89% → 60% |
-| `claude-haiku-4-5` | 74.7 (329w) | 74.3 (51w) | -0.4 | 80% → 59% |
+| `claude-opus-5` | 87.7 (558w) | **91.3** (48w) | +3.6 | 97% → 78% |
+| `claude-opus-4-6` | 80.6 (571w) | **86.1** (47w) | +5.5 | 91% → 66% |
+| `claude-sonnet-4-6` | 80.9 (531w) | **85.0** (49w) | +4.1 | 89% → 60% |
+| `claude-haiku-4-5` | 81.9 (329w) | 77.1 (51w) | -4.8 | 80% → 59% |
 
 Every model collapses to ~48 words when told to. So **the length is a default, not a limit** — they can all write tightly, they just don't unless asked.
 
-**But brevity is not free.** Look at the coverage column: the share of the request actually addressed falls 19 to 29 points. Opus-5 gains 2.2 points overall while dropping from answering 97% of what was asked to 78%. Haiku, already terse at 329 words, gains nothing and loses coverage anyway.
+**But brevity is not free.** Look at the coverage column: the share of the request actually addressed falls 19 to 29 points. Opus-5 gains 3.6 points overall while dropping from answering 97% of what was asked to 78%. Haiku, already terse at 329 words, has no bloat left to cut and **loses 4.8 points**: it pays the coverage cost without the length saving.
 
-So "just ask for 50 words" trades completeness for concision. The score still rises for verbose models because they were *so* far over budget that the trade is worth it — but that is a real trade, not a free win.
+So "just ask for 50 words" trades completeness for concision. The score still rises for the three verbose models because they were *so* far over budget that the trade is worth it. For the model that was already close to budget, the same instruction is a straight loss.
 
 ```bash
 python3 -m readability_eval.run --model X --condition brief
@@ -102,12 +102,16 @@ Rule 7 is scored twice and takes the worse result. The judge grades shape subjec
 
 Three layers. A word list alone catches maybe half.
 
-| Layer | Catches |
-|---|---|
-| 175 terms | `delve`, `testament to`, `boasts`, `great question`, `load-bearing` |
-| 12 patterns | `It's not X. It's Y.` · `not just X, but Y` · `serves as` |
-| Structure | staccato runs, rule-of-three padding |
-| Shape | em dashes, sentence-length variance, fragment ratio, bold density |
+| Layer | Weight | Catches |
+|---|---|---|
+| 175 terms | 1.0 | `delve`, `testament to`, `boasts`, `great question`, `load-bearing` |
+| 12 patterns | 1.0 / 0.5 | `It's not X. It's Y.` · `not just X, but Y` · `serves as` |
+| Structure | 1.0 / 0.5 | verbless noun-list fragments, staccato runs, rule-of-three padding |
+| Formatting | 0.25 / 0.1 | labelled bullets, emoji bullets, hyphenated adjective pairs |
+
+**Hits are weighted, not counted.** An unambiguous tell scores 1.0, a construction that also appears in correct writing scores 0.5, and a formatting habit that is usually the right choice scores 0.1 to 0.25. Flat counting let ordinary formatting outweigh real slop: labelled bullets like `- **Kernel version**: 6.1` fired 231 times across 265 responses, more than every other signal combined.
+
+**Two triple rules, and the difference is the conjunction.** `Rent, transportation, and food.` is a list and scores nothing. `Rent, transportation, food.` is a verbless noun-list fragment: it has the rhythm of a sentence and none of the content, because nothing acts on anything. Rule-of-three padding is narrower still, requiring all three items to be adjectival *and* to sit in a running sentence, since in a heading the triple is the content. The naive version matched any three-item list, fired 262 times, and cost some answers the entire slop cap for writing normally.
 
 **Staccato** is period-spam: three or more consecutive short declarative sentences that refuse to join a clause. *"Little words. Short sentences. Cut the fat. Redo it."* reads like a drill sergeant and contains no banned vocabulary at all, so the word list cannot see it. Only declaratives count, because rhetorical question pairs and classroom exclamations are cadence a reader expects; an earlier version that ignored this flagged 25 runs in the corpus and nearly all were lesson plans. Its contribution is capped, since a rate per 1000 words would let one tic in a 50-word answer outweigh every vocabulary offence combined.
 

@@ -1,7 +1,7 @@
 """Run the eval.
 
   python -m readability_eval.run --model X --backend openrouter
-  python -m readability_eval.run --model X --backend hermes --provider anthropic
+  python -m readability_eval.run --model claude-opus-5 --backend anthropic
 
 Score = clarity_avg * (1 - slop_tax), slop_tax capped at 0.30.
 """
@@ -16,6 +16,13 @@ from concurrent.futures import ThreadPoolExecutor
 from . import judge, lexicon
 from .clarity import score_all
 from .providers import call, probe_contamination
+
+# Judge defaults, per backend. Kept here so `--backend X` alone is runnable
+# with one API key and no judge flags.
+DEFAULT_JUDGE = {
+    "openrouter": "google/gemini-3.5-flash",
+    "anthropic": "claude-opus-5",
+}
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROMPTS = os.path.join(ROOT, "data", "prompts.json")
@@ -101,8 +108,11 @@ def main():
     ap.add_argument("--backend", default="openrouter",
                     choices=["openrouter", "anthropic"])
     ap.add_argument("--provider", default=None)
-    ap.add_argument("--judge-model", default="claude-opus-5")
-    ap.add_argument("--judge-backend", default="anthropic")
+    ap.add_argument("--judge-model", default=None,
+                    help="defaults to a strong model on the selected backend")
+    ap.add_argument("--judge-backend", default=None,
+                    help="defaults to --backend, so a plain "
+                         "`--backend openrouter` run needs no judge flags")
     ap.add_argument("--judge-provider", default=None)
     ap.add_argument("--judge-reasoning", default=None,
                     help="unused; kept for CLI compatibility")
@@ -114,26 +124,32 @@ def main():
                     help="run only the first N prompts (cheap smoke run). "
                          "Scores from different N are NOT comparable.")
     a = ap.parse_args()
+
+    # The judge follows the subject's backend unless told otherwise, so the
+    # documented one-liner works with a single API key. Judging Claude with
+    # Claude is the self-preference case the README warns about; pass
+    # --judge-model / --judge-backend to cross families.
     jb = a.judge_backend or a.backend
+    jm = a.judge_model or DEFAULT_JUDGE[jb]
 
     items = json.load(open(PROMPTS))["prompts"]
     if a.limit:
         items = items[:a.limit]
 
     # Contamination gate. Two full runs were thrown away because the backend
-    # was silently the maintainer's agent (tools + persona + memory) rather
-    # than a raw model. Never run without this.
-    for m, b in {(a.model, a.backend), (a.judge_model, jb)}:
+    # was silently an agent (tools + persona + memory) rather than a raw
+    # model. Never run without this.
+    for m, b in {(a.model, a.backend), (jm, jb)}:
         probe_contamination(m, b)
     print(f"backend probe clean: {a.model}/{a.backend}, judge "
-          f"{a.judge_model}/{jb}")
+          f"{jm}/{jb}")
 
-    print(f"{a.model} via {a.backend}: {len(items)} prompts, judge={a.judge_model}")
+    print(f"{a.model} via {a.backend}: {len(items)} prompts, judge={jm}")
 
     with ThreadPoolExecutor(max_workers=a.workers) as ex:
         rows = list(ex.map(lambda it: eval_one(
             it, a.model, a.backend, a.provider,
-            a.judge_model, jb, a.judge_provider, a.condition,
+            jm, jb, a.judge_provider, a.condition,
             a.judge_reasoning), items))
 
     ok = [r for r in rows if "error" not in r]

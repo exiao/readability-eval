@@ -1,10 +1,9 @@
 """Merged slop lexicon + detectors.
 
 Sources, in order of authority:
-  1. ~/.hermes/WRITING-STYLE.md          Eric's kill list + structural slop
-  2. creative/humanizer 29 patterns      (blader/humanizer, MIT)
-  3. creative/writer hard bans
-  4. Wikipedia:Signs_of_AI_writing       (WP:AITELLS)
+  1. A hand-maintained kill list of terms and structural tells
+  2. blader/humanizer, 29 patterns (MIT)
+  3. Wikipedia:Signs_of_AI_writing (WP:AITELLS)
 
 Wikipedia's "ineffective indicators" are deliberately NOT scored: perfect
 grammar, formal prose generally, transition words in isolation, mixed

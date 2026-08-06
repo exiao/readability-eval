@@ -5,7 +5,7 @@ judges prefer their own family's writing. Use this to check whether a ranking
 survives a judge swap.
 
     python3 -m readability_eval.rejudge --label gemini-3.5-flash \\
-        --judge-model claude-fable-5 --judge-backend hermes --judge-provider anthropic
+        --judge-model openai/gpt-5.6-sol --judge-backend openrouter
 """
 import argparse
 import json
@@ -37,7 +37,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--label", required=True)
     ap.add_argument("--judge-model", required=True)
-    ap.add_argument("--judge-backend", default="hermes")
+    ap.add_argument("--judge-backend", default="openrouter",
+                    choices=["openrouter", "anthropic"])
     ap.add_argument("--judge-provider", default=None)
     ap.add_argument("--workers", type=int, default=3)
     ap.add_argument("--write", action="store_true",

@@ -1,22 +1,31 @@
 #!/bin/bash
-# Full re-run on the v2 24-prompt set. Subscription providers, no per-token cost.
-# The hermes backend forces --safe-mode: no persona, no skills, no memory, no
-# tools. Without it you are benchmarking the maintainer's agent, not the model.
-cd ~/projects/readability-eval
-run() {
-  python3 -m readability_eval.run --backend hermes \
-    --judge-model claude-opus-5 --judge-provider anthropic --judge-reasoning low \
-    --workers 4 --condition "${3:-default}" \
-    --model "$1" --provider "$2" \
-    --label "$1$( [ -n "$3" ] && echo "__$3" )"
+# Full run: every model in MODELS on the default condition.
+#
+# Needs OPENROUTER_API_KEY. Claude models go through --backend anthropic, which
+# needs ANTHROPIC_API_KEY (set ANTHROPIC_BASE_URL to route via a local proxy).
+# Drop the anthropic block if you only have an OpenRouter key.
+set -euo pipefail
+cd "$(dirname "$0")"
+
+COND="${1:-default}"
+SUFFIX=$( [ "$COND" = default ] && echo "" || echo "__$COND" )
+
+run() {  # run <backend> <model> <label>
+  python3 -m readability_eval.run \
+    --backend "$1" --model "$2" --label "$3$SUFFIX" \
+    --condition "$COND" --workers 4 \
+    > "/tmp/re_$3$SUFFIX.log" 2>&1 &
 }
-run claude-opus-5    anthropic    > /tmp/v3_opus.log  2>&1 &
-run gpt-5.6-sol      openai-codex > /tmp/v3_gpt.log   2>&1 &
-run grok-4.5         xai-oauth    > /tmp/v3_grok.log  2>&1 &
-run gemini-3.5-flash google       > /tmp/v3_gem.log   2>&1 &
+
+run openrouter google/gemini-3.5-flash gemini-3.5-flash
+run openrouter openai/gpt-5.6-sol      gpt-5.6-sol
+run openrouter x-ai/grok-4.5           grok-4.5
+run openrouter moonshotai/kimi-k3      kimi-k3
 wait
-run claude-fable-5     anthropic  > /tmp/v3_fable.log 2>&1 &
-run moonshotai/kimi-k3 openrouter > /tmp/v3_kimi.log  2>&1 &
-run gemini-3.6-flash   google     > /tmp/v3_gem36.log 2>&1 &
+
+for m in claude-opus-5 claude-opus-4-6 claude-sonnet-4-6 claude-haiku-4-5; do
+  run anthropic "$m" "$m"
+done
 wait
-echo done
+
+python3 -m readability_eval.report

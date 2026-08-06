@@ -35,7 +35,7 @@ def band(score):
     return "low" if score < LOW else ("mid" if score < HIGH else "high")
 
 
-def score_case(c, judge_model=None, backend="hermes", provider=None):
+def score_case(c, judge_model=None, backend="openrouter", provider=None):
     item = ITEMS[c["prompt_id"]]
     text = c["text"]
 
@@ -63,7 +63,8 @@ def score_case(c, judge_model=None, backend="hermes", provider=None):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--judge", default=None, help="run the real judge too")
-    ap.add_argument("--backend", default="hermes")
+    ap.add_argument("--backend", default="openrouter",
+                    choices=["openrouter", "anthropic"])
     ap.add_argument("--provider", default=None)
     ap.add_argument("--workers", type=int, default=4)
     a = ap.parse_args()

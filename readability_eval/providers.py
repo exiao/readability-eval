@@ -1,27 +1,32 @@
 """Model callers.
 
 Two backends, both RAW: one HTTP call to the model, a plain system prompt, and
-no tools. That is the whole point of this eval — it scores the model itself, not
+no tools. That is the whole point of this eval: it scores the model itself, not
 a harness wrapped around it.
 
-  openrouter  — anyone can run this, costs money. Used for every non-Anthropic
-                model.
-  anthropic   — the maintainer's local billing proxy, which forwards to the
-                Anthropic subscription. Used for Claude models.
+  openrouter  the default, and all you need. Any model, one API key.
+  anthropic   the Anthropic Messages API directly, for Claude models.
 
-WHY THERE IS NO `hermes` BACKEND ANYMORE
-----------------------------------------
-An earlier version shelled out to `hermes chat`. That is the maintainer's
-personal agent, not a bare model: it loads SOUL.md, AGENTS.md, memory, skills
-and ~31 tools including a live terminal. Every score produced that way was
-invalid. Models read the maintainer's actual git repos and answered questions
-that were never asked, in a house style learned from a persona file.
+Both read their credentials from the environment:
 
-`--safe-mode` does NOT fix this. Per the Hermes docs it disables *user
-customizations* for troubleshooting; the agent, its system prompt and its full
-toolset remain. `-z/--oneshot` states outright that "tools, memory, rules, and
-AGENTS.md in the CWD are loaded as normal." There is no CLI flag that yields a
-bare model, by design — the CLI *is* the agent.
+  OPENROUTER_API_KEY    required for --backend openrouter
+  ANTHROPIC_API_KEY     required for --backend anthropic
+  ANTHROPIC_BASE_URL    optional, override the Anthropic endpoint. Point this
+                        at a local proxy or gateway if you route Claude
+                        traffic through one. Defaults to the public API.
+
+WHY THERE IS NO AGENT BACKEND
+-----------------------------
+An earlier version of this eval shelled out to a coding-agent CLI. That is not
+a bare model: such CLIs load a persona file, project docs, memory, skills and
+a live toolset. Every score produced that way was invalid. Models read local
+git repositories and answered questions that were never asked, in a house
+style learned from a persona file.
+
+"Safe mode" flags do not fix this. They typically disable *user
+customizations* for troubleshooting while the agent, its system prompt and its
+toolset remain. If the CLI is the agent, there is no flag that yields a bare
+model.
 
 `probe_contamination` below is the guard, and `run.py` calls it before every
 run. It is cheap and it would have caught the mistake immediately.
@@ -32,7 +37,12 @@ import urllib.error
 import urllib.request
 
 SYSTEM = "You are a helpful assistant."
-PROXY_URL = "http://127.0.0.1:18801/v1/messages"
+
+BACKENDS = ("openrouter", "anthropic")
+
+ANTHROPIC_BASE_URL = os.environ.get("ANTHROPIC_BASE_URL",
+                                    "https://api.anthropic.com").rstrip("/")
+ANTHROPIC_VERSION = "2023-06-01"
 
 
 def _post(url, body, headers, timeout):
@@ -61,24 +71,32 @@ def call_openrouter(model, prompt, timeout=300):
 
 
 def call_anthropic(model, prompt, timeout=300, max_tokens=4000):
-    """Anthropic via the maintainer's local billing proxy.
+    """Anthropic Messages API.
 
-    No `tools` field and no top-level `system` field: the proxy 400s on the
-    first and 429s on the second. The system instruction is folded into the
-    user message instead, which keeps this call shape identical in spirit to
-    the OpenRouter one.
+    Set ANTHROPIC_BASE_URL to route through a local proxy or gateway; it
+    defaults to the public API. ANTHROPIC_API_KEY is required unless the
+    endpoint you point at handles auth itself.
+
+    The system instruction is folded into the user message rather than sent as
+    a top-level `system` field, which keeps this call shape identical in spirit
+    to the OpenRouter one and works against proxies that reject that field.
 
     max_tokens must comfortably exceed the longest expected answer. Some
-    prompts have a 750-word budget, and the model also emits `thinking` blocks
-    that count against the cap — too low a cap returns content with a thinking
-    block and no text at all.
+    prompts have a 750-word budget, and models may also emit `thinking` blocks
+    that count against the cap — too low a cap returns a thinking block and no
+    text at all.
     """
-    d = _post(PROXY_URL, {
+    headers = {"Content-Type": "application/json",
+               "anthropic-version": ANTHROPIC_VERSION}
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if key:
+        headers["x-api-key"] = key
+    d = _post(f"{ANTHROPIC_BASE_URL}/v1/messages", {
         "model": model,
         "max_tokens": max_tokens,
         "messages": [{"role": "user",
                       "content": f"{SYSTEM}\n\n---\n\n{prompt}"}],
-    }, {"Content-Type": "application/json"}, timeout)
+    }, headers, timeout)
     text = "".join(b.get("text", "") for b in d.get("content", [])
                    if b.get("type") == "text").strip()
     if not text:
@@ -89,9 +107,18 @@ def call_anthropic(model, prompt, timeout=300, max_tokens=4000):
 
 
 def call(model, prompt, backend="openrouter", provider=None, reasoning=None):
+    """Dispatch to a backend. Unknown names raise rather than silently routing.
+
+    An earlier version fell through to OpenRouter for anything that was not
+    "anthropic", so a stale --backend value would quietly bill and run against
+    a different backend than the one requested.
+    """
     if backend == "anthropic":
         return call_anthropic(model, prompt)
-    return call_openrouter(model, prompt)
+    if backend == "openrouter":
+        return call_openrouter(model, prompt)
+    raise ValueError(
+        f"unknown backend {backend!r}; supported: {', '.join(BACKENDS)}")
 
 
 PROBE = ("Please answer these three questions about yourself, briefly:\n"
@@ -129,8 +156,8 @@ def probe_contamination(model, backend):
             f"CONTAMINATED backend={backend} model={model}: the model reports "
             f"tools {bad}. This is an agent, not a raw model; scores would be "
             f"invalid. Probe said:\n{text[:400]}")
-    if "hermes agent" in low:
+    if "i am an agent" in low or "coding agent" in low:
         raise RuntimeError(
-            f"CONTAMINATED backend={backend} model={model}: model identifies "
-            f"as Hermes Agent, so an agent system prompt is attached.")
+            f"CONTAMINATED backend={backend} model={model}: the model "
+            f"identifies as an agent, so an agent system prompt is attached.")
     return text

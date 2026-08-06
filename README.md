@@ -138,9 +138,21 @@ python3 -m readability_eval.run --model google/gemini-3.5-flash
 python3 -m readability_eval.report
 ```
 
-Standard library only. A run is 30 prompts plus 30 judge calls, well under a dollar on most models.
+That is the whole setup: one key, no judge flags. The judge defaults to a model on whichever backend you picked, so nothing points at a host you don't have.
 
-Every run starts with a **contamination probe**: it asks the backend what tools it has and refuses to run if the answer looks like an agent rather than a bare model. This exists because two full runs were thrown away after being scored through a local agent CLI that silently attached a persona, memory and 31 tools. Scoring a harness and calling it a model is the easiest way to get this wrong.
+Standard library only. A run is 30 prompts plus 30 judge calls, well under a dollar on most models. Add `--limit 5` for a cheap smoke run.
+
+**Backends and environment**
+
+| Variable | Used by | Notes |
+|---|---|---|
+| `OPENROUTER_API_KEY` | `--backend openrouter` (default) | Required. Any model OpenRouter serves. |
+| `ANTHROPIC_API_KEY` | `--backend anthropic` | Required unless your endpoint handles auth. |
+| `ANTHROPIC_BASE_URL` | `--backend anthropic` | Optional. Defaults to `https://api.anthropic.com`; point it at a local proxy or gateway to route Claude traffic through one. |
+
+`run_all.sh` runs every model on the default condition, `run_brief.sh` the brief condition, `run_claude.sh` the Claude family. All three take their credentials from the environment.
+
+Every run starts with a **contamination probe**: it asks the backend what tools it has and refuses to run if the answer looks like an agent rather than a bare model. This exists because two full runs were thrown away after being scored through an agent CLI that silently attached a persona, memory and a full toolset. Scoring a harness and calling it a model is the easiest way to get this wrong.
 
 Use a judge from a different family than the model under test, and verify with `rejudge.py`.
 

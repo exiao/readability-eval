@@ -2,6 +2,7 @@
 import unittest
 
 from readability_eval.scaffold import count, score
+from readability_eval.run import cap_scaffold
 
 
 class TestCount(unittest.TestCase):
@@ -63,6 +64,12 @@ class TestScore(unittest.TestCase):
         heads = "## H\n" * 40
         self.assertEqual(score(heads, 300)[0],
                          score(heads + "plain sentence.\n", 300)[0])
+
+    def test_judge_form_is_capped_by_scaffolding(self):
+        text = ("## H\n" * 40) + ("- item\n" * 90)
+        judged, detail = cap_scaffold({"rule7_form": 10.0}, text, 300)
+        self.assertEqual(judged["rule7_form"], 0.0)
+        self.assertEqual(detail["scaffold_score"], 0.0)
 
 
 if __name__ == "__main__":

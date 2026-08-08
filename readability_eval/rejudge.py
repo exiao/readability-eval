@@ -16,7 +16,7 @@ from concurrent.futures import ThreadPoolExecutor
 from . import judge, lexicon
 from .clarity import score_all
 from .providers import call
-from .run import clarity_score, slop_tax
+from .run import cap_scaffold, clarity_score, slop_tax
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ITEMS = {p["id"]: p for p in json.load(
@@ -72,7 +72,9 @@ def main():
                                 required=len(ITEMS[r["id"]]["asks"]),
                                 budget=ITEMS[r["id"]].get("budget"),
                                 audience=ITEMS[r["id"]].get("audience", ""))
-        det, jud = judge.merge_judged(det, judge.to_scores(p))
+        jud, _ = cap_scaffold(judge.to_scores(p), r["response"],
+                              ITEMS[r["id"]].get("budget") or 300)
+        det, jud = judge.merge_judged(det, jud)
         rules = {**det, **jud}
         clarity = clarity_score(rules, detail["economy"].get("coverage"))
         hits, breakdown = lexicon.score(r["response"])
@@ -97,6 +99,7 @@ def main():
         s = d["summary"]
         s["score"] = new
         s["judge_model"] = a.judge_model
+        s["judge_backend"] = a.judge_backend
         s["clarity_avg"] = round(statistics.mean(r["clarity_avg"] for r in ok), 2)
         s["slop_per_1k"] = round(statistics.mean(r["slop_per_1k"] for r in ok), 1)
         s["per_rule"] = {k: round(statistics.mean(r["rules"][k] for r in ok), 2)

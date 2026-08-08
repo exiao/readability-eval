@@ -10,7 +10,7 @@ import statistics
 from . import lexicon
 from .clarity import score_all
 from .judge import merge_judged, to_scores
-from .run import clarity_score, slop_tax
+from .run import cap_scaffold, clarity_score, slop_tax
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ITEMS = {p["id"]: p for p in json.load(
@@ -31,7 +31,9 @@ def main():
                                     item.get("assumed", ()), required=len(item["asks"]),
                                     budget=item.get("budget"),
                                     audience=item.get("audience", ""))
-            det, jud = merge_judged(det, to_scores(r["judge"]))
+            jud, _ = cap_scaffold(to_scores(r["judge"]), r["response"],
+                                  item.get("budget") or 300)
+            det, jud = merge_judged(det, jud)
             rules = {**det, **jud}
             hits, breakdown = lexicon.score(r["response"])
             clarity = clarity_score(rules, detail["economy"].get("coverage"))

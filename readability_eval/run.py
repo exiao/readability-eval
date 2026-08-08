@@ -83,6 +83,13 @@ def clarity_score(rules, coverage=None):
     return mean
 
 
+def cap_scaffold(judged, text, budget):
+    """Apply deterministic Rule 7 scaffolding cap to judge scores."""
+    scaf, detail = scaffold.score(text, budget)
+    judged["rule7_form"] = min(judged["rule7_form"], scaf)
+    return judged, detail
+
+
 # Condition = an instruction appended to every prompt. Lets you separate a
 # model property from a prompting artifact: if "answer in 50 words" closes the
 # economy gap, the benchmark is measuring default verbosity, not capability.
@@ -121,8 +128,7 @@ def eval_one(item, model, backend, provider, judge_model, judge_backend,
     # scored a perfect 10 on form while carrying up to 69 headings and 134 list
     # items. Cap rather than average, so the judge can still fail an answer the
     # counter thinks is fine, but cannot pass one it doesn't.
-    scaf, scaf_detail = scaffold.score(text, item.get("budget") or 300)
-    jud["rule7_form"] = min(jud["rule7_form"], scaf)
+    jud, scaf_detail = cap_scaffold(jud, text, item.get("budget") or 300)
 
     # Rules 2, 3, 5 and 6: same treatment. The counters only see the phrases
     # on their lists, and most of those lists never fire on real answers (43
@@ -216,6 +222,7 @@ def main():
 
     summary = {
         "model": a.model, "backend": a.backend, "condition": a.condition,
+        "judge_model": jm, "judge_backend": jb,
         "n": len(ok), "errors": len(errs),
         "score": round(statistics.mean(r["score"] for r in ok), 1),
         "clarity_avg": round(statistics.mean(r["clarity_avg"] for r in ok), 2),

@@ -9,8 +9,8 @@ cd "$(dirname "$0")"
 
 COND="${1:-default}"
 SUFFIX=$( [ "$COND" = default ] && echo "" || echo "__$COND" )
-JUDGE_MODEL="${JUDGE_MODEL:-claude-opus-5}"
-JUDGE_BACKEND="${JUDGE_BACKEND:-anthropic}"
+JUDGE_MODEL="claude-opus-5"
+JUDGE_BACKEND="anthropic"
 PIDS=()
 
 run() {  # run <backend> <model> <label>

@@ -37,8 +37,8 @@ class TestRunAll(unittest.TestCase):
 
     def test_pins_one_judge_for_all_subjects(self):
         script = (ROOT / "run_all.sh").read_text()
-        self.assertIn('JUDGE_MODEL="${JUDGE_MODEL:-claude-opus-5}"', script)
-        self.assertIn('JUDGE_BACKEND="${JUDGE_BACKEND:-anthropic}"', script)
+        self.assertIn('JUDGE_MODEL="claude-opus-5"', script)
+        self.assertIn('JUDGE_BACKEND="anthropic"', script)
         self.assertEqual(script.count('--judge-model "$JUDGE_MODEL"'), 1)
         self.assertEqual(script.count('--judge-backend "$JUDGE_BACKEND"'), 1)
 

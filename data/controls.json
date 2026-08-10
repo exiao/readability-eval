@@ -89,7 +89,9 @@
      "explains the tradeoff that sharing creates",
      "gives a consequence for choosing one over the other"
     ]
-   }
+   },
+   "needs_judge": true,
+   "needs_judge_why": "coverage/emptiness is judged"
   },
   {
    "name": "correct_but_jargon_dense",
@@ -105,7 +107,9 @@
      "explains the tradeoff that sharing creates",
      "gives a consequence for choosing one over the other"
     ]
-   }
+   },
+   "needs_judge": true,
+   "needs_judge_why": "rule 3 judged half"
   },
   {
    "name": "jargon_but_defined",
@@ -121,7 +125,9 @@
      "explains the tradeoff that sharing creates",
      "gives a consequence for choosing one over the other"
     ]
-   }
+   },
+   "needs_judge": true,
+   "needs_judge_why": "rule 3 judged half"
   },
   {
    "name": "euphemism_layoff",
@@ -169,7 +175,9 @@
      "gives the reason it fits 3 users",
      "says when the other choice becomes right"
     ]
-   }
+   },
+   "needs_judge": true,
+   "needs_judge_why": "rule 7 thumb test is judged"
   },
   {
    "name": "decisive_short",
@@ -228,7 +236,9 @@
      "says the entry can still be overwritten",
      "explains what the leader must do instead"
     ]
-   }
+   },
+   "needs_judge": true,
+   "needs_judge_why": "rule 1 is audience-relative, judge only"
   },
   {
    "name": "expert_precise",
@@ -259,7 +269,9 @@
      "says what data was accessed",
      "tells the customer what to do"
     ]
-   }
+   },
+   "needs_judge": true,
+   "needs_judge_why": "rule 6 judged half"
   },
   {
    "name": "meta_slop_discussion",
@@ -291,7 +303,9 @@
      "gives the reasoning",
      "names the main risk of that call"
     ]
-   }
+   },
+   "needs_judge": true,
+   "needs_judge_why": "scaffolding counter alone reaches only 8.9 on this (8 headings, 12 list items vs a 200w budget); rule 7 is min(judge, counter) and the judge half is what takes it low. Counter calibration is a separate, score-changing decision -- see README."
   },
   {
    "name": "exec_decision_plain",

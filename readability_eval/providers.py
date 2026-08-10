@@ -33,6 +33,7 @@ run. It is cheap and it would have caught the mistake immediately.
 """
 import json
 import os
+import re
 import urllib.error
 import urllib.request
 
@@ -147,6 +148,28 @@ PROBE = ("Please answer these three questions about yourself, briefly:\n"
          "provided to you here? yes or no.")
 
 
+_DENIAL = re.compile(
+    r"\b(none|no tools?|not have|don'?t have|do not have|no access|"
+    r"without access|lack|am not|i'?m not|no third-party|no third-party)\b")
+
+_TOOL_NAMES = ("terminal", "read_file", "web_search", "browser_",
+               "execute_code", "delegate_task", "skill_view")
+
+
+def _first_answer(text):
+    """The answer to question 1, which is the only one that names tools.
+
+    Scanning the whole reply is what made this check misfire: a clean model
+    answering question 2 with "I am Claude, I am not a coding agent" tripped
+    both the tool scan and the identity scan. Questions 2 and 3 invite the
+    words the scan is looking for.
+    """
+    # Split on the model's own enumeration. Falls back to the whole text when
+    # the model answers in prose, which is the conservative direction.
+    parts = re.split(r"(?m)^\s*(?:2[.)]|\*\*?2[.)])", text, maxsplit=1)
+    return parts[0]
+
+
 def probe_contamination(model, backend):
     """Fail loudly if the backend is an agent rather than a bare model.
 
@@ -157,6 +180,16 @@ def probe_contamination(model, backend):
     questions ("what tools do you have") as probing. Both backends here build
     the HTTP body in this file with no `tools` field, so a refusal still tells
     us the call shape is clean — it just cannot be confirmed from the answer.
+
+    Tool names are only contamination when the model AFFIRMS them. The check
+    used to substring-scan the entire reply, so "I have no terminal access and
+    I am not a coding agent" -- the most explicitly clean answer possible --
+    aborted the whole run before a single prompt. It now reads the answer to
+    question 1 and ignores tool names that sit inside a denial.
+
+    The bias stays toward false alarms: an ambiguous answer that names tools
+    without a clear denial still fails. Wasting a run beats publishing scores
+    from an agent.
     """
     try:
         text = call(model, PROBE, backend)["text"]
@@ -165,16 +198,17 @@ def probe_contamination(model, backend):
             return "(model refused the introspection probe; call shape is "
             "tool-less by construction)"
         raise
-    low = text.lower()
-    bad = [t for t in ("terminal", "read_file", "web_search", "browser_",
-                       "execute_code", "delegate_task", "skill_view")
-           if t in low]
-    if bad:
+    answer = _first_answer(text)
+    low = answer.lower()
+    named = [t for t in _TOOL_NAMES if t in low]
+    if named and not _DENIAL.search(low):
         raise RuntimeError(
             f"CONTAMINATED backend={backend} model={model}: the model reports "
-            f"tools {bad}. This is an agent, not a raw model; scores would be "
-            f"invalid. Probe said:\n{text[:400]}")
-    if "i am an agent" in low or "coding agent" in low:
+            f"tools {named}. This is an agent, not a raw model; scores would "
+            f"be invalid. Probe said:\n{text[:400]}")
+    whole = text.lower()
+    if re.search(r"\b(i am|i'?m) an? (agent|coding agent)\b", whole) and \
+            not re.search(r"\b(not|never) an? (agent|coding agent)\b", whole):
         raise RuntimeError(
             f"CONTAMINATED backend={backend} model={model}: the model "
             f"identifies as an agent, so an agent system prompt is attached.")

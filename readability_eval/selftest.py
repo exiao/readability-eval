@@ -19,7 +19,7 @@ from concurrent.futures import ThreadPoolExecutor
 from . import judge, lexicon
 from .clarity import score_all
 from .providers import call
-from .run import clarity_score, slop_tax
+from .run import cap_scaffold, clarity_score, slop_tax
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ITEMS = {p["id"]: p for p in json.load(
@@ -51,12 +51,14 @@ def score_case(c, judge_model=None, backend="openrouter", provider=None):
         delivered = sum(1 for x in parsed.get("facts_delivered", []) if x)
         jud = judge.to_scores(parsed)
     else:
-        # No judge: assume all facts land and both judged rules are perfect.
-        # This is deliberately GENEROUS, so a control that still lands in "low"
-        # failed on deterministic grounds alone.
+        # No judge: assume all facts land, then apply the deterministic half of
+        # rule 7. Assuming a perfect 10 was wrong -- the scaffolding counter
+        # needs no model and is exactly what catches report theater, so
+        # skipping it made council_report_slop unfailable in the free mode.
         delivered = len(item["asks"])
         jud = {"rule1_understandable": 10.0, "rule4_imagery": 10.0,
                "rule7_form": 10.0}
+        jud, _ = cap_scaffold(jud, text, item.get("budget") or 300)
 
     det, detail = score_all(text, delivered, item.get("assumed", ()), budget=item.get("budget"),
                             required=len(item["asks"]),
@@ -84,10 +86,29 @@ def main():
     else:
         got = [score_case(c) for c in CONTROLS]
 
+    # Controls that test a JUDGED rule cannot be graded without a judge. The
+    # free mode hardcodes rules 1, 4 and 7 to 10.0, so a case whose whole point
+    # is "the judge should have caught this" is unfailable here and was
+    # reported as a scorer failure. Skip them and say so, rather than exiting 1
+    # on a suite that never had the information to pass. `--judge MODEL` runs
+    # the full set.
+    skipped = []
+    if not a.judge:
+        keep, keep_got = [], []
+        for c, g in zip(CONTROLS, got):
+            if c.get("needs_judge"):
+                skipped.append(c)
+            else:
+                keep.append(c)
+                keep_got.append(g)
+        cases, got = keep, keep_got
+    else:
+        cases = list(CONTROLS)
+
     fails = []
     print(f"{'case':26} {'want':>5} {'got':>5} {'score':>6} {'slop':>6}")
     print("-" * 56)
-    for c, (score, hits, breakdown, rules) in zip(CONTROLS, got):
+    for c, (score, hits, breakdown, rules) in zip(cases, got):
         actual = band(score)
         ok = actual == c["expect"]
         mark = " " if ok else "X"
@@ -96,9 +117,16 @@ def main():
         if not ok:
             fails.append((c, score, actual, breakdown, rules))
 
+    if skipped:
+        print()
+        print(f"{len(skipped)} control(s) skipped: they test a judged rule, "
+              f"which the free mode cannot score. Run with --judge MODEL.")
+        for c in skipped:
+            print(f"  - {c['name']}: {c.get('needs_judge_why', '')}")
+
     # Pairwise checks. Absolute bands drift with judge and prompt wording;
     # "A must beat B" is the assertion that actually has to hold.
-    scores = {c["name"]: s for c, (s, _, _, _) in zip(CONTROLS, got)}
+    scores = {c["name"]: s for c, (s, _, _, _) in zip(cases, got)}
     pair_fails = []
     print()
     for better, worse, why in PAIRS:
@@ -122,14 +150,14 @@ def main():
         if not fails:
             sys.exit(1)
     if fails:
-        print(f"{len(fails)}/{len(CONTROLS)} FAILED\n")
+        print(f"{len(fails)}/{len(cases)} FAILED\n")
         for c, score, actual, breakdown, rules in fails:
             print(f"  {c['name']}: wanted {c['expect']}, got {actual} ({score})")
             print(f"    why it matters: {c['why']}")
             print(f"    rules: { {k: v for k, v in rules.items()} }")
             print(f"    slop:  {breakdown}\n")
         sys.exit(1)
-    print(f"all {len(CONTROLS)} controls pass")
+    print(f"all {len(cases)} controls pass")
 
 
 if __name__ == "__main__":

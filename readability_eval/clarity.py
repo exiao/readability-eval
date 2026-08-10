@@ -3,6 +3,7 @@
 Rules 1 (easy to understand) and 4 (imagery) need a judge; see judge.py.
 Each returns 0-10, higher is better.
 """
+import os
 import re
 
 from . import lexicon
@@ -53,13 +54,22 @@ EUPHEMISM = ["rightsizing", "right-sizing", "headwinds", "challenging quarter",
 
 ACRONYM = re.compile(r"\b[A-Z]{2,6}s?\b")
 
-# Ordinary English words written in caps for emphasis are not acronyms. Backed by
-# the system word list where available, with a small fallback for portability.
-_WORDS_FILE = "/usr/share/dict/words"
+# Ordinary English words written in caps for emphasis are not acronyms.
+#
+# The list is BUNDLED, not read from the host. It used to come from
+# /usr/share/dict/words, which macOS ships and most minimal Linux images do
+# not. On a host without it the 68-word fallback below became the entire
+# dictionary, and ordinary words -- ALWAYS, COUNT, CURVED, TRUE, WORLD --
+# scored as undefined acronyms. That made rule 3 depend on the grader's
+# machine: the same saved corpus rescored 8.35 here and 8.20 on a bare
+# container. A benchmark whose numbers move with the OS package set is not
+# reproducible, which is the whole point of shipping the results.
+_WORDS_FILE = os.path.join(os.path.dirname(os.path.dirname(
+    os.path.abspath(__file__))), "data", "english_words.txt")
 try:
     with open(_WORDS_FILE) as _f:
-        _ENGLISH = {w.strip().upper() for w in _f if 2 <= len(w.strip()) <= 6}
-except OSError:  # pragma: no cover - platform dependent
+        _ENGLISH = {w.strip().upper() for w in _f if w.strip()}
+except OSError:  # pragma: no cover - only if the bundled file is deleted
     _ENGLISH = set()
 _FALLBACK = {
     "THE", "AND", "NOT", "ALL", "BIG", "FUN", "NEW", "OLD", "YES", "NO", "IS",
@@ -73,9 +83,18 @@ _FALLBACK = {
 
 
 def _is_shouted_word(token):
-    """True when an all-caps token is just an English word being emphasised."""
-    base = token.rstrip("s").upper()
-    return base in _ENGLISH or base in _FALLBACK or token.upper() in _FALLBACK
+    """True when an all-caps token is just an English word being emphasised.
+
+    The plural strip has to happen AFTER upper-casing. `"SHAPES".rstrip("s")`
+    is a no-op -- rstrip is case-sensitive and the token is already upper --
+    so every shouted plural (SHAPES, RULES, STEPS) missed the dictionary and
+    scored as an undefined acronym. Strip a single trailing S rather than
+    rstrip, which would eat both of ADDRESS and SUCCESS.
+    """
+    up = token.upper()
+    base = up[:-1] if up.endswith("S") and len(up) > 2 else up
+    return up in _ENGLISH or base in _ENGLISH or up in _FALLBACK \
+        or base in _FALLBACK
 COMMON_ACRONYMS = {"AI", "API", "URL", "HTTP", "HTTPS", "JSON", "CSV", "PDF",
                    "USA", "UK", "EU", "CEO", "CTO", "FAQ", "OK", "TV", "PC",
                    "ID", "IT", "PR", "QA", "UI", "UX", "SQL", "HTML", "CSS"}

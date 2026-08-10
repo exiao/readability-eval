@@ -196,7 +196,13 @@ def rule2_economy(text, facts, required=None, budget=None):
     # ever bottoming out: 2x -> 6.3, 3x -> 4.0, 5x -> 1.6.
     over = max(0.0, (words - budget) / float(budget))
     base = 10.0 * (0.5 ** (over / 1.5))
-    coverage = 1.0 if not required else facts / required
+    # Clamp. `facts` is a count of truthy entries in a list the JUDGE returned,
+    # so a judge that emits more entries than the prompt has asks -- or strings
+    # like "false", which are truthy -- pushes coverage above 1.0. That
+    # multiplies economy past 10 and the final score past 100 (one ask plus two
+    # truthy entries scored 111.1). Over-coverage is a judge defect, never
+    # evidence of a better answer.
+    coverage = 1.0 if not required else min(1.0, facts / required)
     s = round(base * coverage, 1)
     return s, {"words": words, "budget": budget, "facts": facts,
                "required": required, "coverage": round(coverage, 2),

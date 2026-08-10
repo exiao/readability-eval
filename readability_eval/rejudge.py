@@ -11,6 +11,7 @@ import argparse
 import json
 import os
 import statistics
+import sys
 from concurrent.futures import ThreadPoolExecutor
 
 from . import judge, lexicon
@@ -57,9 +58,19 @@ def main():
                                         a.judge_provider), runs))
 
     by_id = {i: p for i, p, e in got if p}
-    for i, p, e in got:
-        if e:
-            print(f"  prompt {i}: {e}")
+    failed = [(i, e) for i, p, e in got if e]
+    for i, e in failed:
+        print(f"  prompt {i}: {e}")
+
+    # A partial rewrite is worse than no rewrite. --write relabels the summary
+    # with the new judge, but any prompt whose judge call failed keeps its OLD
+    # judge's scores, so the file claims a clean judge swap while silently
+    # mixing two judges -- exactly the contamination this tool exists to
+    # measure. Refuse the write and let the caller re-run.
+    if failed and a.write:
+        sys.exit(f"refusing --write: {len(failed)} of {len(runs)} judge calls "
+                 f"failed, so the file would mix {a.judge_model} with the "
+                 f"original judge. Re-run to get a complete set.")
 
     scores = []
     for r in runs:

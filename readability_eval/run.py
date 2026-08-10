@@ -101,9 +101,17 @@ CONDITIONS = {
 
 
 def eval_one(item, model, backend, provider, judge_model, judge_backend,
-             judge_provider, condition="default", judge_reasoning=None):
+             judge_provider, condition="default", judge_reasoning=None,
+             reasoning=None):
     t0 = time.time()
-    out = call(model, item["prompt"] + CONDITIONS[condition], backend, provider)
+    try:
+        out = call(model, item["prompt"] + CONDITIONS[condition], backend,
+                   provider, reasoning=reasoning)
+    except Exception as e:
+        # One refused or filtered prompt must not take down the other nine.
+        # Content filters fire on a minority of WildChat prompts, and losing
+        # a whole model to one block silently drops it from the comparison.
+        return {"id": item["id"], "error": f"model call: {e}"}
     text = out["text"]
     if not text.strip():
         return {"id": item["id"], "error": "empty response"}
@@ -171,6 +179,12 @@ def main():
                     help="defaults to --backend, so a plain "
                          "`--backend openrouter` run needs no judge flags")
     ap.add_argument("--judge-provider", default=None)
+    ap.add_argument("--reasoning", default=None,
+                    choices=["low", "medium", "high"],
+                    help="reasoning effort for the model under test "
+                         "(OpenRouter only). Set it explicitly when comparing "
+                         "models: default effort varies by vendor, so an "
+                         "unset run compares configurations, not models.")
     ap.add_argument("--judge-reasoning", default=None,
                     help="unused; kept for CLI compatibility")
     ap.add_argument("--condition", default="default", choices=list(CONDITIONS),
@@ -207,7 +221,7 @@ def main():
         rows = list(ex.map(lambda it: eval_one(
             it, a.model, a.backend, a.provider,
             jm, jb, a.judge_provider, a.condition,
-            a.judge_reasoning), items))
+            a.judge_reasoning, a.reasoning), items))
 
     ok = [r for r in rows if "error" not in r]
     errs = [r for r in rows if "error" in r]

@@ -55,18 +55,36 @@ def _post(url, body, headers, timeout):
         raise RuntimeError(f"{url} -> HTTP {e.code}: {e.read()[:300]}") from None
 
 
-def call_openrouter(model, prompt, timeout=300):
+def call_openrouter(model, prompt, timeout=300, reasoning=None):
     key = os.environ.get("OPENROUTER_API_KEY")
     if not key:
         raise RuntimeError("OPENROUTER_API_KEY not set")
-    d = _post("https://openrouter.ai/api/v1/chat/completions", {
+    body = {
         "model": model,
         "messages": [{"role": "system", "content": SYSTEM},
                      {"role": "user", "content": prompt}],
         "usage": {"include": True},
-    }, {"Authorization": f"Bearer {key}",
-        "Content-Type": "application/json"}, timeout)
-    return {"text": d["choices"][0]["message"]["content"],
+    }
+    if reasoning:
+        # OpenRouter normalises this across vendors. Worth setting explicitly:
+        # comparing a model at default effort against one at high effort is
+        # comparing two configurations, not two models.
+        body["reasoning"] = {"effort": reasoning}
+    d = _post("https://openrouter.ai/api/v1/chat/completions", body,
+              {"Authorization": f"Bearer {key}",
+               "Content-Type": "application/json"}, timeout)
+    choice = (d.get("choices") or [{}])[0]
+    msg = choice.get("message") or {}
+    text = msg.get("content")
+    if text is None:
+        # A refusal, or a reasoning model that spent its budget thinking and
+        # emitted no answer, returns content=null. Left unhandled this raises
+        # AttributeError deep in the runner and takes down all 10 prompts for
+        # that model; surface it as a per-prompt error instead.
+        raise RuntimeError(
+            f"{model} returned no content (finish_reason="
+            f"{choice.get('finish_reason')}, refusal={msg.get('refusal')!r})")
+    return {"text": text,
             "cost_usd": (d.get("usage") or {}).get("cost", 0.0)}
 
 
@@ -116,7 +134,7 @@ def call(model, prompt, backend="openrouter", provider=None, reasoning=None):
     if backend == "anthropic":
         return call_anthropic(model, prompt)
     if backend == "openrouter":
-        return call_openrouter(model, prompt)
+        return call_openrouter(model, prompt, reasoning=reasoning)
     raise ValueError(
         f"unknown backend {backend!r}; supported: {', '.join(BACKENDS)}")
 

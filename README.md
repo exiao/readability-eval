@@ -178,6 +178,9 @@ A judge swap moved every score in this table by 2 to 5 points in earlier testing
 **Why did the numbers change?**
 Every published score before commit `cacf8cf` was produced when rules 1, 3, 5 and 6 had no judged half — the mechanical counters scored them unopposed and passed nearly everything. Since the judge can only ever *lower* a rule (the score is the worse of judge and counter), those numbers were an upper bound. Rejudging with the same judge model dropped the table 6 to 11 points and reordered it. Scores from before that commit are not comparable to scores after it.
 
+**Is the Claude table single-provider?**
+No, and the saved files say so. The responses were generated against the Anthropic API (`backend: anthropic`), but the rejudge pass that produced the current scores ran `anthropic/claude-opus-5` over OpenRouter (`judge_backend: openrouter`) because the machine doing the rejudge had no working Anthropic credential at the time. Same judge model, two providers in one result. It is disclosed rather than hidden, but a clean re-run should keep subject and judge on one endpoint — `run_claude.sh` now does, and `ANTHROPIC_BASE_URL` points both at whatever gateway you use.
+
 **Where do the word budgets come from?**
 A model set them from each prompt. They are defensible per-prompt but they are not ground truth, so the absolute scores are softer than the relative ones.
 
@@ -207,8 +210,12 @@ Standard library only. A run is 30 prompts plus 30 judge calls, well under a dol
 | Variable | Used by | Notes |
 |---|---|---|
 | `OPENROUTER_API_KEY` | `--backend openrouter` (default) | Required. Any model OpenRouter serves. |
-| `ANTHROPIC_API_KEY` | `--backend anthropic` | Required unless your endpoint handles auth. |
-| `ANTHROPIC_BASE_URL` | `--backend anthropic` | Optional. Defaults to `https://api.anthropic.com`; point it at a local proxy or gateway to route Claude traffic through one. |
+| `ANTHROPIC_API_KEY` | `--backend anthropic` | Required unless your endpoint handles auth. `ANTHROPIC_TOKEN` is accepted under the same rules, since gateways commonly export that name. |
+| `ANTHROPIC_BASE_URL` | `--backend anthropic` | Optional. Defaults to `https://api.anthropic.com`; point it at a local proxy or gateway to route **all** Claude traffic, subject and judge alike, through one endpoint. |
+
+**Keep a run on one backend.** The judge follows `--backend` unless you override it, and it should stay there: routing the subject through one provider and the judge through another splits a single result across two endpoints, and the saved summary records both (`backend`, `judge_backend`) so a mixed run is visible after the fact rather than silent. Cross-family judging is worth doing — cross-*provider* judging by accident is not.
+
+Anthropic runs report real dollar cost, derived from the API's token counts and a per-million rate table in `providers.py`. Models not in that table report `0.0` rather than a guess.
 
 `run_all.sh` runs every model on the default condition, `run_brief.sh` the brief condition, `run_claude.sh` the Claude family. All three take their credentials from the environment.
 

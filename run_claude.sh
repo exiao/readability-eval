@@ -1,13 +1,22 @@
 #!/bin/bash
 # Claude models via --backend anthropic.
 #
-# Needs ANTHROPIC_API_KEY. Set ANTHROPIC_BASE_URL to route through a local
-# proxy or gateway instead of the public API.
+# Endpoint comes from ANTHROPIC_BASE_URL and defaults to the public API. Point
+# it at a local proxy or gateway to route all Claude traffic through one place:
+#
+#   export ANTHROPIC_BASE_URL=http://127.0.0.1:PORT
+#
+# Credentials: ANTHROPIC_API_KEY, or ANTHROPIC_TOKEN if your gateway exports
+# that name. Omit both only when the endpoint handles auth itself.
 #
 # The judge here is claude-opus-5, same family as the subjects, which is NOT
-# neutral. Run rejudge.py with an OpenRouter judge before publishing a ranking.
+# neutral. Run rejudge.py with a judge from another family before publishing a
+# ranking. Keep the judge on this same backend so one endpoint sees all Claude
+# traffic; routing only the judge elsewhere splits a run across two providers.
 set -euo pipefail
 cd "$(dirname "$0")"
+
+echo "anthropic endpoint: ${ANTHROPIC_BASE_URL:-https://api.anthropic.com}"
 
 run() {
   python3 -m readability_eval.run \

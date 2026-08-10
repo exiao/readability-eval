@@ -45,6 +45,16 @@ ANTHROPIC_BASE_URL = os.environ.get("ANTHROPIC_BASE_URL",
                                     "https://api.anthropic.com").rstrip("/")
 ANTHROPIC_VERSION = "2023-06-01"
 
+# USD per million tokens, (input, output). Used only to fill the cost column;
+# matched by substring so dated model ids resolve. Unlisted models report 0.0
+# rather than a guess. These go stale -- treat them as a rough comparison aid,
+# not billing.
+ANTHROPIC_RATES = {
+    "opus": (15.0, 75.0),
+    "sonnet": (3.0, 15.0),
+    "haiku": (0.8, 4.0),
+}
+
 
 def _post(url, body, headers, timeout):
     req = urllib.request.Request(url, data=json.dumps(body).encode(),
@@ -107,7 +117,12 @@ def call_anthropic(model, prompt, timeout=300, max_tokens=4000):
     """
     headers = {"Content-Type": "application/json",
                "anthropic-version": ANTHROPIC_VERSION}
-    key = os.environ.get("ANTHROPIC_API_KEY")
+    # ANTHROPIC_API_KEY is the documented name; ANTHROPIC_TOKEN is accepted
+    # because gateways and proxies commonly export it under that name, and
+    # silently sending no credential produced a 401 that read like a proxy
+    # fault rather than a missing variable.
+    key = os.environ.get("ANTHROPIC_API_KEY") or \
+        os.environ.get("ANTHROPIC_TOKEN")
     if key:
         headers["x-api-key"] = key
     d = _post(f"{ANTHROPIC_BASE_URL}/v1/messages", {
@@ -122,7 +137,30 @@ def call_anthropic(model, prompt, timeout=300, max_tokens=4000):
         stop = d.get("stop_reason")
         raise RuntimeError(
             f"empty response from {model} (stop_reason={stop}): {str(d)[:200]}")
-    return {"text": text, "cost_usd": 0.0}
+    return {"text": text, "cost_usd": _anthropic_cost(model, d.get("usage"))}
+
+
+def _anthropic_cost(model, usage):
+    """Dollar cost from the Messages API usage block.
+
+    Anthropic returns token counts, not a price, so this multiplies by a
+    published per-million rate. Runs used to report $0.0 for every Claude
+    model, which made the cost column silently wrong rather than absent.
+
+    Unknown models return 0.0 rather than guessing: a wrong number is worse
+    than a missing one. Rates are USD per million tokens and go stale -- they
+    are a convenience for comparing runs, not billing.
+    """
+    if not usage:
+        return 0.0
+    rate = next((v for k, v in ANTHROPIC_RATES.items() if k in model), None)
+    if rate is None:
+        return 0.0
+    ins = usage.get("input_tokens", 0) + \
+        usage.get("cache_creation_input_tokens", 0) + \
+        usage.get("cache_read_input_tokens", 0)
+    out = usage.get("output_tokens", 0)
+    return round(ins / 1e6 * rate[0] + out / 1e6 * rate[1], 6)
 
 
 def call(model, prompt, backend="openrouter", provider=None, reasoning=None):

@@ -5,20 +5,22 @@
   "condition": "default",
   "n": 30,
   "errors": 0,
-  "score": 83.2,
-  "clarity_avg": 8.59,
+  "score": 75.3,
+  "clarity_avg": 7.77,
   "slop_per_1k": 2.2,
   "avg_words": 329,
   "per_rule": {
-   "rule2_economy": 7.44,
-   "rule3_jargon": 9.88,
-   "rule5_simple_words": 9.45,
-   "rule6_filler": 9.85,
-   "rule1_understandable": 9.5,
-   "rule4_imagery": 8.23,
-   "rule7_form": 6.17
+   "rule2_economy": 5.85,
+   "rule3_jargon": 9.09,
+   "rule5_simple_words": 8.99,
+   "rule6_filler": 7.78,
+   "rule1_understandable": 8.0,
+   "rule4_imagery": 8.27,
+   "rule7_form": 6.32
   },
-  "cost_usd": 0.0
+  "cost_usd": 0.0,
+  "judge_model": "anthropic/claude-opus-5",
+  "judge_backend": "openrouter"
  },
  "runs": [
   {
@@ -26,21 +28,21 @@
    "genre": "practical_guidance",
    "response": "# 2D Shapes Lesson Plan for Grade 2\n\n## \ud83c\udfac FUN INTRODUCTION (2-3 minutes)\n\n**Title: \"Shape Detectives at Work!\"**\n\n*Setting: Animated classroom with a friendly character named \"Shelly the Shape Detective\"*\n\n\"Hello friends! I'm Shelly the Shape Detective, and today we're going on an exciting adventure! Did you know that shapes are hiding everywhere around us? In your classroom, in your home, even in the playground! Today, we're going to become shape detectives and learn all about the shapes we see. Are you ready to solve the shape mystery?\"\n\n*Action: Show quick clips of shapes found in everyday life (pizza = circle, book = rectangle, etc.)*\n\n---\n\n## \ud83d\udcda CONTENT SECTION 1: HOW TO IDENTIFY 2D SHAPES (5-7 minutes)\n\n### What is a 2D Shape?\n*Animated explanation with visuals*\n\n\"2D shapes are flat shapes that you can draw on paper. They have **length** and **width**, but no thickness. Think of them as drawings, not real objects you can hold!\"\n\n### The Basic 2D Shapes We'll Learn Today:\n\n#### 1. **CIRCLE** \ud83d\udd35\n- **What it looks like:** A round shape with no corners\n- **How to identify it:** \n  - It's perfectly round\n  - Every point on the edge is the same distance from the center\n  - It has NO straight lines\n  - It has NO corners (vertices)\n- **Real-life examples:** Pizza, clock face, ball, sun, wheel\n\n#### 2. **SQUARE** \u2b1c\n- **What it looks like:** A shape with four equal sides\n- **How to identify it:**\n  - Has 4 sides (all the SAME length)\n  - Has 4 corners (vertices)\n  - All corners are right angles (90 degrees - like the corner of a book)\n  - Opposite sides are parallel\n- **Real-life examples:** Dice, checkerboard squares, window panes, tiles\n\n#### 3. **RECTANGLE** \u25ad\n- **What it looks like:** A shape with four sides (longer than it is wide)\n- **How to identify it:**\n  - Has 4 sides\n  - OPPOSITE sides are the same length (top and bottom match; left and right match)\n  - Has 4 corners (vertices)\n  - All corners are right angles (90 degrees)\n  - It's longer in one direction\n- **Real-life examples:** Book, door, table, flag, TV screen, notebook\n\n#### 4. **TRIANGLE** \ud83d\udd3a\n- **What it looks like:** A shape with three sides\n- **How to identify it:**\n  - Has 3 sides\n  - Has 3 corners (vertices)\n  - The sides meet at points\n- **Real-life examples:** Slice of pizza, roof of a house, traffic sign, ice cream cone\n\n---\n\n## \ud83d\udcda CONTENT SECTION 2: PROPERTIES OF 2D SHAPES (5-7 minutes)\n\n*Interactive animated segment with Shelly pointing out each property*\n\n### Key Properties to Understand:\n\n#### **Property 1: SIDES**\n- A side is a straight line that forms part of a shape\n- **Count the sides:**\n  - Circle = 0 sides\n  - Triangle = 3 sides\n  - Square = 4 sides\n  - Rectangle = 4 sides\n\n#### **Property 2: VERTICES (Corners)**\n- A vertex (plural: vertices) is a point where two sides meet\n- **Count the corners:**\n  - Circle = 0 corners\n  - Triangle = 3 corners\n  - Square = 4 corners\n  - Rectangle = 4 corners\n\n#### **Property 3: ANGLES**\n- An angle is formed where two sides meet\n- **Types of angles we see:**\n  - **Right angle:** A square corner (like the corner of your classroom door)\n  - Squares and rectangles have 4 right angles\n\n#### **Property 4: EQUAL SIDES**\n- Some shapes have sides that are the same length\n- **Square:** All 4 sides are equal\n- **Rectangle:** Opposite sides are equal (not all four)\n- **Triangle:** Can have equal or different sided lengths\n\n---\n\n## \ud83c\udf0d LIFE APPLICATION (3-4 minutes)\n\n*Real-world scenario videos/animations*\n\n### Where Do We Find These Shapes?\n\n**In the Kitchen:**\n- Circle: Plates, bowls, cookies\n- Rectangle: Cutting board, table, fridge\n- Square: Cheese slices, crackers\n- Triangle: Pizza slices, sandwich cut diagonally\n\n**In the Playground:**\n- Circle: Merry-go-round, hula hoop\n- Square: Hopscotch squares\n- Triangle: Slide (side view)\n- Rectangle: Benches, sandbox\n\n**In the Classroom:**\n- Circle: Clock, globe, ball\n- Rectangle: Door, window, poster\n- Square: Floor tiles, some book covers\n- Triangle: Ruler, pennant flag\n\n**In Sports:**\n- Circle: Soccer ball, basketball hoop\n- Triangle: Traffic cone, pennant\n- Rectangle: Goal box, field boundaries\n\n---\n\n## \u270f\ufe0f EXERCISES FOR LEARNERS (10-15 minutes)\n\n### **Exercise 1: Shape Identification Game**\n*Interactive activity - Show a shape and ask learners to name it*\n\nShow each shape and have learners:\n- Say the name out loud\n- Hold up a card with the shape name\n- Find that shape in their classroom\n\n**Example prompts:**\n- \"I'm round with no corners. What am I?\" (Circle)\n- \"I have 4 equal sides and 4 corners. What am I?\" (Square)\n- \"I have 3 sides and 3 corners. What am I?\" (Triangle)\n- \"I'm like a rectangle but longer. What am I?\" (Rectangle)\n\n---\n\n### **Exercise 2: Count the Properties**\n*Worksheet or interactive slide activity*\n\n**Instructions:** Look at each shape and answer:\n\n1. **CIRCLE** - How many sides? ___ How many corners? ___\n2. **TRIANGLE** - How many sides? ___ How many corners? ___\n3. **SQUARE** - How many sides? ___ How many corners? ___\n4. **RECTANGLE** - How many sides? ___ How many corners? ___\n\n**Answer Key:**\n- Circle: 0 sides, 0 corners\n- Triangle: 3 sides, 3 corners\n- Square: 4 sides, 4 corners\n- Rectangle: 4 sides, 4 corners\n\n---\n\n### **Exercise 3: Matching Game**\n*Learners match real-life objects to their shapes*\n\n**Match the object to the shape:**\n\n| Objects | Shape |\n|---------|-------|\n| Pizza slice | Circle |\n| Window | Square/Rectangle |\n| Dice | Square |\n| Clock | Circle |\n| Toy block (cube shown flat) | Square |\n| Table | Rectangle |\n| Traffic sign | Triangle |\n| Plate | Circle |\n\n---\n\n### **Exercise 4: Draw and Identify**\n*Creative activity*\n\n**Instructions for learners:**\n1. Draw a circle\n2. Draw a square\n3. Draw a rectangle\n4. Draw a triangle\n\nThen answer: \n- Which shape has no corners? \n- Which shapes have 4 sides?\n- Which shape has 3 sides?\n\n---\n\n### **Exercise 5: Shape Hunt Challenge**\n*Classroom scavenger hunt*\n\n**Instructions:**\n- Find 2 objects that are CIRCLES\n- Find 2 objects that are SQUARES\n- Find 2 objects that are RECTANGLES\n- Find 2 objects that are TRIANGLES\n\nDraw or write what you found!\n\n---\n\n## \ud83d\udcca ASSESSMENT TIPS FOR TEACHERS\n\n- Observe which learners can identify shapes independently\n- Check if learners can count sides and corners accurately\n- Note any learners who need additional practice with rectangles vs. squares\n\n---\n\n## \ud83c\udfaf CLOSING\n\n\"Great job, Shape Detectives! You've learned how to identify shapes and spot them everywhere! Remember, shapes are all around us. Keep your detective eyes open!\"\n\n---\n\n**End of Lesson** \u2728",
    "rules": {
-    "rule2_economy": 6.1,
+    "rule2_economy": 5.0,
     "rule3_jargon": 9.9,
     "rule5_simple_words": 9.8,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 6.0
    },
-   "clarity_avg": 9.52,
+   "clarity_avg": 8.07,
    "slop_per_1k": 0.6,
    "slop_breakdown": {
     "inline_header_list": 7
    },
    "slop_tax": 0.009,
-   "score": 94.4,
+   "score": 79.9,
    "facts_delivered": "5/5",
    "detail": {
     "economy": {
@@ -80,13 +82,21 @@
      true,
      true
     ],
-    "clarity": "clear",
-    "clarity_quote": "\"I'm like a rectangle but longer. What am I?\" (Rectangle)",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "**Triangle:** Can have equal or different sided lengths",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "An angle is formed where two sides meet",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -110,15 +120,15 @@
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 8.8
    },
-   "clarity_avg": 9.6,
+   "clarity_avg": 9.43,
    "slop_per_1k": 0.8,
    "slop_breakdown": {
     "inline_header_list": 4
    },
    "slop_tax": 0.012,
-   "score": 94.9,
+   "score": 93.1,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -161,7 +171,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -179,22 +197,22 @@
    "genre": "practical_guidance",
    "response": "# The Art of Negotiation - Comprehensive Course Guide\n\n## Course Overview\nThis guide provides a structured learning path for mastering negotiation skills across multiple dimensions, from foundational concepts to advanced tactics.\n\n---\n\n## 1. Fundamentals of Negotiation\n\n### Sub-topics:\n- **What is Negotiation?** (Definition, types, and contexts)\n- **The Negotiation Process** (Stages and frameworks)\n- **Core Principles** (Win-win vs. win-lose)\n- **Negotiation Psychology** (Behavioral basics)\n\n### Required Skills:\n- Critical thinking\n- Basic communication\n- Active listening\n- Self-awareness\n- Understanding of human psychology\n- Problem-solving mindset\n\n### Top Free Online Courses:\n1. **Coursera - \"Negotiation Fundamentals\" by University of California, Irvine**\n   - Duration: 4 weeks\n   - Level: Beginner\n   - Topics: Basic concepts, negotiation styles, ethical considerations\n\n2. **edX - \"Business Negotiation\" by Rochester Institute of Technology**\n   - Duration: 4 weeks\n   - Level: Beginner\n   - Topics: Foundations, negotiation strategy overview\n\n3. **YouTube - \"Negotiation Basics\" by Business School Simplified**\n   - Self-paced\n   - Level: Beginner\n   - Accessible, visual introduction\n\n---\n\n## 2. Communication & Listening Skills\n\n### Sub-topics:\n- **Verbal Communication** (Clarity, tone, language choice)\n- **Non-Verbal Communication** (Body language, facial expressions)\n- **Active Listening** (Techniques and barriers)\n- **Asking Effective Questions** (Open vs. closed questions)\n- **Emotional Intelligence** (Managing emotions)\n\n### Required Skills:\n- Empathy\n- Observation ability\n- Verbal fluency\n- Emotional regulation\n- Attention to detail\n- Patience\n\n### Top Free Online Courses:\n1. **Coursera - \"Communication Skills for Business\" by University of Pennsylvania**\n   - Duration: 4 weeks\n   - Level: Beginner to Intermediate\n   - Topics: Effective communication, active listening\n\n2. **edX - \"Emotional Intelligence at Work\" by UC Berkeley**\n   - Duration: 6 weeks\n   - Level: Intermediate\n   - Topics: Self-awareness, empathy, relationship management\n\n3. **FutureLearn - \"Understanding Emotions\" by Open University**\n   - Duration: 3 weeks\n   - Level: Beginner\n   - Topics: Emotional awareness, interpersonal skills\n\n4. **Skill Share (Free with account) - \"Active Listening Masterclass\"**\n   - Duration: 1.5 hours\n   - Level: Beginner\n   - Topics: Listening techniques and strategies\n\n---\n\n## 3. Preparation & Strategy\n\n### Sub-topics:\n- **Research and Information Gathering**\n- **BATNA (Best Alternative to Negotiated Agreement)**\n- **Goal Setting and Objectives**\n- **Scenario Planning**\n- **Strategy Development** (Competitive vs. collaborative)\n- **Risk Assessment**\n\n### Required Skills:\n- Research ability\n- Strategic thinking\n- Data analysis\n- Planning and organization\n- Scenario analysis\n- Decision-making\n\n### Top Free Online Courses:\n1. **Coursera - \"Strategic Thinking and Problem Solving\" by University of Michigan**\n   - Duration: 4 weeks\n   - Level: Intermediate\n   - Topics: Strategy frameworks, decision-making\n\n2. **LinkedIn Learning (Free trials available) - \"Negotiation Strategy\"**\n   - Duration: 2 hours\n   - Level: Intermediate\n   - Topics: Strategy development, preparation techniques\n\n3. **YouTube - \"Negotiation Preparation Guide\" by The Negotiation Institute**\n   - Self-paced\n   - Level: Intermediate\n   - Practical preparation strategies\n\n4. **Coursera - \"Introduction to Data Analysis and Interpretation\" by Rutgers University**\n   - Duration: 4 weeks\n   - Level: Beginner\n   - Topics: Research and data analysis skills\n\n---\n\n## 4. Interest-Based Negotiation\n\n### Sub-topics:\n- **Identifying Interests vs. Positions**\n- **Principled Negotiation Framework** (Harvard Method)\n- **Creating Value and Expanding the Pie**\n- **Multi-issue Negotiation**\n- **Finding Common Ground**\n\n### Required Skills:\n- Analytical thinking\n- Creative problem-solving\n- Perspective-taking\n- Value identification\n- System thinking\n- Collaboration\n\n### Top Free Online Courses:\n1. **Coursera - \"Negotiation Masterclass\" by National University of Singapore**\n   - Duration: 4 weeks\n   - Level: Intermediate to Advanced\n   - Topics: Interest-based negotiation, value creation\n\n2. **Udemy (Free courses) - \"Principled Negotiation and Mediation\"**\n   - Duration: 2-3 hours\n   - Level: Intermediate\n   - Topics: Harvard method, interest-based approaches\n\n3. **YouTube - \"Getting to Yes: Interest-Based Negotiation\" by The Negotiation Institute**\n   - Self-paced\n   - Level: Intermediate\n   - Based on Harvard Method\n\n4. **Open Yale Courses - \"Game Theory\" (Relevant for strategic interaction)**\n   - Duration: Self-paced\n   - Level: Intermediate to Advanced\n   - Topics: Strategic thinking, game theory applications\n\n---\n\n## 5. Emotional Intelligence & Relationship Building\n\n### Sub-topics:\n- **Self-Awareness** (Understanding your triggers and biases)\n- **Self-Regulation** (Managing stress and emotions)\n- **Empathy and Perspective-Taking**\n- **Relationship Management**\n- **Trust Building**\n- **Handling Difficult Personalities**\n\n### Required Skills:\n- Self-reflection\n- Emotional control\n- Empathy\n- Relationship skills\n- Conflict management\n- Resilience\n\n### Top Free Online Courses:\n1. **Coursera - \"Developing Your Leadership Skills\" by Technical University of Denmark**\n   - Duration: 6 weeks\n   - Level: Intermediate\n   - Topics: Emotional intelligence, relationship building\n\n2. **edX - \"Emotional Intelligence at Work\" by UC Berkeley**\n   - Duration: 6 weeks\n   - Level: Intermediate\n   - Topics: EI in professional contexts\n\n3. **FutureLearn - \"Emotional Intelligence at Work\" by Monash University**\n   - Duration: 4 weeks\n   - Level: Beginner to Intermediate\n   - Topics: Self-awareness, relationship skills\n\n4. **YouTube - \"Building Trust in Negotiations\" by Professional Development Academy**\n   - Self-paced\n   - Level: Intermediate\n   - Practical strategies for trust\n\n---\n\n## 6. Handling Conflicts & Objections\n\n### Sub-topics:\n- **Conflict Resolution Styles** (Competing, collaborating, compromising, avoiding, accommodating)\n- **Managing Objections**\n- **Dealing with Difficult Negotiators**\n- **Deadlock and Impasse Situations**\n- **Ethical Dilemmas in Negotiation**\n\n### Required Skills:\n- Conflict resolution\n- Problem-solving\n- Stress management\n- Assertiveness\n- Critical thinking\n- Ethical reasoning\n\n### Top Free Online Courses:\n1. **Coursera - \"Conflict Resolution\" by University of Colorado Boulder**\n   - Duration: 4 weeks\n   - Level: Intermediate\n   - Topics: Conflict styles, resolution strategies\n\n2. **LinkedIn Learning (Free trial) - \"Difficult Conversations\"**\n   - Duration: 1.5 hours\n   - Level: Intermediate\n   - Topics: Handling tough discussions\n\n3. **edX - \"Critical Thinking & Reasoning\" by University of Auckland**\n   - Duration: 4 weeks\n   - Level: Intermediate\n   - Topics: Logical thinking, ethical reasoning\n\n4. **YouTube - \"Handling Difficult People in Negotiations\" by The Negotiation Institute**\n   - Self-paced\n   - Level: Intermediate\n   - Practical tactics and techniques\n\n---\n\n## 7. Persuasion & Influence\n\n### Sub-topics:\n- **Principles of Persuasion** (Cialdini's framework)\n- **Framing and Reframing**\n- **Logical vs. Emotional Appeals**\n- **Building Credibility**\n- **Overcoming Resistance**\n- **Closing and Commitment**\n\n### Required Skills:\n- Persuasive communication\n- Framing ability\n- Rhetorical skills\n- Credibility building\n- Charisma and presence\n- Strategic messaging\n\n### Top Free Online Courses:\n1. **Coursera - \"The Science of Happiness\" by University of California, Berkeley**\n   - Duration: 5 weeks\n   - Level: Intermediate\n   - Topics: Persuasion principles, behavioral psychology\n\n2. **Udemy (Free courses) - \"Persuasion Psychology and Influence\"**\n   - Duration: 2-3 hours\n   - Level: Beginner to Intermediate\n   - Topics: Cialdini's principles, persuasion techniques\n\n3. **YouTube - \"Persuasion and Influence\" by Jordan Peterson or similar**\n   - Self-paced\n   - Level: Intermediate\n   - Psychological perspectives on influence\n\n4. **edX - \"Rhetoric: The Art of Persuasion\" by UC Berkeley**\n   - Duration: 4 weeks\n   - Level: Intermediate to Advanced\n   - Topics: Classical rhetoric, persuasive techniques\n\n---\n\n## 8. Industry-Specific Negotiation\n\n### Sub-topics:\n- **Business/Corporate Negotiation**\n- **Sales Negotiation**\n- **Salary and Employment Negotiation**\n- **International Negotiation** (Cultural considerations)\n- **Procurement and Supplier Negotiation**\n- **Real Estate Negotiation**\n\n### Required Skills:\n- Industry knowledge\n- Cultural awareness\n- Technical understanding\n- Market analysis\n- Specific domain expertise\n- Cross-cultural communication\n\n### Top Free Online Courses:\n1. **Coursera - \"International Business: Culture and Practice\" by Thunderbird School of Global Management**\n   - Duration: 4 weeks\n   - Level: Intermediate to Advanced\n   - Topics: Cultural negotiation, international contexts\n\n2. **edX - \"Negotiating for Success\" by Colorado State University**\n   - Duration: 6 weeks\n   - Level: Intermediate\n   - Topics: Salary negotiation, business contexts\n\n3. **YouTube - \"Salary Negotiation Tips\" by Career-specific channels**\n   - Self-paced\n   - Level: Beginner to Intermediate\n   - Practical salary discussion strategies\n\n4. **LinkedIn Learning (Free trial) - \"Negotiating in Different Cultures\"**\n   - Duration: 1-2 hours\n   - Level: Intermediate to Advanced\n   - Topics: Cross-cultural negotiation\n\n---\n\n## 9. Advanced Negotiation Tactics\n\n### Sub-topics:\n- **Anchoring and Counter-Anchoring**\n- **Negotiation Sequencing**\n- **Package Deals and Bundling**\n- **Time and Patience Tactics**\n- **Coalition Building**\n- **Multiparty Negotiations**\n\n### Required Skills:\n- Advanced strategic thinking\n- Tactical execution\n- Timing and pacing ability\n- Complex problem-solving\n- Leadership in group dynamics\n- Sophisticated tactical awareness\n\n### Top Free Online Courses:\n1. **Coursera - \"Negotiation Masterclass\" by National University of Singapore**\n   - Duration: 4 weeks\n   - Level: Advanced\n   - Topics: Advanced tactics, real-world scenarios\n\n2. **MIT OpenCourseWare - \"Game Theory\" (Advanced)**\n   - Duration: Self-paced\n   - Level: Advanced\n   - Topics: Strategic interactions, game theory\n\n3. **YouTube - \"Advanced Negotiation Tactics\" by Negotiation expert channels**\n   - Self-paced\n   - Level: Advanced\n   - Tactical deep dives and case studies\n\n---\n\n## 10. Practice & Case Studies\n\n### Sub-topics:\n- **Real-World Case Studies**\n- **Role-Playing Exercises**\n- **Mock Negotiations**\n- **Feedback and Reflection**\n- **Building Confidence**\n- **Continuous Improvement**\n\n### Required Skills:\n- Practice discipline\n- Self-reflection\n- Feedback receptiveness\n- Adaptation ability\n- Continuous learning mindset\n- Resilience\n\n### Top Free Online Courses:\n1. **Coursera - \"Negotiation Masterclass\" (includes simulations)**\n   - Duration: 4 weeks\n   - Level: All levels\n   - Topics: Real scenarios, practical exercises\n\n2. **YouTube - \"Negotiation Case Studies and Examples\"**\n   - Self-paced\n   - Level: All levels\n   - Real-world examples and analysis\n\n3. **Coursera - \"Project Management\" courses with negotiation components**\n   - Duration: Varies\n   - Level: Intermediate\n   - Topics: Practical project-based negotiation\n\n---\n\n## Recommended Learning Path\n\n### For Beginners (4-6 weeks):\n1. Start with Fundamentals (Week 1-2)\n2. Communication & Listening Skills (Week 2-3)\n3. Preparation & Strategy (Week 3-4)\n4. Persuasion & Influence (Week 4-5)\n5. Practice with Case Studies (Week 5-6)\n\n### For Intermediate Learners (8-10 weeks):\n1. Complete Beginner Path (Weeks 1-6)\n2. Interest-Based Negotiation (Week 7-8)\n3. Emotional Intelligence (Week 8-9)\n4. Conflict Management (Week 9-10)\n5. Ongoing practice and reflection\n\n### For Advanced Learners (12+ weeks):\n1. Complete Intermediate Path (Weeks 1-10)\n2. Advanced Tactics (Week 11-12)\n3. Industry-Specific Courses (Week 12+)\n4. Continuous practice with real scenarios\n5. Mentorship and peer learning\n\n---\n\n## Additional Resources\n\n### Books (Free or Affordable):\n- \"Getting to Yes\" by Fisher & Ury\n- \"Never Split the Difference\" by Chris Voss\n- \"Influence\" by Robert Cialdini\n\n### Podcasts:\n- \"The Negotiation Institute Podcast\"\n- \"Freakonomics\" (episodes on negotiation)\n\n### Practice Platforms:\n- Role-playing groups and meetups\n- Toastmasters clubs\n- Professional networking events\n\n### Communities:\n- Reddit: r/negotiation\n- LinkedIn groups for negotiation professionals\n- Local negotiation clubs\n\n---\n\n## Assessment Criteria\n\nTo track your progress, evaluate yourself on:\n- **Knowledge**: Understanding core concepts\n- **Skills**: Ability to apply techniques\n- **Confidence**: Comfort in various scenarios\n- **Results**: Actual negotiation outcomes\n- **Feedback**: Peer and mentor feedback\n\n---\n\nThis comprehensive guide provides a structured approach to mastering negotiation. Start with your current level, follow the recommended learning path, and consistently practice the concepts learned.",
    "rules": {
-    "rule2_economy": 5.1,
+    "rule2_economy": 5.0,
     "rule3_jargon": 9.7,
     "rule5_simple_words": 9.9,
-    "rule6_filler": 10.0,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 5.0
+    "rule7_form": 0.0
    },
-   "clarity_avg": 8.66,
+   "clarity_avg": 5.5,
    "slop_per_1k": 1.7,
    "slop_breakdown": {
     "hyphen_pairs": 2,
     "inline_header_list": 24
    },
    "slop_tax": 0.025,
-   "score": 84.3,
+   "score": 53.6,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -241,7 +259,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "## Assessment Criteria"
+    "form_quote": "## Course Overview",
+    "economy": "some_padding",
+    "economy_quote": "This comprehensive guide provides a structured approach to mastering negotiation. Start with your current level, follow the recommended learning path, and consistently practice the concepts learned.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "This comprehensive guide provides a structured approach to mastering negotiation."
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -262,18 +288,18 @@
     "rule2_economy": 5.0,
     "rule3_jargon": 9.2,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 7.0,
-    "rule7_form": 5.0
+    "rule7_form": 10.0
    },
-   "clarity_avg": 8.14,
+   "clarity_avg": 7.4,
    "slop_per_1k": 6.6,
    "slop_breakdown": {
     "inline_header_list": 13
    },
    "slop_tax": 0.099,
-   "score": 73.3,
+   "score": 66.7,
    "facts_delivered": "2/4",
    "detail": {
     "economy": {
@@ -310,13 +336,21 @@
      false,
      false
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "**Chorus/Flanging** - Creates a \"chorus\" of slightly detuned copies",
     "imagery": "abstract_but_fine",
-    "imagery_quote": "- Combining multiple effects",
-    "imagery_suggestion": "A named chain the reader could actually build, e.g. \"voice \u2192 bit crusher (8-bit, 8 kHz) \u2192 ring modulator at 50 Hz \u2192 short metallic plate reverb\" for a classic Dalek-style robot.",
-    "form": "some_scaffolding",
-    "form_quote": "## Layering Techniques"
+    "imagery_quote": "**Formant shifting** - Alters resonant frequencies to sound more mechanical",
+    "imagery_suggestion": "Name the sound: dragging formants down while keeping pitch gives the flat, hollow 'Cylon by your command' timbre.",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "Would you like specifics on any of these techniques?",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Here are common techniques used to create robotic vocal effects:"
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -336,17 +370,17 @@
    "rules": {
     "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
-    "rule5_simple_words": 9.0,
-    "rule6_filler": 10.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 7.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.11,
+   "clarity_avg": 6.78,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 81.1,
+   "score": 67.8,
    "facts_delivered": "2/4",
    "detail": {
     "economy": {
@@ -386,10 +420,18 @@
     "clarity": "clear",
     "clarity_quote": "",
     "imagery": "abstract_but_fine",
-    "imagery_quote": "Create liability frameworks that incentivize better moderation",
-    "imagery_suggestion": "A concrete example \u2014 e.g. 'a platform that keeps amplifying a deepfake after being notified loses its safe-harbor protection, the way a landlord loses immunity for a hazard they were told about' \u2014 would ground this policy noun-phrase.",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "**Technical safeguards:**"
+    "form_quote": "**Technical safeguards:**",
+    "economy": "some_padding",
+    "economy_quote": "What aspect concerns you most?",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "some_complex",
+    "simple_words_quote": "incentivize",
+    "filler": "some_filler",
+    "filler_quote": "Here's a practical approach:"
    },
    "shape": {
     "em_dash_per_100w": 0.51,
@@ -407,21 +449,21 @@
    "genre": "practical_guidance",
    "response": "# Home Loan Sizing Guide\n\nWith a **\u20b930,000/month salary**, here's a practical framework:\n\n## General Rule of Thumb\n- **Loan amount**: 4-6x your annual salary\n- **Your annual salary**: \u20b93.6 lakh\n- **Suggested loan range**: \u20b914-22 lakh\n\n## What Lenders Typically Allow\nBanks usually approve loans where your **EMI \u2264 40-50% of monthly income**\n\n**At 40% threshold:**\n- Maximum EMI: \u20b912,000/month\n- Loan amount at 8% interest (20 years): ~\u20b915-16 lakh\n\n## Key Factors to Consider\n\n| Factor | Impact |\n|--------|--------|\n| **Interest rate** | Lower rate = higher loan amount |\n| **Loan tenure** | Longer tenure = lower EMI, more interest paid |\n| **Down payment** | Larger down payment = smaller loan needed |\n| **Job stability** | Secure job = approval easier |\n| **Credit score** | Higher score = better terms |\n| **Other debts** | Higher debts = lower loan approval |\n\n## My Recommendation\nStart with **\u20b912-15 lakh** as a comfortable target that keeps EMI manageable and leaves room for living expenses and emergencies.\n\n**Next steps:**\n- Check your credit score\n- Compare bank rates\n- Factor in down payment available\n- Calculate EMI online\n\nWould you like help with EMI calculations?",
    "rules": {
-    "rule2_economy": 7.5,
-    "rule3_jargon": 9.2,
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 5.0
+    "rule7_form": 10.0
    },
-   "clarity_avg": 8.86,
+   "clarity_avg": 7.22,
    "slop_per_1k": 1.5,
    "slop_breakdown": {
     "inline_header_list": 3
    },
    "slop_tax": 0.022,
-   "score": 86.6,
+   "score": 70.6,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -458,13 +500,21 @@
      true,
      false
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "**Suggested loan range**: \u20b914-22 lakh",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "some_scaffolding",
-    "form_quote": "# Home Loan Sizing Guide"
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "Would you like help with EMI calculations?",
+    "jargon": "some_jargon",
+    "jargon_quote": "EMI",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "With a **\u20b930,000/month salary**, here's a practical framework:"
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -482,7 +532,7 @@
    "genre": "practical_guidance",
    "response": "# Objectives of a \"Film Adaptations\" Presentation Class\n\nHere are the likely educational objectives:\n\n## **Learning & Analysis**\n- Understand how stories transition from source material (books, plays, etc.) to film\n- Analyze the differences between original works and their adaptations\n- Develop critical thinking about artistic choices and creative interpretation\n\n## **Communication Skills**\n- Practice public speaking and presentation delivery\n- Learn to organize complex information clearly\n- Develop confidence in academic discourse\n\n## **Media Literacy**\n- Examine how different mediums (literature vs. film) tell stories\n- Understand cinematography, directing, and scriptwriting decisions\n- Recognize the impact of visual vs. textual storytelling\n\n## **Research & Evaluation**\n- Conduct comparative research between adaptations and originals\n- Assess what works and what doesn't in adaptation\n- Evaluate critical perspectives and audience reception\n\n## **Creative & Collaborative Skills**\n- Engage with diverse perspectives on the same material\n- Foster discussion and debate among peers\n- Build collaborative learning experiences\n\n## **Cultural Awareness**\n- Explore how adaptations reflect different time periods and cultures\n- Understand how interpretations evolve across decades\n\n---\n\nWould you like help developing specific assignment guidelines or presentation topics for this class?",
    "rules": {
-    "rule2_economy": 7.5,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 9.1,
@@ -490,13 +540,13 @@
     "rule4_imagery": 7.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.4,
+   "clarity_avg": 8.13,
    "slop_per_1k": 5.2,
    "slop_breakdown": {
     "ai_vocab": 1
    },
    "slop_tax": 0.078,
-   "score": 77.5,
+   "score": 74.9,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -537,7 +587,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "## **Creative & Collaborative Skills**"
+    "form_quote": "## **Creative & Collaborative Skills**",
+    "economy": "some_padding",
+    "economy_quote": "Here are the likely educational objectives:",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -558,18 +616,18 @@
     "rule2_economy": 6.5,
     "rule3_jargon": 9.7,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 5.0
+    "rule7_form": 5.4
    },
-   "clarity_avg": 8.83,
+   "clarity_avg": 8.14,
    "slop_per_1k": 1.3,
    "slop_breakdown": {
     "hyphen_pairs": 3
    },
    "slop_tax": 0.019,
-   "score": 86.5,
+   "score": 79.9,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -611,8 +669,16 @@
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "some_scaffolding",
-    "form_quote": "# Interesting RDBMS Workshop Usecase for College Students"
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "This hands-on approach makes RDBMS concepts tangible and relatable! \ud83c\udf93"
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -630,15 +696,15 @@
    "genre": "practical_guidance",
    "response": "# Understanding GARCH Models: A Journey into Financial Mathematics\n\nHello! Let me take you on a fascinating exploration of one of the most important discoveries in modern finance and statistics.\n\n## The Problem That Started It All\n\nImagine you're tracking stock prices. Here's something remarkable that economists noticed: **when markets are volatile, they tend to *stay* volatile**. Similarly, calm periods tend to persist. This isn't random\u2014there's a *pattern* to randomness itself.\n\nTraditional statistics assumed that randomness stays constant over time. But markets laughed at this assumption. We needed a new tool.\n\n## Meet GARCH: The Complete Picture\n\n**GARCH** stands for **Generalized AutoRegressive Conditional Heteroskedasticity**. Let me break this into digestible pieces:\n\n### What Each Word Means:\n\n- **Heteroskedasticity** = variance that changes over time (hetero = different, skedasticity = spread/variance)\n- **Conditional** = depends on past information\n- **AutoRegressive** = uses its own past values\n- **Generalized** = it's a flexible framework\n\n### The Core Idea (Simple Version First)\n\nThink of volatility like the mood of a crowd:\n- When everyone is anxious, nervousness spreads \u2192 high volatility\n- When calm returns, people relax \u2192 low volatility\n- Today's mood influences tomorrow's mood\n\nThat's GARCH in essence.\n\n## The Mathematical Heart\n\nA basic GARCH(1,1) model looks like this:\n\n$$\\sigma_t^2 = \\omega + \\alpha \\epsilon_{t-1}^2 + \\beta \\sigma_{t-1}^2$$\n\nLet me decode this equation (this is where rigor meets intuition):\n\n| Component | Meaning | What It Captures |\n|-----------|---------|-----------------|\n| $\\sigma_t^2$ | Today's variance | How \"jumpy\" is the market right now? |\n| $\\omega$ | Long-term baseline | The market's natural volatility when nothing unusual happens |\n| $\\alpha \\epsilon_{t-1}^2$ | Shock term | Recent surprises (if yesterday had big price swings, expect volatility today) |\n| $\\beta \\sigma_{t-1}^2$ | Persistence | How much yesterday's volatility echoes into today |\n\n### Why This Structure Is Genius\n\n**The $\\alpha$ term (shock response):** When you see $\\epsilon_{t-1}^2$ (squared past errors), large surprises create disproportionately large impacts because they're squared. A surprise of \u00b110 creates 100 units of impact.\n\n**The $\\beta$ term (momentum):** This captures *volatility clustering*\u2014the tendency of high-volatility periods to persist. It's like inertia in physics.\n\n**The constraint:** We need $\\alpha + \\beta < 1$ for stability. Think of it this way: if shocks and momentum added up to more than 1, volatility would explode to infinity.\n\n## A Real-World Example\n\nSuppose we're tracking a stock:\n- $\\omega = 0.00001$ (baseline daily variance)\n- $\\alpha = 0.1$ (shocks matter moderately)\n- $\\beta = 0.88$ (momentum is very strong\u2014volatility persists)\n- Yesterday's squared return: $\\epsilon_{t-1}^2 = 0.0004$\n- Yesterday's variance: $\\sigma_{t-1}^2 = 0.0005$\n\n**Today's variance:**\n$$\\sigma_t^2 = 0.00001 + 0.1(0.0004) + 0.88(0.0005) = 0.00054$$\n\nNotice how $\\beta$ dominates\u2014yesterday's volatility heavily influences today's.\n\n## Why This Matters: Three Powerful Applications\n\n### 1. **Risk Management**\nBanks use GARCH to calculate **Value at Risk (VaR)**. They need to know: \"What's the worst loss we might face tomorrow?\" GARCH updates this forecast dynamically as market conditions change.\n\n### 2. **Option Pricing**\nOptions (like the right to buy a stock at a fixed price) become more valuable when future volatility is high. GARCH predicts tomorrow's volatility better than assuming it's constant.\n\n### 3. **Portfolio Optimization**\nIf you're building an investment portfolio, knowing which assets will be volatile helps you diversify intelligently.\n\n## Extensions: Making GARCH Even Better\n\nResearchers didn't stop at GARCH(1,1). They created variations:\n\n- **EGARCH**: Captures the \"leverage effect\" (bad news causes more volatility than good news)\n- **GARCH-M**: Includes volatility directly in returns (volatile assets demand higher returns)\n- **Multivariate GARCH**: Tracks how volatility spreads between multiple assets\n\n## The Beautiful Truth\n\nWhat makes GARCH special is that it respects **two mathematical requirements simultaneously**:\n\n1. **Practical realism**: Volatility genuinely clusters in real markets\n2. **Mathematical elegance**: The model is tractable\u2014we can actually compute it, estimate parameters, and make predictions\n\n## Common Misconception to Avoid\n\n\u274c **Wrong**: \"GARCH predicts if prices will go up or down\"\n\n\u2713 **Correct**: \"GARCH predicts how uncertain we should be about price movements\"\n\nIt forecasts *volatility*, not direction.\n\n## Why You Should Care\n\nGARCH represents a paradigm shift: **acknowledging that uncertainty itself changes over time**. This thinking extends far beyond finance\u2014it applies to weather patterns, disease spreading, earthquake frequencies, and any system where stability periods are interrupted by turbulent periods.\n\n---\n\n**Final thought**: The beauty of GARCH is that it captures something profoundly true about complex systems\u2014chaos has patterns, randomness has structure, and volatility has memory.\n\nDoes this clarify things? What aspect would you like to explore deeper?",
    "rules": {
-    "rule2_economy": 7.5,
-    "rule3_jargon": 9.6,
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 9.7,
-    "rule6_filler": 9.8,
-    "rule1_understandable": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.85,
+   "clarity_avg": 6.44,
    "slop_per_1k": 2.1,
    "slop_breakdown": {
     "ai_vocab": 1,
@@ -646,7 +712,7 @@
     "inline_header_list": 3
    },
    "slop_tax": 0.032,
-   "score": 85.7,
+   "score": 62.3,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -687,13 +753,21 @@
      true,
      true
     ],
-    "clarity": "clear",
+    "clarity": "needs_a_reread",
     "clarity_quote": "A surprise of \u00b110 creates 100 units of impact.",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "## The Beautiful Truth"
+    "form_quote": "## The Beautiful Truth",
+    "economy": "some_padding",
+    "economy_quote": "Does this clarify things? What aspect would you like to explore deeper?",
+    "jargon": "some_jargon",
+    "jargon_quote": "squared past errors",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Let me take you on a fascinating exploration of one of the most important discoveries in modern finance and statistics."
    },
    "shape": {
     "em_dash_per_100w": 0.94,
@@ -714,18 +788,18 @@
     "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.7,
+   "clarity_avg": 7.22,
    "slop_per_1k": 2.1,
    "slop_breakdown": {
     "inline_header_list": 4
    },
    "slop_tax": 0.032,
-   "score": 84.3,
+   "score": 69.9,
    "facts_delivered": "2/4",
    "detail": {
     "economy": {
@@ -760,13 +834,21 @@
      true,
      false
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Your single older core would achieve maybe 5-10% of that in real-world conditions",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "# WireGuard Performance Estimate"
+    "form_quote": "**Have you benchmarked this specific setup, or are you planning a deployment?** That would help refine the estimate.",
+    "economy": "some_padding",
+    "economy_quote": "**Have you benchmarked this specific setup, or are you planning a deployment?** That would help refine the estimate.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "based on available data"
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -784,21 +866,21 @@
    "genre": "seeking_information",
    "response": "# Web Archive Proxy Explanation\n\nYou're likely referring to **Wayback Machine** by the Internet Archive, which is the most popular tool for accessing archived web pages from the past.\n\n## How to Use It\n\n1. **Visit:** https://web.archive.org/\n2. **Enter a URL** you want to see from 2008\n3. **Choose the date** from the calendar that appears\n4. **View the archived page** as it looked then\n\n## Example\n- Want to see Google in 2008? Enter `google.com` and select a 2008 date\n\n## Limitations\n\n- **Not everything is archived** \u2014 some sites blocked the Wayback Machine, or pages weren't captured\n- **Interactive content** (videos, dynamic features) often won't work\n- **Images and scripts** may not load properly\n- Some sites from that era simply didn't exist\n\n## Alternative Tools\n\n- **Archive.today** \u2014 newer archive service\n- **Google Cache** \u2014 cached versions of pages (though less historical depth)\n\n## Why Use It?\n\nPeople use it to:\n- See how websites looked historically\n- Recover lost content\n- Research internet history\n- Check old prices or information\n\nIs there a specific website from 2008 you're trying to access?",
    "rules": {
-    "rule2_economy": 7.5,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.98,
+   "clarity_avg": 7.96,
    "slop_per_1k": 1.6,
    "slop_breakdown": {
     "inline_header_list": 3
    },
    "slop_tax": 0.024,
-   "score": 87.7,
+   "score": 77.7,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -833,13 +915,21 @@
      true,
      true
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Some sites from that era simply didn't exist",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "## Why Use It?"
+    "form_quote": "# Web Archive Proxy Explanation",
+    "economy": "some_padding",
+    "economy_quote": "People use it to:",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 1.62,
@@ -857,21 +947,21 @@
    "genre": "seeking_information",
    "response": "# Dental Evaluation: Post-Treatment Pain Analysis\n\n## Clinical Presentation Summary\n- **Previous treatment:** Root canal therapy + crown restoration\n- **Chief complaint:** Acute pain on occlusal pressure/biting\n- **Notably absent:** Temperature sensitivity (hot/cold)\n\n---\n\n## Most Likely Diagnoses\n\n### 1. **Post-Treatment Periapical Pathology** (Most Common)\n**Mechanism:** Inflammation around the root apex despite RCT\n\n**Likely causes:**\n- Inadequate root canal treatment (missed canals, incomplete obturation)\n- Leaking crown margins allowing bacterial contamination\n- Over-extended root filling material irritating periapical tissues\n- Persistent periapical granuloma or cyst\n\n**Clinical correlation:** Pain with pressure/biting indicates inflammatory response in periapical region\n\n---\n\n### 2. **Occlusal Trauma/Premature Contact**\n**Mechanism:** Crown restoration has high points causing excessive forces\n\n**Indicators:**\n- Pain specifically reproducible with biting/pressure\n- No thermal response (rules out pulpal involvement)\n- Often develops soon after crown placement\n\n**Assessment:** Check occlusion with articulating paper\n\n---\n\n### 3. **Cracked/Fractured Root**\n**Mechanism:** Vertical root fracture below crown margin\n\n**Characteristics:**\n- Localized pain on pressure/function\n- No temperature sensitivity (nerve is dead post-RCT)\n- May show deep periodontal probing in isolated area\n- Difficult to visualize on radiographs\n\n---\n\n### 4. **Secondary Infection/Failing Root Canal**\n**Mechanism:** Previous RCT was inadequate; anaerobic bacteria causing low-grade inflammation\n\n**Features:**\n- Pressure pain from accumulated pus/inflammation\n- No thermal sensitivity (nerve already removed)\n- May develop abscess over time\n\n---\n\n## Diagnostic Approach\n\n| Test | Significance |\n|------|--------------|\n| **Percussion test** | Elicits pain if periapical involvement |\n| **Palpation** | Checks for swelling, fistula, or exudate |\n| **Occlusal analysis** | Identifies high contact points |\n| **Radiographs** (PA, CBCT if available) | Assess root fill quality, periapical lesion, root fracture |\n| **Mobility assessment** | Indicates stability of tooth/bone support |\n| **Probing** | Deep pockets may suggest root fracture |\n\n---\n\n## Why Temperature Sensitivity is Absent \u2713\n\nThis is a **key diagnostic feature**:\n- The pulp was already removed during root canal therapy\n- No vital tissue = no thermal response\n- **Pain on pressure alone suggests:** Periapical/periodontal inflammation rather than pulpal pathology\n\n---\n\n## Recommended Management\n\n### **Immediate Steps:**\n1. Relieve occlusal trauma (selective grinding/adjustment)\n2. Obtain appropriate radiographs\n3. Clinical examination with percussion/palpation\n\n### **Treatment Options:**\n- **Occlusal adjustment:** If premature contact identified\n- **Retreatment:** If RCT found inadequate\n- **Extraction:** If root fracture confirmed\n- **Apicoectomy:** In select cases if retreatment fails\n- **Crown removal:** To assess crown margins and sub-gingival caries\n\n### **Follow-up:**\n- Reassess after occlusal adjustment\n- If pain persists, consider advanced imaging (CBCT)\n- May need specialist referral (endodontics)\n\n---\n\n## Prognosis Factors\n\n**Favorable:**\n- Simple occlusal adjustment resolves issue\n- Early intervention\n\n**Unfavorable:**\n- Root fracture present\n- Severely compromised root canal\n- Large periapical lesion\n\n---\n\n**Bottom line:** The absence of thermal sensitivity is reassuring\u2014it suggests the nerve is no longer involved. Focus investigation on **periapical pathology, occlusion, and root integrity**.",
    "rules": {
-    "rule2_economy": 9.8,
-    "rule3_jargon": 10.0,
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 9.6,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
+    "rule4_imagery": 7.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 9.18,
+   "clarity_avg": 7.46,
    "slop_per_1k": 2.1,
    "slop_breakdown": {
     "ai_vocab": 1
    },
    "slop_tax": 0.032,
-   "score": 88.9,
+   "score": 72.2,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -909,12 +999,20 @@
      true
     ],
     "clarity": "clear",
-    "clarity_quote": "Over-extended root filling material irritating periapical tissues",
-    "imagery": "concrete",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "## Clinical Presentation Summary"
+    "form_quote": "## Clinical Presentation Summary",
+    "economy": "some_padding",
+    "economy_quote": "**Clinical correlation:** Pain with pressure/biting indicates inflammatory response in periapical region",
+    "jargon": "some_jargon",
+    "jargon_quote": "obturation",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.21,
@@ -932,21 +1030,21 @@
    "genre": "seeking_information",
    "response": "# Ranged Attack Range Notation in D&D 5e\n\nThe two numbers represent **normal range** and **long range**:\n\n- **First number (normal range)**: You roll to hit normally within this distance\n- **Second number (long range)**: You can attempt attacks beyond normal range, but you have **disadvantage** on the attack roll\n\n## Example\nA bow with range 150/600 ft. means:\n- Attack normally at up to 150 feet\n- Attack with disadvantage between 150-600 feet\n- Cannot attack beyond 600 feet\n\n## Why This System Exists\nThis design encourages:\n- Tactical positioning (getting closer for better odds)\n- Risk/reward decisions (can you afford disadvantage?)\n- More granular range mechanics than \"can/cannot attack\"\n\nThe same rule applies to spell ranges and other ranged attacks\u2014it's a core part of 5e's action economy and positioning strategy.",
    "rules": {
-    "rule2_economy": 9.9,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 9.25,
+   "clarity_avg": 6.48,
    "slop_per_1k": 1.5,
    "slop_breakdown": {
     "inline_header_list": 2
    },
    "slop_tax": 0.022,
-   "score": 90.4,
+   "score": 63.4,
    "facts_delivered": "3/3",
    "detail": {
     "economy": {
@@ -980,13 +1078,21 @@
      true,
      true
     ],
-    "clarity": "clear",
+    "clarity": "needs_a_reread",
     "clarity_quote": "The same rule applies to spell ranges and other ranged attacks\u2014it's a core part of 5e's action economy and positioning strategy.",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "# Ranged Attack Range Notation in D&D 5e"
+    "form_quote": "# Ranged Attack Range Notation in D&D 5e",
+    "economy": "some_padding",
+    "economy_quote": "The same rule applies to spell ranges and other ranged attacks\u2014it's a core part of 5e's action economy and positioning strategy.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "some_complex",
+    "simple_words_quote": "granular",
+    "filler": "some_filler",
+    "filler_quote": "it's a core part of 5e's action economy and positioning strategy"
    },
    "shape": {
     "em_dash_per_100w": 0.76,
@@ -1005,20 +1111,20 @@
    "response": "# Physical IT Infrastructure & Digital Transformation\n\n1. **Foundation for Performance**: Physical infrastructure (data centers, servers, networks) provides the reliable computing power and connectivity backbone that enables cloud services, AI applications, and real-time data processing essential for digital transformation.\n\n2. **Business Continuity & Security**: On-premises and hybrid infrastructure ensures data sovereignty, disaster recovery capabilities, and cybersecurity control\u2014critical for protecting business continuity during the transition to digital-first operations.",
    "rules": {
     "rule2_economy": 9.0,
-    "rule3_jargon": 10.0,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 9.15,
+   "clarity_avg": 8.41,
    "slop_per_1k": 3.7,
    "slop_breakdown": {
     "hyphen_pairs": 1
    },
    "slop_tax": 0.056,
-   "score": 86.4,
+   "score": 79.4,
    "facts_delivered": "3/3",
    "detail": {
     "economy": {
@@ -1058,7 +1164,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "# Physical IT Infrastructure & Digital Transformation"
+    "form_quote": "# Physical IT Infrastructure & Digital Transformation",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "data sovereignty",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 1.49,
@@ -1077,26 +1191,26 @@
    "response": "# Understanding Carbon Footprints and African Business Solutions\n\n## What Is a Carbon Footprint?\n\nA carbon footprint is the **total amount of greenhouse gases (primarily CO\u2082 and methane) produced** by human activities, organizations, or products. It's measured in equivalent tons of CO\u2082 and includes:\n\n- Direct emissions (energy use, vehicles)\n- Indirect emissions (supply chains, outsourced activities)\n- Lifecycle emissions (manufacturing to disposal)\n\n---\n\n## How African Businesses Can Reduce Their Carbon Footprint\n\n### **Energy & Operations**\n- Transition to renewable energy (solar, wind, hydropower)\n- Improve energy efficiency in facilities\n- Optimize transportation routes and fleet management\n- Switch to electric or hybrid vehicles\n\n### **Supply Chain**\n- Source materials locally to reduce transportation\n- Partner with sustainable suppliers\n- Reduce waste and implement circular economy practices\n- Monitor and report on supplier emissions\n\n### **Business Model Innovation**\n- Adopt digital solutions to reduce paper/physical resources\n- Implement remote work options\n- Redesign products for durability and recyclability\n- Develop green services aligned with market demand\n\n### **Financial & Strategic**\n- Access green financing and carbon credits\n- Obtain sustainability certifications (ISO 14001, B Corp)\n- Set science-based emission reduction targets\n- Engage employees in sustainability initiatives\n\n---\n\n## African-Specific Opportunities\n\nAfrica's abundant renewable resources, young workforce, and growing markets make carbon reduction both **environmentally necessary and economically advantageous**. Early action can position African businesses as sustainability leaders globally.\n\nWhat specific sector interests you most?",
    "rules": {
     "rule2_economy": 5.0,
-    "rule3_jargon": 10.0,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 9.2,
     "rule6_filler": 9.3,
     "rule1_understandable": 10.0,
     "rule4_imagery": 3.0,
-    "rule7_form": 5.0
+    "rule7_form": 10.0
    },
    "clarity_avg": 7.44,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
    "score": 74.4,
-   "facts_delivered": "2/4",
+   "facts_delivered": "3/4",
    "detail": {
     "economy": {
      "words": 236,
      "budget": 450,
-     "facts": 2,
+     "facts": 3,
      "required": 4,
-     "coverage": 0.5,
+     "coverage": 0.75,
      "over_budget": 0.52
     },
     "jargon": {
@@ -1123,15 +1237,23 @@
      true,
      true,
      false,
-     false
+     true
     ],
     "clarity": "clear",
     "clarity_quote": "",
     "imagery": "needed_an_image",
     "imagery_quote": "Africa's abundant renewable resources, young workforce, and growing markets make carbon reduction both **environmentally necessary and economically advantageous**.",
-    "imagery_suggestion": "A concrete case: a Kenyan tea-processing plant replacing its diesel generator with rooftop solar, cutting fuel spend by a third within two years \u2014 or a Nigerian bakery switching from grid-plus-generator to solar and recovering the install cost in fuel savings.",
-    "form": "some_scaffolding",
-    "form_quote": "## African-Specific Opportunities"
+    "imagery_suggestion": "A concrete case: a Nairobi bakery replacing its diesel generator with rooftop solar, cutting fuel spend from roughly 40,000 shillings a month to near zero and paying back the panels in three years.",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "What specific sector interests you most?",
+    "jargon": "some_jargon",
+    "jargon_quote": "B Corp",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1149,19 +1271,19 @@
    "genre": "writing_edit",
    "response": "# Modified Message to Parents\n\nHere are a few improved versions:\n\n## Option 1 (Friendly & Informative)\nWe're excited to announce that we'll be visiting two local schools next Thursday and Friday! Your child will have the opportunity to experience a Grade 1 classroom and participate in various subject classes. **We warmly invite you to join us and enjoy this experience alongside your child.**\n\n## Option 2 (More Formal)\nPlease note that our school visits are scheduled for next Thursday and Friday. During these visits, students will observe and participate in Grade 1 classes across different subjects. **Parents are welcome to accompany their children and engage in the learning activities.**\n\n## Option 3 (Casual & Engaging)\nGreat news! We're visiting two schools next Thursday and Friday, and your child gets to try out a real Grade 1 class with different subjects. **Sign up today if you'd like to come along and see what your child experiences!**\n\n---\n\n**Key improvements made:**\n- Clearer structure and better flow\n- More welcoming tone\n- \"Sign up\" \u2192 \"We warmly invite you\" (more professional)\n- Specifies \"local schools\" or removes redundancy\n- Better punctuation and grammar\n\nWhich version works best for your needs?",
    "rules": {
-    "rule2_economy": 7.8,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 9.01,
+   "clarity_avg": 7.96,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 90.1,
+   "score": 79.6,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -1196,13 +1318,21 @@
      true,
      true
     ],
-    "clarity": "clear",
+    "clarity": "needs_a_reread",
     "clarity_quote": "Specifies \"local schools\" or removes redundancy",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "# Modified Message to Parents"
+    "form_quote": "# Modified Message to Parents",
+    "economy": "some_padding",
+    "economy_quote": "Here are a few improved versions:",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1275,7 +1405,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "# \u90ae\u4ef6\u4fee\u6539\u5efa\u8bae"
+    "form_quote": "3. **\u95ee\u9898\u8868\u8ff0\u66f4\u76f4\u63a5** - \u628a\u4e24\u4e2a\u95ee\u9898\u5408\u5e76\u6210\u4e00\u4e2a",
+    "economy": "some_padding",
+    "economy_quote": "\u5e0c\u671b\u8fd9\u4e9b\u5efa\u8bae\u6709\u5e2e\u52a9\uff01",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "\u8fd9\u5c01\u90ae\u4ef6\u603b\u4f53\u4e0d\u9519\uff0c\u4ee5\u4e0b\u662f\u51e0\u4e2a\u6539\u8fdb\u7248\u672c\uff1a"
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1293,7 +1431,7 @@
    "genre": "writing_edit",
    "response": "# Grammar Check\n\nYour writing is **quite good overall**. Here are the issues I found:\n\n## Errors to Fix\n\n1. **\"Anui-El\"** \u2192 Should be **\"Anuiel\"** (This appears to be a proper noun from The Elder Scrolls lore, so check your source material for correct spelling)\n\n2. **\"Anri-El\"** \u2192 Should be **\"Auri-El\"** (Again, likely a lore spelling issue)\n\n3. **Inconsistent capitalization of \"the games\"** \u2192 Consider **\"the Elder Scrolls games\"** or **\"the games\"** consistently. Currently vague.\n\n## Style Suggestions (Not Errors)\n\n1. **Too many questions in a row** - Consider breaking this into 2-3 paragraphs:\n   - Paragraph 1: Questions about Anu, Anuiel, and Auri-El\n   - Paragraph 2: Questions about Padomay, Sithis, and Lorkhan\n   - Paragraph 3: Questions about their nature and current status\n\n2. **Repetitive question structure** - You use \"What is/are\" frequently. Consider varying syntax:\n   - \"How are Anu, Anuiel, and Auri-El related?\"\n   - \"Do they operate as a father-and-sons dynamic?\"\n\n3. **Slightly awkward phrasing** - \"Are they related like father and sons?\" \u2192 **\"Are they related as father and sons?\"** or **\"Do they have a father-son relationship?\"**\n\n## Summary\nThe grammar is fundamentally sound. Your main task is correcting the proper nouns and improving readability through better paragraph structure.",
    "rules": {
-    "rule2_economy": 7.5,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
@@ -1301,11 +1439,11 @@
     "rule4_imagery": 7.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 8.54,
+   "clarity_avg": 8.26,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 85.4,
+   "score": 82.6,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -1346,7 +1484,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "## Summary"
+    "form_quote": "## Summary",
+    "economy": "some_padding",
+    "economy_quote": "The grammar is fundamentally sound.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1364,19 +1510,19 @@
    "genre": "writing_edit",
    "response": "# Corrected Email\n\nSubject: Re-Chroming Quality Concerns\n\nDear Sir Oliver,\n\nI hope this message finds you well.\n\nI must bring an important concern to your attention regarding the re-chromed metal. Unfortunately, the current quality is unacceptable. When exposed to moisture, the coating will eventually peel due to poor adhesion.\n\nI've considered our options:\n\n**Sending items back:** This approach is problematic because we cannot guarantee that the re-chroming quality will improve, and it would require additional time.\n\n**Our alternative:** We can apply a bright chrome spray here at our yard as a temporary solution; however, this will not provide a mirror finish.\n\nBefore proceeding, I need clarification on a few points:\n\n- What is our arrangement with the service provider?\n- Are we responsible for any associated costs?\n\nI look forward to your guidance on how you'd like us to proceed.\n\nBest regards,\n[Your Name]\n\n---\n\n## Key Improvements:\n- Clearer structure with proper greeting and closing\n- Corrected grammar and punctuation\n- Removed redundant phrases (\"in any time\")\n- Better organization with options clearly presented\n- More professional and respectful tone\n- Specific questions for clarity",
    "rules": {
-    "rule2_economy": 9.3,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 6.8,
-    "rule6_filler": 10.0,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.71,
+   "clarity_avg": 7.49,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 87.1,
+   "score": 74.9,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -1421,7 +1567,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "## Key Improvements:"
+    "form_quote": "## Key Improvements:",
+    "economy": "some_padding",
+    "economy_quote": "I hope this message finds you well.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "I hope this message finds you well."
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1494,7 +1648,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "**Key changes:**"
+    "form_quote": "# Revised Version",
+    "economy": "some_padding",
+    "economy_quote": "- Added a polite closing",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1512,21 +1674,21 @@
    "genre": "writing_create",
    "response": "# Message to Client Regarding Bank Transfer Fee Update\n\n---\n\nHello,\n\nI wanted to inform you of an important update regarding our payment policies.\n\n**Effective immediately, bank transfer fees will now be the responsibility of the paying party** (payer) for all future transactions.\n\n**What this means:**\n- Any bank fees associated with wire transfers or bank payments will be deducted from the amount received\n- Please factor in these costs when arranging your next payment\n- The exact fee amount will depend on your bank and transfer type\n\nIf you have any questions about this change or need clarification on how it may affect your specific situation, please don't hesitate to reach out.\n\nThank you for your understanding.\n\n---\n\n**Feel free to customize this message** based on your specific situation, company policies, or client relationship. Would you like me to adjust the tone or add any additional details?",
    "rules": {
-    "rule2_economy": 9.4,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 5.9,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.59,
+   "clarity_avg": 7.36,
    "slop_per_1k": 6.8,
    "slop_breakdown": {
     "chatbot": 1
    },
    "slop_tax": 0.102,
-   "score": 77.1,
+   "score": 66.1,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -1564,13 +1726,21 @@
      true,
      true
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Any bank fees associated with wire transfers or bank payments will be deducted from the amount received",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "# Message to Client Regarding Bank Transfer Fee Update"
+    "form_quote": "# Message to Client Regarding Bank Transfer Fee Update",
+    "economy": "some_padding",
+    "economy_quote": "**Feel free to customize this message** based on your specific situation, company policies, or client relationship.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1590,19 +1760,19 @@
    "rules": {
     "rule2_economy": 2.5,
     "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 5.0,
     "rule1_understandable": 5.0,
     "rule4_imagery": 3.0,
     "rule7_form": 0.0
    },
-   "clarity_avg": 5.5,
+   "clarity_avg": 4.43,
    "slop_per_1k": 3.5,
    "slop_breakdown": {
     "promo": 1
    },
    "slop_tax": 0.052,
-   "score": 52.1,
+   "score": 41.9,
    "facts_delivered": "1/4",
    "detail": {
     "economy": {
@@ -1641,9 +1811,17 @@
     "clarity_quote": "Diana's darkness becomes terrifying precisely because society has historically silenced and marginalized women's pain.",
     "imagery": "needed_an_image",
     "imagery_quote": "The film also depicts how patriarchal systems weaponize female vulnerability.",
-    "imagery_suggestion": "A specific staged moment \u2014 e.g. a woman's cry for help heard through a window while the men in the room debate whether it is 'their business' \u2014 would anchor the claim in something the reader can see.",
+    "imagery_suggestion": "A named scene with a concrete detail \u2014 e.g. the moment a character must keep a lamp burning through the night because the threat exists only in darkness \u2014 so the abstraction is anchored in an image the reader can see.",
     "form": "report_theater",
-    "form_quote": "**Weaponized Vulnerability**"
+    "form_quote": "**Weaponized Vulnerability**",
+    "economy": "some_padding",
+    "economy_quote": "The film explores how patriarchal structures affect family relationships, particularly through the lens of maternal responsibility and male absence.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "some_complex",
+    "simple_words_quote": "manifestation",
+    "filler": "some_filler",
+    "filler_quote": "through the lens of"
    },
    "shape": {
     "em_dash_per_100w": 1.06,
@@ -1713,10 +1891,18 @@
     "clarity": "clear",
     "clarity_quote": "",
     "imagery": "abstract_but_fine",
-    "imagery_quote": "Exchange programs have become increasingly complex",
-    "imagery_suggestion": "A line like: 'A summer work-travel J-1 applicant may now wait weeks for a DS-2019 from the sponsor, then face a months-long queue for an embassy interview slot.'",
+    "imagery_quote": "Policy changes create confusion about program requirements",
+    "imagery_suggestion": "A named example, e.g. 'a J-1 research scholar who learns only after arrival that the two-year home-country residency rule blocks an H-1B change'",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1734,22 +1920,22 @@
    "genre": "writing_create",
    "response": "# LinkedIn Summary: Data Science Platform Engineer\n\n---\n\nI'm a Data Science Platform Engineer passionate about building scalable, robust infrastructure that empowers data science and machine learning teams to innovate faster and deliver impactful results.\n\n**What I do:**\nI bridge the gap between data science and engineering by designing and maintaining platforms that streamline ML workflows\u2014from experimentation and model development to deployment and monitoring. My work ensures data scientists can focus on solving business problems while I handle the technical complexity behind the scenes.\n\n**My expertise spans:**\n- **MLOps & Platform Engineering:** Building end-to-end ML pipelines, CI/CD systems for models, and automation frameworks\n- **Machine Learning:** Hands-on experience with model development, training, evaluation, and optimization across various domains\n- **Cloud & Infrastructure:** Deploying and scaling ML solutions on cloud platforms with containerization, orchestration, and monitoring\n- **Data Engineering:** ETL pipelines, data quality management, and optimization for analytical workloads\n- **Collaboration:** Working closely with data scientists, analysts, and stakeholders to translate requirements into robust technical solutions\n\n**I'm energized by:**\n- Solving complex technical challenges that accelerate ML time-to-value\n- Creating tools and systems that make data science more accessible and efficient\n- Staying current with emerging technologies in AI/ML and cloud infrastructure\n\nI'm always open to discussing how platform engineering can unlock potential in data-driven organizations. Let's connect if you're interested in MLOps, data infrastructure, or building high-performing data science teams.\n\n---\n\n*Feel free to customize this with specific technologies, companies, or metrics relevant to your experience!*",
    "rules": {
-    "rule2_economy": 7.5,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 8.0,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 3.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 7.65,
+   "clarity_avg": 6.93,
    "slop_per_1k": 14.2,
    "slop_breakdown": {
     "ai_vocab": 3,
     "hyphen_pairs": 2
    },
    "slop_tax": 0.213,
-   "score": 60.2,
+   "score": 54.5,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -1788,9 +1974,17 @@
     "clarity_quote": "",
     "imagery": "needed_an_image",
     "imagery_quote": "**Machine Learning:** Hands-on experience with model development, training, evaluation, and optimization across various domains",
-    "imagery_suggestion": "A named project with stack and scale, e.g. 'Built the feature store and Airflow/MLflow pipeline behind a churn model that scores 2M customers nightly, cutting retraining from three days to two hours.'",
+    "imagery_suggestion": "One named project with a number: \"Built an Airflow retraining pipeline for a churn model that cut redeploy time from two weeks to two days.\"",
     "form": "some_scaffolding",
-    "form_quote": "# LinkedIn Summary: Data Science Platform Engineer"
+    "form_quote": "# LinkedIn Summary: Data Science Platform Engineer",
+    "economy": "some_padding",
+    "economy_quote": "Staying current with emerging technologies in AI/ML and cloud infrastructure",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "unlock potential in data-driven organizations"
    },
    "shape": {
     "em_dash_per_100w": 0.41,
@@ -1808,27 +2002,27 @@
    "genre": "writing_create",
    "response": "# Lights Out by Manjula Padmanabhan: A Feminist Analysis\n\n## Overview\n*Lights Out* (1994) by Manjula Padmanabhan is a significant work in Indian drama that interrogates gender, power, and domestic violence through a distinctly feminist lens.\n\n## Key Feminist Themes\n\n### 1. **Critique of Patriarchal Violence**\n- The play centers on domestic abuse, exposing how patriarchy normalizes male violence against women\n- It refuses to romanticize marriage or family structures that enable such violence\n- The cyclical nature of abuse demonstrates how patriarchal systems perpetuate themselves across generations\n\n### 2. **Female Agency and Resistance**\n- The protagonist asserts her right to self-determination despite societal pressures\n- The play shows women attempting to break free from confining roles and expectations\n- Padmanabhan portrays resistance as complex and often costly, refusing easy solutions\n\n### 3. **Institutional Complicity**\n- Police, family members, and social structures fail the female characters\n- The play critiques how institutions supposedly designed to protect women often perpetuate harm\n- It highlights the isolation women face when seeking help\n\n### 4. **Class and Gender Intersections**\n- The play examines how economic vulnerability intersects with gender oppression\n- Poor and working-class women face compounded difficulties in escaping abuse\n\n## Dramatic Techniques\n\nPadmanabhan employs:\n- **Realistic representation** to make violence visible and undeniable\n- **Lighting as metaphor** (title significance) for revelation and concealment\n- **Intimate scenes** that make audiences confront uncomfortable truths about everyday violence\n\n## Significance\n*Lights Out* contributed importantly to Indian feminist theatre by centering women's experiences and demanding social accountability for gender-based violence.",
    "rules": {
-    "rule2_economy": 2.5,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 3.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 5.5,
+   "clarity_avg": 7.67,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 55.0,
-   "facts_delivered": "1/4",
+   "score": 76.7,
+   "facts_delivered": "2/4",
    "detail": {
     "economy": {
      "words": 255,
      "budget": 550,
-     "facts": 1,
+     "facts": 2,
      "required": 4,
-     "coverage": 0.25,
+     "coverage": 0.5,
      "over_budget": 0.46
     },
     "jargon": {
@@ -1852,16 +2046,24 @@
     "facts_delivered": [
      true,
      false,
-     false,
+     true,
      false
     ],
     "clarity": "clear",
     "clarity_quote": "",
     "imagery": "needed_an_image",
-    "imagery_quote": "The cyclical nature of abuse demonstrates how patriarchal systems perpetuate themselves across generations",
-    "imagery_suggestion": "The play's actual central image: Leela and Bhaskar standing at their apartment window night after night, arguing over tea about whether the screaming below is a rape or a religious ritual, while doing nothing \u2014 the abuse continues because the watchers keep watching.",
-    "form": "report_theater",
-    "form_quote": "## Significance"
+    "imagery_quote": "The play shows women attempting to break free from confining roles and expectations",
+    "imagery_suggestion": "Name the actual scene: Leela and Bhasker standing at their apartment window arguing over whether to call the police while a woman is assaulted in the courtyard below, and Frieda silently laying out tea \u2014 a concrete picture of spectatorship, complicity and class all at once.",
+    "form": "some_scaffolding",
+    "form_quote": "## Overview",
+    "economy": "some_padding",
+    "economy_quote": "*Lights Out* (1994) by Manjula Padmanabhan is a significant work in Indian drama that interrogates gender, power, and domestic violence through a distinctly feminist lens.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "is a significant work in Indian drama"
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1936,7 +2138,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.49,
@@ -1954,7 +2164,7 @@
    "genre": "technical_help",
    "response": "# Removing Trailing Zeros from Float Columns in Pandas\n\nHere are several approaches to remove trailing zeros from float columns without converting to strings:\n\n## 1. **Using `round()` with appropriate decimals** (Simplest)\n\n```python\ndf['column'] = df['column'].round(2)\n```\n\nThis works when you know the desired precision, but won't remove ALL trailing zeros.\n\n## 2. **Using `apply()` with custom function** (Best for multiple columns)\n\n```python\ndef remove_trailing_zeros(val):\n    if pd.isna(val):\n        return val\n    return float(str(val).rstrip('0').rstrip('.'))\n\n# For single column\ndf['column'] = df['column'].apply(remove_trailing_zeros)\n\n# For multiple columns at once\ncolumns = ['col1', 'col2', 'col3']\ndf[columns] = df[columns].applymap(remove_trailing_zeros)  # pandas < 2.1.0\n# or\ndf[columns] = df[columns].map(remove_trailing_zeros)  # pandas >= 2.1.0\n```\n\n## 3. **Using `pd.Series.map()` with lambda**\n\n```python\ndf['column'] = df['column'].map(lambda x: float(str(x).rstrip('0').rstrip('.')) if pd.notna(x) else x)\n```\n\n## 4. **For multiple columns efficiently**\n\n```python\nfloat_cols = df.select_dtypes(include=['float64']).columns\n\nfor col in float_cols:\n    df[col] = df[col].apply(lambda x: float(str(x).rstrip('0').rstrip('.')) if pd.notna(x) else x)\n```\n\n## Complete Example\n\n```python\nimport pandas as pd\nimport numpy as np\n\ndf = pd.DataFrame({\n    'A': [1.5000, 2.3000, 3.1200],\n    'B': [4.0000, 5.5000, 6.0000],\n    'C': [7.1230, 8.9000, np.nan]\n})\n\nprint(\"Before:\")\nprint(df)\n\n# Apply to all float columns\nfor col in df.select_dtypes(include=['float64']).columns:\n    df[col] = df[col].apply(lambda x: float(str(x).rstrip('0').rstrip('.')) if pd.notna(x) else x)\n\nprint(\"\\nAfter:\")\nprint(df)\n```\n\n**Output:**\n```\nBefore:\n      A     B      C\n0  1.50  4.00   7.123\n1  2.30  5.50   9.000\n2  3.12  6.00    NaN\n\nAfter:\n     A    B      C\n0  1.5  4.0   7.123\n1  2.3  5.5    9.0\n2 3.12  6.0    NaN\n```\n\n## Important Notes\n\n\u26a0\ufe0f **The values remain as floats** - the trailing zeros are removed at the representation level, but they're still stored as floats.\n\n\u2705 **Handles NaN/None** - The lambda functions check for null values.\n\n\u2705 **Efficient** - Use `map()` or `apply()` depending on your pandas version.\n\nChoose the method based on:\n- **Single column**: Use `apply()` with lambda\n- **Multiple columns**: Use `select_dtypes()` + loop or `applymap()`\n- **Simple rounding**: Use `round()` if you know precision needed",
    "rules": {
-    "rule2_economy": 8.2,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
@@ -1962,14 +2172,14 @@
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.32,
+   "clarity_avg": 7.96,
    "slop_per_1k": 2.6,
    "slop_breakdown": {
     "inline_header_list": 3,
     "emoji_bullet": 2
    },
    "slop_tax": 0.039,
-   "score": 79.9,
+   "score": 76.5,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -2006,11 +2216,20 @@
     ],
     "clarity": "needs_a_reread",
     "clarity_quote": "\u26a0\ufe0f **The values remain as floats** - the trailing zeros are removed at the representation level, but they're still stored as floats.",
+    "clarity_quote_note": "",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "\u2705 **Efficient** - Use `map()` or `apply()` depending on your pandas version."
+    "form_quote": "## 3. **Using `pd.Series.map()` with lambda**",
+    "economy": "some_padding",
+    "economy_quote": "\u2705 **Efficient** - Use `map()` or `apply()` depending on your pandas version.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -2028,7 +2247,7 @@
    "genre": "technical_help",
    "response": "# Bond Total Return Analysis\n\n## Answer: **6.45% (equal to YTM)**\n\nIf you hold the bond until maturity, your total return equals the **Yield to Maturity (YTM) of 6.45%**.\n\n---\n\n## Key Assumptions\n\nWhen calculating return based on YTM, we implicitly assume:\n\n### 1. **Hold-to-Maturity**\n   - You retain the bond for all 10 years until it matures\n   - No early sale at a different price\n\n### 2. **Coupon Reinvestment at YTM**\n   - All coupon payments (6.00% annually) are **reinvested at 6.45%**\n   - This is the most critical assumption\u2014in reality, reinvestment rates fluctuate\n   - The compounding of reinvested coupons at 6.45% accounts for the extra return above the 6.00% coupon rate\n\n### 3. **No Default**\n   - The issuer makes all promised payments on time\n   - No credit risk materializes\n\n### 4. **No Transaction Costs**\n   - Ignores taxes, fees, and trading costs\n\n---\n\n## Why 6.45% (not 6.00%)?\n\nThe bond trades at a **discount** (coupon < YTM), so you:\n- Buy below par value\n- Earn price appreciation to par at maturity\n- Plus reinvest coupons at the higher 6.45% rate\n\nThis combination yields the full 6.45% return.",
    "rules": {
-    "rule2_economy": 7.5,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
@@ -2036,13 +2255,13 @@
     "rule4_imagery": 7.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.54,
+   "clarity_avg": 8.26,
    "slop_per_1k": 2.7,
    "slop_breakdown": {
     "authority_trope": 1
    },
    "slop_tax": 0.041,
-   "score": 81.9,
+   "score": 79.2,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -2083,7 +2302,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "# Bond Total Return Analysis"
+    "form_quote": "# Bond Total Return Analysis",
+    "economy": "some_padding",
+    "economy_quote": "If you hold the bond until maturity, your total return equals the **Yield to Maturity (YTM) of 6.45%**.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.54,
@@ -2101,19 +2328,19 @@
    "genre": "technical_help",
    "response": "# Finding the Nominal Interest Rate\n\nGiven information:\n- Effective Annual Interest Rate (EAR) = 10%\n- Compounding frequency = Monthly (12 times per year)\n- Find: Nominal Annual Interest Rate (r)\n\n## Formula\n\nThe relationship between effective and nominal rates is:\n\n$$EAR = \\left(1 + \\frac{r}{n}\\right)^n - 1$$\n\nWhere:\n- r = nominal annual interest rate\n- n = number of compounding periods per year\n\n## Solution\n\n$$0.10 = \\left(1 + \\frac{r}{12}\\right)^{12} - 1$$\n\n$$1.10 = \\left(1 + \\frac{r}{12}\\right)^{12}$$\n\n$$\\sqrt[12]{1.10} = 1 + \\frac{r}{12}$$\n\n$$1.007974 = 1 + \\frac{r}{12}$$\n\n$$0.007974 = \\frac{r}{12}$$\n\n$$r = 0.007974 \\times 12$$\n\n$$r = 0.09569 \\text{ or } \\boxed{9.569\\%}$$\n\n## Answer\n\nThe nominal annual interest rate compounded monthly is approximately **9.57%** or **9.569%**.",
    "rules": {
-    "rule2_economy": 9.6,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 8.3,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 9.3
    },
-   "clarity_avg": 9.7,
+   "clarity_avg": 9.09,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 97.0,
+   "score": 90.9,
    "facts_delivered": "3/3",
    "detail": {
     "economy": {
@@ -2156,7 +2383,14 @@
     "imagery_suggestion": "",
     "form": "some_scaffolding",
     "form_quote": "## Answer",
-    "imagery_note": ""
+    "economy": "some_padding",
+    "economy_quote": "The nominal annual interest rate compounded monthly is approximately **9.57%** or **9.569%**.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -2174,19 +2408,19 @@
    "genre": "self_expression",
    "response": "# A Socratic Inquiry into Catalan Nationalism\n\nI appreciate this topic\u2014it touches on identity, justice, self-determination, and community. Let me begin by asking you some guiding questions to explore this together.\n\n**To start:**\n\n1. **What draws you to this question?** When you think of Catalan nationalism, what aspect concerns or interests you most? Is it about political independence, cultural preservation, historical grievance, or something else?\n\n2. **Let's examine a key term:** What do you mean by \"nationalism\"? Is it simply love of one's nation, or does it necessarily imply a political claim? Can someone be deeply devoted to Catalan culture without supporting Catalan independence?\n\n3. **On identity and community:** What makes something a \"nation\"? Is it shared language, history, territory, values, or something else? Do all these elements need to be present?\n\n4. **A question of justice:** If we accept that groups can have legitimate aspirations for self-determination, what are the conditions that make these aspirations just? Does a region's desire for independence outweigh other considerations\u2014such as economic viability or the interests of those who don't share that aspiration?\n\n---\n\n**What strikes you most about these questions? Which one would you like to explore first?**\n\nI'm here to think through this carefully with you, not to impose answers.",
    "rules": {
-    "rule2_economy": 7.5,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 9.2,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 3.0,
+    "rule4_imagery": 7.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 7.83,
+   "clarity_avg": 7.52,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 78.3,
+   "score": 75.2,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -2223,11 +2457,19 @@
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "needed_an_image",
-    "imagery_quote": "Does a region's desire for independence outweigh other considerations\u2014such as economic viability or the interests of those who don't share that aspiration?",
-    "imagery_suggestion": "Anchor it in the actual case: the October 2017 referendum, where turnout was roughly 43% and Barcelona's own neighborhoods split \u2014 what do we owe the Catalan who voted no, or did not vote at all?",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "# A Socratic Inquiry into Catalan Nationalism"
+    "form_quote": "# A Socratic Inquiry into Catalan Nationalism",
+    "economy": "some_padding",
+    "economy_quote": "Let me begin by asking you some guiding questions to explore this together.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "I'm here to think through this carefully with you, not to impose answers."
    },
    "shape": {
     "em_dash_per_100w": 0.96,

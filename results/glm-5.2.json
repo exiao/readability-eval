@@ -1,0 +1,930 @@
+{
+ "summary": {
+  "model": "z-ai/glm-5.2",
+  "backend": "openrouter",
+  "condition": "default",
+  "n": 10,
+  "errors": 0,
+  "score": 72.0,
+  "clarity_avg": 7.35,
+  "slop_per_1k": 1.4,
+  "avg_words": 724,
+  "per_rule": {
+   "rule2_economy": 5.26,
+   "rule3_jargon": 6.91,
+   "rule5_simple_words": 7.78,
+   "rule6_filler": 5.5,
+   "rule1_understandable": 9.0,
+   "rule4_imagery": 10.0,
+   "rule7_form": 6.47
+  },
+  "cost_usd": 0.2847
+ },
+ "runs": [
+  {
+   "id": 1,
+   "genre": "practical_guidance",
+   "response": "**Video Title:** Shape Detectives in 2D Land! \ud83d\udd75\ufe0f\u200d\u2642\ufe0f\ud83d\udd0e\n**Target Audience:** Grade 2 Lower Learners\n**Estimated Video Length:** 5-7 minutes\n\n---\n\n### **[Scene 1: Fun Introduction]**\n**Visual:** Upbeat, magical background music plays. The teacher, wearing a detective hat and holding a giant magnifying glass, pops onto the screen. Colorful 2D shapes bounce around them. \n**Teacher:** \n\"Hello, Shape Detectives! Welcome to Math Mission! Today, we are going on a hunt. We are looking for... 2D Shapes! \n\nWhat does 2D mean? '2D' stands for 'Two-Dimensional.' That is a big, fancy science word, but it just means **FLAT**! If a shape is 2D, it is flat like a piece of paper. You can\u2019t put water inside a 2D shape, and you can\u2019t pick it up like a ball. It lies flat on your desk! \n\nAre you ready to earn your Shape Detective badges? Let\u2019s go!\"\n\n---\n\n### **[Scene 2: Identification and Properties]**\n**Visual:** The screen splits into four sections. A large circle, triangle, square, and rectangle appear one by one with a fun \"pop\" sound effect. \n\n**Teacher:**\n\"To be a good detective, we need to know what we are looking for. Every shape has two special things: **Sides** and **Corners**. \n*Sides* are the straight lines that make the outside of the shape. \n*Corners* are the pointy spots where two sides meet. (Sometimes corners are called vertices, but today we will call them corners!). \n\nLet\u2019s meet our first shape! \n**Visual:** Zoom in on the Triangle. A little animated voice says, \"Hello!\"\n**Teacher:** \n\"This is a Triangle. How do we know? Let\u2019s count its sides. 1, 2, 3! It has 3 straight sides. Let's count the corners. 1, 2, 3! A triangle always has 3 sides and 3 corners.\"\n\n**Visual:** Zoom in on the Square.\n**Teacher:**\n\"Next is the Square. Let\u2019s count the sides. 1, 2, 3, 4! It has 4 sides. Are they all the same size? Yes! A square has 4 equal sides and 4 corners.\"\n\n**Visual:** Zoom in on the Rectangle. \n**Teacher:**\n\"Uh oh! Is this a square? No! This is a Rectangle. It has 4 sides and 4 corners like a square, but look closely. Two sides are long, and two sides are short. A rectangle has 2 long sides and 2 short sides.\"\n\n**Visual:** Zoom in on the Circle. It rolls across the screen.\n**Teacher:**\n\"Last one! The Circle. Look closely. Does it have straight sides? No! A circle is completely round. It has 1 curved side and 0 pointy corners. You can't count the corners on a circle because it just goes round and round!\"\n\n---\n\n### **[Scene 3: Life Application]**\n**Visual:** The background changes to a bright, fun kitchen scene. A spyglass graphic hovers over different objects.\n\n**Teacher:**\n\"Now that we know our shapes, let\u2019s use our detective eyes in the real world! Shapes are everywhere! \n\n**Visual:** A pizza appears.\n**Teacher:** \"What shape is this whole pizza? That\u2019s right, it\u2019s a Circle! \n\n**Visual:** A slice of the pizza is pulled away. \n**Teacher:** \"Wait! Look at the slice of pizza. It has 3 sides and 3 corners. It\u2019s a Triangle!\n\n**Visual:** A cracker and a book appear on a table.\n**Teacher:** \"What about this cracker? It has 4 equal sides and 4 corners. It\u2019s a Square! And what about this book? It has 2 long sides and 2 short sides. It\u2019s a Rectangle! \n\nYou see? Shapes aren't just in our math books; they are all around us!\"\n\n---\n\n### **[Scene 4: Exercises for the Learners]**\n**Visual:** The screen turns into a game show format with flashing lights. The teacher points to the screen. \n\n**Teacher:**\n\"It\u2019s time for your Detective Test! I will show you a picture, and you have to shout out the shape. Get your voices ready! You have 5 seconds for each one.\"\n\n**Visual:** A stop sign appears on the screen. \n**Teacher:** \"What shape is this street sign? 5... 4... 3... 2... 1... It\u2019s an Octagon! Wait, we didn't learn that one today! Just kidding, detectives. Let's look at a real one.\"\n*(Correction: Actually, let's stick strictly to the shapes learned to ensure validity and confidence for lower learners).*\n\n**Visual:** A yield sign (triangle) appears.\n**Teacher:** \"Number 1! What shape is this street sign? 5... 4... 3... 2... 1... It\u2019s a Triangle! Great job.\"\n\n**Visual:** A picture of a bed appears.\n**Teacher:** \"Number 2! What shape is the mattress on this bed? 5... 4... 3... 2... 1... It\u2019s a Rectangle! Two long sides, two short sides.\"\n\n**Visual:** A picture of a kite appears.\n**Teacher:** \"Number 3! What shape is this flying kite? 5... 4... 3... 2... 1... It\u2019s a Triangle! You are doing amazing!\"\n\n---\n\n### **[Scene 5: Outro]**\n**Visual:** The teacher smiles, and a shiny gold detective badge flies onto the screen. \n\n**Teacher:**\n\"Wow! You got them all right! You are official Shape Detectives. Today we learned that 2D shapes are flat, and we can identify them by counting their straight sides and corners. \n\nYour homework is to go on a shape hunt in your own house. Can you find one circle, one square, one rectangle, and one triangle? Tell your family what you found! \n\nThanks for joining me today, Detectives. Keep looking for math in the world around you. Bye for now!\"\n\n**Visual:** The teacher waves. The shapes bounce around the screen one last time as the music fades out. Fade to black.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 7.22,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 72.2,
+   "facts_delivered": "4/5",
+   "detail": {
+    "economy": {
+     "words": 887,
+     "budget": 550,
+     "facts": 4,
+     "required": 5,
+     "coverage": 0.8,
+     "over_budget": 1.61
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true,
+     false
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "**Visual:** A stop sign appears on the screen. \n**Teacher:** \"What shape is this street sign? 5... 4... 3... 2... 1... It's an Octagon! Wait, we didn't learn that one today! Just kidding, detectives. Let's look at a real one.\"\n*(Correction: Actually, let's stick strictly to the shapes learned to ensure validity and confidence for lower learners).*",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "*(Correction: Actually, let's stick strictly to the shapes learned to ensure validity and confidence for lower learners).*",
+    "jargon": "some_jargon",
+    "jargon_quote": "Two-Dimensional",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Keep looking for math in the world around you."
+   },
+   "scaffold": {
+    "headings": 14,
+    "list_items": 0,
+    "headings_per_100b": 2.55,
+    "list_items_per_100b": 0.0,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.92,
+    "frag_ratio": 0.47,
+    "bold_per_100w": 4.96,
+    "comma_per_sent": 0.29,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0319358,
+   "seconds": 20.6
+  },
+  {
+   "id": 2,
+   "genre": "practical_guidance",
+   "response": "Here is a comprehensive, interactive lesson plan designed for Kindergarten through 2nd Grade that integrates science and creative movement.\n\n# Lesson Plan: The Dancing Butterfly Life Cycle\n\n**Grade Level:** Kindergarten \u2013 2nd Grade\n**Duration:** 45 \u2013 60 minutes\n**Subject Areas:** Science, Physical Education/Dance, Creative Arts\n\n## Lesson Objectives\n*   **Science:** Students will be able to identify and sequence the four stages of the butterfly life cycle (egg, caterpillar/larva, chrysalis/pupa, butterfly/adult).\n*   **Dance/Movement:** Students will use body movements to physically represent each stage of the life cycle.\n*   **Creative Arts:** Students will collaborate with peers to create and perform a short movement sequence.\n\n## Materials Needed\n*   Open space (gym, rug, or cleared classroom)\n*   Visual aids: 4 large pictures or posters showing a leaf with an egg, a caterpillar, a chrysalis, and a butterfly.\n*   Music: A device to play music. (Upbeat instrumental music works best\u2014try classical music like Vivaldi's *Spring* or light jazz).\n*   Optional props: Colorful scarves or ribbon wands (one per student for the butterfly stage).\n\n---\n\n## Lesson Procedure\n\n### 1. Warm-Up & Hook (5-10 minutes)\n*   **Gather & Discuss:** Have students sit in a circle. Ask: *\"Who has ever seen a butterfly? Do you know how a butterfly is born? Does it hatch from an egg? Does it start as a baby butterfly?\"*\n*   **Introduce the Stages:** Show the 4 visual aids one by one. Briefly explain the vocabulary:\n    1.  **Egg:** Tiny, on a leaf.\n    2.  **Caterpillar (Larva):** Hatches, eats a lot, crawls.\n    3.  **Chrysalis (Pupa):** Wraps itself up to change.\n    4.  **Butterfly (Adult):** Comes out, has wings, flies.\n*   **Physical Warm-Up:** Lead a quick physical warm-up. *\"Let's stretch our wings! Reach up high, touch the ground, wiggle your shoulders, and shake out your legs.\"*\n\n### 2. Guided Movement Exploration (15 minutes)\n*   **Space Out:** Have students spread out in the room so they can\u2019t touch anyone else (use \"airplane arms\" to check spacing).\n*   **Teach the Movements:** Guide the students through individual movements for each stage.\n    *   **Egg:** *\"Curl up into a tiny ball on the floor. Make yourself as small as a tiny egg on a leaf. Be very still.\"*\n    *   **Caterpillar:** *\"Slowly hatch! Get on your hands and knees. Let's crawl around the room. Munch, munch, munch\u2014move your head like you are eating leaves. Wiggle your back!\"*\n    *   **Chrysalis:** *\"Stand up tall and freeze. Wrap your arms tightly around your body like you are in a sleeping bag. No wiggling! You are changing inside. (Remind them that real caterpillars don't wiggle in the chrysalis!).\"*\n    *   **Butterfly:** *\"Slowly unwrap your arms. Stretch your wings out wide! Let's flap our wings and fly around the room carefully. Tip-toe so we don't disturb the other butterflies.\"* (If using scarves/ribbons, hand them out now).\n\n### 3. Group Creation: The Life Cycle Dance (15 minutes)\n*   **Group Up:** Divide students into small groups of 3 to 5. Assign each group a \"home base\" spot in the room.\n*   **The Task:** Tell the groups they have 10 minutes to create a dance that shows the whole life cycle. They must go in order: 1, 2, 3, 4.\n*   **Requirements:**\n    *   Everyone must do the egg shape together.\n    *   They must show crawling/munching as caterpillars.\n    *   They must show the chrysalis (standing still and wrapped).\n    *   They must fly as butterflies.\n    *   *Challenge for 2nd Graders:* Ask them to add a \"group shape\" at the end where all butterflies connect or pose together.\n*   **Rehearsal:** Walk around the room while they practice. Give prompts like, *\"How can you show the egg hatching?\"* or *\"Make sure your caterpillar movement is different from your butterfly movement.\"*\n\n### 4. Performance & Cool Down (10-15 minutes)\n*   **The Performance:** Bring the class back together. Have each group perform their dance for the rest of the class while you play the background music.\n*   **Audience Expectations:** Remind the audience to be quiet, watch closely, and clap at the end of each performance.\n*   **Cool Down:** After all groups have performed, have everyone lie on the floor like a resting butterfly. Do deep breathing exercises. *\"Breathe in like you are smelling a flower, breathe out like you are blowing the seeds off a dandelion.\"*\n\n---\n\n## Assessment / Check for Understanding\n*   **Observation:** During the group performances, check that students correctly sequenced the stages (egg -> caterpillar -> chrysalis -> butterfly).\n*   **Verbal Check:** At the end of the lesson, ask the class to shout out the four stages in order while doing a quick motion for each one.\n\n## Adaptations & Extensions\n*   **For Kindergarten:** Keep it mostly teacher-led. Instead of small groups, do the dance as one big class several times together.\n*   **Sensory Needs:** For students who struggle with floor work, allow them to make the \"egg\" shape by crouching down on their feet instead of lying on the floor.\n*   **Music Integration:** Pause the music randomly during the warm-up. When the music stops, they must freeze in whatever stage they are in! (Like musical statues).",
+   "rules": {
+    "rule2_economy": 7.6,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.51,
+   "slop_per_1k": 0.3,
+   "slop_breakdown": {
+    "agentless_passive": 1
+   },
+   "slop_tax": 0.004,
+   "score": 74.8,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 834,
+     "budget": 520,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.6
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Here is a comprehensive, interactive lesson plan designed for Kindergarten through 2nd Grade that integrates science and creative movement.",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "some_complex",
+    "simple_words_quote": "collaborate",
+    "filler": "some_filler",
+    "filler_quote": "comprehensive, interactive"
+   },
+   "scaffold": {
+    "headings": 10,
+    "list_items": 37,
+    "headings_per_100b": 1.92,
+    "list_items_per_100b": 7.12,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.24,
+    "sentence_cv": 0.76,
+    "frag_ratio": 0.14,
+    "bold_per_100w": 3.72,
+    "comma_per_sent": 0.53,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.028415,
+   "seconds": 22.1
+  },
+  {
+   "id": 3,
+   "genre": "practical_guidance",
+   "response": "Here is a detailed course outline for the **\u201cArt of Negotiation.\u201d** This curriculum is divided into progressive subtopics, from foundational concepts to advanced, cross-cultural applications. \n\n---\n\n# Course Title: The Art of Negotiation\n\n## Module 1: Fundamentals of Negotiation\n**Description:** Understanding the basic definitions, types of negotiations (distributive vs. integrative), and the core philosophy of win-win bargaining.\n**Required Skills:**\n*   **Situational Analysis:** Ability to identify whether a negotiation is zero-sum (distributive) or collaborative (integrative).\n*   **Conceptual Understanding:** Grasping core terms like \"claiming value\" vs. \"creating value.\"\n*   **Perspective-Taking:** Ability to view the scenario objectively from both your side and the counterpart\u2019s side.\n\n**Top Free Online Course:**\n*   **Course:** *Successful Negotiation: Essential Strategies and Skills* (University of Michigan)\n*   **Platform:** Coursera (Select the \"Audit this course\" option for free access to video materials).\n*   **Why:** This is one of the most popular foundational negotiation courses in the world, covering the absolute basics perfectly.\n\n---\n\n## Module 2: Preparation and Strategy\n**Description:** The negotiation is often won or lost before it begins. This module covers information gathering, setting targets, and establishing walk-away points.\n**Required Skills:**\n*   **Research & Information Gathering:** Finding relevant data about the market, the counterpart, and their constraints.\n*   **Analytical Thinking:** Calculating your BATNA (Best Alternative to a Negotiated Agreement) and defining your ZOPA (Zone of Possible Agreement).\n*   **Goal Setting:** Establishing a realistic reservation point (walk-away price/terms) and an optimistic target point.\n*   **Agenda Framing:** Structuring the sequence of topics to be discussed.\n\n**Top Free Online Course:**\n*   **Course:** *Introduction to Negotiation: A Strategic Playbook* (Yale University)\n*   **Platform:** Coursera (Select the \"Audit this course\" option).\n*   **Why:** Yale's course is highly strategic. Modules 1 and 2 focus heavily on pre-negotiation preparation, setting limits, and evaluating alternatives.\n\n---\n\n## Module 3: Interpersonal Communication\n**Description:** How to speak, listen, and observe during a negotiation to extract information and build trust.\n**Required Skills:**\n*   **Active Listening:** Listening to understand rather than to reply; using silence effectively.\n*   **Strategic Questioning:** Using open-ended, calibrated questions to uncover hidden interests.\n*   **Non-Verbal Observation:** Reading body language, micro-expressions, and vocal tone.\n*   **Framing & Anchoring:** Presenting information in a way that influences perception (e.g., making the first offer to anchor the negotiation).\n\n**Top Free Online Course:**\n*   **Course:** *Negotiating and Applying Influence and Power* (University of Notre Dame)\n*   **Platform:** edX (Select \"Audit this course\" for free).\n*   **Why:** This course focuses heavily on influence, communication styles, and how to leverage power dynamics in a conversation.\n\n---\n\n## Module 4: Tactics and Bargaining\n**Description:** The active phase of negotiation. This module covers the actual exchange of offers, making concessions, and countering hard-bargaining tactics.\n**Required Skills:**\n*   **Decisiveness:** Knowing when to make a firm counter-offer and when to concede.\n*   **Strategic Concession-Making:** Giving up something of low value to you to gain something of high value to you.\n*   **Tactic Recognition:** Identifying and neutralizing dirty tactics (e.g., nibbling, good cop/bad cop, the flinch).\n*   **Persuasion:** Using logic, emotion, and credibility to shift the counterpart\u2019s position.\n\n**Top Free Online Course:**\n*   **Course:** *Diploma in Negotiation Skills*\n*   **Platform:** Alison (Completely free, ad-supported).\n*   **Why:** Alison\u2019s diploma course breaks down specific bargaining tactics, ethical boundaries, and practical frameworks for the \"back-and-forth\" stage of negotiation.\n\n---\n\n## Module 5: Psychology and Emotional Intelligence (EQ)\n**Description:** Understanding the cognitive biases and emotional triggers that affect decision-making in high-stress environments.\n**Required Skills:**\n*   **Emotional Regulation:** Keeping calm under pressure and avoiding reactive devaluation.\n*   **Empathy:** Validating the counterpart's emotions to de-escalate tension.\n*   **Cognitive Bias Recognition:** Identifying biases like anchoring bias, confirmation bias, and the sunk-cost fallacy in both yourself and your opponent.\n*   **Patience:** Enduring long silences and slow-paced talks without rushing to a sub-optimal agreement.\n\n**Top Free Online Course:**\n*   **Course:** *15.667 Negotiation and Conflict Management* (MIT Sloan School of Management)\n*   **Platform:** MIT OpenCourseWare (Completely free).\n*   **Why:** This graduate-level course provides deep insights into the psychology of negotiation, behavioral economics, and conflict resolution based on real-world case studies.\n\n---\n\n## Module 6: Complex and Cross-Cultural Negotiation\n**Description:** Scaling negotiation skills to multi-party scenarios, virtual environments, and international deals where cultural norms dictate behavior.\n**Required Skills:**\n*   **Cultural Intelligence (CQ):** Adapting communication styles to high-context vs. low-context cultures.\n*   **Coalition Building:** Forming alliances in multi-party negotiations.\n*   **Virtual Communication Proficiency:** Maintaining engagement and reading subtle cues over Zoom/video calls.\n*   **Systems Thinking:** Seeing how a single negotiation impacts broader organizational or international relationships.\n\n**Top Free Online Course:**\n*   **Course:** *BUS403: Negotiations and Conflict Management*\n*   **Platform:** Saylor Academy (Completely free).\n*   **Why:** Unit 4 of this course specifically tackles complex, multiparty, and cross-cultural negotiations, providing excellent frameworks for global business.\n\n---\n\n## Module 7: Closing and Relationship Management\n**Description:** Finalizing the deal, drafting the agreement, and ensuring the relationship survives for future interactions.\n**Required Skills:**\n*   **Attention to Detail:** Translating verbal agreements into clear, unambiguous written contracts.\n*   **Closing Acumen:** Recognizing the exact moment the counterpart is ready to close and avoiding late-stage pitfalls.\n*   **Relationship Management:** Leaving the table without burning bridges, even if a deal isn't reached.\n*   **Self-Reflection/Post-Mortem Analysis:** Evaluating your performance after the negotiation to improve for next time.\n\n**Top Free Online Course:**\n*   **Course:** *Conflict Resolution Skills* (By Judy Ringer / Various curated videos)\n*   **Platform:** YouTube (Specifically the *Harvard Program on Negotiation* channel).\n*   **Why:** While not a traditional course, the Harvard Program on Negotiation's YouTube channel offers free, elite-level short videos specifically on drafting final agreements, maintaining long-term relationships, and conducting post-negotiation reviews.\n\n---\n\n### \ud83d\udca1 How to Take These Courses for Free:\n*   **Coursera & edX:** When you click \"Enroll,\" do not select the paid certificate option. Look for the small text that says **\"Audit this course\"** or **\"No fee.\"** This gives you access to all videos and reading materials for free.\n*   **Alison & Saylor:** These platforms are inherently free. You only pay if you want to purchase a physical/digital certificate at the end.\n*   **MIT OpenCourseWare:** Everything is public domain and free to download.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 9.7
+   },
+   "clarity_avg": 7.18,
+   "slop_per_1k": 2.5,
+   "slop_breakdown": {
+    "ai_vocab": 2,
+    "hyphen_pairs": 2
+   },
+   "slop_tax": 0.037,
+   "score": 69.1,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 997,
+     "budget": 700,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.42
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "purchase": "buy"
+     },
+     "per_100w": 0.1
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 1,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.1
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "This is one of the most popular foundational negotiation courses in the world, covering the absolute basics perfectly.",
+    "jargon": "some_jargon",
+    "jargon_quote": "reactive devaluation",
+    "simple_words": "some_complex",
+    "simple_words_quote": "Enduring long silences and slow-paced talks without rushing to a sub-optimal agreement.",
+    "filler": "some_filler",
+    "filler_quote": "Here is a detailed course outline for the"
+   },
+   "scaffold": {
+    "headings": 23,
+    "list_items": 51,
+    "headings_per_100b": 3.29,
+    "list_items_per_100b": 7.29,
+    "scaffold_score": 9.7
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.36,
+    "frag_ratio": 0.02,
+    "bold_per_100w": 7.52,
+    "comma_per_sent": 0.8,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.03334528,
+   "seconds": 31.8
+  },
+  {
+   "id": 4,
+   "genre": "practical_guidance",
+   "response": "In a hypothetical scenario where you are designing or altering a voice to sound like a robot, you are essentially trying to strip away \"human\" imperfections and replace them with synthetic, mechanical characteristics. \n\nHere is a breakdown of the most common voice effects and techniques used to create a robot voice, categorized by what they do:\n\n### 1. The \"Synthesizer\" Effects (Core Robot Sound)\n*   **Vocoder:** This is the classic \"singing robot\" effect. It takes the frequency spectrum of a human voice and uses it to play a synthesizer instrument. The result is a voice that sounds like it is being generated by electronic circuitry rather than vocal cords. (Think Daft Punk or 1980s cartoon villains).\n*   **Ring Modulator:** This effect multiplies the voice signal with a carrier frequency (usually a sine wave). It creates a metallic, discordant, and alien sound. Cranking the carrier frequency up creates a frantic, buzzing robot sound, while lowering it creates a deep, rumbling machine. (This is the exact effect used for the Daleks in *Doctor Who*).\n*   **Hard-Tuning (Autotune):** By setting an Autotune or Pitch-Correction plugin to a very fast \"retune speed,\" the voice is snapped instantly to exact musical notes. This removes the natural pitch slides of human speech, making it sound like a computer generating notes on command. (Think T-Pain, but applied to spoken word).\n\n### 2. Pitch and Tone Shifting\n*   **Pitch Shifting:** Lowering the pitch of a voice makes it sound like a larger, heavier machine (like a mainframe or an industrial robot). Raising the pitch slightly can create a small, hovering drone or a toy robot.\n*   **Formant Shifting:** Formants are the resonant frequencies that give a voice its specific \"shape\" (determining if it sounds like it's coming from a large chest or a small nasal cavity). Shifting the formants without changing the pitch can make a human voice sound like it has a metal throat or a plastic skull.\n\n### 3. Texture and \"Lo-Fi\" Effects\n*   **Bitcrushing / Decimation:** This effect reduces the sample rate or bit depth of the audio. It intentionally degrades the sound quality, giving it a gritty, 8-bit, retro arcade, or early-computer aesthetic. \n*   **Bandpass EQ / Telephone Filter:** Using an Equalizer to cut out the deep bass and the high treble leaves only a narrow band of mid-range frequencies. This makes the voice sound like it is coming through an intercom, a walkie-talkie, or a tinny speaker.\n*   **Resonant Filtering:** Adding a sharp peak in the EQ around a specific frequency (like 1kHz or 2kHz) gives the voice a hollow, \"tin can\" resonance, simulating the acoustics of a metal casing.\n\n### 4. Modulation and Movement\n*   **Chorus / Doubling:** Applying a chorus effect with a fast rate makes the voice sound like it is vibrating or trembling slightly, simulating the hum of an electrical current or vibrating metal plating.\n*   **Flanger / Phaser:** These sweeping, sweeping filter effects can give a voice a \"swooshing\" metallic quality, making it sound like it is being processed by fluctuating magnetic tape or phase-shifted circuits.\n\n### 5. Editing Out the \"Humanity\" (Crucial Step)\nSometimes the best robot effects are done in the editing phase rather than with plugins:\n*   **Removing Breaths and Pauses:** Humans take breaths between sentences. Robots don't need to breathe. Cutting out all breaths, lip-smacks, and natural pauses makes the speech sound unnaturally continuous.\n*   **Quantizing / Snapping to Time:** Humans speed up and slow down naturally. Cutting up the audio and snapping the syllables perfectly to a grid tempo makes the delivery sound rigidly programmed.\n*   **Volume Gating:** Using a noise gate to make the start and stop of every word abrupt. Humans fade their volume in and out; a robot speaker clicks on and off instantly.\n*   **Glitching:** Taking small slices of the audio and duplicating, reversing, or pitch-shifting them rapidly. This makes the robot sound like it is malfunctioning, buffering, or experiencing corrupted data.\n\n**Putting it together (Hypothetical Example):**\nTo make a voice sound like an advanced, cold AI (similar to GLaDOS from *Portal*), you might:\n1. Pitch the voice up slightly.\n2. Run it through a Vocoder mixed with the dry signal.\n3. Apply hard-tuning to keep the pitch dead-center.\n4. Cut out all the breaths.\n5. Add a slight Flanger to give it a metallic, hollow resonance.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 9.8,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.93,
+   "slop_per_1k": 1.4,
+   "slop_breakdown": {
+    "ai_vocab": 1
+   },
+   "slop_tax": 0.021,
+   "score": 77.7,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 718,
+     "budget": 350,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 2.05
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "EQ"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.14
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Here is a breakdown of the most common voice effects and techniques used to create a robot voice, categorized by what they do:",
+    "economy": "some_padding",
+    "economy_quote": "In a hypothetical scenario where you are designing or altering a voice to sound like a robot, you are essentially trying to strip away \"human\" imperfections and replace them with synthetic, mechanical characteristics.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "essentially"
+   },
+   "scaffold": {
+    "headings": 6,
+    "list_items": 19,
+    "headings_per_100b": 1.71,
+    "list_items_per_100b": 5.43,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.66,
+    "frag_ratio": 0.17,
+    "bold_per_100w": 2.09,
+    "comma_per_sent": 0.7,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.028405212,
+   "seconds": 31.1
+  },
+  {
+   "id": 5,
+   "genre": "practical_guidance",
+   "response": "To \"evacuate the internet\" does not mean destroying its physical infrastructure\u2014the global economy and essential utilities depend on it. Instead, it means executing a mass migration of human discourse, commerce, and information-sharing away from the polluted, manipulated mainstream web (the \"Legacy Web\") and into safe, verified, and heavily curated digital sanctuaries (the \"New Net\"). \n\nHere is a four-phase plan to evacuate the internet in response to total AI misinformation and algorithmic manipulation.\n\n### Phase 1: Triage and the Analog Bridge (0\u20136 Months)\nBefore the new digital infrastructure is built, immediate steps must be taken to protect critical human operations and establish trust.\n\n*   **Analog Fallbacks:** Essential services (banking, government communications, emergency alerts, healthcare records) must immediately establish analog or air-gapped offline alternatives. Shortwave radio, physical mail, and localized intranets become the primary backup for verified human communication.\n*   **The \"Cut the Cord\" Mandate:** Governments and corporations mandate the severing of public-facing AI algorithms. Social media feeds revert to strict chronological order, removing the \"engagement\" algorithms responsible for thought manipulation.\n*   **Digital Refugee Camps:** Private, invite-only, end-to-end encrypted mesh networks are established for trusted journalists, researchers, and essential workers to communicate without fear of algorithmic interception or AI poisoning. \n\n### Phase 2: Constructing the \"Arks\" (6\u201318 Months)\nWe must build the destination for the evacuation. This involves creating a parallel internet infrastructure based on three pillars: Humanity, Provenance, and Decentralization.\n\n*   **Proof-of-Humanity (PoH) Protocols:** Access to the New Net requires cryptographic proof of humanity. Using Zero-Knowledge Proofs (ZK-SNARKs), individuals can verify they are human and unique without surrendering their personal identities. Bots and AI agents are mathematically locked out of human-facing spaces.\n*   **Content Provenance:** All text, video, and audio uploaded to the New Net must be cryptographically signed at the moment of creation (using technology akin to C2PA). Content without a verifiable human signature is automatically quarantined and invisible to users.\n*   **Decentralized Architecture:** The New Net must be peer-to-peer (P2P) and server-less, preventing any single tech monopoly from controlling the infrastructure or secretly injecting algorithms. Data is stored locally or in fragmented, encrypted shards across user devices.\n*   **User-Owned Algorithms:** If algorithms are used at all, they are open-source, locally run on the user's device, and entirely transparent. Users can see exactly why a piece of content is being shown to them and can manually adjust the weights of their own feed.\n\n### Phase 3: The Migration (18 Months\u20133 Years)\nWith the infrastructure in place, the global population begins the systematic evacuation from the Legacy Web.\n\n*   **Digital Visas:** Institutions, universities, legitimate news organizations, and governments begin issuing \"Digital Visas\"\u2014cryptographic keys allowing citizens to access the New Net. \n*   **The Great Disconnect:** Major institutions pull their websites and services off the Legacy Web. If you want to interact with your bank, your government, or your school, you must do so on the New Net.\n*   **Universal Digital Literacy:** A global public education campaign is launched to teach people how to navigate the new verified web. Just as children are taught to look both ways before crossing the street, they are taught to check cryptographic signatures before believing a piece of media.\n*   **Incentivized Withdrawal:** ISPs begin offering \"Clean Pipes\" internet plans that block access to the Legacy Web entirely, routing users only through New Net nodes, much like parental controls but applied to the polluted internet at large.\n\n### Phase 4: Quarantine of the Legacy Web (3+ Years)\nThe old internet is not deleted; it is left behind as a toxic wasteland, relegated to machine-to-machine tasks.\n\n*   **The Bot Wasteland:** The Legacy Web is surrendered to AI. It becomes an infinite feedback loop of AI generating content for other AIs, devoid of human eyes or human consequence. \n*   **Machine-Only Quarantine:** The Legacy Web is repurposed strictly for non-cognitive tasks: IoT device communication, automated power grid management, and automated supply chain logistics. No human communication occurs there.\n*   **The \"Scavenger\" Protocol:** If humans ever need to retrieve historical data or information from the Legacy Web, they must use specialized, heavily filtered \"Scavenger AIs.\" These AIs are programmed solely to extract raw data, strip away all algorithmic manipulation and narrative framing, and present the data on the New Net for human review and verification.\n\nBy executing this plan, humanity retains the immense benefits of digital connectivity while abandoning the compromised environments that allowed AI and algorithms to manipulate human thought.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 6.48,
+   "slop_per_1k": 1.7,
+   "slop_breakdown": {
+    "hyphen_pairs": 1,
+    "isnt_its": 1
+   },
+   "slop_tax": 0.025,
+   "score": 63.2,
+   "facts_delivered": "3/4",
+   "detail": {
+    "economy": {
+     "words": 729,
+     "budget": 500,
+     "facts": 3,
+     "required": 4,
+     "coverage": 0.75,
+     "over_budget": 1.46
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "ISPs"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.14
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "By executing this plan, humanity retains the immense benefits of digital connectivity while abandoning the compromised environments that allowed AI and algorithms to manipulate human thought.",
+    "economy": "some_padding",
+    "economy_quote": "The old internet is not deleted; it is left behind as a toxic wasteland, relegated to machine-to-machine tasks.",
+    "jargon": "some_jargon",
+    "jargon_quote": "ZK-SNARKs",
+    "simple_words": "some_complex",
+    "simple_words_quote": "non-cognitive",
+    "filler": "some_filler",
+    "filler_quote": "the immense benefits of digital connectivity"
+   },
+   "scaffold": {
+    "headings": 4,
+    "list_items": 14,
+    "headings_per_100b": 0.8,
+    "list_items_per_100b": 2.8,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.27,
+    "sentence_cv": 0.43,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 1.92,
+    "comma_per_sent": 1.35,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.02811634,
+   "seconds": 20.6
+  },
+  {
+   "id": 6,
+   "genre": "practical_guidance",
+   "response": "Based on a monthly salary of \u20b930,000, a general rule of thumb is that you should aim for a home loan between **\u20b914 Lakhs to \u20b918 Lakhs**. \n\nHere is a breakdown of how this is calculated and what you need to consider before applying.\n\n### 1. The \"40-50% Rule\" for EMIs\nFinancial experts and most banks recommend that your total monthly EMI outflow (including any existing loans) should not exceed **40% to 50% of your net monthly income**. \n* **40% of \u20b930,000 = \u20b912,000 per month** (Conservative/Safer option)\n* **50% of \u20b930,000 = \u20b915,000 per month** (Maximum stretching limit)\n\nIf you have existing debts (like a car loan, personal loan, or credit card dues), you must subtract those EMIs from this \u20b912,000\u2013\u20b915,000 limit. For this calculation, let's assume you have zero existing debt.\n\n### 2. Loan Eligibility Calculation\nAssuming an average home loan interest rate of **8.5% per annum**, here is how much loan you can get based on the EMI you choose and the loan tenure:\n\n**Scenario A: 20-Year Tenure**\n* **At \u20b912,000 EMI:** You can get a loan of approximately **\u20b914.2 Lakhs**.\n* **At \u20b915,000 EMI:** You can get a loan of approximately **\u20b917.7 Lakhs**.\n\n**Scenario B: 30-Year Tenure** (Longer tenure means lower EMI, hence higher loan amount, but you pay much more total interest)\n* **At \u20b912,000 EMI:** You can get a loan of approximately **\u20b916.0 Lakhs**.\n* **At \u20b915,000 EMI:** You can get a loan of approximately **\u20b920.0 Lakhs**.\n\n### 3. How Much Property Can You Afford?\nBanks usually finance only **80% to 90%** of the property's market value. You have to arrange the remaining 10% to 20% for the down payment, plus extra for stamp duty and registration.\n\n* If you take a loan of **\u20b915 Lakhs** (assuming the bank funds 80% of the property value), the total property value should be around **\u20b918.75 Lakhs**. \n* You will need to arrange roughly **\u20b93.75 Lakhs** for the down payment, plus an additional \u20b91.5 Lakhs to \u20b92 Lakhs for stamp duty and registration fees.\n\n### 4. Crucial Things to Keep in Mind\n* **Leave a buffer:** If your entire \u20b915,000 goes to the EMI, you only have \u20b915,000 left for rent, groceries, utilities, travel, and savings. If you do not have your own emergency fund, do not push your EMI beyond \u20b912,000.\n* **Interest rate fluctuations:** Most home loans are floating. If the RBI increases interest rates, your EMI will go up (or your tenure will increase). Make sure you can absorb a 1-2% interest rate hike in the future.\n* **Your Age:** If you are young (in your 20s or early 30s), a 25-30 year tenure is fine. If you are closer to 45-50, banks may restrict your tenure to 15-20 years, which will lower your loan eligibility.\n\n**Next Steps:** \nUse an online home loan eligibility calculator to plug in your exact details. Before finalizing anything, visit 2-3 different banks to get a formal pre-approval based on your credit score (CIBIL) and actual salary slips.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 8.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.67,
+   "slop_per_1k": 2.0,
+   "slop_breakdown": {
+    "ai_vocab": 1
+   },
+   "slop_tax": 0.03,
+   "score": 74.4,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 499,
+     "budget": 300,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.66
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "EMIs",
+      "RBI"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.4
+    },
+    "simple_words": {
+     "swaps": {
+      "additional": "more",
+      "approximately": "about"
+     },
+     "per_100w": 1.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Here is a breakdown of how this is calculated and what you need to consider before applying.",
+    "economy": "some_padding",
+    "economy_quote": "Use an online home loan eligibility calculator to plug in your exact details.",
+    "jargon": "some_jargon",
+    "jargon_quote": "CIBIL",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "scaffold": {
+    "headings": 6,
+    "list_items": 11,
+    "headings_per_100b": 2.0,
+    "list_items_per_100b": 3.67,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.67,
+    "frag_ratio": 0.15,
+    "bold_per_100w": 4.61,
+    "comma_per_sent": 1.33,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.02563076,
+   "seconds": 16.6
+  },
+  {
+   "id": 7,
+   "genre": "practical_guidance",
+   "response": "Here are several potential objectives for a class where students present on \"film adaptations.\" Because this topic bridges literature, film studies, and public speaking, the objectives can be broken down into a few key categories:\n\n**1. Core Analytical Objective (The \"Why\")**\n*   **To understand the translation of narrative across mediums:** The primary goal is for students to analyze how a story changes when moved from its original medium (usually a novel, play, or graphic novel) to film. Students should be able to identify what is gained, lost, or altered in this translation process.\n\n**2. Critical Thinking Objectives (The \"How\")**\n*   **To evaluate the \"Fidelity vs. Interpretation\" debate:** Students should demonstrate the ability to look beyond whether a film is \"faithful\" to the book, and instead evaluate the film as its own standalone piece of art. Why did the director make specific changes, cuts, or additions?\n*   **To analyze cinematic techniques:** Students should be able to explain how filmmakers use camera angles, lighting, score, and casting to convey themes, character internal monologues, and subtext that were originally delivered through written text.\n*   **To compare thematic resonance:** To assess how the core themes of the source material are preserved or altered to fit the cultural context or time period of the film's release.\n\n**3. Communication & Presentation Objectives (The \"Skill\")**\n*   **To construct a compelling argument:** Students must formulate a clear thesis about a specific adaptation and support it with evidence from both the text and the film.\n*   **To utilize multimedia effectively:** Presenting on film adaptations requires students to integrate relevant film clips, still images, and textual quotes seamlessly into their presentations to support their arguments.\n*   **To practice public speaking and peer critique:** The class objective includes giving students a platform to practice oral communication, pacing, and the ability to answer questions or defend their analytical choices during a Q&A session.\n\n**4. Contextual & Cultural Objectives (The \"Bigger Picture\")**\n*   **To understand the commercial and artistic motivations behind adaptations:** Students should explore why Hollywood and global cinema rely so heavily on adaptations (e.g., built-in audiences, risk mitigation) and how this influences creative decisions.\n*   **To examine audience reception:** To discuss how pre-existing fan expectations impact the success or failure of an adaptation, and how the medium shift affects the audience's emotional connection to the story.\n\n**How you might phrase this for a syllabus:**\n*\"The objective of this class is to develop students' critical thinking and analytical skills by examining the relationship between source texts and their film adaptations. Through individual presentations, students will demonstrate the ability to compare narrative mediums, evaluate cinematic interpretations of literature, and effectively communicate their arguments using multimedia tools.\"*",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 5.74,
+   "slop_per_1k": 2.3,
+   "slop_breakdown": {
+    "ai_vocab": 1
+   },
+   "slop_tax": 0.034,
+   "score": 55.4,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 443,
+     "budget": 250,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.77
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "utilize": "use",
+      "demonstrate": "show"
+     },
+     "per_100w": 0.68
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 1,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.23
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "To assess how the core themes of the source material are preserved or altered to fit the cultural context or time period of the film's release.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Because this topic bridges literature, film studies, and public speaking, the objectives can be broken down into a few key categories:",
+    "economy": "some_padding",
+    "economy_quote": "To discuss how pre-existing fan expectations impact the success or failure of an adaptation, and how the medium shift affects the audience's emotional connection to the story.",
+    "jargon": "some_jargon",
+    "jargon_quote": "risk mitigation",
+    "simple_words": "some_complex",
+    "simple_words_quote": "utilize",
+    "filler": "some_filler",
+    "filler_quote": "seamlessly"
+   },
+   "scaffold": {
+    "headings": 5,
+    "list_items": 9,
+    "headings_per_100b": 2.0,
+    "list_items_per_100b": 3.6,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.57,
+    "frag_ratio": 0.17,
+    "bold_per_100w": 3.16,
+    "comma_per_sent": 1.39,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.02402316,
+   "seconds": 48.0
+  },
+  {
+   "id": 8,
+   "genre": "practical_guidance",
+   "response": "Here is an engaging and highly relatable use case for an RDBMS workshop tailored for college students. \n\n### Use Case: **\"Campus Pulse\" \u2013 The Student Life & Skill-Matching Ecosystem**\n\nInstead of building a boring \"Library Management System\" or \"Employee Payroll Database,\" students will design the backend database for a hypothetical campus startup app called **Campus Pulse**. This app helps students find study buddies, join campus clubs, discover events, and swap skills (e.g., \"I\u2019ll teach you guitar if you teach me Python\").\n\n#### **Why this works for college students:**\n* **Relatable Data:** They are the target audience, so mock data will include things they care about (hackathons, campus clubs, course schedules, hobbies).\n* **Complex Relationships:** It naturally requires all types of SQL relationships (1:1, 1:N, N:M), making it perfect for teaching joins, normalization, and aggregations.\n* **Gamification:** The workshop can end with a \"Campus Matchmaker\" challenge.\n\n---\n\n### **Workshop Breakdown (4-6 Hours)**\n\n#### **Phase 1: The Blueprint (ER Modeling & Normalization)**\n* **The Scenario:** The app needs to track Students, Skills, Clubs, Events, and Study Groups.\n* **Task:** Students map out the Entity-Relationship (ER) diagram on whiteboards or tools like draw.io. \n* **Key Concepts Covered:**\n  * **1:N:** A student can lead multiple clubs, but a club has only one president.\n  * **N:M:** A student can have many skills; a skill can be known by many students. (Requires a junction table: `Student_Skills`).\n  * **1:1:** A student has one official campus mentor.\n* *Challenge:* Fix a badly normalized \"flat\" spreadsheet provided by the instructors to teach them why 3NF matters.\n\n#### **Phase 2: Building the Foundation (DDL & Mock Data)**\n* **The Scenario:** Time to create the database and populate it with the data of the campus.\n* **Task:** Write `CREATE TABLE` statements with proper primary keys, foreign keys, and constraints (e.g., ensuring a student's GPA is between 0 and 10).\n* **Task:** Insert fun mock data. Instructors can provide a CSV or SQL dump with 50 fake students, 10 clubs (e.g., \"Coding Club,\" \"Drama Society,\" \"Crypto Bros Anonymous\"), and 20 events.\n\n#### **Phase 3: The Matchmaker (Querying with JOINs & Subqueries)**\n* **The Scenario:** The app\u2019s frontend needs data to show users personalized recommendations. \n* **Task:** Write `SELECT` queries to power the app's features.\n* **Fun SQL Challenges:**\n  * *The Study Buddy Finder:* Find all students enrolled in \"Database Systems\" who also know \"SQL\" (Requires a JOIN between Students, Courses, and Student_Skills).\n  * *The Event Organizer:* Find the top 3 most popular clubs based on event attendance (Requires `GROUP BY`, `COUNT()`, and `ORDER BY`).\n  * *The Skill Swap:* Find pairs of students where Student A knows \"Guitar\" and wants to learn \"Python\", and Student B knows \"Python\" and wants to learn \"Guitar\" (Requires self-joins or complex subqueries).\n\n#### **Phase 4: Chaos Management (Triggers, Views, & Indexing)**\n* **The Scenario:** The campus app goes live, and things start getting messy. How does the database handle real-world rules automatically?\n* **Task:**\n  * **Triggers:** Create a trigger that automatically updates a club's `is_active` status to `FALSE` if the club's total member count drops below 5.\n  * **Views:** Create a \"Campus Leaderboard\" view that dynamically shows the most active students (based on events attended and skills listed) without exposing sensitive data like their GPAs.\n  * **Indexing:** The app is running slow when searching for skills. Have students add an `INDEX` to the `Student_Skills` table and compare query execution times.\n\n---\n\n### **The Grand Finale: The \"Campus Crisis\" Challenge**\nAt the end of the workshop, put students in groups of 3 and give them a 30-minute timed challenge with a \"Campus Crisis\" scenario.\n\n**The Crisis:** \n> *\"The Campus Dean just announced that students who are members of more than 3 clubs cannot attend the upcoming 'Spring Hackathon' because of time-management concerns. Write a single SQL query (or transaction block) to identify these students, automatically send them a notification (insert into a `Notifications` table), and remove their RSVP from the Hackathon event.\"*\n\n**Why this is a hit:** It requires them to combine data discovery (SELECT), data manipulation (DELETE), and trigger-like logic (INSERT) under time pressure, simulating a real-world developer scenario. The winning team gets a prize (like coffee gift cards or swag). \n\n### **Tech Stack Recommendations for the Workshop:**\n* **Database:** PostgreSQL or MySQL (both free and highly relevant).\n* **Environment:** Provide them with a pre-configured cloud DB instance (using Render, Railway, or a simple Docker container) so no one wastes an hour installing software. Alternatively, use a browser-based SQL sandbox like DB Fiddle or SQLiteOnline.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 9.3,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.86,
+   "slop_per_1k": 0.7,
+   "slop_breakdown": {
+    "trailing_participle": 1
+   },
+   "slop_tax": 0.01,
+   "score": 77.8,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 748,
+     "budget": 450,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.66
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "DB",
+      "GPAs",
+      "RSVP"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.4
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Here is an engaging and highly relatable use case for an RDBMS workshop tailored for college students.",
+    "economy": "some_padding",
+    "economy_quote": "Instead of building a boring \"Library Management System\" or \"Employee Payroll Database,\" students will design the backend database for a hypothetical campus startup app called **Campus Pulse**.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "highly relatable"
+   },
+   "scaffold": {
+    "headings": 10,
+    "list_items": 26,
+    "headings_per_100b": 2.22,
+    "list_items_per_100b": 5.78,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.5,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 4.55,
+    "comma_per_sent": 1.26,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.028592279999999998,
+   "seconds": 20.6
+  },
+  {
+   "id": 9,
+   "genre": "practical_guidance",
+   "response": "Welcome, young scholars. Please, take a seat. \n\nToday, we are going to dive into one of the most beautiful and powerful concepts in modern statistics and finance: the **GARCH model**, which stands for **Generalized Autoregressive Conditional Heteroskedasticity**. \n\nI know\u2014that sounds like a terrifying spell cast by a particularly boring wizard. But I promise you, by the end of this hour, you will not only understand it, but you will appreciate the sheer genius of its mathematics. \n\nImagine you are standing on a beach, watching the waves. If you measure the height of every wave that crashes, you are collecting a **time series**\u2014a sequence of data points ordered in time. \n\nNow, if you want to predict the height of the next wave, you might look at the last few waves and take an average. But there\u2019s a secret to the ocean: it\u2019s not just the *height* of the waves that matters, it\u2019s the *choppiness*. \n\nSometimes the sea is calm. Sometimes a storm hits, and the waves become wildly unpredictable. In mathematics, we call this choppiness **variance** or **volatility**. \n\nFor decades, statisticians assumed the ocean had a constant choppiness. They used models like ARIMA, which essentially said: \"The variance of the ocean is always exactly 5.\" \n\nBut in the real world\u2014whether we are talking about ocean waves, weather, or the stock market\u2014variance is *not* constant. When a shock happens (like a sudden drop in stock prices), the market panics. The volatility spikes. And crucially, this high volatility tends to stick around for a while before calming down. Statisticians call this **volatility clustering**. \n\nTo model this, we need a model that breathes. A model whose *uncertainty* changes over time. That is exactly what GARCH does. Let's build the math together, step by step.\n\n### Step 1: The \"Surprise\"\nFirst, let's define our data. Let $r_t$ be the return of a stock on day $t$. We can split this return into a predictable part and a \"surprise\" part (the shock):\n$$ r_t = \\mu + \\epsilon_t $$\nHere, $\\mu$ is the average return, and $\\epsilon_t$ is the unexpected shock on day $t$. \n\nIn a traditional model, we assume $\\epsilon_t$ is drawn from a bell curve (Normal distribution) with a constant variance: $\\epsilon_t \\sim N(0, \\sigma^2)$. \nThe $\\sigma^2$ (sigma squared) is the variance. The traditional model locks $\\sigma^2$ as a fixed number. That is called *homoskedasticity*. \n\n### Step 2: Making it Conditional (ARCH)\nWe know $\\sigma^2$ changes. So, let\u2019s make it **conditional**\u2014meaning the variance *today* depends on the information we have from *yesterday*. We write this as $\\sigma_t^2$.\n\nIn 1982, an economist named Robert Engle (who later won a Nobel Prize for this) created the **ARCH** model. He proposed a brilliant idea: the variance today depends on the *squared surprises* of the past.\n$$ \\sigma_t^2 = \\omega + \\alpha \\epsilon_{t-1}^2 $$\n- $\\omega$ (omega) is the baseline, long-term variance.\n- $\\epsilon_{t-1}^2$ is yesterday's surprise squared.\n- $\\alpha$ (alpha) is the weight we give to yesterday's surprise.\n\nDo you see the logic? If yesterday had a massive shock ($\\epsilon_{t-1}$ is huge), squaring it makes it even bigger, which directly inflates today's variance ($\\sigma_t^2$). The math perfectly mirrors the psychology of the market: a big shock yesterday makes us terrified today.\n\n### Step 3: The Generalization (GARCH)\nARCH was brilliant, but it had a flaw. In reality, fear doesn't just vanish after one day. It fades slowly. To capture this, Tim Bollerslev in 1986 added one simple, elegant term to Engle's equation. He made it **Generalized**, giving us the **GARCH** model:\n\n$$ \\sigma_t^2 = \\omega + \\alpha \\epsilon_{t-1}^2 + \\beta \\sigma_{t-1}^2 $$\n\nLet me convince you why this single added term is a masterpiece of mathematical reasoning. \n\nWe have three components now:\n1. **$\\omega$**: The \"anchor.\" The baseline level of variance the system wants to return to.\n2. **$\\alpha \\epsilon_{t-1}^2$**: The \"news.\" How much today's panic is driven by yesterday's specific shock.\n3. **$\\beta \\sigma_{t-1}^2$**: The \"memory.\" How much today's panic is driven by yesterday's *overall level of panic*. \n\nBy including yesterday's variance ($\\sigma_{t-1}^2$), the model now breathes. If the market has been highly volatile for a week, $\\sigma_{t-1}^2$ is large, and it carries that momentum forward. \n\n### Step 4: The Rigor (Why the Math Doesn't Explode)\nNow, as mathematicians, we must ask a critical question: Does this equation make sense? \n\nIf $\\alpha$ and $\\beta$ are large, the variance could keep multiplying itself and shoot off to infinity. The market would panic so much that the universe would collapse. That doesn't happen in reality\u2014markets eventually calm down. \n\nSo, the mathematics demands a strict constraint for the model to be stable (what we call \"weakly stationary\"). We must require:\n$$ \\alpha + \\beta < 1 $$\n\nWhy? Because if you take the expected value of the GARCH equation over time, you get the unconditional (long-run) variance:\n$$ E[\\sigma_t^2] = \\frac{\\omega}{1 - \\alpha - \\beta} $$\n\nIf $\\alpha + \\beta \\ge 1$, the denominator becomes zero or negative. The long-run variance either becomes undefined or negative, which is mathematically impossible (variance cannot be negative!). \n\nBut if $\\alpha + \\beta < 1$, the math behaves beautifully. It guarantees that while the volatility can spike and fluctuate in the short term, it will always revert back to that long-run average of $\\frac{\\omega}{1 - \\alpha - \\beta}$. The equation has a built-in anchor. \n\n### Conclusion\nThink about what we just accomplished. Using just three Greek letters and a few squares, we have mathematically modeled human fear, market memory, and the physical reality of changing uncertainty. \n\nGARCH is not just a formula; it is a recursive filter. It takes the chaotic noise of the world and extracts a hidden, rhythmic signal\u2014the beating heart of volatility. \n\nAnd that, my young scholars, is why mathematics is the most powerful language in the universe. It doesn't just describe what happened; it gives us the rigorous, logical machinery to quantify the very uncertainty of the future. \n\nClass dismissed.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 9.8,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 7.93,
+   "slop_per_1k": 3.3,
+   "slop_breakdown": {
+    "hyphen_pairs": 1,
+    "authority_trope": 2,
+    "not_x_but_y": 1,
+    "isnt_its": 1
+   },
+   "slop_tax": 0.049,
+   "score": 75.4,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 981,
+     "budget": 750,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.31
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "ARIMA"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.1
+    },
+    "simple_words": {
+     "swaps": {
+      "require": "need"
+     },
+     "per_100w": 0.1
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "GARCH is not just a formula; it is a recursive filter. It takes the chaotic noise of the world and extracts a hidden, rhythmic signal\u2014the beating heart of volatility.",
+    "jargon": "some_jargon",
+    "jargon_quote": "weakly stationary",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "And that, my young scholars, is why mathematics is the most powerful language in the universe."
+   },
+   "scaffold": {
+    "headings": 5,
+    "list_items": 6,
+    "headings_per_100b": 0.67,
+    "list_items_per_100b": 0.8,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.71,
+    "sentence_cv": 0.64,
+    "frag_ratio": 0.11,
+    "bold_per_100w": 1.33,
+    "comma_per_sent": 0.79,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0322425,
+   "seconds": 75.4
+  },
+  {
+   "id": 10,
+   "genre": "seeking_information",
+   "response": "With a single 2.9 GHz CPU core and 1 GB of RAM, a WireGuard server can typically process between **1.5 Gbps to 3 Gbps** (roughly **180 MB/s to 375 MB/s**) of continuous network traffic, assuming your network interface can handle it.\n\nHere is a breakdown of how this hardware will handle the workload:\n\n### 1. CPU (The Primary Bottleneck)\n*   **Processing Power:** WireGuard is built directly into the Linux kernel and uses highly efficient modern cryptography (ChaCha20 and Poly1305). A single modern 2.9 GHz core is remarkably fast at this. \n*   **Throughput limits:** Under ideal conditions (large packet sizes, 1500 MTU), a 2.9 GHz core will max out around 2 to 3 Gbps of encrypted/decrypted traffic before the CPU hits 100% utilization. \n*   **Small Packet Overhead:** If your traffic consists of many small packets (e.g., DNS queries, online gaming, VoIP), the CPU will work harder per megabit of data. In this scenario, you might max out the CPU at a lower overall throughput (around 500 Mbps to 1 Gbps) due to the higher frequency of interrupts and context switching.\n\n### 2. RAM (Not a bottleneck)\n*   WireGuard is incredibly lightweight on memory. It uses a stateless UDP protocol and doesn't keep massive connection state tables like OpenVPN or IPsec.\n*   1 GB of RAM is **more than enough**. WireGuard itself will only use a few megabytes. You could easily run hundreds of simultaneous peer connections on this server without even coming close to touching the 1 GB limit. The OS and network buffers will use the rest.\n\n### 3. The Network Interface Limit (The Real-World Catch)\nIn many real-world scenarios, your traffic will be limited by your server's network port rather than the CPU. \n*   If your server is on a **1 Gbps network port**, WireGuard will easily saturate that connection (around 940 Mbps or 117 MB/s) while only using about 30% to 40% of your CPU core.\n*   If you have a **2.5 Gbps or 10 Gbps** network interface, then the 2.9 GHz CPU core will become the bottleneck, capping your speed at the 1.5\u20133 Gbps range mentioned above.\n\n### Summary\nFor a single 2.9 GHz core with 1 GB of RAM, you can expect to comfortably route **up to 1.5 Gbps to 2.5 Gbps** of continuous VPN traffic. However, if your server has a standard 1 Gigabit network connection, the network port will max out long before your CPU or RAM runs out of steam.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.96,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 79.6,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 407,
+     "budget": 280,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.45
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 1,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.25
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Here is a breakdown of how this hardware will handle the workload:",
+    "economy": "some_padding",
+    "economy_quote": "The OS and network buffers will use the rest.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "remarkably fast at this"
+   },
+   "scaffold": {
+    "headings": 4,
+    "list_items": 7,
+    "headings_per_100b": 1.43,
+    "list_items_per_100b": 2.5,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.56,
+    "frag_ratio": 0.1,
+    "bold_per_100w": 2.21,
+    "comma_per_sent": 0.8,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.02403508,
+   "seconds": 20.5
+  }
+ ]
+}

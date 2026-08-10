@@ -3,358 +3,335 @@
   "model": "x-ai/grok-4.5",
   "backend": "openrouter",
   "condition": "default",
-  "n": 5,
+  "n": 10,
   "errors": 0,
-  "score": 93.4,
-  "clarity_avg": 9.59,
-  "slop_per_1k": 1.8,
-  "avg_words": 804,
+  "score": 72.1,
+  "clarity_avg": 7.36,
+  "slop_per_1k": 1.4,
+  "avg_words": 678,
   "per_rule": {
-   "rule2_economy": 8.0,
-   "rule3_jargon": 9.8,
-   "rule5_simple_words": 9.98,
-   "rule6_filler": 9.98,
-   "rule1_understandable": 10.0,
-   "rule4_imagery": 10.0,
-   "rule7_form": 9.0
+   "rule2_economy": 5.0,
+   "rule3_jargon": 5.5,
+   "rule5_simple_words": 8.41,
+   "rule6_filler": 6.0,
+   "rule1_understandable": 9.0,
+   "rule4_imagery": 9.7,
+   "rule7_form": 7.35
   },
-  "cost_usd": 0.0
+  "cost_usd": 0.2415
  },
  "runs": [
   {
    "id": 1,
    "genre": "practical_guidance",
-   "response": "**Fun Video Lesson Script: \"Shape Superheroes!\"**  \n**Topic: Identification and Properties of 2D Shapes**  \n**For Grade 2 Learners**  \n**Video Length Aim: 8\u201312 minutes**  \n**Style: Energetic teacher on camera + simple animations, colorful graphics, upbeat background music, and sound effects. Speak clearly, smile a lot, use big gestures, and pause for \u201cthink time.\u201d**\n\n---\n\n### 1. Fun Introduction (0:00\u20131:30)\n**[Upbeat music starts. Screen shows bouncing colorful shapes: circle, square, triangle, rectangle. Teacher appears in a superhero cape made of paper shapes.]**\n\nTeacher (excited, waving):  \n\u201cHello, Shape Superheroes!!! Welcome to Shape Power Academy!  \nI\u2019m Teacher [Your Name], and today\u2026 WE become shape detectives!  \n\nCan you say it with me?  \n**2D shapes are flat!**  \nThey have length and width\u2026 but NO thickness. You can draw them on paper!  \n\nAre you ready to spot them, count their sides, and find their secret powers?  \nRaise your superhero hands and shout: \u2018SHAPE POWER\u2026 ACTIVATE!\u2019  \n\n[Sound effect: whoosh + sparkles. Kids on screen or encourage real viewers to shout.]  \n\nLet\u2019s goooo!\u201d\n\n---\n\n### 2. How to Identify 2D Shapes + Their Properties (1:30\u20136:30)\n**[Screen shows one shape at a time, big and colorful. Animate sides lighting up one by one, corners popping with stars.]**\n\nTeacher:  \n\u201cEvery 2D shape has special clues. We look at:  \n- How many **sides** (straight lines)  \n- How many **corners** (also called vertices)  \n- If the sides are the same length or different  \n\nLet\u2019s meet our Shape Superheroes!\u201d\n\n**Circle**  \n[Big round circle rolls in.]  \n\u201cThis is Circle!  \n- 0 sides  \n- 0 corners  \n- It\u2019s perfectly round \u2013 like a never-ending curve!  \nProperty power: It can roll forever!\u201d\n\n**Triangle**  \n[Triangle bounces in.]  \n\u201cTriangle the Tough!  \n- 3 sides  \n- 3 corners  \nProperty power: The strongest shape for building \u2013 roofs love triangles!\u201d\n\n**Square**  \n[Square marches in like a soldier.]  \n\u201cSuper Square!  \n- 4 sides \u2013 ALL the same length  \n- 4 corners \u2013 all square corners (right angles)  \nProperty power: Perfectly even and fair!\u201d\n\n**Rectangle**  \n[Rectangle stretches in.]  \n\u201cRectangle the Long!  \n- 4 sides \u2013 2 long and 2 short (opposite sides equal)  \n- 4 square corners  \nProperty power: Great for doors, books, and phones!\u201d\n\n**Quick Comparison Song** (sing to a simple tune like \u201cTwinkle Twinkle\u201d or just chant rhythmically):  \n\u201cCircle round with zero sides,  \nTriangle has three that slide,  \nSquare has four that match just right,  \nRectangle\u2019s four \u2013 two long, two slight!  \n2D shapes are flat and fun,  \nCount the sides \u2013 and now you\u2019re done!\u201d\n\n[Encourage kids to sing along and hold up fingers for the numbers.]\n\nTeacher:  \n\u201cRemember the detective steps:  \n1. Is it flat?  \n2. Count the sides.  \n3. Count the corners.  \n4. Are the sides equal?  \n\nThat\u2019s how we identify any 2D shape!\u201d\n\n---\n\n### 3. Life Application \u2013 Shapes Are Everywhere! (6:30\u20138:00)\n**[Quick real-life photo or simple animation montage with cheerful music.]**\n\nTeacher:  \n\u201cShapes are not just in books \u2013 they hide in our world!  \n\n- Circle: clock, wheel, pizza, coin, full moon  \n- Triangle: slice of pizza, roof of a house, a yield sign, a nacho chip  \n- Square: window, cheese slice, sandwich, board game  \n- Rectangle: door, book, TV screen, chocolate bar, your tablet  \n\nNext time you eat a sandwich or look at a door, shout the shape name!  \nYou\u2019re using math in real life \u2013 that\u2019s superhero level!\u201d\n\n---\n\n### 4. Exercises for Learners (8:00\u201311:00)\n**[On-screen: big clear questions. Pause after each so kids can answer out loud or point. Teacher gives answers after 5\u20138 seconds.]**\n\nTeacher:  \n\u201cTime for Shape Superhero Training! Get your fingers ready!\u201d\n\n**Exercise 1 \u2013 Identify**  \n\u201cLook at this shape! [show triangle] How many sides? How many corners? What is its name?\u201d  \n(Answer: 3 sides, 3 corners \u2192 Triangle)\n\n**Exercise 2 \u2013 Properties**  \n\u201cI have 4 equal sides and 4 square corners. Who am I?\u201d  \n(Answer: Square)\n\n**Exercise 3 \u2013 Spot the Difference**  \n\u201cWhich one can roll easily \u2013 a square or a circle? Why?\u201d  \n(Answer: Circle \u2013 no corners/sides to stop it)\n\n**Exercise 4 \u2013 Real-Life Hunt**  \n\u201cFind something in your room that is a rectangle. Hold it up or point to it!  \nNow find a circle!\u201d  \n(Give 10 seconds, then celebrate whatever they find)\n\n**Exercise 5 \u2013 Quick Draw Challenge**  \n\u201cIn the air with your finger\u2026 draw a square!  \nNow a triangle!  \nGreat job!\u201d\n\n**Bonus Fun Move**  \n\u201cWhenever you see a shape this week, strike a pose and say its name + how many sides!\u201d\n\n---\n\n### Closing (11:00\u201312:00)\nTeacher (big smile, cape flourish):  \n\u201cYou did AMAZING, Shape Superheroes!  \nToday you learned:  \n- 2D shapes are flat  \n- How to count sides and corners  \n- The special powers of circle, triangle, square, and rectangle  \n- And that shapes are all around us!  \n\nGive yourself a big shape high-five!  \nKeep spotting shapes everywhere you go.  \n\nSee you next time at Shape Power Academy!  \nBye-bye, Superheroes!\u201d  \n\n[Music swells, shapes dance off screen, end card: \u201cPractice counting sides every day!\u201d]\n\n---\n\n**Teacher Tips for Recording:**  \n- Use bright colors and big simple animations.  \n- Speak slowly and repeat key words (sides, corners, flat).  \n- Keep energy high but calm enough for young learners.  \n- All facts above are standard, accurate Grade 2 geometry.  \n\nThis script is ready to film or adapt. Have fun teaching \u2013 your learners will love becoming Shape Superheroes!",
+   "response": "**Fun Video Lesson Script: \u201cShape Superheroes!\u201d**  \n*(For Grade 2 learners \u2013 Identification & Properties of 2D Shapes)*  \n*Designed to be lively, short segments you can film or animate. Keep total video ~6\u20138 minutes. Use bright colors, simple animations, clapping/songs, and real objects.*\n\n### 1. Fun Introduction (\u224845\u201360 seconds)\n*(Teacher on screen with big smile, holding colorful paper shapes or wearing a cape made of shape cut-outs)*\n\n\u201cHi Shape Superheroes! \ud83d\udc4b I\u2019m Teacher [Your Name], and today we\u2019re going on a super-fun shape adventure!  \nLook around you\u2026 shapes are EVERYWHERE! Your book is a rectangle, the clock might be a circle, and that pizza slice? A triangle!  \n\nWe\u2019re going to become Shape Detectives. We\u2019ll learn how to spot 2D shapes and discover their special superpowers (we call them properties). Ready? Give me a big shape clap!  \nClap-clap\u2026 circle! Clap-clap\u2026 square! Awesome! Let\u2019s go!\u201d\n\n*(Quick upbeat jingle or \u201cShape Song\u201d snippet: \u201cCircle, square, triangle too\u2026 shapes are fun for me and you!\u201d)*\n\n### 2. Content: How to Identify 2D Shapes & Their Properties (\u22483\u20134 minutes)\n*(Show one shape at a time with clear visuals, real objects, and simple animations. Speak slowly and clearly. Repeat key words.)*\n\n**What are 2D shapes?**  \n2D shapes are flat. They have length and width but no thickness \u2014 like a drawing on paper. You can trace them!\n\n**Let\u2019s meet our Shape Superheroes:**\n\n1. **Circle** \u2b55  \n   - How to identify: Perfectly round, no corners, no straight sides.  \n   - Properties:  \n     \u2022 0 sides  \n     \u2022 0 vertices (corners)  \n     \u2022 Every point on the edge is the same distance from the center.  \n   - Fun check: Can you roll it? Yes!\n\n2. **Square** \u2b1c  \n   - How to identify: Looks like a perfect box.  \n   - Properties:  \n     \u2022 4 straight sides  \n     \u2022 All 4 sides equal length  \n     \u2022 4 vertices  \n     \u2022 4 right angles (square corners)  \n   - Fun check: All sides match when you measure with your finger!\n\n3. **Rectangle** \u25ad  \n   - How to identify: Like a stretched square or a door.  \n   - Properties:  \n     \u2022 4 straight sides  \n     \u2022 Opposite sides equal and parallel  \n     \u2022 4 vertices  \n     \u2022 4 right angles  \n   - Fun check: Longer than it is tall (or wider than it is high).\n\n4. **Triangle** \ud83d\udd3a  \n   - How to identify: Three sides only.  \n   - Properties:  \n     \u2022 3 straight sides  \n     \u2022 3 vertices  \n     \u2022 Can look different (tall, wide, or equal sides) but always 3.  \n   - Fun check: Count the pointy corners \u2014 one, two, three!\n\n5. **Quick bonus friends** (keep light):  \n   - **Oval / Ellipse**: Like a squashed circle \u2014 curved, no corners.  \n   - **Pentagon**: 5 sides, 5 vertices (like a house).  \n   - **Hexagon**: 6 sides, 6 vertices (like a honeycomb).\n\n**Identification Super Tip for kids:**  \n\u201cCount the sides and corners!  \n- 0 sides + round = circle  \n- 3 sides = triangle  \n- 4 equal sides + square corners = square  \n- 4 sides with opposite sides equal = rectangle\u201d\n\n*(Show side-by-side comparison animation or hold up paper cut-outs. Pause and ask viewers: \u201cHow many sides do you see? Count with me!\u201d)*\n\n### 3. Life Application (\u22481 minute)\n*(Show real photos or quick classroom/home clips)*\n\n\u201cShapes are useful every day!  \n- Circles: wheels on your bike, clocks, coins, plates \u2014 they roll smoothly.  \n- Squares & rectangles: books, windows, phones, doors, chocolate bars \u2014 easy to stack and fit together.  \n- Triangles: roof of a house, a slice of pizza or sandwich, warning signs \u2014 strong and stable.  \n- Hexagons: honeycombs made by bees \u2014 nature\u2019s perfect packing shape!\n\nNext time you eat a sandwich, look at traffic signs, or play with blocks, be a Shape Detective and shout out the name and how many sides it has!\u201d\n\n### 4. Exercises for Learners (\u22481.5\u20132 minutes)\n*(Interactive \u2014 pause the video so kids can answer out loud or on paper. Encourage adult/parent help if needed.)*\n\n**Exercise 1 \u2013 Quick Identify (call-out)**  \nLook at these (show pictures one by one):  \n1. A round ball drawing \u2192 What shape? (Circle) How many corners? (0)  \n2. A book \u2192 What shape? (Rectangle)  \n3. A yield/traffic sign or pizza slice \u2192 What shape? (Triangle)  \n4. A window or napkin \u2192 Square or rectangle? Why?\n\n**Exercise 2 \u2013 Properties Match**  \nSay \u201cYes!\u201d or \u201cNo!\u201d  \n- A square has 4 equal sides? (Yes!)  \n- A circle has 3 corners? (No!)  \n- A triangle has 3 sides? (Yes!)  \n- A rectangle has all sides equal? (No! Only opposite sides.)\n\n**Exercise 3 \u2013 Real-Life Hunt (pause & do)**  \n\u201cPause the video! Find 3 things in your room:  \n- One circle  \n- One rectangle or square  \n- One triangle (or make one with your fingers!)  \nCome back and tell me what you found!\u201d\n\n**Exercise 4 \u2013 Draw & Count**  \nOn paper: Draw a square, a triangle, and a circle.  \nColor them. Write next to each: number of sides and number of corners.\n\n**Closing cheer**  \n\u201cYou did AMAZING, Shape Superheroes! You can now identify 2D shapes and tell their properties. Keep spotting shapes every day. High-five the screen! \u270b  \nSee you next time for more math fun! Bye!\u201d\n\n### Teaching Notes (for you as the creator)\n- Use bright, high-contrast visuals and large clear shapes.  \n- Repeat key vocabulary: sides, vertices/corners, equal, round, straight.  \n- Keep energy high with gestures, sound effects (pop for corners, whoosh for circle), and positive praise.  \n- All facts above are standard, age-appropriate, and accurate for Grade 2 (flat shapes, basic side/vertex counts, common examples).  \n- No advanced concepts (no area formulas, no 3D, no irregular polygons beyond simple mention).\n\nYou now have a complete, ready-to-film fun video lesson! Just add your personality, music, and simple animations. Your Grade 2 learners will love becoming Shape Superheroes! \ud83c\udf89",
    "rules": {
-    "rule2_economy": 7.6,
-    "rule3_jargon": 10.0,
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 7.96,
+   "slop_per_1k": 0.3,
+   "slop_breakdown": {
+    "inline_header_list": 3
+   },
+   "slop_tax": 0.004,
+   "score": 79.3,
+   "facts_delivered": "5/5",
+   "detail": {
+    "economy": {
+     "words": 940,
+     "budget": 550,
+     "facts": 5,
+     "required": 5,
+     "coverage": 1.0,
+     "over_budget": 1.71
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "You now have a complete, ready-to-film fun video lesson! Just add your personality, music, and simple animations. Your Grade 2 learners will love becoming Shape Superheroes! \ud83c\udf89",
+    "jargon": "some_jargon",
+    "jargon_quote": "vertices",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Designed to be lively, short segments you can film or animate."
+   },
+   "scaffold": {
+    "headings": 14,
+    "list_items": 44,
+    "headings_per_100b": 2.55,
+    "list_items_per_100b": 8.0,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.85,
+    "sentence_cv": 0.83,
+    "frag_ratio": 0.25,
+    "bold_per_100w": 1.81,
+    "comma_per_sent": 0.63,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.025935,
+   "seconds": 38.8
+  },
+  {
+   "id": 2,
+   "genre": "practical_guidance",
+   "response": "**Lesson Plan: Butterfly Lifecycle Dance**  \n**Grade Levels:** Kindergarten\u20132nd Grade  \n**Duration:** 45\u201360 minutes  \n**Subject Areas:** Science (life cycles), Physical Education/Dance, Arts  \n\n### Learning Objectives\nBy the end of the lesson, students will be able to:  \n- Identify and sequence the four main stages of the butterfly life cycle (egg, larva/caterpillar, pupa/chrysalis, adult butterfly).  \n- Create and perform simple movements or a short group dance that represents each stage.  \n- Work cooperatively, follow directions, and express ideas through movement.  \n\n### Materials\n- Pictures or simple diagrams of the butterfly life cycle (egg \u2192 caterpillar \u2192 chrysalis \u2192 butterfly).  \n- Optional: Soft music (gentle instrumental or nature sounds), scarves or ribbon wands for \u201cwings,\u201d open space for movement.  \n- Chart paper or whiteboard for sequencing.  \n- Optional extension: Simple egg/caterpillar/chrysalis/butterfly coloring sheets or sequencing cards.  \n\n### Vocabulary\nEgg, caterpillar (larva), chrysalis (pupa), butterfly, life cycle, transform/change, hatch, emerge.  \n\n### Lesson Sequence\n\n**1. Introduction / Engage (5\u201310 minutes)**  \n- Gather students in a circle. Show clear pictures of a butterfly and ask: \u201cWhat do you know about butterflies? How do they grow?\u201d  \n- Briefly introduce the life cycle using visuals:  \n  1. Egg (tiny, usually on a leaf)  \n  2. Caterpillar (hatches and eats a lot, grows)  \n  3. Chrysalis (rests and changes inside)  \n  4. Adult butterfly (comes out, flies, lays eggs)  \n- Quick call-and-response or freeze-dance style review: Teacher calls a stage, students freeze in a simple pose (e.g., curl small for egg, wiggle on tummy for caterpillar, still/wrapped for chrysalis, arms out for butterfly).  \n\n**2. Explore the Stages Through Movement (10\u201315 minutes)**  \nModel and practice one simple movement per stage. Keep movements safe, large-motor, and easy to remember:  \n- **Egg:** Curl into a tiny ball on the floor, stay very still.  \n- **Caterpillar:** Lie on belly or crawl on hands and knees; wiggle, inch forward, pretend to munch leaves (exaggerated chewing motions).  \n- **Chrysalis:** Stand or kneel and wrap arms around body (or use a scarf); freeze and \u201csleep/transform\u201d (maybe gentle swaying).  \n- **Butterfly:** Spread arms like wings; gently flap, twirl, float, and \u201cfly\u201d around the space (remind students of personal space).  \n\nPractice transitioning in order several times as a whole group. Add simple cues or counts (e.g., \u201cEgg \u2013 1-2-3-4\u2026 Caterpillar wiggle\u2026 Chrysalis freeze\u2026 Butterfly fly!\u201d).  \n\n**3. Create the Dance (15\u201320 minutes)**  \n- Explain: \u201cNow you will become butterfly life-cycle dancers! We will put the movements in order to tell the whole story.\u201d  \n- Whole-group choreography first (teacher-led): Perform the four stages in sequence to music or a steady beat/clap. Repeat 2\u20133 times so everyone knows the order.  \n- Small-group or partner creation (optional differentiation): In pairs or groups of 3\u20134, students practice the sequence and may add one personal flair (e.g., how their caterpillar wiggles, how their butterfly flies). Emphasize staying in the correct order.  \n- Encourage use of levels (low for egg/caterpillar, medium for chrysalis, high for flying), speed (slow for chrysalis, faster happy flying), and expression.  \n- Safety reminders: Move carefully, watch personal space, freeze when music/stops or teacher signals.  \n\n**4. Perform and Share (5\u201310 minutes)**  \n- Groups or the whole class perform the lifecycle dance.  \n- Audience gives positive feedback (\u201cI liked how you wiggled like a hungry caterpillar!\u201d).  \n- Optional: Perform once more all together as a culminating \u201cButterfly Lifecycle Dance.\u201d  \n\n**5. Cool-Down & Review (5 minutes)**  \n- Slow breathing while pretending to be a resting butterfly.  \n- Quick oral review: \u201cWhat happens first? Next? Then? Last?\u201d Students can show with a movement or point to pictures.  \n- Connect to science: \u201cReal butterflies go through these changes. That\u2019s called metamorphosis / a life cycle.\u201d  \n\n### Assessment\n- Observational: Can students show the stages in correct order through movement?  \n- Participation and cooperation during creation and performance.  \n- Exit ticket (oral or drawing): \u201cDraw or tell me one stage and show me its dance move.\u201d  \n\n### Differentiations & Adaptations\n- **Support:** Provide visual sequence cards on the floor; partner a student with a peer buddy; allow seated or smaller movements.  \n- **Extension:** Add music with clear sections, create a longer dance with repeated cycles, or have students narrate the stages while others dance.  \n- **ELL:** Heavy use of pictures, gestures, and repeated simplified phrases.  \n- **Space/materials limited:** Do the lesson in place (standing spots) with arm and upper-body movements.  \n\n### Extensions / Cross-Curricular Connections\n- Read a picture book about butterfly life cycles (e.g., *The Very Hungry Caterpillar* as a springboard, then clarify real stages).  \n- Science center: Sequencing cards or observe real caterpillars if available.  \n- Art: Make simple butterfly wings or life-cycle collages.  \n- Writing/drawing (1st\u20132nd): \u201cMy Butterfly Dance\u201d \u2013 label the stages they performed.  \n\n### Standards Alignment (examples)\n- Science: Life cycles / organisms have stages of growth.  \n- PE/Dance: Locomotor and non-locomotor movements, sequencing, spatial awareness, creative expression.  \n- Social: Cooperation, following multi-step directions.  \n\nThis lesson is active, memorable, and developmentally appropriate\u2014young learners embody the science content through creative movement. Have fun watching your class transform from tiny eggs into fluttering butterflies!",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 9.9
+   },
+   "clarity_avg": 7.21,
+   "slop_per_1k": 1.2,
+   "slop_breakdown": {
+    "filler": 1,
+    "rule_of_three": 1
+   },
+   "slop_tax": 0.018,
+   "score": 70.8,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 826,
+     "budget": 520,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.59
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "PE"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.12
+    },
+    "simple_words": {
+     "swaps": {
+      "in order to": "to"
+     },
+     "per_100w": 0.12
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 1,
+     "per_100w": 0.12
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "This lesson is active, memorable, and developmentally appropriate\u2014young learners embody the science content through creative movement.",
+    "jargon": "some_jargon",
+    "jargon_quote": "locomotor and non-locomotor movements",
+    "simple_words": "some_complex",
+    "simple_words_quote": "culminating",
+    "filler": "some_filler",
+    "filler_quote": "Have fun watching your class transform from tiny eggs into fluttering butterflies!"
+   },
+   "scaffold": {
+    "headings": 14,
+    "list_items": 43,
+    "headings_per_100b": 2.69,
+    "list_items_per_100b": 8.27,
+    "scaffold_score": 9.9
+   },
+   "shape": {
+    "em_dash_per_100w": 0.12,
+    "sentence_cv": 0.69,
+    "frag_ratio": 0.11,
+    "bold_per_100w": 2.06,
+    "comma_per_sent": 1.0,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.02429,
+   "seconds": 35.9
+  },
+  {
+   "id": 3,
+   "genre": "practical_guidance",
+   "response": "**Art of Negotiation: Detailed Course Outline**\n\nThis self-paced course breaks \u201cThe Art of Negotiation\u201d into 8 progressive modules. Each module lists core skills and free (or free-to-audit) online resources from platforms such as Coursera (audit mode), edX (audit), YouTube, Alison, OpenLearn (Open University), and similar. Complete modules in order for best results; practice via role-plays, journaling, and real low-stakes negotiations.\n\n### Module 1: Foundations of Negotiation\n**Description**: Understand what negotiation is, types (distributive vs. integrative), BATNA/WATNA/ZOPA, and the mindset of a skilled negotiator.  \n**Key Skills**:\n- Distinguishing positions from interests\n- Identifying BATNA (Best Alternative to a Negotiated Agreement)\n- Growth mindset & emotional self-awareness\n- Basic ethical framing\n- Setting realistic goals\n\n**Top Free Resources**:\n- Coursera (audit): \u201cIntroduction to Negotiation\u201d / related content from Yale\u2019s \u201cThe Art of Negotiation\u201d (Barry Nalebuff) or University of Michigan\u2019s negotiation offerings\n- YouTube: Harvard Program on Negotiation (PON) free videos and \u201cNegotiation Fundamentals\u201d\n- OpenLearn: Free extracts on negotiation and decision-making\n- Alison: Free introductory negotiation or conflict-resolution courses\n\n### Module 2: Preparation & Planning\n**Description**: Systematic prep\u2014research, goal-setting, agenda design, and power analysis.  \n**Key Skills**:\n- Information gathering & stakeholder mapping\n- Defining target, reservation point, and stretch goals\n- SWOT/power-balance analysis\n- Agenda and concession strategy planning\n- Risk assessment\n\n**Top Free Resources**:\n- Coursera (audit): Preparation-focused modules in Yale or Michigan negotiation courses\n- YouTube: PON Harvard \u201cHow to Prepare for a Negotiation\u201d\n- Alison: Free courses on business planning or strategic preparation\n- edX (audit): Business strategy or decision-making courses with planning components\n\n### Module 3: Communication & Active Listening\n**Description**: Verbal/non-verbal mastery, questioning techniques, and building rapport.  \n**Key Skills**:\n- Active listening & mirroring\n- Open-ended & calibrated questions\n- Reading body language and tone\n- Clear, assertive expression without aggression\n- Summarizing and labeling emotions\n\n**Top Free Resources**:\n- Coursera (audit): \u201cImproving Communication Skills\u201d (University of Pennsylvania) or listening modules in negotiation courses\n- YouTube: Chris Voss / Black Swan method free clips on tactical empathy; TED Talks on body language\n- OpenLearn: Communication skills free courses\n- Alison: Free active-listening and interpersonal-communication courses\n\n### Module 4: Persuasion, Influence & Framing\n**Description**: Ethical influence, anchoring, framing offers, and storytelling.  \n**Key Skills**:\n- Anchoring and framing techniques\n- Reciprocity, social proof, scarcity (Cialdini principles applied ethically)\n- Value creation and storytelling\n- Anchoring math and multiple-equivalent simultaneous offers (MESOs)\n- Confidence without arrogance\n\n**Top Free Resources**:\n- Coursera (audit): Influence/persuasion content (e.g., \u201cSuccessful Negotiation\u201d related modules or Wharton influence courses)\n- YouTube: Free lectures on Cialdini principles and Harvard PON framing videos\n- Alison: Free persuasion and influence courses\n- edX (audit): Leadership or marketing courses covering persuasion\n\n### Module 5: Bargaining, Concessions & Problem-Solving\n**Description**: Distributive tactics, integrative (win-win) creativity, and managing the give-and-take.  \n**Key Skills**:\n- Logrolling and trade-off identification\n- Concession timing and signaling\n- Creative option generation\n- Handling hardball tactics\n- Packaging offers\n\n**Top Free Resources**:\n- Coursera (audit): Yale \u201cArt of Negotiation\u201d or Michigan \u201cSuccessful Negotiation: Essential Strategies and Skills\u201d (free to audit)\n- YouTube: PON Harvard bargaining simulations and debriefs\n- Alison: Negotiation strategy free courses\n- OpenLearn / YouTube: Win-win negotiation technique videos\n\n### Module 6: Conflict Management, Objections & Emotions\n**Description**: De-escalation, objection handling, and emotional regulation under pressure.  \n**Key Skills**:\n- Emotional intelligence & self-regulation\n- Objection reframing\n- De-escalation language\n- Managing deadlocks and walk-aways\n- Empathy under stress\n\n**Top Free Resources**:\n- Coursera (audit): \u201cConflict Resolution\u201d skills courses (e.g., from University of California or related)\n- YouTube: Free emotional-intelligence and de-escalation training (plus Voss \u201ctactical empathy\u201d)\n- Alison: Free conflict-management courses\n- OpenLearn: Managing conflict free modules\n\n### Module 7: Culture, Ethics, Power & Difficult Situations\n**Description**: Cross-cultural negotiation, ethics, power imbalances, multiparty & virtual settings.  \n**Key Skills**:\n- Cultural intelligence (direct vs. indirect styles, high/low context)\n- Ethical bright-line rules & transparency\n- Navigating power asymmetry\n- Multiparty coalition basics\n- Virtual/email/video negotiation etiquette\n\n**Top Free Resources**:\n- Coursera (audit): Cross-cultural communication or global negotiation modules\n- YouTube: Harvard PON cultural negotiation talks; free ethics-in-bargaining videos\n- edX (audit): Intercultural skills courses\n- Alison: Free cultural-awareness and business-ethics courses\n\n### Module 8: Closing, Implementation & Continuous Improvement\n**Description**: Reaching commitment, documenting agreements, building long-term relationships, and reviewing performance.  \n**Key Skills**:\n- Trial closes and confirmation techniques\n- Contract/term-sheet basics (non-legal)\n- Relationship preservation\n- Post-negotiation review & feedback loops\n- Personal negotiation style development\n\n**Top Free Resources**:\n- Coursera (audit): Closing and implementation sections of major negotiation courses (Yale/Michigan)\n- YouTube: PON Harvard \u201cClosing the Deal\u201d style content; review/after-action videos\n- Alison: Free courses on deal-making or professional development\n- OpenLearn / YouTube: Goal-setting and reflective-practice resources\n\n### Overall Course Completion Path & Practice Recommendations\n1. Work through Modules 1\u20138 sequentially (1\u20132 weeks per module).\n2. After each module: perform at least one role-play (use a friend, mirror, or free online partner communities) and write a short reflection.\n3. Maintain a negotiation journal (prep sheet + outcomes + lessons).\n4. Capstone: Prepare and conduct a real negotiation (salary, purchase, project scope, etc.) using the full toolkit; review against BATNA/ZOPA and skills checklists.\n5. Optional free supplemental hubs: Harvard Program on Negotiation blog/videos (many free), free Coursera/edX audit tracks, and YouTube channels from reputable business schools.\n\n**Skills Progress Tracker** (use across all modules): Preparation rigor, Listening quality, Emotional control, Creativity of options, Ethical clarity, Closing confidence, Cultural adaptability.\n\nAll suggested courses/resources have free access tiers (audit, full free courses, or openly available videos). Paid certificates are optional. Start with the Yale or University of Michigan negotiation courses on Coursera (audit) plus Harvard PON YouTube content for the strongest free foundation. Good luck\u2014practice is the real teacher.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 9.8,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 8.6
+   },
+   "clarity_avg": 7.28,
+   "slop_per_1k": 0.8,
+   "slop_breakdown": {
+    "hyphen_pairs": 3
+   },
+   "slop_tax": 0.012,
+   "score": 71.9,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 941,
+     "budget": 700,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.34
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "WATNA",
+      "ZOPA"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.21
+    },
+    "simple_words": {
+     "swaps": {
+      "purchase": "buy"
+     },
+     "per_100w": 0.11
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "All suggested courses/resources have free access tiers (audit, full free courses, or openly available videos).",
+    "jargon": "some_jargon",
+    "jargon_quote": "WATNA",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Good luck\u2014practice is the real teacher."
+   },
+   "scaffold": {
+    "headings": 26,
+    "list_items": 77,
+    "headings_per_100b": 3.71,
+    "list_items_per_100b": 11.0,
+    "scaffold_score": 8.6
+   },
+   "shape": {
+    "em_dash_per_100w": 0.21,
+    "sentence_cv": 1.04,
+    "frag_ratio": 0.18,
+    "bold_per_100w": 2.76,
+    "comma_per_sent": 2.04,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.025475,
+   "seconds": 44.4
+  },
+  {
+   "id": 4,
+   "genre": "practical_guidance",
+   "response": "**Common voice effects for a \u201crobot\u201d voice:**\n\nHere are frequently used techniques (often combined) to create a classic or modern robot/vocoder-style voice:\n\n1. **Vocoder / Talkbox effect**  \n   The most iconic \u201crobot\u201d sound. A carrier signal (usually a synth tone, sawtooth, or noise) is modulated by the voice\u2019s spectral envelope.  \n   - Classic examples: Daft Punk, many sci-fi robots.  \n   - Tools: iZotope Vocoder, Native Instruments Reaktor/Vocoder, free options like TAL-Vocoder, or built-in vocoders in DAWs (Logic, Ableton, etc.).\n\n2. **Pitch quantization / hard tuning**  \n   Force the pitch to exact semitones or a limited scale with zero or very little transition time (extreme Auto-Tune/Melodyne-style).  \n   - Creates the stepped, unnatural pitch jumps associated with robots.\n\n3. **Ring modulation**  \n   Multiplies the voice by a sine wave (often 20\u2013100 Hz or higher). Produces metallic, inharmonic sidebands.\n\n4. **Bit-crushing / sample-rate reduction**  \n   Lower bit depth (e.g., 8-bit or 4-bit) and/or sample rate for a digital, lo-fi, \u201ccomputerized\u201d character.\n\n5. **Formant shifting**  \n   Shift formants up or down independently of pitch to make the voice sound smaller/tinny or larger/metallic while keeping the same perceived pitch.\n\n6. **Heavy robotic/metallic EQ + resonance**  \n   - Boost high-mids and highs for thinness.  \n   - Add narrow resonant peaks or comb-filtering.  \n   - Sometimes a slight low-cut to remove warmth.\n\n7. **Stutter / granular / buffer effects**  \n   Short loops, freezes, or granular clouds on syllables for glitchy robot articulation.\n\n8. **Chorus, flanger, or subtle pitch chorus**  \n   Multiple slightly detuned copies for a thicker, synthetic ensemble sound (use sparingly so it doesn\u2019t just sound like chorus).\n\n9. **Distortion / waveshaping**  \n   Light to moderate distortion or specific waveshapers for added harmonics and edge.\n\n10. **Amplitude/gate effects or robotic gating**  \n    Hard gating or rhythmic amplitude modulation so the voice feels more synthetic and less continuously human.\n\n### Typical quick recipe (DAW or real-time):\n- Vocoder (voice = modulator, synth saw/square = carrier)  \n- or Pitch correction set to full/hard + formant shift  \n- + mild bit-crush  \n- + EQ (scoop some mids, add presence/air)  \n- + optional light ring-mod or distortion  \n- + reverb/delay that\u2019s short and metallic if desired\n\n### Free/real-time friendly options:\n- Vocoders: TAL-Vocoder, Autotalent/MAutoPitch (for hard tuning), Graillon (pitch/formant), Calf Vocoder (Linux), many mobile apps and games have built-in robot voice filters.  \n- Browser/online: various free voice-changer sites and apps offer \u201crobot\u201d presets.  \n- Hardware: old-school talkboxes, or pedals with vocoder/bit-crush.\n\nThese can be layered and automated for different robot personalities (friendly toy robot vs. menacing AI vs. glitchy android).\n\nIf you want specifics for a particular tool (e.g., Audacity, Adobe Podcast, Voicemod, a DAW, Python/librosa, etc.), a certain era/style of robot, or real-time vs. offline processing, just give more details!",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.99,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 89.9,
-   "facts_delivered": "5/5",
-   "detail": {
-    "economy": {
-     "words": 871,
-     "budget": 550,
-     "facts": 5,
-     "required": 5,
-     "coverage": 1.0,
-     "over_budget": 1.58
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "undefined_terms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "grammar": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "Rectangle\u2019s four \u2013 two long, two slight!",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": "",
-    "form": "some_scaffolding",
-    "form_quote": "- All facts above are standard, accurate Grade 2 geometry."
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.86,
-    "frag_ratio": 0.16,
-    "bold_per_100w": 2.76,
-    "comma_per_sent": 0.91,
-    "staccato_runs": 0
-   },
-   "cost_usd": 0.0,
-   "seconds": 94.0
-  },
-  {
-   "id": 2,
-   "genre": "practical_guidance",
-   "response": "**Lesson Plan: Butterfly Lifecycle Dance**  \n**Grade Level:** Kindergarten\u20132nd Grade  \n**Duration:** 45\u201360 minutes  \n**Subjects:** Science + Physical Education/Creative Movement + Arts  \n\n### Learning Objectives\nBy the end of the lesson, students will be able to:  \n- Identify and sequence the four main stages of the butterfly life cycle (egg \u2192 larva/caterpillar \u2192 pupa/chrysalis \u2192 adult butterfly).  \n- Express each stage through simple, creative body movements and a short group dance.  \n- Work cooperatively in a small group to create and perform a short dance sequence.  \n\n### Materials\n- Pictures or simple illustrated posters of the butterfly life cycle (egg, caterpillar, chrysalis, butterfly)  \n- Optional: scarves, ribbon sticks, or fabric pieces for \u201cwings\u201d  \n- Music player with calm/instrumental tracks (or nature sounds) and a short upbeat track for the final dance  \n- Open space for movement  \n- Optional: chart paper or whiteboard to draw/sequence the stages  \n\n### Lesson Procedure\n\n**1. Introduction / Hook (5\u20138 minutes)**  \n- Gather students in a circle. Show pictures of a butterfly and ask: \u201cWhat do you know about butterflies? Where do they come from?\u201d  \n- Briefly introduce the life cycle using visuals:  \n  - Egg (tiny, still)  \n  - Caterpillar/larva (eats and grows, crawls)  \n  - Chrysalis/pupa (changes inside, still or gentle wiggle)  \n  - Adult butterfly (emerges and flies)  \n- Say: \u201cToday we will become butterflies! We will make a dance that shows how a butterfly grows.\u201d  \n\n**2. Explore the Stages with Movement (10\u201312 minutes)**  \nTeach and practice simple movements for each stage (model first, then students copy and add their own ideas):  \n- **Egg:** Curl into a tight ball on the floor, stay very still or make tiny rocking motions.  \n- **Caterpillar:** Crawl or wiggle on the floor/belly or on hands and knees; stretch long, munch pretend leaves, grow bigger with bigger movements.  \n- **Chrysalis:** Stand or kneel and wrap arms around body (or use a scarf); stay mostly still, maybe gentle swaying or small \u201cchanging\u201d wiggles.  \n- **Butterfly:** Slowly \u201cunwrap,\u201d spread arms as wings, flutter, fly around the space, land gently on flowers (students can pretend to sip nectar).  \n\nPractice transitioning smoothly: egg \u2192 caterpillar \u2192 chrysalis \u2192 butterfly. Use a simple chant or call-outs (\u201cNow you\u2019re an egg\u2026 now hatch into a caterpillar!\u201d).  \n\n**3. Create the Dance (15\u201320 minutes)**  \n- Divide students into small groups (3\u20135 students).  \n- Each group creates a short dance (about 1 minute) that shows the whole life cycle in order.  \n- Guidelines for kids:  \n  - Include all four stages in order.  \n  - Everyone participates.  \n  - Use the basic movements we practiced and add one creative idea (funny crawl, beautiful wing stretch, etc.).  \n  - Optional: use scarves as wings for the butterfly part.  \n- Play soft background music while groups practice. Circulate, prompt with questions (\u201cWhat does your caterpillar do while it eats?\u201d \u201cHow does your butterfly first come out?\u201d), and support shy students.  \n\n**4. Perform and Share (8\u201310 minutes)**  \n- Groups perform their butterfly life-cycle dances for the class (or half the class at a time).  \n- Audience watches quietly and claps at the end.  \n- After each performance, ask 1\u20132 quick positive comments or questions: \u201cWhat stage did you see first?\u201d \u201cHow did they show the chrysalis?\u201d  \n\n**5. Closing / Review (5 minutes)**  \n- Gather back in a circle. Quickly sequence the stages together (students can act them out one more time as you name them).  \n- Ask: \u201cWhat was your favorite stage to dance? What happens after the butterfly lays eggs?\u201d (briefly note the cycle repeats).  \n- Praise effort, creativity, and teamwork.  \n\n### Assessment (Informal)\n- Observation: Can students show the stages in the correct order during practice and performance?  \n- Participation and cooperation in group creation.  \n- Simple exit ticket (optional for 1st/2nd): Draw or point to the four stages in order, or tell a partner the order.  \n\n### Differentiation & Supports\n- **Younger/K students:** More teacher modeling, whole-group dance first, shorter group time, assign simple roles.  \n- **Older/2nd grade:** Encourage more detailed movements, longer sequences, or narration (\u201cFirst I am an egg\u2026\u201d).  \n- **Movement needs:** Offer seated or limited-mobility options (arm movements for wings, upper-body curl for egg/chrysalis).  \n- **Language supports:** Use visuals and gestures constantly; pair students strategically.  \n\n### Extensions / Follow-up Ideas\n- Read a butterfly life-cycle book (*The Very Hungry Caterpillar* or a nonfiction title) before or after.  \n- Draw the life cycle and add movement words.  \n- Go on a short outdoor \u201cbutterfly hunt\u201d or observe real caterpillars if available.  \n- Perform the dances for another class or at a family event.  \n\nThis lesson is active, memorable, and blends science content with creative expression\u2014perfect for K\u20132 energy levels and attention spans. Have fun watching the little butterflies emerge!",
-   "rules": {
-    "rule2_economy": 8.0,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
-    "rule7_form": 10.0
-   },
-   "clarity_avg": 9.78,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 97.8,
-   "facts_delivered": "4/4",
-   "detail": {
-    "economy": {
-     "words": 774,
-     "budget": 520,
-     "facts": 4,
-     "required": 4,
-     "coverage": 1.0,
-     "over_budget": 1.49
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "undefined_terms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "grammar": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.13,
-    "sentence_cv": 0.73,
-    "frag_ratio": 0.07,
-    "bold_per_100w": 2.2,
-    "comma_per_sent": 0.78,
-    "staccato_runs": 0
-   },
-   "cost_usd": 0.0,
-   "seconds": 54.0
-  },
-  {
-   "id": 3,
-   "genre": "practical_guidance",
-   "response": "**The Art of Negotiation \u2013 Detailed Course Outline**\n\nThis is a structured, self-paced course framework covering foundational to advanced negotiation. It is divided into **10 sub-topics/modules**. Each module includes:\n- Brief description/learning focus\n- Key skills to develop\n- Top free online courses/resources (audit-for-free options on Coursera/edX, fully free platforms like Alison, OpenLearn, YouTube/MIT OCW-style content, and reputable free playlists). You can audit most Coursera/edX courses without payment.\n\nProgress sequentially. Practice with role-plays, journals, and real low-stakes negotiations after each module. Total estimated time: 40\u201380 hours depending on depth.\n\n### Module 1: Fundamentals of Negotiation\n**Focus**: What negotiation is, types (distributive vs. integrative), BATNA/WATNA/ZOPA, and core principles. Build a negotiation mindset.\n\n**Key Skills**:\n- Identifying negotiation opportunities\n- Understanding interests vs. positions\n- Basic value creation vs. claiming\n- Setting objectives and walk-away points\n- Self-assessment of personal style\n\n**Top Free Courses/Resources**:\n- Coursera (audit free): \u201cSuccessful Negotiation: Essential Strategies and Skills\u201d \u2013 University of Michigan\n- Coursera (audit free): \u201cIntroduction to Negotiation: A Strategic Playbook for Becoming a Principled and Persuasive Negotiator\u201d \u2013 Yale University\n- Alison: \u201cDiploma in Negotiation Skills\u201d or \u201cIntroduction to Negotiation\u201d modules (fully free with certificate option)\n- YouTube: Harvard Program on Negotiation (PON) introductory lectures/playlists\n\n### Module 2: Preparation and Planning\n**Focus**: Research, goal-setting, agenda design, information gathering, and structuring the negotiation process.\n\n**Key Skills**:\n- Stakeholder and counterpart analysis\n- Information asymmetry management\n- Setting SMART goals and priorities (must-haves vs. nice-to-haves)\n- Developing BATNA and reservation points\n- Creating negotiation checklists and agendas\n\n**Top Free Courses/Resources**:\n- Coursera (audit free): Modules on preparation inside University of Michigan\u2019s \u201cSuccessful Negotiation\u201d\n- edX (audit free): Search negotiation/leadership prep courses from institutions like Delft or Rochester (many include planning frameworks)\n- OpenLearn (Open University \u2013 fully free): Business and management short courses on planning and decision-making\n- YouTube: \u201cHow to Prepare for a Negotiation\u201d structured videos from channels like Negotiations Ninja or official PON content; also free MIT OpenCourseWare leadership/communication related sessions\n\n### Module 3: Communication Mastery in Negotiation\n**Focus**: Verbal/non-verbal communication, active listening, questioning techniques, and framing.\n\n**Key Skills**:\n- Active listening and mirroring\n- Powerful questioning (open, probing, calibrated)\n- Clear articulation and concise messaging\n- Reading body language and tone\n- Framing offers and using silence effectively\n\n**Top Free Courses/Resources**:\n- Coursera (audit free): \u201cImproving Communication Skills\u201d \u2013 University of Pennsylvania (closely supports negotiation)\n- Coursera (audit free): Communication modules within Yale or Michigan negotiation courses\n- Alison: Free communication and interpersonal skills courses\n- YouTube: Free full lectures on \u201cCrucial Conversations\u201d style techniques and Chris Voss-inspired tactical empathy clips (FBI negotiation principles \u2013 widely available free summaries/trainings); Toastmasters-style free public speaking resources adapted to negotiation\n\n### Module 4: Emotional Intelligence & Psychology of Negotiation\n**Focus**: Managing emotions (yours and theirs), cognitive biases, rapport, and psychological principles.\n\n**Key Skills**:\n- Self-awareness and emotional regulation\n- Empathy and perspective-taking\n- Recognizing biases (anchoring, confirmation, etc.)\n- Building trust and likability\n- Handling pressure and stress responses\n\n**Top Free Courses/Resources**:\n- Coursera (audit free): \u201cInspired Leadership\u201d or Emotional Intelligence related courses (e.g., Case Western or similar EI offerings)\n- Coursera (audit free): Psychology/bias modules often bundled in negotiation or decision-making courses (Yale/Michigan)\n- edX (audit free): Courses on psychology of decision-making or leadership EI\n- YouTube/Open resources: Free Daniel Goleman EI overviews + PON psychology of negotiation talks; Khan Academy or similar free psychology sections on biases\n\n### Module 5: Negotiation Styles, Strategies & Approaches\n**Focus**: Competing, collaborating, compromising, avoiding, accommodating; choosing and adapting strategies (win-win, win-lose).\n\n**Key Skills**:\n- Diagnosing own and counterpart\u2019s style\n- Integrative (value-creating) vs. distributive strategies\n- Flexibility and style-switching\n- Long-term relationship vs. one-shot deal calibration\n- Strategic concession planning\n\n**Top Free Courses/Resources**:\n- Coursera (audit free): Yale \u201cIntroduction to Negotiation\u201d (strong on principled/strategic approaches)\n- Coursera (audit free): University of Michigan negotiation course (covers styles and strategies thoroughly)\n- Alison: Negotiation strategy modules\n- YouTube: Free strategy breakdowns from Harvard PON and expert negotiators (e.g., playlists on collaborative bargaining)\n\n### Module 6: Bargaining Tactics, Persuasion & Influence\n**Focus**: Anchoring, concessions, packaging offers, persuasion principles (Cialdini-style), and ethical tactics.\n\n**Key Skills**:\n- Effective anchoring and counter-anchoring\n- Concession patterns and reciprocity\n- Persuasion levers (scarcity, authority, consistency, etc.)\n- Offer packaging and multiple equivalent simultaneous offers (MESOs)\n- Reading and using power dynamics\n\n**Top Free Courses/Resources**:\n- Coursera (audit free): Persuasion/influence elements inside Michigan and Yale negotiation courses\n- Coursera (audit free): \u201cThe Art of Negotiation\u201d or related influence courses where available for audit\n- Alison: Free persuasion and influencing skills courses\n- YouTube: Robert Cialdini principle summaries + practical bargaining tactic videos from reputable negotiation trainers; free MasterClass-style free alternatives or TED Talks on influence\n\n### Module 7: Handling Conflict, Deadlocks & Difficult Situations\n**Focus**: Breaking impasses, dealing with hardball tactics, aggression, or impasse, and conflict de-escalation.\n\n**Key Skills**:\n- Conflict diagnosis and de-escalation\n- Responding to dirty tricks and hardball tactics\n- Creativity under deadlock (options generation)\n- Maintaining composure and using timeouts\n- Turning adversaries into problem-solving partners\n\n**Top Free Courses/Resources**:\n- Coursera (audit free): Conflict resolution modules (often paired with negotiation courses; e.g., from universities offering \u201cConflict Management\u201d)\n- edX/OpenLearn: Free conflict management and mediation short courses\n- Alison: Conflict resolution and difficult conversations courses\n- YouTube: Harvard PON videos on difficult conversations and impasse-breaking; free \u201cGetting Past No\u201d style summaries and role-play examples\n\n### Module 8: Cross-Cultural & Contextual Negotiation\n**Focus**: Cultural dimensions (e.g., Hofstede), international norms, and adapting to business, salary, sales, or diplomatic contexts.\n\n**Key Skills**:\n- Cultural intelligence and adaptation\n- High-context vs. low-context communication\n- Context-specific tactics (salary, procurement, multiparty)\n- Protocol and etiquette awareness\n- Managing virtual/cross-border negotiations\n\n**Top Free Courses/Resources**:\n- Coursera (audit free): \u201cInternational Leadership and Organizational Behavior\u201d or cross-cultural communication courses; negotiation courses often include cultural notes\n- edX (audit free): Intercultural communication or global business courses\n- OpenLearn/Alison: Free cultural awareness and international business modules\n- YouTube: Free lectures on cross-cultural negotiation (search PON or university channels); Hofstede insights free resources\n\n### Module 9: Ethics, Integrity & Long-Term Relationship Building\n**Focus**: Ethical boundaries, reputation management, trust repair, and sustainable agreements.\n\n**Key Skills**:\n- Ethical decision-making under pressure\n- Transparency vs. strategic disclosure balance\n- Building and repairing trust\n- Creating enforceable, durable agreements\n- Reputation and relationship capital management\n\n**Top Free Courses/Resources**:\n- Coursera (audit free): Ethics modules within Yale\u2019s principled negotiation course; business ethics courses (e.g., from University of Illinois or similar)\n- edX: Free ethics and corporate responsibility courses\n- Alison/OpenLearn: Business ethics short courses\n- YouTube: PON discussions on ethics in negotiation + free university lectures on professional integrity\n\n### Module 10: Practice, Simulation, Closing & Continuous Improvement\n**Focus**: Role-playing, deal closing techniques, post-negotiation analysis, and building a personal negotiation system.\n\n**Key Skills**:\n- Closing and commitment securing\n- Documentation and implementation planning\n- After-action review and feedback loops\n- Simulation and deliberate practice\n- Personal playbook creation and habit building\n\n**Top Free Courses/Resources**:\n- Revisit and complete practical assignments in: Coursera Michigan \u201cSuccessful Negotiation\u201d and Yale negotiation course (both emphasize application)\n- Alison: Full diploma-style negotiation practice-oriented courses\n- YouTube: Free negotiation role-play videos and analysis (PON simulations, expert breakdowns); join free online forums or practice groups\n- Additional: MIT OpenCourseWare free materials on related leadership/decision topics for deeper practice frameworks\n\n**How to Use This Course**\n- Spend 3\u20138 hours per module (video + notes + practice).\n- Keep a negotiation journal.\n- After Module 5\u20136, start applying to real situations (salary discussions, vendor deals, everyday conflicts).\n- Combine with free books/resources often recommended alongside these courses (*Getting to Yes*, *Never Split the Difference* summaries are widely available).\n- Track progress: Record yourself in mock negotiations and review.\n\n**Recommended Overall Free Path**: Start with University of Michigan\u2019s Coursera course (practical and highly rated) + Yale\u2019s for strategic depth. Supplement with Alison for certificates if desired and YouTube/PON for tactics and examples. All listed major courses allow free auditing of content.\n\nThis framework gives you both theory and actionable skills for business, career, and personal negotiations. Adjust depth based on your goals (e.g., more time on cross-cultural if you work internationally). Good luck\u2014negotiate well!",
-   "rules": {
-    "rule2_economy": 6.5,
-    "rule3_jargon": 9.6,
-    "rule5_simple_words": 9.9,
-    "rule6_filler": 9.9,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
-    "rule7_form": 10.0
-   },
-   "clarity_avg": 9.52,
-   "slop_per_1k": 1.8,
+   "clarity_avg": 7.96,
+   "slop_per_1k": 1.7,
    "slop_breakdown": {
-    "ai_vocab": 1,
-    "hyphen_pairs": 6
+    "hyphen_pairs": 3
    },
-   "slop_tax": 0.027,
-   "score": 92.7,
+   "slop_tax": 0.025,
+   "score": 77.6,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
-     "words": 1353,
-     "budget": 700,
-     "facts": 4,
-     "required": 4,
-     "coverage": 1.0,
-     "over_budget": 1.93
-    },
-    "jargon": {
-     "undefined_acronyms": [
-      "BATNA",
-      "WATNA",
-      "ZOPA"
-     ],
-     "undefined_terms": [],
-     "per_100w": 0.22
-    },
-    "simple_words": {
-     "swaps": {
-      "additional": "more"
-     },
-     "per_100w": 0.07
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 1,
-     "euphemism": 0,
-     "grammar": 0,
-     "per_100w": 0.07
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.07,
-    "sentence_cv": 1.17,
-    "frag_ratio": 0.08,
-    "bold_per_100w": 2.51,
-    "comma_per_sent": 1.97,
-    "staccato_runs": 0
-   },
-   "cost_usd": 0.0,
-   "seconds": 96.2
-  },
-  {
-   "id": 4,
-   "genre": "practical_guidance",
-   "response": "Here are some common voice effects used to create a classic \u201crobot\u201d voice:\n\n1. **Pitch shifting / Vocoding**  \n   - Slight downward or metallic pitch shift.  \n   - Full vocoder (carrier = your voice, modulator = synth tone) for the classic \u201csinging robot\u201d sound.\n\n2. **Ring modulation**  \n   - Multiplies your voice by a sine wave (often 30\u2013100 Hz) to create metallic, inharmonic sidebands.\n\n3. **Bit-crushing / Sample-rate reduction**  \n   - Reduces bit depth (e.g., to 8-bit or 4-bit) and/or sample rate for that gritty, digital lo-fi robot quality.\n\n4. **Formant shifting**  \n   - Moves formants without changing pitch, giving an unnatural, resonant \u201ctalking machine\u201d character.\n\n5. **Heavy robotic stutter / granular gating**  \n   - Rapid amplitude gating or granular freeze/stutter to chop the voice into rhythmic, mechanical fragments.\n\n6. **Flanging / phasing + metallic resonance**  \n   - Strong comb-filtering or resonant peaks that sweep slightly, adding a hollow, mechanical sheen.\n\n7. **Monotone / pitch quantization**  \n   - Force the voice onto a single pitch or a limited scale so it sounds flat and synthetic.\n\n8. **Distortion + EQ sculpting**  \n   - Light waveshaping or overdrive, then boost odd frequencies (e.g., 1\u20132 kHz and 3\u20135 kHz) while cutting warmth for a thin, metallic tone.\n\n**Typical quick chain many people use:**  \nVoice \u2192 Vocoder or pitch-shift \u2192 Bit-crusher \u2192 Ring mod (subtle) \u2192 EQ (scoop mids, boost highs) \u2192 optional short robotic delay/reverb.\n\nThese can be done in any DAW (// with built-in plugins, or free tools like Graillon, Vocoder plugins, etc.) or even real-time with apps like Voicemod, MorphVOX, or hardware vocoders.  \n\nLet me know if you want specific plugin recommendations or parameter starting points!",
-   "rules": {
-    "rule2_economy": 10.0,
-    "rule3_jargon": 9.4,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
-    "rule7_form": 10.0
-   },
-   "clarity_avg": 9.91,
-   "slop_per_1k": 4.7,
-   "slop_breakdown": {
-    "hyphen_pairs": 1,
-    "chatbot": 1
-   },
-   "slop_tax": 0.071,
-   "score": 92.1,
-   "facts_delivered": "4/4",
-   "detail": {
-    "economy": {
-     "words": 266,
+     "words": 436,
      "budget": 350,
      "facts": 4,
      "required": 4,
      "coverage": 1.0,
-     "over_budget": 0.76
+     "over_budget": 1.25
     },
     "jargon": {
      "undefined_acronyms": [],
      "undefined_terms": [
       "quantization"
      ],
-     "per_100w": 0.38
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "grammar": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "These can be done in any DAW (// with built-in plugins, or free tools like Graillon, Vocoder plugins, etc.) or even real-time with apps like Voicemod, MorphVOX, or hardware vocoders.",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.78,
-    "frag_ratio": 0.35,
-    "bold_per_100w": 3.38,
-    "comma_per_sent": 0.9,
-    "staccato_runs": 0
-   },
-   "cost_usd": 0.0,
-   "seconds": 52.5
-  },
-  {
-   "id": 5,
-   "genre": "practical_guidance",
-   "response": "**A Practical Plan to \"Evacuate the Internet\"**\n\nThe premise is hyperbolic but points to real issues: scalable AI slop, engagement-maximizing algorithms, and eroded trust in online information. Complete evacuation isn\u2019t feasible (or desirable) for most people\u2014the internet still underpins work, communication, knowledge access, and coordination. Instead, treat this as a structured retreat: reduce dependency, rebuild agency, and migrate value to more resilient layers. Here\u2019s a phased plan.\n\n### Phase 1: Immediate Personal Extraction (Days to Weeks)\n- **Audit and sever high-manipulation vectors**: Delete or heavily restrict accounts on algorithm-driven feeds (major social platforms). Use browser extensions/blockers for tracking, recommendations, and infinite scroll. Switch to chronological follows, RSS readers (e.g., FreshRSS, Inoreader), or newsletter digests from known humans.\n- **Information diet reset**: Default to primary sources, books, long-form writing, and verified offline/local knowledge. Practice \"provenance checks\"\u2014ask who created it, with what incentives, and whether it was cheaply generatable. Limit reactive news consumption; set fixed windows.\n- **Comms migration**: Move close ties to direct channels (Signal, plain email, phone, in-person). Reduce group chats and broadcast posting. Export your data first where possible.\n- **Device hygiene**: Separate \"utility\" devices/profiles from entertainment ones. Enable stricter privacy settings, use local-first tools, and consider graphing your actual screen time vs. stated priorities.\n- **Digital quarantine period**: Try a 7\u201330 day minimization experiment. Track what breaks (work tools, banking, maps) vs. what was optional dopamine.\n\nGoal: Drop passive consumption 70-90% while preserving high-value functions.\n\n### Phase 2: Rebuild Local and High-Trust Alternatives (Weeks to Months)\n- **Offline-first living layers**: Strengthen non-digital substitutes\u2014local libraries, physical media collections, community bulletin boards, in-person clubs, paper maps/notebooks for key reference, face-to-face skill-sharing. Join or form small groups for mutual aid, learning, and verification of important claims.\n- **Decentralized/low-algorithm tools**: Prefer open protocols and local-first software (email, ActivityPub/Fediverse instances you control or trust, personal websites/static blogs, BitTorrent or IPFS for distribution where relevant, self-hosted notes/calendars). Use AI tools surgically and offline/locally when possible, with heavy skepticism toward outputs.\n- **Economic and identity decoupling**: Minimize reliance on ad-driven free services. Pay for ad-light tools, support creators directly, and maintain offline credentials/backups of critical documents. Diversify identity away from platform lock-in.\n- **Skill reclamation**: Practice navigation, research, memory, debate, and craft without search/AI crutches. Teach kids (or yourself) source evaluation and boredom tolerance.\n- **Community mesh**: Coordinate with others on shared \"exit ramps\"\u2014local mesh networks, ham radio for resilience hobbyists, private forums with strict norms, or even print zines/newsletters for key topics.\n\n### Phase 3: Systemic and Long-Term Migration (Ongoing)\n- **Demand better architecture**: Support (via usage, funding, or advocacy) protocols that prioritize user control over engagement maximization\u2014portable identity/data, chronological or user-chosen ranking, cryptographic provenance for media, and friction against mass anonymous generation. Critique and avoid pure engagement farms.\n- **Institutional pressure**: Push platforms, educators, and policymakers toward transparency on ranking/AI use, liability for scaled deception where clear harms exist, media literacy at scale, and competition against monopolies on attention. Distinguish legitimate speech from engineered floods.\n- **Hybrid reality default**: Design life so the internet is a tool you enter deliberately (search, specific queries, creation, coordination) rather than an ambient environment that enters you. Measure success by offline relationships, deep work, physical health, and independent judgment\u2014not metrics.\n- **Contingency for extremes**: Maintain offline backups of critical knowledge/skills, cash/local trade options, and geographic community ties. If certain spaces become unusable, treat them like abandoned malls: leave, don\u2019t live there.\n- **Cultural shift**: Normalize \"I don\u2019t know / I logged off\" as acceptable. Reward slow, verified, human-scale communication. Recognize that total disconnection is a luxury or necessity only for some; most will need selective engagement.\n\n### Realistic Constraints and Trade-offs\n- Full evacuation disadvantages people who need connectivity for livelihood, disability access, remote family, education, or activism. The plan emphasizes optionality and reduction of harm, not puritanical Luddism.\n- AI-generated content and algorithms aren\u2019t inherently evil\u2014they amplify existing incentives. Fixing incentives (attention markets, zero-cost spam) matters more than nostalgia for 1998.\n- Misinformation predates AI; the difference is volume and cheapness. Human judgment, institutions with skin in the game, and reputation systems remain the filters.\n- Track outcomes: improved focus, better relationships, less anxiety, retained access to truth-seeking tools. Adjust if isolation or ignorance creeps in.\n\nThis is less \"flee to the woods\" and more \"stop living in the casino.\" Start with Phase 1 this week\u2014export data, install blockers, schedule offline blocks\u2014and iterate. The goal is sovereignty over your attention and beliefs, not technological hermitage. If specific tools, threat models, or constraints (job, location, family) apply, provide more details for a tighter version.",
-   "rules": {
-    "rule2_economy": 7.9,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
-    "rule7_form": 10.0
-   },
-   "clarity_avg": 9.77,
-   "slop_per_1k": 2.3,
-   "slop_breakdown": {
-    "hyphen_pairs": 1,
-    "inline_header_list": 15
-   },
-   "slop_tax": 0.034,
-   "score": 94.3,
-   "facts_delivered": "4/4",
-   "detail": {
-    "economy": {
-     "words": 757,
-     "budget": 500,
-     "facts": 4,
-     "required": 4,
-     "coverage": 1.0,
-     "over_budget": 1.51
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "undefined_terms": [],
-     "per_100w": 0.0
+     "per_100w": 0.23
     },
     "simple_words": {
      "swaps": {},
@@ -380,19 +357,590 @@
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": ""
+    "form": "some_scaffolding",
+    "form_quote": "Here are frequently used techniques (often combined) to create a classic or modern robot/vocoder-style voice:",
+    "economy": "some_padding",
+    "economy_quote": "If you want specifics for a particular tool (e.g., Audacity, Adobe Podcast, Voicemod, a DAW, Python/librosa, etc.), a certain era/style of robot, or real-time vs. offline processing, just give more details!",
+    "jargon": "some_jargon",
+    "jargon_quote": "inharmonic sidebands",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "scaffold": {
+    "headings": 3,
+    "list_items": 25,
+    "headings_per_100b": 0.86,
+    "list_items_per_100b": 7.14,
+    "scaffold_score": 10.0
    },
    "shape": {
-    "em_dash_per_100w": 1.19,
-    "sentence_cv": 0.58,
-    "frag_ratio": 0.06,
-    "bold_per_100w": 2.11,
-    "comma_per_sent": 1.69,
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 1.16,
+    "frag_ratio": 0.34,
+    "bold_per_100w": 2.52,
+    "comma_per_sent": 0.97,
     "staccato_runs": 0
    },
-   "cost_usd": 0.0,
-   "seconds": 55.0
+   "cost_usd": 0.022245,
+   "seconds": 28.0
+  },
+  {
+   "id": 5,
+   "genre": "practical_guidance",
+   "response": "**Plan to \u201cEvacuate the Internet\u201d**  \n*(A practical, phased disengagement from the toxic feed-layer while preserving useful connectivity)*\n\nThe goal is not to unplug civilization, but to exit the attention-harvesting, AI-slop, and algorithmic-manipulation zones. Treat the public internet like a flooded city: move people and critical functions to higher ground, then rebuild limited, intentional access.\n\n### Phase 0: Immediate Personal Flotation (Do this today)\n- **Audit & cut the worst vectors**: Uninstall or heavily restrict TikTok, Instagram, X/Twitter, Facebook, YouTube Shorts, Reddit (front page), and any app whose core loop is infinite scroll + recommendation. Use website blockers (uBlock Origin + custom filters, Freedom, Cold Turkey, or router-level Pi-hole/NextDNS).\n- **Switch to deliberate intake**: RSS readers (FreshRSS, Miniflux, NetNewsWire) for chosen sources only. Email newsletters from known humans. Books, long-form, and offline media.\n- **Comms triage**: Move close friends/family to Signal, iMessage, or plain SMS. Leave public group chats and Discord servers that amplify outrage or slop.\n- **Device hygiene**: Separate \u201cwork/useful\u201d profiles or devices from \u201centertainment\u201d ones. Enable highest privacy settings; disable personalized ads and cross-site tracking everywhere.\n\n### Phase 1: Household & Small-Group Evacuation (1\u20134 weeks)\n- **Shared rules**: Agree on screen-time budgets, no-phone zones/times, and \u201cslop-free\u201d defaults. Create a household dashboard of approved tools only.\n- **Local-first replacements**:\n  - Knowledge: Personal wikis (Obsidian, Logseq, Foam), shared network drives, or self-hosted Nextcloud.\n  - Media: Local libraries, purchased/ripped media, physical books, community bulletin boards.\n  - Coordination: Shared calendars, email lists, or simple self-hosted forums (e.g., Discourse, Flarum) on a home server or cheap VPS.\n- **Bandwidth diet**: Throttle or schedule updates; prefer download-once, use-offline. Mirror critical references.\n- **Skill rebuild**: Practice navigating without search omniscience\u2014use local notes, manuals, libraries, and direct human experts.\n\n### Phase 2: Community & Institutional Higher Ground (1\u20136 months)\n- **Private, authenticated networks**: \n  - VPNs + zero-trust access for work.\n  - Small federated or invite-only services (limited Mastodon/Bluesky instances with strict moderation, private Matrix/Element servers, or old-school mailing lists/NNTP).\n  - Industry or professional dark-fiber/collaborative extranets where possible.\n- **Curated information commons**: Support or build human-reviewed repositories, annotated bibliographies, and version-controlled knowledge bases. Prefer sources with reputation systems tied to real identities or long track records.\n- **Algorithmic fasting infrastructure**: Default to chronological feeds, keyword mute lists, and \u201cno recommendation\u201d modes. Run personal classifiers that down-rank known AI-slop patterns if you must stay partially connected.\n- **Economic pressure**: Starve the engagement economy\u2014ad blockers, privacy browsers (Firefox + strict containers, Brave, or Mullvad browser), alternative front-ends (Invidious, Teddit/Libreddit archives where legal, Nitter-like for remaining needs). Pay directly for quality journalism and tools instead of attention.\n\n### Phase 3: Long-term Resilient Architecture (ongoing)\n- **Hybrid existence**:\n  - Keep the \u201cuseful internet\u201d (email, documentation, software updates, banking, scientific literature, open-source repos, emergency alerts) via minimal, monitored channels.\n  - Treat the open social/web as a contaminated zone entered only with protective gear (VMs, throwaway profiles, time-boxing).\n- **Decentralized & local alternatives**: Mesh networks or community wireless for local resilience; self-hosting collectives; digital libraries (similar to Internet Archive principles but smaller and curated); preference for open protocols over platforms.\n- **Cultural norms**: Celebrate boredom, deep work, face-to-face, and verifiable provenance. Teach children (and adults) source criticism, statistical literacy, and the habit of \u201cwhen in doubt, log off.\u201d\n- **Governance & signaling**: Advocate for (or build) provenance standards (C2PA-like content credentials), liability for scaled deception, and default-off recommendation engines. Support competitive non-manipulative tools.\n- **Exit ramps remain open**: Maintain the ability to re-enter specific high-value parts of the network without living there.\n\n### Metrics of Successful Evacuation\n- Hours/day in algorithmic feeds \u2192 near zero.\n- Majority of information diet from chosen, attributable human sources or primary data.\n- Emotional baseline no longer dominated by outrage or FOMO cycles.\n- Critical work, relationships, and learning still function (or function better).\n- Ability to \u201cvisit\u201d the old internet like a controlled museum trip rather than living in the floodplain.\n\n### Realistic Caveats\nComplete disconnection is unnecessary and often counterproductive for most people. The internet still contains irreplaceable tools, records, and coordination mechanisms. The evacuation targets the **manipulation and misinformation layers**, not packets themselves. Some domains (certain jobs, research, activism) require ongoing presence\u2014use isolation, verification rituals, and redundancy there.\n\nStart with Phase 0 this week. The flood is mostly optional once you stop swimming toward it.\n\nIf you want templates (blocker lists, Obsidian starter vaults, self-hosting minimal guides, or a one-page household protocol), say which part you want first.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 9.7,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 7.92,
+   "slop_per_1k": 2.7,
+   "slop_breakdown": {
+    "hyphen_pairs": 1,
+    "inline_header_list": 17
+   },
+   "slop_tax": 0.041,
+   "score": 76.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 734,
+     "budget": 500,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.47
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "FOMO",
+      "SMS",
+      "VPNs",
+      "VPS"
+     ],
+     "undefined_terms": [
+      "bandwidth"
+     ],
+     "per_100w": 0.68
+    },
+    "simple_words": {
+     "swaps": {
+      "require": "need"
+     },
+     "per_100w": 0.14
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "If you want templates (blocker lists, Obsidian starter vaults, self-hosting minimal guides, or a one-page household protocol), say which part you want first.",
+    "jargon": "some_jargon",
+    "jargon_quote": "NNTP",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "The flood is mostly optional once you stop swimming toward it."
+   },
+   "scaffold": {
+    "headings": 7,
+    "list_items": 30,
+    "headings_per_100b": 1.4,
+    "list_items_per_100b": 6.0,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.41,
+    "sentence_cv": 0.54,
+    "frag_ratio": 0.04,
+    "bold_per_100w": 2.59,
+    "comma_per_sent": 1.74,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.023605,
+   "seconds": 40.9
+  },
+  {
+   "id": 6,
+   "genre": "practical_guidance",
+   "response": "**A common guideline is that your home loan EMI should not exceed 40-50% of your monthly take-home salary (for a 30k salary, that\u2019s roughly 12k\u201315k EMI), which typically supports a loan amount in the range of ~\u20b915\u201325 lakh depending on interest rate, tenure, other debts, credit score, and location\u2014though lenders often cap eligibility around 40\u201360 times monthly income or based on fixed obligations.**\n\n### Rough Affordability Estimate (India-focused, as \u201c30k\u201d and \u201chome loan\u201d commonly refer to this context)\n- **Monthly salary**: \u20b930,000\n- **Safe EMI range**: \u20b912,000\u201315,000 (40\u201350% of income). Keep it lower if you have other EMIs, rent, or dependents.\n- **Approximate loan amount** (illustrative, at ~8.5\u20139.5% interest):\n  - 15\u201320 year tenure: roughly \u20b912\u201320 lakh\n  - 20\u201325 year tenure: roughly \u20b915\u201325 lakh\n- Many banks/HFCs use multipliers like 40\u201360\u00d7 gross monthly income for eligibility (so ~\u20b912\u201318 lakh ballpark before FOIR/credit checks), but actual sanction depends on:\n  - Credit score (ideally 750+)\n  - Existing EMIs / obligations (FOIR usually \u226450\u201355%)\n  - Age, employment stability, co-applicant income\n  - Property value & LTV (often max 75\u201390%)\n  - Interest rate and exact tenure\n\n**Example EMI ballpark** (use an online EMI calculator for precision):\n- \u20b920 lakh @ 9% for 20 years \u2248 \u20b918,000 EMI (on the higher side for 30k salary)\n- \u20b915 lakh @ 9% for 20 years \u2248 \u20b913,500 EMI (more comfortable)\n\n### Key Recommendations\n1. **Prioritize affordability over maximum eligibility** \u2014 Aim for EMI \u226440% of take-home so you have buffer for maintenance, inflation, job changes, etc.\n2. **Down payment** \u2014 Plan for at least 10\u201325% + registration/stamp duty/other costs. Larger down payment = smaller loan = lower risk.\n3. **Check exact eligibility** \u2014 Use bank/HFC online calculators (SBI, HDFC, ICICI, LIC Housing, etc.) or speak to a lender. Provide accurate income proofs, existing obligations, and credit report.\n4. **Other factors to improve amount/terms**:\n   - Add a co-applicant (spouse/parent) with income\n   - Longer tenure (lowers EMI but increases total interest)\n   - Better credit score / stable job\n   - Shop rates and consider floating vs fixed\n5. **Total cost of ownership** \u2014 Factor property taxes, maintenance, insurance, and potential rate hikes.\n\n**This is general information only, not personalized financial advice.** Rules, rates, and eligibility vary by lender, city, and your full profile. Consult a bank, certified financial planner, or housing finance expert, and run numbers on official EMI/eligibility calculators before deciding. Borrow only what you can comfortably repay.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 6.48,
+   "slop_per_1k": 0.5,
+   "slop_breakdown": {
+    "inline_header_list": 2
+   },
+   "slop_tax": 0.007,
+   "score": 64.3,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 397,
+     "budget": 300,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.32
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "EMIs",
+      "HFC",
+      "HFCs"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.76
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "A common guideline is that your home loan EMI should not exceed 40-50% of your monthly take-home salary (for a 30k salary, that's roughly 12k\u201315k EMI), which typically supports a loan amount in the range of ~\u20b915\u201325 lakh depending on interest rate, tenure, other debts, credit score, and location\u2014though lenders often cap eligibility around 40\u201360 times monthly income or based on fixed obligations.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "This is general information only, not personalized financial advice.",
+    "economy": "some_padding",
+    "economy_quote": "Rules, rates, and eligibility vary by lender, city, and your full profile.",
+    "jargon": "some_jargon",
+    "jargon_quote": "FOIR",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Rough Affordability Estimate (India-focused, as \"30k\" and \"home loan\" commonly refer to this context)"
+   },
+   "scaffold": {
+    "headings": 2,
+    "list_items": 22,
+    "headings_per_100b": 0.67,
+    "list_items_per_100b": 7.33,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 1.26,
+    "sentence_cv": 1.37,
+    "frag_ratio": 0.19,
+    "bold_per_100w": 2.77,
+    "comma_per_sent": 2.38,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.02389,
+   "seconds": 21.1
+  },
+  {
+   "id": 7,
+   "genre": "practical_guidance",
+   "response": "**Possible learning objectives for a class on student presentations about film adaptations:**\n\nHere are clear, instructor-ready objectives you could use or adapt:\n\n- **Analyze adaptation choices**: Students will examine how a film adapts its source material (novel, play, comic, etc.), identifying key similarities, differences, and the reasons behind those changes (narrative structure, character, theme, medium-specific constraints).\n- **Evaluate fidelity vs. transformation**: Students will assess the spectrum from \u201cfaithful\u201d adaptation to loose reinterpretation and articulate what is gained or lost in the move from page/stage to screen.\n- **Apply film-analysis skills**: Students will use formal elements (cinematography, editing, sound, mise-en-sc\u00e8ne, performance) to explain how the film constructs meaning in relation to the source.\n- **Develop research and argumentation**: Students will support claims with evidence from both the original text and the film, plus relevant secondary sources (reviews, adaptation theory, interviews).\n- **Practice oral communication**: Students will deliver a clear, well-organized presentation that engages the audience and handles questions.\n- **Situate adaptations culturally/historically**: Students will consider how context (era, studio system, director\u2019s vision, audience expectations, censorship, technology) shapes the adaptation.\n- **Reflect on medium specificity**: Students will explain why certain stories or techniques work differently in literature/theatre versus cinema.\n\n**Example concise objective statement for a syllabus:**  \n\u201cBy preparing and delivering a presentation on a film adaptation, students will critically compare source text and film, apply core concepts of adaptation studies and film analysis, and communicate their findings effectively to peers.\u201d\n\n**Optional tighter versions:**\n- Compare a source text and its film version and defend an argument about the adaptation\u2019s success or strategy.\n- Demonstrate understanding of adaptation theory through a focused case-study presentation.\n\nIf you share the course level (high school, undergrad intro, advanced), length of presentations, or whether there\u2019s a required theoretical framework, I can refine these further.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.22,
+   "slop_per_1k": 2.4,
+   "slop_breakdown": {
+    "inline_header_list": 7
+   },
+   "slop_tax": 0.036,
+   "score": 69.6,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 297,
+     "budget": 250,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.19
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "demonstrate": "show"
+     },
+     "per_100w": 0.34
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Here are clear, instructor-ready objectives you could use or adapt:",
+    "economy": "some_padding",
+    "economy_quote": "If you share the course level (high school, undergrad intro, advanced), length of presentations, or whether there's a required theoretical framework, I can refine these further.",
+    "jargon": "some_jargon",
+    "jargon_quote": "mise-en-sc\u00e8ne",
+    "simple_words": "some_complex",
+    "simple_words_quote": "articulate",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "scaffold": {
+    "headings": 2,
+    "list_items": 9,
+    "headings_per_100b": 0.8,
+    "list_items_per_100b": 3.6,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.65,
+    "frag_ratio": 0.09,
+    "bold_per_100w": 3.37,
+    "comma_per_sent": 2.82,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.019215,
+   "seconds": 15.3
+  },
+  {
+   "id": 8,
+   "genre": "practical_guidance",
+   "response": "Here are **interesting, practical, and student-friendly use cases** you can use for a college RDBMS workshop. They are designed to be engaging, relatable, and suitable for hands-on sessions (schema design \u2192 SQL queries \u2192 simple insights).\n\n### 1. Campus Event & Fest Management System (Most Recommended)\n**Why it\u2019s great:** Every student relates to college fests, clubs, and events.\n\n**Core entities:** Students, Clubs, Events, Registrations, Venues, Volunteers, Sponsors, Attendance.\n\n**Interesting workshop tasks:**\n- Design ER diagram for a multi-day college fest.\n- Track event registrations and prevent overbooking of venues.\n- Find students who registered for overlapping events.\n- Generate \u201cmost popular events\u201d, \u201cclub with highest participation\u201d, \u201cvolunteer workload\u201d.\n- Handle waitlists and cancellation logic with transactions.\n\n**Hook for students:** \u201cBuild the backend that runs your college fest.\u201d\n\n### 2. Smart Canteen / Food Court Order System\n**Why it\u2019s great:** Food + real-time feel + transactions.\n\n**Core entities:** Students (with wallet/mess balance), Menu Items, Orders, Order Items, Payments, Feedback, Peak Hours.\n\n**Interesting tasks:**\n- Place an order only if wallet balance is sufficient (transaction).\n- Find most ordered items by time of day.\n- Detect popular combos.\n- Generate daily sales report and wastage insights.\n- Implement \u201corder status\u201d flow (Placed \u2192 Preparing \u2192 Ready \u2192 Picked).\n\n**Hook:** \u201cDesign the database behind your college canteen app.\u201d\n\n### 3. Student Project & Research Collaboration Platform\n**Why it\u2019s great:** Directly useful for mini-projects, hackathons, and final-year work.\n\n**Core entities:** Students, Faculty Mentors, Projects, Skills, Applications, Milestones, Publications/Repositories, Teams.\n\n**Interesting tasks:**\n- Match students to projects based on skills (junction tables + queries).\n- Ensure a student is not in more than N active projects.\n- Track milestone progress and delayed projects.\n- Find faculty with highest project completion rate.\n- Recommend teammates by complementary skills.\n\n**Hook:** \u201cBuild the data model for a \u2018LinkedIn + GitHub\u2019 for college projects.\u201d\n\n### 4. Library + Digital Resources Hybrid System\n**Why it\u2019s great:** Classic RDBMS case, but modernized.\n\n**Core entities:** Books, E-resources, Members, Issues/Returns, Fines, Reservations, Categories, Author contributions.\n\n**Interesting twists:**\n- Both physical and digital lending rules.\n- Reservation queue when a book is unavailable.\n- Fine calculation with grace periods.\n- \u201cStudents who borrow similar books\u201d style queries.\n- Most overdue categories / peak borrowing times before exams.\n\n**Hook:** \u201cUpgrade the old library system your college still uses.\u201d\n\n### 5. Campus Placement & Internship Portal\n**Why it\u2019s great:** High motivation for college students.\n\n**Core entities:** Students, Companies, Job Profiles, Applications, Eligibility Criteria, Interview Rounds, Offers, Skills.\n\n**Interesting tasks:**\n- Enforce eligibility (CGPA, branch, backlog rules) via queries/constraints.\n- Prevent multiple offers beyond a limit (placement policy).\n- Track conversion rates per company and per round.\n- Find skills most demanded by recruiters vs skills students have.\n- Generate company-wise shortlist reports.\n\n**Hook:** \u201cDesign the database that powers your college\u2019s placement cell.\u201d\n\n### 6. Online Learning & Assignment Platform (Mini LMS)\n**Why it\u2019s great:** Feels like building a piece of Moodle/Google Classroom.\n\n**Core entities:** Courses, Students, Instructors, Enrollments, Assignments, Submissions, Grades, Quizzes, Attendance.\n\n**Interesting tasks:**\n- Late submission handling and grading workflows.\n- Leaderboard queries (top scorers, most improved).\n- Detect plagiarism suspects via simple metadata patterns (same timestamps, etc. \u2014 keep it light).\n- Course completion percentage and at-risk students.\n- Many-to-many: students in multiple courses, group assignments.\n\n### 7. Sports & Recreation Club Management\n**Why it\u2019s great:** Fun, less common than library/fest, still very clear.\n\n**Core entities:** Students, Sports, Teams, Trials, Matches, Equipment Inventory, Coaches, Practice Sessions, Tournament points.\n\n**Interesting tasks:**\n- Team selection with category constraints (year, gender, max players).\n- Equipment issue/return with damage tracking.\n- Fixtures and points table generation.\n- \u201cMost active players\u201d and attendance in practice.\n\n---\n\n## Workshop-Friendly Mini Use Case Pack (2\u20133 hour session)\nIf you need a **single end-to-end use case**, use this:\n\n### \u201cCollege Club Hub\u201d\nStudents can:\n1. Create clubs and appoint core members.\n2. Host events with limited seats.\n3. Register participants (no duplicate registrations).\n4. Mark attendance.\n5. Collect feedback ratings.\n6. Run queries like:\n   - Top 5 active students\n   - Events with highest rating\n   - Clubs with low engagement\n   - Students who attended events but never joined a club\n\nThis covers: **ER modeling, keys, relationships (1:N, M:N), constraints, joins, aggregate queries, and basic transactions**.\n\n---\n\n## How to Make the Workshop Interesting\n- Start with a **story**: \u201cYou\u2019re the tech team for your college fest / placement cell.\u201d\n- Do **live schema design** on a whiteboard first (don\u2019t jump to CREATE TABLE).\n- Give **messy real-world rules** (e.g., \u201ca student can register for max 3 events per day\u201d).\n- Add a mini **competition**: best query challenge or fastest correct report.\n- End with **\u201cwhat would you add for a real app?\u201d** (auth, payments, notifications \u2014 conceptually).\n\n---\n\n## Suggested Tech Stack for the Workshop\n- MySQL / PostgreSQL\n- MySQL Workbench / DBeaver / pgAdmin\n- Optional: simple UI later with Google Sheets as \u201cfrontend\u201d or basic Python/Streamlit (only if time permits)\n\n---\n\nIf you tell me the **workshop duration** (1 hour / half-day / full-day), **student year** (1st year vs final year), and **tool** (MySQL/Oracle/PostgreSQL), I can create a full ready-to-run workshop plan: ER diagram, schema SQL, sample data, and 10 graded exercises.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 9.8,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.19,
+   "slop_per_1k": 1.7,
+   "slop_breakdown": {
+    "hyphen_pairs": 2,
+    "rule_of_three": 2
+   },
+   "slop_tax": 0.025,
+   "score": 70.1,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 863,
+     "budget": 450,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.92
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "sufficient": "enough"
+     },
+     "per_100w": 0.12
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Here are **interesting, practical, and student-friendly use cases** you can use for a college RDBMS workshop.",
+    "economy": "some_padding",
+    "economy_quote": "If you tell me the **workshop duration** (1 hour / half-day / full-day), **student year** (1st year vs final year), and **tool** (MySQL/Oracle/PostgreSQL), I can create a full ready-to-run workshop plan: ER diagram, schema SQL, sample data, and 10 graded exercises.",
+    "jargon": "some_jargon",
+    "jargon_quote": "Streamlit",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Most Recommended"
+   },
+   "scaffold": {
+    "headings": 18,
+    "list_items": 52,
+    "headings_per_100b": 4.0,
+    "list_items_per_100b": 11.56,
+    "scaffold_score": 8.4
+   },
+   "shape": {
+    "em_dash_per_100w": 0.23,
+    "sentence_cv": 0.92,
+    "frag_ratio": 0.15,
+    "bold_per_100w": 4.29,
+    "comma_per_sent": 1.16,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.02566,
+   "seconds": 38.9
+  },
+  {
+   "id": 9,
+   "genre": "practical_guidance",
+   "response": "**GARCH: The Model That Lets Volatility Have a Memory**\n\nImagine you are watching the daily returns of a stock (or the rain in your city, or the number of goals in football matches). The *average* return might be roughly constant, but the *size of the swings*\u2014how wildly the numbers jump up and down\u2014changes over time. Calm periods are followed by calm periods; stormy periods cluster together. That clustering of big moves is called **volatility clustering**.  \n\nOrdinary models (like a simple ARMA) assume the size of the random shocks is always the same. GARCH says: \u201cNo\u2014the size of today\u2019s shock depends on how big the recent shocks were.\u201d That single idea is the heart of the model.\n\n### 1. The basic setup (what we are modelling)\n\nLet \\( r_t \\) be the observed return (or residual) at time \\( t \\).  \nWe write  \n\n\\[\nr_t = \\mu_t + \\varepsilon_t, \\qquad \\varepsilon_t = \\sigma_t z_t\n\\]\n\n- \\( \\mu_t \\) is the predictable part (often just a constant or a simple AR term).  \n- \\( z_t \\) is pure white noise: mean 0, variance 1, usually assumed i.i.d. standard normal (or Student-t).  \n- \\( \\sigma_t > 0 \\) is the **conditional standard deviation**\u2014the volatility that is allowed to change every day.  \n\nThe whole art of GARCH is to write a sensible equation for \\( \\sigma_t^2 \\) (we work with variance because it is easier).\n\n### 2. The GARCH(1,1) equation\u2014the workhorse\n\nThe simplest and most famous version is  \n\n\\[\n\\sigma_t^2 = \\omega + \\alpha \\varepsilon_{t-1}^2 + \\beta \\sigma_{t-1}^2\n\\]\n\nwith three parameters that must satisfy  \n\n\\[\n\\omega > 0, \\quad \\alpha \\ge 0, \\quad \\beta \\ge 0, \\quad \\alpha + \\beta < 1.\n\\]\n\nLet\u2019s read it like a sentence:\n\n- \\( \\omega \\) = a baseline level of variance (the \u201calways-there\u201d rain).  \n- \\( \\alpha \\varepsilon_{t-1}^2 \\) = \u201chow much yesterday\u2019s *actual* shock feeds into today\u2019s variance.\u201d  \n  If yesterday was a huge move (\\( \\varepsilon_{t-1}^2 \\) large), today\u2019s variance jumps up.  \n- \\( \\beta \\sigma_{t-1}^2 \\) = \u201chow much of yesterday\u2019s *variance itself* carries over.\u201d  \n  This is the memory term; it makes volatility persistent.\n\nBecause \\( \\alpha + \\beta < 1 \\), the effect of any shock gradually dies out and the variance is pulled back toward its long-run average  \n\n\\[\n\\bar{\\sigma}^2 = \\frac{\\omega}{1 - \\alpha - \\beta}.\n\\]\n\n(That is why the inequality is required for stationarity.)\n\n### 3. Why the name GARCH?\n\n- **ARCH** (Engle, 1982) = AutoRegressive Conditional Heteroskedasticity:  \n  \\( \\sigma_t^2 = \\omega + \\alpha_1\\varepsilon_{t-1}^2 + \\dots + \\alpha_q\\varepsilon_{t-q}^2 \\).  \n  Only past *squared shocks* matter.  \n\n- **GARCH** (Bollerslev, 1986) = Generalized ARCH:  \n  we also let past *conditional variances* enter, exactly as an ARMA model lets past observations and past errors enter.  \n  GARCH(1,1) is already more parsimonious and more realistic than a high-order ARCH.\n\n### 4. A tiny bit of deeper mathematics (still school-friendly)\n\nTake the unconditional expectation of the GARCH(1,1) equation (assuming stationarity):\n\n\\[\n\\mathbb{E}[\\sigma_t^2] = \\omega + \\alpha\\mathbb{E}[\\varepsilon_{t-1}^2] + \\beta\\mathbb{E}[\\sigma_{t-1}^2].\n\\]\n\nBut \\( \\mathbb{E}[\\varepsilon_{t-1}^2] = \\mathbb{E}[\\sigma_{t-1}^2] \\), so  \n\n\\[\n\\bar{\\sigma}^2 = \\omega + (\\alpha+\\beta)\\bar{\\sigma}^2 \\implies \\bar{\\sigma}^2 = \\frac{\\omega}{1-\\alpha-\\beta},\n\\]\n\nexactly as claimed.  \n\nOne can also show that the *autocorrelation* of the squared process \\( \\varepsilon_t^2 \\) decays geometrically at rate \\( \\alpha+\\beta \\). That is the mathematical expression of \u201cvolatility clustering lasts a while, then fades.\u201d\n\n### 5. How we use it in practice\n\n1. Fit an ARMA (or just a mean) to the returns \u2192 obtain residuals \\( \\hat\\varepsilon_t \\).  \n2. Treat those residuals as the \\( \\varepsilon_t \\) above and estimate \\( \\omega,\\alpha,\\beta \\) by maximum likelihood  \n   (the likelihood is just the product of normal densities with variance \\( \\sigma_t^2 \\)).  \n3. Once you have \\( \\hat\\sigma_t \\), you can  \n   - forecast tomorrow\u2019s volatility,  \n   - construct better confidence intervals,  \n   - price options,  \n   - do risk management (Value-at-Risk), etc.\n\n### 6. A concrete numerical toy\n\nSuppose \\( \\omega=0.01 \\), \\( \\alpha=0.1 \\), \\( \\beta=0.8 \\).  \nLong-run variance = \\( 0.01/(1-0.9)=0.1 \\).  \n\n- If yesterday\u2019s shock was huge, \\( \\varepsilon_{t-1}^2=1 \\), and yesterday\u2019s variance was already 0.1, then  \n  \\( \\sigma_t^2 = 0.01 + 0.1\\cdot1 + 0.8\\cdot0.1 = 0.19 \\)  \n  (almost double the normal level).  \n- The next day, even if the new shock is average, the high variance persists because of the \\( \\beta \\) term, and only slowly returns to 0.1.\n\nThat is volatility clustering in numbers.\n\n### 7. Extensions you will meet later\n\n- GARCH(p,q) \u2013 more lags.  \n- EGARCH, GJR-GARCH \u2013 allow negative shocks to increase volatility more than positive ones (the \u201cleverage effect\u201d).  \n- IGARCH \u2013 \\( \\alpha+\\beta=1 \\), so shocks never die (used in risk management).  \n- Multivariate GARCH \u2013 whole covariance matrices that evolve.\n\nBut everything grows out of the three-line equation  \n\n\\[\n\\sigma_t^2 = \\omega + \\alpha\\varepsilon_{t-1}^2 + \\beta\\sigma_{t-1}^2.\n\\]\n\n**Bottom line for a school student**  \nGARCH is simply a disciplined way of saying: \u201cToday\u2019s uncertainty is a weighted average of a constant, yesterday\u2019s surprise, and yesterday\u2019s uncertainty.\u201d  \nThat sentence is short enough to remember, yet it contains a stationary stochastic process, a well-defined likelihood, and the ability to forecast risk\u2014the same ideas that appear in the most advanced research papers.  \n\nOnce you can write that equation and explain why \\( \\alpha+\\beta<1 \\), you already understand the core of modern volatility modelling.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 9.8,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 7.93,
+   "slop_per_1k": 1.1,
+   "slop_breakdown": {
+    "ai_vocab": 1
+   },
+   "slop_tax": 0.017,
+   "score": 78.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 871,
+     "budget": 750,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.16
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "EGARCH",
+      "GJR",
+      "IGARCH"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.34
+    },
+    "simple_words": {
+     "swaps": {
+      "obtain": "get"
+     },
+     "per_100w": 0.11
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 1,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.11
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "Once you can write that equation and explain why \\( \\alpha+\\beta<1 \\), you already understand the core of modern volatility modelling.",
+    "jargon": "some_jargon",
+    "jargon_quote": "parsimonious",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "the same ideas that appear in the most advanced research papers"
+   },
+   "scaffold": {
+    "headings": 9,
+    "list_items": 21,
+    "headings_per_100b": 1.2,
+    "list_items_per_100b": 2.8,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.69,
+    "sentence_cv": 0.71,
+    "frag_ratio": 0.18,
+    "bold_per_100w": 0.69,
+    "comma_per_sent": 0.86,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.026375,
+   "seconds": 35.8
+  },
+  {
+   "id": 10,
+   "genre": "seeking_information",
+   "response": "**Roughly 1\u20134+ Gbps** of WireGuard throughput is a realistic range for one 2.9 GHz core with 1 GB RAM, depending on hardware details, packet sizes, directionality, and tuning. 1 GB RAM is not the bottleneck.\n\n### Why this range?\nWireGuard is intentionally lightweight (small codebase, modern crypto like ChaCha20-Poly1305 + Curve25519, minimal state). On a single contemporary x86/ARM core:\n\n- CPU encryption/decryption and packet processing dominate.\n- Real-world single-core numbers commonly fall in the ~1\u20134 Gbps range for mixed/realistic traffic on a ~3 GHz-class core; higher (sometimes multi-Gbps more) is possible with large packets, good NIC/driver support (checksum offload, etc.), multi-queue where applicable, and modern CPUs with strong single-thread performance and crypto instructions.\n- Very small packets, high packet rates, or extra overhead (heavy iptables/nftables, bridging, additional encapsulation, slow NICs, thermal throttling, etc.) drop performance toward the lower end.\n- Symmetric bidirectional traffic roughly halves the \u201cone-way\u201d figure because the same core does both encrypt and decrypt work.\n- Published benchmarks (various x86 servers, newer ARM, etc.) and scaling observations (e.g. from lower-clock devices) support this order of magnitude; a 2.9 GHz core is in a typical mobile/desktop/server range where single-core WireGuard often saturates 1\u201310 Gbps-class links before needing more cores.\n\nRAM usage is tiny (kernel module + per-peer state is modest), so 1 GB is ample even with many peers or some routing/firewall state. You are far more likely to be CPU-, NIC-, or bus-limited than memory-limited.\n\n### Factors that move the number\n- **CPU microarchitecture & features**: Newer cores with better IPC, AES/ChaCha-friendly execution, and good memory bandwidth do more work per GHz. Frequency alone (2.9 GHz) is only part of the story.\n- **Packet size / traffic mix**: Large MTU/packets favor higher Gbps; small packets increase packets-per-second load and lower throughput.\n- **NIC and drivers**: Good multi-queue NICs, XDP/eBPF-friendly paths, checksum/segmentation offloads, and interrupt affinity help. A weak or poorly driven 1 GbE NIC will cap you at ~1 Gbps regardless of CPU.\n- **Config and overhead**: Number of peers, allowed IPs, keepalive, routing rules, NAT, additional qdisc/firewall, userspace vs. kernel, etc.\n- **Direction and measurement**: unidirectional vs bidirectional; iperf-style bulk vs real traffic; whether you count only WireGuard interface throughput.\n- **Platform**: Bare metal usually beats heavily virtualized/shared environments; thermal/power limits can clock the core down.\n\n### Practical takeaway\n- Expect **comfortable multi-hundred Mbps to a few Gbps** on that single core for typical use.\n- For sustained multi-Gbps (especially bidirectional), plan on testing with your actual NIC, kernel, and traffic; add cores or flow hashing if you need more.\n- 1 GB RAM is fine; prioritize CPU headroom, NIC quality, and keeping the data path simple.\n\nExact numbers require a benchmark on the target hardware (`iperf3`/`pktgen` through a WireGuard tunnel, watching CPU softirq and `wg` show). The estimate above is the practical ballpark for a 2.9 GHz core.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 6.48,
+   "slop_per_1k": 1.3,
+   "slop_breakdown": {
+    "inline_header_list": 6
+   },
+   "slop_tax": 0.019,
+   "score": 63.6,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 473,
+     "budget": 280,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.69
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "additional": "more",
+      "require": "need"
+     },
+     "per_100w": 0.63
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Real-world single-core numbers commonly fall in the ~1\u20134 Gbps range for mixed/realistic traffic on a ~3 GHz-class core; higher (sometimes multi-Gbps more) is possible with large packets, good NIC/driver support (checksum offload, etc.), multi-queue where applicable, and modern CPUs with strong single-thread performance and crypto instructions.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Exact numbers require a benchmark on the target hardware (`iperf3`/`pktgen` through a WireGuard tunnel, watching CPU softirq and `wg` show). The estimate above is the practical ballpark for a 2.9 GHz core.",
+    "economy": "some_padding",
+    "economy_quote": "You are far more likely to be CPU-, NIC-, or bus-limited than memory-limited.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "some_complex",
+    "simple_words_quote": "directionality",
+    "filler": "some_filler",
+    "filler_quote": "WireGuard is intentionally lightweight"
+   },
+   "scaffold": {
+    "headings": 3,
+    "list_items": 14,
+    "headings_per_100b": 1.07,
+    "list_items_per_100b": 5.0,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.5,
+    "frag_ratio": 0.08,
+    "bold_per_100w": 1.69,
+    "comma_per_sent": 1.54,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.02478,
+   "seconds": 28.7
   }
  ]
 }

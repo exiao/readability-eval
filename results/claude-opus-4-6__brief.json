@@ -5,20 +5,22 @@
   "condition": "brief",
   "n": 30,
   "errors": 0,
-  "score": 82.3,
-  "clarity_avg": 8.48,
+  "score": 80.1,
+  "clarity_avg": 8.26,
   "slop_per_1k": 3.5,
   "avg_words": 47,
   "per_rule": {
-   "rule2_economy": 6.6,
-   "rule3_jargon": 9.66,
+   "rule2_economy": 6.18,
+   "rule3_jargon": 9.22,
    "rule5_simple_words": 9.57,
-   "rule6_filler": 9.62,
-   "rule1_understandable": 9.83,
-   "rule4_imagery": 8.0,
-   "rule7_form": 9.17
+   "rule6_filler": 8.96,
+   "rule1_understandable": 9.17,
+   "rule4_imagery": 8.17,
+   "rule7_form": 8.67
   },
-  "cost_usd": 0.0
+  "cost_usd": 0.0,
+  "judge_model": "anthropic/claude-opus-5",
+  "judge_backend": "openrouter"
  },
  "runs": [
   {
@@ -80,7 +82,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "**Content:** Identify circles, squares, rectangles, triangles by counting sides and corners."
+    "form_quote": "**Content:** Identify circles, squares, rectangles, triangles by counting sides and corners.",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.38,
@@ -151,7 +161,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -169,27 +187,27 @@
    "genre": "practical_guidance",
    "response": "Given the 50-word limit, here's a concise overview:\n\n**Art of Negotiation Course Outline:**\n\n1. **Fundamentals** \u2013 Communication, active listening (Coursera: *Successful Negotiation*)\n2. **Strategy & Planning** \u2013 BATNA, goal-setting (edX: *Negotiation Skills*)\n3. **Persuasion** \u2013 Emotional intelligence, framing (YouTube: Chris Voss talks)\n4. **Conflict Resolution** \u2013 Mediation, empathy (Khan Academy, Alison.com)",
    "rules": {
-    "rule2_economy": 10.0,
-    "rule3_jargon": 6.7,
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 7.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.33,
+   "clarity_avg": 6.04,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 83.3,
-   "facts_delivered": "4/4",
+   "score": 60.4,
+   "facts_delivered": "3/4",
    "detail": {
     "economy": {
      "words": 51,
      "budget": 700,
-     "facts": 4,
+     "facts": 3,
      "required": 4,
-     "coverage": 1.0,
+     "coverage": 0.75,
      "over_budget": 0.07
     },
     "jargon": {
@@ -216,15 +234,23 @@
      true,
      true,
      true,
-     true
+     false
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Given the 50-word limit, here's a concise overview:",
     "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "Given the 50-word limit, here's a concise overview:"
+    "form_quote": "Given the 50-word limit, here's a concise overview:",
+    "economy": "some_padding",
+    "economy_quote": "Given the 50-word limit, here's a concise overview:",
+    "jargon": "some_jargon",
+    "jargon_quote": "BATNA",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "here's a concise overview"
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -295,7 +321,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -318,14 +352,14 @@
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 3.0,
-    "rule7_form": 10.0
+    "rule4_imagery": 7.0,
+    "rule7_form": 5.0
    },
-   "clarity_avg": 8.41,
+   "clarity_avg": 8.26,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 84.1,
+   "score": 82.6,
    "facts_delivered": "2/4",
    "detail": {
     "economy": {
@@ -355,18 +389,26 @@
    },
    "judge": {
     "facts_delivered": [
-     false,
      true,
+     false,
      true,
      false
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "needed_an_image",
-    "imagery_quote": "**Establish authenticated digital spaces** with cryptographic identity verification.",
-    "imagery_suggestion": "Show what it looks like in practice: a town forum where every post is signed by a hardware key issued at the library counter, so an unsigned post shows up greyed out the way an unsigned letter would go in the crank pile.",
-    "form": "fits",
-    "form_quote": ""
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "**Internet Evacuation Plan:**",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -441,7 +483,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.13,
@@ -511,10 +561,18 @@
     "clarity": "clear",
     "clarity_quote": "",
     "imagery": "abstract_but_fine",
-    "imagery_quote": "Students will critically analyze the process of adapting literature to film, evaluating how narrative, themes, and characters are transformed across mediums.",
-    "imagery_suggestion": "A named example would anchor it, e.g. 'explain why the film version of The Hunger Games drops Katniss's first-person narration and what that costs the viewer.'",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "**Possible Course Objective:**"
+    "form_quote": "**Possible Course Objective:**",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -585,7 +643,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.08,
@@ -604,10 +670,10 @@
    "response": "**GARCH (Generalized Autoregressive Conditional Heteroskedasticity)** models capture how **volatility clusters** in time series\u2014big price swings follow big swings, calm follows calm. It models today's variance as a weighted sum of **past squared shocks** and **past variances**, letting uncertainty itself evolve predictably over time.",
    "rules": {
     "rule2_economy": 2.5,
-    "rule3_jargon": 10.0,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
@@ -650,13 +716,21 @@
      false,
      false
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "It models today's variance as a weighted sum of **past squared shocks** and **past variances**, letting uncertainty itself evolve predictably over time.",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "Heteroskedasticity",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.33,
@@ -727,7 +801,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -798,7 +880,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -816,27 +906,27 @@
    "genre": "seeking_information",
    "response": "**Likely diagnosis:** Vertical root fracture, failed root canal (persistent/recurrent infection), or periapical abscess. Pressure sensitivity without thermal response in a root-canal-treated tooth suggests periradicular pathology. A periapical radiograph and CBCT scan are recommended to evaluate for fracture, missed canals, or apical pathology. Retreatment or extraction may be needed.",
    "rules": {
-    "rule2_economy": 10.0,
-    "rule3_jargon": 6.5,
+    "rule2_economy": 7.5,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 5.0,
     "rule4_imagery": 7.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 8.3,
+   "clarity_avg": 7.06,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 83.0,
-   "facts_delivered": "4/4",
+   "score": 70.6,
+   "facts_delivered": "3/4",
    "detail": {
     "economy": {
      "words": 48,
      "budget": 450,
-     "facts": 4,
+     "facts": 3,
      "required": 4,
-     "coverage": 1.0,
+     "coverage": 0.75,
      "over_budget": 0.11
     },
     "jargon": {
@@ -860,18 +950,27 @@
    },
    "judge": {
     "facts_delivered": [
-     true,
+     false,
      true,
      true,
      true
     ],
     "clarity": "needs_a_reread",
     "clarity_quote": "Pressure sensitivity without thermal response in a root-canal-treated tooth suggests periradicular pathology.",
+    "clarity_quote_note": "",
     "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": ""
+    "form": "some_scaffolding",
+    "form_quote": "**Likely diagnosis:**",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "periradicular pathology",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -941,7 +1040,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1014,7 +1121,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 4.65,
@@ -1033,18 +1148,18 @@
    "response": "A carbon footprint measures total greenhouse gas emissions from an organization's activities. African businesses can mitigate theirs by adopting renewable energy (solar/wind), improving energy efficiency, embracing sustainable agriculture, reducing waste, using cleaner transportation, investing in carbon offset programs, and implementing circular economy practices suited to local contexts.",
    "rules": {
     "rule2_economy": 5.0,
-    "rule3_jargon": 10.0,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 7.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.0,
+   "clarity_avg": 8.26,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 90.0,
+   "score": 82.6,
    "facts_delivered": "2/4",
    "detail": {
     "economy": {
@@ -1082,10 +1197,18 @@
     "clarity": "clear",
     "clarity_quote": "",
     "imagery": "abstract_but_fine",
-    "imagery_quote": "implementing circular economy practices suited to local contexts",
-    "imagery_suggestion": "e.g. a Nairobi brewery selling spent grain to nearby dairy farmers as feed instead of dumping it",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "circular economy practices",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1156,7 +1279,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1178,15 +1309,15 @@
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 10.0,
+   "clarity_avg": 9.26,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 100.0,
+   "score": 92.6,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -1221,13 +1352,21 @@
      true,
      true
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "May I ask: would I be eligible to rotate in your lab if admitted through the Chemical and Biomolecular Engineering or Chemistry programs, in addition to BME?",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1298,7 +1437,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1322,13 +1469,13 @@
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 10.0,
+   "clarity_avg": 9.26,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 100.0,
+   "score": 92.6,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -1368,8 +1515,16 @@
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "**Corrected Email:**"
+    "form": "some_scaffolding",
+    "form_quote": "**Corrected Email:**",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 1.61,
@@ -1440,7 +1595,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1458,27 +1621,27 @@
    "genre": "writing_create",
    "response": "**Dear Client,**\n\nWe'd like to inform you that there has been an update regarding bank transfer fees. Going forward, a transfer fee will apply to all bank payments. Please review the updated fee structure and feel free to reach out if you have any questions.\n\nBest regards.",
    "rules": {
-    "rule2_economy": 7.5,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 5.7,
-    "rule6_filler": 10.0,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 7.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 8.64,
+   "clarity_avg": 7.62,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 86.4,
-   "facts_delivered": "3/4",
+   "score": 76.2,
+   "facts_delivered": "4/4",
    "detail": {
     "economy": {
      "words": 47,
      "budget": 130,
-     "facts": 3,
+     "facts": 4,
      "required": 4,
-     "coverage": 0.75,
+     "coverage": 1.0,
      "over_budget": 0.36
     },
     "jargon": {
@@ -1505,7 +1668,7 @@
      true,
      true,
      true,
-     false
+     true
     ],
     "clarity": "clear",
     "clarity_quote": "",
@@ -1513,7 +1676,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "We'd like to inform you that there has been an update regarding bank transfer fees.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "We'd like to inform you that"
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1535,7 +1706,7 @@
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 3.0,
     "rule7_form": 10.0
    },
@@ -1578,13 +1749,21 @@
      false,
      false
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Female vulnerability is heightened as male protection becomes essential, reinforcing gender hierarchies where women's safety depends on male presence and intervention.",
     "imagery": "needed_an_image",
-    "imagery_suggestion": "The scene where Bhaskar and Mohan stand at the window watching the assault in the building opposite, debating whether it is a 'religious ceremony' or a rape rather than calling the police, while Leela begs only that the noise be stopped \u2014 the men's talk substitutes for action, and Leela's plea is for her own comfort, not the victim's rescue.",
-    "imagery_quote": "Female vulnerability is heightened as male protection becomes essential, reinforcing gender hierarchies where women's safety depends on male presence and intervention.",
+    "imagery_quote": "The darkness symbolizes women's suppressed fears under patriarchal dominance.",
+    "imagery_suggestion": "The actual staged situation: Leela and Bhaskar in their flat while a woman is assaulted in the compound below, Bhaskar debating whether calling the police would be 'interference' \u2014 the offstage screams and the lights being switched off are the concrete image of patriarchal control and bystander silence.",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "Female vulnerability is heightened as male protection becomes essential, reinforcing gender hierarchies where women's safety depends on male presence and intervention.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1605,7 +1784,7 @@
     "rule2_economy": 2.5,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 3.0,
     "rule7_form": 10.0
@@ -1653,9 +1832,17 @@
     "clarity_quote": "",
     "imagery": "needed_an_image",
     "imagery_quote": "Before committing to a J-1 visa or any immigration path, research thoroughly and plan carefully.",
-    "imagery_suggestion": "Name what research actually looks like: verify your sponsor on the State Department's designated sponsor list, read the DS-2019 for the exact program end date, budget for the 30-day grace period after your program ends, and check current visa interview wait times at your home embassy before booking flights.",
+    "imagery_suggestion": "Name what to check: current visa interview wait times at your local U.S. consulate, whether your sponsor is a State Department-designated J-1 program, and the exact end date on your DS-2019 plus the 30-day grace period.",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "Stay safe, stay informed.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Stay safe, stay informed."
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1679,7 +1866,7 @@
     "rule6_filler": 2.6,
     "rule1_understandable": 10.0,
     "rule4_imagery": 3.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
    "clarity_avg": 5.5,
    "slop_per_1k": 44.4,
@@ -1725,9 +1912,17 @@
     "clarity_quote": "",
     "imagery": "needed_an_image",
     "imagery_quote": "Passionate about bridging the gap between data science and engineering to drive impactful, production-ready AI solutions.",
-    "imagery_suggestion": "Name the actual work: 'I built a Feast/Snowflake feature store and Airflow-orchestrated training pipelines that cut model deployment from two weeks to two days for our forecasting team.'",
-    "form": "fits",
-    "form_quote": ""
+    "imagery_suggestion": "A concrete example: \"I built a Feast-based feature store and Airflow/Kubernetes deployment path that cut model handoff from three weeks to a day, so data scientists ship without filing tickets.\"",
+    "form": "some_scaffolding",
+    "form_quote": "**Data Science Platform Engineer**",
+    "economy": "some_padding",
+    "economy_quote": "Skilled in designing robust platforms that empower data teams to deploy machine learning models efficiently.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "to drive impactful, production-ready AI solutions"
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1798,9 +1993,17 @@
     "clarity_quote": "",
     "imagery": "needed_an_image",
     "imagery_quote": "Through characters who witness a woman being assaulted but refuse to intervene, it critiques patriarchal complicity, male indifference, and the silencing of women's suffering, highlighting gender-based violence as a normalized societal problem.",
-    "imagery_suggestion": "Name the actual scene: Leela and Bhasker standing at their sixth-floor Bombay flat window, watching the nightly assault in the courtyard below while debating whether the screams are a religious ritual or a domestic matter, and whether to call the police or invite friends over to watch.",
+    "imagery_suggestion": "The play's own concrete image: Leela and Bhaskar standing at their sixth-floor drawing-room window, watching the nightly assault in the compound below while debating whether to call the police or a priest \u2014 and finally switching off the lights so they can see without being seen.",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1873,7 +2076,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "The broadcaster has not yet commented.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1944,7 +2155,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.5,
@@ -1967,7 +2186,7 @@
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
+    "rule4_imagery": 7.0,
     "rule7_form": 5.0
    },
    "clarity_avg": 5.5,
@@ -2011,11 +2230,19 @@
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "concrete",
+    "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "**Total Return = 6.45% (the YTM itself).**"
+    "form_quote": "If held to maturity, the expected total return equals the YTM of **6.45%**.",
+    "economy": "some_padding",
+    "economy_quote": "If held to maturity, the expected total return equals the YTM of **6.45%**.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -2039,13 +2266,13 @@
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 5.0
+    "rule7_form": 10.0
    },
-   "clarity_avg": 9.26,
+   "clarity_avg": 10.0,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 92.6,
+   "score": 100.0,
    "facts_delivered": "3/3",
    "detail": {
     "economy": {
@@ -2084,8 +2311,16 @@
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "some_scaffolding",
-    "form_quote": "## Finding the Nominal Interest Rate"
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -2103,19 +2338,19 @@
    "genre": "self_expression",
    "response": "An interesting topic! Let me begin:\n\nWhat do you believe makes a group of people a \"nation\"? Is it shared language, history, territory \u2014 or something deeper?\n\nAnd if a people *feel* they are a nation, is that feeling alone sufficient to justify self-governance?\n\nWhat say you?",
    "rules": {
-    "rule2_economy": 7.5,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 5.7,
-    "rule6_filler": 10.0,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 3.0,
+    "rule4_imagery": 7.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 8.05,
+   "clarity_avg": 7.62,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 80.5,
+   "score": 76.2,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -2154,11 +2389,19 @@
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "needed_an_image",
-    "imagery_quote": "What do you believe makes a group of people a \"nation\"? Is it shared language, history, territory \u2014 or something deeper?",
-    "imagery_suggestion": "Anchor it in Catalonia: 'Consider the Catalans \u2014 they speak their own tongue, remember 1714 and the fall of Barcelona, and voted in the 2017 referendum. Which of these, if any, makes them a nation rather than a region of Spain?'",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "An interesting topic! Let me begin:",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "An interesting topic! Let me begin:"
    },
    "shape": {
     "em_dash_per_100w": 2.13,

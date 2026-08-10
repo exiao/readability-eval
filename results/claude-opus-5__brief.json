@@ -5,20 +5,22 @@
   "condition": "brief",
   "n": 30,
   "errors": 0,
-  "score": 91.2,
-  "clarity_avg": 9.25,
+  "score": 87.2,
+  "clarity_avg": 8.84,
   "slop_per_1k": 1.1,
   "avg_words": 48,
   "per_rule": {
-   "rule2_economy": 7.83,
-   "rule3_jargon": 9.3,
+   "rule2_economy": 7.75,
+   "rule3_jargon": 9.02,
    "rule5_simple_words": 9.72,
    "rule6_filler": 9.89,
-   "rule1_understandable": 9.5,
-   "rule4_imagery": 8.93,
-   "rule7_form": 9.83
+   "rule1_understandable": 8.5,
+   "rule4_imagery": 8.97,
+   "rule7_form": 10.0
   },
-  "cost_usd": 0.0
+  "cost_usd": 0.0,
+  "judge_model": "anthropic/claude-opus-5",
+  "judge_backend": "openrouter"
  },
  "runs": [
   {
@@ -80,7 +82,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.04,
@@ -151,7 +161,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -222,10 +240,18 @@
     "clarity": "needs_a_reread",
     "clarity_quote": "**Cross-cultural/Closing** \u2013 *Coursera audit*",
     "imagery": "abstract_but_fine",
-    "imagery_quote": "**Persuasion/Influence** \u2013 psychology \u2192 *Alison: Persuasion*",
-    "imagery_suggestion": "Name the actual skills, e.g. 'reciprocity and anchoring tactics \u2014 opening a salary talk at $95k so $85k feels like a concession'",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "ZOPA",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -243,29 +269,29 @@
    "genre": "practical_guidance",
    "response": "**Robot voice effects:**\n\n- **Ring modulation** \u2014 classic Dalek/metallic tone\n- **Vocoder** \u2014 voice carried by synth tone\n- **Pitch shift** \u2014 lower, flatter delivery\n- **Bitcrusher/downsampling** \u2014 digital, lo-fi grit\n- **Flanger/chorus** \u2014 metallic shimmer\n- **Short delay/comb filter** \u2014 hollow resonance\n- **Distortion + EQ** \u2014 thin, mid-heavy tone\n- **Monotone pitch correction**",
    "rules": {
-    "rule2_economy": 5.0,
+    "rule2_economy": 2.5,
     "rule3_jargon": 7.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 5.0
+    "rule7_form": 10.0
    },
-   "clarity_avg": 8.26,
+   "clarity_avg": 5.5,
    "slop_per_1k": 12.7,
    "slop_breakdown": {
     "inline_header_list": 7
    },
    "slop_tax": 0.191,
-   "score": 66.9,
-   "facts_delivered": "2/4",
+   "score": 44.5,
+   "facts_delivered": "1/4",
    "detail": {
     "economy": {
      "words": 55,
      "budget": 350,
-     "facts": 2,
+     "facts": 1,
      "required": 4,
-     "coverage": 0.5,
+     "coverage": 0.25,
      "over_budget": 0.16
     },
     "jargon": {
@@ -290,7 +316,7 @@
    "judge": {
     "facts_delivered": [
      true,
-     true,
+     false,
      false,
      false
     ],
@@ -299,8 +325,16 @@
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "some_scaffolding",
-    "form_quote": "**Robot voice effects:**"
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 12.73,
@@ -318,27 +352,27 @@
    "genre": "practical_guidance",
    "response": "**Evacuate to trust, not offline.**\n\n1. Shift to signed, verifiable sources and cryptographic provenance.\n2. Rebuild small, human-scale networks: local mesh, invite-only forums, in-person groups.\n3. Restore print, radio, libraries as fallback.\n4. Treat unsigned content as noise.\n5. Keep the wires; abandon the algorithmic feeds.",
    "rules": {
-    "rule2_economy": 5.0,
-    "rule3_jargon": 10.0,
+    "rule2_economy": 7.5,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.44,
+   "clarity_avg": 8.24,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 94.4,
-   "facts_delivered": "2/4",
+   "score": 82.4,
+   "facts_delivered": "3/4",
    "detail": {
     "economy": {
      "words": 46,
      "budget": 500,
-     "facts": 2,
+     "facts": 3,
      "required": 4,
-     "coverage": 0.5,
+     "coverage": 0.75,
      "over_budget": 0.09
     },
     "jargon": {
@@ -360,18 +394,26 @@
    },
    "judge": {
     "facts_delivered": [
-     false,
+     true,
      true,
      true,
      false
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Evacuate to trust, not offline.",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "cryptographic provenance",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -390,18 +432,18 @@
    "response": "With \u20b930k/month, keep your EMI under ~40\u201350% of income (\u20b912,000\u201315,000). At ~9% interest over 20 years, that supports roughly \u20b913\u201317 lakh. Add your down payment (10\u201320%) for total budget. Reduce this if you have existing loans or dependents.",
    "rules": {
     "rule2_economy": 7.5,
-    "rule3_jargon": 5.6,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.07,
+   "clarity_avg": 8.24,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 90.7,
+   "score": 82.4,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -438,13 +480,21 @@
      true,
      false
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Add your down payment (10\u201320%) for total budget.",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "EMI",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -466,15 +516,15 @@
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 7.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.56,
+   "clarity_avg": 8.81,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 95.6,
+   "score": 88.1,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -509,13 +559,21 @@
      true,
      true
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Through presenting, they practise critical comparison, argue why adaptation choices were made, and develop research, media-literacy, and public-speaking skills while appreciating the distinct strengths of each medium.",
     "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -586,7 +644,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.08,
@@ -609,7 +675,7 @@
     "rule5_simple_words": 5.8,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0,
+    "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
    "clarity_avg": 5.5,
@@ -655,11 +721,19 @@
     ],
     "clarity": "needs_a_reread",
     "clarity_quote": "Model: return r\u209c = \u03c3\u209cz\u209c, with",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "Require \u03c9>0, \u03b1+\u03b2<1 for stability.",
-    "imagery_suggestion": "A bell struck once: each shock rings and fades: if \u03b1+\u03b2 is under 1 the ringing dies away toward the long-run average volatility; at 1 or above the noise never settles and the model explodes.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "z\u209c",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.08,
@@ -730,7 +804,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -749,18 +831,18 @@
    "response": "You likely mean **oldweb.today** (emulated vintage browsers hitting web archives) or **pywb**, which you can self-host as an HTTP proxy replaying WARCs/Wayback content at a set date. The Wayback Machine also supports **Memento** time-travel headers. Note: dynamic sites, ads, and logins won't work.",
    "rules": {
     "rule2_economy": 7.5,
-    "rule3_jargon": 6.1,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.14,
+   "clarity_avg": 8.24,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 91.4,
+   "score": 82.4,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -797,13 +879,21 @@
      false,
      true
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "You likely mean **oldweb.today** (emulated vintage browsers hitting web archives) or **pywb**, which you can self-host as an HTTP proxy replaying WARCs/Wayback content at a set date.",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "WARCs",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -822,18 +912,18 @@
    "response": "**Assessment:** Absent thermal response is expected \u2014 the pulp is gone. Pain on biting indicates periradicular/periodontal origin: persistent apical periodontitis (missed canal, failed/reinfected root canal), vertical root fracture, high occlusion, loose crown, or perio abscess.\n\n**Workup:** percussion/bite test, periodontal probing (isolated deep pocket = fracture), periapical radiograph, CBCT. Treat accordingly.",
    "rules": {
     "rule2_economy": 7.5,
-    "rule3_jargon": 6.7,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 5.0,
     "rule4_imagery": 7.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 8.05,
+   "clarity_avg": 7.8,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 80.5,
+   "score": 78.0,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -876,7 +966,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "periradicular",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.0,
@@ -899,14 +997,14 @@
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
+    "rule4_imagery": 7.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 10.0,
+   "clarity_avg": 9.56,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 100.0,
+   "score": 95.6,
    "facts_delivered": "3/3",
    "detail": {
     "economy": {
@@ -942,11 +1040,19 @@
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "concrete",
+    "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1018,7 +1124,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 4.08,
@@ -1041,14 +1155,14 @@
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
+    "rule4_imagery": 7.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.72,
+   "clarity_avg": 9.28,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 97.2,
+   "score": 92.8,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -1085,11 +1199,19 @@
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "concrete",
+    "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1160,7 +1282,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1231,7 +1361,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1249,7 +1387,7 @@
    "genre": "writing_edit",
    "response": "Only minor fixes:\n\n1. **\"Anu, Anui-El and Anri-El\"** \u2014 add a serial comma (\"Anui-El, and Anri-El\") to match your second list.\n2. **\"related like father and sons\"** \u2014 use \"like a father and sons\" or \"as father and sons.\"\n3. Optional: trim \"by the time of the events of the games\" to \"by the games' events.\"\n\nOtherwise, grammatically sound.",
    "rules": {
-    "rule2_economy": 5.0,
+    "rule2_economy": 2.5,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
@@ -1257,19 +1395,19 @@
     "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.44,
+   "clarity_avg": 5.5,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 94.4,
-   "facts_delivered": "2/4",
+   "score": 55.0,
+   "facts_delivered": "1/4",
    "detail": {
     "economy": {
      "words": 59,
      "budget": 250,
-     "facts": 2,
+     "facts": 1,
      "required": 4,
-     "coverage": 0.5,
+     "coverage": 0.25,
      "over_budget": 0.24
     },
     "jargon": {
@@ -1294,7 +1432,7 @@
      true,
      false,
      false,
-     true
+     false
     ],
     "clarity": "clear",
     "clarity_quote": "",
@@ -1302,7 +1440,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 3.39,
@@ -1373,7 +1519,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 1.67,
@@ -1444,7 +1598,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 1.92,
@@ -1515,7 +1677,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1582,11 +1752,20 @@
     ],
     "clarity": "needs_a_reread",
     "clarity_quote": "Women's voices are trivialised, the victim's screams reinterpreted as ritual or spectacle, and middle-class male respectability, voyeurism and apathy normalise sexual violence through complicit silence.",
+    "clarity_quote_note": "",
     "imagery": "needed_an_image",
     "imagery_quote": "Women's voices are trivialised, the victim's screams reinterpreted as ritual or spectacle, and middle-class male respectability, voyeurism and apathy normalise sexual violence through complicit silence.",
-    "imagery_suggestion": "The literal stage picture: Bhaskar and his friends crowding the window of a comfortable Bombay flat, drinks in hand, debating whether the screams from the building opposite are a religious ceremony or a 'private matter', while Leela keeps the lights off and Naina alone demands they call the police.",
+    "imagery_suggestion": "Show the actual scene: Mohan arriving with the eagerness of a guest at a show, the men crowding the balcony window to watch the assault below while Leela offers tea and Bhaskar insists that phoning the police is 'not our business'.",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1609,14 +1788,14 @@
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 3.0,
+    "rule4_imagery": 7.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 8.69,
+   "clarity_avg": 9.28,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 86.9,
+   "score": 92.8,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -1653,11 +1832,19 @@
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "needed_an_image",
-    "imagery_quote": "Research your sponsor, know your rights, and verify every offer before traveling.",
-    "imagery_suggestion": "Name the concrete check: look the sponsor up in the State Department's official designated J-1 sponsor list, call the number listed there (not the one in the email), and never wire a 'placement fee' before you see the signed DS-2019.",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.0,
@@ -1730,7 +1917,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 4.08,
@@ -1752,15 +1947,15 @@
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 7.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.72,
+   "clarity_avg": 8.54,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 97.2,
+   "score": 85.4,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -1795,13 +1990,21 @@
      true,
      false
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Padmanabhan exposes patriarchal apathy: men rationalize inaction, Leela's terror is dismissed, Frieda's servant-silence signals class-gendered voicelessness.",
+    "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1872,7 +2075,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1943,7 +2154,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -2014,7 +2233,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -2084,7 +2311,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -2106,15 +2341,15 @@
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.56,
+   "clarity_avg": 9.26,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 95.6,
+   "score": 92.6,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -2149,13 +2384,21 @@
      true,
      true
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "And if nationhood rests on collective will, may that will change tomorrow \u2014 or bind those unborn?",
     "imagery_quote": "",
+    "imagery": "concrete",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.08,

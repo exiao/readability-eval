@@ -5,20 +5,22 @@
   "condition": "brief",
   "n": 30,
   "errors": 0,
-  "score": 78.5,
-  "clarity_avg": 8.07,
+  "score": 77.2,
+  "clarity_avg": 7.94,
   "slop_per_1k": 2.2,
   "avg_words": 49,
   "per_rule": {
-   "rule2_economy": 6.0,
-   "rule3_jargon": 9.73,
+   "rule2_economy": 5.67,
+   "rule3_jargon": 8.8,
    "rule5_simple_words": 9.57,
-   "rule6_filler": 9.76,
-   "rule1_understandable": 9.67,
-   "rule4_imagery": 8.17,
+   "rule6_filler": 9.37,
+   "rule1_understandable": 8.67,
+   "rule4_imagery": 7.7,
    "rule7_form": 8.83
   },
-  "cost_usd": 0.0
+  "cost_usd": 0.0,
+  "judge_model": "anthropic/claude-opus-5",
+  "judge_backend": "openrouter"
  },
  "runs": [
   {
@@ -84,7 +86,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 1.2,
@@ -155,7 +165,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -173,27 +191,27 @@
    "genre": "practical_guidance",
    "response": "# Art of Negotiation Course\n\n## Sub-Topics & Skills\n\n**1. Fundamentals**\n- Active listening, communication\n- *Coursera: \"Successful Negotiation\" (Michigan)*\n\n**2. Psychology**\n- Emotional intelligence, persuasion\n- *edX: \"Negotiation & Leadership\"*\n\n**3. Conflict Resolution**\n- Mediation, problem-solving\n- *YouTube: PON Harvard lectures*\n\n**4. Advanced Tactics**\n- BATNA, anchoring\n- *Alison: \"Negotiation Skills\"*",
    "rules": {
-    "rule2_economy": 7.5,
-    "rule3_jargon": 6.8,
+    "rule2_economy": 10.0,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 5.0
+    "rule7_form": 10.0
    },
-   "clarity_avg": 8.51,
+   "clarity_avg": 9.26,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 85.1,
-   "facts_delivered": "3/4",
+   "score": 92.6,
+   "facts_delivered": "4/4",
    "detail": {
     "economy": {
      "words": 52,
      "budget": 700,
-     "facts": 3,
+     "facts": 4,
      "required": 4,
-     "coverage": 0.75,
+     "coverage": 1.0,
      "over_budget": 0.07
     },
     "jargon": {
@@ -220,15 +238,23 @@
      true,
      true,
      true,
-     false
+     true
     ],
     "clarity": "clear",
     "clarity_quote": "",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "some_scaffolding",
-    "form_quote": "## Sub-Topics & Skills"
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "BATNA",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -299,9 +325,17 @@
     "clarity_quote": "",
     "imagery": "abstract_but_fine",
     "imagery_quote": "**Robotic formant shifting**",
-    "imagery_suggestion": "e.g. 'shift formants up ~20% so the voice sounds like a small metal box is talking, as in the classic Cylon voice'",
+    "imagery_suggestion": "e.g. 'shift the formants up a couple of semitones while keeping the pitch flat, so the voice sounds like a small metal throat'",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -319,12 +353,12 @@
    "genre": "practical_guidance",
    "response": "**Internet Evacuation Plan (sketch):**\n\n- Promote local mesh networks\n- Revive print/radio for critical information\n- Establish verified human-only communication channels\n- Encourage in-person community assemblies\n- Develop offline-first infrastructure\n- Create digital literacy brigades\n- Regulatory \"circuit breakers\" for harmful platforms\n\nGradual migration, not sudden shutdown.",
    "rules": {
-    "rule2_economy": 2.5,
-    "rule3_jargon": 10.0,
+    "rule2_economy": 0.0,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0,
+    "rule4_imagery": 3.0,
     "rule7_form": 10.0
    },
    "clarity_avg": 5.5,
@@ -332,15 +366,14 @@
    "slop_breakdown": {},
    "slop_tax": 0.0,
    "score": 55.0,
-   "facts_delivered": "1/4",
+   "facts_delivered": "0/4",
    "detail": {
     "economy": {
      "words": 47,
-     "budget": 500,
-     "facts": 1,
+     "facts": 0,
      "required": 4,
-     "coverage": 0.25,
-     "over_budget": 0.09
+     "coverage": 0.0,
+     "note": "no facts delivered"
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -362,17 +395,25 @@
    "judge": {
     "facts_delivered": [
      false,
-     true,
+     false,
      false,
      false
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": "",
+    "imagery": "needed_an_image",
+    "imagery_quote": "Develop offline-first infrastructure",
+    "imagery_suggestion": "A public library that keeps a full offline copy of Wikipedia on a local drive, plus USB sticks patrons can borrow \u2014 software that works first from the local disk and only syncs when a connection appears.",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "digital literacy brigades",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -391,18 +432,18 @@
    "response": "## Home Loan Eligibility (\u20b930K/month salary)\n\n**General Rule:** Banks typically offer **40-50x of annual salary**\n\n- **Annual Salary:** \u20b93,60,000\n- **Recommended Loan:** \u20b918\u201320 Lakhs (approx.)\n\n**EMI shouldn't exceed 40-50% of monthly income** (~\u20b912,000\u201315,000/month).\n\nConsider down payment, tenure, and interest rates before deciding. \ud83c\udfe0",
    "rules": {
     "rule2_economy": 5.0,
-    "rule3_jargon": 6.1,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 5.0
+    "rule7_form": 10.0
    },
-   "clarity_avg": 7.39,
+   "clarity_avg": 7.96,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 73.9,
+   "score": 79.6,
    "facts_delivered": "2/4",
    "detail": {
     "economy": {
@@ -444,8 +485,16 @@
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "some_scaffolding",
-    "form_quote": "## Home Loan Eligibility (\u20b930K/month salary)"
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "EMI",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -467,15 +516,15 @@
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 7.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.54,
+   "clarity_avg": 7.8,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 85.4,
+   "score": 78.0,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -510,13 +559,21 @@
      false,
      true
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "To develop students' **critical analysis skills** by examining how literary works are transformed into films, comparing narrative techniques, visual storytelling, and creative choices, while enhancing **presentation and communication abilities** through structured discussion of cinematic adaptations.",
     "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "## Class Objective"
+    "form_quote": "## Class Objective",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -587,7 +644,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.08,
@@ -605,8 +670,8 @@
    "genre": "practical_guidance",
    "response": "# GARCH Model in 60 Words\n\n**Volatility clusters** \u2014 calm markets stay calm, wild markets stay wild.\n\nGARCH captures this by modeling *today's variance* using:\n- Yesterday's variance (persistence)\n- Yesterday's surprise\u00b2 (shock)\n\n$$\\sigma_t^2 = \\omega + \\alpha\\varepsilon_{t-1}^2 + \\beta\\sigma_{t-1}^2$$\n\n**Think:** volatility has *memory*. GARCH quantifies exactly how much.",
    "rules": {
-    "rule2_economy": 0.0,
-    "rule3_jargon": 10.0,
+    "rule2_economy": 2.5,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 5.0,
@@ -618,14 +683,15 @@
    "slop_breakdown": {},
    "slop_tax": 0.0,
    "score": 55.0,
-   "facts_delivered": "0/4",
+   "facts_delivered": "1/4",
    "detail": {
     "economy": {
      "words": 49,
-     "facts": 0,
+     "budget": 750,
+     "facts": 1,
      "required": 4,
-     "coverage": 0.0,
-     "note": "no facts delivered"
+     "coverage": 0.25,
+     "over_budget": 0.07
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -646,7 +712,7 @@
    },
    "judge": {
     "facts_delivered": [
-     false,
+     true,
      false,
      false,
      false
@@ -657,7 +723,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "# GARCH Model in 60 Words"
+    "form_quote": "# GARCH Model in 60 Words",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "\\varepsilon_{t-1}^2",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.04,
@@ -728,7 +802,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -747,11 +829,11 @@
    "response": "**Wayback Machine** by Internet Archive (archive.org) lets you browse old websites. Use **Wayback Machine Proxy** or tools like **OldWeb.today** to experience the web as it looked in 2008, including rendering pages with period-accurate browsers.",
    "rules": {
     "rule2_economy": 2.5,
-    "rule3_jargon": 10.0,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
+    "rule4_imagery": 7.0,
     "rule7_form": 10.0
    },
    "clarity_avg": 5.5,
@@ -795,11 +877,19 @@
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "concrete",
+    "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "Wayback Machine Proxy",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -818,18 +908,18 @@
    "response": "**Likely diagnosis: Cracked tooth or occlusal trauma.**\n\nPost-RCT teeth with pressure pain but no thermal sensitivity suggest a **vertical root fracture**, **high occlusal contact**, or **periapical pathology** (failed RCT). Recommend periapical X-ray, bite test, and probing. Vertical fractures often necessitate extraction.",
    "rules": {
     "rule2_economy": 5.0,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 5.1,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 5.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 7.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 8.27,
+   "clarity_avg": 6.78,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 82.7,
+   "score": 67.8,
    "facts_delivered": "2/4",
    "detail": {
     "economy": {
@@ -866,13 +956,22 @@
      true,
      false
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Post-RCT teeth with pressure pain but no thermal sensitivity suggest a **vertical root fracture**, **high occlusal contact**, or **periapical pathology** (failed RCT).",
+    "clarity_quote_note": "",
     "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "periapical pathology",
+    "simple_words": "some_complex",
+    "simple_words_quote": "necessitate",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -895,14 +994,14 @@
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0,
+    "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.56,
+   "clarity_avg": 10.0,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 95.6,
+   "score": 100.0,
    "facts_delivered": "3/3",
    "detail": {
     "economy": {
@@ -938,11 +1037,19 @@
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "abstract_but_fine",
+    "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1014,7 +1121,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1033,18 +1148,18 @@
    "response": "**Carbon footprint** is the total greenhouse gas emissions caused by an individual, organization, or activity.\n\nAfrican businesses can mitigate theirs by:\n- Adopting solar/renewable energy\n- Improving energy efficiency\n- Reducing waste\n- Using sustainable supply chains\n- Planting trees\n- Implementing carbon offset programs",
    "rules": {
     "rule2_economy": 5.0,
-    "rule3_jargon": 10.0,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0,
+    "rule4_imagery": 3.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.0,
+   "clarity_avg": 7.67,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 90.0,
+   "score": 76.7,
    "facts_delivered": "2/4",
    "detail": {
     "economy": {
@@ -1081,11 +1196,19 @@
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "abstract_but_fine",
+    "imagery": "needed_an_image",
     "imagery_quote": "Using sustainable supply chains",
-    "imagery_suggestion": "e.g. sourcing packaging from a nearby local supplier instead of importing, cutting both freight emissions and customs costs",
+    "imagery_suggestion": "A concrete case: a Nairobi food processor buying cartons from a local packaging plant instead of importing them from Asia, cutting both shipping emissions and freight costs.",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "carbon offset programs",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1103,19 +1226,19 @@
    "genre": "writing_edit",
    "response": "Here's a revised message:\n\n**Exciting School Visits!** \ud83c\udf92\nJoin us next **Thursday & Friday** as we explore two schools! Your child will experience real **Grade 1 classes** across different subjects. A wonderful opportunity for both of you! **Sign up now** and enjoy this adventure together! \ud83d\ude0a",
    "rules": {
-    "rule2_economy": 10.0,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 10.0,
+   "clarity_avg": 8.7,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 100.0,
+   "score": 87.0,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -1155,8 +1278,16 @@
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": ""
+    "form": "some_scaffolding",
+    "form_quote": "Here's a revised message:",
+    "economy": "some_padding",
+    "economy_quote": "A wonderful opportunity for both of you!",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1227,7 +1358,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.04,
@@ -1248,9 +1387,9 @@
     "rule2_economy": 2.5,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 7.0,
     "rule7_form": 10.0
    },
    "clarity_avg": 5.5,
@@ -1292,13 +1431,21 @@
      false,
      false
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Consider a closing paragraph break for readability.",
+    "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Well done!"
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1322,13 +1469,13 @@
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 9.44,
+   "clarity_avg": 8.7,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 94.4,
+   "score": 87.0,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -1370,8 +1517,16 @@
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": ""
+    "form": "some_scaffolding",
+    "form_quote": "Here's the corrected version:",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1442,7 +1597,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.0,
@@ -1460,7 +1623,7 @@
    "genre": "writing_create",
    "response": "Here's a message for the client:\n\n---\n\n\"Dear Client, please note that effective soon, a **bank transfer fee** will apply to future transactions. We want to ensure you're informed in advance. Please don't hesitate to reach out if you have any questions. Thank you for your understanding!\"",
    "rules": {
-    "rule2_economy": 7.5,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
@@ -1468,11 +1631,11 @@
     "rule4_imagery": 7.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 8.54,
+   "clarity_avg": 8.26,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 85.4,
+   "score": 82.6,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
@@ -1510,10 +1673,18 @@
     "clarity": "clear",
     "clarity_quote": "",
     "imagery": "abstract_but_fine",
-    "imagery_quote": "\"Dear Client, please note that effective soon, a **bank transfer fee** will apply to future transactions.",
-    "imagery_suggestion": "A specific figure and date, e.g. \"from 1 March, a $15 bank transfer fee will be added to each invoice paid by wire\"",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "Here's a message for the client:"
+    "form_quote": "Here's a message for the client:",
+    "economy": "some_padding",
+    "economy_quote": "We want to ensure you're informed in advance.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1535,7 +1706,7 @@
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 3.0,
     "rule7_form": 10.0
    },
@@ -1580,13 +1751,21 @@
      false,
      false
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Diana's mental health history causes her concerns to be pathologized rather than believed.",
     "imagery": "needed_an_image",
     "imagery_quote": "Male authority figures\u2014psychiatrists, partners\u2014undermine female knowledge, forcing women to fight the danger largely alone, reflecting broader systemic silencing of women.",
-    "imagery_suggestion": "A specific staged moment would anchor this: Leela drawing the curtains and keeping her eyes on the drawing room while the assault continues in the courtyard below, and Bhaskar debating whether the noise is a 'religious ceremony' rather than acting.",
+    "imagery_suggestion": "The balcony scene: Bhaskar and Mohan standing at the window debating definitions and phone calls while the screams continue below, and Leela pleading to be allowed to act.",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 4.0,
@@ -1607,26 +1786,26 @@
     "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 3.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 8.41,
+   "clarity_avg": 7.67,
    "slop_per_1k": 5.0,
    "slop_breakdown": {
     "staccato": 1
    },
    "slop_tax": 0.075,
-   "score": 77.8,
-   "facts_delivered": "2/4",
+   "score": 70.9,
+   "facts_delivered": "3/4",
    "detail": {
     "economy": {
      "words": 52,
      "budget": 450,
-     "facts": 2,
+     "facts": 3,
      "required": 4,
-     "coverage": 0.5,
+     "coverage": 0.75,
      "over_budget": 0.12
     },
     "jargon": {
@@ -1650,16 +1829,24 @@
     "facts_delivered": [
      false,
      true,
-     false,
+     true,
      true
     ],
     "clarity": "clear",
     "clarity_quote": "",
     "imagery": "needed_an_image",
     "imagery_quote": "Until America reforms its immigration system, J-1 visa holders and immigrants face unpredictable risks.",
-    "imagery_suggestion": "A named example, e.g. a J-1 summer student whose visa interview slot at the embassy is pushed six months out, so she arrives after her hotel job has already been filled \u2014 or a DS-2019 extension denied mid-program, forcing a departure within 30 days.",
+    "imagery_suggestion": "Name one real risk: a J-1 student whose consulate suspends interviews mid-summer and who misses the program start date, or a trainee whose sponsor loses accreditation after they have already paid airfare.",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "Your safety and future matter \u2014 make informed decisions before committing to any U.S. visa journey.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Your safety and future matter"
    },
    "shape": {
     "em_dash_per_100w": 1.92,
@@ -1677,10 +1864,10 @@
    "genre": "writing_create",
    "response": "Here's a LinkedIn summary:\n\n**\"Data Science Platform Engineer | ML Enthusiast**\n\nBuilding scalable data science infrastructure that empowers teams to deliver impactful ML solutions. Experienced in designing robust pipelines, deploying models, and bridging the gap between engineering and data science. Passionate about turning complex data challenges into production-ready platforms.\"",
    "rules": {
-    "rule2_economy": 2.5,
+    "rule2_economy": 0.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 6.6,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 3.0,
     "rule7_form": 5.0
@@ -1692,15 +1879,14 @@
    },
    "slop_tax": 0.3,
    "score": 38.5,
-   "facts_delivered": "1/4",
+   "facts_delivered": "0/4",
    "detail": {
     "economy": {
      "words": 49,
-     "budget": 260,
-     "facts": 1,
+     "facts": 0,
      "required": 4,
-     "coverage": 0.25,
-     "over_budget": 0.19
+     "coverage": 0.0,
+     "note": "no facts delivered"
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -1721,7 +1907,7 @@
    },
    "judge": {
     "facts_delivered": [
-     true,
+     false,
      false,
      false,
      false
@@ -1729,10 +1915,18 @@
     "clarity": "clear",
     "clarity_quote": "",
     "imagery": "needed_an_image",
-    "imagery_quote": "Building scalable data science infrastructure that empowers teams to deliver impactful ML solutions.",
-    "imagery_suggestion": "Name the actual stack and an outcome: 'I build the Airflow + Spark + Kubernetes backbone that moves a feature pipeline from a notebook prototype to 200M events a day in production \u2014 and cut model deploy time from two weeks to an afternoon.'",
+    "imagery_quote": "Passionate about turning complex data challenges into production-ready platforms.",
+    "imagery_suggestion": "A concrete instance: \"I rebuilt our feature store on Spark and Airflow so a model that took two weeks to ship now goes to production in an afternoon.\"",
     "form": "some_scaffolding",
-    "form_quote": "**\"Data Science Platform Engineer | ML Enthusiast**"
+    "form_quote": "Here's a LinkedIn summary:",
+    "economy": "some_padding",
+    "economy_quote": "Here's a LinkedIn summary:",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "impactful ML solutions"
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1801,9 +1995,17 @@
     "clarity_quote": "",
     "imagery": "needed_an_image",
     "imagery_quote": "It exposes patriarchal apathy, female vulnerability, and societal complicity in violence against women.",
-    "imagery_suggestion": "The play's own central image: Leela and Bhaskar standing at their apartment window, watching the assault in the building opposite while arguing over whether the noise is a religious ritual, a wedding, or a crime \u2014 and whether calling the police would be 'getting involved.' That window frame, which turns atrocity into a nightly spectacle for a middle-class living room, is the concrete picture of the complicity being described.",
+    "imagery_suggestion": "The neighbours who hear the screams from the building's construction site and debate whether to look, with Bhaskar refusing to phone the police while Leela stands at the window \u2014 one named scene would anchor the whole abstraction.",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "The play critiques masculinity's brutality and collective moral failure, making it a powerful feminist statement about gender-based violence and systemic silence.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1825,15 +2027,15 @@
     "rule3_jargon": 10.0,
     "rule5_simple_words": 5.9,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 8.84,
+   "clarity_avg": 8.1,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 88.4,
+   "score": 81.0,
    "facts_delivered": "2/4",
    "detail": {
     "economy": {
@@ -1870,13 +2072,21 @@
      false,
      true
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Fans flooded social media expressing concern, with many mid-purchase calls suddenly cut off.",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -1894,19 +2104,19 @@
    "genre": "technical_help",
    "response": "Use `pd.to_numeric` or cast to a nullable integer type where applicable, but for floats specifically, trailing zeros don't actually exist in memory \u2014 they only appear during display. Fix display with:\n\n```python\npd.options.display.float_format = '{:g}'.format\n```",
    "rules": {
-    "rule2_economy": 10.0,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 10.0,
+   "clarity_avg": 8.7,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 100.0,
+   "score": 87.0,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
@@ -1941,13 +2151,21 @@
      true,
      true
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Use `pd.to_numeric` or cast to a nullable integer type where applicable, but for floats specifically, trailing zeros don't actually exist in memory \u2014 they only appear during display.",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "Use `pd.to_numeric` or cast to a nullable integer type where applicable",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.78,
@@ -1965,7 +2183,7 @@
    "genre": "technical_help",
    "response": "**Total Return \u2248 6.45%**\n\nWe assume all coupon payments are **reinvested at the YTM of 6.45%** throughout the 10-year holding period. If reinvestment rates differ, actual total return will vary. Holding to maturity eliminates price/market risk.",
    "rules": {
-    "rule2_economy": 2.5,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
@@ -1973,19 +2191,19 @@
     "rule4_imagery": 7.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 5.5,
+   "clarity_avg": 9.0,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 55.0,
-   "facts_delivered": "1/4",
+   "score": 90.0,
+   "facts_delivered": "2/4",
    "detail": {
     "economy": {
      "words": 36,
      "budget": 220,
-     "facts": 1,
+     "facts": 2,
      "required": 4,
-     "coverage": 0.25,
+     "coverage": 0.5,
      "over_budget": 0.16
     },
     "jargon": {
@@ -2007,7 +2225,7 @@
    },
    "judge": {
     "facts_delivered": [
-     false,
+     true,
      false,
      true,
      false
@@ -2018,7 +2236,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -2041,14 +2267,14 @@
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
+    "rule4_imagery": 7.0,
     "rule7_form": 5.0
    },
-   "clarity_avg": 9.26,
+   "clarity_avg": 8.81,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 92.6,
+   "score": 88.1,
    "facts_delivered": "3/3",
    "detail": {
     "economy": {
@@ -2084,11 +2310,19 @@
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "concrete",
+    "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "some_scaffolding",
-    "form_quote": "## Nominal Interest Rate Calculation"
+    "form_quote": "## Nominal Interest Rate Calculation",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
@@ -2159,7 +2393,15 @@
     "imagery_quote": "",
     "imagery_suggestion": "",
     "form": "fits",
-    "form_quote": ""
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 2.27,

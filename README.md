@@ -88,13 +88,16 @@ Sources: [Wikipedia's Signs of AI writing](https://en.wikipedia.org/wiki/Wikiped
 
 ## Limitations
 
-**Truncation still buys points, and this is the largest open problem here.** On the current 338-response corpus, cutting an answer in half improves its score 51% of the time, worst case by 38.1 points. Halving a response cannot make it better, so any gain is the benchmark measuring the wrong thing. Do not read small gaps in these tables as meaningful until it is fixed.
+**There is no system prompt.** Every model gets `"You are a helpful assistant."` and nothing else: no style guide, no harness, no skills. A prompt fixes most of what this measures, and that is the point. The question is whether you have to write one, not whether one would work. If you ship a product with a real system prompt, these scores do not describe what your users see.
 
-**The judge grades its own family.** `claude-opus-5` scores every model here including itself, and lands fifth. `rejudge.py` re-scores saved responses with a different judge, and a judge swap already moved every score by 2 to 5 points and reordered the bottom of the table.
+**One judge scores everything, and it is `claude-opus-5`.** A model from one of the families being ranked grades all thirteen rows, including its own. It puts itself fifth, which is not what naive self-preference looks like, but nothing here rules the bias out. `rejudge.py` re-scores saved responses with a different judge and no regeneration:
 
-**Most of the detector patterns never fire.** 18 of 21 filler patterns and 43 of 49 first-draft jargon terms appeared zero times on real responses. They were written against textbook bad writing that current models do not produce. Treat a clean score on rules 3 and 6 as unproven.
+```bash
+python3 -m readability_eval.rejudge --label gpt-5.6-terra \
+    --judge-model <a model outside this table> --judge-backend openrouter
+```
 
-Also worth knowing: scores from before commit `cacf8cf` are not comparable, since rules 1, 3, 5 and 6 had no judged half then. The word budgets were set by a model and are not ground truth. 30 prompts is a small sample, so gaps under about 3 points are noise. English only.
+A judge swap has already moved every score by 2 to 5 points and reordered the bottom of the table. Judge choice is part of the result here, not a detail. Run it before citing this ranking.
 
 ## Run it
 
@@ -107,21 +110,11 @@ python3 -m readability_eval.run --model google/gemini-3.5-flash
 python3 -m readability_eval.report
 ```
 
-Standard library only. A run is 30 prompts plus 30 judge calls, which cost $4 to $6 per model against Opus as the judge, and `--limit 5` gives you a cheap smoke run.
+Standard library only, one key, no judge flags. A run is 30 prompts plus 30 judge calls, $4 to $6 per model against Opus as the judge. `--limit 5` gives you a cheap smoke run.
 
-| Variable | Used by | Notes |
-|---|---|---|
-| `OPENROUTER_API_KEY` | `--backend openrouter` (default) | Required |
-| `ANTHROPIC_API_KEY` | `--backend anthropic` | `ANTHROPIC_TOKEN` is also accepted |
-| `ANTHROPIC_BASE_URL` | `--backend anthropic` | Optional, routes both the model and the judge through one endpoint |
-
-**Keep a run on one backend.** The judge follows `--backend` unless you override it, and the saved summary records both, so a mixed run is visible afterwards instead of silent.
-
-`run_all.sh` runs every model, `run_others.sh` the non-Claude models through a proxy judge, `run_brief.sh` the brief condition, `run_claude.sh` the Claude family.
+For Claude models use `--backend anthropic` with `ANTHROPIC_API_KEY`, and point `ANTHROPIC_BASE_URL` at a proxy if you have one. `run_all.sh` runs every model, `run_brief.sh` the brief condition.
 
 Every run opens with a contamination probe: it asks the backend what tools it has and refuses to start if the answer looks like an agent rather than a bare model. Two full runs were thrown away before that existed.
-
-Use a judge from a different family than the model you are testing, and check it with `rejudge.py`.
 
 ## License
 

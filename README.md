@@ -10,14 +10,14 @@ Score = clarity x (1 - slop tax)
 
 ## Results
 
-30 real user prompts per model. Judge: `claude-opus-5`.
+30 real user prompts per model. Judge: `claude-opus-5` — the same family as every model in this table, including itself. See [Isn't the judge biased?](#limitations) before reading the order as settled.
 
-| Score | Model | Slop/1k | Words | Economy | Form |
+| Score | Model | Slop/1k | Words | Filler | Form |
 |:---:|---|---:|---:|---:|---:|
-| 🥇 **91.8** | `claude-opus-5` | 0.9 | 558 | 6.9 | 8.7 |
-| 🥈 **85.9** | `claude-opus-4-6` | 2.8 | 571 | 7.1 | 7.2 |
-| 🥉 **83.9** | `claude-sonnet-4-6` | 3.4 | 531 | 7.4 | 6.8 |
-| **82.4** | `claude-haiku-4-5` | 2.2 | 329 | 7.4 | 5.3 |
+| 🥇 **85.7** | `claude-opus-5` | 0.9 | 558 | 9.8 | 8.8 |
+| 🥈 **76.2** | `claude-opus-4-6` | 2.8 | 571 | 7.9 | 6.7 |
+| 🥉 **75.3** | `claude-haiku-4-5` | 2.2 | 329 | 7.8 | 6.3 |
+| **72.7** | `claude-sonnet-4-6` | 3.4 | 531 | 7.2 | 6.0 |
 
 Full table with all seven rules in [`results/LEADERBOARD.md`](results/LEADERBOARD.md).
 
@@ -27,38 +27,51 @@ python3 -m readability_eval.chart --limit 5   # every model on the same 5 prompt
 
 `--limit N` re-scores each model over its first N prompts. Without it the chart plots 30-prompt and 5-prompt runs on one axis, which compares different tests; the command prints `MIXED n=[5, 30]` when that happens.
 
-**Nobody writes to length.** Every prompt carries a word budget for what that question actually deserves, set from the ask alone: a two-line question gets ~60 words, a full lesson plan gets 500. Models run 1.5x to 2.5x over. The failure is not vocabulary, it is volume: understandability, filler and simple-word scores sit near 10 for everyone, while economy ranges 4.6 to 7.5 and does almost all the separating.
+**Length is not what separates models. Shape and filler are.** Every prompt carries a word budget for what that question actually deserves, set from the ask alone: a two-line question gets ~60 words, a full lesson plan gets 500. Models still run 1.5x to 2.5x over, and that is a real defect — but it is a defect they *share*, so it does almost no separating. Economy spans just 5.2 to 6.1 across this table, the second-narrowest range of the seven rules.
+
+The two rules that actually rank the models are form (6.0 to 8.8) and filler (7.2 to 9.8). Together they account for **87% of the 13-point gap** between first and last. Economy contributes 8%. Being long is what every model does wrong; being *shaped like a report* and *padded* is what the losers do wrong.
+
+An earlier version of this README claimed the opposite, that economy did almost all the separating and the other rules sat near 10 for everyone. That was an artifact: those runs were scored before rules 1, 3, 5 and 6 had a judged half, so the mechanical counters graded them unopposed and passed almost everything. Once the judge scored them too, filler fell from 9.98 to a 7.2-9.8 spread and form from 8.67 to 6.0-8.8. The rules were never flat. They were unmeasured.
+
 
 ### Smoke sample: other families
 
-Five prompts only, judged by `claude-opus-5`. **Not comparable to the table above** and not a ranking. Included because the length finding is so lopsided it survives the small sample.
+Ten prompts only, judged by `claude-opus-5`. **Not comparable to the table above** and not a ranking.
 
-| Score | Model | Words | Economy |
-|:---:|---|---:|---:|
-| 94.5 | `google/gemini-3.5-flash` | 989 | 6.2 |
-| 94.4 | `moonshotai/kimi-k3` | 740 | 7.9 |
-| 94.0 | `openai/gpt-5.6-sol` | 1372 | 5.5 |
-| 93.5 | `x-ai/grok-4.5` | 804 | 8.0 |
-| 87.9 | `qwen/qwen3.8-max` | 2577 | 2.0 |
+| Score | Model | Words | Economy | Coverage |
+|:---:|---|---:|---:|---:|
+| 78.2 | `openai/gpt-5.6-sol` | 965 | 5.8 | 92% |
+| 76.9 | `openai/gpt-5.6-terra` | 1095 | 5.1 | 98% |
+| 76.5 | `moonshotai/kimi-k3` | 512 | 5.5 | 95% |
+| 75.4 | `openai/gpt-5.6-luna` | 1022 | 5.7 | 95% |
+| 74.4 | `google/gemini-3.6-flash` | 642 | 5.0 | 90% |
+| 72.9 | `anthropic/claude-opus-5` | 1205 | 4.4 | 100% |
+| 72.1 | `x-ai/grok-4.5` | 678 | 5.0 | 100% |
+| 72.0 | `z-ai/glm-5.2` | 724 | 5.3 | 96% |
+| 69.5 | `qwen/qwen3.8-max` | 791 | 4.0 | 98% |
 
-Qwen wrote 2577 words on average against budgets of 55-550. That is not a scoring artifact; it is a 2500-word answer to a question that wanted sixty. It still lands within 7 points of the top, because being long is the only thing it does wrong.
+Every model here lands in a 9-point band, and every one of them writes long. Economy spans 4.0 to 5.8 — worse than the Claude table, and just as flat. Verbosity is close to universal.
+
+**The same model scores differently on different sample sizes, and that is the point of the warning.** `claude-opus-5` scores 85.7 on 30 prompts and 72.9 on these 10. Different prompts, different budgets, different difficulty. Never read a number from this table against a number from the one above.
 
 ### Can you just ask for a short answer?
 
-Yes, and it is the biggest single lever. `--condition brief` appends *"Answer in 50 words or less"*:
+Yes, and it works. `--condition brief` appends *"Answer in 50 words or less"*:
 
 | Model | Default | Brief | Change | Coverage |
 |---|---:|---:|---:|---:|
-| `claude-opus-5` | 91.8 (558w) | 91.2 (48w) | -0.6 | 97% → 78% |
-| `claude-opus-4-6` | 85.9 (571w) | 82.1 (47w) | -3.8 | 91% → 66% |
-| `claude-sonnet-4-6` | 83.9 (531w) | 78.5 (49w) | -5.4 | 89% → 60% |
-| `claude-haiku-4-5` | 82.4 (329w) | 74.1 (51w) | -8.3 | 80% → 59% |
+| `claude-opus-5` | 85.7 (558w) | 87.2 (48w) | **+1.5** | 96% → 78% |
+| `claude-opus-4-6` | 76.2 (571w) | 80.1 (47w) | **+3.9** | 92% → 65% |
+| `claude-sonnet-4-6` | 72.7 (531w) | 77.2 (49w) | **+4.5** | 89% → 62% |
+| `claude-haiku-4-5` | 75.3 (329w) | 74.7 (51w) | -0.6 | 82% → 60% |
 
 Every model collapses to ~48 words when told to. So **the length is a default, not a limit** — they can all write tightly, they just don't unless asked.
 
-**But brevity is not free, and it is not even a win.** Look at the coverage column: the share of the request actually addressed falls 19 to 29 points. **Every model scores worse under the brief condition**, from -0.6 to -8.3, and the models that lose most are the ones that were already closest to budget. Haiku had no bloat left to cut, so it paid the full coverage cost for nothing.
+**Three of four score better under the instruction, and the worst writer gains the most.** Sonnet gains 4.5, Opus-4-6 gains 3.9, Opus-5 gains 1.5. The exception is Haiku, which loses 0.6 — it was already the tersest model at 329 words, so it had the least bloat to cut and still paid the coverage cost. The pattern is consistent: the further over budget a model runs by default, the more the instruction helps it.
 
-So "just ask for 50 words" is not a free upgrade. It buys concision with completeness, and once verbosity is weighted honestly against the other six rules, that trade never comes out ahead. Length is a real defect, but it is a smaller one than not answering the question.
+**It is still not free.** Coverage falls 19 to 27 points for everyone, and that is a real loss the score only partly captures: a 60%-coverage answer is ignoring two of every five things the user asked for. What the numbers say is that for these models, at this weighting, cutting the padding buys more than the dropped coverage costs. That is a defensible trade, not a free upgrade, and it depends on the weights in this benchmark — economy is deliberately underweighted at 0.75, and coverage caps the score outright below a third. Move either and the sign could flip.
+
+An earlier version of this README reported the opposite result, that every model scored worse under the brief condition, worst -8.3. Those runs lacked the judged half of rules 1, 3, 5 and 6. Once those axes scored, the *default* condition lost far more points than the brief one — long answers have more room to be padded and report-shaped — and the sign reversed.
 
 ```bash
 python3 -m readability_eval.run --model X --condition brief
@@ -100,7 +113,7 @@ Every rule is judged. Rules 2, 3, 5 and 6 are ALSO counted mechanically, and the
 
 The second opinion exists because the counters are precise but blind. They only see the phrases on their lists, and most of those lists never fire (see the caveat below). On a 20-response sample the judge was stricter than the counter in 36 of 79 rule-judgements, catching `tCO₂e`, `solar irradiance`, `borne by the sender` and "the unglamorous but critical layer" — none of which any list would have contained.
 
-**Economy is weighted at 0.75, the other six at 1.0.** It is the only rule with real variance, so at equal weight it quietly became the benchmark: 65% of saved answers scored *higher* when truncated to half their length, the worst by 41 points. Truncation cannot improve an answer, so a metric that rewards it is measuring the wrong thing. Three fixes, in order of size:
+**Economy is weighted at 0.75, the other six at 1.0.** When the counters were scoring rules 1, 3, 5 and 6 unopposed, economy was the only rule with real variance, so at equal weight it quietly became the benchmark: 65% of saved answers scored *higher* when truncated to half their length, the worst by 41 points. Truncation cannot improve an answer, so a metric that rewards it is measuring the wrong thing. Three fixes, in order of size:
 
 - **Economy no longer trips the conjunctive cap.** A rule under 2 caps the score at 55, which is right for an answer nobody can follow and wrong for one that is merely long. 15 of the 19 caps in the corpus were verbosity, costing ~31 points each.
 - **The decay curve no longer bottoms out.** It hit exactly 0.0 at 3x budget and stayed there, so every word past that point was free and a 5000-word answer tied a 1050-word one. It now halves every 1.5x over: 2x → 6.3, 3x → 4.0, 5x → 1.6.
@@ -108,11 +121,13 @@ The second opinion exists because the counters are precise but blind. They only 
 
 Worst gain from halving an answer: **+41.3 → +4.4**.
 
+**That fix has since decayed, and it is the largest open problem in this benchmark.** Re-measuring on the current 338-response corpus, halving an answer still improves its score **51% of the time**, worst case **+38.1**, mean +2.3. The three fixes above addressed the economy rule specifically, but truncation also removes padding, headings and slop, so it now buys points on rules 6 and 7 instead. Chopping a response in half cannot make it a better answer, so any score that rises is measuring the wrong thing. Do not read small gaps in these tables as meaningful until this is fixed.
+
 **Rule 2 needs the coverage gate.** Scored as raw brevity it crowns the emptiest answer, so coverage multiplies in: answering half the question caps economy at half however tersely you did it. Under budget is free — terse is never punished.
 
 **Rule 6 needed patterns, not a word list.** Filler is a grammatical shape, not a vocabulary: an exact-phrase list scores `worth noting` and lets `it is worth mentioning` through. Patterns now cover expletive subjects (`there are several factors that...`), wordy connectives, redundant causation and stacked hedges. Note the line it has to walk: `there is no index on user_id` states a fact and must not fire, while `there are several factors that matter` delays the real subject and must.
 
-**Caveat, and it applies to rules 3 and 6 both: most of those patterns never fire on this corpus.** 18 of 21 filler patterns and 43 of 49 first-draft jargon terms appeared zero times in 265 real responses. They were written against textbook bad writing that current models do not produce. Validating a detector on sentences you invented for it proves only that you can write to your own regex, so the jargon list was cut to terms actually observed, and the test fixtures are now verbatim corpus sentences. Treat a clean score on those rules as unproven, not as evidence.
+**Caveat, and it applies to rules 3 and 6 both: most of those patterns never fire on this corpus.** 18 of 21 filler patterns and 43 of 49 first-draft jargon terms appeared zero times in the 265 real responses saved at the time (the corpus is now 349). They were written against textbook bad writing that current models do not produce. Validating a detector on sentences you invented for it proves only that you can write to your own regex, so the jargon list was cut to terms actually observed, and the test fixtures are now verbatim corpus sentences. Treat a clean score on those rules as unproven, not as evidence.
 
 The acronym half of rule 3 is the part with real evidence: `BATNA` and `ZOPA` dropped unexplained on a self-taught negotiator, `EMI` on someone planning a house purchase.
 
@@ -147,13 +162,27 @@ Slop only subtracts, capped at 30%. Clean writing earns nothing by itself. The s
 Yes. This scores the model on its own: no system prompt beyond "You are a helpful assistant", no harness, no skills, no style guide. Of course a prompt fixes it. The point is measuring whether you have to.
 
 **Isn't the judge biased?**
-Yes, and this table has it. `claude-opus-5` judges the four Claude models including itself, and it comes first. That is exactly where self-preference would show up. `rejudge.py` re-scores saved responses with a different judge and no regeneration; run it before trusting any cross-family ranking here.
+Yes, and this table has it in the worst form. `claude-opus-5` judges four Claude models including itself, and it wins by 9.5 points — a bigger gap than separates the other three combined. That is exactly where self-preference would show up, and nothing here rules it out. Treat first place as unproven.
+
+The gap is not obviously *only* bias: Opus-5's win is concentrated in filler (9.8 vs 7.2-7.9) and form (8.8 vs 6.0-6.7), and those two rules are scored twice, with a mechanical counter that the judge cannot overrule upward. But a same-family judge grading its own output is the one result you should not take on trust.
+
+`rejudge.py` re-scores saved responses with a different judge and no regeneration. Run it before citing this ranking:
+
+```bash
+python3 -m readability_eval.rejudge --label claude-opus-5 \
+    --judge-model <a model outside this table> --judge-backend openrouter
+```
+
+A judge swap moved every score in this table by 2 to 5 points in earlier testing and changed the order of the bottom two. Judge choice is not a detail here; it is part of the result. Pick one that is not competing.
+
+**Why did the numbers change?**
+Every published score before commit `cacf8cf` was produced when rules 1, 3, 5 and 6 had no judged half — the mechanical counters scored them unopposed and passed nearly everything. Since the judge can only ever *lower* a rule (the score is the worse of judge and counter), those numbers were an upper bound. Rejudging with the same judge model dropped the table 6 to 11 points and reordered it. Scores from before that commit are not comparable to scores after it.
 
 **Where do the word budgets come from?**
 A model set them from each prompt. They are defensible per-prompt but they are not ground truth, so the absolute scores are softer than the relative ones.
 
 **Other known limits**
-- The non-Claude table is 5 prompts. It is a smoke test, not a result.
+- The non-Claude table is 10 prompts. It is a smoke test, not a result.
 - 30 prompts is still a small sample. Treat gaps under ~3 points as noise.
 - English only.
 - Scores are not comparable across prompt-set versions; the set is versioned in `data/prompts.json`.

@@ -1,15 +1,6 @@
 #!/bin/bash
-# Brief-condition run: does "answer in 50 words or less" close the economy gap?
-cd ~/projects/readability-eval
-run() {
-  python3 -m readability_eval.run --backend hermes \
-    --judge-model gemini-3.5-flash --judge-provider google \
-    --workers 6 --condition brief \
-    --model "$1" --provider "$2" --label "$1__brief"
-}
-run claude-opus-5    anthropic  > /tmp/b_opus.log  2>&1 &
-run grok-4.5         xai-oauth  > /tmp/b_grok.log  2>&1 &
-run claude-fable-5   anthropic  > /tmp/b_fable.log 2>&1 &
-run gemini-3.5-flash google     > /tmp/b_gem.log   2>&1 &
-wait
-echo done
+# Brief condition: does "answer in 50 words or less" close the economy gap?
+# Same models as run_all.sh, so the two are directly comparable.
+set -euo pipefail
+cd "$(dirname "$0")"
+exec ./run_all.sh brief

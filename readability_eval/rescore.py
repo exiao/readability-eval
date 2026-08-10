@@ -9,8 +9,8 @@ import statistics
 
 from . import lexicon
 from .clarity import score_all
-from .judge import to_scores
-from .run import slop_tax
+from .judge import merge_judged, to_scores
+from .run import cap_scaffold, clarity_score, slop_tax
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ITEMS = {p["id"]: p for p in json.load(
@@ -28,10 +28,15 @@ def main():
             item = ITEMS[r["id"]]
             delivered = sum(1 for x in r["judge"].get("facts_delivered", []) if x)
             det, detail = score_all(r["response"], delivered,
-                                    item.get("assumed", ()), required=len(item["facts"]))
-            rules = {**det, **to_scores(r["judge"])}
+                                    item.get("assumed", ()), required=len(item["asks"]),
+                                    budget=item.get("budget"),
+                                    audience=item.get("audience", ""))
+            jud, _ = cap_scaffold(to_scores(r["judge"]), r["response"],
+                                  item.get("budget") or 300)
+            det, jud = merge_judged(det, jud)
+            rules = {**det, **jud}
             hits, breakdown = lexicon.score(r["response"])
-            clarity = statistics.mean(rules.values())
+            clarity = clarity_score(rules, detail["economy"].get("coverage"))
             tax = slop_tax(hits)
             r.update(rules=rules, clarity_avg=round(clarity, 2),
                      slop_per_1k=hits, slop_breakdown=breakdown,

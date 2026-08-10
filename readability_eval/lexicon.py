@@ -1,10 +1,9 @@
 """Merged slop lexicon + detectors.
 
 Sources, in order of authority:
-  1. ~/.hermes/WRITING-STYLE.md          Eric's kill list + structural slop
-  2. creative/humanizer 29 patterns      (blader/humanizer, MIT)
-  3. creative/writer hard bans
-  4. Wikipedia:Signs_of_AI_writing       (WP:AITELLS)
+  1. A hand-maintained kill list of terms and structural tells
+  2. blader/humanizer, 29 patterns (MIT)
+  3. Wikipedia:Signs_of_AI_writing (WP:AITELLS)
 
 Wikipedia's "ineffective indicators" are deliberately NOT scored: perfect
 grammar, formal prose generally, transition words in isolation, mixed
@@ -13,9 +12,13 @@ register. They generate false positives on good human writing.
 import re
 import statistics
 
+# Max slop-per-1k a structural tic may contribute, regardless of text length.
+STACCATO_CAP = 5.0
+
 # ---------------------------------------------------------------- WORDS
 WORDS = {
     "ai_vocab": ["delve", "realm", "robust", "seamless", "harness", "utilize",
+                 "load-bearing", "load bearing",
                  "leverage", "empower", "underscore", "streamline", "ignite",
                  "unleash", "etched", "foster", "multifaceted", "intricate",
                  "intricacies", "interplay", "garner", "showcase", "enhance",
@@ -96,6 +99,12 @@ PATTERNS = {
     "inline_header_list": r"(?m)^[\s]*[-*]\s+\*\*[^*]+\*\*\s*[:—-]",
     "emoji_bullet": r"(?m)^[\s]*[\U0001F300-\U0001FAFF\u2705\u2728\u26A1\U0001F4A1]",
     "artifact": r"oaicite|turn\d+search\d+|contentReference|\[cite:\s*\d+\]|grok_card|attached_file|ppl-ai-file-upload",
+
+    # Agentless passive: be-verb + past participle with no actor named.
+    # This is how bad news hides who did it ("an incident has been identified"
+    # vs "we exposed your data"). Wikipedia lists it; no word list catches it.
+    # Only fires without a trailing "by X", which is legitimate passive.
+    "agentless_passive": r"\b(?:has|have|had|is|are|was|were)\s+(?:been\s+)?(?:\w+ly\s+)?(?:identified|accessed|determined|taken|implemented|affected|exposed|compromised|discovered|noticed|addressed|resolved|notified|advised|considered|reported|conducted|performed|initiated|completed|experienced)\b(?!\s+by\b)",
 }
 
 
@@ -117,8 +126,136 @@ def _count(text, terms):
     return sum(len(re.findall(r"\b" + re.escape(t) + r"\b", low)) for t in terms)
 
 
+# Not every tell is equally damning, and counting them all as 1 made an
+# ordinary three-item list weigh the same as "delve". Weights are multipliers
+# on the hit count.
+#
+#   1.0  unambiguous: a banned word or a formulaic construction with no
+#        innocent reading ("It's not X. It's Y.", "delve", "testament to")
+#   0.5  contextual: real tells that also occur in correct writing, so a
+#        single instance should nudge rather than convict
+#   0.25 weak: formatting habits that are mildly AI-flavoured but frequently
+#        the right choice
+WEIGHTS = {
+    "ai_vocab": 1.0, "significance": 1.0, "fake_insider": 1.0,
+    "chatbot": 1.0, "not_x_but_y": 1.0, "isnt_its": 1.0, "antithesis": 1.0,
+    "drop_ending": 1.0, "setup": 1.0, "generic_close": 1.0,
+    "euphemism": 1.0, "promo": 1.0, "cutoff": 1.0, "artifact": 1.0,
+
+    "authority_trope": 0.5, "vague_attrib": 0.5, "interpretive": 0.5,
+    "filler": 0.5, "signposting": 0.5, "copulative": 0.5,
+    "trailing_participle": 0.5, "less_more": 0.5, "tailing_negation": 0.5,
+    "false_range": 0.5, "notability": 0.5, "challenges_section": 0.5,
+    "staccato": 0.5, "rule_of_three": 0.5, "noun_list_fragment": 1.0,
+
+    "hyphen_pairs": 0.25, "emoji_bullet": 0.25, "agentless_passive": 0.25,
+
+    # A labelled bullet ("- **Kernel version**: 6.1") is how you write a
+    # spec list. It fired 231 times across 265 responses, more than every
+    # other signal combined, on formatting that is usually correct. Kept at a
+    # token weight so a wall of them still registers, but it can no longer
+    # dominate a score on its own.
+    "inline_header_list": 0.1,
+}
+DEFAULT_WEIGHT = 1.0
+
+ADJECTIVAL = re.compile(r"(?:able|ible|al|ful|ic|ive|less|ous|ing|ent|ant|y)$",
+                        re.I)
+TRIPLE = re.compile(r"\b(\w+),\s+(\w+),\s+and\s+(\w+)\b")
+
+
+def _prose_lines(text):
+    """Running prose only. Headings, bullets, table rows and bold labels are
+    labels, not sentences, and a three-item label is a list, not padding."""
+    for raw in text.split("\n"):
+        line = raw.strip()
+        if not line or line.endswith(":"):
+            continue
+        if re.match(r"^([-*+#>|]|\d+[.)])", line):
+            continue
+        if line.startswith("**") and line.endswith("**"):
+            continue
+        if not re.search(r"[.!?](\s|$)", line):
+            continue
+        yield line
+
+
+def rule_of_three(text):
+    """Padded triples in prose: "thoughtful, ethical, and effective".
+
+    Two gates, because the naive version was this scorer's single largest
+    error. It matched any three-item list -- "rent, transportation, and food",
+    "circle, triangle, and rectangle" -- fired 262 times across 265 responses,
+    and cost some answers the entire 30% slop cap for writing a normal list.
+
+    1. All three items must be adjectival. Concrete nouns name things; the tell
+       is padding a sentence with modifiers where the third adds nothing.
+    2. It must be in a sentence. In a heading or bullet ("Measurement,
+       Reporting, and Accountability") a triple is the label's content.
+
+    262 raw matches -> 20 adjectival -> 6 in actual prose.
+    """
+    out = []
+    for line in _prose_lines(text):
+        for m in TRIPLE.finditer(line):
+            if all(ADJECTIVAL.search(x) and len(x) > 4 for x in m.groups()):
+                out.append(m.group(0))
+    return out
+
+
+# Verbs common enough to disqualify a fragment. Stdlib has no POS tagger, and
+# suffix rules fail both ways: plural nouns (prompts, models) look like verbs,
+# irregular verbs (ran, threw) do not.
+FRAGMENT_VERBS = set("""is are was were be been being am
+do does did have has had can could shall should will would may might must
+run runs ran make makes made take takes took get gets got give gives gave
+go goes went come comes came see sees saw know knows knew think thinks thought
+say says said find finds found use uses used need needs want wants
+write writes wrote read reads cut cuts cost costs keep keeps kept
+show shows showed mean means meant hold holds held bring brings brought
+score scores scored drop drops dropped gain gains gained add adds added
+lose loses lost win wins won build builds built break breaks broke
+includes include including covers cover offers offer requires require""".split())
+
+
+def noun_list_fragments(text):
+    """Comma-separated noun phrases with no verb and no conjunction.
+
+    "Rent, transportation, food." has the rhythm of a sentence and none of the
+    content of one: nothing acts on anything, so the reader gets a pile of
+    nouns and has to infer the relationship. Distinct from rule_of_three, which
+    is a real list joined by "and"; the tell here is the missing conjunction.
+
+    Detected structurally, since there is no POS tagger available. Requires
+    3+ items, all short, none containing a verb, and either the same leading
+    word in every item (anaphora: "New X, new Y, new Z") or identical item
+    lengths (symmetry).
+    """
+    hits = []
+    for line in _prose_lines(text):
+        for raw in re.split(r"(?<=[.!?])\s+", line):
+            core = raw.strip()
+            if "`" in core or "](" in core:
+                continue
+            body = re.sub(r"[.!?]+$", "", core).strip()
+            if re.search(r",\s*(and|or)\b", body, re.I):
+                continue                      # a joined list, not a fragment
+            items = [i.strip() for i in body.split(",")]
+            if len(items) < 3:
+                continue
+            toks = [re.findall(r"[A-Za-z']+", i.lower()) for i in items]
+            if any(not t or len(t) > 5 for t in toks):
+                continue                      # long items are clauses
+            if any(w in FRAGMENT_VERBS for t in toks for w in t):
+                continue
+            leads = [t[0] for t in toks]
+            if len(set(leads)) == 1 or len(set(len(t) for t in toks)) == 1:
+                hits.append(core)
+    return hits
+
+
 def score(text):
-    """Returns (hits_per_1k, breakdown)."""
+    """Returns (weighted_hits_per_1k, breakdown of raw counts)."""
     words = max(1, len(text.split()))
     text = strip_quoted(text)
     b = {}
@@ -131,13 +268,80 @@ def score(text):
         if n:
             b[k] = n
 
-    # rule of three: three parallel comma items ending "and X"
-    b_three = len(re.findall(r"\b\w+,\s+\w+,\s+and\s+\w+\b", text))
+    b_three = len(rule_of_three(text))
     if b_three:
         b["rule_of_three"] = b_three
 
-    total = sum(b.values())
-    return round(total / words * 1000, 1), b
+    b_frag = len(noun_list_fragments(text))
+    if b_frag:
+        b["noun_list_fragment"] = b_frag
+
+    # Period-spam: 3+ consecutive short declaratives, no banned words needed.
+    # Counted per RUN, not per sentence: one structural tic is one hit.
+    b_stac = len(staccato_runs(text))
+    if b_stac:
+        b["staccato"] = b_stac
+
+    weighted = sum(v * WEIGHTS.get(k, DEFAULT_WEIGHT) for k, v in b.items())
+    hits = weighted / words * 1000
+
+    # Structural tics are capped, vocabulary offences are not. A rate per 1000
+    # words detonates on short text: one run in a 50-word answer reads as 20
+    # hits/1k and costs 28 points, more than any banned word, purely because
+    # the answer is short. The brief condition makes 50-word answers routine.
+    # Capping only the staccato contribution fixes that without a denominator
+    # floor, which would have inflated every brief score by 2-4 points and
+    # rewritten a headline finding to fix three responses.
+    if b_stac:
+        stac_w = b_stac * WEIGHTS["staccato"]
+        capped = ((weighted - stac_w) / words * 1000
+                  + min(stac_w / words * 1000, STACCATO_CAP))
+        hits = min(hits, capped)
+
+    return round(hits, 1), b
+
+
+def staccato_runs(text, maxw=6, need=3):
+    """Runs of 3+ consecutive short DECLARATIVE sentences. Period-spam.
+
+    "Little words. Short sentences. Cut the fat. Redo it." reads like a drill
+    sergeant, not a person, and contains no banned vocabulary at all.
+
+    Only declaratives count. An earlier version flagged 25 runs in the corpus
+    and nearly all were false: rhetorical question pairs ("Shared history?
+    Territory?"), classroom exclamations ("Now FLY!"), and worksheet lines.
+    Questions and exclamations are cadence the reader expects. So are list
+    items, headings and bold labels, which are skipped outright.
+
+    Sentences carrying a comma, semicolon or colon are excluded too: the
+    defect is refusing to join clauses, so a sentence that joins one is not
+    part of a run.
+    """
+    out, cur = [], []
+
+    def flush():
+        nonlocal cur
+        if len(cur) >= need:
+            out.append(cur)
+        cur = []
+
+    for raw in strip_quoted(text).split("\n"):
+        line = raw.strip()
+        if not line or re.match(r'^([-*+#>|]|\d+[.)])', line) or \
+                line.startswith("**"):
+            flush()
+            continue
+        for s in re.split(r'(?<=[.!?])\s+', line):
+            s = s.strip()
+            if not s:
+                continue
+            w = len(s.split())
+            if s.endswith(".") and 2 <= w <= maxw and not re.search(r"[,;:]", s):
+                cur.append(s)
+            else:
+                flush()
+    flush()
+    return out
 
 
 def shape(text):
@@ -153,6 +357,7 @@ def shape(text):
         "frag_ratio": round(frags / max(1, len(lens)), 2),  # staccato stacking
         "bold_per_100w": round(len(re.findall(r"\*\*[^*]+\*\*", text)) / words * 100, 2),
         "comma_per_sent": round(text.count(",") / max(1, len(sents)), 2),
+        "staccato_runs": len(staccato_runs(text)),
     }
 
 

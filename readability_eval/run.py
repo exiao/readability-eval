@@ -1,7 +1,7 @@
 """Run the eval.
 
   python -m readability_eval.run --model X --backend openrouter
-  python -m readability_eval.run --model X --backend hermes --provider anthropic
+  python -m readability_eval.run --model claude-opus-5 --backend anthropic
 
 Score = clarity_avg * (1 - slop_tax), slop_tax capped at 0.30.
 """
@@ -13,9 +13,16 @@ import sys
 import time
 from concurrent.futures import ThreadPoolExecutor
 
-from . import judge, lexicon
+from . import judge, lexicon, scaffold
 from .clarity import score_all
-from .providers import call
+from .providers import call, probe_contamination
+
+# Judge defaults, per backend. Kept here so `--backend X` alone is runnable
+# with one API key and no judge flags.
+DEFAULT_JUDGE = {
+    "openrouter": "google/gemini-3.5-flash",
+    "anthropic": "claude-opus-5",
+}
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROMPTS = os.path.join(ROOT, "data", "prompts.json")
@@ -25,6 +32,62 @@ SLOP_CEILING = 20.0   # hits/1k that maxes the 30% tax
 
 def slop_tax(hits_per_1k):
     return min(0.30, hits_per_1k / SLOP_CEILING * 0.30)
+
+
+# Economy is weighted below the other rules. It is the only rule with real
+# variance, so at equal weight it silently became the benchmark: 81% of saved
+# answers scored HIGHER when truncated to half their length, some by 42 points.
+# Truncation cannot improve an answer, so any metric that rewards it is
+# measuring the wrong thing. Being long is a real defect, but a smaller one
+# than being unclear or wrong, and it is the defect a reader can skim past.
+# 0.75 rather than 0.5. At 0.5 a 2577-word answer to a 524-word question
+# scored 90.6 against a 95.1 winner, which is not a 4 point defect. At 1.0 the
+# truncation exploit is still worth +5.7. 0.75 keeps the worst gain from
+# halving an answer at +4.4 while a 5x-over answer still loses ~7 points.
+RULE_WEIGHTS = {"rule2_economy": 0.75}
+DEFAULT_RULE_WEIGHT = 1.0
+
+# Rules where a near-zero score means the answer failed, not that it was
+# merely bloated.
+CONJUNCTIVE = ("rule1_understandable", "rule3_jargon", "rule5_simple_words",
+               "rule6_filler", "rule7_form")
+
+
+def clarity_score(rules, coverage=None):
+    """Weighted mean, with a cap when a rule that matters bottoms out.
+
+    A plain mean lets five 10s carry one 0: an answer that delivered NOTHING
+    ("they're different, use whichever fits") averaged 71.7 and landed mid,
+    because it was clear, jargon-free and unpadded -- about nothing. Caught by
+    the terse_and_empty control.
+
+    Communication is conjunctive, so a rule under 2 still caps the score at 55.
+
+    Economy is deliberately NOT one of those rules, because it conflates two
+    different failures. It multiplies length against coverage, so it reads 0.0
+    both for an answer that said nothing and for one that answered fully at
+    great length. Capping on it punished those identically: 15 of the 19 caps
+    in the saved corpus were verbosity, costing ~31 points each.
+
+    The empty case is caught by `coverage` instead, which is the half of
+    economy that actually means failure. Answering under a third of what was
+    asked caps the score however clean the prose is.
+    """
+    num = sum(v * RULE_WEIGHTS.get(k, DEFAULT_RULE_WEIGHT)
+              for k, v in rules.items())
+    den = sum(RULE_WEIGHTS.get(k, DEFAULT_RULE_WEIGHT) for k in rules)
+    mean = num / den
+    floor = min((v for k, v in rules.items() if k in CONJUNCTIVE), default=10.0)
+    if floor < 2.0 or (coverage is not None and coverage < 0.34):
+        return min(mean, 5.5)
+    return mean
+
+
+def cap_scaffold(judged, text, budget):
+    """Apply deterministic Rule 7 scaffolding cap to judge scores."""
+    scaf, detail = scaffold.score(text, budget)
+    judged["rule7_form"] = min(judged["rule7_form"], scaf)
+    return judged, detail
 
 
 # Condition = an instruction appended to every prompt. Lets you separate a
@@ -38,14 +101,23 @@ CONDITIONS = {
 
 
 def eval_one(item, model, backend, provider, judge_model, judge_backend,
-             judge_provider, condition="default"):
+             judge_provider, condition="default", judge_reasoning=None,
+             reasoning=None):
     t0 = time.time()
-    out = call(model, item["prompt"] + CONDITIONS[condition], backend, provider)
+    try:
+        out = call(model, item["prompt"] + CONDITIONS[condition], backend,
+                   provider, reasoning=reasoning)
+    except Exception as e:
+        # One refused or filtered prompt must not take down the other nine.
+        # Content filters fire on a minority of WildChat prompts, and losing
+        # a whole model to one block silently drops it from the comparison.
+        return {"id": item["id"], "error": f"model call: {e}"}
     text = out["text"]
     if not text.strip():
         return {"id": item["id"], "error": "empty response"}
 
-    jraw = call(judge_model, judge.build_prompt(item, text), judge_backend, judge_provider)
+    jraw = call(judge_model, judge.build_prompt(item, text), judge_backend,
+                judge_provider, reasoning=judge_reasoning)
     try:
         parsed = judge.parse(jraw["text"])
     except Exception as e:
@@ -53,11 +125,29 @@ def eval_one(item, model, backend, provider, judge_model, judge_backend,
 
     delivered = sum(1 for x in parsed.get("facts_delivered", []) if x)
     det, det_detail = score_all(text, delivered, item.get("assumed", ()),
-                                required=len(item["facts"]))
+                                required=len(item["asks"]),
+                                budget=item.get("budget"),
+                                audience=item.get("audience", ""))
     jud = judge.to_scores(parsed)
 
+    # Rule 7, deterministic half. The judge grades form subjectively and is
+    # forgiving: it quotes one bad heading and calls the rest fine. Scaffolding
+    # density catches what it waves through -- 14 responses in the v3 corpus
+    # scored a perfect 10 on form while carrying up to 69 headings and 134 list
+    # items. Cap rather than average, so the judge can still fail an answer the
+    # counter thinks is fine, but cannot pass one it doesn't.
+    jud, scaf_detail = cap_scaffold(jud, text, item.get("budget") or 300)
+
+    # Rules 2, 3, 5 and 6: same treatment. The counters only see the phrases
+    # on their lists, and most of those lists never fire on real answers (43
+    # of 49 jargon terms, 18 of 21 filler patterns). The judge reads for the
+    # same defect in wording nobody enumerated. Take the worse of the two: the
+    # judge can fail an answer the counter waved through, and the counter can
+    # fail one the judge found pleasant.
+    det, jud = judge.merge_judged(det, jud)
+
     rules = {**det, **jud}
-    clarity = statistics.mean(rules.values())
+    clarity = clarity_score(rules, det_detail["economy"].get("coverage"))
     hits, breakdown = lexicon.score(text)
     tax = slop_tax(hits)
     final = round(clarity * 10 * (1 - tax), 1)
@@ -69,8 +159,8 @@ def eval_one(item, model, backend, provider, judge_model, judge_backend,
         "clarity_avg": round(clarity, 2),
         "slop_per_1k": hits, "slop_breakdown": breakdown, "slop_tax": round(tax, 3),
         "score": final,
-        "facts_delivered": f"{delivered}/{len(item['facts'])}",
-        "detail": det_detail, "judge": parsed,
+        "facts_delivered": f"{delivered}/{len(item['asks'])}",
+        "detail": det_detail, "judge": parsed, "scaffold": scaf_detail,
         "shape": lexicon.shape(text),
         "cost_usd": out.get("cost_usd", 0.0) + jraw.get("cost_usd", 0.0),
         "seconds": round(time.time() - t0, 1),
@@ -80,25 +170,58 @@ def eval_one(item, model, backend, provider, judge_model, judge_backend,
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", required=True)
-    ap.add_argument("--backend", default="openrouter", choices=["openrouter", "hermes"])
+    ap.add_argument("--backend", default="openrouter",
+                    choices=["openrouter", "anthropic"])
     ap.add_argument("--provider", default=None)
-    ap.add_argument("--judge-model", default="google/gemini-3.5-flash")
-    ap.add_argument("--judge-backend", default=None)
+    ap.add_argument("--judge-model", default=None,
+                    help="defaults to a strong model on the selected backend")
+    ap.add_argument("--judge-backend", default=None,
+                    help="defaults to --backend, so a plain "
+                         "`--backend openrouter` run needs no judge flags")
     ap.add_argument("--judge-provider", default=None)
+    ap.add_argument("--reasoning", default=None,
+                    choices=["low", "medium", "high"],
+                    help="reasoning effort for the model under test "
+                         "(OpenRouter only). Set it explicitly when comparing "
+                         "models: default effort varies by vendor, so an "
+                         "unset run compares configurations, not models.")
+    ap.add_argument("--judge-reasoning", default=None,
+                    help="unused; kept for CLI compatibility")
     ap.add_argument("--condition", default="default", choices=list(CONDITIONS),
                     help="instruction appended to every prompt")
     ap.add_argument("--label", default=None, help="name for the results file")
     ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--limit", type=int, default=None,
+                    help="run only the first N prompts (cheap smoke run). "
+                         "Scores from different N are NOT comparable.")
     a = ap.parse_args()
+
+    # The judge follows the subject's backend unless told otherwise, so the
+    # documented one-liner works with a single API key. Judging Claude with
+    # Claude is the self-preference case the README warns about; pass
+    # --judge-model / --judge-backend to cross families.
     jb = a.judge_backend or a.backend
+    jm = a.judge_model or DEFAULT_JUDGE[jb]
 
     items = json.load(open(PROMPTS))["prompts"]
-    print(f"{a.model} via {a.backend}: {len(items)} prompts, judge={a.judge_model}")
+    if a.limit:
+        items = items[:a.limit]
+
+    # Contamination gate. Two full runs were thrown away because the backend
+    # was silently an agent (tools + persona + memory) rather than a raw
+    # model. Never run without this.
+    for m, b in {(a.model, a.backend), (jm, jb)}:
+        probe_contamination(m, b)
+    print(f"backend probe clean: {a.model}/{a.backend}, judge "
+          f"{jm}/{jb}")
+
+    print(f"{a.model} via {a.backend}: {len(items)} prompts, judge={jm}")
 
     with ThreadPoolExecutor(max_workers=a.workers) as ex:
         rows = list(ex.map(lambda it: eval_one(
             it, a.model, a.backend, a.provider,
-            a.judge_model, jb, a.judge_provider, a.condition), items))
+            jm, jb, a.judge_provider, a.condition,
+            a.judge_reasoning, a.reasoning), items))
 
     ok = [r for r in rows if "error" not in r]
     errs = [r for r in rows if "error" in r]
@@ -113,6 +236,7 @@ def main():
 
     summary = {
         "model": a.model, "backend": a.backend, "condition": a.condition,
+        "judge_model": jm, "judge_backend": jb,
         "n": len(ok), "errors": len(errs),
         "score": round(statistics.mean(r["score"] for r in ok), 1),
         "clarity_avg": round(statistics.mean(r["clarity_avg"] for r in ok), 2),

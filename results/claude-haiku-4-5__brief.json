@@ -1,22 +1,22 @@
 {
  "summary": {
-  "model": "claude-opus-5",
+  "model": "claude-haiku-4-5",
   "backend": "anthropic",
   "condition": "brief",
   "n": 30,
   "errors": 0,
-  "score": 87.2,
-  "clarity_avg": 8.84,
-  "slop_per_1k": 1.1,
-  "avg_words": 48,
+  "score": 74.7,
+  "clarity_avg": 7.71,
+  "slop_per_1k": 2.5,
+  "avg_words": 51,
   "per_rule": {
-   "rule2_economy": 7.75,
-   "rule3_jargon": 9.02,
+   "rule2_economy": 5.67,
+   "rule3_jargon": 9.17,
    "rule5_simple_words": 9.72,
-   "rule6_filler": 9.89,
-   "rule1_understandable": 8.5,
-   "rule4_imagery": 8.97,
-   "rule7_form": 10.0
+   "rule6_filler": 8.83,
+   "rule1_understandable": 9.5,
+   "rule4_imagery": 7.6,
+   "rule7_form": 6.17
   },
   "cost_usd": 0.0,
   "judge_model": "anthropic/claude-opus-5",
@@ -26,7 +26,7 @@
   {
    "id": 1,
    "genre": "practical_guidance",
-   "response": "**\"Shape Detectives!\" (Grade 2)**\n\n**Intro:** Wear a detective hat \u2014 \"Shapes are hiding everywhere!\"\n\n**Identify:** Circle (round, 0 sides), triangle (3 sides, 3 corners), square (4 equal sides), rectangle (4 sides, opposite sides equal).\n\n**Life:** Clock=circle, door=rectangle, pizza slice=triangle.\n\n**Exercise:** Count sides and corners; find shapes in your classroom!",
+   "response": "# 2D Shapes Video Lesson Plan\n\n**Introduction:** \"Shape Detectives!\" mystery game\n\n**Content:** Identify circles, squares, rectangles, triangles; teach sides and corners\n\n**Properties:** Count sides, corners, straight/curved lines\n\n**Life Application:** Shapes in classroom (windows, doors, clocks)\n\n**Exercises:** Shape tracing, real-object matching, drawing activities",
    "rules": {
     "rule2_economy": 10.0,
     "rule3_jargon": 10.0,
@@ -34,22 +34,22 @@
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 10.0,
+   "clarity_avg": 9.26,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 100.0,
+   "score": 92.6,
    "facts_delivered": "5/5",
    "detail": {
     "economy": {
-     "words": 49,
+     "words": 42,
      "budget": 550,
      "facts": 5,
      "required": 5,
      "coverage": 1.0,
-     "over_budget": 0.09
+     "over_budget": 0.08
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -81,8 +81,8 @@
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "# 2D Shapes Video Lesson Plan",
     "economy": "tight",
     "economy_quote": "",
     "jargon": "plain",
@@ -93,43 +93,43 @@
     "filler_quote": ""
    },
    "shape": {
-    "em_dash_per_100w": 2.04,
-    "sentence_cv": 0.95,
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.0,
     "frag_ratio": 0.0,
-    "bold_per_100w": 10.2,
-    "comma_per_sent": 2.67,
+    "bold_per_100w": 11.9,
+    "comma_per_sent": 9.0,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 13.6
+   "seconds": 21.6
   },
   {
    "id": 2,
    "genre": "practical_guidance",
-   "response": "**Butterfly Lifecycle Dance (K\u20132)**\n\n**Objective:** Students perform the four stages through movement.\n\n**Materials:** Music, scarves, open space.\n\n**Steps:**\n1. Read/discuss lifecycle stages.\n2. Model moves: egg (curl small), caterpillar (crawl, wiggle), chrysalis (still, hug self), butterfly (flutter, glide).\n3. Practice in sequence with music.\n4. Perform in groups; clap.\n\n**Assess:** Correct stage order and movement.",
+   "response": "# Butterfly Lifecycle Dance Lesson\n\n**Objectives:** Learn butterfly stages through movement.\n\n**Activities:**\n1. Discuss lifecycle: egg, caterpillar, chrysalis, butterfly\n2. Create movements for each stage\n3. Sequence movements into a dance\n4. Perform for class\n\n**Materials:** Music, open space\n\n**Duration:** 30-40 minutes",
    "rules": {
-    "rule2_economy": 5.0,
+    "rule2_economy": 2.5,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
+    "rule4_imagery": 3.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.44,
+   "clarity_avg": 5.5,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 94.4,
-   "facts_delivered": "2/4",
+   "score": 55.0,
+   "facts_delivered": "1/4",
    "detail": {
     "economy": {
-     "words": 55,
+     "words": 42,
      "budget": 520,
-     "facts": 2,
+     "facts": 1,
      "required": 4,
-     "coverage": 0.5,
-     "over_budget": 0.11
+     "coverage": 0.25,
+     "over_budget": 0.08
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -151,15 +151,15 @@
    "judge": {
     "facts_delivered": [
      true,
-     true,
+     false,
      false,
      false
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": "",
+    "imagery": "needed_an_image",
+    "imagery_quote": "Create movements for each stage",
+    "imagery_suggestion": "Name the moves: curl small in a ball on the floor for the egg, wiggle on your belly across the room for the caterpillar, freeze wrapped in your own arms for the chrysalis, then stretch tall and flap your arms slowly for the butterfly.",
     "form": "fits",
     "form_quote": "",
     "economy": "tight",
@@ -173,133 +173,49 @@
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.92,
-    "frag_ratio": 0.55,
-    "bold_per_100w": 9.09,
-    "comma_per_sent": 0.73,
+    "sentence_cv": 0.46,
+    "frag_ratio": 0.17,
+    "bold_per_100w": 9.52,
+    "comma_per_sent": 0.67,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 9.5
+   "seconds": 13.8
   },
   {
    "id": 3,
    "genre": "practical_guidance",
-   "response": "**Negotiation Course (condensed):**\n\n1. **Fundamentals** \u2013 BATNA, ZOPA \u2192 *Coursera: Successful Negotiation (Michigan)*\n2. **Preparation/Research** \u2013 analysis \u2192 *edX: Negotiation Skills (RITx)*\n3. **Communication** \u2013 active listening, framing \u2192 *YouTube: Harvard PON*\n4. **Persuasion/Influence** \u2013 psychology \u2192 *Alison: Persuasion*\n5. **Conflict Resolution** \u2013 mediation \u2192 *edX: Conflict Management*\n6. **Cross-cultural/Closing** \u2013 *Coursera audit*",
+   "response": "# Art of Negotiation Course Overview\n\n**Main Topics:**\n1. **Fundamentals** - Active listening, emotional intelligence\n2. **Strategy** - Planning, BATNA analysis\n3. **Tactics** - Communication, persuasion\n4. **Resolution** - Problem-solving, compromise\n\n**Free Resources:** Coursera, edX, YouTube negotiation masterclasses\n\n*Note: Detailed breakdown requires expansion beyond 50-word limit.*",
    "rules": {
-    "rule2_economy": 7.5,
-    "rule3_jargon": 3.7,
+    "rule2_economy": 2.5,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 5.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
     "rule4_imagery": 7.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 7.6,
+   "clarity_avg": 5.5,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 76.0,
-   "facts_delivered": "3/4",
-   "detail": {
-    "economy": {
-     "words": 53,
-     "budget": 700,
-     "facts": 3,
-     "required": 4,
-     "coverage": 0.75,
-     "over_budget": 0.08
-    },
-    "jargon": {
-     "undefined_acronyms": [
-      "BATNA",
-      "ZOPA"
-     ],
-     "undefined_terms": [],
-     "per_100w": 3.77
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "grammar": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     false,
-     true,
-     true
-    ],
-    "clarity": "needs_a_reread",
-    "clarity_quote": "**Cross-cultural/Closing** \u2013 *Coursera audit*",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
-    "economy": "tight",
-    "economy_quote": "",
-    "jargon": "some_jargon",
-    "jargon_quote": "ZOPA",
-    "simple_words": "simple",
-    "simple_words_quote": "",
-    "filler": "no_filler",
-    "filler_quote": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.35,
-    "frag_ratio": 0.29,
-    "bold_per_100w": 13.21,
-    "comma_per_sent": 0.29,
-    "staccato_runs": 0
-   },
-   "cost_usd": 0.0,
-   "seconds": 19.4
-  },
-  {
-   "id": 4,
-   "genre": "practical_guidance",
-   "response": "**Robot voice effects:**\n\n- **Ring modulation** \u2014 classic Dalek/metallic tone\n- **Vocoder** \u2014 voice carried by synth tone\n- **Pitch shift** \u2014 lower, flatter delivery\n- **Bitcrusher/downsampling** \u2014 digital, lo-fi grit\n- **Flanger/chorus** \u2014 metallic shimmer\n- **Short delay/comb filter** \u2014 hollow resonance\n- **Distortion + EQ** \u2014 thin, mid-heavy tone\n- **Monotone pitch correction**",
-   "rules": {
-    "rule2_economy": 2.5,
-    "rule3_jargon": 7.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
-    "rule7_form": 10.0
-   },
-   "clarity_avg": 5.5,
-   "slop_per_1k": 12.7,
-   "slop_breakdown": {
-    "inline_header_list": 7
-   },
-   "slop_tax": 0.191,
-   "score": 44.5,
+   "score": 55.0,
    "facts_delivered": "1/4",
    "detail": {
     "economy": {
-     "words": 55,
-     "budget": 350,
+     "words": 46,
+     "budget": 700,
      "facts": 1,
      "required": 4,
      "coverage": 0.25,
-     "over_budget": 0.16
+     "over_budget": 0.07
     },
     "jargon": {
      "undefined_acronyms": [
-      "EQ"
+      "BATNA"
      ],
      "undefined_terms": [],
-     "per_100w": 1.82
+     "per_100w": 2.17
     },
     "simple_words": {
      "swaps": {},
@@ -322,9 +238,90 @@
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "concrete",
+    "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "*Note: Detailed breakdown requires expansion beyond 50-word limit.*",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "BATNA",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "*Note: Detailed breakdown requires expansion beyond 50-word limit.*"
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.62,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 13.04,
+    "comma_per_sent": 1.2,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 18.6
+  },
+  {
+   "id": 4,
+   "genre": "practical_guidance",
+   "response": "# Robot Voice Effects\n\n- **Pitch shift**: Lower or raise the pitch\n- **Vocoder**: Synthesize robotic tone\n- **Reverb/Echo**: Add metallic space\n- **Distortion**: Harsh, mechanical quality\n- **Compression**: Flatten dynamics\n- **Bit reduction**: Degrade audio quality\n- **Flanging/Phasing**: Sci-fi modulation effects\n- **Speed variation**: Stutter or slow playback",
+   "rules": {
+    "rule2_economy": 2.5,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 3.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 5.5,
+   "slop_per_1k": 16.3,
+   "slop_breakdown": {
+    "inline_header_list": 8
+   },
+   "slop_tax": 0.244,
+   "score": 41.6,
+   "facts_delivered": "1/4",
+   "detail": {
+    "economy": {
+     "words": 49,
+     "budget": 350,
+     "facts": 1,
+     "required": 4,
+     "coverage": 0.25,
+     "over_budget": 0.14
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     false,
+     false,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "needed_an_image",
+    "imagery_quote": "**Vocoder**: Synthesize robotic tone",
+    "imagery_suggestion": "Name a familiar reference point: 'a vocoder plays your voice through a synth's tone, like the Daft Punk or Cylon sound \u2014 sing into a mic while holding a sawtooth chord.'",
     "form": "fits",
     "form_quote": "",
     "economy": "tight",
@@ -337,43 +334,43 @@
     "filler_quote": ""
    },
    "shape": {
-    "em_dash_per_100w": 12.73,
+    "em_dash_per_100w": 0.0,
     "sentence_cv": 0.0,
     "frag_ratio": 0.0,
-    "bold_per_100w": 16.36,
-    "comma_per_sent": 3.0,
+    "bold_per_100w": 16.33,
+    "comma_per_sent": 1.0,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 16.8
+   "seconds": 13.9
   },
   {
    "id": 5,
    "genre": "practical_guidance",
-   "response": "**Evacuate to trust, not offline.**\n\n1. Shift to signed, verifiable sources and cryptographic provenance.\n2. Rebuild small, human-scale networks: local mesh, invite-only forums, in-person groups.\n3. Restore print, radio, libraries as fallback.\n4. Treat unsigned content as noise.\n5. Keep the wires; abandon the algorithmic feeds.",
+   "response": "# Internet Evacuation Plan\n\n1. **Establish offline infrastructure**: Create redundant communication networks (radio, mesh networks, physical mail)\n2. **Migrate critical data**: Backup essential information to secure, air-gapped servers\n3. **Rebuild trusted systems**: Develop new platforms with verification protocols and human oversight\n4. **Gradual transition**: Phase out compromised infrastructure while maintaining essential services\n5. **Media literacy**: Educate users on information verification",
    "rules": {
     "rule2_economy": 7.5,
-    "rule3_jargon": 5.0,
+    "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 5.0,
-    "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 3.0,
+    "rule7_form": 5.0
    },
-   "clarity_avg": 8.24,
+   "clarity_avg": 7.94,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 82.4,
+   "score": 79.4,
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
-     "words": 46,
+     "words": 60,
      "budget": 500,
      "facts": 3,
      "required": 4,
      "coverage": 0.75,
-     "over_budget": 0.09
+     "over_budget": 0.12
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -399,17 +396,17 @@
      true,
      false
     ],
-    "clarity": "needs_a_reread",
-    "clarity_quote": "Evacuate to trust, not offline.",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "needed_an_image",
+    "imagery_quote": "**Rebuild trusted systems**: Develop new platforms with verification protocols and human oversight",
+    "imagery_suggestion": "A concrete picture: a city library hosting a signed bulletin board where every poster's identity was checked in person at the desk, and a human editor initials each notice before it goes up \u2014 so readers can trace any claim back to a named human they could physically visit.",
+    "form": "some_scaffolding",
+    "form_quote": "# Internet Evacuation Plan",
     "economy": "tight",
     "economy_quote": "",
-    "jargon": "some_jargon",
-    "jargon_quote": "cryptographic provenance",
+    "jargon": "plain",
+    "jargon_quote": "",
     "simple_words": "simple",
     "simple_words_quote": "",
     "filler": "no_filler",
@@ -417,49 +414,49 @@
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.73,
-    "frag_ratio": 0.4,
-    "bold_per_100w": 2.17,
-    "comma_per_sent": 0.7,
+    "sentence_cv": 0.33,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 8.33,
+    "comma_per_sent": 0.5,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 16.6
+   "seconds": 24.3
   },
   {
    "id": 6,
    "genre": "practical_guidance",
-   "response": "With \u20b930k/month, keep your EMI under ~40\u201350% of income (\u20b912,000\u201315,000). At ~9% interest over 20 years, that supports roughly \u20b913\u201317 lakh. Add your down payment (10\u201320%) for total budget. Reduce this if you have existing loans or dependents.",
+   "response": "# Home Loan Guidance\n\nA general rule is to borrow **2.5-3x your annual salary**. With a 30k/month income (360k/year), consider a loan of **9-10.8 lakhs**.\n\nHowever, ensure your monthly EMI doesn't exceed **30-40% of your salary** (9-12k). Consult a bank for personalized recommendations based on your credit score and expenses.",
    "rules": {
-    "rule2_economy": 7.5,
+    "rule2_economy": 5.0,
     "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 5.0,
+    "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 8.24,
+   "clarity_avg": 7.96,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 82.4,
-   "facts_delivered": "3/4",
+   "score": 79.6,
+   "facts_delivered": "2/4",
    "detail": {
     "economy": {
-     "words": 38,
+     "words": 50,
      "budget": 300,
-     "facts": 3,
+     "facts": 2,
      "required": 4,
-     "coverage": 0.75,
-     "over_budget": 0.13
+     "coverage": 0.5,
+     "over_budget": 0.17
     },
     "jargon": {
      "undefined_acronyms": [
       "EMI"
      ],
      "undefined_terms": [],
-     "per_100w": 2.63
+     "per_100w": 2.0
     },
     "simple_words": {
      "swaps": {},
@@ -477,16 +474,16 @@
     "facts_delivered": [
      true,
      true,
-     true,
+     false,
      false
     ],
-    "clarity": "needs_a_reread",
-    "clarity_quote": "Add your down payment (10\u201320%) for total budget.",
+    "clarity": "clear",
+    "clarity_quote": "",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "# Home Loan Guidance",
     "economy": "tight",
     "economy_quote": "",
     "jargon": "some_jargon",
@@ -498,42 +495,44 @@
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.14,
+    "sentence_cv": 0.1,
     "frag_ratio": 0.0,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 1.0,
+    "bold_per_100w": 6.0,
+    "comma_per_sent": 0.5,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 11.9
+   "seconds": 6.6
   },
   {
    "id": 7,
    "genre": "practical_guidance",
-   "response": "**Objective:** Students analyse how literary texts are transformed into film, evaluating changes in plot, character, setting, and theme. Through presenting, they practise critical comparison, argue why adaptation choices were made, and develop research, media-literacy, and public-speaking skills while appreciating the distinct strengths of each medium.",
+   "response": "# Objectives of Film Adaptations Class\n\nThe main objectives would be to:\n\n- Analyze how stories translate from source material (books, plays) to film\n- Examine narrative changes and creative choices\n- Develop critical thinking about adaptation techniques\n- Enhance presentation and communication skills\n- Appreciate storytelling across different media formats",
    "rules": {
-    "rule2_economy": 10.0,
+    "rule2_economy": 7.5,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 5.0,
+    "rule1_understandable": 10.0,
     "rule4_imagery": 7.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 8.81,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 88.1,
-   "facts_delivered": "4/4",
+   "clarity_avg": 8.54,
+   "slop_per_1k": 19.6,
+   "slop_breakdown": {
+    "ai_vocab": 1
+   },
+   "slop_tax": 0.294,
+   "score": 60.3,
+   "facts_delivered": "3/4",
    "detail": {
     "economy": {
-     "words": 45,
+     "words": 51,
      "budget": 250,
-     "facts": 4,
+     "facts": 3,
      "required": 4,
-     "coverage": 1.0,
-     "over_budget": 0.18
+     "coverage": 0.75,
+     "over_budget": 0.2
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -556,16 +555,16 @@
     "facts_delivered": [
      true,
      true,
-     true,
+     false,
      true
     ],
-    "clarity": "needs_a_reread",
-    "clarity_quote": "Through presenting, they practise critical comparison, argue why adaptation choices were made, and develop research, media-literacy, and public-speaking skills while appreciating the distinct strengths of each medium.",
+    "clarity": "clear",
+    "clarity_quote": "",
     "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "# Objectives of Film Adaptations Class",
     "economy": "tight",
     "economy_quote": "",
     "jargon": "plain",
@@ -577,42 +576,42 @@
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.28,
+    "sentence_cv": 0.0,
     "frag_ratio": 0.0,
-    "bold_per_100w": 2.22,
-    "comma_per_sent": 4.5,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 1.0,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 8.6
+   "seconds": 11.0
   },
   {
    "id": 8,
    "genre": "practical_guidance",
-   "response": "**Use Case: Campus Event Management System**\n\nStudents design a database for college fests \u2014 tables for events, participants, venues, and payments. They write queries to find top-attended events, detect scheduling conflicts, generate certificates lists, and build leaderboards. Teaches joins, normalization, constraints, and aggregates through a relatable, hands-on scenario.",
+   "response": "# RDBMS Workshop Usecase\n\n**Student Course Management System**: Design a database to manage enrollments, grades, and prerequisites. Students build schemas for courses, instructors, and departments, then write queries to find top performers, course conflicts, and generate transcripts\u2014applying real-world database design principles practically.",
    "rules": {
-    "rule2_economy": 10.0,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 10.0,
+   "clarity_avg": 7.96,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 100.0,
-   "facts_delivered": "4/4",
+   "score": 79.6,
+   "facts_delivered": "3/4",
    "detail": {
     "economy": {
-     "words": 48,
+     "words": 42,
      "budget": 450,
-     "facts": 4,
+     "facts": 3,
      "required": 4,
-     "coverage": 1.0,
-     "over_budget": 0.11
+     "coverage": 0.75,
+     "over_budget": 0.09
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -634,7 +633,7 @@
    "judge": {
     "facts_delivered": [
      true,
-     true,
+     false,
      true,
      true
     ],
@@ -643,55 +642,54 @@
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
-    "economy": "tight",
-    "economy_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "# RDBMS Workshop Usecase",
+    "economy": "some_padding",
+    "economy_quote": "applying real-world database design principles practically",
     "jargon": "plain",
     "jargon_quote": "",
     "simple_words": "simple",
     "simple_words_quote": "",
-    "filler": "no_filler",
-    "filler_quote": ""
+    "filler": "some_filler",
+    "filler_quote": "applying real-world database design principles practically"
    },
    "shape": {
-    "em_dash_per_100w": 2.08,
-    "sentence_cv": 0.31,
+    "em_dash_per_100w": 2.38,
+    "sentence_cv": 0.27,
     "frag_ratio": 0.0,
-    "bold_per_100w": 2.08,
-    "comma_per_sent": 3.33,
+    "bold_per_100w": 2.38,
+    "comma_per_sent": 3.5,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 9.7
+   "seconds": 12.3
   },
   {
    "id": 9,
    "genre": "practical_guidance",
-   "response": "**GARCH** models *volatility clustering* \u2014 calm markets stay calm, wild ones stay wild.\n\nModel: return r\u209c = \u03c3\u209cz\u209c, with\n\n\u03c3\u209c\u00b2 = \u03c9 + \u03b1\u00b7r\u00b2\u209c\u208b\u2081 + \u03b2\u00b7\u03c3\u00b2\u209c\u208b\u2081\n\nToday's variance blends yesterday's *shock* (\u03b1) and yesterday's *variance* (\u03b2). Require \u03c9>0, \u03b1+\u03b2<1 for stability. Variance becomes predictable, even when returns aren't.",
+   "response": "# GARCH Models Simplified\n\n**GARCH** (Generalized AutoRegressive Conditional Heteroskedasticity) models how volatility changes over time in financial data.\n\nThink of it like weather: calm days cluster together, stormy days cluster together. GARCH captures this pattern mathematically by letting today's uncertainty depend on yesterday's surprises and volatility\u2014not assuming constant risk.\n\nEssential for accurate stock predictions.",
    "rules": {
-    "rule2_economy": 2.5,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 5.8,
+    "rule2_economy": 0.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
    "clarity_avg": 5.5,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
    "score": 55.0,
-   "facts_delivered": "1/4",
+   "facts_delivered": "0/4",
    "detail": {
     "economy": {
-     "words": 48,
-     "budget": 750,
-     "facts": 1,
+     "words": 54,
+     "facts": 0,
      "required": 4,
-     "coverage": 0.25,
-     "over_budget": 0.06
+     "coverage": 0.0,
+     "note": "no facts delivered"
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -699,10 +697,8 @@
      "per_100w": 0.0
     },
     "simple_words": {
-     "swaps": {
-      "require": "need"
-     },
-     "per_100w": 2.08
+     "swaps": {},
+     "per_100w": 0.0
     },
     "filler": {
      "filler": 0,
@@ -715,41 +711,41 @@
    "judge": {
     "facts_delivered": [
      false,
-     true,
+     false,
      false,
      false
     ],
-    "clarity": "needs_a_reread",
-    "clarity_quote": "Model: return r\u209c = \u03c3\u209cz\u209c, with",
+    "clarity": "clear",
+    "clarity_quote": "",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "# GARCH Models Simplified",
     "economy": "tight",
     "economy_quote": "",
     "jargon": "some_jargon",
-    "jargon_quote": "z\u209c",
+    "jargon_quote": "Heteroskedasticity",
     "simple_words": "simple",
     "simple_words_quote": "",
     "filler": "no_filler",
     "filler_quote": ""
    },
    "shape": {
-    "em_dash_per_100w": 2.08,
-    "sentence_cv": 0.67,
+    "em_dash_per_100w": 1.85,
+    "sentence_cv": 0.45,
     "frag_ratio": 0.0,
-    "bold_per_100w": 2.08,
-    "comma_per_sent": 1.0,
+    "bold_per_100w": 1.85,
+    "comma_per_sent": 0.25,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 19.7
+   "seconds": 11.2
   },
   {
    "id": 10,
    "genre": "seeking_information",
-   "response": "Roughly **1\u20132 Gbps** (~125\u2013250 MB/s) of encrypted throughput on a single modern 2.9 GHz core, assuming large packets and AVX2 support. Small packets (64B) drop this to ~200\u2013400 Mbps, since WireGuard is packets-per-second bound (~300k\u20131M pps). RAM isn't the bottleneck; 1 GB is plenty.",
+   "response": "# WireGuard Performance\n\nWireGuard is highly efficient. A single 2.9 GHz CPU core can typically handle **100-500 Mbps** (12.5-62.5 MB/s) of throughput, depending on packet size and encryption operations. RAM usage is minimal. Actual performance varies with encryption algorithms, packet size, and system configuration.",
    "rules": {
     "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
@@ -757,13 +753,13 @@
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 9.44,
+   "clarity_avg": 8.7,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 94.4,
+   "score": 87.0,
    "facts_delivered": "2/4",
    "detail": {
     "economy": {
@@ -803,10 +799,10 @@
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
-    "economy": "tight",
-    "economy_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "# WireGuard Performance",
+    "economy": "some_padding",
+    "economy_quote": "Actual performance varies with encryption algorithms, packet size, and system configuration.",
     "jargon": "plain",
     "jargon_quote": "",
     "simple_words": "simple",
@@ -816,49 +812,47 @@
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.44,
-    "frag_ratio": 0.0,
+    "sentence_cv": 0.72,
+    "frag_ratio": 0.25,
     "bold_per_100w": 2.27,
-    "comma_per_sent": 0.67,
+    "comma_per_sent": 0.75,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 12.1
+   "seconds": 11.5
   },
   {
    "id": 11,
    "genre": "seeking_information",
-   "response": "You likely mean **oldweb.today** (emulated vintage browsers hitting web archives) or **pywb**, which you can self-host as an HTTP proxy replaying WARCs/Wayback content at a set date. The Wayback Machine also supports **Memento** time-travel headers. Note: dynamic sites, ads, and logins won't work.",
+   "response": "# Wayback Machine\n\nThe **Wayback Machine** (archive.org) is the web archive you're looking for. Enter any URL to view snapshots of websites from 2008 and other past dates. It captures billions of web pages, letting you browse the internet as it existed years ago.\n\nVisit: **archive.org/web/**",
    "rules": {
-    "rule2_economy": 7.5,
-    "rule3_jargon": 5.0,
+    "rule2_economy": 5.0,
+    "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 5.0,
+    "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 8.24,
+   "clarity_avg": 8.7,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 82.4,
-   "facts_delivered": "3/4",
+   "score": 87.0,
+   "facts_delivered": "2/4",
    "detail": {
     "economy": {
-     "words": 43,
+     "words": 46,
      "budget": 220,
-     "facts": 3,
+     "facts": 2,
      "required": 4,
-     "coverage": 0.75,
-     "over_budget": 0.2
+     "coverage": 0.5,
+     "over_budget": 0.21
     },
     "jargon": {
-     "undefined_acronyms": [
-      "WARCs"
-     ],
+     "undefined_acronyms": [],
      "undefined_terms": [],
-     "per_100w": 2.33
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {},
@@ -874,22 +868,22 @@
    },
    "judge": {
     "facts_delivered": [
-     true,
-     true,
      false,
-     true
+     true,
+     true,
+     false
     ],
-    "clarity": "needs_a_reread",
-    "clarity_quote": "You likely mean **oldweb.today** (emulated vintage browsers hitting web archives) or **pywb**, which you can self-host as an HTTP proxy replaying WARCs/Wayback content at a set date.",
+    "clarity": "clear",
+    "clarity_quote": "",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
-    "economy": "tight",
-    "economy_quote": "",
-    "jargon": "some_jargon",
-    "jargon_quote": "WARCs",
+    "form": "some_scaffolding",
+    "form_quote": "# Wayback Machine",
+    "economy": "some_padding",
+    "economy_quote": "It captures billions of web pages, letting you browse the internet as it existed years ago.",
+    "jargon": "plain",
+    "jargon_quote": "",
     "simple_words": "simple",
     "simple_words_quote": "",
     "filler": "no_filler",
@@ -897,27 +891,27 @@
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.77,
-    "frag_ratio": 0.0,
-    "bold_per_100w": 6.98,
-    "comma_per_sent": 1.0,
+    "sentence_cv": 0.56,
+    "frag_ratio": 0.25,
+    "bold_per_100w": 4.35,
+    "comma_per_sent": 0.25,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 14.5
+   "seconds": 7.4
   },
   {
    "id": 12,
    "genre": "seeking_information",
-   "response": "**Assessment:** Absent thermal response is expected \u2014 the pulp is gone. Pain on biting indicates periradicular/periodontal origin: persistent apical periodontitis (missed canal, failed/reinfected root canal), vertical root fracture, high occlusion, loose crown, or perio abscess.\n\n**Workup:** percussion/bite test, periodontal probing (isolated deep pocket = fracture), periapical radiograph, CBCT. Treat accordingly.",
+   "response": "# Post-Treatment Tooth Pain Analysis\n\n**Likely diagnosis: Cracked tooth or failed root canal treatment**\n\nTemperature insensitivity suggests the nerve is dead (expected post-RCT). Pressure pain indicates:\n- Periapical inflammation\n- Vertical root fracture\n- Inadequate sealing\n- Crown fracture\n\n**Recommendation:** Urgent dental evaluation with periapical X-ray to assess root integrity and periapical status.",
    "rules": {
     "rule2_economy": 7.5,
     "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 5.0,
+    "rule1_understandable": 10.0,
     "rule4_imagery": 7.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
    "clarity_avg": 7.8,
    "slop_per_1k": 0.0,
@@ -927,19 +921,17 @@
    "facts_delivered": "3/4",
    "detail": {
     "economy": {
-     "words": 50,
+     "words": 53,
      "budget": 450,
      "facts": 3,
      "required": 4,
      "coverage": 0.75,
-     "over_budget": 0.11
+     "over_budget": 0.12
     },
     "jargon": {
-     "undefined_acronyms": [
-      "CBCT"
-     ],
+     "undefined_acronyms": [],
      "undefined_terms": [],
-     "per_100w": 2.0
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {},
@@ -961,36 +953,36 @@
      false
     ],
     "clarity": "needs_a_reread",
-    "clarity_quote": "Pain on biting indicates periradicular/periodontal origin: persistent apical periodontitis (missed canal, failed/reinfected root canal), vertical root fracture, high occlusion, loose crown, or perio abscess.",
+    "clarity_quote": "Inadequate sealing",
     "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "# Post-Treatment Tooth Pain Analysis",
     "economy": "tight",
     "economy_quote": "",
     "jargon": "some_jargon",
-    "jargon_quote": "periradicular",
+    "jargon_quote": "periapical",
     "simple_words": "simple",
     "simple_words_quote": "",
     "filler": "no_filler",
     "filler_quote": ""
    },
    "shape": {
-    "em_dash_per_100w": 2.0,
-    "sentence_cv": 0.72,
-    "frag_ratio": 0.25,
-    "bold_per_100w": 4.0,
-    "comma_per_sent": 2.0,
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.19,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 3.77,
+    "comma_per_sent": 0.0,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 19.2
+   "seconds": 20.5
   },
   {
    "id": 13,
    "genre": "seeking_information",
-   "response": "Those are the weapon's **normal range** and **long range**. Attacks against targets beyond the normal range (but within long range) are made with disadvantage. You can't attack anything past the long range at all. Thrown weapons and spells with ranges work similarly.",
+   "response": "# Ranged Attack Distances in D&D 5e\n\nThe two numbers indicate **normal range** and **long range**. You attack at normal accuracy within the first distance. Beyond that up to the long range, you have **disadvantage** on the attack roll. You cannot attack beyond the long range.",
    "rules": {
     "rule2_economy": 10.0,
     "rule3_jargon": 10.0,
@@ -998,22 +990,22 @@
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 7.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 9.56,
+   "clarity_avg": 8.81,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 95.6,
+   "score": 88.1,
    "facts_delivered": "3/3",
    "detail": {
     "economy": {
-     "words": 42,
+     "words": 46,
      "budget": 130,
      "facts": 3,
      "required": 3,
      "coverage": 1.0,
-     "over_budget": 0.32
+     "over_budget": 0.35
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -1043,8 +1035,8 @@
     "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "# Ranged Attack Distances in D&D 5e",
     "economy": "tight",
     "economy_quote": "",
     "jargon": "plain",
@@ -1056,42 +1048,42 @@
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.3,
+    "sentence_cv": 0.37,
     "frag_ratio": 0.0,
-    "bold_per_100w": 4.76,
-    "comma_per_sent": 0.0,
+    "bold_per_100w": 6.52,
+    "comma_per_sent": 0.25,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 4.9
+   "seconds": 7.0
   },
   {
    "id": 14,
    "genre": "seeking_information",
-   "response": "Physical IT infrastructure \u2014 servers, networks, data centers \u2014 is the foundation every digital service runs on; without sufficient capacity, speed, and reliability, cloud, AI, and analytics initiatives stall.\n\nIt also determines security, data sovereignty, and cost control, making it a strategic lever rather than a mere back-office expense.",
+   "response": "# Physical IT Infrastructure & Digital Transformation\n\n**Physical IT infrastructure** provides the foundational backbone\u2014servers, networks, and data centers\u2014that enables cloud services, data processing, and system reliability. It ensures security, scalability, and performance necessary for organizations to innovate digitally and compete effectively in modern markets.",
    "rules": {
     "rule2_economy": 10.0,
     "rule3_jargon": 10.0,
-    "rule5_simple_words": 5.9,
+    "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 9.39,
+   "clarity_avg": 9.26,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 93.9,
+   "score": 92.6,
    "facts_delivered": "3/3",
    "detail": {
     "economy": {
-     "words": 49,
+     "words": 44,
      "budget": 55,
      "facts": 3,
      "required": 3,
      "coverage": 1.0,
-     "over_budget": 0.89
+     "over_budget": 0.8
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -1099,10 +1091,8 @@
      "per_100w": 0.0
     },
     "simple_words": {
-     "swaps": {
-      "sufficient": "enough"
-     },
-     "per_100w": 2.04
+     "swaps": {},
+     "per_100w": 0.0
     },
     "filler": {
      "filler": 0,
@@ -1123,8 +1113,8 @@
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "# Physical IT Infrastructure & Digital Transformation",
     "economy": "tight",
     "economy_quote": "",
     "jargon": "plain",
@@ -1135,43 +1125,45 @@
     "filler_quote": ""
    },
    "shape": {
-    "em_dash_per_100w": 4.08,
+    "em_dash_per_100w": 4.55,
     "sentence_cv": 0.26,
     "frag_ratio": 0.0,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 5.0,
+    "bold_per_100w": 2.27,
+    "comma_per_sent": 3.0,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 5.2
+   "seconds": 5.4
   },
   {
    "id": 15,
    "genre": "seeking_information",
-   "response": "A carbon footprint is the total greenhouse gases emitted by an organisation's activities. African businesses can reduce theirs by adopting solar and other renewables, improving energy efficiency, sourcing locally, cutting waste, using cleaner transport and logistics, restoring land, and measuring emissions to track progress.",
+   "response": "# Carbon Footprint & African Business Mitigation\n\nA carbon footprint measures greenhouse gas emissions from activities/operations. African businesses can reduce it by:\n\n- Adopting renewable energy (solar/wind)\n- Improving energy efficiency\n- Reducing waste\n- Sustainable sourcing\n- Carbon offsetting programs\n- Green transportation\n\nThese actions lower environmental impact while improving long-term sustainability.",
    "rules": {
-    "rule2_economy": 7.5,
-    "rule3_jargon": 10.0,
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 7.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 9.28,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 92.8,
-   "facts_delivered": "3/4",
+   "clarity_avg": 6.78,
+   "slop_per_1k": 4.7,
+   "slop_breakdown": {
+    "hyphen_pairs": 1
+   },
+   "slop_tax": 0.071,
+   "score": 63.0,
+   "facts_delivered": "2/4",
    "detail": {
     "economy": {
-     "words": 44,
+     "words": 53,
      "budget": 450,
-     "facts": 3,
+     "facts": 2,
      "required": 4,
-     "coverage": 0.75,
-     "over_budget": 0.1
+     "coverage": 0.5,
+     "over_budget": 0.12
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -1195,39 +1187,39 @@
      true,
      true,
      false,
-     true
+     false
     ],
     "clarity": "clear",
     "clarity_quote": "",
     "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
-    "economy": "tight",
-    "economy_quote": "",
-    "jargon": "plain",
-    "jargon_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "# Carbon Footprint & African Business Mitigation",
+    "economy": "some_padding",
+    "economy_quote": "These actions lower environmental impact while improving long-term sustainability.",
+    "jargon": "some_jargon",
+    "jargon_quote": "Carbon offsetting programs",
     "simple_words": "simple",
     "simple_words_quote": "",
-    "filler": "no_filler",
-    "filler_quote": ""
+    "filler": "some_filler",
+    "filler_quote": "improving long-term sustainability"
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.58,
+    "sentence_cv": 0.56,
     "frag_ratio": 0.0,
     "bold_per_100w": 0.0,
-    "comma_per_sent": 3.0,
+    "comma_per_sent": 0.0,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 12.1
+   "seconds": 13.1
   },
   {
    "id": 16,
    "genre": "writing_edit",
-   "response": "**Dear Parents,**\n\nNext Thursday and Friday, we will visit two more schools. Your child will have the opportunity to experience a Grade 1 classroom and join a variety of subject lessons. Parents are warmly welcome to sign up and enjoy the classes alongside your child. We look forward to seeing you there!",
+   "response": "# School Visit Notice\n\nWe're visiting two schools next Thursday and Friday! Your child will experience Grade 1 classes and attend various subject lessons. Parents are welcome to join and participate in the classes alongside your child. Sign up today to secure your spot!",
    "rules": {
     "rule2_economy": 10.0,
     "rule3_jargon": 10.0,
@@ -1235,22 +1227,22 @@
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 10.0,
+   "clarity_avg": 9.26,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 100.0,
+   "score": 92.6,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
-     "words": 52,
+     "words": 44,
      "budget": 130,
      "facts": 4,
      "required": 4,
      "coverage": 1.0,
-     "over_budget": 0.4
+     "over_budget": 0.34
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -1281,8 +1273,8 @@
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "# School Visit Notice",
     "economy": "tight",
     "economy_quote": "",
     "jargon": "plain",
@@ -1294,19 +1286,19 @@
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.38,
+    "sentence_cv": 0.25,
     "frag_ratio": 0.0,
-    "bold_per_100w": 1.92,
-    "comma_per_sent": 0.5,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.0,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 5.5
+   "seconds": 7.1
   },
   {
    "id": 17,
    "genre": "writing_edit",
-   "response": "**Revised:**\n\nThank you for your kind reply. I'm glad to hear you'll be accepting students next year, and I'll apply once the portal opens, hoping to rotate in your lab. Could I also rotate with you if admitted through Chemical & Biomolecular Engineering or Chemistry, rather than BME?\n\nBest wishes,",
+   "response": "# \u4fee\u6539\u5efa\u8bae\n\n**\u539f\u6587\u95ee\u9898\uff1a** \u53e5\u5b50\u7ed3\u6784\u590d\u6742\uff0c\u903b\u8f91\u4e0d\u591f\u6e05\u6670\u3002\n\n**\u4fee\u6539\u7248\uff1a**\n\nThank you for your kind reply. I'm pleased to hear you'll accept students next year. I plan to apply when the portal opens. May I ask whether I would be eligible to rotate in your lab if I'm admitted to Chemical and Biomolecular Engineering or Chemistry programs instead of BME? Thank you again, and best wishes.",
    "rules": {
     "rule2_economy": 10.0,
     "rule3_jargon": 10.0,
@@ -1324,12 +1316,12 @@
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
-     "words": 50,
+     "words": 61,
      "budget": 200,
      "facts": 4,
      "required": 4,
      "coverage": 1.0,
-     "over_budget": 0.25
+     "over_budget": 0.3
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -1360,10 +1352,10 @@
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
-    "economy": "tight",
-    "economy_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "**\u539f\u6587\u95ee\u9898\uff1a** \u53e5\u5b50\u7ed3\u6784\u590d\u6742\uff0c\u903b\u8f91\u4e0d\u591f\u6e05\u6670\u3002",
+    "economy": "some_padding",
+    "economy_quote": "**\u539f\u6587\u95ee\u9898\uff1a** \u53e5\u5b50\u7ed3\u6784\u590d\u6742\uff0c\u903b\u8f91\u4e0d\u591f\u6e05\u6670\u3002",
     "jargon": "plain",
     "jargon_quote": "",
     "simple_words": "simple",
@@ -1373,27 +1365,27 @@
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.77,
-    "frag_ratio": 0.25,
-    "bold_per_100w": 2.0,
-    "comma_per_sent": 1.0,
+    "sentence_cv": 0.69,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 3.28,
+    "comma_per_sent": 0.2,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 10.0
+   "seconds": 9.2
   },
   {
    "id": 18,
    "genre": "writing_edit",
-   "response": "Only minor fixes:\n\n1. **\"Anu, Anui-El and Anri-El\"** \u2014 add a serial comma (\"Anui-El, and Anri-El\") to match your second list.\n2. **\"related like father and sons\"** \u2014 use \"like a father and sons\" or \"as father and sons.\"\n3. Optional: trim \"by the time of the events of the games\" to \"by the games' events.\"\n\nOtherwise, grammatically sound.",
+   "response": "# Grammar Check\n\nYour writing is **excellent**. No corrections needed.\n\n**Minor observations:**\n- Consistent punctuation and capitalization throughout\n- All questions properly formatted\n- Spelling is correct\n- Sentence structure is clear and varied\n\nYour text demonstrates strong grammar skills. The only suggestion would be adding a period after \"games?\" if this concludes a passage, but it's stylistically acceptable as-is.",
    "rules": {
     "rule2_economy": 2.5,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule6_filler": 5.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 5.0
    },
    "clarity_avg": 5.5,
    "slop_per_1k": 0.0,
@@ -1403,7 +1395,7 @@
    "facts_delivered": "1/4",
    "detail": {
     "economy": {
-     "words": 59,
+     "words": 60,
      "budget": 250,
      "facts": 1,
      "required": 4,
@@ -1429,42 +1421,42 @@
    },
    "judge": {
     "facts_delivered": [
-     true,
      false,
      false,
-     false
+     false,
+     true
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "The only suggestion would be adding a period after \"games?\" if this concludes a passage, but it's stylistically acceptable as-is.",
+    "imagery": "abstract_but_fine",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
-    "economy": "tight",
-    "economy_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "- Spelling is correct",
+    "economy": "some_padding",
+    "economy_quote": "Your text demonstrates strong grammar skills.",
     "jargon": "plain",
     "jargon_quote": "",
     "simple_words": "simple",
     "simple_words_quote": "",
-    "filler": "no_filler",
-    "filler_quote": ""
+    "filler": "some_filler",
+    "filler_quote": "Your writing is **excellent**."
    },
    "shape": {
-    "em_dash_per_100w": 3.39,
-    "sentence_cv": 0.73,
-    "frag_ratio": 0.4,
-    "bold_per_100w": 3.39,
-    "comma_per_sent": 0.6,
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.82,
+    "frag_ratio": 0.25,
+    "bold_per_100w": 3.33,
+    "comma_per_sent": 0.25,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 18.3
+   "seconds": 13.8
   },
   {
    "id": 19,
    "genre": "writing_edit",
-   "response": "Hello Oli,\n\nThis isn't acceptable. The re-chromed metal will peel once exposed to liquid due to poor adhesion. Returning the parts won't guarantee better quality and will cost more time. Our alternative is applying bright chrome spray here at the yard, though it won't achieve a mirror finish.\n\nWhat's our arrangement with the service provider\u2014are we liable for payment?\n\nRegards,",
+   "response": "**Corrected Email:**\n\nDear Sir Oli,\n\nThe re-chromed metal is unacceptable. When exposed to liquid, it will peel due to poor adhesion. Returning items won't guarantee improved quality and will delay resolution. We can apply bright chrome spray here, though it won't achieve a mirror finish. What arrangement do you have with the service provider? Must we cover costs?",
    "rules": {
     "rule2_economy": 10.0,
     "rule3_jargon": 10.0,
@@ -1472,22 +1464,22 @@
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 10.0,
+   "clarity_avg": 9.26,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 100.0,
+   "score": 92.6,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
-     "words": 60,
+     "words": 58,
      "budget": 160,
      "facts": 4,
      "required": 4,
      "coverage": 1.0,
-     "over_budget": 0.38
+     "over_budget": 0.36
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -1518,8 +1510,8 @@
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "**Corrected Email:**",
     "economy": "tight",
     "economy_quote": "",
     "jargon": "plain",
@@ -1530,99 +1522,20 @@
     "filler_quote": ""
    },
    "shape": {
-    "em_dash_per_100w": 1.67,
-    "sentence_cv": 0.61,
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.34,
     "frag_ratio": 0.17,
-    "bold_per_100w": 0.0,
+    "bold_per_100w": 1.72,
     "comma_per_sent": 0.5,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 8.1
+   "seconds": 9.2
   },
   {
    "id": 20,
    "genre": "writing_edit",
-   "response": "Hi Kelvin, hope you're doing well! When we last spoke, you mentioned knowing the owner of DemonPower Sports and said to reach out if I hadn't locked down a summer internship by December. I'm still looking, so I wanted to ask \u2014 would you be open to introducing us? Thanks so much!",
-   "rules": {
-    "rule2_economy": 10.0,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
-    "rule7_form": 10.0
-   },
-   "clarity_avg": 10.0,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 100.0,
-   "facts_delivered": "4/4",
-   "detail": {
-    "economy": {
-     "words": 52,
-     "budget": 130,
-     "facts": 4,
-     "required": 4,
-     "coverage": 1.0,
-     "over_budget": 0.4
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "undefined_terms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "grammar": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
-    "economy": "tight",
-    "economy_quote": "",
-    "jargon": "plain",
-    "jargon_quote": "",
-    "simple_words": "simple",
-    "simple_words_quote": "",
-    "filler": "no_filler",
-    "filler_quote": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 1.92,
-    "sentence_cv": 0.84,
-    "frag_ratio": 0.25,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.75,
-    "staccato_runs": 0
-   },
-   "cost_usd": 0.0,
-   "seconds": 6.1
-  },
-  {
-   "id": 21,
-   "genre": "writing_create",
-   "response": "Dear [Client],\n\nPlease note an update to our payment terms: going forward, bank transfer fees will be borne by the sender. Kindly ensure transfers are sent with charges paid at your end so the full invoiced amount is received.\n\nThank you for your understanding.\n\nBest regards,\n[Your Name]",
+   "response": "Hi Kelvin,\n\nHope you're doing well! I wanted to follow up on our earlier conversation about the possible internship at DemonPower Sports. December's here now, and I still don't have anything lined up. Would you be open to introducing me to the owner? I'd really appreciate it.\n\nThanks!",
    "rules": {
     "rule2_economy": 10.0,
     "rule3_jargon": 10.0,
@@ -1689,42 +1602,42 @@
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.73,
-    "frag_ratio": 0.25,
+    "sentence_cv": 0.68,
+    "frag_ratio": 0.33,
     "bold_per_100w": 0.0,
-    "comma_per_sent": 0.75,
+    "comma_per_sent": 0.33,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 6.7
+   "seconds": 6.9
   },
   {
-   "id": 22,
+   "id": 21,
    "genre": "writing_create",
-   "response": "In Manjula Padmanabhan's *Lights Out*, patriarchy operates through male authority over action: Bhaskar dismisses Leela's fear and Naina's pleas, rationalising inaction as propriety. Women's voices are trivialised, the victim's screams reinterpreted as ritual or spectacle, and middle-class male respectability, voyeurism and apathy normalise sexual violence through complicit silence.",
+   "response": "# Bank Transfer Fee Update\n\nWe wanted to inform you of an important change: **effective immediately, bank transfer fees will now be charged to the customer** going forward. Please review the updated fee schedule on your account dashboard. If you have any questions, our support team is here to help.",
    "rules": {
-    "rule2_economy": 5.0,
+    "rule2_economy": 10.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 5.0,
-    "rule4_imagery": 3.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 7.67,
+   "clarity_avg": 9.26,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 76.7,
-   "facts_delivered": "2/4",
+   "score": 92.6,
+   "facts_delivered": "4/4",
    "detail": {
     "economy": {
-     "words": 48,
-     "budget": 320,
-     "facts": 2,
+     "words": 50,
+     "budget": 130,
+     "facts": 4,
      "required": 4,
-     "coverage": 0.5,
-     "over_budget": 0.15
+     "coverage": 1.0,
+     "over_budget": 0.38
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -1746,18 +1659,95 @@
    "judge": {
     "facts_delivered": [
      true,
-     false,
      true,
-     false
+     true,
+     true
     ],
-    "clarity": "needs_a_reread",
-    "clarity_quote": "Women's voices are trivialised, the victim's screams reinterpreted as ritual or spectacle, and middle-class male respectability, voyeurism and apathy normalise sexual violence through complicit silence.",
-    "clarity_quote_note": "",
-    "imagery": "needed_an_image",
-    "imagery_quote": "Women's voices are trivialised, the victim's screams reinterpreted as ritual or spectacle, and middle-class male respectability, voyeurism and apathy normalise sexual violence through complicit silence.",
-    "imagery_suggestion": "Show the actual scene: Mohan arriving with the eagerness of a guest at a show, the men crowding the balcony window to watch the assault below while Leela offers tea and Bhaskar insists that phoning the police is 'not our business'.",
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
     "form": "fits",
     "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "going forward"
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.59,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 2.0,
+    "comma_per_sent": 0.67,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 15.8
+  },
+  {
+   "id": 22,
+   "genre": "writing_create",
+   "response": "# Patriarchy in \"Lights Out\"\n\nIn David F. Sandberg's *Lights Out* (2016), patriarchy functions through absent and ineffectual father figures. The protagonist Rebecca navigates trauma and supernatural horror largely without paternal protection or guidance. Her stepfather Paul proves emotionally unavailable and dismissive of her concerns, forcing Rebecca to assume adult responsibilities prematurely. The film suggests patriarchal systems fail to protect women, leaving them vulnerable and forced into self-reliance against overwhelming darkness.",
+   "rules": {
+    "rule2_economy": 0.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 5.5,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 55.0,
+   "facts_delivered": "0/4",
+   "detail": {
+    "economy": {
+     "words": 71,
+     "facts": 0,
+     "required": 4,
+     "coverage": 0.0,
+     "note": "no facts delivered"
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "The film suggests patriarchal systems fail to protect women, leaving them vulnerable and forced into self-reliance against overwhelming darkness.",
+    "imagery_suggestion": "A specific scene from Manjula Padmanabhan's play \u2014 Bhaskar and Mohan debating whether the rape next door is 'their business' while the screams continue offstage \u2014 would ground the claim in evidence.",
+    "form": "some_scaffolding",
+    "form_quote": "# Patriarchy in \"Lights Out\"",
     "economy": "tight",
     "economy_quote": "",
     "jargon": "plain",
@@ -1769,41 +1759,44 @@
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.06,
+    "sentence_cv": 0.32,
     "frag_ratio": 0.0,
     "bold_per_100w": 0.0,
-    "comma_per_sent": 2.5,
+    "comma_per_sent": 0.6,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 24.9
+   "seconds": 15.0
   },
   {
    "id": 23,
    "genre": "writing_create",
-   "response": "**Is America Safe for J-1 Students and Immigrants?**\n\nUntil the U.S. immigration system is truly fixed, J-1 visa holders and newcomers face long waits, unclear rules, and uncertainty. Research your sponsor, know your rights, and verify every offer before traveling. Share this article\u2014informed decisions protect people's time, money, and futures.",
+   "response": "# Immigration Reform and J-1 Visa Safety\n\nMeaningful immigration system reform could enhance safety and security for international students on J-1 visas and other immigrants. Current uncertainties make informed decision-making difficult. Until comprehensive changes occur, prospective immigrants should carefully research policies, consult official resources, and weigh risks before relocating.",
    "rules": {
-    "rule2_economy": 7.5,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
+    "rule5_simple_words": 5.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 3.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.28,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 92.8,
-   "facts_delivered": "3/4",
+   "clarity_avg": 6.93,
+   "slop_per_1k": 25.5,
+   "slop_breakdown": {
+    "ai_vocab": 1,
+    "hyphen_pairs": 1
+   },
+   "slop_tax": 0.3,
+   "score": 48.5,
+   "facts_delivered": "2/4",
    "detail": {
     "economy": {
-     "words": 50,
+     "words": 49,
      "budget": 450,
-     "facts": 3,
+     "facts": 2,
      "required": 4,
-     "coverage": 0.75,
+     "coverage": 0.5,
      "over_budget": 0.11
     },
     "jargon": {
@@ -1825,204 +1818,203 @@
    },
    "judge": {
     "facts_delivered": [
-     true,
+     false,
      true,
      false,
      true
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
-    "economy": "tight",
-    "economy_quote": "",
-    "jargon": "plain",
-    "jargon_quote": "",
-    "simple_words": "simple",
-    "simple_words_quote": "",
-    "filler": "no_filler",
-    "filler_quote": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 2.0,
-    "sentence_cv": 0.25,
-    "frag_ratio": 0.0,
-    "bold_per_100w": 2.0,
-    "comma_per_sent": 1.75,
-    "staccato_runs": 0
-   },
-   "cost_usd": 0.0,
-   "seconds": 18.6
-  },
-  {
-   "id": 24,
-   "genre": "writing_create",
-   "response": "**Data Science Platform Engineer** building the infrastructure that turns data into decisions. I design scalable pipelines, deploy cloud-native environments, and streamline MLOps workflows so teams ship faster. Hands-on exposure to machine learning projects\u2014from feature engineering to model deployment\u2014lets me bridge engineering and data science. Passionate about reliable, production-ready systems.",
-   "rules": {
-    "rule2_economy": 5.0,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 6.6,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0,
-    "rule7_form": 10.0
-   },
-   "clarity_avg": 8.5,
-   "slop_per_1k": 20.4,
-   "slop_breakdown": {
-    "ai_vocab": 1
-   },
-   "slop_tax": 0.3,
-   "score": 59.5,
-   "facts_delivered": "2/4",
-   "detail": {
-    "economy": {
-     "words": 49,
-     "budget": 260,
-     "facts": 2,
-     "required": 4,
-     "coverage": 0.5,
-     "over_budget": 0.19
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "undefined_terms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 1,
-     "euphemism": 0,
-     "grammar": 0,
-     "per_100w": 2.04
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     false,
-     true,
-     false
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
-    "economy": "tight",
-    "economy_quote": "",
-    "jargon": "plain",
-    "jargon_quote": "",
-    "simple_words": "simple",
-    "simple_words_quote": "",
-    "filler": "no_filler",
-    "filler_quote": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 4.08,
-    "sentence_cv": 0.43,
-    "frag_ratio": 0.0,
-    "bold_per_100w": 2.04,
-    "comma_per_sent": 0.75,
-    "staccato_runs": 0
-   },
-   "cost_usd": 0.0,
-   "seconds": 18.5
-  },
-  {
-   "id": 25,
-   "genre": "writing_create",
-   "response": "*Lights Out* (1984) dramatizes a real Mumbai gang-rape witnessed passively by middle-class neighbours. Padmanabhan exposes patriarchal apathy: men rationalize inaction, Leela's terror is dismissed, Frieda's servant-silence signals class-gendered voicelessness. Only Naina protests, futilely. The offstage screams indict a society that renders women's suffering spectacle, not emergency.",
-   "rules": {
-    "rule2_economy": 7.5,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 5.0,
-    "rule4_imagery": 7.0,
-    "rule7_form": 10.0
-   },
-   "clarity_avg": 8.54,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 85.4,
-   "facts_delivered": "3/4",
-   "detail": {
-    "economy": {
-     "words": 46,
-     "budget": 550,
-     "facts": 3,
-     "required": 4,
-     "coverage": 0.75,
-     "over_budget": 0.08
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "undefined_terms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "grammar": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     false
-    ],
     "clarity": "needs_a_reread",
-    "clarity_quote": "Padmanabhan exposes patriarchal apathy: men rationalize inaction, Leela's terror is dismissed, Frieda's servant-silence signals class-gendered voicelessness.",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": "",
+    "clarity_quote": "Meaningful immigration system reform could enhance safety and security for international students on J-1 visas and other immigrants.",
+    "imagery": "needed_an_image",
+    "imagery_quote": "Current uncertainties make informed decision-making difficult.",
+    "imagery_suggestion": "A concrete case: a J-1 summer intern whose consulate interview slot moved from March to August, so she lost the placement and the airfare \u2014 that is the 'uncertainty' in practice.",
     "form": "fits",
     "form_quote": "",
     "economy": "tight",
     "economy_quote": "",
     "jargon": "plain",
     "jargon_quote": "",
-    "simple_words": "simple",
-    "simple_words_quote": "",
+    "simple_words": "some_complex",
+    "simple_words_quote": "enhance",
     "filler": "no_filler",
     "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.45,
-    "frag_ratio": 0.25,
+    "sentence_cv": 0.59,
+    "frag_ratio": 0.0,
     "bold_per_100w": 0.0,
     "comma_per_sent": 1.0,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 14.0
+   "seconds": 15.9
+  },
+  {
+   "id": 24,
+   "genre": "writing_create",
+   "response": "# LinkedIn Summary\n\nResults-driven Data Science Platform Engineer with proven expertise in building scalable ML infrastructure and deploying machine learning solutions. Skilled in designing data pipelines, optimizing model performance, and bridging data science and engineering. Passionate about enabling teams to deliver impactful AI/ML projects efficiently.\n\n---\n*Word count: 47*",
+   "rules": {
+    "rule2_economy": 0.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 3.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 5.5,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 55.0,
+   "facts_delivered": "0/4",
+   "detail": {
+    "economy": {
+     "words": 49,
+     "facts": 0,
+     "required": 4,
+     "coverage": 0.0,
+     "note": "no facts delivered"
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "needed_an_image",
+    "imagery_quote": "Results-driven Data Science Platform Engineer with proven expertise in building scalable ML infrastructure and deploying machine learning solutions.",
+    "imagery_suggestion": "Name the actual stack and one outcome: 'I build the Airflow, Spark and Kubernetes plumbing that took our feature pipeline from a nightly batch to near-real-time, and I've shipped two churn models to production with MLflow.'",
+    "form": "some_scaffolding",
+    "form_quote": "*Word count: 47*",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Results-driven"
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.58,
+    "frag_ratio": 0.25,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.5,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 20.6
+  },
+  {
+   "id": 25,
+   "genre": "writing_create",
+   "response": "# Lights Out as a Feminist Play\n\nManjula Padmanabhan's *Lights Out* critiques patriarchal power structures through its portrayal of women's subjugation and economic exploitation. The play examines how gender intersects with class and labor, highlighting women's vulnerability in male-dominated systems. It challenges traditional gender roles while exposing systemic inequalities affecting women's autonomy and survival.",
+   "rules": {
+    "rule2_economy": 2.5,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 3.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 5.5,
+   "slop_per_1k": 9.3,
+   "slop_breakdown": {
+    "trailing_participle": 1
+   },
+   "slop_tax": 0.14,
+   "score": 47.3,
+   "facts_delivered": "1/4",
+   "detail": {
+    "economy": {
+     "words": 54,
+     "budget": 550,
+     "facts": 1,
+     "required": 4,
+     "coverage": 0.25,
+     "over_budget": 0.1
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     false,
+     false,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "needed_an_image",
+    "imagery_quote": "The play examines how gender intersects with class and labor, highlighting women's vulnerability in male-dominated systems.",
+    "imagery_suggestion": "The actual scene: Leela and Bhaskar standing at their window while a woman is assaulted in the courtyard below, arguing over whether the noise is a religious ritual or a rape, and whether calling the police is 'their business' \u2014 the maid Frieda silently serving drinks throughout.",
+    "form": "some_scaffolding",
+    "form_quote": "# Lights Out as a Feminist Play",
+    "economy": "some_padding",
+    "economy_quote": "It challenges traditional gender roles while exposing systemic inequalities affecting women's autonomy and survival.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.29,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.33,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 13.4
   },
   {
    "id": 26,
    "genre": "writing_create",
-   "response": "**Sewing Quarter Vanishes From Freeview**\n\nViewers were left baffled last night when Sewing Quarter, Freeview channel 78, went dark. Broadcasts ceased abruptly mid-programme, replaced by a black screen bearing only the channel's name. No announcement has been made. The shopping network, launched in 2016, has not responded to requests for comment.",
+   "response": "# Sewing Quarter Vanishes From Freeview\n\n**BREAKING:** Sewing Quarter has mysteriously disappeared from Freeview, replaced by a blank screen displaying only the channel's logo and name. Viewers reported the sudden outage this morning. The channel has not yet issued a statement explaining the technical failure or estimated restoration time.",
    "rules": {
-    "rule2_economy": 7.5,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
@@ -2030,20 +2022,20 @@
     "rule4_imagery": 10.0,
     "rule7_form": 10.0
    },
-   "clarity_avg": 9.72,
+   "clarity_avg": 9.44,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 97.2,
-   "facts_delivered": "3/4",
+   "score": 94.4,
+   "facts_delivered": "2/4",
    "detail": {
     "economy": {
-     "words": 51,
+     "words": 49,
      "budget": 400,
-     "facts": 3,
+     "facts": 2,
      "required": 4,
-     "coverage": 0.75,
-     "over_budget": 0.13
+     "coverage": 0.5,
+     "over_budget": 0.12
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -2066,166 +2058,8 @@
     "facts_delivered": [
      false,
      true,
-     true,
+     false,
      true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
-    "economy": "tight",
-    "economy_quote": "",
-    "jargon": "plain",
-    "jargon_quote": "",
-    "simple_words": "simple",
-    "simple_words_quote": "",
-    "filler": "no_filler",
-    "filler_quote": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.45,
-    "frag_ratio": 0.0,
-    "bold_per_100w": 1.96,
-    "comma_per_sent": 1.25,
-    "staccato_runs": 0
-   },
-   "cost_usd": 0.0,
-   "seconds": 13.9
-  },
-  {
-   "id": 27,
-   "genre": "technical_help",
-   "response": "Trailing zeros are only a display artifact of floats, so change formatting, not the data:\n\n```python\npd.set_option('display.float_format', '{:g}'.format)\n```\n\nOr per-subset, round in place:\n\n```python\ncols = df.select_dtypes('float').columns\ndf[cols] = df[cols].round(4)\n```\n\nValues stay numeric; only their printed representation drops the zeros.",
-   "rules": {
-    "rule2_economy": 10.0,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
-    "rule7_form": 10.0
-   },
-   "clarity_avg": 10.0,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 100.0,
-   "facts_delivered": "4/4",
-   "detail": {
-    "economy": {
-     "words": 42,
-     "budget": 220,
-     "facts": 4,
-     "required": 4,
-     "coverage": 1.0,
-     "over_budget": 0.19
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "undefined_terms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "grammar": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
-    "economy": "tight",
-    "economy_quote": "",
-    "jargon": "plain",
-    "jargon_quote": "",
-    "simple_words": "simple",
-    "simple_words_quote": "",
-    "filler": "no_filler",
-    "filler_quote": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.0,
-    "frag_ratio": 0.0,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 4.0,
-    "staccato_runs": 0
-   },
-   "cost_usd": 0.0,
-   "seconds": 10.6
-  },
-  {
-   "id": 28,
-   "genre": "technical_help",
-   "response": "**Total return \u2248 6.45% p.a.** (the promised YTM), i.e. the initial price grows to about 1.0645\u00b9\u2070 \u2248 1.87\u00d7 over 10 years.\n\n**Assumptions:** the bond is held to maturity, the issuer pays all coupons and principal (no default/call), and every coupon is reinvested at the same 6.45% yield.",
-   "rules": {
-    "rule2_economy": 7.5,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0,
-    "rule7_form": 10.0
-   },
-   "clarity_avg": 9.72,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 97.2,
-   "facts_delivered": "3/4",
-   "detail": {
-    "economy": {
-     "words": 47,
-     "budget": 220,
-     "facts": 3,
-     "required": 4,
-     "coverage": 0.75,
-     "over_budget": 0.21
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "undefined_terms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "grammar": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     false
     ],
     "clarity": "clear",
     "clarity_quote": "",
@@ -2247,40 +2081,40 @@
     "em_dash_per_100w": 0.0,
     "sentence_cv": 0.58,
     "frag_ratio": 0.0,
-    "bold_per_100w": 4.26,
-    "comma_per_sent": 1.0,
+    "bold_per_100w": 2.04,
+    "comma_per_sent": 0.33,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 9.3
+   "seconds": 9.7
   },
   {
-   "id": 29,
+   "id": 27,
    "genre": "technical_help",
-   "response": "**\u2248 9.57% per year**\n\nSince (1 + i/12)\u00b9\u00b2 = 1.10, we get i/12 = 1.10^(1/12) \u2212 1 \u2248 0.0079741 (0.797% monthly). Multiplying by 12 gives a nominal annual rate of about 9.569%, compounded monthly.",
+   "response": "# Removing Trailing Zeros in Pandas Float Columns\n\nUse `.apply()` with a lambda function:\n\n```python\ndf[float_cols] = df[float_cols].apply(lambda x: x.astype('Int64') if x.dtype == 'float64' else x)\n```\n\nOr convert to nullable integer type if values are whole numbers:\n\n```python\ndf[float_cols] = df[float_cols].astype('Int64')\n```\n\nThis preserves numeric type while removing trailing zeros in display.",
    "rules": {
-    "rule2_economy": 10.0,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
+    "rule1_understandable": 5.0,
     "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule7_form": 5.0
    },
-   "clarity_avg": 10.0,
+   "clarity_avg": 7.96,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 100.0,
-   "facts_delivered": "3/3",
+   "score": 79.6,
+   "facts_delivered": "3/4",
    "detail": {
     "economy": {
-     "words": 34,
-     "budget": 110,
+     "words": 53,
+     "budget": 220,
      "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "over_budget": 0.31
+     "required": 4,
+     "coverage": 0.75,
+     "over_budget": 0.24
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -2303,15 +2137,95 @@
     "facts_delivered": [
      true,
      true,
-     true
+     true,
+     false
     ],
-    "clarity": "clear",
-    "clarity_quote": "",
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Or convert to nullable integer type if values are whole numbers:",
     "imagery": "concrete",
     "imagery_quote": "",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "# Removing Trailing Zeros in Pandas Float Columns",
+    "economy": "some_padding",
+    "economy_quote": "Use `.apply()` with a lambda function:",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.0,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 0.0,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 11.4
+  },
+  {
+   "id": 28,
+   "genre": "technical_help",
+   "response": "# Bond Total Return Calculation\n\n**Expected Total Return: 6.45% annually**\n\nIf held to maturity, the total return equals the YTM of 6.45% per year.\n\n**Key Assumptions:**\n- Bond held until maturity (no sale)\n- All coupon payments reinvested at 6.45%\n- No default risk\n- No transaction costs",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 8.26,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 82.6,
+   "facts_delivered": "2/4",
+   "detail": {
+    "economy": {
+     "words": 48,
+     "budget": 220,
+     "facts": 2,
+     "required": 4,
+     "coverage": 0.5,
+     "over_budget": 0.22
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     false,
+     true,
+     true,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "# Bond Total Return Calculation",
     "economy": "tight",
     "economy_quote": "",
     "jargon": "plain",
@@ -2323,42 +2237,122 @@
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.33,
+    "sentence_cv": 0.0,
     "frag_ratio": 0.0,
-    "bold_per_100w": 2.94,
-    "comma_per_sent": 1.0,
+    "bold_per_100w": 4.17,
+    "comma_per_sent": 0.5,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 5.8
+   "seconds": 10.7
+  },
+  {
+   "id": 29,
+   "genre": "technical_help",
+   "response": "# Nominal Annual Interest Rate\n\nUsing the relationship between effective and nominal rates:\n\n**Effective Rate = (1 + r/n)^n - 1**\n\nWhere:\n- Effective rate = 10% = 0.10\n- r = nominal rate (unknown)\n- n = 12 (monthly compounding)\n\n**0.10 = (1 + r/12)^12 - 1**\n\n**r \u2248 9.57%**\n\nThe nominal annual interest rate is approximately **9.57%**.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 6.6,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.76,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 77.6,
+   "facts_delivered": "2/3",
+   "detail": {
+    "economy": {
+     "words": 59,
+     "budget": 110,
+     "facts": 2,
+     "required": 3,
+     "coverage": 0.67,
+     "over_budget": 0.54
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "approximately": "about"
+     },
+     "per_100w": 1.69
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     false,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "# Nominal Annual Interest Rate",
+    "economy": "some_padding",
+    "economy_quote": "The nominal annual interest rate is approximately **9.57%**.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.0,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 6.78,
+    "comma_per_sent": 0.0,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 13.3
   },
   {
    "id": 30,
    "genre": "self_expression",
-   "response": "Tell me: what makes a people a nation? Shared language? Ancestry? Will? If a Catalan speaks Spanish, is he less Catalan? And if nationhood rests on collective will, may that will change tomorrow \u2014 or bind those unborn? Which claim comes first: identity, or the right to decide?",
+   "response": "# A Socratic Exploration\n\nI'd be glad to explore this with you through questioning. First, let me ask: **What do you mean by \"Catalan nationalism\"? Is it primarily about cultural preservation, political independence, or economic interests?** \n\nAnd further: **What makes a group's desire for self-determination justified or unjustified?**\n\nWhat are your initial thoughts?",
    "rules": {
-    "rule2_economy": 10.0,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 5.0,
-    "rule4_imagery": 10.0,
-    "rule7_form": 10.0
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 5.0
    },
-   "clarity_avg": 9.26,
+   "clarity_avg": 7.52,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 92.6,
-   "facts_delivered": "4/4",
+   "score": 75.2,
+   "facts_delivered": "3/4",
    "detail": {
     "economy": {
-     "words": 48,
+     "words": 53,
      "budget": 300,
-     "facts": 4,
+     "facts": 3,
      "required": 4,
-     "coverage": 1.0,
-     "over_budget": 0.16
+     "coverage": 0.75,
+     "over_budget": 0.18
     },
     "jargon": {
      "undefined_acronyms": [],
@@ -2380,36 +2374,36 @@
    "judge": {
     "facts_delivered": [
      true,
-     true,
+     false,
      true,
      true
     ],
-    "clarity": "needs_a_reread",
-    "clarity_quote": "And if nationhood rests on collective will, may that will change tomorrow \u2014 or bind those unborn?",
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
     "imagery_quote": "",
-    "imagery": "concrete",
     "imagery_suggestion": "",
-    "form": "fits",
-    "form_quote": "",
-    "economy": "tight",
-    "economy_quote": "",
+    "form": "some_scaffolding",
+    "form_quote": "# A Socratic Exploration",
+    "economy": "some_padding",
+    "economy_quote": "I'd be glad to explore this with you through questioning.",
     "jargon": "plain",
     "jargon_quote": "",
     "simple_words": "simple",
     "simple_words_quote": "",
-    "filler": "no_filler",
-    "filler_quote": ""
+    "filler": "some_filler",
+    "filler_quote": "I'd be glad to explore this with you through questioning."
    },
    "shape": {
-    "em_dash_per_100w": 2.08,
-    "sentence_cv": 0.86,
-    "frag_ratio": 0.43,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.43,
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.51,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 3.77,
+    "comma_per_sent": 1.0,
     "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 5.7
+   "seconds": 17.1
   }
  ]
 }

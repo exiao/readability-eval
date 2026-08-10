@@ -5,6 +5,7 @@
 import glob
 import json
 import os
+from statistics import mean
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BG, FG, MUTED, GRID = "#0f1115", "#ffffff", "#8b93a1", "#2b3240"
@@ -22,23 +23,55 @@ def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;")
 
 
-def load(condition="default"):
+def load(condition="default", limit=None):
+    """Summary rows per model.
+
+    With `limit`, every model is re-scored over just its first `limit` prompts
+    instead of using the stored summary. The full run is 30 prompts for some
+    models and 5 for others, and plotting both on one axis compares different
+    tests: a model that answered 5 easy prompts sits next to one that answered
+    30, and the bar chart says nothing about the difference. Pass limit=5 for a
+    like-for-like chart across every model.
+    """
     out = []
     for f in glob.glob(os.path.join(ROOT, "results", "*.json")):
-        s = json.load(open(f))["summary"]
+        d = json.load(open(f))
+        s = d["summary"]
         if s.get("condition", "default") != condition:
             continue
-        out.append({"model": s["model"], "score": s["score"],
-                    "words": s["avg_words"],
-                    "economy": s["per_rule"]["rule2_economy"],
-                    "slop": s["slop_per_1k"]})
+        if limit is None:
+            out.append({"model": s["model"], "score": s["score"],
+                        "words": s["avg_words"],
+                        "economy": s["per_rule"]["rule2_economy"],
+                        "slop": s["slop_per_1k"], "n": s["n"]})
+            continue
+        runs = [r for r in d["runs"] if r.get("response") and r["id"] <= limit]
+        if len(runs) < limit:
+            continue                      # cannot compare on a short run
+        out.append({
+            "model": s["model"],
+            "score": round(mean(r["score"] for r in runs), 1),
+            "words": round(mean(len(r["response"].split()) for r in runs)),
+            "economy": round(mean(r["rules"]["rule2_economy"] for r in runs), 1),
+            "slop": round(mean(r["slop_per_1k"] for r in runs), 1),
+            "n": len(runs),
+        })
     return sorted(out, key=lambda r: -r["score"])
 
 
+def axis_floor(rows):
+    """Lowest multiple of 5 that clears the worst score, capped at 80."""
+    return min(80, int(min(r["score"] for r in rows) // 5 * 5) - 5)
+
+
 def bars(rows, x0, y0, w, row_h):
-    """Score bars. Zero-baseline would compress 87-95 into nothing, so the
-    axis starts at 80 and the label says so."""
-    lo, hi = 80, 100
+    """Score bars. Zero-baseline would compress the field into nothing, so the
+    axis starts below the lowest score and the label says where.
+
+    The floor was hardcoded to 80, which broke the moment a model scored under
+    it: rule 7 dropped grok to 77.0 and it rendered as a 2px sliver. Derive it.
+    """
+    lo, hi = axis_floor(rows), 100
     out = []
     for i, r in enumerate(rows):
         y = y0 + i * row_h
@@ -102,7 +135,7 @@ def build(rows):
 <rect width="{W}" height="{h}" fill="{BG}"/>
 
 <text x="40" y="48" fill="{FG}" font-size="22" font-weight="700">Readability score</text>
-<text x="40" y="72" fill="{MUTED}" font-size="14">clarity x (1 - slop tax) · axis starts at 80</text>
+<text x="40" y="72" fill="{MUTED}" font-size="14">clarity x (1 - slop tax) · axis starts at {axis_floor(rows)}</text>
 {bars(rows, 210, BAR_TOP_Y, 560, ROW_H)}
 
 <line x1="40" y1="{divider}" x2="{W - 40}" y2="{divider}" stroke="{GRID}"/>
@@ -117,8 +150,17 @@ def build(rows):
 
 
 if __name__ == "__main__":
-    rows = load()
-    out = os.path.join(ROOT, "results", "chart.svg")
+    import sys
+    # --limit N re-scores every model over its first N prompts, so models with
+    # different run lengths are comparable on one axis.
+    limit = None
+    if "--limit" in sys.argv:
+        limit = int(sys.argv[sys.argv.index("--limit") + 1])
+    rows = load(limit=limit)
+    name = "chart.svg" if limit is None else f"chart-n{limit}.svg"
+    out = os.path.join(ROOT, "results", name)
     with open(out, "w") as f:
         f.write(build(rows))
-    print(f"-> {out}  ({len(rows)} models)")
+    ns = sorted({r["n"] for r in rows})
+    note = f"n={ns[0]}" if len(ns) == 1 else f"MIXED n={ns} (use --limit)"
+    print(f"-> {out}  ({len(rows)} models, {note})")

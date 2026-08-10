@@ -12,21 +12,21 @@
 <text x="198" y="197" fill="#ffffff" font-size="14" text-anchor="end">google/gemini-3.5-flash</text>
 <rect x="210" y="180" width="475" height="24" rx="3" fill="#3b82f6"/>
 <text x="695" y="197" fill="#ffffff" font-size="14" font-weight="700">91.7</text>
-<text x="198" y="237" fill="#ffffff" font-size="14" text-anchor="end">claude-opus-5</text>
-<rect x="210" y="220" width="435" height="24" rx="3" fill="#3b82f6"/>
-<text x="655" y="237" fill="#ffffff" font-size="14" font-weight="700">87.7</text>
-<text x="198" y="277" fill="#ffffff" font-size="14" text-anchor="end">openai/gpt-5.6-sol</text>
-<rect x="210" y="260" width="409" height="24" rx="3" fill="#3b82f6"/>
-<text x="629" y="277" fill="#ffffff" font-size="14" font-weight="700">85.2</text>
-<text x="198" y="317" fill="#ffffff" font-size="14" text-anchor="end">claude-haiku-4-5</text>
-<rect x="210" y="300" width="376" height="24" rx="3" fill="#3b82f6"/>
-<text x="596" y="317" fill="#ffffff" font-size="14" font-weight="700">81.9</text>
+<text x="198" y="237" fill="#ffffff" font-size="14" text-anchor="end">openai/gpt-5.6-sol</text>
+<rect x="210" y="220" width="409" height="24" rx="3" fill="#3b82f6"/>
+<text x="629" y="237" fill="#ffffff" font-size="14" font-weight="700">85.2</text>
+<text x="198" y="277" fill="#ffffff" font-size="14" text-anchor="end">claude-haiku-4-5</text>
+<rect x="210" y="260" width="392" height="24" rx="3" fill="#3b82f6"/>
+<text x="612" y="277" fill="#ffffff" font-size="14" font-weight="700">83.5</text>
+<text x="198" y="317" fill="#ffffff" font-size="14" text-anchor="end">claude-opus-5</text>
+<rect x="210" y="300" width="370" height="24" rx="3" fill="#3b82f6"/>
+<text x="590" y="317" fill="#ffffff" font-size="14" font-weight="700">81.3</text>
 <text x="198" y="357" fill="#ffffff" font-size="14" text-anchor="end">claude-sonnet-4-6</text>
-<rect x="210" y="340" width="366" height="24" rx="3" fill="#3b82f6"/>
-<text x="586" y="357" fill="#ffffff" font-size="14" font-weight="700">80.9</text>
+<rect x="210" y="340" width="257" height="24" rx="3" fill="#3b82f6"/>
+<text x="477" y="357" fill="#ffffff" font-size="14" font-weight="700">70.2</text>
 <text x="198" y="397" fill="#ffffff" font-size="14" text-anchor="end">claude-opus-4-6</text>
-<rect x="210" y="380" width="362" height="24" rx="3" fill="#3b82f6"/>
-<text x="582" y="397" fill="#ffffff" font-size="14" font-weight="700">80.6</text>
+<rect x="210" y="380" width="216" height="24" rx="3" fill="#3b82f6"/>
+<text x="436" y="397" fill="#ffffff" font-size="14" font-weight="700">66.2</text>
 <text x="198" y="437" fill="#ffffff" font-size="14" text-anchor="end">qwen/qwen3.8-max</text>
 <rect x="210" y="420" width="94" height="24" rx="3" fill="#3b82f6"/>
 <text x="314" y="437" fill="#ffffff" font-size="14" font-weight="700">54.2</text>
@@ -157,25 +157,25 @@
 <text x="817" y="860" fill="#8b93a1" font-size="12" text-anchor="middle">2950</text>
 <circle cx="280" cy="623" r="7" fill="#f87171"/>
 <text x="267" y="628" fill="#ffffff" font-size="13" text-anchor="end">kimi-k3</text>
-<circle cx="295" cy="625" r="7" fill="#f87171"/>
-<line x1="295" y1="632" x2="289" y2="642" stroke="#8b93a1" stroke-width="1" opacity="0.5"/>
+<circle cx="295" cy="623" r="7" fill="#f87171"/>
+<line x1="295" y1="630" x2="289" y2="642" stroke="#8b93a1" stroke-width="1" opacity="0.5"/>
 <text x="282" y="646" fill="#ffffff" font-size="13" text-anchor="end">grok-4.5</text>
 <circle cx="340" cy="682" r="7" fill="#f87171"/>
 <text x="327" y="687" fill="#ffffff" font-size="13" text-anchor="end">gemini-3.5-flash</text>
-<circle cx="236" cy="661" r="7" fill="#f87171"/>
-<text x="223" y="666" fill="#ffffff" font-size="13" text-anchor="end">claude-opus-5</text>
 <circle cx="433" cy="691" r="7" fill="#f87171"/>
 <line x1="433" y1="698" x2="427" y2="701" stroke="#8b93a1" stroke-width="1" opacity="0.5"/>
 <text x="420" y="705" fill="#ffffff" font-size="13" text-anchor="end">gpt-5.6-sol</text>
-<circle cx="180" cy="630" r="7" fill="#f87171"/>
-<line x1="180" y1="637" x2="173" y2="680" stroke="#8b93a1" stroke-width="1" opacity="0.5"/>
-<text x="167" y="684" fill="#ffffff" font-size="13" text-anchor="end">claude-haiku-4-5</text>
-<circle cx="229" cy="640" r="7" fill="#f87171"/>
-<line x1="229" y1="647" x2="223" y2="698" stroke="#8b93a1" stroke-width="1" opacity="0.5"/>
-<text x="216" y="702" fill="#ffffff" font-size="13" text-anchor="end">claude-sonnet-4-6</text>
-<circle cx="239" cy="651" r="7" fill="#f87171"/>
-<line x1="239" y1="658" x2="232" y2="716" stroke="#8b93a1" stroke-width="1" opacity="0.5"/>
-<text x="226" y="720" fill="#ffffff" font-size="13" text-anchor="end">claude-opus-4-6</text>
+<circle cx="281" cy="682" r="7" fill="#f87171"/>
+<line x1="281" y1="689" x2="275" y2="701" stroke="#8b93a1" stroke-width="1" opacity="0.5"/>
+<text x="268" y="705" fill="#ffffff" font-size="13" text-anchor="end">claude-haiku-4-5</text>
+<circle cx="334" cy="712" r="7" fill="#f87171"/>
+<text x="321" y="723" fill="#ffffff" font-size="13" text-anchor="end">claude-opus-5</text>
+<circle cx="378" cy="726" r="7" fill="#f87171"/>
+<line x1="378" y1="733" x2="372" y2="737" stroke="#8b93a1" stroke-width="1" opacity="0.5"/>
+<text x="365" y="741" fill="#ffffff" font-size="13" text-anchor="end">claude-sonnet-4-6</text>
+<circle cx="381" cy="698" r="7" fill="#f87171"/>
+<line x1="381" y1="705" x2="374" y2="755" stroke="#8b93a1" stroke-width="1" opacity="0.5"/>
+<text x="368" y="759" fill="#ffffff" font-size="13" text-anchor="end">claude-opus-4-6</text>
 <circle cx="726" cy="798" r="7" fill="#f87171"/>
 <text x="713" y="803" fill="#ffffff" font-size="13" text-anchor="end">qwen3.8-max</text>
 <text x="460" y="886" fill="#8b93a1" font-size="13" text-anchor="middle">average words per answer</text>

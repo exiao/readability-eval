@@ -1,67 +1,73 @@
 {
  "summary": {
   "model": "claude-opus-5",
-  "backend": "hermes",
-  "n": 12,
+  "backend": "anthropic",
+  "condition": "default",
+  "n": 30,
   "errors": 0,
-  "score": 87.2,
-  "clarity_avg": 8.75,
-  "slop_per_1k": 0.3,
-  "avg_words": 177,
+  "score": 85.7,
+  "clarity_avg": 8.69,
+  "slop_per_1k": 0.9,
+  "avg_words": 558,
   "per_rule": {
-   "rule2_economy": 5.0,
-   "rule3_jargon": 8.96,
-   "rule5_simple_words": 9.79,
-   "rule6_filler": 10.0,
-   "rule1_understandable": 10.0,
-   "rule4_imagery": 8.75
+   "rule2_economy": 6.1,
+   "rule3_jargon": 8.35,
+   "rule5_simple_words": 9.33,
+   "rule6_filler": 9.83,
+   "rule1_understandable": 7.83,
+   "rule4_imagery": 10.0,
+   "rule7_form": 8.76
   },
-  "cost_usd": 0.0
+  "cost_usd": 0.0,
+  "judge_model": "anthropic/claude-opus-5",
+  "judge_backend": "openrouter"
  },
  "runs": [
   {
    "id": 1,
-   "genre": "technical_qa",
-   "response": "Read yesterday's 24 commits in ~/projects/cpe. Here's the shape.\n\n**Most likely cause: slow queries holding a 10-connection pool.**\n\nThe pool is hard-capped at 10 for the whole warm container:\ncpe/web/app.py:527 `store.create_pool(min_size=1, max_size=10)`\n\nYesterday's deploy added expensive per-request SQL that holds those 10 slots much longer. High wait time is the symptom, not the disease.\n\nTwo new query costs, both shipped 8/3-8/4:\n- `source_coverage_rows` (cpe/web/data.py:1925) now runs a LATERAL subquery over every ticker on each page load. It filters `run` by ticker + status + two JSONB key checks, sorted by completed_at. Only index on `run` is `run_ticker_idx ON run(ticker)` (001_init.sql:22). The JSONB and status parts are unindexed, so it scans.\n- `_ACTIVE_QUESTION_JOB_JOIN` (data.py:2120) runs a LATERAL per question row against `job`. No index on `job(question_id)` anywhere in migrations.\n\n**Do this, in order:**\n\n1. Add the two indexes. This is the actual fix.\n   `job(question_id, phase, status)` and `run(ticker, status, completed_at DESC)`.\n2. Raise `max_size` from 10 to 30 as the stopgap while indexes build. One-line change, ships in minutes.\n3. Confirm before/after with `pg_stat_statements` ordered by total_exec_time. If those two queries top the list, you've got it.\n\n**Also found**\n\n- cpe/store.py:181, commit 9d3fdeb2 \"retry initial database connection timeout\" retries `asyncpg.connect` on TimeoutError with no timeout argument set. A hung connect now takes 2x as long before failing. Under pool pressure this compounds the wait. Worth reverting.\n- The cadence LATERAL is duplicated verbatim in two places (data.py:1929 and data.py:1080). Fix once, patch both.\n\nWant me to open the PR with the indexes and the max_size bump?",
+   "genre": "practical_guidance",
+   "response": "# \ud83c\udfac VIDEO LESSON SCRIPT\n## **\"THE SHAPE DETECTIVES!\" \ud83d\udd0d**\n### Grade 2 | Mathematics | Topic: Identifying 2D Shapes & Their Properties\n**Suggested length:** 10\u201312 minutes | **Style:** Bright animation + friendly host\n\n---\n\n## \ud83c\udfaf LEARNING OBJECTIVES\nBy the end of this video, learners will be able to:\n1. Name these 2D shapes: circle, triangle, square, rectangle, oval, pentagon, hexagon.\n2. Count the **sides** and **corners (vertices)** of a shape.\n3. Say whether a shape has **straight** or **curved** lines.\n4. Spot 2D shapes in real life.\n\n---\n\n## \ud83c\udf1f SCENE 1 \u2014 FUN INTRODUCTION (0:00 \u2013 1:30)\n\n**VISUAL:** A magnifying glass zooms across the screen. Host wears a detective hat and coat. Cartoon shapes peek out from behind trees.\n\n**HOST:**\n> \"Attention, attention! \ud83d\udea8 We have a MYSTERY!\n> Somebody\u2026 or some*thing*\u2026 has been hiding all over your classroom, your house, and even on your lunchbox!\n> Who is it? It's\u2026 **THE SHAPES!** \ud83d\udd35\ud83d\udd3a\ud83d\udfe5\n>\n> Today YOU become a **Shape Detective**. Detectives need three tools:\n> \ud83d\udc40 Sharp EYES \u2014 to look\n> \u270b Busy HANDS \u2014 to count\n> \ud83e\udde0 A clever BRAIN \u2014 to think\n>\n> Do you have all three? Show me your eyes! Show me your hands! Tap your brain! \ud83c\udf89\n> Fantastic. Let's go on a **SHAPE HUNT!**\"\n\n**ON-SCREEN TEXT:** *Mission: Find and name the 2D shapes!*\n\n---\n\n## \ud83d\udcda SCENE 2 \u2014 WHAT IS A 2D SHAPE? (1:30 \u2013 2:30)\n\n**VISUAL:** A flat paper square lying on a table, then a box (3D cube) next to it.\n\n**HOST:**\n> \"First clue! **2D** means **flat**. \ud83e\uded3\n> A 2D shape is flat like a piece of paper, a drawing, or a shadow. You can **draw** it and **trace** it, but you cannot hold it in your hand like a ball.\n>\n> Say it with me: **2D shapes are FLAT shapes!**\" *(pause for learners to repeat)*\n\n**ON-SCREEN TEXT:** **2D = flat shapes**\n\n---\n\n## \ud83d\udd0d SCENE 3 \u2014 DETECTIVE WORDS (2:30 \u2013 3:30)\n\n**VISUAL:** A big triangle appears. An animated finger traces one side (it glows), then taps one corner (it sparkles).\n\n**HOST:**\n> \"Every detective needs secret words. Here are ours:\n>\n> \u27a1\ufe0f **SIDE** \u2014 a line on the edge of a shape. *(finger traces)* One\u2026 two\u2026 three sides!\n> \u27a1\ufe0f **CORNER** \u2014 where two sides meet. Grown-ups call it a **vertex**. *(finger taps)* One\u2026 two\u2026 three corners!\n> \u27a1\ufe0f **STRAIGHT** \u2014 a line like a ruler. \ud83d\udccf\n> \u27a1\ufe0f **CURVED** \u2014 a line that bends, like a smile. \ud83d\ude0a\n>\n> Trace a triangle in the air with your finger! Ready\u2026 1\u2026 2\u2026 3! Well done!\"\n\n---\n\n## \ud83d\udfe6 SCENE 4 \u2014 MEET THE SHAPES (3:30 \u2013 7:00)\n\n*Each shape pops in with a sound effect and a mini \"ID card.\"*\n\n### 1\ufe0f\u20e3 THE CIRCLE \ud83d\udd35\n**HOST:** \"Here comes Circle \u2014 round and rolling!\"\n\n| CIRCLE |\n|---|\n| \u2714 **No straight sides** \u2014 it is one **curved** line |\n| \u2714 **No corners** |\n| \u2714 Perfectly round all the way around |\n\n> \"Circle has NO corners at all \u2014 that's why it can roll! Draw a circle in the air with me. Round and round! \ud83d\udd35\"\n\n---\n\n### 2\ufe0f\u20e3 THE TRIANGLE \ud83d\udd3a\n**HOST:** \"Tri\u2026 tri\u2026 **TRIangle**! 'Tri' means three!\"\n\n| TRIANGLE |\n|---|\n| \u2714 **3 straight sides** |\n| \u2714 **3 corners** |\n\n> \"Count with me: side, side, side \u2014 **3**! Corner, corner, corner \u2014 **3**!\n> Fun fact, detectives: triangles can be tall, wide, or skinny \u2014 but if it has 3 straight sides, it is ALWAYS a triangle.\" *(show 3 different triangles)*\n\n---\n\n### 3\ufe0f\u20e3 THE SQUARE \ud83d\udfe5\n**HOST:** \"Square is fair \u2014 all his sides are the same!\"\n\n| SQUARE |\n|---|\n| \u2714 **4 straight sides** |\n| \u2714 **All 4 sides are equal (the same length)** |\n| \u2714 **4 corners** |\n| \u2714 All corners are **square corners** (like the corner of this page) |\n\n> \"If you turn a square around and around, it still looks the same, because every side is equal!\" *(animation rotates the square)*\n\n---\n\n### 4\ufe0f\u20e3 THE RECTANGLE \u25ad\n**HOST:** \"Rectangle looks like a door! \ud83d\udeaa\"\n\n| RECTANGLE |\n|---|\n| \u2714 **4 straight sides** |\n| \u2714 **4 corners** (square corners) |\n| \u2714 The **two long sides are equal**, and the **two short sides are equal** |\n\n> \"Careful, detectives! Square and Rectangle both have **4 sides** and **4 corners**. How do we tell them apart?\n> \ud83d\udc49 On a **square**, ALL four sides are the same length.\n> \ud83d\udc49 On a **rectangle**, it has two long sides and two short sides. Long, short, long, short!\"\n\n---\n\n### 5\ufe0f\u20e3 THE OVAL \ud83e\udd5a\n| OVAL |\n|---|\n| \u2714 **Curved** line, like a stretched circle |\n| \u2714 **No corners**, no straight sides |\n\n> \"An oval looks like an egg or a rugby ball. \ud83e\udd5a\"\n\n---\n\n### 6\ufe0f\u20e3 THE PENTAGON \u2b20\n| PENTAGON |\n|---|\n| \u2714 **5 straight sides** |\n| \u2714 **5 corners** |\n\n> \"Penta means FIVE. Count with me: 1, 2, 3, 4, 5!\"\n\n---\n\n### 7\ufe0f\u20e3 THE HEXAGON \u2b21\n| HEXAGON |\n|---|\n| \u2714 **6 straight sides** |\n| \u2714 **6 corners** |\n\n> \"Hex means SIX! Bees build hexagons in their honeycomb. \ud83d\udc1d Count: 1, 2, 3, 4, 5, 6!\"\n\n---\n\n### \ud83c\udfb5 SHAPE CHANT (sing/clap together)\n> *\"Circle round with no corners at all!* \ud83d\udc4f\n> *Triangle three \u2014 count them, that's all!* \ud83d\udc4f\n> *Square has four, all sides the same!* \ud83d\udc4f\n> *Rectangle four \u2014 long, short is its game!* \ud83d\udc4f\n> *Five for pentagon, six for hex,* \ud83d\udc4f\n> *We are Shape Detectives \u2014 who's up next?\"* \ud83d\udc4f\n\n---\n\n## \ud83c\udfe0 SCENE 5 \u2014 SHAPES IN REAL LIFE (7:00 \u2013 8:30)\n\n**VISUAL:** Camera \"walks\" through a house, classroom, and street. Each object flashes and the shape outlines glow on top of it.\n\n**HOST:** \"Detectives, shapes are hiding EVERYWHERE. Shout out the shape when you see it!\"\n\n| Where | Object | Shape |\n|---|---|---|\n| Kitchen | Plate, clock face, bottle top, coin | **Circle** |\n| Classroom | Door, whiteboard, book cover, desk top | **Rectangle** |\n| Playground | Chess board square, window pane, serviette | **Square** |\n| Street | Yield/warning road sign, roof of a house, slice of pizza | **Triangle** |\n| Nature | Egg, face of a mirror, running track | **Oval** |\n| Beehive | Honeycomb cell | **Hexagon** |\n| Sports | Football patch (the black one) | **Pentagon** |\n\n**HOST:**\n> \"Why does this matter? Because shapes help us in real life! \ud83c\udfd7\ufe0f\n> Builders use **rectangles** for doors and bricks so they stack neatly.\n> Wheels are **circles** so they can roll and cars can move.\n> Roofs use **triangles** because triangles are strong and let the rain slide off.\n> Tiles on the floor are **squares** so they fit together with no gaps.\n>\n> **Your homework hunt:** Walk around your home tonight and find 5 shapes. Tell someone in your family what you found!\"\n\n---\n\n## \u270f\ufe0f SCENE 6 \u2014 EXERCISES: DETECTIVE TEST! (8:30 \u2013 11:00)\n\n*Pause the video after each question. Show a 5-second countdown timer, then reveal the answer with a \"ding!\"* \ud83d\udd14\n\n### ACTIVITY 1: NAME THAT SHAPE\n*(Show one shape at a time.)*\n1. I am round, I have no corners. Who am I? \u2192 **Circle**\n2. I have 3 sides and 3 corners. Who am I? \u2192 **Triangle**\n3. I have 4 sides that are ALL the same. Who am I? \u2192 **Square**\n4. I have 6 sides and 6 corners. Who am I? \u2192 **Hexagon**\n5. I have 4 sides \u2014 two long and two short. Who am I? \u2192 **Rectangle**\n\n---\n\n### ACTIVITY 2: COUNT WITH ME\n*(Show each shape with a pointer.)*\n\n| Shape | Sides | Corners |\n|---|---|---|\n| Triangle | **3** | **3** |\n| Square | **4** | **4** |\n| Rectangle | **4** | **4** |\n| Pentagon | **5** | **5** |\n| Hexagon | **6** | **6** |\n| Circle | **0 straight sides** | **0** |\n\n**HOST:** \"Look at the pattern, detectives! For these shapes, the number of **sides** is the same as the number of **corners**. Amazing! \ud83e\udd29\"\n\n---\n\n### ACTIVITY 3: ODD ONE OUT\n*(Show 4 pictures.)*\n- Row A: \ud83d\udd35 \u26bd(circle) \ud83e\ude99(circle) \ud83d\udd3a \u2192 **Odd one out: the triangle** (the rest are circles)",
    "rules": {
-    "rule2_economy": 0.0,
-    "rule3_jargon": 8.7,
-    "rule5_simple_words": 9.2,
+    "rule2_economy": 4.9,
+    "rule3_jargon": 9.8,
+    "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
+    "rule4_imagery": 10.0,
+    "rule7_form": 8.3
    },
-   "clarity_avg": 7.48,
+   "clarity_avg": 9.15,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 74.8,
-   "facts_delivered": "3/4",
+   "score": 91.5,
+   "facts_delivered": "5/5",
    "detail": {
     "economy": {
-     "words": 255,
-     "facts": 3,
-     "required": 4,
-     "coverage": 0.75,
-     "words_per_fact": 85.0
+     "words": 1406,
+     "budget": 550,
+     "facts": 5,
+     "required": 5,
+     "coverage": 1.0,
+     "over_budget": 2.56
     },
     "jargon": {
      "undefined_acronyms": [
-      "JSONB",
-      "ON"
+      "EYES",
+      "HANDS"
      ],
-     "per_100w": 0.78
+     "undefined_terms": [],
+     "per_100w": 0.14
     },
     "simple_words": {
-     "swaps": {
-      "request": "ask"
-     },
-     "per_100w": 0.39
+     "swaps": {},
+     "per_100w": 0.0
     },
     "filler": {
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -70,456 +76,1266 @@
      true,
      true,
      true,
-     false
+     true,
+     true
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "abstract_but_fine",
+    "imagery": "concrete",
     "imagery_quote": "",
-    "imagery_suggestion": ""
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.79,
-    "frag_ratio": 0.22,
-    "bold_per_100w": 1.18,
-    "comma_per_sent": 0.52
+    "em_dash_per_100w": 1.71,
+    "sentence_cv": 1.37,
+    "frag_ratio": 0.27,
+    "bold_per_100w": 6.76,
+    "comma_per_sent": 0.79,
+    "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 419.8
+   "seconds": 69.2
   },
   {
    "id": 2,
-   "genre": "explain",
-   "response": "A process is a running program with its own memory. A thread is a worker inside that process.\n\n- Process: isolated. Crash one, others survive. Talking between them is slow (pipes, sockets).\n- Thread: shares memory with its siblings. Talking is instant, but one bad write corrupts everyone.\n- Cost: starting a process is expensive. Starting a thread is cheap.\n\nRough analogy: a process is a house, threads are the people in it. Separate houses stay safe. Housemates share the fridge and fight over it.",
+   "genre": "practical_guidance",
+   "response": "# Lesson Plan: \"The Butterfly Dance\" \u2014 Moving Through the Life Cycle\n\n**Grade Level:** Kindergarten \u2013 2nd Grade\n**Subject Integration:** Science (Life Cycles) + Dance/Creative Movement\n**Duration:** 45\u201360 minutes (can be split into two 30-minute sessions)\n**Class Size:** Whole group, with small-group work\n\n---\n\n## Learning Objectives\n\nStudents will be able to:\n\n1. **Identify and sequence** the four stages of the butterfly life cycle: egg \u2192 larva (caterpillar) \u2192 pupa (chrysalis) \u2192 adult butterfly.\n2. **Create and perform** an original movement or shape to represent each stage.\n3. **Demonstrate** dance elements of *body shape, level, speed (tempo), and energy* to show change over time.\n4. **Cooperate** with peers to perform a sequenced dance in order.\n\n---\n\n## Standards Alignment (adapt to your state)\n\n| Area | Standard |\n|---|---|\n| **NGSS** | 1-LS1-2 / 3-LS1-1 \u2014 Patterns in the life cycles of organisms; young organisms are like, but not exactly like, their parents |\n| **National Core Arts \u2013 Dance** | DA:Cr1.1 \u2014 Explore movement inspired by a variety of stimuli; DA:Cr2.1 \u2014 Organize movement into a sequence with a beginning, middle, and end; DA:Pr5.1 \u2014 Demonstrate body shapes and levels |\n| **ELA** | SL.K\u20132.1 \u2014 Participate in collaborative conversations; L.K\u20132.6 \u2014 Use new vocabulary |\n\n---\n\n## Materials\n\n- Open floor space (classroom with desks pushed back, gym, or outdoors)\n- 4 large picture cards or posters: **Egg, Caterpillar, Chrysalis, Butterfly**\n- Music (instrumental, ~30\u201360 seconds per stage). Suggestions:\n  - *Egg:* slow, quiet strings or \"Aquarium\" from Saint-Sa\u00ebns' *Carnival of the Animals*\n  - *Caterpillar:* bouncy, playful (pizzicato strings, marimba)\n  - *Chrysalis:* still, mysterious, hummed tones\n  - *Butterfly:* light, flowing, waltz-like (Tchaikovsky \"Waltz of the Flowers\")\n- Optional props: scarves, streamers, or fabric squares for wings\n- A read-aloud book: *The Very Hungry Caterpillar* by Eric Carle or *From Caterpillar to Butterfly* by Deborah Heiligman\n- Drum, tambourine, or chime for transitions\n- Chart paper for recording student movement ideas\n\n---\n\n## Key Vocabulary\n\n**Science:** life cycle, egg, larva, caterpillar, pupa, chrysalis, adult, metamorphosis, hatch, emerge\n**Dance:** shape, level (low/middle/high), tempo (fast/slow), freeze, sequence, energy\n\n---\n\n## Lesson Procedure\n\n### 1. Hook & Warm-Up (8 minutes)\n\n- Gather students in a circle. **Read aloud** the book (or briefly review if already read).\n- **Body Warm-Up:** \"Let's wake up our dancing bodies!\"\n  - Wiggle fingers \u2192 arms \u2192 shoulders \u2192 whole body\n  - Practice **freezing** on the chime sound (this is your management signal all lesson!)\n  - Practice **levels:** \"Show me LOW (crouch), MIDDLE (bent knees), HIGH (reach up).\"\n\n> **Teacher tip:** Establish the \"freeze\" signal now and use it consistently. Praise students who freeze quickly.\n\n---\n\n### 2. Direct Instruction \u2014 Sequencing the Life Cycle (7 minutes)\n\n- Hold up the four picture cards **out of order.** Ask: *\"Which comes first? How do you know?\"*\n- Have four student volunteers hold the cards and physically arrange themselves in order.\n- Post the cards in sequence on the board where all can see.\n- Introduce the word **metamorphosis** \u2014 \"a BIG change.\" Have students say it and clap the syllables: *met-a-mor-pho-sis* (5 claps).\n\n---\n\n### 3. Guided Exploration \u2014 Building the Movements (15 minutes)\n\nExplore **one stage at a time.** For each, ask guiding questions, let students try 2\u20133 ideas, then vote or combine into one class movement. Record on chart paper with a stick-figure drawing.\n\n| Stage | Guiding Questions | Sample Movement | Dance Elements |\n|---|---|---|---|\n| **1. Egg** | \"How big is a butterfly egg? What shape? Does it move a lot?\" | Curl into a tiny ball on the floor, very still, tiny pulse/breath | Low level, small shape, slow, still energy |\n| **2. Caterpillar** | \"How does a caterpillar move? What does it do all day?\" | Crawl/scoot on hands and knees, munch leaves with arms, wiggle and stretch, grow bigger | Low\u2192middle level, fast tempo, bouncy energy |\n| **3. Chrysalis** | \"What happens inside? Can we see it? Is it still or moving?\" | Stand or kneel very tall and narrow, arms wrapped around self, tiny slow twists \u2014 then a \"crack\" and stretch | Middle level, narrow shape, very slow, held energy |\n| **4. Butterfly** | \"How do wings move? Fast or slow? Where does it fly?\" | Slowly unfold arms, flutter wings, fly through space on tiptoes, land lightly on a \"flower\" | High level, wide shape, light/floating energy, travels through space |\n\n> **Differentiation built in:** Offer a seated version of every movement (e.g., egg = head down on desk; butterfly = arms flutter while seated).\n\n---\n\n### 4. Creative Work \u2014 Small Group Choreography (10 minutes)\n\n- Divide into groups of 3\u20135. Each group gets a set of the 4 picture cards.\n- **Task:** \"Put the four movements in order. Add ONE special idea of your own \u2014 maybe you hatch together, or your wings touch, or you freeze in a group shape at the end.\"\n- Teacher circulates, asking: *\"What's your beginning shape? What's your ending shape? How does everyone know when to change stages?\"*\n\n> **Simplify for Kindergarten:** Skip small groups and keep the whole class dancing together, with the teacher calling out stages.\n\n---\n\n### 5. Perform! The Butterfly Dance (10 minutes)\n\n- Play the music, changing tracks (or use the drum/chime) at each stage transition.\n- **Round 1:** Everyone dances together, teacher narrates: *\"Tiny eggs resting on a leaf\u2026 the eggs begin to hatch\u2026 hungry caterpillars are munching\u2026\"*\n- **Round 2:** Half the class performs, half is the **audience**. Then switch.\n- Teach audience behavior: *\"Dancers' eyes on your own space. Audience: quiet body, eyes watching, clap at the end!\"*\n- Optional: record a video to share with families.\n\n---\n\n### 6. Closure & Reflection (5 minutes)\n\nSit in a circle. Discuss:\n\n- \"What are the four stages? Show me the shape for each one with just your hands.\"\n- \"Which stage was the *slowest*? Which was the *fastest*? Why?\"\n- \"What did you see a friend do that you liked?\"\n- **Exit Ticket (2nd grade):** Draw the four stages in order on a folded paper strip and label each one.\n- **Exit Ticket (K\u20131):** Teacher holds up a card; students make that stage's shape and freeze.\n\n---\n\n## Assessment\n\n### Informal / Observational Checklist\n\n| Student Name | Sequences 4 stages correctly | Creates a distinct shape for each stage | Uses levels & tempo purposefully | Cooperates in group | Notes |\n|---|---|---|---|---|---|\n| | \u2610 | \u2610 | \u2610 | \u2610 | |\n\n### Simple Student-Friendly Rubric\n\n| | \ud83d\udc1b Growing | \ud83e\udd8b Got It! |\n|---|---|---|\n| **Life Cycle Order** | I need help remembering the order | I can show all 4 stages in order |\n| **My Dancing** | My shapes look the same | Each stage looks different |\n| **Teamwork** | I'm learning to share space | I dance safely and work with my group |\n\n---\n\n## Differentiation & Accessibility\n\n- **Students with limited mobility:** All four stages can be performed seated using arms, hands, head, and facial expression. Assign the role of \"chime keeper\" or \"narrator\" if preferred.\n- **English Language Learners:** Pair each vocabulary word with a picture card and a gesture; the dance *is* the comprehension support. Allow home-language responses.\n- **Students needing sensory support:** Offer a designated \"quiet leaf\" spot to observe; provide a carpet square to define personal space; give a 5-second warning before music/volume changes.\n- **Advanced learners:** Challenge them to add a *transition movement* between stages, choose their own music, or choreograph a second life cycle (frog, ladybug) and compare.\n- **Behavior support:** Use spot markers or poly spots to define personal space bubbles.\n\n---\n\n## Extensions & Cross-Curricular Connections\n\n- **Art:** Create paper-plate or coffee-filter wings to wear in a repeat performance.\n- **Writing:** \"I am a caterpillar. First I\u2026 Next I\u2026 Then I\u2026 Finally I\u2026\" sequencing sentence frames.\n- **Math:** Count and graph how many seconds each stage of the dance lasts; compare real life-cycle durations (egg ~5 days, caterpillar ~2 weeks, chrysalis ~10 days).\n- **Science:** Raise live painted lady butterflies in the classroom and perform the dance again as each real stage occurs.\n- **Music:** Add classroom instruments \u2014 shakers for eggs, woodblocks for caterpillar crawling, triangle chime for emerging.\n- **Family Connection:** Send home a \"Butterfly Dance\" card with the four movements so students can teach a family member.\n\n---\n\n## Teacher Notes / Reflection Prompts\n\n- Did students need more time exploring movement before choreographing?\n- Which stage was hardest for students to distinguish? (Often chrysalis \u2014 emphasize *stillness on the outside, change on the inside.*)\n- Would a two-day version work better? *(Day 1: science + explore movements. Day 2: choreograph + perform.)*",
+   "rules": {
+    "rule2_economy": 4.4,
+    "rule3_jargon": 9.7,
+    "rule5_simple_words": 9.7,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 9.2
+   },
+   "clarity_avg": 9.17,
+   "slop_per_1k": 0.1,
+   "slop_breakdown": {
+    "inline_header_list": 1
+   },
+   "slop_tax": 0.002,
+   "score": 91.6,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 1454,
+     "budget": 520,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 2.8
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "ELA",
+      "NGSS",
+      "SL"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.21
+    },
+    "simple_words": {
+     "swaps": {
+      "demonstrate": "show"
+     },
+     "per_100w": 0.14
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "Would a two-day version work better? *(Day 1: science + explore movements. Day 2: choreograph + perform.)*",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 1.03,
+    "sentence_cv": 1.17,
+    "frag_ratio": 0.21,
+    "bold_per_100w": 3.3,
+    "comma_per_sent": 1.15,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 69.2
+  },
+  {
+   "id": 3,
+   "genre": "practical_guidance",
+   "response": "# The Art of Negotiation \u2014 A Complete Self-Study Curriculum\n\n**Level:** Beginner \u2192 Advanced\n**Duration:** 16 weeks (6\u20138 hrs/week) \u2014 can be compressed to 8 weeks or extended to 6 months\n**Format:** 5 Parts \u00b7 15 Modules \u00b7 1 Capstone\n**Cost:** \u20b90 / $0 \u2014 every recommendation is free (audit mode, open courseware, or fully free platforms)\n\n> **How \"free\" works on each platform**\n> - **Coursera** \u2192 click **\"Audit\"** on the enrollment page = free videos, readings, and most quizzes (no certificate). Financial Aid gives free certificates in ~15 days.\n> - **edX** \u2192 choose the **\"Audit track\"** = free access for a limited window (usually the course duration).\n> - **MIT OCW / Open Yale / Stanford Online** \u2192 100% free, no signup, includes lecture notes, syllabi, assignments.\n> - **Alison, Saylor Academy, HubSpot Academy, OpenLearn (Open University)** \u2192 fully free including assessments (small fee only for printed certificates on some).\n> - **YouTube / Podcasts / Harvard PON free reports** \u2192 100% free.\n\n---\n\n## COURSE MAP AT A GLANCE\n\n| Part | Modules | Theme |\n|---|---|---|\n| **I. Foundations** | 1\u20133 | Theory, mindset, preparation |\n| **II. Core Skills** | 4\u20137 | Communication, psychology, persuasion, value creation |\n| **III. Tactics & Complexity** | 8\u201311 | Claiming value, non-verbals, culture, multiparty |\n| **IV. Applied Contexts** | 12\u201314 | Salary, sales/procurement, contracts, conflict & mediation |\n| **V. Mastery** | 15 + Capstone | Ethics, deliberate practice, real-world execution |\n\n---\n\n# PART I \u2014 FOUNDATIONS\n\n## Module 1: Negotiation Fundamentals & Frameworks\n*(",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.96,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 79.6,
+   "facts_delivered": "2/4",
+   "detail": {
+    "economy": {
+     "words": 260,
+     "budget": 700,
+     "facts": 2,
+     "required": 4,
+     "coverage": 0.5,
+     "over_budget": 0.37
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "II",
+      "III",
+      "IV",
+      "MIT",
+      "OCW"
+     ],
+     "undefined_terms": [],
+     "per_100w": 1.92
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     false,
+     false,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "# PART I \u2014 FOUNDATIONS",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "Harvard PON",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 1.54,
+    "sentence_cv": 0.92,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 6.54,
+    "comma_per_sent": 2.0,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 84.2
+  },
+  {
+   "id": 4,
+   "genre": "practical_guidance",
+   "response": "## Core Effects That Say \"Robot\"\n\n**1. Ring Modulation**\nThe classic. Multiplies the voice with a sine wave, creating inharmonic sidebands \u2014 that clangy, metallic Dalek/Cybermen sound. Carrier frequencies around 30\u201380 Hz give a gritty buzz; 200\u20131000 Hz gives a more alien, bell-like quality.\n\n**2. Vocoder**\nImposes the spectral envelope of your voice onto a synth carrier (usually a saw or pulse wave). Gives the \"singing robot\" / Daft Punk sound. Keep the carrier on a single held note for a monotone machine, or play chords for a choral effect.\n\n**3. Pitch Flattening / Monotone**\nReal robots don't have prosody. Use hard-quantized pitch correction (retune speed at 0, no vibrato) or a pitch-to-MIDI-driven synth to lock everything to one note. This alone does 50% of the work.\n\n**4. Bitcrushing / Sample Rate Reduction**\nDrop bit depth to 4\u20138 bits and sample rate to 4\u201311 kHz. Instant \"cheap 1980s toy\" or \"low-memory speech chip\" vibe.\n\n**5. Formant Shifting**\nShift formants down for a big lumbering machine, up for a small chirpy droid \u2014 independently of pitch, so it stays intelligible.\n\n## Texture & Character\n\n**6. Comb Filtering / Short Delay**\nA delay of 5\u201325 ms mixed with the dry signal creates a hollow, tubular resonance. Flangers and phasers do a modulated version of this \u2014 good for \"servo whine.\"\n\n**7. Chorus / Detune Stacking**\nDuplicate the voice, pitch one copy \u00b15\u201312 cents (or a whole octave/fifth), and pan them. Creates the \"multiple units speaking in unison\" effect.\n\n**8. Bandpass / Telephone EQ**\nRoll off below ~300 Hz and above ~3.5 kHz. Suggests a small internal speaker. Add a resonant peak around 1\u20132 kHz for extra honk.\n\n**9. Distortion / Saturation**\nLight overdrive adds harmonic grit; heavy clipping suggests a damaged or angry machine.\n\n**10. Tremolo / Gating**\nFast amplitude modulation (10\u201330 Hz) or a rhythmic noise gate chops the voice into a stuttering, mechanical delivery.\n\n**11. Metallic Reverb**\nSpring reverb, plate reverb, or a resonant convolution impulse (metal pipe, oil drum) places the voice \"inside\" a chassis.\n\n## Advanced / Layering Ideas\n\n- **Granular stutter** \u2014 repeat tiny slices for a glitching, buffering AI.\n- **Spectral freeze** \u2014 hold a vowel indefinitely for a \"hanging\" or crashing system.\n- **LPC / linear predictive coding resynthesis** \u2014 genuine speech-synthesis-chip authenticity (think Speak & Spell).\n- **Layered mechanical foley** \u2014 servo whirs, relay clicks, fan hum under the dialogue. Sells \"physical machine\" more than any plugin.\n- **Sidechain a noise layer** to the vocal envelope so static swells with speech.\n\n## Performance Matters Too\n\nDeliver lines flat, evenly paced, with equal stress on every syllable and slightly unnatural pauses between words. Avoid contractions. A well-performed robot voice with light processing beats a natural read buried in plugins.\n\n## Quick Recipes\n\n| Character | Chain |\n|---|---|\n| Retro sci-fi villain | Monotone \u2192 ring mod (~50 Hz) \u2192 distortion \u2192 spring reverb |\n| Friendly assistant AI | Slight formant shift up \u2192 chorus \u2192 light bandpass \u2192 short room reverb |\n| Vintage computer | Bitcrush (8-bit / 8 kHz) \u2192 bandpass \u2192 tiny slapback delay |\n| Musical robot | Vocoder with saw carrier \u2192 stereo widening \u2192 hall reverb |\n\n## Tools\n\nFree: Audacity (built-in effects), Reaper + ReaPitch/ReaFir, TAL-Vocoder, Camel Crusher, Krush, Graillon 2 (free version).\nPaid: Waves Morphoder, iZotope VocalSynth, Melda MRingModulator, Antares Auto-Tune, Soundtoys Decapitator/Crystallizer.\n\n**One tip:** always keep a dry vocal underneath at low level. Heavy processing kills intelligibility fast, and a blend of 60\u201380% wet usually sounds *more* robotic than 100% because the listener can still parse the words.",
+   "rules": {
+    "rule2_economy": 7.2,
+    "rule3_jargon": 9.2,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 7.9
+   },
+   "clarity_avg": 9.26,
+   "slop_per_1k": 0.7,
+   "slop_breakdown": {
+    "inline_header_list": 4
+   },
+   "slop_tax": 0.01,
+   "score": 91.6,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 594,
+     "budget": 350,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.7
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "EQ",
+      "LPC",
+      "MIDI"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.51
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 1.18,
+    "sentence_cv": 1.07,
+    "frag_ratio": 0.22,
+    "bold_per_100w": 2.86,
+    "comma_per_sent": 0.64,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 40.2
+  },
+  {
+   "id": 5,
+   "genre": "practical_guidance",
+   "response": "# Evacuation Plan: Retreat from the Contaminated Commons\n\nFirst, a reframing that will save you effort: you can't evacuate the internet, and shouldn't try. It's load-bearing for banking, logistics, medicine, and most people's livelihoods. What you *can* evacuate is the **open feed** \u2014 the layer where anonymous, infinitely-scalable content competes for your attention with no cost of production and no accountability. That's the flooded zone. Think of it less as fleeing a city and more as abandoning a poisoned municipal water supply while keeping the roads.\n\n## Phase 0: Triage (Week 1)\n\nSort your internet use into three buckets:\n\n- **Transactional** \u2014 banking, ticketing, maps, ordering, telemedicine. *Keep.* These have low epistemic content and strong accountability structures. Contamination risk is fraud, not belief-corruption, and fraud has existing defenses.\n- **Relational** \u2014 messaging people you know, video calls, small group chats. *Keep and expand.* This is your lifeboat. Human-to-human, bounded, with real-world verification available.\n- **Ambient/Discovery** \u2014 feeds, recommendations, search, comments, trending, aggregators. *This is the flood zone.* Everything here should now be treated as adversarial by default.\n\nThe rule for the third bucket: **no belief may be formed by content that arrived without being asked for.** If you didn't seek it, it sought you, and something paid to make that happen.\n\n## Phase 1: Cut the intake (Weeks 1\u20134)\n\n- **Kill the recommendation surface.** Uninstall feed apps or use tools that strip the algorithmic layer while keeping subscriptions you chose. Move to pull-based consumption: RSS, email newsletters from named humans, podcasts you deliberately subscribed to.\n- **Re-establish named sources.** Replace \"what's happening\" with a small stable roster of ~10\u201325 individuals and institutions who have (a) real names, (b) reputational skin in the game, (c) a track record you can audit, and (d) a history of publicly correcting themselves. Correction history is the single best filter \u2014 synthetic and manipulative sources almost never issue corrections.\n- **Introduce latency deliberately.** Adopt a 48-hour to two-week delay on non-urgent news. Manipulation campaigns have a half-life; most fabrications collapse within days. Weekly and monthly formats \u2014 print magazines, long-form podcasts, book reviews \u2014 filter out nearly all of it for free.\n- **Stop producing.** Reduce your own public posting. Every reaction you emit is training data and social proof for the manipulation layer.\n\n## Phase 2: Build the wells (Months 1\u20136)\n\nYou need clean water sources, not just filters.\n\n- **Physical media.** Books and back-issue archives are provenance-rich: expensive to fake at scale, dated, physically located, hard to retroactively edit. Build a personal reference shelf. A pre-2021 encyclopedia set is now a genuinely valuable artifact.\n- **Preserve clean corpora.** Archive what you can from before the flood \u2014 datasets, texts, image collections with known provenance. Support institutional efforts to do the same (national libraries, Internet Archive, university repositories). This is the equivalent of low-background steel: uncontaminated material becomes scarce and precious once contamination is ambient.\n- **Local ground truth.** Deliberately rebuild the habit of checking claims against the physical world: visit the place, ask the shopkeeper, count the thing yourself. A society that can no longer connect claims to local observation has no error-correction at all.\n- **Buy editorial labor.** Subscribe to and pay for outlets that employ humans who are fired when they're wrong. Accountability costs money; free content is free because you're the product.\n\n## Phase 3: Reconstitute trust networks (Months 3\u201318)\n\nThe core problem is that identity is now cheap. The response is to make trust expensive again by rooting it in things that don't scale.\n\n- **Web of trust, human version.** Weight claims by chains of people you've met physically. \"My friend knows the author\" is a weak signal but a real one, and it's exponentially harder to fake than a million followers.\n- **Small, closed, moderated spaces.** Migrate serious discussion to invite-only forums, Signal/Matrix groups, Discords with vouching requirements, professional associations. Bounded membership plus real reputational cost is the historical solution to this problem; it's how scientific correspondence networks worked.\n- **In-person infrastructure.** Reading groups, lecture series, hobby clubs, local journalism co-ops, church basements, hackerspaces. Physical co-presence is the one credential that remains expensive to forge. Expect the value of a regular in-person gathering to rise sharply.\n- **Cryptographic provenance where possible.** Signed content, hardware-attested capture, C2PA-style provenance chains. Useful but partial \u2014 signatures prove *who published*, never *whether it's true*, and only help if you already know who to trust.\n\n## Phase 4: Institutional and civic layer (Years)\n\nIndividual retreat is insufficient; a small number of well-defended people surrounded by a manipulated population is not a safe equilibrium.\n\n- **Push for provenance mandates and liability** for platforms that amplify unattributed synthetic content, rather than for detection (detection is a losing arms race \u2014 generators improve faster than detectors).\n- **Fund non-commercial commons**: libraries, public broadcasters, public archives, municipal networks. These are cheap and they're the institutional form of the \"well.\"\n- **Teach the skill, not the answer.** Verification, source triangulation, and statistical literacy \u2014 plus the meta-skill of noticing when you're being emotionally provoked, which is the reliable fingerprint of manipulation regardless of medium.\n- **Prepare fallback channels**: amateur radio, mesh networks, local BBS-style systems, sneakernet. Not because they're better, but because a diversity of channels with different failure modes is resilience.\n\n## The failure modes to watch for\n\nBe honest about how this plan can go wrong:\n\n1. **Retreat becomes an echo chamber.** Small trusted circles are excellent at filtering noise and terrible at correcting shared error. Deliberately maintain at least two trusted sources who disagree with each other and with you.\n2. **Nostalgia mistaken for truth.** Pre-2020 media was not clean; it was differently dirty. Old propaganda is still propaganda.\n3. **Identity verification becomes surveillance.** \"Prove you're a real human\" systems are the most likely authoritarian on-ramp of the next decade. Prefer designs that prove personhood without linking to identity, and be suspicious of anyone eager to solve the flood by requiring papers.\n4. **Class stratification of epistemics.** If verified information becomes a paid product and the free tier is sludge, you get an informational aristocracy. This is arguably the default trajectory and worth actively resisting.\n5. **You are also manipulable offline.** The vulnerability is human, not technological. Charismatic in-person manipulation predates the internet by millennia.\n\n## The one-sentence version\n\nStop drinking from the river; dig wells, boil what you must use, rebuild the aqueduct with people whose names you know \u2014 and remember that the goal is not purity but a working error-correction loop, which requires exposure to disagreement, contact with physical reality, and sources that pay a price for being wrong.",
+   "rules": {
+    "rule2_economy": 5.8,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 8.79,
+   "slop_per_1k": 1.4,
+   "slop_breakdown": {
+    "ai_vocab": 1,
+    "inline_header_list": 5
+   },
+   "slop_tax": 0.021,
+   "score": 86.1,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 1097,
+     "budget": 500,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 2.19
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "BBS",
+      "RSS"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.18
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "C2PA-style provenance chains",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 1.09,
+    "sentence_cv": 0.62,
+    "frag_ratio": 0.07,
+    "bold_per_100w": 2.37,
+    "comma_per_sent": 1.13,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 67.7
+  },
+  {
+   "id": 6,
+   "genre": "practical_guidance",
+   "response": "Assuming \u20b930,000/month (net take-home), here's how to think about it:\n\n## The core rule: EMI \u2264 40% of take-home pay\n\n| Comfort level | EMI | What it means |\n|---|---|---|\n| Safe | \u20b99,000\u201310,000 (30\u201335%) | Easy to save and handle emergencies |\n| Balanced | \u20b912,000 (40%) | Recommended sweet spot |\n| Stretched | \u20b915,000 (50%) | Banks may allow it, but life gets tight |\n\n## What that translates to as a loan amount\n\nAt ~8.75\u20139% interest (rough EMI \u2248 \u20b9880 per lakh for 20 years):\n\n| EMI | 20-year loan | 25-year loan |\n|---|---|---|\n| \u20b910,000 | ~\u20b911.5 lakh | ~\u20b912 lakh |\n| \u20b912,000 | ~\u20b913.5 lakh | ~\u20b914.5 lakh |\n| \u20b915,000 | ~\u20b917 lakh | ~\u20b918 lakh |\n\n**Practical recommendation: \u20b913\u201315 lakh loan.** Banks will often sanction up to \u20b918\u201320 lakh (roughly 60x monthly salary), but sanctioned \u2260 affordable.\n\n## Don't forget the extra costs\n\n- **Down payment:** Banks fund only 80\u201390% of property value, so a \u20b915 lakh loan means a \u20b919\u201320 lakh property with \u20b94\u20135 lakh from your pocket\n- **Stamp duty + registration:** 5\u20138% of property value, *not* covered by the loan\n- **Extras:** Interiors, furniture, moving, society maintenance\n\nSo a \u20b915 lakh loan realistically needs \u20b95\u20136 lakh in savings ready.\n\n## Things that change the answer\n\n- **Existing EMIs** (car, personal loan) \u2014 banks count total obligations, so subtract those from your EMI capacity\n- **Co-applicant** (spouse/parent with income) \u2014 can significantly increase eligibility\n- **Is \u20b930k gross or in-hand?** If gross, your actual capacity is lower\n- **Credit score** above 750 gets you better rates\n- **PMAY subsidy** \u2014 if you're a first-time buyer, check current eligibility; it can meaningfully reduce your effective cost\n\n## Before you sign\n\nKeep 6 months of expenses as an emergency fund *separately* \u2014 don't drain everything into the down payment. Also, take home loan insurance or term cover equal to the loan amount.\n\nQuick sanity test: try living on \u20b918,000/month for 3 months and saving the rest. If it works comfortably, you can handle a \u20b912,000 EMI.\n\n*(If you meant a different currency, let me know \u2014 the percentage rules stay the same but the numbers shift.)*",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 8.7,
+   "slop_per_1k": 0.3,
+   "slop_breakdown": {
+    "inline_header_list": 1
+   },
+   "slop_tax": 0.004,
+   "score": 86.6,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 367,
+     "budget": 300,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.22
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "EMIs",
+      "PMAY"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.54
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "*(If you meant a different currency, let me know \u2014 the percentage rules stay the same but the numbers shift.)*",
+    "jargon": "some_jargon",
+    "jargon_quote": "PMAY subsidy",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 1.36,
+    "sentence_cv": 1.02,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 2.45,
+    "comma_per_sent": 3.57,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 52.6
+  },
+  {
+   "id": 7,
+   "genre": "practical_guidance",
+   "response": "Happy to help! Here's a menu of objectives you can draw from, depending on what you want the presentations to *do*. I've grouped them and phrased them in measurable terms.\n\n## Overall aim (one-sentence version)\n\n*To enable students to critically analyse how literary or source texts are transformed into film, and to communicate that analysis effectively to an audience.*\n\n---\n\n## 1. Content / conceptual objectives\nBy the end of the session, students will be able to:\n- Explain key concepts in adaptation studies (fidelity vs. transformation, \"loose/faithful/literal\" adaptation, intertextuality, intermediality).\n- Identify the specific changes made in the move from page to screen \u2014 omissions, additions, compressions, changes of setting, point of view, ending, characterisation.\n- Account for *why* those changes were made (medium constraints, runtime, audience expectations, censorship, commercial pressures, historical/cultural context of the film's production).\n\n## 2. Analytical / critical-thinking objectives\n- Compare the narrative techniques of literature (interiority, narration, prose style) with those of cinema (mise-en-sc\u00e8ne, cinematography, editing, sound, performance).\n- Evaluate an adaptation on its own terms rather than simply judging \"the book was better.\"\n- Analyse how adaptation reflects ideology, gender, race, nation, or contemporary politics \u2014 i.e., what a given era's version reveals about that era.\n- Support arguments with concrete textual and cinematic evidence (quotations, specific scenes/shots).\n\n## 3. Skills objectives (often the real reason for presentations)\n- Research a topic independently and synthesise primary texts with secondary criticism.\n- Structure and deliver a clear, time-bound oral presentation with appropriate visual aids and film clips.\n- Select and embed short clips purposefully, using them as evidence rather than decoration.\n- Field questions and defend an interpretation in academic discussion.\n- (If group work) Collaborate, divide labour, and produce a coherent joint argument.\n\n## 4. Affective / dispositional objectives\n- Develop appreciation for both literary and cinematic art forms as distinct media.\n- Build confidence in public speaking and in voicing an interpretive position.\n- Cultivate respect for differing readings during peer discussion and feedback.\n\n---\n\n## Ready-to-paste sample (short version for a syllabus)\n\n> **Objectives:** By the end of this class, students will be able to (a) compare a source text with its film adaptation and identify significant changes; (b) explain those changes in terms of medium, context and audience; (c) apply key concepts from adaptation theory to a specific case study; and (d) present a research-based argument clearly and respond to peer questions.\n\n---\n\nIf you tell me the **level** (school / undergrad / postgrad), the **subject** (English literature, media studies, translation studies, film production, ESL), and the **length/format** of the presentations, I can tighten this into 3\u20134 precise objectives plus a matching assessment rubric.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 7.96,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 79.6,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 444,
+     "budget": 250,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.78
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 1,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.23
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "I've grouped them and phrased them in measurable terms.",
+    "jargon": "some_jargon",
+    "jargon_quote": "intermediality",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Happy to help!"
+   },
+   "shape": {
+    "em_dash_per_100w": 0.45,
+    "sentence_cv": 0.84,
+    "frag_ratio": 0.17,
+    "bold_per_100w": 0.9,
+    "comma_per_sent": 1.75,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 27.5
+  },
+  {
+   "id": 8,
+   "genre": "practical_guidance",
+   "response": "# \ud83c\udf54 Workshop Use Case: **\"CampusEats\" \u2014 Build the Brain Behind a Food Delivery App**\n\nA hands-on RDBMS workshop where students don't *learn about* databases \u2014 they **become the backend engineer** of a campus food-delivery startup that's falling apart.\n\n---\n\n## \ud83c\udfac The Narrative Hook (Use this as your opening slide)\n\n> *\"CampusEats launched last month. 4,000 students, 12 canteens, 30 delivery partners.*\n>\n> *Last night everything broke. Two people were charged for one plate of biryani. The 'Top Rated' page shows a shop that closed in 2023. A student used the coupon `FIRST50` **47 times**. And the CEO wants a revenue dashboard by 5 PM.*\n>\n> *The previous dev quit. You're the new database team. Here's the schema. Good luck.\"*\n\nEvery module of the workshop = solving one of these disasters. Students get a **reason** to learn `JOIN`, `TRANSACTION`, `INDEX`, and normalization instead of memorizing syntax.\n\n---\n\n## \ud83d\uddfa\ufe0f Why This Use Case Works for College Students\n\n| Factor | Why it lands |\n|---|---|\n| **Relatable** | Everyone has used Swiggy/Zomato/campus canteens |\n| **Naturally relational** | Orders \u2192 Items \u2192 Payments \u2192 Reviews is a textbook ER model with real meaning |\n| **Scales in difficulty** | Same schema serves `SELECT *` beginners and window-function pros |\n| **Teaches \"why\", not \"what\"** | Concurrency, ACID, indexing all emerge from actual bugs |\n| **Portfolio-ready** | Students walk out with a GitHub repo, not just notes |\n\n---\n\n## \ud83e\udde9 The Schema (7 core tables)\n\n```\nstudents \u2500\u2500< orders >\u2500\u2500 outlets\n                \u2502           \u2502\n                \u2502           \u2514\u2500\u2500< menu_items\n                \u2514\u2500\u2500< order_items >\u2500\u2500\u2518\n                \u2502\n                \u251c\u2500\u2500 payments\n                \u2514\u2500\u2500 reviews\n\ndelivery_partners \u2500\u2500< orders\ncoupons \u2500\u2500< orders\n```\n\n```sql\nCREATE TABLE students (\n    student_id     SERIAL PRIMARY KEY,\n    name           VARCHAR(80) NOT NULL,\n    roll_no        VARCHAR(15) UNIQUE NOT NULL,\n    hostel_block   CHAR(1),\n    wallet_balance NUMERIC(8,2) DEFAULT 0 CHECK (wallet_balance >= 0),\n    joined_on      DATE DEFAULT CURRENT_DATE\n);\n\nCREATE TABLE outlets (\n    outlet_id    SERIAL PRIMARY KEY,\n    name         VARCHAR(80) NOT NULL,\n    cuisine      VARCHAR(30),\n    opens_at     TIME,\n    closes_at    TIME,\n    is_active    BOOLEAN DEFAULT TRUE\n);\n\nCREATE TABLE menu_items (\n    item_id      SERIAL PRIMARY KEY,\n    outlet_id    INT REFERENCES outlets(outlet_id),\n    item_name    VARCHAR(80) NOT NULL,\n    price        NUMERIC(6,2) CHECK (price > 0),\n    is_veg       BOOLEAN,\n    stock_qty    INT DEFAULT 0 CHECK (stock_qty >= 0)\n);\n\nCREATE TABLE delivery_partners (\n    partner_id   SERIAL PRIMARY KEY,\n    name         VARCHAR(80),\n    phone        VARCHAR(15) UNIQUE,\n    rating       NUMERIC(2,1) CHECK (rating BETWEEN 1 AND 5)\n);\n\nCREATE TABLE coupons (\n    coupon_code  VARCHAR(20) PRIMARY KEY,\n    discount_pct INT CHECK (discount_pct BETWEEN 1 AND 100),\n    max_uses_per_student INT DEFAULT 1,\n    valid_till   DATE\n);\n\nCREATE TABLE orders (\n    order_id     SERIAL PRIMARY KEY,\n    student_id   INT REFERENCES students(student_id),\n    outlet_id    INT REFERENCES outlets(outlet_id),\n    partner_id   INT REFERENCES delivery_partners(partner_id),\n    coupon_code  VARCHAR(20) REFERENCES coupons(coupon_code),\n    order_time   TIMESTAMP DEFAULT NOW(),\n    delivered_at TIMESTAMP,\n    status       VARCHAR(15) CHECK (status IN ('PLACED','COOKING','OUT','DELIVERED','CANCELLED'))\n);\n\nCREATE TABLE order_items (\n    order_id     INT REFERENCES orders(order_id),\n    item_id      INT REFERENCES menu_items(item_id),\n    quantity     INT CHECK (quantity > 0),\n    unit_price   NUMERIC(6,2),          -- price snapshot: great teaching moment!\n    PRIMARY KEY (order_id, item_id)\n);\n\nCREATE TABLE reviews (\n    review_id    SERIAL PRIMARY KEY,\n    order_id     INT UNIQUE REFERENCES orders(order_id),\n    stars        INT CHECK (stars BETWEEN 1 AND 5),\n    comment      TEXT\n);\n```\n\n> \ud83d\udca1 **Teaching gold:** Ask *\"Why does `order_items` store `unit_price` when `menu_items` already has price?\"* \u2192 leads to a great discussion on historical data vs. current data.\n\n---\n\n## \ud83d\udcda Workshop Flow \u2014 6 Modules / ~6 Hours\n\n### **Module 0 \u2014 The Mess (30 min) \u00b7 Normalization**\nHand out a single ugly Google Sheet / CSV:\n\n| order_id | student | hostel | items_ordered | outlet | outlet_phone | total |\n|---|---|---|---|---|---|---|\n| 101 | Aarav (B12) | B | Biryani, Coke, Biryani | Anna Canteen | 98xxx | 310 |\n\n**Task:** Find 5 problems. Convert to 1NF \u2192 2NF \u2192 3NF on paper/whiteboard.\n**Reveal:** the schema above is *their* answer, cleaned up.\n\n---\n\n### **Module 1 \u2014 Foundations (45 min) \u00b7 DDL + Constraints**\n- Create tables, deliberately try to break them:\n  - Insert a student with negative wallet \u2192 `CHECK` fires\n  - Delete an outlet that has orders \u2192 FK violation\n- **Challenge:** \"Make it impossible for a closed outlet to receive an order.\"\n\n---\n\n### **Module 2 \u2014 Answering the CEO (60 min) \u00b7 SELECT, JOIN, GROUP BY**\nReal business questions, in increasing difficulty:\n\n1. Show all veg items under \u20b980.\n2. Which student ordered the most times this month?\n3. Revenue per outlet, highest first.\n4. Outlets with average rating > 4.0 **and** at least 10 reviews. *(\u2192 `HAVING`)*\n5. List outlets that received **zero** orders. *(\u2192 `LEFT JOIN ... IS NULL`)*\n6. Peak ordering hour of the day. *(\u2192 `EXTRACT`, `GROUP BY`)*\n\n```sql\n-- Sample: Top 3 outlets by revenue\nSELECT o.name,\n       SUM(oi.quantity * oi.unit_price) AS revenue,\n       COUNT(DISTINCT ord.order_id)     AS orders\nFROM outlets o\nJOIN orders ord      ON ord.outlet_id = o.outlet_id\nJOIN order_items oi  ON oi.order_id  = ord.order_id\nWHERE ord.status = 'DELIVERED'\nGROUP BY o.name\nORDER BY revenue DESC\nLIMIT 3;\n```\n\n---\n\n### **Module 3 \u2014 \ud83d\udd0d The Coupon Fraud Investigation (45 min) \u00b7 Subqueries + CTEs**\n> *\"Someone abused `FIRST50`. Find them.\"*\n\nStudents write a CTE that counts coupon uses per student and flags violators of `max_uses_per_student`. Then:\n- Find students whose average order value is 3\u00d7 the campus average\n- Find \"ghost partners\": delivery partners with 5\u2605 rating but 0 deliveries\n- Find items ordered together most often (self-join on `order_items`) \u2192 **basic recommendation engine!**",
+   "rules": {
+    "rule2_economy": 6.5,
+    "rule3_jargon": 9.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.46,
+   "slop_per_1k": 0.1,
+   "slop_breakdown": {
+    "inline_header_list": 1
+   },
+   "slop_tax": 0.002,
+   "score": 94.5,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 876,
+     "budget": 450,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.95
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "CTE",
+      "CTEs",
+      "DDL",
+      "FK",
+      "PM"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.57
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.8,
+    "sentence_cv": 2.16,
+    "frag_ratio": 0.24,
+    "bold_per_100w": 2.28,
+    "comma_per_sent": 1.97,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 59.6
+  },
+  {
+   "id": 9,
+   "genre": "practical_guidance",
+   "response": "# GARCH: How Mathematics Learned to Predict *Uncertainty Itself*\n\n## Prologue: A puzzle that broke the textbooks\n\nLet me start with a real observation, not an equation.\n\nTake the daily percentage changes of any stock index \u2014 the S&P 500, the Nifty, the Nikkei \u2014 over 30 years. Plot them. You will see something strange and beautiful:\n\n- The plot looks like **noise**. Today's return tells you almost nothing about tomorrow's *direction*. (If it did, you'd be rich.)\n- And yet the plot is clearly **not** boring noise. There are long stretches where the wiggles are tiny \u2014 quiet years \u2014 and then violent stretches where the wiggles are enormous (1987, 2008, March 2020). Big moves cluster with big moves. Small moves cluster with small moves.\n\nBenoit Mandelbrot noticed this in 1963 and wrote: *\"large changes tend to be followed by large changes, of either sign, and small changes by small changes.\"*\n\nHere's the paradox that should bother you:\n\n> **The sign is unpredictable, but the size is predictable.**\n\nClassical time series models (AR, MA, ARMA) are built entirely around predicting the *level* of a series. They assume the variance is a fixed constant $\\sigma^2$, forever. They are structurally blind to the phenomenon above. Something new was needed.\n\nThat something is **ARCH** (Robert Engle, 1982) and its generalization **GARCH** (Tim Bollerslev, 1986). Engle won the 2003 Nobel Prize in Economics for it. Let me show you exactly how it works \u2014 and I promise, the core idea fits on one line.\n\n---\n\n## Part 1: The one idea you must absorb\n\nOrdinary statistics says: a random variable has *a* variance.\n\nGARCH says: **variance is a time series too.**\n\nNot a constant to be estimated once \u2014 a living, evolving quantity $\\sigma_t^2$ that has its own dynamics, its own memory, its own equation of motion.\n\nThe crucial technical word is **conditional**. Let $\\mathcal{F}_{t-1}$ denote \"everything we know up to yesterday\" (all past returns). Then define\n\n$$\\sigma_t^2 = \\operatorname{Var}(r_t \\mid \\mathcal{F}_{t-1})$$\n\nThis is the variance *given the past*, and it is **not a random unknown to us at time $t-1$** \u2014 it is a number we can compute from history. That single fact is the engine of the whole theory.\n\nCompare:\n- **Unconditional variance** $\\operatorname{Var}(r_t) = \\bar\\sigma^2$: \"How volatile is this stock, in general?\" \u2192 One number for all time.\n- **Conditional variance** $\\sigma_t^2$: \"How volatile is this stock *tomorrow, given that yesterday the market crashed 7%*?\" \u2192 Changes every day.\n\nAn analogy I like: knowing the climate of a city (unconditional) versus knowing tomorrow's weather forecast given today's storm (conditional). GARCH is a weather forecast for risk.\n\n---\n\n## Part 2: Building the model, brick by brick\n\n### Step 1: Separate \"direction\" from \"size\"\n\nWrite a return as\n\n$$r_t = \\mu + \\varepsilon_t, \\qquad \\varepsilon_t = \\sigma_t z_t$$\n\nwhere\n\n- $\\mu$ is the average return (often nearly 0 for daily data; it could also be an ARMA model),\n- $z_t \\stackrel{\\text{iid}}{\\sim} (0,1)$ \u2014 a clean, memoryless shock with mean 0 and variance 1 (think standard normal for now),\n- $\\sigma_t > 0$ is the **volatility**, computable from the past.\n\nRead this out loud: *the shock $\\varepsilon_t$ is a fixed-size random kick $z_t$, amplified by a volume knob $\\sigma_t$.* The randomness $z_t$ is unpredictable forever. The **volume knob is what we model.**\n\nLet's check the arithmetic, because rigour matters. Since $\\sigma_t$ is known given $\\mathcal{F}_{t-1}$ and $z_t$ is independent of the past:\n\n$$\\mathbb{E}[\\varepsilon_t \\mid \\mathcal{F}_{t-1}] = \\sigma_t\\,\\mathbb{E}[z_t] = 0$$\n$$\\operatorname{Var}(\\varepsilon_t \\mid \\mathcal{F}_{t-1}) = \\sigma_t^2\\,\\mathb",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 7.96,
+   "slop_per_1k": 1.7,
+   "slop_breakdown": {
+    "ai_vocab": 1
+   },
+   "slop_tax": 0.025,
+   "score": 77.6,
+   "facts_delivered": "2/4",
+   "detail": {
+    "economy": {
+     "words": 582,
+     "budget": 750,
+     "facts": 2,
+     "required": 4,
+     "coverage": 0.5,
+     "over_budget": 0.78
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     false,
+     false,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "This is the variance *given the past*, and it is **not a random unknown to us at time $t-1$** \u2014 it is a number we can compute from history.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "Let me start with a real observation, not an equation.",
+    "jargon": "some_jargon",
+    "jargon_quote": "iid",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 1.37,
+    "sentence_cv": 0.86,
+    "frag_ratio": 0.07,
+    "bold_per_100w": 2.06,
+    "comma_per_sent": 1.07,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 73.0
+  },
+  {
+   "id": 10,
+   "genre": "seeking_information",
+   "response": "## Short answer\n\n**Roughly 1\u20133 Gbit/s of bulk traffic (\u2248100k\u2013250k packets/sec) for the in-kernel Linux WireGuard on one modern 2.9 GHz core**, assuming full-size (~1400 byte) packets. RAM is essentially irrelevant \u2014 1 GB is far more than WireGuard needs.\n\n## More detail\n\nWireGuard's cost is dominated by **per-packet** work (crypto + network stack traversal), not by bandwidth per se, so packet size is the single biggest variable.\n\n| Scenario (1 core @ 2.9 GHz) | Throughput | Approx. packet rate |\n|---|---|---|\n| Kernel module, 1420 B packets, AVX2 CPU | ~1.5\u20133 Gbit/s | ~150k\u2013250k pps |\n| Kernel module, same but core does *both* encrypt & decrypt (routing between two peers) | ~0.8\u20131.5 Gbit/s | ~80k\u2013150k pps |\n| Kernel module, small packets (64\u2013200 B, e.g. VoIP/gaming/DNS) | ~100\u2013400 Mbit/s | ~200k\u2013400k pps |\n| `wireguard-go` / userspace (macOS, Windows, containers w/o kernel module) | ~300\u2013800 Mbit/s | ~40k\u201380k pps |\n| BoringTun (userspace, Rust) | ~0.5\u20131.5 Gbit/s | \u2014 |\n\n## What moves the number\n\n- **CPU features**: WireGuard uses ChaCha20-Poly1305, which does *not* benefit from AES-NI but does benefit a lot from AVX2/AVX-512. An older core without AVX2 can be 2\u20133\u00d7 slower.\n- **Kernel version**: Linux 6.x added GSO/GRO batching for WireGuard, which significantly raised single-core throughput vs. older kernels (5.x).\n- **Virtualization**: on a cloud VM, virtio-net/interrupt overhead and the provider's own bandwidth cap (often 1\u20135 Gbit/s for small instances) frequently bind before the CPU does.\n- **Number of flows**: a single TCP flow through one tunnel is handled largely by one core; many flows/peers spread across cores if you have them (here you have one, so no scaling).\n- **MTU/fragmentation**: mismatched MTU causing fragmentation can halve effective throughput.\n\n## About the 1 GB of RAM\n\nThe kernel module uses on the order of a few KB per peer plus queue buffers. 1 GB comfortably supports **thousands of peers** \u2014 you will run out of CPU long before RAM. Only userspace implementations with many peers, or heavy conntrack/NAT tables alongside, would make memory worth thinking about.\n\n## Recommendation\n\nBenchmark your specific box rather than trusting estimates:\n\n```bash\n# on server\niperf3 -s\n# on client, through the tunnel\niperf3 -c <wg-server-ip> -t 30 -P 4      # bulk throughput\niperf3 -c <wg-server-ip> -u -b 0 -l 100  # small-packet / pps stress\n```\n\nWatch `mpstat -P ALL 1` \u2014 if one core hits 100% `%sys`/`%soft`, you've found the ceiling.",
+   "rules": {
+    "rule2_economy": 8.2,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.8,
+   "slop_per_1k": 1.2,
+   "slop_breakdown": {
+    "inline_header_list": 5
+   },
+   "slop_tax": 0.018,
+   "score": 96.2,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 403,
+     "budget": 280,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.44
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.99,
+    "sentence_cv": 0.7,
+    "frag_ratio": 0.06,
+    "bold_per_100w": 1.99,
+    "comma_per_sent": 1.19,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 52.5
+  },
+  {
+   "id": 11,
+   "genre": "seeking_information",
+   "response": "There isn't one single \"2008 internet\" service, but there are a few things people use. Which one you want depends on whether you just want to *look* at old sites in a modern browser, or actually *browse* with a period machine/browser.\n\n## Easiest: the Wayback Machine directly\n\n`https://web.archive.org/web/2008/http://example.com`\n\nOnce you're in a snapshot, links you click generally stay inside the archive at roughly the same date, so you can surf around 2008 fairly naturally. The Wayback Machine browser extension also has a \"view this page as it was on\u2026\" option.\n\n## oldweb.today\n\nRuns an emulated period browser (Netscape, IE 4/5, old Firefox, etc.) in your browser, with all its traffic proxied through web archives. Set a date and go. This is the closest thing to a turnkey \"internet time machine\" and requires no setup.\n\n## Actual HTTP proxies for vintage hardware\n\nThese are what people usually mean by \"web archive proxy\" \u2014 you point an old machine's proxy settings at them, and they fetch archived pages, downgrade HTTPS to plain HTTP, and strip modern markup so ancient browsers can render it:\n\n- **TheOldNet.com** \u2014 offers a proxy plus a web-based retro browser. It pulls from the Wayback Machine and lets you pick a target year.\n- **ProtoWeb.org** \u2014 a retro-computing proxy with both archived content and hand-restored sites. Aimed more at the 90s, but it works for later years too.\n\nGet the current hostname/port from their sites, since those change occasionally. Then just set it as the HTTP proxy in the old browser (or system-wide, if you want a Windows XP VM to feel authentically 2008).\n\n## Roll your own\n\n**pywb** (Python Wayback) can run in HTTP/S proxy mode and be configured to serve from remote archives or your own captures. More work, but you control it. There's also the **Memento** protocol / Time Travel service, which aggregates multiple archives (Internet Archive, Library of Congress, national archives, Archive-It) and lets you request a URL \"as of\" a datetime \u2014 some browser extensions expose this as a date picker.\n\n## Caveats\n\n- Coverage is spotty. Popular sites are well archived; small sites may have one snapshot a year or none.\n- Images, CSS, and scripts are often captured on different dates than the HTML, so pages can look subtly broken.\n- Nothing dynamic works: no logins, search boxes, comments, or ads.\n- Flash and Java applets are mostly gone. Archive.org emulates some Flash via Ruffle, but coverage is limited.\n- Occasionally an archived page will \"escape\" to the live web \u2014 watch the URL bar.\n\nIf you tell me whether you're doing this on a modern machine for nostalgia or on real period hardware, I can narrow it down.",
+   "rules": {
+    "rule2_economy": 6.2,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 9.6,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.52,
+   "slop_per_1k": 0.4,
+   "slop_breakdown": {
+    "inline_header_list": 2
+   },
+   "slop_tax": 0.006,
+   "score": 94.6,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 448,
+     "budget": 220,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 2.04
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "request": "ask"
+     },
+     "per_100w": 0.22
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 1.12,
+    "sentence_cv": 0.65,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.89,
+    "comma_per_sent": 1.12,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 59.1
+  },
+  {
+   "id": 12,
+   "genre": "seeking_information",
+   "response": "## Clinical Picture\n\n**Presentation:** Endodontically treated tooth with a full-coverage crown, now with acute pain on biting/pressure, **no** hot or cold sensitivity.\n\n**What the absence of thermal sensitivity tells you:** The pulp has been removed, so there are no intact pulpal A\u2011delta or C fibers to respond to temperature. A negative thermal test is therefore *expected* and simply confirms the tooth is non\u2011vital \u2014 it does not rule out infection or pathology. It does, however, shift the diagnosis away from pulpal disease and toward the **periradicular tissues (periodontal ligament, apical bone) or a structural failure**, because the pain fibers now being stimulated are the mechanoreceptors/nociceptors of the PDL and periosteum, which respond to *pressure and inflammation*, not temperature.\n\nIn AAE terminology, the pulpal diagnosis is \"**Previously Treated**,\" and the task is determining the **periapical/periodontal diagnosis**.\n\n---\n\n## Differential Diagnosis (roughly in order of likelihood)\n\n### 1. Occlusal trauma / hyperocclusion (\"high\" crown)\n- Most common cause if the crown or restoration is recent (days to weeks) or if the opposing tooth changed.\n- Traumatic occlusal force \u2192 PDL inflammation \u2192 sharp pain on biting, tenderness to percussion, sometimes slight mobility.\n- Interferences in **lateral or protrusive excursion** are frequently missed because the tooth feels fine in maximum intercuspation.\n- Often complicated by bruxism/clenching.\n- Simple to test and simple to treat \u2014 always rule this out first.\n\n### 2. Symptomatic apical periodontitis / post\u2011treatment endodontic disease\n- Persistent or secondary intraradicular infection: missed canal (classically **MB2 in maxillary molars**, second canals in mandibular incisors/premolars), inadequate cleaning, under\u2011 or over\u2011extended fill, ledges, separated instruments, coronal leakage under a failing crown margin.\n- Pain to percussion/biting, possible tenderness to palpation over the apex, widened PDL or periapical radiolucency.\n- May be a **flare\u2011up (phoenix abscess)** of a previously quiet chronic lesion.\n\n### 3. Acute apical abscess\n- More severe, throbbing, exquisite tenderness to touch, tooth may feel \"extruded\" or \"long,\" possible swelling, malaise, lymphadenopathy.\n- **Red flags requiring urgent care:** rapidly spreading facial swelling, fever, trismus, difficulty swallowing/breathing, swelling closing the eye or crossing the midline of the floor of mouth.\n\n### 4. Vertical root fracture (VRF)\n- A classic and important cause in root\u2011canal\u2011treated teeth, especially those with **posts**, heavy restorations, molars/premolars, or long\u2011standing treatment.\n- Hallmarks: pain on biting (often on release), **isolated narrow deep periodontal probing defect** (e.g., 9 mm in one spot with 3 mm elsewhere), sinus tract located near the gingival margin rather than the apex, \"J\u2011shaped\" or \"halo\" radiolucency, lateral bone loss.\n- Prognosis is generally hopeless for that root \u2192 extraction or root resection.\n\n### 5. Fracture of tooth structure or restoration\n- Cracked/split cusp beneath the crown, fractured core or post, debonded crown allowing micromovement, cement washout.\n- Pain on biting a specific cusp or on release; crown may feel loose or \"rock\" slightly.\n\n### 6. Periodontal origin\n- Periodontal abscess, furcation involvement, or an endo\u2011perio lesion.\n- Food impaction from an **open contact** or overhanging margin \u2192 papillary inflammation and pressure pain that seems tooth\u2011related.\n\n### 7. Iatrogenic defects\n- Root perforation (strip perforation, post\u2011space perforation), overextended sealer/gutta\u2011percha irritating periapical tissue or a nerve.\n\n### 8. Referred / non\u2011odontogenic pain\n- Adjacent or opposing tooth is the true source (test neighbors!).\n- Maxillary sinusitis (posterior maxillary teeth \u2014 pain worse bending forward, multiple teeth tender).\n- Myofascial pain (masseter/temporalis trigger points), TMD.\n- Persistent dentoalveolar pain disorder / neuropathic pain (a diagnosis of exclusion \u2014 beware of doing more irreversible treatment on a tooth with no objective findings).\n\n---\n\n## Diagnostic Work\u2011Up\n\n**History**\n- When was the root canal and crown done? Recent crown \u2192 suspect occlusion; years later \u2192 suspect re\u2011infection or fracture.\n- Onset, duration, spontaneous vs. provoked, pain on *bite down* vs. *release* (release pain suggests crack/fracture).\n- Localized vs. diffuse; ability to point to the tooth (PDL proprioception makes periradicular pain well localized).\n- Parafunction, recent trauma, sinus symptoms, systemic symptoms.\n\n**Clinical tests**\n- **Percussion** (vertical and lateral) and comparison to control teeth.\n- **Bite test** on individual cusps (Tooth Slooth/FracFinder), noting pain on pressure vs. release.\n- **Palpation** of buccal/lingual mucosa over apex.\n- **Mobility** assessment.\n- **Full periodontal probing, 6 points per tooth** \u2014 the single most useful test for VRF.\n- **Sinus tract tracing** with gutta\u2011percha point + radiograph.\n- **Occlusal analysis**: articulating paper and shimstock in centric and all excursions; check for fremitus.\n- **Thermal/EPT on adjacent teeth** to exclude a neighboring vital tooth as the source.\n- **Transillumination, magnification, crown margin/marginal integrity check**, check for crown mobility.\n- Consider **selective anesthesia** if localization is unclear.\n\n**Imaging**\n- Periapical radiographs at **multiple horizontal angles** + bitewing (checks crown margins, caries, post length, PDL space).\n- **Small field-of-view CBCT** is often decisive: reveals missed canals, true extent of apical lesions, perforations, root fractures, and sinus involvement not visible on 2\u2011D films.\n\n---\n\n## Interpreting the Findings\n\n| Finding | Suggests |\n|---|---|\n| Recent crown, high spot, resolves with adjustment | Occlusal trauma |\n| Tender to percussion + apical radiolucency, uniform probing | Symptomatic apical periodontitis / post-treatment disease |\n| Swelling, throbbing, systemic signs | Acute apical abscess |\n| Isolated deep narrow pocket, lateral/J\u2011shaped bone loss, sinus tract near margin | Vertical root fracture |\n| Pain on *release* of biting pressure, cusp-specific | Crack / fractured cusp or restoration |\n| Loose crown, cement washout, marginal gap | Restoration failure with coronal leakage |\n| Normal radiograph, normal probing, no percussion pain but patient reports pain | Referred/myofascial/neuropathic \u2014 re-evaluate before treating |\n\n---\n\n## Management Pathways\n\n1. **Occlusal adjustment** \u2014 first-line, reversible, immediately diagnostic. If pain resolves over days, done. Consider a night guard if bruxism.\n2. **Non\u2011surgical endodontic retreatment** \u2014 for persistent/secondary infection with a restorable tooth and adequate coronal seal potential. Requires crown access or removal; discuss cost of new crown.\n3. **Apical surgery (apicoectomy with retrograde filling)** \u2014 when orthograde retreatment isn't feasible (post that can't be safely removed, blocked canal, extruded material) or has already failed. Modern microsurgical success ~85\u201395%",
+   "rules": {
+    "rule2_economy": 5.7,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 9.4
+   },
+   "clarity_avg": 7.95,
+   "slop_per_1k": 2.2,
+   "slop_breakdown": {
+    "ai_vocab": 2,
+    "inline_header_list": 2
+   },
+   "slop_tax": 0.033,
+   "score": 76.9,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 1003,
+     "budget": 450,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 2.23
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "AAE",
+      "CBCT",
+      "EPT",
+      "TMD"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.4
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "It does, however, shift the diagnosis away from pulpal disease and toward the **periradicular tissues (periodontal ligament, apical bone) or a structural failure**, because the pain fibers now being stimulated are the mechanoreceptors/nociceptors of the PDL and periosteum, which respond to *pressure and inflammation*, not temperature.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "EPT",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.9,
+    "sentence_cv": 1.09,
+    "frag_ratio": 0.2,
+    "bold_per_100w": 3.09,
+    "comma_per_sent": 1.27,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 77.6
+  },
+  {
+   "id": 13,
+   "genre": "seeking_information",
+   "response": "In D&D 5e, that slash notation shows a weapon's **normal range / long range** (both in feet).\n\n**Normal range (the first number)**\nYou can attack any target within this distance with no penalty from range.\n\n**Long range (the second number)**\nYou can still attack targets beyond the normal range, out to this maximum distance, but you have **disadvantage** on the attack roll. You simply can't attack a target farther away than the long range \u2014 it's out of reach entirely.\n\nSo a longbow (150/600 ft.) hits normally out to 150 feet, can still reach a target at 400 feet but with disadvantage, and can't touch anything past 600 feet.\n\n**A few related points:**\n\n- **Melee weapons with the thrown property** use this notation too (e.g., a handaxe at 20/60 ft.), applying the same rules when you throw them.\n- **Firing into melee:** Making a ranged attack against a target within 5 feet of a hostile creature also gives you disadvantage \u2014 that's separate from range and doesn't stack (disadvantage doesn't compound).\n- **Spells** normally list a single range with no disadvantage band; you either can reach the target or you can't. The main exception is spells that require a ranged attack delivered by a weapon or that mimic weapon ranges.\n- **Sharpshooter** (feat) removes the disadvantage from attacking at long range, which is why it pairs so well with longbows.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 9.1,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 8.57,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 85.7,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 230,
+     "budget": 130,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "over_budget": 1.77
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "require": "need"
+     },
+     "per_100w": 0.43
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "The main exception is spells that require a ranged attack delivered by a weapon or that mimic weapon ranges.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "**Spells** normally list a single range with no disadvantage band; you either can reach the target or you can't.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.87,
+    "sentence_cv": 0.25,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 3.91,
+    "comma_per_sent": 0.8,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 29.4
+  },
+  {
+   "id": 14,
+   "genre": "seeking_information",
+   "response": "Physical IT infrastructure \u2014 data centres, servers, storage, networks and connectivity \u2014 is the foundation on which all digital services, data and applications actually run, so its capacity, performance and reliability directly cap how fast and how far an organisation can digitise.\n\nIt is also strategic because it is capital-intensive and slow to change: decisions on location, resilience, security and scalability lock in cost, compliance and competitive agility for years, making it an enabler (or bottleneck) of cloud adoption, AI and data-driven innovation.",
    "rules": {
     "rule2_economy": 7.9,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
    },
-   "clarity_avg": 9.65,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 96.5,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 85,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 28.3
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.4,
-    "frag_ratio": 0.25,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.33
-   },
-   "cost_usd": 0.0,
-   "seconds": 22.8
-  },
-  {
-   "id": 3,
-   "genre": "bad_news",
-   "response": "Draft below. Don't send this cold \u2014 tell them in a live meeting first, then send this as the written record the same hour.\n\n---\n\nSubject: Our team is closing \u2014 details and what happens next\n\nTeam,\n\nI have hard news, and I want you to hear it straight.\n\nWe are closing [Department] at the end of this month. Your last day is [DATE]. This affects all eight of you. The decision is final and it is not about your work or your performance. [One sentence of the real reason: budget, strategy shift, acquisition.]\n\nI know what this costs you. You did good work here and this is not the ending you earned.\n\nWhat you get:\n- Severance: [X weeks] pay, paid [how and when]\n- Health coverage through [DATE], then COBRA details from HR\n- PTO balance paid out on [DATE]\n- Equipment: keep [X] / return [X] by [DATE]\n- Your final paycheck arrives [DATE]\n\nWhat happens now:\n- I am meeting each of you one-on-one this week. [Calendar invites are out / I'll send times today.]\n- HR ([Name], [email]) can answer benefits and paperwork questions.\n- You are not expected to keep shipping. Focus on wrapping up and on your next thing.\n- I will write references and make introductions for any of you. Ask me. I mean it.\n\nI am available today and every day until your last. Come to me with anything, including anger.\n\nI'm sorry.\n\n[Your name]\n\n---\n\nFill in every bracket before sending. Vague numbers make people panic.",
-   "rules": {
-    "rule2_economy": 2.5,
-    "rule3_jargon": 8.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
-   },
-   "clarity_avg": 7.92,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 79.2,
-   "facts_delivered": "4/4",
-   "detail": {
-    "economy": {
-     "words": 256,
-     "facts": 4,
-     "required": 4,
-     "coverage": 1.0,
-     "words_per_fact": 64.0
-    },
-    "jargon": {
-     "undefined_acronyms": [
-      "COBRA",
-      "DATE",
-      "PTO"
-     ],
-     "per_100w": 1.17
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.78,
-    "sentence_cv": 1.0,
-    "frag_ratio": 0.19,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.43
-   },
-   "cost_usd": 0.0,
-   "seconds": 39.1
-  },
-  {
-   "id": 4,
-   "genre": "decision",
-   "response": "SQLite.\n\n- 3 users doesn't need a server, a connection pool, or a monthly bill.\n- One file. Backups are `cp`. Local dev matches prod exactly.\n- With WAL mode on, it handles far more concurrent reads than you'll ever hit.\n- If you outgrow it, migrating to Postgres is a day of work, and you'll know your real schema by then.\n\nShip it now, don't pre-pay for scale you don't have.",
-   "rules": {
-    "rule2_economy": 8.6,
-    "rule3_jargon": 7.7,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 9.38,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 93.8,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 72,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 24.0
-    },
-    "jargon": {
-     "undefined_acronyms": [
-      "WAL"
-     ],
-     "per_100w": 1.39
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.79,
-    "frag_ratio": 0.38,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.75
-   },
-   "cost_usd": 0.0,
-   "seconds": 20.5
-  },
-  {
-   "id": 5,
-   "genre": "marketing",
-   "response": "Headline options:\n\n1. Open it before the thought is gone\n2. The notes app that's already open\n3. Faster than the thought\n4. From key press to cursor, no wait\n\nParagraph:\n\nYou had the thought in the elevator, and by the time the app finished loading you had lost it. So we built the opposite. Press the shortcut and the cursor is there, blinking, ready. No splash screen, no sync spinner, no \"setting things up.\" Everything else in the app is ordinary on purpose, because the only thing that matters is whether you can catch the thought while you still have it.",
-   "rules": {
-    "rule2_economy": 7.1,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 9.52,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 95.2,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 102,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 34.0
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.97,
-    "frag_ratio": 0.12,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.88
-   },
-   "cost_usd": 0.0,
-   "seconds": 29.8
-  },
-  {
-   "id": 6,
-   "genre": "instruction",
-   "response": "iPhone, two options.\n\niCloud (automatic)\n1. Settings > tap your name > iCloud > Photos\n2. Turn on \"Sync this iPhone\"\n3. Free tier is 5GB. Upgrade under iCloud > Manage Storage if it fills.\n\nMac (free, full copy)\n1. Plug phone into Mac, unlock, tap Trust\n2. Open Image Capture\n3. Select all, pick a folder, click Import\n\nAlso found\n- Google Photos app is the cross-platform option: install, sign in, turn on Backup. 15GB free.\n- Do both. Cloud sync deletes everywhere if you delete on the phone; the Mac copy does not.",
-   "rules": {
-    "rule2_economy": 3.3,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
-   },
-   "clarity_avg": 8.38,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 83.8,
-   "facts_delivered": "2/3",
-   "detail": {
-    "economy": {
-     "words": 95,
-     "facts": 2,
-     "required": 3,
-     "coverage": 0.67,
-     "words_per_fact": 47.5
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     false
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.82,
-    "frag_ratio": 0.46,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.62
-   },
-   "cost_usd": 0.0,
-   "seconds": 27.4
-  },
-  {
-   "id": 7,
-   "genre": "chat",
-   "response": "Honest answer: neither wins outright. It depends on what you're optimizing.\n\nRemote wins on\n- Focused solo work. Fewer interruptions.\n- Hiring. You pick from everywhere.\n- Cost and commute time.\n\nOffice wins on\n- New people learning the ropes. Watching beats reading docs.\n- Fast, messy problems that need five people in a room.\n- Trust building early on. Weak ties form by accident in person.\n\nWhat the evidence actually says: hybrid (2-3 days in) shows the least downside in the better studies. Fully remote productivity findings are mixed and mostly measure short-term output, not the slow stuff like mentoring and culture, which is where remote quietly loses.\n\nThe real trade: remote trades serendipity and speed of coordination for focus and reach. Fully remote works when the work is well defined and written down. It struggles when the work is ambiguous and the team is new.\n\nFor you, solo across six projects: remote is clearly better. The office advantages need a team you don't have.",
-   "rules": {
-    "rule2_economy": 3.8,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 8.97,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 89.7,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 166,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 55.3
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.65,
-    "frag_ratio": 0.21,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.21
-   },
-   "cost_usd": 0.0,
-   "seconds": 35.3
-  },
-  {
-   "id": 8,
-   "genre": "postmortem",
-   "response": "\u250a review diff\na//Users/testuser/postmortems/2026-08-05-payment-webhook-null-pointer.md \u2192 b//Users/testuser/postmortems/2026-08-05-payment-webhook-null-pointer.md\n@@ -0,0 +1,79 @@\n+# Postmortem: Payment webhook handler dropped 400 payments\n+\n+Status: draft (blameless)\n+Date of incident: [YYYY-MM-DD]\n+Duration: 2 hours ([start] - [end] UTC)\n+Impact: ~400 payment webhooks dropped. Customers charged by the provider,\n+not credited in our system.\n+Author: [name]   Reviewers: [names]\n+\n+## Summary\n+\n+A null pointer error in the payment webhook handler caused it to return an\n+error on every event that was missing an optional field. Our provider retried,\n+hit the same error, and gave up. About 400 payments were never recorded.\n+\n+## Impact\n+\n+- ~400 payments taken by the provider but not applied to accounts.\n+- [N] customers with locked or downgraded accounts during the window.\n+- [N] support tickets.\n+- Revenue at risk: [$X] (recoverable by replay).\n+\n+## Timeline (UTC)\n+\n+- [T0] Deploy [sha] ships the handler change.\n+- [T0+Xm] First webhook fails. Error rate climbs.\n+- [T0+Xm] Provider begins retrying, then dead-letters events.\n+- [T1] Alert fires / first customer report.\n+- [T1+Xm] On-call acknowledges, identifies the handler.\n+- [T1+Xm] Rollback to [sha] deployed. Errors stop.\n+- [T2] Dead-lettered events replayed. Backlog cleared.\n+\n+## Root cause\n+\n+The handler read a nested field on the event payload without checking that the\n+parent object existed. The provider omits that object for [event type], which\n+is normal and documented. Any such event threw a null pointer and returned 500.\n+\n+Three conditions had to line up:\n+1. The field was assumed to always be present.\n+2. Tests only used fixtures where it was present.\n+3. The handler returned 500 on any unexpected error, so the provider retried\n+   and then dropped the event instead of parking it for us.\n+\n+No one person caused this. The code passed review, tests, and staging because\n+every fixture we had contained the field.\n+\n+## What went well\n+\n+- Rollback took [N] minutes once the handler was identified.\n+- The provider's dead-letter queue kept the events, so replay was possible.\n+- No data corruption. Every replayed payment applied correctly.\n+\n+## What went wrong\n+\n+- No alert on webhook error rate. We learned from customers.\n+- Fixtures did not cover the optional-field case.\n+- Handler failures were unbounded: an error meant permanent event loss after\n+  the provider's retry budget ran out.\n+\n+## Where we got lucky\n+\n+The provider retained dead-lettered events for [N] days. With a shorter\n+window, the 400 payments would have been unrecoverable.\n+\n+## Action items\n+\n+| # | Action | Type | Owner | Due |\n+|---|--------|------|-------|-----|\n+| 1 | Null-safe parsing of the whole event payload; unknown shape logs and 200s | Fix | [ ] | [ ] |\n+| 2 | Persist every raw webhook before parsing, so replay never depends on the provider | Prevent | [ ] | [ ] |\n+| 3 | Alert on webhook 5xx rate > [X]% for 5 min, paging | Detect | [ ] | [ ] |\n+| 4 | Add fixtures from real provider payloads, including optional-field-absent cases | Prevent | [ ] | [ ] |\n+| 5 | Daily reconciliation: provider charges vs. our recorded payments | Detect | [ ] | [ ] |\n+\n+## Open questions\n+\n+- Should the handler ever return 5xx, or always 200 with internal queueing?\n\u2026 omitted 1 diff line(s) across 1 additional file(s)/section(s)\nWritten: /Users/testuser/postmortems/2026-08-05-payment-webhook-null-pointer.md\n\nStructure: summary, impact, timeline, root cause, what went well/wrong, luck, 5 action items.\n\nRoot cause framed as three conditions lining up, not a person's mistake. Fixtures never contained the optional-field-absent case, so review and staging both passed.\n\nKey action item: persist raw webhooks before parsing. Replay then never depends on the provider's retention window.\n\nBracketed placeholders need your real timestamps, SHAs, and owners.",
-   "rules": {
-    "rule2_economy": 0.0,
-    "rule3_jargon": 9.0,
-    "rule5_simple_words": 9.7,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 8.12,
-   "slop_per_1k": 3.1,
+   "clarity_avg": 9.03,
+   "slop_per_1k": 3.0,
    "slop_breakdown": {
-    "rule_of_three": 2
+    "hyphen_pairs": 1
    },
-   "slop_tax": 0.046,
-   "score": 77.4,
+   "slop_tax": 0.045,
+   "score": 86.2,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 83,
+     "budget": 55,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "over_budget": 1.51
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "It is also strategic because it is capital-intensive and slow to change: decisions on location, resilience, security and scalability lock in cost, compliance and competitive agility for years, making it an enabler (or bottleneck) of cloud adoption, AI and data-driven innovation.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 2.41,
+    "sentence_cv": 0.02,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 5.5,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 18.6
+  },
+  {
+   "id": 15,
+   "genre": "seeking_information",
+   "response": "## What a carbon footprint is\n\nA carbon footprint is the total greenhouse gas (GHG) emissions caused directly and indirectly by an organisation, product, or activity, usually expressed in **tonnes of CO\u2082-equivalent (tCO\u2082e)** \u2014 a common unit that converts methane, nitrous oxide, refrigerant gases, etc. into their carbon dioxide warming equivalent.\n\nFor a business, emissions are conventionally split into three \"scopes\" (GHG Protocol):\n\n| Scope | What it covers | African business examples |\n|---|---|---|\n| **Scope 1** \u2013 direct | Fuel burned and gases released on site or in owned vehicles | Diesel generators, boilers, delivery trucks, refrigerant leaks, fertiliser use, livestock |\n| **Scope 2** \u2013 purchased energy | Electricity, steam, cooling bought from the grid | Eskom, KPLC, ECG, or national utility electricity |\n| **Scope 3** \u2013 value chain | Everything upstream and downstream | Purchased goods, contracted logistics, staff commuting, business flights, waste, use of sold products |\n\nScope 3 is usually the largest share (often 70\u201390% for retailers, banks and consumer-goods firms) and the hardest to measure.\n\n---\n\n## Why it matters commercially in Africa\n\n- **Export exposure:** The EU's Carbon Border Adjustment Mechanism (CBAM) starts charging from 2026 on imports of cement, steel, aluminium, fertiliser, hydrogen and electricity \u2014 directly affecting exporters in South Africa, Egypt, Mozambique and Morocco. Buyers of agricultural and apparel exports increasingly demand emissions data too.\n- **Regulation:** South Africa has a carbon tax (Phase 2 from 2026, with rising rates and shrinking allowances); Nigeria's Climate Change Act 2021 sets carbon budgets and requires plans from large entities; Kenya's Climate Change (Amendment) Act 2023 regulates carbon projects; Egypt, Rwanda, Ghana and others have MRV frameworks.\n- **Access to capital:** DFIs, banks and PE funds increasingly require emissions disclosure; ISSB/IFRS S2 standards are being adopted (South Africa, Nigeria, Kenya, Ghana among early movers).\n- **Cost, not just compliance:** In most African markets, decarbonisation overlaps almost perfectly with cutting energy costs \u2014 especially escaping expensive diesel.\n\n---\n\n## Step 1: Measure before you cut\n\n1. Set an organisational boundary and a **baseline year**.\n2. Gather activity data: fuel receipts, utility bills, generator run-hours, fleet mileage, flight records, refrigerant top-ups, waste volumes.\n3. Apply emission factors (IPCC defaults, national grid factors, DEFRA/EPA databases). Grid factors vary enormously \u2014 Ethiopia, DRC, Zambia and Uganda are largely hydro (very low), while South Africa's coal-heavy grid is among the world's most carbon-intensive.\n4. Use GHG Protocol or ISO 14064-1; simple spreadsheets are fine to start. Get third-party verification only when a customer, lender or regulator requires it.\n5. Focus effort on the \"hot spots\" \u2014 typically 3\u20135 sources account for most emissions.\n\n---\n\n## Step 2: Practical mitigation levers\n\n### Energy efficiency \u2014 cheapest and fastest\n- Lighting retrofits (LED), efficient motors and variable-speed drives, compressed-air leak repairs.\n- HVAC and refrigeration tune-ups; refrigeration alone can be 40\u201360% of a supermarket or cold-chain operator's load.\n- Building measures: insulation, reflective roofing, shading, natural ventilation, solar water heating.\n- Energy management systems and sub-metering \u2014 you can't manage what you don't monitor.\n- Typical payback: 6 months to 3 years, often self-financing.\n\n### Cut diesel and switch to renewables\n- **Rooftop and ground-mount solar PV** with battery storage is now cheaper than diesel almost everywhere on the continent. Commercial & industrial (C&I) solar has boomed in South Africa, Kenya, Nigeria and Ghana.\n- **Solar-plus-battery hybrids** replace generators as backup, cutting both fuel cost and emissions.\n- **Corporate PPAs and wheeling:** South Africa's opening of the electricity market, Namibia's modified single buyer, and Kenya's open-access frameworks let firms buy renewable power without capital outlay.\n- **Lease/ESCO models:** no upfront capex; pay per kWh saved or generated \u2014 critical where cost of capital is high.\n- **Fuel switching in industry:** biomass/agri-residue boilers, waste heat recovery, LPG or gas instead of heavy fuel oil.\n\n### Transport and logistics\n- Route optimisation, load consolidation, telematics, driver training and tyre/maintenance regimes typically cut fuel 10\u201320% at near-zero cost.\n- Shift long-haul freight from road to rail or water where corridors allow.\n- Electric two- and three-wheelers are commercially viable now for last-mile delivery (Rwanda, Kenya, Uganda, Nigeria) \u2014 with swap-battery networks; electric buses and light vehicles where grids are clean.\n\n### Refrigerants and cooling\n- Fix leaks, retrofit to low-GWP refrigerants, comply with the **Kigali Amendment** HFC phase-down. A kilogram of leaked HFC can equal several tonnes of CO\u2082.\n\n### Waste and circular economy\n- Divert organics from landfill (landfill methane is potent); compost or use biodigesters \u2014 which also produce cooking gas.\n- Reduce packaging, design for reuse, recover and recycle materials; support formalising the waste-picker value chain.\n- Reduce food loss \u2014 a huge issue in African agri-value chains and a large hidden emissions source.\n\n### Agriculture, forestry and land use (dominant for many African economies)\n- Precision and reduced fertiliser application; use of organic amendments.\n- Conservation agriculture, cover cropping, agroforestry and shade-grown systems (cocoa, coffee).\n- Improved livestock feed and herd productivity; manure management.\n- Avoid deforestation in sourcing (relevant to EUDR compliance for cocoa, coffee, palm oil, rubber, timber, soy and cattle exported to the EU).\n- Solar irrigation replacing diesel pumps.\n\n### Supply chain and procurement\n- Ask key suppliers for emissions data; start with your top 20 by spend.\n- Add climate criteria to tenders; help SME suppliers with simple tools rather than punitive requirements.\n- Localise sourcing where it genuinely reduces transport and supports resilience.\n\n### Digital and workplace\n- Rationalise business travel; use regional hubs and virtual meetings.\n- Data centre efficiency, cloud migration to providers using renewables.\n\n---\n\n## Step 3: Offsetting \u2014 last, not first\n\nFollow the mitigation hierarchy: **avoid \u2192 reduce \u2192 substitute \u2192 then offset residual emissions.**\n\nAfrica has real opportunity here \u2014 the Africa Carbon Markets Initiative (ACMI), Article 6 bilateral deals (Ghana, Rwanda, Senegal), and project types like clean cookstoves, reforestation, biochar and mini-grids. South African firms can use approved offsets to reduce carbon tax liability.\n\nBut be careful: cookstove and REDD+ credits have faced credibility challenges over inflated baselines. Buy from projects with robust MRV, genuine community benefit-sharing, and recognised standards; avoid claiming \"carbon neutral\" on the back of cheap, low-integrity credits.\n\n---\n\n## Financing and support\n\n- **Tax incentives:** e.g. South Africa's Section 12B/12BA renewable-energy allowances; various duty exemptions on solar equipment across the region.\n- **Green/sustainability-linked loans and bonds** from local banks (Absa, Stanbic, Ecobank, KCB, Access) and DFIs (IFC, AfDB, Proparco, BII, DEG, FMO).\n- **Blended and concessional finance** and guarantee facilities to lower the cost of capital.\n- **Technical assistance:** national cleaner production centres, UNIDO/UNEP programmes, chambers of commerce, and energy-efficiency programmes run by utilities.\n\n---\n\n## Realistic constraints to plan around\n\n- High cost of capital and currency risk \u2014 favour lease/ESCO/PPA structures over balance-sheet purchases.\n- Grid instability makes storage essential, raising project cost.\n- Import duties, permitting delays and skills shortages for O&M.",
+   "rules": {
+    "rule2_economy": 4.9,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 9.9,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 9.3
+   },
+   "clarity_avg": 7.09,
+   "slop_per_1k": 0.9,
+   "slop_breakdown": {
+    "ai_vocab": 1
+   },
+   "slop_tax": 0.013,
+   "score": 70.0,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
-     "words": 639,
+     "words": 1145,
+     "budget": 450,
      "facts": 4,
      "required": 4,
      "coverage": 1.0,
-     "words_per_fact": 159.8
+     "over_budget": 2.54
     },
     "jargon": {
      "undefined_acronyms": [
-      "DD",
-      "MM",
-      "SHAs",
-      "YYYY"
+      "DRC",
+      "ECG",
+      "ESCO",
+      "GWP",
+      "HFC",
+      "HVAC",
+      "IFRS",
+      "ISSB",
+      "KPLC",
+      "LPG",
+      "MRV",
+      "PE",
+      "PPA",
+      "PPAs",
+      "PV",
+      "SME",
+      "UNEP",
+      "UNIDO"
      ],
-     "per_100w": 0.63
+     "undefined_terms": [],
+     "per_100w": 1.57
+    },
+    "simple_words": {
+     "swaps": {
+      "require": "need"
+     },
+     "per_100w": 0.09
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 1,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.09
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "**Corporate PPAs and wheeling:** South Africa's opening of the electricity market, Namibia's modified single buyer, and Kenya's open-access frameworks let firms buy renewable power without capital outlay.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "MRV",
+    "simple_words": "some_complex",
+    "simple_words_quote": "Rationalise business travel",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 1.22,
+    "sentence_cv": 0.91,
+    "frag_ratio": 0.07,
+    "bold_per_100w": 1.75,
+    "comma_per_sent": 1.77,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 74.9
+  },
+  {
+   "id": 16,
+   "genre": "writing_edit",
+   "response": "Here are a few polished versions you can choose from:\n\n**Option 1 \u2013 Warm and simple**\n\n> Dear Parents,\n>\n> Next Thursday and Friday, we will be visiting two more schools. Your child will have the opportunity to experience a Grade 1 classroom and take part in a variety of subject lessons.\n>\n> You are warmly welcome to sign up and join the classes together with your child. We look forward to seeing you there!\n\n**Option 2 \u2013 Slightly more formal**\n\n> Dear Parents,\n>\n> We are pleased to announce that we will be visiting two additional schools next Thursday and Friday. During the visits, children will have the chance to experience a Grade 1 class and attend lessons in different subjects.\n>\n> Parents are welcome to sign up and enjoy the classes alongside their child. Please register by [date] if you would like to join.\n>\n> Thank you for your continued support.\n\n**Option 3 \u2013 Short and friendly (for WhatsApp/WeChat)**\n\n> \ud83d\udce3 School Visit Notice\n> We'll be visiting two more schools next **Thursday & Friday**! Children will get to experience a Grade 1 class and join different subject lessons.\n> Parents are welcome to sign up and enjoy the classes with your child. \ud83d\ude0a\n\n**Key changes made:** replaced \"another two schools\" with \"two more/two additional schools,\" changed \"get the chance\" to \"have the opportunity/chance,\" added a greeting, sign-off, and a place for the registration deadline.\n\nIf you let me know the school names, dates, times, and sign-up deadline, I can fill those in for you.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 9.2,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.33,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 93.3,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 262,
+     "budget": 130,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 2.02
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
     },
     "simple_words": {
      "swaps": {
       "additional": "more"
      },
-     "per_100w": 0.16
+     "per_100w": 0.38
     },
     "filler": {
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -534,46 +1350,60 @@
     "clarity_quote": "",
     "imagery": "concrete",
     "imagery_quote": "",
-    "imagery_suggestion": ""
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "**Key changes made:** replaced \"another two schools\" with \"two more/two additional schools,\" changed \"get the chance\" to \"have the opportunity/chance,\" added a greeting, sign-off, and a place for the registration deadline.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 1.31,
-    "frag_ratio": 0.17,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.56
+    "sentence_cv": 0.44,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 1.91,
+    "comma_per_sent": 0.86,
+    "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 47.2
+   "seconds": 16.0
   },
   {
-   "id": 9,
-   "genre": "critique",
-   "response": "This form is broken in three ways.\n\n- 14 fields: cut to email + password. Ask the rest later, after they care.\n- Errors only on submit: people retype everything. Validate as they type, per field.\n- CAPTCHA: it blocks real people more than bots. Use invisible checks instead.\n\nExpect most signups to quit here.",
+   "id": 17,
+   "genre": "writing_edit",
+   "response": "\u4e0b\u9762\u662f\u4fee\u6539\u540e\u7684\u7248\u672c\uff0c\u8bed\u6c14\u66f4\u81ea\u7136\u3001\u53e5\u5f0f\u66f4\u6e05\u6670\uff0c\u4e5f\u628a\u4f60\u7684\u95ee\u9898\u95ee\u5f97\u66f4\u660e\u786e\uff1a\n\n---\n\n**\u4fee\u6539\u7a3f\uff08\u63a8\u8350\uff09**\n\nDear Professor [Last Name],\n\nThank you very much for your kind reply. I'm glad to hear that you will be taking students next year, and I will submit my application as soon as the portal opens. I would be very excited about the possibility of rotating in your lab.\n\nI do have one question: I am considering applying to the Biomedical Engineering, Chemical and Biomolecular Engineering, and Chemistry programs. Would students admitted through the latter two programs also be eligible to rotate in your lab, or do you primarily take rotation students from BME?\n\nThank you again for your time, and I look forward to hearing from you.\n\nBest regards,\n[Your Name]\n\n---\n\n**\u4e3b\u8981\u4fee\u6539\u8bf4\u660e**\n\n1. **\u62c6\u5206\u957f\u53e5**\uff1a\u539f\u6587\u4e2d\u95f4\u90a3\u53e5\u95ee\u9898\uff08\"For BME, Chemical and Biomolecular Engineering and Chemistry programs, am I eligible...\"\uff09\u7ed3\u6784\u6df7\u4e71\u3001\u6709\u4e24\u4e2a\u4ece\u53e5\u53e0\u52a0\uff0c\u8bfb\u8d77\u6765\u5403\u529b\u3002\u73b0\u5728\u62c6\u6210\"\u6211\u5728\u8003\u8651\u7533\u8bf7\u8fd9\u4e09\u4e2a\u9879\u76ee + \u540e\u4e24\u4e2a\u9879\u76ee\u662f\u5426\u4e5f\u80fd\u8f6e\u8f6c\"\u4e24\u53e5\u3002\n2. **\u53bb\u6389\u8fc7\u5ea6\u8c26\u5351\u7684\u8868\u8fbe**\uff1a\"with the hope that I can get admitted\"\u3001\"if I am lucky to get admitted\"\u3001\"Wish you all the best\" \u5728\u82f1\u6587\u5b66\u672f\u90ae\u4ef6\u91cc\u663e\u5f97\u6709\u4e9b\u5351\u5fae/\u5ba2\u5957\u8fc7\u5934\uff0c\u5220\u6389\u540e\u66f4\u4e13\u4e1a\u81ea\u4fe1\u3002\n3. **\u7ed9\u5bf9\u65b9\u4e00\u4e2a\"\u597d\u56de\u7b54\"\u7684\u9009\u9879**\uff1a\u52a0\u4e0a \"or do you primarily take rotation students from BME?\"\uff0c\u6559\u6388\u53ef\u4ee5\u4e00\u53e5\u8bdd\u56de\u590d\uff0c\u56de\u4fe1\u7387\u66f4\u9ad8\u3002\n4. **\u7ed3\u5c3e\u66f4\u6807\u51c6**\uff1a\u7528 \"I look forward to hearing from you\" \u66ff\u4ee3 \"Wish you all the best\"\uff0c\u66f4\u7b26\u5408\u5e08\u751f\u90ae\u4ef6\u7684\u8bed\u57df\u3002\n\n---\n\n**\u5982\u679c\u4f60\u60f3\u66f4\u7b80\u77ed**\uff0c\u53ef\u4ee5\u7528\u8fd9\u4e00\u7248\uff1a\n\nDear Professor [Last Name],\n\nThank you for your kind reply \u2014 I'm glad to hear you'll be taking students next year, and I will apply as soon as the portal opens.\n\nOne quick question: I'm considering applying through Biomedical Engineering, Chemical and Biomolecular Engineering, or Chemistry. Would students from any of these programs be able to rotate in your lab, or is one a better fit for joining your group?\n\nThank you again for your time.\n\nBest regards,\n[Your Name]",
    "rules": {
-    "rule2_economy": 10.0,
+    "rule2_economy": 8.7,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
    },
-   "clarity_avg": 10.0,
+   "clarity_avg": 9.86,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 100.0,
+   "score": 98.6,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
-     "words": 55,
+     "words": 260,
+     "budget": 200,
      "facts": 4,
      "required": 4,
      "coverage": 1.0,
-     "words_per_fact": 13.8
+     "over_budget": 1.3
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -584,6 +1414,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -598,110 +1429,62 @@
     "clarity_quote": "",
     "imagery": "concrete",
     "imagery_quote": "",
-    "imagery_suggestion": ""
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "\u4e0b\u9762\u662f\u4fee\u6539\u540e\u7684\u7248\u672c\uff0c\u8bed\u6c14\u66f4\u81ea\u7136\u3001\u53e5\u5f0f\u66f4\u6e05\u6670\uff0c\u4e5f\u628a\u4f60\u7684\u95ee\u9898\u95ee\u5f97\u66f4\u660e\u786e\uff1a",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.23,
-    "frag_ratio": 0.12,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.25
-   },
-   "cost_usd": 0.0,
-   "seconds": 33.5
-  },
-  {
-   "id": 10,
-   "genre": "summary",
-   "response": "Q3 missed plan. Revenue $2.1M, up 8% from last quarter but $300K short of the $2.4M forecast.\n\n- Churn jumped 3.1% to 4.7%, the biggest red flag\n- Two enterprise deals pushed to Q4, likely the miss\n- Headcount up 22% while revenue grew 8%, costs outrunning sales",
-   "rules": {
-    "rule2_economy": 10.0,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
-   },
-   "clarity_avg": 9.5,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 95.0,
-   "facts_delivered": "4/4",
-   "detail": {
-    "economy": {
-     "words": 48,
-     "facts": 4,
-     "required": 4,
-     "coverage": 1.0,
-     "words_per_fact": 12.0
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.88,
-    "frag_ratio": 0.33,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 1.33
+    "em_dash_per_100w": 0.38,
+    "sentence_cv": 0.61,
+    "frag_ratio": 0.07,
+    "bold_per_100w": 2.69,
+    "comma_per_sent": 1.0,
+    "staccato_runs": 0
    },
    "cost_usd": 0.0,
    "seconds": 28.5
   },
   {
-   "id": 11,
-   "genre": "rejection",
-   "response": "Draft below. I won't send it \u2014 you approve and send.\n\nSubject: Update on your <Role> application\n\nHi <Name>,\n\nThank you for the time you put into our process. I want to be direct: we've decided to move forward with another candidate for this role.\n\nThis was a close call. You were one of two finalists, and the decision came down to a narrow difference in fit for what this specific role needs right now, not a gap in your ability. Your <specific thing they did well, e.g. system design walkthrough> was one of the strongest we've seen.\n\nIf you're open to it, I'd like to stay in touch. We expect to open <other role / more senior roles> in the next few months, and I'd reach out to you first.\n\nHappy to give you detailed feedback on a call if that's useful. Just reply and I'll set it up.\n\nThanks again,\n<Your name>\n\nNotes\n- Fill the two brackets with one real detail each. Generic praise reads as insincere.\n- Only offer the feedback call and future contact if you mean it.\n- Send it yourself, not from a no-reply address.\n\nWant a shorter version, or one that doesn't offer a feedback call?",
+   "id": 18,
+   "genre": "writing_edit",
+   "response": "Overall, your paragraph is **grammatically sound** \u2014 there are no true errors that would be marked wrong. What follows are consistency issues, small refinements, and one likely spelling slip.\n\n---\n\n## 1. Inconsistent serial (Oxford) comma \u2014 the main issue\n\n- \"Anu, Anui-El **and** Anri-El\" \u2014 no comma before *and*\n- \"Padomay, Sithis, **and** Lorkhan\" \u2014 comma before *and*\n\nPick one style and use it throughout. Since you used the Oxford comma in the second list, I'd add it to the first:\n\n> \u2705 \"\u2026between Anu, Anui-El, and Anri-El?\"\n\n---\n\n## 2. Likely misspelling: \"Anri-El\"\n\nNot a grammar issue, but the name is almost certainly **Auri-El** (the Aldmeri name for Akatosh). \"Anui-El\" and \"Auri-El\" are easy to mix up. Worth double-checking.\n\n---\n\n## 3. \"Are they related like father and sons?\"\n\nTwo small problems:\n\n- **\"like\" vs. \"as\"** \u2014 In formal writing, *like* introduces a noun of comparison, while *as* introduces a relationship or role. Here you mean the actual relationship, so *as* is more precise.\n- **Missing articles / number agreement** \u2014 \"father and sons\" reads oddly bare; one father with multiple sons needs an article or possessive.\n\n> \u2705 \"Are they related **as a father and his sons**?\"\n> \u2705 Or, if you mean a comparison: \"Are they **like a father and his sons**?\"\n\n---\n\n## 4. \"What are they exactly?\"\n\nCorrect as written. If you want to emphasize the *exactly*, set it off with a comma:\n\n> \u2705 \"What are they, exactly?\"\n\n---\n\n## 5. \"Are they still around by the time of the events of the games?\"\n\nThree refinements:\n\n- **\"still \u2026 by the time\"** is a slight mismatch. *Still* describes an ongoing state; *by the time* marks a deadline or transition point. Use **\"at the time of\"** or **\"during\"**.\n- **\"around\"** is colloquial. Fine in casual contexts, but *present*, *active*, or *extant* is stronger.\n- **\"the events of the games\"** is wordy; \"of\u2026of\u2026\" chains slow the sentence down.\n\n> \u2705 \"Are they still present **during** the events of the games?\"\n> \u2705 Or: \"Are they still active **at the time of** the games?\"\n\nYou may also want to specify *which* games, since \"the games\" is undefined for a reader without context.\n\n---\n\n## 6. Optional: reduce repetition\n\nYour first two sentences use the identical frame \"What is the relationship between\u2026\". You could combine them:\n\n> \"What are the relationships between Anu, Anui-El, and Auri-El, and between Padomay, Sithis, and Lorkhan?\"\n\nThat said, keeping them separate is perfectly acceptable \u2014 and arguably clearer, since they're two distinct questions.\n\n---\n\n## Clean revised version\n\n> \"What is the relationship between Anu, Anui-El, and Auri-El? What is the relationship between Padomay, Sithis, and Lorkhan? Are they related as a father and his sons? What are they, exactly? Are they physical beings or metaphysical forces? What happened to them? Are they still present during the events of the games?\"\n\n---\n\n**Bottom line:** the only change I'd call necessary is the Oxford comma consistency (#1). Everything else is polish.",
    "rules": {
-    "rule2_economy": 1.8,
+    "rule2_economy": 5.0,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
    },
-   "clarity_avg": 8.13,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 81.3,
-   "facts_delivered": "3/3",
+   "clarity_avg": 9.44,
+   "slop_per_1k": 0.4,
+   "slop_breakdown": {
+    "inline_header_list": 2
+   },
+   "slop_tax": 0.006,
+   "score": 93.9,
+   "facts_delivered": "4/4",
    "detail": {
     "economy": {
-     "words": 204,
-     "facts": 3,
-     "required": 3,
+     "words": 499,
+     "budget": 250,
+     "facts": 4,
+     "required": 4,
      "coverage": 1.0,
-     "words_per_fact": 68.0
+     "over_budget": 2.0
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -712,82 +1495,13 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
    "judge": {
     "facts_delivered": [
      true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.49,
-    "sentence_cv": 0.59,
-    "frag_ratio": 0.06,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.53
-   },
-   "cost_usd": 0.0,
-   "seconds": 34.1
-  },
-  {
-   "id": 12,
-   "genre": "definition",
-   "response": "Idempotent means: doing it twice gives the same result as doing it once.\n\n- Pressing an elevator button 5 times. Still one elevator.\n- `DELETE /user/42` twice. User is gone either way. Safe.\n- `POST /charge $10` twice. Customer charged $20. Not safe.\n\nWhy you care:\n- Retries become free. Network times out, you just run it again, no double charge, no duplicate row.\n- Cron jobs stop corrupting things when they overlap.\n- Deploys and migrations can be re-run after a failure instead of hand-cleaning state.\n\nHow you get it: give each operation a unique key (order ID, request ID), and have the server ignore a key it already processed. In SQL that's `INSERT ... ON CONFLICT DO NOTHING` or an upsert.\n\nRule of thumb: if a bad Wi-Fi connection could cost your user money, that endpoint needs an idempotency key.",
-   "rules": {
-    "rule2_economy": 5.0,
-    "rule3_jargon": 4.1,
-    "rule5_simple_words": 8.6,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 7.95,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 79.5,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 142,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 47.3
-    },
-    "jargon": {
-     "undefined_acronyms": [
-      "DELETE",
-      "DO",
-      "INSERT",
-      "ON",
-      "POST"
-     ],
-     "per_100w": 3.52
-    },
-    "simple_words": {
-     "swaps": {
-      "request": "ask"
-     },
-     "per_100w": 0.7
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
      true,
      true,
      true
@@ -796,17 +1510,1013 @@
     "clarity_quote": "",
     "imagery": "concrete",
     "imagery_quote": "",
-    "imagery_suggestion": ""
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "That said, keeping them separate is perfectly acceptable \u2014 and arguably clearer, since they're two distinct questions.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 1.4,
+    "sentence_cv": 0.73,
+    "frag_ratio": 0.24,
+    "bold_per_100w": 3.21,
+    "comma_per_sent": 0.94,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 39.2
+  },
+  {
+   "id": 19,
+   "genre": "writing_edit",
+   "response": "Here's a corrected, more professional version:\n\n---\n\n**Subject: Re-Chroming Quality Issue \u2013 Recommended Course of Action**\n\nDear Mr. Oli,\n\nI'm afraid the re-chromed parts are not acceptable. Due to poor adhesion, the chrome will inevitably peel once the items are exposed to liquid \u2014 and this could happen at any time.\n\nSending them back is unlikely to resolve the issue, as we have no assurance that the re-chroming quality will improve, and it would cause further delays.\n\nThe only practical option on our end is to apply bright chrome spray here at the yard. Please note, however, that this will not achieve a true mirror finish.\n\nCould you please advise on the following:\n\n1. What is our arrangement with the service provider regarding rework or defective output?\n2. Are we still obligated to pay them for this work?\n\nI look forward to your guidance so we can proceed without further delay.\n\nBest regards,\n[Your Name]\n[Position / Company]\n\n---\n\n**Key changes made:**\n- Added a subject line so the issue is clear at a glance\n- \"Sir Oli\" \u2192 \"Mr. Oli\" (more standard in business English)\n- Fixed grammar: \"will eventually be peeled off in any time\" \u2192 \"will inevitably peel\"\n- Separated the problem, the reasoning, and the proposed solution into clear paragraphs\n- Turned the questions into a numbered list so nothing gets overlooked in the reply\n- Added a closing line that encourages a prompt response",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 9.2,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 8.59,
+   "slop_per_1k": 1.0,
+   "slop_breakdown": {
+    "agentless_passive": 1
+   },
+   "slop_tax": 0.015,
+   "score": 84.6,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 239,
+     "budget": 160,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.49
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "regarding": "about"
+     },
+     "per_100w": 0.42
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "**Key changes made:**",
+    "economy": "some_padding",
+    "economy_quote": "I look forward to your guidance so we can proceed without further delay.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.42,
+    "sentence_cv": 0.79,
+    "frag_ratio": 0.08,
+    "bold_per_100w": 0.84,
+    "comma_per_sent": 0.77,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 24.2
+  },
+  {
+   "id": 20,
+   "genre": "writing_edit",
+   "response": "Here's a more natural, humble version:\n\n---\n\nHi Kelvin,\n\nI hope you're doing well!\n\nWhen we last spoke, you mentioned you knew the owner of DemonPower Sports and that there might be a possible summer internship opportunity there. You kindly offered to help if December rolled around and I hadn't lined anything up yet.\n\nThat's where I find myself now, so I wanted to reach out and ask \u2014 if you're still comfortable doing so, would you be open to introducing me to him? I'd really appreciate it, and I completely understand if the timing isn't right.\n\nThanks so much for keeping me in mind.\n\nBest,\n[Your name]\n\n---\n\nA few notes on what changed:\n- Fixed the typos and tightened the phrasing\n- \"If you're still comfortable\" and \"I completely understand if the timing isn't right\" give him an easy out, which comes across as considerate rather than presumptuous\n- Ending with gratitude rather than the request itself leaves a warmer impression\n\nWant me to make it shorter or a bit more casual, depending on your relationship with him?",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 8.9,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 8.54,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 85.4,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 180,
+     "budget": 130,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.38
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "request": "ask"
+     },
+     "per_100w": 0.56
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "A few notes on what changed:",
+    "economy": "some_padding",
+    "economy_quote": "Ending with gratitude rather than the request itself leaves a warmer impression",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.56,
+    "sentence_cv": 0.89,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 1.29,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 26.5
+  },
+  {
+   "id": 21,
+   "genre": "writing_create",
+   "response": "Here are a few ready\u2011to\u2011send versions. Pick the one that matches your situation (I've assumed the most common case: from now on the client covers the bank transfer charges).\n\n---\n\n### Option 1 \u2014 Formal email (client pays the transfer fees)\n\n**Subject: Update: Bank Transfer Charges on Future Payments**\n\nDear [Client Name],\n\nI hope you are doing well.\n\nPlease note an update regarding our payment terms. Effective [date / from the next invoice], **all bank transfer charges \u2014 including intermediary and correspondent bank fees \u2014 will be borne by the sender.** Kindly ensure payments are sent with the \"OUR\" charge option so that the full invoiced amount is received in our account.\n\nIf a payment arrives short due to deducted bank charges, the remaining balance will be reflected on your account and included in the next invoice.\n\nWe appreciate your understanding and continued cooperation. Please let me know if you have any questions.\n\nBest regards,\n[Your Name]\n[Position | Company | Contact]\n\n---\n\n### Option 2 \u2014 Short, friendly message (WhatsApp / chat)\n\nHi [Name], just a quick update on our end \u2014 going forward, bank transfer fees will be covered by the sender, so please select the \"OUR\" charges option when transferring. This ensures the full invoice amount reaches us and avoids any shortfall on your account. Thanks for your understanding!\n\n---\n\n### Option 3 \u2014 If *you* will now cover the fees (good\u2011news version)\n\nDear [Client Name],\n\nWe'd like to inform you of an update to our payment process: starting [date], **[Company Name] will absorb the bank transfer charges** on incoming payments. You will simply need to remit the exact invoiced amount, with no further deductions or adjustments required on your side.\n\nWe hope this makes the payment process smoother for you. Please don't hesitate to reach out with any questions.\n\nBest regards,\n[Your Name]\n\n---\n\nWant me to tailor it further? Just tell me:\n- Who pays the fee now (you or the client)?\n- Effective date?\n- Client name / your company name and tone (formal or casual)?",
+   "rules": {
+    "rule2_economy": 4.7,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.19,
+   "slop_per_1k": 2.9,
+   "slop_breakdown": {
+    "chatbot": 1
+   },
+   "slop_tax": 0.043,
+   "score": 68.8,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 342,
+     "budget": 130,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 2.63
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "regarding": "about"
+     },
+     "per_100w": 0.29
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Want me to tailor it further? Just tell me:",
+    "economy": "some_padding",
+    "economy_quote": "Here are a few ready\u2011to\u2011send versions.",
+    "jargon": "some_jargon",
+    "jargon_quote": "\"OUR\" charge option",
+    "simple_words": "some_complex",
+    "simple_words_quote": "remit",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 1.75,
+    "sentence_cv": 0.8,
+    "frag_ratio": 0.11,
+    "bold_per_100w": 0.88,
+    "comma_per_sent": 0.63,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 22.9
+  },
+  {
+   "id": 22,
+   "genre": "writing_create",
+   "response": "**Patriarchy in Manjula Padmanabhan's *Lights Out***\n\nPadmanabhan's play, drawn from a real 1982 Mumbai incident in which a gang rape was witnessed by an entire apartment block without intervention, exposes patriarchy less as overt brutality than as a system of language, interpretation and comfortable evasion.\n\nThe violence itself happens offstage, in a neighbouring compound, reaching the audience only as screams. This structural choice is significant: the woman being assaulted is never named, seen or given speech. She exists solely as sound to be interpreted by the men in Bhaskar and Leela's drawing room. Patriarchy here operates through the monopoly on meaning. Bhaskar insists it is \"not our business\"; Mohan intellectualises the horror into a possible religious rite, an exorcism, a \"purification ceremony,\" and finally suggests the victims may be prostitutes \u2014 in which case, the logic runs, no crime is occurring at all. Naming the act \"rape\" would compel action, so the men refuse the word. Their elaborate rationalisations are not confusion but a technology of complicity.\n\nSurinder embodies patriarchy's cruder face: openly excited, voyeuristic, eager to watch rather than help, treating the assault as entertainment. The instruction to switch off the lights \u2014 to see without being seen \u2014 makes the male gaze literal, and implicates the audience sitting in a darkened theatre.\n\nThe women are differently positioned. Leela's terror is dismissed as hysteria and nerves; her anxiety is pathologised rather than heeded, and she has internalised enough of the system to want the window shut and the noise excluded. Frieda, the servant, remains almost wordless \u2014 patriarchy intersecting with class. Only Naina names the crime and demands the police be called, and she is mocked, contradicted and silenced.\n\nMost damning is the ending: the men finally arm themselves, not to rescue the victim, but to defend their own home. Protection is revealed as proprietorship \u2014 women are worth defending only when they are one's own possessions.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.78,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 77.8,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 318,
+     "budget": 320,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 0.99
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Bhaskar insists it is \"not our business\"; Mohan intellectualises the horror into a possible religious rite, an exorcism, a \"purification ceremony,\" and finally suggests the victims may be prostitutes \u2014 in which case, the logic runs, no crime is occurring at all.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "**Patriarchy in Manjula Padmanabhan's *Lights Out***",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "a technology of complicity",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 1.57,
+    "sentence_cv": 0.58,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 1.44,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 32.4
+  },
+  {
+   "id": 23,
+   "genre": "writing_create",
+   "response": "# Before You Pack Your Bags: What J-1 Students and Other Immigrants Should Know About the U.S. Today\n\nEvery year, hundreds of thousands of young people around the world dream about America. They save money, borrow from family, pay agency fees, and imagine a summer of work, travel, English practice, and photos in front of famous landmarks. The J-1 Exchange Visitor Program \u2014 Summer Work Travel, Au Pair, Intern, Trainee, Camp Counselor \u2014 has been that doorway for millions.\n\nBut dreams need information. And right now, the honest truth is this: **the U.S. immigration system is complicated, slow, and often unpredictable \u2014 and it is changing fast.** Until it is fixed, anyone thinking about coming here should come with open eyes, not just an open heart.\n\nThis article is not meant to scare anyone. It is meant to save you time, money, and disappointment. Share it with a friend who is planning to apply.\n\n---\n\n## Why People Say the System Needs Fixing\n\nMost Americans across the political spectrum agree on one thing: the immigration system doesn't work well. Here's what that means in practice for a J-1 participant or any newcomer:\n\n- **Visa appointment backlogs.** In some countries, interview wait times can stretch for months. A program that starts in June may be impossible if your interview is in August.\n- **Unclear rules that shift.** Policies, fees, and processing priorities can change between administrations \u2014 sometimes within weeks.\n- **Weak protection from bad actors.** Some overseas recruiters and sponsors charge high fees and promise jobs that don't exist, or don't match what was advertised.\n- **Limited pathways forward.** J-1 is a temporary, non-immigrant status. It is not a road to a green card, and some categories carry a **two-year home residency requirement** (212(e)) that must be satisfied or waived before you can change to certain other statuses.\n- **Housing and cost shocks.** Rent, transportation, and food in U.S. cities have risen sharply. Wages promised in a contract may not cover reality.\n\nNone of this means \"don't come.\" It means: **verify everything before you pay anything.**\n\n---\n\n## Is It Safe to Come to the United States?\n\nFor most exchange visitors, the experience is positive and memorable. The U.S. is a large, diverse country, and safety varies enormously by city and neighborhood \u2014 the same way it does anywhere in the world.\n\nWhat has changed is the **legal environment**. Immigration enforcement has intensified in recent years, and small status mistakes that once went unnoticed can now create real problems. The safest thing you can do is stay perfectly in status:\n\n- Never work outside the job your sponsor approved.\n- Never overstay your DS-2019 end date plus your 30-day grace period.\n- Keep your SEVIS record active and your address updated with your sponsor.\n- Carry copies of your DS-2019, passport, and visa; keep originals somewhere secure.\n- Report any lost job, changed employer, or emergency to your sponsor **immediately** \u2014 not later.\n\nStaying in status is not just paperwork. It is the difference between a great year and a ban from returning.\n\n---\n\n## Smart Questions to Ask Before You Sign Anything\n\nBefore paying a single dollar to an agency:\n\n1. **Who is my official sponsor?** Every J-1 sponsor is designated by the U.S. Department of State. Verify the name on the State Department's official exchange visitor sponsor list at j1visa.state.gov.\n2. **What exactly is the job?** Get the employer name, address, hourly wage, expected hours per week, and start/end dates *in writing*.\n3. **What are the total fees?** Program fee, SEVIS fee, visa fee, insurance, flights, housing deposit. Add them all up \u2014 then compare to realistic net earnings.\n4. **Where will I live and what does it cost?** Housing arranged by an employer is not always cheap or good. Ask for photos and the weekly deduction.\n5. **Does my category have the two-year home rule?** Check your DS-2019 and ask your sponsor directly.\n6. **What is the 24/7 emergency number?** Every sponsor must provide one. Save it before you fly.\n\nIf an agency avoids these questions or pressures you to pay quickly \u2014 walk away. That pressure is the biggest red flag in the industry.\n\n---\n\n## What \"Fixing\" the System Could Look Like\n\nMeaningful reform would mean faster and more predictable visa processing, stronger oversight of recruiters and sponsors, clearer worker protections for exchange visitors, and honest, realistic pathways for people who contribute here long-term. Until Congress and the agencies deliver that, the burden of research falls on you.\n\n---\n\n## The Bottom Line\n\nAmerica still offers extraordinary opportunity \u2014 for cultural exchange, for learning, for growth. But opportunity and risk travel together right now. **Do your homework, verify your sponsor, read your contract, and protect your status.**\n\nIf this article helps even one person avoid a scam, a wasted savings account, or a visa violation, it did its job.\n\n**Share it. Someone you know is deciding right now.**\n\n---\n\n*This article is general information, not legal advice. For your specific situation, consult a licensed U.S. immigration attorney or your designated J-1 sponsor. Official information: travel.state.gov and j1visa.state.gov.*",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 9.6,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.39,
+   "slop_per_1k": 2.6,
+   "slop_breakdown": {
+    "hyphen_pairs": 1,
+    "isnt_its": 2
+   },
+   "slop_tax": 0.039,
+   "score": 90.2,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 852,
+     "budget": 450,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.89
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "DS",
+      "SEVIS"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.23
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "This article is not meant to scare anyone.",
+    "jargon": "some_jargon",
+    "jargon_quote": "212(e)",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 1.06,
+    "sentence_cv": 0.66,
+    "frag_ratio": 0.16,
+    "bold_per_100w": 2.11,
+    "comma_per_sent": 0.94,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 49.4
+  },
+  {
+   "id": 24,
+   "genre": "writing_create",
+   "response": "# LinkedIn \"About\" Summary \u2014 Data Science Platform Engineer\n\nBelow are three versions you can pick from (or mix and match). Replace the `[bracketed]` parts with your specifics.\n\n---\n\n## Version 1 \u2014 Balanced & Professional (recommended)\n\n> I build the infrastructure that turns data science from experiments into products.\n>\n> As a Data Science Platform Engineer with [X] years of experience, I design and operate the pipelines, environments, and tooling that let data scientists and ML engineers move fast without breaking production. My work sits at the intersection of data engineering, DevOps, and machine learning \u2014 building scalable data pipelines, reproducible training environments, feature stores, model registries, and CI/CD workflows that shorten the path from notebook to deployment.\n>\n> Beyond platform work, I've contributed hands-on to machine learning projects including [e.g., demand forecasting, churn prediction, recommendation systems] \u2014 from feature engineering and model experimentation to deployment, monitoring, and drift detection. That exposure helps me build platforms that solve real modeling problems, not theoretical ones.\n>\n> **What I work with:**\n> Python, SQL, Spark | Airflow, dbt, Kafka | Docker, Kubernetes, Terraform | MLflow, Kubeflow, [Databricks/SageMaker/Vertex AI] | AWS / Azure / GCP\n>\n> **What I care about:**\n> Reproducibility, cost efficiency, observability, and building self-service tooling that scales with the team rather than the headcount.\n>\n> Currently [open to opportunities in / focused on] [domain or role]. Always happy to connect with people working on data platforms, MLOps, and applied ML.\n>\n> \ud83d\udce9 [your.email@domain.com]\n\n---\n\n## Version 2 \u2014 Short & Punchy\n\n> Data Science Platform Engineer who makes machine learning boringly reliable.\n>\n> I build and scale the data and ML infrastructure \u2014 pipelines, feature stores, model registries, CI/CD, and monitoring \u2014 that lets teams ship models to production with confidence. I've also worked hands-on across ML projects in [domain], so I understand both sides: the model and the machinery behind it.\n>\n> Toolkit: Python \u00b7 Spark \u00b7 Airflow \u00b7 Kubernetes \u00b7 Docker \u00b7 Terraform \u00b7 MLflow \u00b7 [Cloud]\n>\n> Let's connect if you're building data platforms, scaling MLOps, or trying to get models out of notebooks and into the real world.\n\n---\n\n## Version 3 \u2014 Impact/Metrics-Led (great for job hunting)\n\n> I help organizations ship machine learning that actually reaches users.\n>\n> Over the past [X] years, I've built data science platforms that [reduced model deployment time from weeks to hours / cut compute costs by X% / supported X data scientists across Y teams]. My focus is on the unglamorous but critical layer: reliable data pipelines, containerized and reproducible environments, automated model training and deployment, and monitoring that catches drift before customers do.\n>\n> **Selected highlights:**\n> \u2022 Designed and deployed [an end-to-end ML pipeline / feature store] serving [X] models in production\n> \u2022 Built self-service tooling that removed [X] hours of manual work per sprint for the data science team\n> \u2022 Contributed to ML projects in [forecasting / NLP / computer vision / recommendations], covering feature engineering through production monitoring\n> \u2022 Standardized [CI/CD, IaC, experiment tracking] practices across [X] teams\n>\n> **Stack:** Python, SQL, Spark, Airflow, Kubernetes, Docker, Terraform, MLflow, [AWS/Azure/GCP]\n>\n> Open to [roles/collaborations] where platform engineering and applied ML meet. Reach out at [email].\n\n---\n\n### Quick tips to make it stronger\n- **Lead with a hook**, not your job title \u2014 LinkedIn only shows the first ~2 lines before \"see more.\"\n- **Add numbers** wherever possible (models in production, data volume, latency, cost savings, team size served).\n- **Front-load keywords** recruiters search: *MLOps, data platform, Kubernetes, Airflow, Spark, model deployment, feature store, CI/CD*.\n- **Name the ML exposure explicitly** \u2014 \"contributed to ML projects\" is vague; \"built feature pipelines and deployed a churn model serving 2M users\" is not.\n- **End with a call to action** (connect, email, portfolio/GitHub link).",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.96,
+   "slop_per_1k": 0.5,
+   "slop_breakdown": {
+    "hyphen_pairs": 1,
+    "inline_header_list": 1
+   },
+   "slop_tax": 0.007,
+   "score": 79.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 645,
+     "budget": 260,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 2.48
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Reproducibility, cost efficiency, observability, and building self-service tooling that scales with the team rather than the headcount.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "### Quick tips to make it stronger",
+    "economy": "some_padding",
+    "economy_quote": "**End with a call to action** (connect, email, portfolio/GitHub link).",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 1.55,
+    "sentence_cv": 0.69,
+    "frag_ratio": 0.04,
+    "bold_per_100w": 1.4,
+    "comma_per_sent": 2.83,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 42.9
+  },
+  {
+   "id": 25,
+   "genre": "writing_create",
+   "response": "# *Lights Out* by Manjula Padmanabhan as a Feminist Play\n\n## I. Context: A Play Born of a Real Silence\n\nManjula Padmanabhan wrote *Lights Out* in 1984 (first staged in Bombay in 1986, later published in the Seagull anthology *Body Blows: Women, Violence and Survival*). Its origin is documentary: in 1982, in a middle-class residential complex in Santacruz, Bombay, a woman was gang-raped in an open compound over several nights, in full earshot and eyeshot of neighbouring flats. Nobody intervened; nobody called the police. Padmanabhan takes this reported incident and stages not the rape but the *watching* of it.\n\nThat single structural decision is what makes the play feminist in the most rigorous sense. Written during the decade of the Mathura rape case agitation and the 1983 amendments to India's rape law, the play belongs to the moment when the Indian women's movement forced sexual violence out of the category of private misfortune and into the category of public political scandal. *Lights Out* dramatises exactly the resistance that this shift met in the urban middle-class drawing room.\n\n## II. The Argument of the Play\n\nThe action is confined to the sixth-floor flat of Bhasker and Leela. Every night, screams rise from the disused building opposite. Leela is disintegrating with terror; Bhasker wants the matter dropped. Their friend Mohan arrives and, with the confidence of the educated male, produces a series of elaborate explanations for what is happening. Naina, Leela's friend, arrives and does the one thing nobody else will do: she names it. Surinder, the crudely masculine friend, arrives last and treats the whole thing as sport. Frieda, the servant, moves through the flat serving food and says nothing at all. At the end, the men go downstairs \u2014 armed, roused, and for entirely the wrong reasons \u2014 while Leela is left screaming.\n\n## III. Feminist Dimensions\n\n### 1. The Politics of Naming\n\nThe play's central battleground is language. What is happening outside is obvious; what the characters do is invent vocabularies to avoid saying so. Mohan proposes, in turn, that it may be a religious ceremony, a ritual purification, a wedding, an exorcism, or a private quarrel between a husband and his wife. Bhasker suggests the women involved are prostitutes, or beggars, or simply \"that sort\" of person. Each euphemism performs the same ideological work: it removes the event from the sphere of crime and returns it to the sphere of culture, custom, or class.\n\nNaina alone insists on the word *rape*, and on its legal and moral consequences. Her insistence is immediately pathologised \u2014 she is told she is emotional, obsessive, over-involved, that she should not \"read so much into it\". This is the play's sharpest feminist perception: patriarchy does not usually defend rape, it *renames* it. Especially telling is Mohan's argument that if the man is the woman's husband, interference would be improper \u2014 a line that exposes, with devastating economy, the legal and cultural immunity of marital violence in India, where marital rape remained (and largely remains) outside the reach of criminal law.\n\n### 2. The Absent Victim and the Ethics of Representation\n\nThe raped woman never appears. She exists only as sound \u2014 screams penetrating the walls of a bourgeois home. Some critics read this as a weakness, arguing that Padmanabhan denies the victim voice and agency. But the choice is deliberate and, in feminist theatrical terms, principled. To stage the rape would be to reproduce the very spectacle the play indicts: it would invite the audience to consume a violated female body. By keeping her offstage, Padmanabhan refuses the pornographic gaze and instead turns the theatre's attention onto the *spectators* \u2014 where the guilt actually lies.\n\nThe screams, meanwhile, do something the visible body could not. They cross boundaries. They enter the locked, respectable, upper-storey flat and prove that the middle-class woman's safety is an illusion of geography and income, not a condition of life.\n\n### 3. The Window, the Gaze, and the Title\n\nThe men repeatedly cross to the window to look. Bhasker's solution is not to close the window but to *switch off the lights* \u2014 so that they may see without being seen. Voyeurism is thus perfected as a technique of moral evasion: total visual access, zero accountability. The title works on at least three levels \u2014 the literal darkening of the room, the extinguishing of conscience, and the wilful blindness of a class that prides itself on being enlightened.\n\nCrucially, the audience sits in a darkened auditorium watching people watch a rape. Padmanabhan builds the spectator's own complicity into the architecture of the play. Feminist theatre here is not a matter of message but of implication: we are seated in Bhasker's flat.\n\n### 4. Leela: The Domesticated Woman\n\nLeela is not a heroine and is not meant to be. She is the product of a marriage in which she has no authority: she can beg, weep, and demand that they move house, but she cannot act. She washes obsessively, wants curtains, wants the sound shut out \u2014 a repertoire of domestic gestures that stand in for the agency she does not possess. She is convinced that \"they\" will come for her next, and this intuition, dismissed by the men as hysteria, is the play's truest political insight. Leela understands, at the level of the body, that violence against one woman is a message addressed to all women. Her terror is not neurosis; it is accurate analysis, disqualified",
+   "rules": {
+    "rule2_economy": 5.6,
+    "rule3_jargon": 9.6,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 8.71,
+   "slop_per_1k": 1.1,
+   "slop_breakdown": {
+    "isnt_its": 1
+   },
+   "slop_tax": 0.017,
+   "score": 85.7,
+   "facts_delivered": "3/4",
+   "detail": {
+    "economy": {
+     "words": 907,
+     "budget": 550,
+     "facts": 3,
+     "required": 4,
+     "coverage": 0.75,
+     "over_budget": 1.65
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "II",
+      "III"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.22
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     false
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Her terror is not neurosis; it is accurate analysis, disqualified",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.99,
+    "sentence_cv": 0.6,
+    "frag_ratio": 0.13,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 1.21,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 84.0
+  },
+  {
+   "id": 26,
+   "genre": "writing_create",
+   "response": "**BROADCAST NEWS**\n\n# Sewing Quarter vanishes from Freeview, leaving viewers staring at a black screen\n\n*By Media Correspondent \u2014 14:20 GMT*\n\n---\n\nViewers tuning in to craft shopping channel **Sewing Quarter** on Freeview this morning were met not with quilting demonstrations and overlocker deals, but with silence and a black screen bearing only the channel's name.\n\nThe channel, which occupied a slot in the shopping section of the Freeview electronic programme guide, appeared to stop transmitting at around **06:00 GMT**, midway through what the online schedule listed as a repeat of a haberdashery showcase. Since then, the slot has displayed a static caption reading simply \"SEWING QUARTER\" in white text on black, with no audio and no explanatory message.\n\nFreeview's channel listings continued to show the channel as active for several hours after the fault began, adding to confusion among viewers.\n\n## 'I thought my box had broken'\n\nReports began appearing on social media shortly after 7am, with users initially assuming the problem was at their end.\n\n\"I retuned the telly twice and unplugged the aerial,\" said Marjorie Ellison, 68, from Doncaster, who says she watches the channel most mornings. \"Then I saw everyone else saying the same thing. It's just black. It's like it's there but it isn't.\"\n\nOthers reported the same picture across different regions and transmitters, suggesting a network-wide issue rather than a local transmission fault.\n\nCraft forums and Facebook groups filled quickly with speculation, ranging from a technical failure at the playout provider to rumours \u2014 so far unconfirmed \u2014 of a commercial dispute or a sudden cessation of operations.\n\n## No word from the broadcaster\n\nAttempts to reach Sewing Quarter's press office were unsuccessful. The channel's telephone lines were reported by several viewers to be unanswered or diverted, and its social media accounts have not posted since yesterday afternoon.\n\nA spokesperson for **Freeview** said: \"We are aware that Sewing Quarter is currently not broadcasting on channel listings. Freeview does not control the content or transmission of individual channels; this is a matter for the broadcaster and its transmission provider. We will update our channel listings if the situation changes.\"\n\n**Ofcom**, which licenses the channel, confirmed it had \"received enquiries\" but said it would not comment on individual licensees at this stage. Under the terms of a broadcasting licence, a channel that ceases transmission for an extended period may be required to notify the regulator.\n\n## A familiar pattern\n\nIndustry analysts noted that the abrupt, unannounced blackout follows a pattern seen with other small shopping and specialist channels, where transmission is pulled at short notice when carriage fees go unpaid or a company enters insolvency proceedings.\n\n\"A black screen with the channel ident is often what you get when the playout is still technically running but there's no programming being fed into it,\" said one broadcast engineer, who asked not to be named. \"It's the television equivalent of the lights being on and nobody home. It usually doesn't last long \u2014 either it comes back, or the slot goes dark entirely and is reassigned.\"\n\nRetail media consultant Dan Whitfield said small niche channels have faced mounting pressure. \"The economics are brutal. You're paying for transmission capacity, a studio, presenters and stock, and competing with social media sellers who pay for none of that. Craft is a passionate audience but it's not a huge one.\"\n\n## Loyal audience left in limbo\n\nFor regular viewers, the disappearance is more than a scheduling inconvenience. Many describe the channel as a daily fixture and, in some cases, a source of company.\n\n\"It's on in the background while I work on my projects,\" said Priya Nandra, 41, who runs a small quilting business in Leicester. \"And there's a whole community around it. People have orders outstanding. Nobody knows what's happening to those.\"\n\nCustomers with pending orders are being advised by consumer groups to keep receipts and order confirmations, and \u2014 if a company ceases trading \u2014 to contact their card provider or bank about a chargeback or a claim under Section 75 of the Consumer Credit Act.\n\n## What happens next\n\nIf the channel does not resume broadcasting, its Freeview slot would be expected to be removed at the next routine listings update, with viewers prompted to retune.\n\nFor now, the screen remains black.\n\n---\n\n*This report will be updated as more information becomes available.*\n\n---\n\n*Note: This is a fictional news report written for illustrative purposes and does not describe real events.*",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 9.8,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 7.93,
+   "slop_per_1k": 1.3,
+   "slop_breakdown": {
+    "ai_vocab": 1
+   },
+   "slop_tax": 0.019,
+   "score": 77.8,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 742,
+     "budget": 400,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.85
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "GMT"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.13
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "A spokesperson for **Freeview** said: \"We are aware that Sewing Quarter is currently not broadcasting on channel listings.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "For regular viewers, the disappearance is more than a scheduling inconvenience.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "some_complex",
+    "simple_words_quote": "a sudden cessation of operations",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.81,
+    "sentence_cv": 0.55,
+    "frag_ratio": 0.1,
+    "bold_per_100w": 0.67,
+    "comma_per_sent": 1.19,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 40.3
+  },
+  {
+   "id": 27,
+   "genre": "technical_help",
+   "response": "## The key point\n\nA `float64` column **cannot** store trailing zeros. `1.50`, `1.500` and `1.5` are literally the same bit pattern in memory. Trailing zeros only exist in:\n\n* the **repr/display** of the DataFrame,\n* the **string/object** dtype (if your column isn't really float),\n* the **file** you export to.\n\nSo \"remove trailing zeros without converting to string\" really means one of the situations below.\n\n---\n\n## 1. You just want them displayed without trailing zeros\n\n**Globally:**\n\n```python\nimport pandas as pd\npd.set_option('display.float_format', lambda x: f'{x:g}')   # or '{:g}'.format\n```\n\n**Only for specific columns (Styler \u2014 dtype stays float):**\n\n```python\ncols = ['a', 'b', 'c']\ndf.style.format('{:g}', subset=cols)\n```\n\n`%g`/`{:g}` drops insignificant trailing zeros (`1.500 -> 1.5`, `2.000 -> 2`). Use `'{:.6g}'` etc. to control significant digits.\n\n---\n\n## 2. You want fewer decimals actually stored (rounding)\n\n```python\ncols = ['a', 'b', 'c']\ndf[cols] = df[cols].round(2)\n\n# or all float columns at once:\nfloat_cols = df.select_dtypes('float').columns\ndf[float_cols] = df[float_cols].round(2)\n```\n\nNote `round(1.5, 2)` is still `1.5` \u2014 nothing to strip, the display just may show `1.50` depending on the other values in the column.\n\n---\n\n## 3. The values are whole numbers and you want `1.0 -> 1`\n\nConvert those columns to a nullable integer dtype:\n\n```python\nfloat_cols = df.select_dtypes('float').columns\nwhole = float_cols[df[float_cols].apply(lambda s: s.dropna().mod(1).eq(0).all())]\ndf[whole] = df[whole].astype('Int64')      # 'Int64' keeps NaN support\n```\n\nOr let pandas decide for the whole frame:\n\n```python\ndf = df.convert_dtypes()\n```\n\n---\n\n## 4. The columns are actually strings like `\"1.500\"`\n\nThen they're `object` dtype, and converting to float *is* the fix:\n\n```python\ncols = ['a', 'b', 'c']\ndf[cols] = df[cols].apply(pd.to_numeric, errors='coerce')\n```\n\n---\n\n## 5. You only care about the exported file\n\n```python\ndf.to_csv('out.csv', float_format='%g')\ndf.to_excel('out.xlsx', float_format='%g')\ndf.to_string(float_format='{:g}'.format)\n```\n\n---\n\n### Quick check of what you actually have\n\n```python\nprint(df.dtypes)\n```\n\nIf it says `float64`, there are no trailing zeros to remove \u2014 use option 1, 2 or 3. If it says `object`, use option 4.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 8.8
+   },
+   "clarity_avg": 8.53,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 85.3,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 322,
+     "budget": 220,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.46
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Note `round(1.5, 2)` is still `1.5` \u2014 nothing to strip, the display just may show `1.50` depending on the other values in the column.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "If it says `float64`, there are no trailing zeros to remove \u2014 use option 1, 2 or 3.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.93,
+    "sentence_cv": 0.94,
+    "frag_ratio": 0.33,
+    "bold_per_100w": 1.86,
+    "comma_per_sent": 1.4,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 35.4
+  },
+  {
+   "id": 28,
+   "genre": "technical_help",
+   "response": "## Setting up the numbers\n\nTake a bond with face value 1,000, annual coupon 6.00% (= 60 per year), 10 years to maturity, YTM = 6.45%.\n\n**Purchase price (PV at 6.45%):**\n\n$$P_0 = 60\\cdot\\frac{1-1.0645^{-10}}{0.0645} + \\frac{1000}{1.0645^{10}} = 60(7.2052)+535.26 \\approx 967.58$$\n\n(It trades at a discount, since the coupon 6.00% < YTM 6.45%.)\n\n**Terminal wealth after 10 years** (coupons reinvested at 6.45%):\n\n$$FV = 60\\cdot\\frac{1.0645^{10}-1}{0.0645} + 1000 = 60(13.461)+1000 = 807.7+1000 \\approx 1{,}807.7$$\n\n**Realized (total) return:**\n\n$$r=\\left(\\frac{1807.7}{967.58}\\right)^{1/10}-1 = (1.8682)^{1/10}-1 = 6.45\\%\\ \\text{p.a.}$$\n\ni.e. the money grows by ~86.8% in total over the 10 years.\n\n## The assumptions behind this result\n\nThe expected total return equals the promised YTM of **6.45% p.a.**, but only because we implicitly assume:\n\n1. **Reinvestment at the YTM:** every coupon received is immediately reinvested at 6.45% until maturity (a flat, constant yield curve / unchanged rates). This is the crucial \u2013 and unrealistic \u2013 assumption; it creates **reinvestment risk**.\n2. **Hold to maturity:** the bond is not sold early, so no price risk from interest-rate changes is realized (the bond pulls to par).\n3. **No default:** issuer pays all coupons and the principal in full and on time (no credit/liquidity risk).\n4. **No taxes, no transaction costs, no call/put features.**\n\n## Why it matters\n\nIf coupons can only be reinvested at, say, 5%, terminal wealth is 60(12.578)+1000 = 1,754.7 and the realized return drops to\n\n$$(1754.7/967.58)^{1/10}-1 \\approx 6.13\\%\\ \\text{p.a.}$$\n\nConversely, higher reinvestment rates push the realized return above 6.45%. In this example the coupon interest-on-interest (~808 \u2212 600 = 208) is a substantial part of total earnings, so the assumption is far from trivial. Only a **zero-coupon bond held to maturity** guarantees the promised YTM exactly, since it has no coupons to reinvest.",
+   "rules": {
+    "rule2_economy": 8.7,
+    "rule3_jargon": 8.8,
+    "rule5_simple_words": 9.3,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 8.83,
+   "slop_per_1k": 3.5,
+   "slop_breakdown": {
+    "ai_vocab": 1
+   },
+   "slop_tax": 0.052,
+   "score": 83.7,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 286,
+     "budget": 220,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.3
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "FV"
+     ],
+     "undefined_terms": [
+      "liquidity"
+     ],
+     "per_100w": 0.7
+    },
+    "simple_words": {
+     "swaps": {
+      "purchase": "buy"
+     },
+     "per_100w": 0.35
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "In this example the coupon interest-on-interest (~808 \u2212 600 = 208) is a substantial part of total earnings, so the assumption is far from trivial.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.77,
-    "frag_ratio": 0.29,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.35
+    "sentence_cv": 0.78,
+    "frag_ratio": 0.21,
+    "bold_per_100w": 3.5,
+    "comma_per_sent": 1.29,
+    "staccato_runs": 0
    },
    "cost_usd": 0.0,
-   "seconds": 28.3
+   "seconds": 36.6
+  },
+  {
+   "id": 29,
+   "genre": "technical_help",
+   "response": "## Setting Up\n\nLet $i$ = nominal annual rate compounded monthly. The monthly rate is $i/12$, and over 12 months this must produce the effective annual rate of 10%:\n\n$$\\left(1 + \\frac{i}{12}\\right)^{12} = 1 + 0.10$$\n\n## Solving\n\n$$1 + \\frac{i}{12} = (1.10)^{1/12}$$\n\n$$(1.10)^{1/12} = e^{\\frac{\\ln 1.10}{12}} = e^{\\frac{0.0953102}{12}} = e^{0.0079425} = 1.0079741$$\n\n$$\\frac{i}{12} = 0.0079741$$\n\n$$i = 12(0.0079741) = 0.095690$$\n\n## Answer\n\n$$\\boxed{i \\approx 9.57\\% \\text{ per year, compounded monthly}}$$\n\n(Monthly rate \u2248 0.7974%.) Note it is less than 10% because monthly compounding boosts the nominal rate up to the 10% effective rate.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.26,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 92.6,
+   "facts_delivered": "3/3",
+   "detail": {
+    "economy": {
+     "words": 94,
+     "budget": 110,
+     "facts": 3,
+     "required": 3,
+     "coverage": 1.0,
+     "over_budget": 0.85
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Note it is less than 10% because monthly compounding boosts the nominal rate up to the 10% effective rate.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 1.08,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 1.0,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 22.5
+  },
+  {
+   "id": 30,
+   "genre": "self_expression",
+   "response": "Very well \u2014 though I should warn you at the outset: I know nothing of Catalonia except that people quarrel about it, and quarrels are usually a sign that some word is doing more work than anyone has examined it doing. So let us examine.\n\nYou say you wish to explore *Catalan nationalism*. But before we can ask whether such a thing is just or unjust, wise or foolish, we must know what it is. And it seems to me the phrase contains a hidden claim: that there exists a **nation** called Catalonia. So my first question is the humblest one \u2014 **what makes a nation?**\n\nConsider some candidates, and tell me which you would defend:\n\nIs a nation made by **language**? Then what of Switzerland, which has four and is one, or the Americas, which have one and are many? And what of the Catalan who speaks only Castilian at home \u2014 is he less a Catalan? Would you tell him so to his face?\n\nIs it made by **shared history**? But history is not a stone one digs up; it is a story one tells. Spaniards and Catalans have lived the *same* events \u2014 1714, 1939 \u2014 and drawn opposite lessons from them. If a nation is constituted by a shared narrative, and the narrative is chosen, then does the nation not create the history rather than the history the nation?\n\nIs it made by **the will of the people** \u2014 that a nation exists wherever people declare one? Then tell me: which people? For to hold a vote you must first draw a boundary around those entitled to vote, and that boundary is the very thing in dispute. Does the answer not smuggle itself into the question?\n\nAnd here is what troubles me most. Suppose we grant that Catalonia is a nation. Does it follow that it should be a *state*? These seem to me different claims, yet they are often spoken as one breath. If every nation deserves a state, how many states does the world contain \u2014 and what shall we do about the Aranese in the Val d'Aran, or the Catalan-speaking villages of Aragon?\n\nSo: begin where you like, but begin somewhere. **What do you take a nation to be** \u2014 and does your definition include Catalonia without also including a hundred things you would rather it did not?",
+   "rules": {
+    "rule2_economy": 8.6,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.1,
+   "slop_per_1k": 2.5,
+   "slop_breakdown": {
+    "isnt_its": 1
+   },
+   "slop_tax": 0.037,
+   "score": 87.6,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 395,
+     "budget": 300,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.32
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "I know nothing of Catalonia except that people quarrel about it, and quarrels are usually a sign that some word is doing more work than anyone has examined it doing.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "shape": {
+    "em_dash_per_100w": 2.03,
+    "sentence_cv": 0.6,
+    "frag_ratio": 0.04,
+    "bold_per_100w": 1.52,
+    "comma_per_sent": 0.62,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.0,
+   "seconds": 23.8
   }
  ]
 }

@@ -1,166 +1,327 @@
 {
-  "notes": "Hand-written control answers with known verdicts. These test the SCORER, not any model. Every one is a case where a naive implementation gets it wrong. Run with: python3 -m readability_eval.selftest",
-  "pairs": [
-    [
-      "jargon_but_defined",
-      "correct_but_jargon_dense",
-      "defining a term must beat not defining it"
-    ],
-    [
-      "clean_and_complete",
-      "slop_maximal",
-      "clean must beat slop"
-    ],
-    [
-      "clean_and_complete",
-      "terse_and_empty",
-      "complete must beat empty"
-    ],
-    [
-      "direct_bad_news",
-      "euphemism_layoff",
-      "plain bad news must beat euphemism"
-    ],
-    [
-      "decisive_short",
-      "hedge_no_decision",
-      "deciding must beat hedging"
-    ],
-    [
-      "format_clean",
-      "format_violation",
-      "obeying the format must beat chattiness"
-    ],
-    [
-      "expert_precise",
-      "expert_oversimplified",
-      "precision must beat dumbing down for an expert"
-    ],
-    [
-      "exec_decision_plain",
-      "council_report_slop",
-      "plain prose must beat report scaffolding when both carry the same facts"
-    ]
+ "notes": "Hand-written control answers with known verdicts. These test the SCORER, not any model. Every one is a case where a naive implementation gets it wrong. Each case embeds the prompt it answers: controls used to reference prompts.json by id, and when that file was re-numbered every control silently began grading a threads-vs-processes answer against a butterfly-dance lesson plan, so the judge scored 0/4 facts on every case and the whole selftest passed nothing. Run with: python3 -m readability_eval.selftest --judge MODEL",
+ "pairs": [
+  [
+   "jargon_but_defined",
+   "correct_but_jargon_dense",
+   "defining a term must beat not defining it"
   ],
-  "cases": [
-    {
-      "name": "slop_maximal",
-      "prompt_id": 2,
-      "expect": "low",
-      "why": "every slop family at once",
-      "text": "Great question! Understanding the distinction between processes and threads serves as a testament to the intricate interplay of modern operating system design. It's not just about memory; it's about the very paradigm of concurrent execution. In today's rapidly evolving computational landscape, it is important to note that these concepts are crucial, pivotal, and foundational. A process stands as an isolated execution context, boasting its own memory space, while a thread functions as a lightweight unit within, highlighting its role in enabling efficiency. In order to fully leverage these robust primitives, one must delve into the underlying mechanisms. In conclusion, the future looks bright for concurrent programming. I hope this helps!"
-    },
-    {
-      "name": "clean_and_complete",
-      "prompt_id": 2,
-      "expect": "high",
-      "why": "the target: short, complete, no slop",
-      "text": "A process has its own memory. A thread lives inside a process and shares that memory with the other threads there.\n\nThat sharing is the whole tradeoff. Switching between threads is cheap because there is no memory to swap, but two threads touching the same variable at the same time will corrupt it unless you lock it. Two processes cannot corrupt each other that way, and they also cannot share data without extra work."
-    },
-    {
-      "name": "terse_and_empty",
-      "prompt_id": 2,
-      "expect": "low",
-      "why": "THE key case: brevity with no content must not win",
-      "text": "They're different. A process is bigger and a thread is smaller. Use whichever fits your needs."
-    },
-    {
-      "name": "correct_but_jargon_dense",
-      "prompt_id": 2,
-      "expect": "low",
-      "why": "content is correct but 5 undefined acronyms fail the stated junior audience; audience-relative scoring must punish this even though the facts are right",
-      "text": "A process owns a PCB and a distinct VAS with its own PT entries. Threads within it share the VAS but hold separate TCBs and stacks. Context switching between threads skips the TLB flush that an inter-process switch forces, so it is materially cheaper. The cost is that unsynchronized concurrent writes to shared pages produce data races."
-    },
-    {
-      "name": "jargon_but_defined",
-      "prompt_id": 2,
-      "expect": "mid",
-      "why": "same precision as correct_but_jargon_dense but expanded on first use; must score MUCH higher than that case (the pair is the real assertion, not the absolute band)",
-      "text": "A process gets its own virtual address space (VAS), the private map of memory it is allowed to touch. Threads inside that process share the VAS but each keeps its own stack.\n\nBecause they share the map, switching between two threads skips the translation lookaside buffer (TLB) flush that switching between two processes forces, which makes it noticeably cheaper. The price is that two threads writing the same variable at once will corrupt it unless you lock it."
-    },
-    {
-      "name": "euphemism_layoff",
-      "prompt_id": 3,
-      "expect": "low",
-      "why": "the defect is dishonesty; scored 3x",
-      "text": "Team,\n\nAs part of our ongoing commitment to organizational excellence, we are undertaking a rightsizing initiative in response to persistent headwinds. Your department will be entering a transition period at month end. We recognize this represents an opportunity for growth, and HR will be reaching out with information regarding next steps. We are grateful for your many contributions during this journey.\n\nThank you for your understanding."
-    },
-    {
-      "name": "direct_bad_news",
-      "prompt_id": 3,
-      "expect": "high",
-      "why": "same news, said plainly, warm without evasion",
-      "text": "Team,\n\nWe are closing the department on March 31st. All eight roles are being eliminated. This is not about your work, which has been good; we could not make the unit's economics work.\n\nYou will receive 10 weeks of severance and health coverage through June. Your last day is March 31st, but you are not expected to work past this week.\n\nI have blocked out tomorrow and Thursday for one-on-ones. Dana in HR (dana@) can answer questions about severance today if you would rather not wait.\n\nI am sorry. You deserved better than this."
-    },
-    {
-      "name": "hedge_no_decision",
-      "prompt_id": 4,
-      "expect": "low",
-      "why": "asked to pick one, refuses to pick",
-      "text": "Both Postgres and SQLite are excellent choices, and the right answer really depends on your specific situation. SQLite offers simplicity while Postgres offers power. Many developers find success with either option. It could potentially be argued that you might want to consider your growth trajectory, though it's worth noting that premature optimization has its own costs. Ultimately, you should evaluate your requirements carefully."
-    },
-    {
-      "name": "decisive_short",
-      "prompt_id": 4,
-      "expect": "high",
-      "why": "picks, justifies, names the switch condition",
-      "text": "SQLite. With 3 users you will not hit its limits, and it is one file with no server to run, back up, or pay for.\n\nSwitch to Postgres when you need more than one machine writing at once, or when you want a managed backup you did not build. Moving later is a day of work, not a rewrite."
-    },
-    {
-      "name": "format_violation",
-      "prompt_id": 14,
-      "expect": "low",
-      "why": "asked for JSON only, wrapped it in chat",
-      "text": "Certainly! I'd be happy to help you with that. Here is the JSON you requested:\n\n{\"France\": \"Paris\", \"Japan\": \"Tokyo\", \"Peru\": \"Lima\"}\n\nLet me know if you'd like me to format this differently or add any other countries!"
-    },
-    {
-      "name": "format_clean",
-      "prompt_id": 14,
-      "expect": "high",
-      "why": "exactly what was asked; must not be penalized for being terse",
-      "text": "{\"France\": \"Paris\", \"Japan\": \"Tokyo\", \"Peru\": \"Lima\"}"
-    },
-    {
-      "name": "expert_oversimplified",
-      "prompt_id": 13,
-      "expect": "low",
-      "why": "audience-relative: dumbing down for an expert is a failure",
-      "text": "Raft is a way for computers to agree on things. The leader is the computer in charge. Sometimes the leader changes, and when that happens it adds an empty item to the list so everything stays in order. This helps the system work correctly and keeps all the computers on the same page."
-    },
-    {
-      "name": "expert_precise",
-      "prompt_id": 13,
-      "expect": "high",
-      "why": "dense technical terms are CORRECT here and must score well",
-      "text": "A new leader cannot commit an entry from a previous term just because it is replicated on a majority. That entry can still be overwritten by a future leader, so counting replicas is not proof of commitment.\n\nCommitting a no-op in the current term fixes this. Once that entry commits by the normal majority rule, everything before it in the log is committed too, so the leader can safely advance its commit index over the inherited tail."
-    },
-    {
-      "name": "passive_breach",
-      "prompt_id": 19,
-      "expect": "low",
-      "why": "passive voice hiding the actor",
-      "text": "An incident has been identified in which certain customer information may have been accessed by an unauthorized party. The affected data has been determined to include email addresses and hashed passwords. Steps are being taken to address the situation and additional security measures have been implemented. Users may wish to consider updating their credentials."
-    },
-    {
-      "name": "meta_slop_discussion",
-      "prompt_id": 2,
-      "expect": "high",
-      "why": "MENTIONS banned words inside quotes; must not be scored as using them",
-      "text": "Avoid the words \"delve\" and \"leverage\" when you explain this. Do not write \"it's not just X, it's Y\" either.\n\nSay it directly: a process has its own memory, a thread shares memory with its siblings, and that sharing is why threads are cheap to switch and easy to corrupt."
-    },
-    {
-      "name": "council_report_slop",
-      "prompt_id": 24,
-      "expect": "low",
-      "why": "THE structural-theater case: a correct recommendation buried under headers, a confidence table, and council jargon. Genre furniture is not content; report scaffolding on a 4-fact question must not outscore the plain answer",
-      "text": "## Council Report: Single Engineer, Three Teams\n\n**Council (2):** Skeptic + Temporal Analyst. Both landed on Medium confidence.\n\n### Verdict\nKeep the 100% infra allocation. Cut the two consolation prizes I offered you. Both were incoherent, and both perspectives caught it independently.\n\n### Consensus Points\n- Focus over splitting is right. Irreversibility is the correct tiebreaker.\n- The rider clause contradicts the whole plan. You cannot say splitting costs 20% and then split, at the highest-risk moment of the quarter.\n- \"First claim next quarter\" is unenforceable. Irreversible the moment you say it, worthless when due.\n- Platform's debt is the only item that makes future quarters faster.\n\n### Key Tensions\n**Tension: verified constraint vs. assumed constraint**\n- The Skeptic argues the deadline's hardness is unverified.\n- The Temporal Analyst counters that sequencing risk dominates regardless.\n- Resolution: genuine trade-off, contingent on the estimate.\n\n### Blind Spots\n- Bus factor. One person, no rotation, all migration knowledge in one head.\n\n### Confidence Map\n| Aspect | Confidence | Signal |\n|---|---|---|\n| Allocation shape | Medium | both perspectives aligned |\n| Deadline hardness | Low | unverified from the situation as given |\n\n### Recommended Next Steps\n1. Verify the deadline's source and the migration estimate this week.\n2. Allocate 100% to infra. No rider work during cutover.\n3. Set a week-6 checkpoint with a pre-agreed scope cut if the estimate drifts.\n4. Give platform a calendared start date, not a claim.\n"
-    },
-    {
-      "name": "exec_decision_plain",
-      "prompt_id": 24,
-      "expect": "high",
-      "why": "same recommendation and same four facts, delivered as prose to the busy executive who asked",
-      "text": "Put the engineer on infra full time, and do not split them.\n\nThe migration is the only one of the three with a deadline you cannot undo. Growth's experiments and platform's cleanup both lose real value by waiting, but they lose it temporarily. That is what you are giving up: a quarter of revenue experiments, and a quarter of debt that keeps getting worse.\n\nDo not promise growth a couple of side experiments during the migration, and do not promise platform first pick next quarter. Neither promise survives contact with a deadline. Give platform a start date on the calendar instead.\n\nOne thing would change this answer: if one engineer is not enough to hit the deadline, you miss it anyway and lose on all three fronts. Get that estimate before you commit.\n"
-    }
+  [
+   "clean_and_complete",
+   "slop_maximal",
+   "clean must beat slop"
+  ],
+  [
+   "clean_and_complete",
+   "terse_and_empty",
+   "complete must beat empty"
+  ],
+  [
+   "direct_bad_news",
+   "euphemism_layoff",
+   "plain bad news must beat euphemism"
+  ],
+  [
+   "decisive_short",
+   "hedge_no_decision",
+   "deciding must beat hedging"
+  ],
+  [
+   "format_clean",
+   "format_violation",
+   "obeying the format must beat chattiness"
+  ],
+  [
+   "expert_precise",
+   "expert_oversimplified",
+   "precision must beat dumbing down for an expert"
+  ],
+  [
+   "exec_decision_plain",
+   "council_report_slop",
+   "plain prose must beat report scaffolding when both carry the same facts"
   ]
+ ],
+ "cases": [
+  {
+   "name": "slop_maximal",
+   "expect": "low",
+   "why": "every slop family at once",
+   "text": "Great question! Understanding the distinction between processes and threads serves as a testament to the intricate interplay of modern operating system design. It's not just about memory; it's about the very paradigm of concurrent execution. In today's rapidly evolving computational landscape, it is important to note that these concepts are crucial, pivotal, and foundational. A process stands as an isolated execution context, boasting its own memory space, while a thread functions as a lightweight unit within, highlighting its role in enabling efficiency. In order to fully leverage these robust primitives, one must delve into the underlying mechanisms. In conclusion, the future looks bright for concurrent programming. I hope this helps!",
+   "item": {
+    "prompt": "What is the difference between a process and a thread?",
+    "audience": "a working programmer",
+    "budget": 120,
+    "asks": [
+     "says a process has its own memory and threads share it",
+     "explains the tradeoff that sharing creates",
+     "gives a consequence for choosing one over the other"
+    ]
+   }
+  },
+  {
+   "name": "clean_and_complete",
+   "expect": "high",
+   "why": "the target: short, complete, no slop",
+   "text": "A process has its own memory. A thread lives inside a process and shares that memory with the other threads there.\n\nThat sharing is the whole tradeoff. Switching between threads is cheap because there is no memory to swap, but two threads touching the same variable at the same time will corrupt it unless you lock it. Two processes cannot corrupt each other that way, and they also cannot share data without extra work.",
+   "item": {
+    "prompt": "What is the difference between a process and a thread?",
+    "audience": "a working programmer",
+    "budget": 120,
+    "asks": [
+     "says a process has its own memory and threads share it",
+     "explains the tradeoff that sharing creates",
+     "gives a consequence for choosing one over the other"
+    ]
+   }
+  },
+  {
+   "name": "terse_and_empty",
+   "expect": "low",
+   "why": "THE key case: brevity with no content must not win",
+   "text": "They're different. A process is bigger and a thread is smaller. Use whichever fits your needs.",
+   "item": {
+    "prompt": "What is the difference between a process and a thread?",
+    "audience": "a working programmer",
+    "budget": 120,
+    "asks": [
+     "says a process has its own memory and threads share it",
+     "explains the tradeoff that sharing creates",
+     "gives a consequence for choosing one over the other"
+    ]
+   },
+   "needs_judge": true,
+   "needs_judge_why": "coverage/emptiness is judged"
+  },
+  {
+   "name": "correct_but_jargon_dense",
+   "expect": "low",
+   "why": "content is correct but 5 undefined acronyms fail the stated junior audience; audience-relative scoring must punish this even though the facts are right",
+   "text": "A process owns a PCB and a distinct VAS with its own PT entries. Threads within it share the VAS but hold separate TCBs and stacks. Context switching between threads skips the TLB flush that an inter-process switch forces, so it is materially cheaper. The cost is that unsynchronized concurrent writes to shared pages produce data races.",
+   "item": {
+    "prompt": "What is the difference between a process and a thread?",
+    "audience": "a working programmer",
+    "budget": 120,
+    "asks": [
+     "says a process has its own memory and threads share it",
+     "explains the tradeoff that sharing creates",
+     "gives a consequence for choosing one over the other"
+    ]
+   },
+   "needs_judge": true,
+   "needs_judge_why": "rule 3 judged half"
+  },
+  {
+   "name": "jargon_but_defined",
+   "expect": "mid",
+   "why": "same precision as correct_but_jargon_dense but expanded on first use; must score MUCH higher than that case (the pair is the real assertion, not the absolute band)",
+   "text": "A process gets its own virtual address space (VAS), the private map of memory it is allowed to touch. Threads inside that process share the VAS but each keeps its own stack.\n\nBecause they share the map, switching between two threads skips the translation lookaside buffer (TLB) flush that switching between two processes forces, which makes it noticeably cheaper. The price is that two threads writing the same variable at once will corrupt it unless you lock it.",
+   "item": {
+    "prompt": "What is the difference between a process and a thread?",
+    "audience": "a working programmer",
+    "budget": 120,
+    "asks": [
+     "says a process has its own memory and threads share it",
+     "explains the tradeoff that sharing creates",
+     "gives a consequence for choosing one over the other"
+    ]
+   },
+   "needs_judge": true,
+   "needs_judge_why": "rule 3 judged half"
+  },
+  {
+   "name": "euphemism_layoff",
+   "expect": "low",
+   "why": "the defect is dishonesty; scored 3x",
+   "text": "Team,\n\nAs part of our ongoing commitment to organizational excellence, we are undertaking a rightsizing initiative in response to persistent headwinds. Your department will be entering a transition period at month end. We recognize this represents an opportunity for growth, and HR will be reaching out with information regarding next steps. We are grateful for your many contributions during this journey.\n\nThank you for your understanding.",
+   "item": {
+    "prompt": "Write the email telling the team their department is being closed and all eight roles eliminated on March 31.",
+    "audience": "the affected team",
+    "budget": 180,
+    "asks": [
+     "states plainly that the department is closing and roles are eliminated",
+     "gives the date",
+     "says what happens next for the people affected"
+    ]
+   }
+  },
+  {
+   "name": "direct_bad_news",
+   "expect": "high",
+   "why": "same news, said plainly, warm without evasion",
+   "text": "Team,\n\nWe are closing the department on March 31st. All eight roles are being eliminated. This is not about your work, which has been good; we could not make the unit's economics work.\n\nYou will receive 10 weeks of severance and health coverage through June. Your last day is March 31st, but you are not expected to work past this week.\n\nI have blocked out tomorrow and Thursday for one-on-ones. Dana in HR (dana@) can answer questions about severance today if you would rather not wait.\n\nI am sorry. You deserved better than this.",
+   "item": {
+    "prompt": "Write the email telling the team their department is being closed and all eight roles eliminated on March 31.",
+    "audience": "the affected team",
+    "budget": 180,
+    "asks": [
+     "states plainly that the department is closing and roles are eliminated",
+     "gives the date",
+     "says what happens next for the people affected"
+    ]
+   }
+  },
+  {
+   "name": "hedge_no_decision",
+   "expect": "low",
+   "why": "asked to pick one, refuses to pick",
+   "text": "Both Postgres and SQLite are excellent choices, and the right answer really depends on your specific situation. SQLite offers simplicity while Postgres offers power. Many developers find success with either option. It could potentially be argued that you might want to consider your growth trajectory, though it's worth noting that premature optimization has its own costs. Ultimately, you should evaluate your requirements carefully.",
+   "item": {
+    "prompt": "I'm building an internal tool for 3 users. Postgres or SQLite? Pick one.",
+    "audience": "a developer who asked for a decision",
+    "budget": 90,
+    "asks": [
+     "picks one",
+     "gives the reason it fits 3 users",
+     "says when the other choice becomes right"
+    ]
+   },
+   "needs_judge": true,
+   "needs_judge_why": "rule 7 thumb test is judged"
+  },
+  {
+   "name": "decisive_short",
+   "expect": "high",
+   "why": "picks, justifies, names the switch condition",
+   "text": "SQLite. With 3 users you will not hit its limits, and it is one file with no server to run, back up, or pay for.\n\nSwitch to Postgres when you need more than one machine writing at once, or when you want a managed backup you did not build. Moving later is a day of work, not a rewrite.",
+   "item": {
+    "prompt": "I'm building an internal tool for 3 users. Postgres or SQLite? Pick one.",
+    "audience": "a developer who asked for a decision",
+    "budget": 90,
+    "asks": [
+     "picks one",
+     "gives the reason it fits 3 users",
+     "says when the other choice becomes right"
+    ]
+   }
+  },
+  {
+   "name": "format_violation",
+   "expect": "low",
+   "why": "asked for JSON only, wrapped it in chat",
+   "text": "Certainly! I'd be happy to help you with that. Here is the JSON you requested:\n\n{\"France\": \"Paris\", \"Japan\": \"Tokyo\", \"Peru\": \"Lima\"}\n\nLet me know if you'd like me to format this differently or add any other countries!",
+   "item": {
+    "prompt": "Give me a JSON object mapping France, Japan and Peru to their capitals. JSON only, no prose.",
+    "audience": "a script consuming the output",
+    "budget": 20,
+    "asks": [
+     "returns the three correct capitals as JSON"
+    ]
+   }
+  },
+  {
+   "name": "format_clean",
+   "expect": "high",
+   "why": "exactly what was asked; must not be penalized for being terse",
+   "text": "{\"France\": \"Paris\", \"Japan\": \"Tokyo\", \"Peru\": \"Lima\"}",
+   "item": {
+    "prompt": "Give me a JSON object mapping France, Japan and Peru to their capitals. JSON only, no prose.",
+    "audience": "a script consuming the output",
+    "budget": 20,
+    "asks": [
+     "returns the three correct capitals as JSON"
+    ]
+   }
+  },
+  {
+   "name": "expert_oversimplified",
+   "expect": "low",
+   "why": "audience-relative: dumbing down for an expert is a failure",
+   "text": "Raft is a way for computers to agree on things. The leader is the computer in charge. Sometimes the leader changes, and when that happens it adds an empty item to the list so everything stays in order. This helps the system work correctly and keeps all the computers on the same page.",
+   "item": {
+    "prompt": "In Raft, why can't a new leader commit an entry from a previous term just because it is replicated on a majority?",
+    "audience": "a distributed systems engineer",
+    "budget": 140,
+    "asks": [
+     "says the entry can still be overwritten",
+     "explains what the leader must do instead"
+    ]
+   },
+   "needs_judge": true,
+   "needs_judge_why": "rule 1 is audience-relative, judge only"
+  },
+  {
+   "name": "expert_precise",
+   "expect": "high",
+   "why": "dense technical terms are CORRECT here and must score well",
+   "text": "A new leader cannot commit an entry from a previous term just because it is replicated on a majority. That entry can still be overwritten by a future leader, so counting replicas is not proof of commitment.\n\nCommitting a no-op in the current term fixes this. Once that entry commits by the normal majority rule, everything before it in the log is committed too, so the leader can safely advance its commit index over the inherited tail.",
+   "item": {
+    "prompt": "In Raft, why can't a new leader commit an entry from a previous term just because it is replicated on a majority?",
+    "audience": "a distributed systems engineer",
+    "budget": 140,
+    "asks": [
+     "says the entry can still be overwritten",
+     "explains what the leader must do instead"
+    ]
+   }
+  },
+  {
+   "name": "passive_breach",
+   "expect": "low",
+   "why": "passive voice hiding the actor",
+   "text": "An incident has been identified in which certain customer information may have been accessed by an unauthorized party. The affected data has been determined to include email addresses and hashed passwords. Steps are being taken to address the situation and additional security measures have been implemented. Users may wish to consider updating their credentials.",
+   "item": {
+    "prompt": "Write the customer notice for a breach where an unauthorized party accessed customer names and email addresses.",
+    "audience": "affected customers",
+    "budget": 160,
+    "asks": [
+     "names who did what, in the active voice",
+     "says what data was accessed",
+     "tells the customer what to do"
+    ]
+   },
+   "needs_judge": true,
+   "needs_judge_why": "rule 6 judged half"
+  },
+  {
+   "name": "meta_slop_discussion",
+   "expect": "high",
+   "why": "MENTIONS banned words inside quotes; must not be scored as using them",
+   "text": "Avoid the words \"delve\" and \"leverage\" when you explain this. Do not write \"it's not just X, it's Y\" either.\n\nSay it directly: a process has its own memory, a thread shares memory with its siblings, and that sharing is why threads are cheap to switch and easy to corrupt.",
+   "item": {
+    "prompt": "What is the difference between a process and a thread?",
+    "audience": "a working programmer",
+    "budget": 120,
+    "asks": [
+     "says a process has its own memory and threads share it",
+     "explains the tradeoff that sharing creates",
+     "gives a consequence for choosing one over the other"
+    ]
+   }
+  },
+  {
+   "name": "council_report_slop",
+   "expect": "low",
+   "why": "THE structural-theater case: a correct recommendation buried under headers, a confidence table, and council jargon. Genre furniture is not content; report scaffolding on a 4-fact question must not outscore the plain answer",
+   "text": "## Council Report: Single Engineer, Three Teams\n\n**Council (2):** Skeptic + Temporal Analyst. Both landed on Medium confidence.\n\n### Verdict\nKeep the 100% infra allocation. Cut the two consolation prizes I offered you. Both were incoherent, and both perspectives caught it independently.\n\n### Consensus Points\n- Focus over splitting is right. Irreversibility is the correct tiebreaker.\n- The rider clause contradicts the whole plan. You cannot say splitting costs 20% and then split, at the highest-risk moment of the quarter.\n- \"First claim next quarter\" is unenforceable. Irreversible the moment you say it, worthless when due.\n- Platform's debt is the only item that makes future quarters faster.\n\n### Key Tensions\n**Tension: verified constraint vs. assumed constraint**\n- The Skeptic argues the deadline's hardness is unverified.\n- The Temporal Analyst counters that sequencing risk dominates regardless.\n- Resolution: genuine trade-off, contingent on the estimate.\n\n### Blind Spots\n- Bus factor. One person, no rotation, all migration knowledge in one head.\n\n### Confidence Map\n| Aspect | Confidence | Signal |\n|---|---|---|\n| Allocation shape | Medium | both perspectives aligned |\n| Deadline hardness | Low | unverified from the situation as given |\n\n### Recommended Next Steps\n1. Verify the deadline's source and the migration estimate this week.\n2. Allocate 100% to infra. No rider work during cutover.\n3. Set a week-6 checkpoint with a pre-agreed scope cut if the estimate drifts.\n4. Give platform a calendared start date, not a claim.\n",
+   "item": {
+    "prompt": "Should we hire a second backend engineer this quarter or wait? Give me your call.",
+    "audience": "an executive who has to decide",
+    "budget": 200,
+    "asks": [
+     "makes a recommendation",
+     "gives the reasoning",
+     "names the main risk of that call"
+    ]
+   },
+   "needs_judge": true,
+   "needs_judge_why": "scaffolding counter alone reaches only 8.9 on this (8 headings, 12 list items vs a 200w budget); rule 7 is min(judge, counter) and the judge half is what takes it low. Counter calibration is a separate, score-changing decision -- see README."
+  },
+  {
+   "name": "exec_decision_plain",
+   "expect": "high",
+   "why": "same recommendation and same four facts, delivered as prose to the busy executive who asked",
+   "text": "Put the engineer on infra full time, and do not split them.\n\nThe migration is the only one of the three with a deadline you cannot undo. Growth's experiments and platform's cleanup both lose real value by waiting, but they lose it temporarily. That is what you are giving up: a quarter of revenue experiments, and a quarter of debt that keeps getting worse.\n\nDo not promise growth a couple of side experiments during the migration, and do not promise platform first pick next quarter. Neither promise survives contact with a deadline. Give platform a start date on the calendar instead.\n\nOne thing would change this answer: if one engineer is not enough to hit the deadline, you miss it anyway and lose on all three fronts. Get that estimate before you commit.\n",
+   "item": {
+    "prompt": "Should we hire a second backend engineer this quarter or wait? Give me your call.",
+    "audience": "an executive who has to decide",
+    "budget": 200,
+    "asks": [
+     "makes a recommendation",
+     "gives the reasoning",
+     "names the main risk of that call"
+    ]
+   }
+  }
+ ]
 }

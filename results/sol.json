@@ -1,0 +1,928 @@
+{
+ "summary": {
+  "model": "openai/gpt-5.6-sol",
+  "backend": "openrouter",
+  "condition": "default",
+  "n": 10,
+  "errors": 0,
+  "score": 78.2,
+  "clarity_avg": 7.85,
+  "slop_per_1k": 0.3,
+  "avg_words": 965,
+  "per_rule": {
+   "rule2_economy": 5.83,
+   "rule3_jargon": 6.5,
+   "rule5_simple_words": 9.06,
+   "rule6_filler": 6.9,
+   "rule1_understandable": 10.0,
+   "rule4_imagery": 9.7,
+   "rule7_form": 6.77
+  },
+  "cost_usd": 0.7342
+ },
+ "runs": [
+  {
+   "id": 1,
+   "genre": "practical_guidance",
+   "response": "# Video Lesson: Identifying 2D Shapes and Their Properties  \n**Grade:** 2  \n**Topic:** 2D Shapes  \n**Learning goal:** Learners will identify common 2D shapes and describe them using their sides and corners.\n\n---\n\n## 1. Fun Introduction: Shape Detectives\n\n**Teacher:**  \nHello, Shape Detectives! Today, we are going on a shape hunt.\n\nLook around you. Can you see a clock, a book, a window, or a road sign? These objects have shapes!\n\nA **2D shape** is a flat shape. It has **length and width**, but no thickness. We can draw 2D shapes on paper.\n\nGet your detective eyes ready. Let\u2019s find out how to identify 2D shapes!\n\n---\n\n## 2. Important Shape Words\n\nBefore we begin, let\u2019s learn two important words:\n\n- A **side** is a straight line that forms part of a shape.\n- A **corner**, also called a **vertex**, is where two straight sides meet.\n\nWe can identify many 2D shapes by counting their **straight sides** and **corners**.\n\n---\n\n## 3. Common 2D Shapes and Their Properties\n\n### Circle\n\n**Teacher:**  \nThis is a **circle**.\n\nA circle:\n\n- Is round\n- Has no straight sides\n- Has no corners\n\n**Life example:** A coin, a round clock, or a plate.\n\n**Action:** Draw a circle in the air with your finger.\n\n---\n\n### Triangle\n\n**Teacher:**  \nThis is a **triangle**. \u201cTri\u201d helps us remember the number three.\n\nA triangle has:\n\n- 3 straight sides\n- 3 corners\n\nTriangles can look different, but they always have three straight sides and three corners.\n\n**Life example:** A triangular road sign or a slice of pizza.\n\n**Action:** Count aloud:  \n\u201c1, 2, 3 sides!  \n1, 2, 3 corners!\u201d\n\n---\n\n### Square\n\n**Teacher:**  \nThis is a **square**.\n\nA square has:\n\n- 4 straight sides\n- 4 corners\n- 4 sides that are all the same length\n\n**Life example:** A square floor tile or a square sticky note.\n\n**Action:** Use your fingers to draw four equal sides in the air.\n\n---\n\n### Rectangle\n\n**Teacher:**  \nThis is a **rectangle**.\n\nA rectangle has:\n\n- 4 straight sides\n- 4 corners\n- Opposite sides that are the same length\n\nA rectangle usually has two longer sides and two shorter sides. A square is a special kind of rectangle because it also has four straight sides and four corners, but all four of its sides are equal.\n\n**Life example:** A door, a book, or a television screen.\n\n---\n\n### Oval\n\n**Teacher:**  \nThis is an **oval**.\n\nAn oval:\n\n- Is curved\n- Has no straight sides\n- Has no corners\n- Often looks like a stretched circle\n\n**Life example:** Some mirrors and picture frames are oval-shaped. An egg may also look similar to an oval, although real objects are not always perfect shapes.\n\n---\n\n## 4. Shape Chant\n\n**Teacher and learners:**\n\n> A circle is round with no corners at all.  \n> A triangle has three sides\u2014not four!  \n> A square has four sides, all the same.  \n> A rectangle has four\u2014remember its name!  \n> An oval is curved and stretched out wide.  \n> Shapes are everywhere, both outside and inside!\n\n---\n\n## 5. How to Identify a 2D Shape\n\nWhen you see a shape, ask these questions:\n\n1. Is it flat?\n2. Does it have straight sides or a curved line?\n3. How many straight sides does it have?\n4. How many corners does it have?\n5. Are all its sides the same length?\n\n### Example 1\n\nA shape has three straight sides and three corners.\n\n**Answer:** It is a **triangle**.\n\n### Example 2\n\nA shape has four equal straight sides and four corners.\n\n**Answer:** It is a **square**.\n\n### Example 3\n\nA shape is round and has no corners.\n\n**Answer:** It is a **circle**.\n\n---\n\n## 6. Shapes in Everyday Life\n\n2D shapes help us describe the flat faces and outlines of objects around us.\n\n- A clock face can be a **circle**.\n- A window can be a **square** or a **rectangle**.\n- A road sign can be a **triangle**.\n- A book cover is usually a **rectangle**.\n- A floor tile can be a **square**.\n- A picture frame can be **rectangular**, **square**, or **oval**.\n\n**Teacher:**  \nRemember that objects are not always 2D. For example, a book has thickness, so it is a 3D object. However, its flat cover has the shape of a rectangle.\n\n---\n\n# 7. Learner Exercises\n\n## Exercise 1: Name the Shape\n\n1. I have three straight sides and three corners. What am I?  \n2. I am round and have no corners. What am I?  \n3. I have four equal straight sides and four corners. What am I?  \n4. I have four corners, with opposite sides equal in length. What am I?  \n5. I am curved, have no corners, and look like a stretched circle. What am I?\n\n---\n\n## Exercise 2: Count the Properties\n\nComplete the table:\n\n| Shape | Number of straight sides | Number of corners |\n|---|---:|---:|\n| Circle | ___ | ___ |\n| Triangle | ___ | ___ |\n| Square | ___ | ___ |\n| Rectangle | ___ | ___ |\n| Oval | ___ | ___ |\n\n---\n\n## Exercise 3: Shape Hunt\n\nFind one object around you that has a flat face or outline shaped like:\n\n- A circle\n- A triangle\n- A square\n- A rectangle\n- An oval\n\nTell a partner what you found.\n\n**Example:**  \n\u201cThe face of the clock is shaped like a circle.\u201d\n\n---\n\n## Exercise 4: Draw and Colour\n\n1. Draw a red circle.  \n2. Draw a blue triangle.  \n3. Draw a green square.  \n4. Draw a yellow rectangle.  \n5. Draw a purple oval.\n\n---\n\n## Exercise 5: True or False?\n\n1. A triangle has three straight sides.  \n2. A circle has four corners.  \n3. A square has four equal sides.  \n4. A rectangle has four corners.  \n5. An oval has straight sides.  \n6. A triangle can look different but must always have three sides.\n\n---\n\n# 8. Answers\n\n## Exercise 1\n\n1. Triangle  \n2. Circle  \n3. Square  \n4. Rectangle  \n5. Oval  \n\n## Exercise 2\n\n| Shape | Number of straight sides | Number of corners |\n|---|---:|---:|\n| Circle | 0 | 0 |\n| Triangle | 3 | 3 |\n| Square | 4 | 4 |\n| Rectangle | 4 | 4 |\n| Oval | 0 | 0 |\n\n## Exercise 5\n\n1. True  \n2. False  \n3. True  \n4. True  \n5. False  \n6. True  \n\n---\n\n## 9. Lesson Conclusion\n\n**Teacher:**  \nFantastic work, Shape Detectives!\n\nToday, we learned that:\n\n- A circle is round and has no corners.\n- A triangle has 3 straight sides and 3 corners.\n- A square has 4 equal straight sides and 4 corners.\n- A rectangle has 4 straight sides and 4 corners, with opposite sides equal.\n- An oval is curved, has no straight sides, and has no corners.\n\nKeep looking for shapes wherever you go. Shapes are all around us!\n\n**Goodbye, Shape Detectives!**",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.9
+   },
+   "clarity_avg": 7.36,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 73.6,
+   "facts_delivered": "5/5",
+   "detail": {
+    "economy": {
+     "words": 1151,
+     "budget": 550,
+     "facts": 5,
+     "required": 5,
+     "coverage": 1.0,
+     "over_budget": 2.09
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "Remember that objects are not always 2D. For example, a book has thickness, so it is a 3D object. However, its flat cover has the shape of a rectangle.",
+    "jargon": "some_jargon",
+    "jargon_quote": "vertex",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Fantastic work, Shape Detectives!"
+   },
+   "scaffold": {
+    "headings": 37,
+    "list_items": 65,
+    "headings_per_100b": 6.73,
+    "list_items_per_100b": 11.82,
+    "scaffold_score": 5.9
+   },
+   "shape": {
+    "em_dash_per_100w": 0.17,
+    "sentence_cv": 1.27,
+    "frag_ratio": 0.38,
+    "bold_per_100w": 4.26,
+    "comma_per_sent": 0.28,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.07786,
+   "seconds": 38.6
+  },
+  {
+   "id": 2,
+   "genre": "practical_guidance",
+   "response": "# Butterfly Life Cycle Dance Lesson Plan\n\n**Grade Level:** Kindergarten\u20132nd Grade  \n**Subject Areas:** Dance, Creative Movement, and Science  \n**Length:** 35\u201345 minutes  \n**Essential Question:** How can we use our bodies to show the stages of a butterfly\u2019s life cycle?\n\n## Learning Objectives\n\nStudents will:\n\n- Identify the four stages of the butterfly life cycle: **egg, caterpillar (larva), chrysalis (pupa), and butterfly (adult)**.\n- Create movements that represent each stage.\n- Combine movements into a short dance sequence.\n- Demonstrate changes in body shape, level, speed, and pathway.\n- Work safely and cooperatively with others.\n\n## Materials\n\n- Butterfly life cycle pictures or diagram\n- Open movement space\n- Music with both slow and lively sections\n- Optional: scarves or ribbons\n- Optional: four signs labeled **Egg, Caterpillar, Chrysalis, Butterfly**\n\n## Key Vocabulary\n\n- **Life cycle:** The stages a living thing goes through as it grows\n- **Egg**\n- **Caterpillar/Larva**\n- **Chrysalis/Pupa**\n- **Butterfly/Adult**\n- **Level:** Low, middle, or high body position\n- **Pathway:** The direction or pattern of movement through space\n\n## Lesson Sequence\n\n### 1. Introduction and Science Connection \u2014 5 minutes\n\nShow students a butterfly life cycle diagram. Briefly discuss each stage:\n\n1. A butterfly lays an **egg** on a leaf.\n2. A **caterpillar** hatches, crawls, and eats.\n3. The caterpillar forms a **chrysalis** and changes inside.\n4. An adult **butterfly** emerges, dries its wings, and flies.\n\nAsk:\n\n- What shape could your body make for an egg?\n- How might a caterpillar travel?\n- Is a chrysalis very active or mostly still?\n- How does a butterfly move through the air?\n\n### 2. Movement Warm-Up \u2014 5 minutes\n\nLead students through a \u201cgrowing and changing\u201d warm-up:\n\n- Curl into a tiny shape.\n- Slowly stretch arms and legs.\n- Wiggle fingers, toes, shoulders, and hips.\n- Reach upward like a growing plant.\n- Flap arms gently like wings.\n- Practice freezing when the music stops.\n\nRemind students to stay in their own personal space.\n\n### 3. Explore the Four Stages \u2014 10 minutes\n\nGuide students through movements for each stage.\n\n#### Egg\n\n- Make a small, round, low shape.\n- Stay still or gently rock.\n- Use slow breathing.\n\n#### Caterpillar\n\n- Wiggle, crawl, or inch forward.\n- Travel on a low level.\n- Pretend to nibble leaves.\n- Explore curved or zigzag pathways.\n\n#### Chrysalis\n\n- Create a wrapped or closed shape.\n- Balance or remain still.\n- Add tiny movements to show the change happening inside.\n- Slowly begin to unfold.\n\n#### Butterfly\n\n- Open arms like wings.\n- Rise from low to high.\n- Flap, glide, turn, and travel.\n- Use curved pathways without touching others.\n- Land softly on an imaginary flower.\n\n### 4. Create the Life Cycle Dance \u2014 10\u201315 minutes\n\nPlace students individually, with partners, or in small groups. Have them create a dance with this structure:\n\n1. **Egg pose:** Hold for four counts.\n2. **Caterpillar movement:** Travel for eight counts.\n3. **Chrysalis pose:** Freeze for four counts.\n4. **Transformation:** Slowly unfold for eight counts.\n5. **Butterfly movement:** Fly, turn, and land for eight or sixteen counts.\n\nEncourage each dance to include:\n\n- One still shape\n- One traveling movement\n- A change in level\n- A slow movement\n- A fast or lively movement\n- A clear ending pose\n\nAllow students to practice the sequence two or three times with music.\n\n### 5. Performance and Reflection \u2014 5\u20138 minutes\n\nInvite students to perform for another group or for the class.\n\nAudience members can look for:\n\n- The four life cycle stages\n- Changes in body shape and level\n- Safe use of space\n- A clear beginning and ending\n\nAsk:\n\n- Which movement showed the caterpillar?\n- How did your body change inside the chrysalis?\n- How was your butterfly movement different from your egg movement?\n- What did you learn about a butterfly\u2019s life cycle?\n\n## Assessment\n\nUse observation to check whether students can:\n\n- Put the four life cycle stages in order.\n- Create a movement for each stage.\n- Use at least two different levels.\n- Transition from one stage to the next.\n- Move safely and participate appropriately.\n\n### Simple Student Self-Assessment\n\nStudents show:\n\n- **Thumbs up:** I can show all four stages.\n- **Thumbs sideways:** I can show some stages.\n- **Thumbs down:** I need more practice.\n\n## Differentiation\n\n- **For younger students:** Lead the whole dance and have students copy each movement.\n- **For older or advanced students:** Ask them to add counts, repeated patterns, or a partner formation.\n- **For students needing support:** Use picture cards and provide two movement choices for each stage.\n- **For limited mobility:** Movements may be performed seated using hands, arms, facial expressions, and upper-body shapes.\n- **For multilingual learners:** Pair each vocabulary word with a picture and physical gesture.\n\n## Safety Reminders\n\n- Maintain a \u201cbutterfly wingspan\u201d of personal space.\n- Move with eyes open while traveling.\n- Keep flapping movements controlled.\n- Crawl only when the floor and space are safe.\n- Freeze immediately when the music stops.\n\n## Optional Extension\n\nStudents draw the four stages of the butterfly life cycle and add one movement word under each picture, such as **curl, wiggle, freeze, unfold, flap,** or **glide**.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 6.3
+   },
+   "clarity_avg": 7.41,
+   "slop_per_1k": 0.2,
+   "slop_breakdown": {
+    "inline_header_list": 2
+   },
+   "slop_tax": 0.003,
+   "score": 73.9,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 871,
+     "budget": 520,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.68
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "demonstrate": "show"
+     },
+     "per_100w": 0.11
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "How can we use our bodies to show the stages of a butterfly's life cycle?",
+    "jargon": "some_jargon",
+    "jargon_quote": "pathway",
+    "simple_words": "some_complex",
+    "simple_words_quote": "participate appropriately",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "scaffold": {
+    "headings": 19,
+    "list_items": 84,
+    "headings_per_100b": 3.65,
+    "list_items_per_100b": 16.15,
+    "scaffold_score": 6.3
+   },
+   "shape": {
+    "em_dash_per_100w": 0.57,
+    "sentence_cv": 1.07,
+    "frag_ratio": 0.14,
+    "bold_per_100w": 3.67,
+    "comma_per_sent": 0.5,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.06121,
+   "seconds": 30.5
+  },
+  {
+   "id": 3,
+   "genre": "practical_guidance",
+   "response": "# The Art of Negotiation: A Detailed Self-Paced Course\n\n**Recommended duration:** 10\u201312 weeks  \n**Study time:** 4\u20136 hours per week  \n**Level:** Beginner to intermediate  \n**Format:** Theory, case analysis, role-play, reflection, and practical assignments\n\n## Course outcomes\n\nBy the end of the course, learners should be able to:\n\n- Prepare systematically for a negotiation.\n- Distinguish positions from underlying interests.\n- Establish a BATNA, reservation point, and target.\n- Handle both distributive and integrative negotiations.\n- Create and claim value without damaging relationships.\n- Communicate persuasively and listen actively.\n- Manage emotions, conflict, pressure, and difficult tactics.\n- Negotiate salary, business agreements, team issues, and cross-cultural deals.\n- Recognize manipulation and ethical risks.\n- Draft, close, and implement durable agreements.\n\n---\n\n## Before you begin: Free-course access\n\nThe recommendations below are generally available through one of these models:\n\n- **Free audit:** Videos and readings may be free, while assignments or certificates require payment.\n- **Free enrollment:** Course content is free, but certificates may cost extra.\n- **Open educational resources:** All materials are free, usually without a certificate.\n\nAccess policies change, so check for **\u201cAudit,\u201d \u201cFull course, no certificate,\u201d \u201cFree enrollment,\u201d** or financial-aid options.\n\n---\n\n# Module 1: Negotiation Foundations\n\n## Topics\n\n- What negotiation is and when it occurs\n- Negotiation versus persuasion, debate, and conflict\n- Transactional versus relationship-based negotiations\n- Positions, interests, needs, and concerns\n- Competitive and collaborative approaches\n- Common negotiation myths\n- Sources of negotiating power\n\n## Skills required\n\n- Recognizing negotiation opportunities\n- Separating interests from stated positions\n- Identifying stakeholders\n- Framing the negotiation problem\n- Choosing an appropriate negotiation style\n- Understanding power and dependence\n- Setting basic objectives\n\n## Practical exercise\n\nSelect a recent negotiation from your personal or professional life. Write:\n\n1. What each party said they wanted\n2. What each party probably needed\n3. The sources of power held by each party\n4. Whether the interaction was competitive or collaborative\n5. What you would do differently now\n\n## Recommended free online courses\n\n1. **Successful Negotiation: Essential Strategies and Skills \u2014 University of Michigan, Coursera**  \n   Strong introduction to preparation, tactics, contracts, and negotiation performance. Usually available through audit or financial aid.\n\n2. **Introduction to Negotiation: A Strategic Playbook for Becoming a Principled and Persuasive Negotiator \u2014 Yale University, Coursera**  \n   Covers strategic thinking, negotiation frameworks, case analysis, and principled negotiation. Check for audit access.\n\n3. **Negotiation Fundamentals \u2014 ESSEC Business School, Coursera**  \n   Useful for learning the negotiation process, preparation, communication, and bargaining fundamentals.\n\n---\n\n# Module 2: Negotiation Preparation and Strategy\n\nPreparation is often the largest predictor of negotiation success.\n\n## Topics\n\n- Defining the negotiation issue\n- Setting targets and priorities\n- BATNA: Best Alternative to a Negotiated Agreement\n- Reservation point or walk-away point\n- ZOPA: Zone of Possible Agreement\n- Aspiration levels\n- Stakeholder and decision-maker analysis\n- Information gaps and assumptions\n- Agenda and sequencing\n- Scenario planning\n\n## Skills required\n\n- Building and improving a BATNA\n- Establishing realistic targets\n- Calculating a reservation point\n- Estimating the other party\u2019s alternatives\n- Mapping stakeholders and authority\n- Prioritizing negotiable issues\n- Planning concessions\n- Preparing questions\n- Anticipating risks and objections\n\n## Preparation worksheet\n\nBefore any important negotiation, complete the following:\n\n| Area | Your side | Other party |\n|---|---|---|\n| Stated position |  |  |\n| Main interests |  |  |\n| Target outcome |  | Estimated target |\n| Reservation point |  | Estimated walk-away point |\n| BATNA |  | Estimated BATNA |\n| Sources of power |  |  |\n| High-priority issues |  |  |\n| Low-cost concessions |  |  |\n| Information needed |  |  |\n\n## Practical exercise\n\nPrepare for a simulated negotiation between a supplier and a retailer. Include:\n\n- Three priorities\n- A target price\n- A walk-away price\n- Your BATNA\n- The estimated ZOPA\n- Five diagnostic questions\n- A concession plan\n\n## Recommended free online courses\n\n1. **Successful Negotiation: Essential Strategies and Skills \u2014 University of Michigan, Coursera**  \n   Particularly useful for preparation, strategy, and evaluating negotiation performance.\n\n2. **Introduction to Negotiation \u2014 Yale University, Coursera**  \n   Strong treatment of strategic analysis, alternatives, and anticipating the other side\u2019s decisions.\n\n3. **Negotiation Fundamentals \u2014 ESSEC Business School, Coursera**  \n   Includes practical preparation methods and negotiation-process planning.\n\n---\n\n# Module 3: Distributive Negotiation\u2014Claiming Value\n\nDistributive negotiation occurs when parties compete over a limited resource, such as price, salary, budget, or delivery time.\n\n## Topics\n\n- Fixed-pie negotiations\n- Opening offers and anchoring\n- First-offer advantages and risks\n- Reservation values\n- Bargaining ranges\n- Concession patterns\n- Counteroffers\n- Deadline pressure\n- Closing price negotiations\n\n## Skills required\n\n- Setting an ambitious but defensible anchor\n- Responding to extreme anchors\n- Making conditional concessions\n- Avoiding unnecessary concessions\n- Using objective standards\n- Controlling the pace of bargaining\n- Recognizing false deadlines\n- Knowing when to walk away\n- Closing without overpaying\n\n## Key principles\n\n- Do not reveal your reservation point.\n- Avoid making concessions without receiving something in return.\n- Reduce concession size as the negotiation progresses.\n- Explain and justify offers using credible standards.\n- Treat deadlines as information to investigate, not automatically as facts.\n- Never accept an offer merely because it is better than the opening offer; compare it with your BATNA and target.\n\n## Practical exercise\n\nConduct a buyer\u2013seller role-play. The only issue is price. Record:\n\n- Opening offer\n- Counteroffer\n- Each concession\n- Final agreement\n- Distance from target\n- Whether either party revealed too much\n\n## Recommended free online courses\n\n1. **Successful Negotiation: Essential Strategies and Skills \u2014 University of Michigan, Coursera**  \n   Provides accessible instruction on bargaining, offers, counteroffers, and negotiation tactics.\n\n2. **Introduction to Negotiation \u2014 Yale University, Coursera**  \n   Uses cases and strategic models to explain leverage, bargaining behavior, and deal structure.\n\n3. **Negotiation Fundamentals \u2014 ESSEC Business School, Coursera**  \n   Useful for anchoring, concession planning, and conducting the bargaining phase.\n\n---\n\n# Module 4: Integrative Negotiation\u2014Creating Value\n\nIntegrative negotiation focuses on expanding the value available before dividing it.\n\n## Topics\n\n- Interests versus positions\n- Identifying differences in priorities\n- Multiple-issue negotiations\n- Trade-offs and logrolling\n- Contingent agreements\n- Package offers\n- Non-price variables\n- Joint problem-solving\n- Value creation before value distribution\n\n## Skills required\n\n- Uncovering hidden interests\n- Asking diagnostic questions\n- Trading across differences\n- Generating multiple options\n- Designing package proposals\n- Identifying low-cost, high-value concessions\n- Creating contingent contracts\n- Balancing cooperation with self-protection\n- Avoiding premature compromise\n\n## Example\n\nA job candidate and employer may disagree about salary but can negotiate across several issues:\n\n- Base salary\n- Signing bonus\n- Remote-working days\n- Start date\n- Training budget\n- Performance bonus\n- Vacation\n- Job title\n- Review date\n\nDifferences in priorities create opportunities for mutually beneficial trades.\n\n## Practical exercise\n\nCreate three package offers for a job negotiation. Each package should have approximately equal value to you but use different combinations of salary, flexibility, benefits, and development opportunities.\n\n## Recommended free online courses\n\n1. **Introduction to Negotiation \u2014 Yale University, Coursera**  \n   Particularly strong in value creation, strategic agreements, and understanding the other side.\n\n2. **Successful Negotiation \u2014 University of Michigan, Coursera**  \n   Covers collaborative negotiation and how agreements can create value for both parties.\n\n3. **High Performance Collaboration: Leadership, Teamwork, and Negotiation \u2014 Northwestern University, Coursera**  \n   Connects negotiation with cooperation, team effectiveness, influence, and relationship management.\n\n---\n\n# Module 5: Communication, Listening, and Questioning\n\n## Topics\n\n- Active and reflective listening\n- Open, closed, probing, and clarifying questions\n- Summarizing and paraphrasing\n- Reframing hostile statements\n- Strategic silence\n- Verbal and nonverbal signals\n- Tone, pace, and word choice\n- Detecting uncertainty and ambiguity\n- Communication barriers in virtual negotiation\n\n## Skills required\n\n- Listening without preparing an immediate rebuttal\n- Asking open-ended diagnostic questions\n- Testing assumptions\n- Summarizing the other side\u2019s concerns\n- Reframing accusations as solvable problems\n- Using silence comfortably\n- Monitoring body language without overinterpreting it\n- Communicating clearly in email and video meetings\n- Documenting agreed points\n\n## Useful questions\n\n- \u201cWhat is most important to you in this agreement?\u201d\n- \u201cWhat problem are you trying to solve?\u201d\n- \u201cWhat would make this proposal workable?\u201d\n- \u201cHow did you arrive at that figure?\u201d\n- \u201cWhat constraints are you facing?\u201d\n- \u201cIf we solved this issue, what would remain?\u201d\n- \u201cWhat would happen if we did not reach an agreement?\u201d\n- \u201cWhich part of the package is least flexible?\u201d\n\n## Practical exercise\n\nIn pairs, one learner speaks for three minutes about a workplace disagreement. The listener may only:\n\n- Ask clarifying questions\n- Paraphrase\n- Summarize\n- Identify interests\n\nThe listener must not give advice or argue.\n\n## Recommended free online courses\n\n1. **Improving Communication Skills \u2014 University of Pennsylvania, Coursera**  \n   Covers active listening, persuasive communication, trust, and strategic communication.\n\n2. **Introduction to Negotiation \u2014 Yale University, Coursera**  \n   Demonstrates how questions, framing, and perspective-taking support negotiation.\n\n3. **High Performance Collaboration \u2014 Northwestern University, Coursera**  \n   Helpful for communication, teamwork, influence, and negotiation in group settings.\n\n---\n\n# Module 6: Persuasion, Influence, and Framing\n\n## Topics\n\n- Logical, emotional, and credibility-based persuasion\n- Reciprocity, consistency, social proof, authority, liking, and scarcity\n- Framing gains and losses\n- Objective criteria\n- Narrative and storytelling\n- Message sequencing\n- Persuasion versus manipulation\n- Resistance and psychological reactance\n\n## Skills required\n\n- Building credibility\n- Supporting proposals with evidence\n- Framing proposals around the other party\u2019s interests\n- Using benchmarks and standards\n- Presenting benefits rather than only features\n- Making persuasive comparisons\n- Telling concise, relevant stories\n- Recognizing manipulation\n- Reducing resistance by preserving choice\n\n## Practical exercise\n\nPresent the same proposal in three ways:\n\n1. As a potential gain\n2. As prevention of a loss\n3. As an objective, standards-based recommendation\n\nEvaluate which framing is most persuasive and ethical.\n\n## Recommended free online courses\n\n1. **Introduction to Negotiation \u2014 Yale University, Coursera**  \n   Focuses on becoming a principled and persuasive negotiator.\n\n2. **Improving Communication Skills \u2014 University of Pennsylvania, Coursera**  \n   Useful for influence, trust, persuasion, and strategic messaging.\n\n3. **Introduction to Public Speaking \u2014 University of Washington, Coursera**  \n   Supports clear argumentation, persuasive presentation, and audience-focused communication; audit availability may vary.\n\n---\n\n# Module 7: Emotional Intelligence and Self-Management\n\n## Topics\n\n- Emotional triggers\n- Stress responses\n- Anger, fear, frustration, and embarrassment\n- Emotional contagion\n- Self-regulation\n- Empathy and perspective-taking\n- Separating people from problems\n- Pausing and taking breaks\n- Recovering after a difficult exchange\n\n## Skills required\n\n- Identifying personal triggers\n- Regulating tone and body language\n- Maintaining composure under pressure\n- Labeling emotions accurately\n- Showing empathy without automatically agreeing\n- Recognizing the emotional climate\n- Requesting a productive pause\n- Returning discussion to interests and evidence\n- Reflecting without excessive self-criticism\n\n## Personal trigger plan\n\nComplete these statements:\n\n- I become defensive when\u2026\n- My physical warning signs are\u2026\n- My unhelpful reaction is usually\u2026\n- A productive pause phrase I can use is\u2026\n- A question that returns me to the issue is\u2026\n- A person I can consult before responding is\u2026\n\n## Practical exercise\n\nRole-play a negotiation in which one party becomes angry. The other party must:\n\n1. Remain calm\n2. Acknowledge the emotion\n3. Clarify the underlying concern\n4. Reframe the problem\n5. Propose a next step\n\n## Recommended free online courses\n\n1. **Managing Emotions in Times of Uncertainty and Stress \u2014 Yale University, Coursera**  \n   Helpful for emotional awareness, regulation, and responding effectively under stress.\n\n2. **Empathy and Emotional Intelligence at Work \u2014 University of California, Berkeley, edX**  \n   Covers empathy, emotional intelligence, cooperation, and workplace relationships. Free audit availability may vary.\n\n3. **High Performance Collaboration \u2014 Northwestern University, Coursera**  \n   Useful for managing interpersonal dynamics in teams and negotiations.\n\n---\n\n# Module 8: Difficult Tactics, Power Imbalances, and Impasse\n\n## Topics\n\n- Good cop/bad cop\n- Extreme demands\n- Nibbling\n- Bogey tactics\n- False deadlines\n- Take-it-or-leave-it offers\n- Personal attacks\n- Information overload\n- Deliberate delay\n- Threats and ultimatums\n- Power imbalances\n- Breaking deadlock\n\n## Skills required\n\n- Recognizing tactics without reacting impulsively\n- Naming the process diplomatically\n- Testing claims and deadlines\n- Returning to objective criteria\n- Strengthening alternatives\n- Asking for reciprocity\n- Setting boundaries\n- Taking breaks\n- Escalating appropriately\n- Bringing in a mediator or neutral third party\n- Walking away professionally\n\n## Response framework\n\nWhen facing a difficult tactic:\n\n1. **Pause:** Do not react immediately.\n2. **Diagnose:** Decide whether the behavior is intentional or situational.\n3. **Clarify:** Ask questions to test the claim.\n4. **Name:** Describe the behavior neutrally.\n5. **Reframe:** Return to interests, standards, or process.\n6. **Condition:** Make concessions only in exchange for value.\n7. **Protect:** Use your BATNA, boundaries, or walk-away point.\n\n## Example language\n\n- \u201cI may be misunderstanding, but this deadline appears new. What created it?\u201d\n- \u201cI\u2019m willing to consider movement on price if we can also address payment terms.\u201d\n- \u201cPersonal comments will not help us solve the issue. Can we return to the proposal?\u201d\n- \u201cIf this is genuinely the final offer, I will need time to compare it with our alternatives.\u201d\n\n## Recommended free online courses\n\n1. **Introduction to Negotiation \u2014 Yale University, Coursera**  \n   Uses challenging cases to develop strategic responses to difficult bargaining situations.\n\n2. **Successful Negotiation \u2014 University of Michigan, Coursera**  \n   Covers negotiation tactics, performance evaluation, and agreement management.\n\n3. **Mediation and Conflict Resolution \u2014 ESSEC Business School, Coursera**  \n   Helpful for handling deadlock, conflict processes, and third-party intervention.\n\n---\n\n# Module 9: Conflict Resolution and Mediation\n\n## Topics\n\n- Sources and levels of conflict\n- Task, process, relationship, and values conflict\n- Conflict styles\n- De-escalation\n- Facilitated negotiation\n- Mediation stages\n- Neutrality and impartiality\n- Caucusing\n- Restorative dialogue\n- Durable conflict agreements\n\n## Skills required\n\n- Diagnosing the type of conflict\n- De-escalating hostile interactions\n- Creating ground rules\n- Facilitating balanced participation\n- Summarizing competing perspectives\n- Identifying shared interests\n- Generating options\n- Reality-testing proposals\n- Drafting clear resolution terms\n- Knowing when professional mediation is needed\n\n## Basic mediation process\n\n1. Opening and ground rules\n2. Each party\u2019s uninterrupted statement\n3. Identification of issues\n4. Exploration of interests\n5. Option generation\n6. Evaluation and reality testing\n7. Agreement drafting\n8. Follow-up arrangements\n\n## Practical exercise\n\nMediate a workplace conflict between two employees disputing responsibilities and credit. The mediator should not impose a solution.\n\n## Recommended free online courses\n\n1. **Mediation and Conflict Resolution \u2014 ESSEC Business School, Coursera**  \n   Directly relevant to mediation techniques, conflict diagnosis, and third-party intervention.\n\n2. **Conflict Management Specialization courses \u2014 University of California, Irvine, Coursera**  \n   Individual courses may be available through audit or financial aid; useful for conflict dynamics and resolution methods.\n\n3. **Getting to Grips with Conflict \u2014 OpenLearn, The Open University**  \n   Search OpenLearn\u2019s free catalog for current conflict-management courses and badged open courses.\n\n---\n\n# Module 10: Ethics, Trust, and Reputation\n\n## Topics\n\n- Ethical persuasion versus deception\n- Bluffing and misrepresentation\n- Disclosure obligations\n- Confidentiality\n- Conflicts of interest\n- Fairness and procedural justice\n- Trust formation and repair\n- Reputation effects\n- Long-term versus short-term gains\n- Legal and organizational constraints\n\n## Skills required\n\n- Identifying ethical dilemmas\n- Distinguishing withholding from active deception\n- Testing decisions against professional standards\n- Protecting confidential information\n- Making transparent commitments\n- Repairing damaged trust\n- Documenting important claims\n- Balancing advocacy with fairness\n- Recognizing when legal advice is required\n\n## Ethical decision test\n\nBefore using a tactic, ask:\n\n1. Is it legal?\n2. Is it consistent with professional rules?\n3. Does it involve a false factual statement?\n4. Would I be comfortable if it became public?\n5. Would I accept the same tactic from the other side?\n6. Could it damage implementation or the relationship?\n7. Is there a more transparent way to achieve the same goal?\n\n## Practical exercise\n\nAnalyze three scenarios:\n\n- A seller hides a known product defect.\n- A candidate exaggerates their current salary.\n- A buyer implies that competing offers exist when they do not.\n\nFor each, assess legality, ethics, likely consequences, and an ethical alternative.\n\n## Recommended free online courses\n\n1. **Successful Negotiation \u2014 University of Michigan, Coursera**  \n   Includes agreement evaluation, legal considerations, and contract-related issues.\n\n2. **Introduction to Negotiation \u2014 Yale University, Coursera**  \n   Emphasizes principled negotiation, credible commitments, and strategic conduct.\n\n3. **Justice \u2014 Harvard University, edX/Harvard Online materials**  \n   Not negotiation-specific, but valuable for examining fairness, moral reasoning, rights, and ethical trade-offs. Audit access may vary.\n\n---\n\n# Module 11: Cross-Cultural and International Negotiation\n\n## Topics\n\n- Cultural values and assumptions\n- High-context versus low-context communication\n- Direct and indirect communication\n- Individualism and collectivism\n- Hierarchy and power distance\n- Attitudes toward time and deadlines\n- Relationship-building and trust\n- Face-saving\n- International teams and interpreters\n- Avoiding stereotypes\n\n## Skills required\n\n- Conducting cultural due diligence\n- Adapting communication style\n- Recognizing different decision processes\n- Building relationships before bargaining\n- Clarifying indirect language\n- Managing time-zone and language barriers\n- Preserving face and dignity\n- Working effectively with interpreters\n- Distinguishing cultural behavior from individual preference\n\n## Practical exercise\n\nCompare negotiation preparation for the same business deal in two different cultural contexts. Consider:\n\n- Who should attend?\n- How should authority be displayed?\n- How direct should the proposal be?\n- How much time should be allocated to relationship-building?\n- How will disagreement be expressed?\n- Who makes the final decision?\n\n## Recommended free online courses\n\n1. **International and Cross-Cultural Negotiation \u2014 ESSEC Business School, Coursera**  \n   Focuses directly on culture, international business negotiation, and adaptation.\n\n2. **Intercultural Communication and Conflict Resolution \u2014 University of California, Irvine, Coursera**  \n   Useful for cultural differences, communication barriers, and conflict management.\n\n3. **Culture and Negotiation \u2014 OpenLearn or other Open University intercultural communication resources**  \n   Search the current free catalog for intercultural communication, global management, and conflict courses.\n\n---\n\n# Module 12: Applied Negotiation\u2014Salary, Workplace, Sales, and Procurement\n\n## 12A. Salary and job-offer negotiation\n\n### Topics\n\n- Market-rate research\n- Total compensation\n- Timing the negotiation\n- Counteroffers\n- Promotion discussions\n- Multiple-offer strategy\n- Remote work and flexibility\n- Gender and social risks in salary negotiations\n\n### Skills required\n\n- Communicating value\n- Researching salary ranges\n- Negotiating the entire package\n- Making evidence-based requests\n- Responding to salary-history questions\n- Requesting time to review\n- Preserving the relationship after a \u201cno\u201d\n\n### Useful script\n\n> \u201cI\u2019m enthusiastic about the role. Based on the responsibilities, the market range, and my experience in X and Y, I was expecting a base salary closer to ____. Is there flexibility in the package?\u201d\n\n### Recommended free courses\n\n1. **Successful Negotiation \u2014 University of Michigan, Coursera**\n2. **Negotiation Fundamentals \u2014 ESSEC, Coursera**\n3. **Career Success or interview/offer negotiation courses \u2014 Coursera, edX, and OpenLearn**  \n   Search specifically for free-audit courses on salary negotiation and job offers because availability changes frequently.\n\n---\n\n## 12B. Workplace and team negotiation\n\n### Topics\n\n- Workload and role boundaries\n- Priorities and deadlines\n- Resource allocation\n- Managing up\n- Peer disagreements\n- Hybrid-work expectations\n- Internal stakeholder alignment\n\n### Skills required\n\n- Influencing without formal authority\n- Clarifying roles\n- Negotiating priorities\n- Handling status differences\n- Building coalitions\n- Facilitating team decisions\n- Recording commitments\n\n### Recommended free courses\n\n1. **High Performance Collaboration: Leadership, Teamwork, and Negotiation \u2014 Northwestern University, Coursera**\n2. **Improving Communication Skills \u2014 University of Pennsylvania, Coursera**\n3. **Mediation and Conflict Resolution \u2014 ESSEC, Coursera**\n\n---\n\n## 12C. Sales and customer negotiation\n\n### Topics\n\n- Needs discovery\n- Value proposition\n- Price objections\n- Discount discipline\n- Scope negotiation\n- Terms and renewals\n- Customer retention\n\n### Skills required\n\n- Consultative questioning\n- Value-based selling\n- Handling objections\n- Trading rather than conceding\n- Protecting margins\n- Packaging options\n- Confirming decision authority\n\n### Recommended free courses\n\n1. **Successful Negotiation \u2014 University of Michigan, Coursera**\n2. **Sales Training: Building Your Sales Career \u2014 HubSpot Academy**\n3. **Inbound Sales Certification \u2014 HubSpot Academy**  \n   HubSpot Academy courses are generally free and help with discovery, value communication, and buyer conversations.\n\n---\n\n## 12D. Procurement and supplier negotiation\n\n### Topics\n\n- Total cost of ownership\n- Supplier alternatives\n- Volume and duration trade-offs\n- Service levels\n- Payment terms\n- Delivery and quality\n- Risk allocation\n- Renegotiation\n\n### Skills required\n\n- Cost analysis\n- Supplier comparison\n- Multi-issue bargaining\n- Risk assessment\n- Contract-term negotiation\n- Performance-metric design\n- Relationship management\n\n### Recommended free courses\n\n1. **Successful Negotiation \u2014 University of Michigan, Coursera**\n2. **Negotiation Fundamentals \u2014 ESSEC, Coursera**\n3. **Supply-chain and procurement courses \u2014 Coursera, edX, Alison, or OpenLearn**  \n   Search for current free courses in procurement, contract management, and supplier relationship management.\n\n---\n\n# Module 13: Multiparty, Team, and Virtual Negotiations\n\n## Topics\n\n- Negotiation teams\n- Role assignment\n- Coalition formation\n- Internal versus external negotiation\n- Multiparty decision rules\n- Meeting facilitation\n- Email negotiation\n- Video-call negotiation\n- Asynchronous communication\n- Version control and documentation\n\n## Skills required\n\n- Aligning an internal team\n- Assigning lead speaker, observer, and note-taker roles\n- Managing coalitions\n- Tracking multiple interests\n- Preventing side agreements\n- Facilitating inclusive participation\n- Writing precise emails\n- Summarizing virtual meetings\n- Managing documents and action items\n\n## Team negotiation roles\n\n- **Lead negotiator:** Manages the conversation.\n- **Subject expert:** Provides technical information.\n- **Observer:** Watches process and nonverbal behavior.\n- **Strategist:** Tracks priorities, concessions, and BATNA.\n- **Recorder:** Documents proposals and commitments.\n- **Decision authority:** Approves final terms.\n\n## Practical exercise\n\nRun a three-party negotiation involving a city government, local business group, and residents. Each group should have different priorities and internal disagreements.\n\n## Recommended free online courses\n\n1. **High Performance Collaboration \u2014 Northwestern University, Coursera**\n2. **Introduction to Negotiation \u2014 Yale University, Coursera**\n3. **Teamwork Skills: Communicating Effectively in Groups \u2014 University of Colorado Boulder, Coursera**  \n   Useful for team communication and group decision processes; check audit availability.\n\n---\n\n# Module 14: Closing, Contracts, and Implementation\n\n## Topics\n\n- Recognizing when to close\n- Trial closes\n- Agreement summaries\n- Conditional versus final language\n- Authority to commit\n- Contract basics\n- Ambiguity and missing terms\n- Implementation plans\n- Monitoring and renegotiation\n- Dispute-resolution clauses\n\n## Skills required\n\n- Summarizing terms accurately\n- Confirming decision authority\n- Identifying unresolved issues\n- Writing clear commitments\n- Defining responsibilities and deadlines\n- Setting performance measures\n- Building review mechanisms\n- Anticipating implementation risks\n- Knowing when legal review is needed\n\n## Agreement checklist\n\nA complete agreement should identify:\n\n- Parties\n- Scope\n- Price or value exchanged\n- Payment schedule\n- Responsibilities\n- Deadlines\n- Quality standards\n- Confidentiality requirements\n- Change procedures\n- Dispute-resolution process\n- Termination conditions\n- Review dates\n- Authorized signatures\n\n## Practical exercise\n\nConvert a verbal agreement into a one-page memorandum of understanding. Ask another learner to identify ambiguities or missing terms.\n\n## Recommended free online courses\n\n1. **Successful Negotiation \u2014 University of Michigan, Coursera**  \n   Includes agreement, contract, and performance-evaluation elements.\n\n2. **Contract Law: From Trust to Promise to Contract \u2014 Harvard University, edX**  \n   Useful background in contract formation and enforceable promises; audit availability may vary.\n\n3. **Contract Management courses \u2014 OpenLearn, Coursera, edX, or Alison**  \n   Search for current free-access offerings related to contract basics and implementation.\n\n---\n\n# Recommended 12-Week Study Plan\n\n| Week | Focus | Main assignment |\n|---|---|---|\n| 1 | Foundations | Analyze a past negotiation |\n| 2 | Preparation, BATNA, ZOPA | Complete a preparation worksheet |\n| 3 | Distributive negotiation | Buyer\u2013seller price role-play |\n| 4 | Integrative negotiation | Create three package offers |\n| 5 | Listening and questioning | Active-listening exercise |\n| 6 | Persuasion and framing | Present one offer using three frames |\n| 7 | Emotional intelligence | Create a trigger-management plan |\n| 8 | Difficult tactics | Respond to five pressure tactics |\n| 9 | Conflict and mediation | Conduct a workplace mediation |\n| 10 | Ethics and culture | Analyze an international ethical case |\n| 11 | Applied negotiation | Conduct a salary or supplier negotiation |\n| 12 | Capstone | Complete and review a full simulation |\n\n---\n\n# Capstone Project\n\nConduct a complete negotiation simulation involving at least four issues.\n\n## Suggested scenarios\n\n- Salary and benefits\n- Supplier contract\n- Commercial lease\n- Freelance project\n- Workplace role and workload\n- Partnership agreement\n- Customer dispute\n- Community-development project\n\n## Required deliverables\n\n### 1. Preparation brief\n\nInclude:\n\n- Parties and stakeholders\n- Your interests\n- Estimated interests of the other side\n- Target\n- Reservation point\n- BATNA\n- Estimated ZOPA\n- Sources of leverage\n- Planned opening\n- Questions\n- Concession strategy\n- Ethical concerns\n\n### 2. Live or recorded negotiation\n\nRecommended duration: 20\u201340 minutes.\n\n### 3. Written agreement\n\nDocument:\n\n- Issues settled\n- Responsibilities\n- Deadlines\n- Conditions\n- Follow-up process\n- Unresolved issues\n\n### 4. Reflection report\n\nAnswer:\n\n- What created value?\n- What did you claim successfully?\n- What information did you miss?\n- Did you anchor effectively?\n- Were your concessions reciprocal?\n- How did emotions affect the result?\n- Was the agreement better than your BATNA?\n- What will you change next time?\n\n---\n\n# Assessment Structure\n\n| Assessment | Weight |\n|---|---:|\n| Preparation worksheets | 15% |\n| Weekly case analyses | 15% |\n| Role-play participation | 20% |\n| Listening and communication exercise | 10% |\n| Mediation exercise | 10% |\n| Ethics and cross-cultural case | 10% |\n| Final capstone negotiation | 20% |\n\n## Role-play evaluation rubric\n\nScore each area from 1 to 5:\n\n- Quality of preparation\n- BATNA and reservation-point awareness\n- Questioning and listening\n- Clarity of communication\n- Value creation\n- Value claiming\n- Concession discipline\n- Emotional control\n- Ethical conduct\n- Agreement quality\n\n---\n\n# Best Free Course Sequence\n\nFor learners who want the simplest path, take these in order:\n\n1. **Successful Negotiation: Essential Strategies and Skills \u2014 University of Michigan, Coursera**\n2. **Introduction to Negotiation \u2014 Yale University, Coursera**\n3. **Negotiation Fundamentals \u2014 ESSEC Business School, Coursera**\n4. **Improving Communication Skills \u2014 University of Pennsylvania, Coursera**\n5. **Mediation and Conflict Resolution \u2014 ESSEC Business School, Coursera**\n6. **International and Cross-Cultural Negotiation \u2014 ESSEC Business School, Coursera**\n7. **High Performance Collaboration \u2014 Northwestern University, Coursera**\n8. **Inbound Sales Certification \u2014 HubSpot Academy**\n\nThe first three provide the core negotiation foundation. The remaining courses develop communication, conflict resolution, cross-cultural awareness, teamwork, and applied sales skills.\n\n---\n\n# Essential Negotiation Toolkit\n\nEvery learner should create and maintain:\n\n- A negotiation preparation worksheet\n- BATNA improvement plan\n- Stakeholder map\n- Issue-priority matrix\n- Question bank\n- Concession log\n- Package-offer template\n- Emotional trigger plan\n- Difficult-tactics response sheet\n- Agreement checklist\n- Post-negotiation review form\n\nThe most important habit is to review every meaningful negotiation. Improvement comes not only from reaching agreements, but from comparing the result with your preparation, alternatives, target, and long-term relationship goals.",
+   "rules": {
+    "rule2_economy": 0.8,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 9.9,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 0.0
+   },
+   "clarity_avg": 5.5,
+   "slop_per_1k": 0.8,
+   "slop_breakdown": {
+    "ai_vocab": 2,
+    "hyphen_pairs": 2,
+    "not_x_but_y": 1
+   },
+   "slop_tax": 0.012,
+   "score": 54.3,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 4485,
+     "budget": 700,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 6.41
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "BATNA",
+      "ESSEC",
+      "ZOPA"
+     ],
+     "undefined_terms": [
+      "stakeholder alignment"
+     ],
+     "per_100w": 0.09
+    },
+    "simple_words": {
+     "swaps": {
+      "approximately": "about",
+      "require": "need"
+     },
+     "per_100w": 0.04
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 2,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.04
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "Preparation is often the largest predictor of negotiation success.",
+    "jargon": "some_jargon",
+    "jargon_quote": "logrolling",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "The most important habit is to review every meaningful negotiation."
+   },
+   "scaffold": {
+    "headings": 108,
+    "list_items": 539,
+    "headings_per_100b": 15.43,
+    "list_items_per_100b": 77.0,
+    "scaffold_score": 0.0
+   },
+   "shape": {
+    "em_dash_per_100w": 1.38,
+    "sentence_cv": 1.69,
+    "frag_ratio": 0.21,
+    "bold_per_100w": 1.78,
+    "comma_per_sent": 1.03,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.262995,
+   "seconds": 145.4
+  },
+  {
+   "id": 4,
+   "genre": "practical_guidance",
+   "response": "Here are common effects used to create a \u201crobot\u201d voice:\n\n- **Vocoder:** Blends speech with a synthesizer carrier\u2014the classic musical robot sound.\n- **Ring modulation:** Adds metallic, inharmonic tones; use subtly for intelligibility.\n- **Pitch correction:** Set to very fast retuning for rigid, stepped notes.\n- **Pitch/formant shifting:** Makes the voice unnaturally high, low, large, or small.\n- **Bit crushing / sample-rate reduction:** Produces a lo-fi digital or malfunctioning-machine quality.\n- **Distortion or saturation:** Adds mechanical grit and aggression.\n- **EQ/filtering:** Remove lows and highs for a narrow \u201cradio\u201d voice, or emphasize metallic upper mids.\n- **Compression/limiting:** Flattens dynamics so delivery sounds consistently machine-like.\n- **Chorus, flanger, or phaser:** Creates doubled, synthetic movement.\n- **Short delay:** Gives a metallic doubling effect; longer delays can resemble system echoes.\n- **Noise gate:** Abruptly cuts words on and off, removing natural breaths and tails.\n- **Reverb:** Small metallic rooms work for enclosed machinery; synthetic reverb suggests an AI environment.\n- **Layering:** Combine the dry voice with pitched-down, vocoded, or distorted copies.\n\n### Example effect chains\n\n**Classic robot:**  \nNoise gate \u2192 fast pitch correction \u2192 vocoder \u2192 EQ \u2192 compression\n\n**Metallic android:**  \nPitch/formant shift \u2192 subtle ring modulation \u2192 short delay \u2192 metallic reverb\n\n**Broken digital robot:**  \nBit crusher \u2192 stuttering/chopping effect \u2192 distortion \u2192 band-pass EQ\n\nFor the performance itself, use an even pitch, precise timing, clipped syllables, minimal emotion, and deliberate pauses. Keeping some untreated voice underneath usually preserves intelligibility.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 8.52,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 85.2,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 238,
+     "budget": 350,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 0.68
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "EQ"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.42
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Here are common effects used to create a \"robot\" voice:",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "inharmonic",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "scaffold": {
+    "headings": 4,
+    "list_items": 13,
+    "headings_per_100b": 1.14,
+    "list_items_per_100b": 3.71,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.42,
+    "sentence_cv": 0.83,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 6.72,
+    "comma_per_sent": 1.13,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.03106,
+   "seconds": 17.2
+  },
+  {
+   "id": 5,
+   "genre": "practical_guidance",
+   "response": "## Plan: \u201cEvacuate\u201d from an Untrustworthy Internet\n\nThe goal should not be to destroy or censor the internet, but to move essential social functions away from manipulation-prone platforms while preserving access, rights, and knowledge.\n\n### 1. Declare what must be protected\nClassify critical functions:\n\n- Emergency alerts and disaster response\n- Health, banking, utilities, and public services\n- Education, journalism, and scientific records\n- Personal communications and identity systems\n- Cultural archives and community coordination\n\nCreate continuity plans for each, assuming major platforms and search engines are unreliable.\n\n### 2. Establish trusted communication channels\nBuild redundant alternatives that do not depend on engagement algorithms:\n\n- Public broadcast radio and television\n- SMS and cell-broadcast emergency alerts\n- Printed bulletins at libraries, schools, clinics, and post offices\n- Telephone hotlines and local information centers\n- Community mesh networks, amateur radio, and satellite links\n- Chronological, subscription-based digital feeds with no personalized ranking\n\nMessages should be digitally signed and also verifiable through an independent offline channel.\n\n### 3. Create \u201cinformation shelters\u201d\nDesignate institutions such as libraries, universities, newsrooms, and public broadcasters as trusted access points. They would provide:\n\n- Curated, source-linked updates\n- Human research assistance\n- Verified copies of laws, medical guidance, and public notices\n- Public computers configured without behavioral advertising\n- Media-literacy training\n- Local archives accessible even during outages\n\nTrust should come from transparent procedures and competing oversight\u2014not from a single ministry of truth.\n\n### 4. Migrate communities and essential services\nGive organizations a staged migration kit:\n\n1. Export contacts, documents, and public records.\n2. Move to open, interoperable protocols and portable identities.\n3. Replace algorithmic feeds with opt-in mailing lists, forums, and chronological streams.\n4. Maintain an authenticated website and offline mirror.\n5. Publish clear instructions for finding the organization outside major platforms.\n6. Keep old accounts temporarily as signposts, not as primary communication channels.\n\n### 5. Preserve knowledge before departure\nArchive valuable material using multiple independent custodians:\n\n- Libraries and national archives\n- Universities and nonprofit repositories\n- Offline storage distributed across regions\n- Open formats with checksums, provenance records, and version histories\n\nDo not archive private data without consent. Document when, where, and how public material was obtained.\n\n### 6. Reduce manipulation at the individual level\nOffer a voluntary \u201cdigital evacuation mode\u201d for devices:\n\n- Disable personalized feeds, autoplay, recommendations, and targeted advertising\n- Limit notifications and impose cooling-off periods before resharing\n- Prefer direct subscriptions and known sources\n- Label synthetic media using provenance evidence, while acknowledging that labels are imperfect\n- Provide an easy way to inspect why content was shown\n- Encourage scheduled rather than continuous internet use\n\n### 7. Protect democracy and civil liberties\nAny emergency program should include:\n\n- No compulsory political viewpoint or centralized truth authority\n- Judicial oversight and fixed expiration dates\n- Publicly documented moderation and verification standards\n- Independent audits and appeals\n- Accessibility and multilingual support\n- Protection for anonymity, encryption, whistleblowers, and lawful dissent\n- Subsidies so poorer or rural communities are not abandoned\n\n### 8. Build a cleaner parallel network\nDevelop a public-interest layer of the internet based on:\n\n- Open standards and federation\n- User-controlled ranking\n- Minimal data collection\n- Strong authentication for official statements\n- Provenance for media and documents\n- Transparent funding and governance\n- Interoperability, so users can leave one provider without losing their community\n\nAI content need not be banned; it should be identifiable where feasible, attributable when used officially, and subject to the same fraud and impersonation rules as human content.\n\n### 9. Practice the evacuation\nRun regular drills: assume search, social media, or cloud services are compromised for 72 hours. Test whether people can still obtain medicine, contact family, receive emergency information, access money, and verify government announcements.\n\n### 10. Define conditions for return\nRe-entry should depend on measurable safeguards, such as independent algorithm audits, meaningful user control, provenance support, bot disclosure, data portability, limits on surveillance advertising, and rapid remedies for impersonation and fraud.\n\nIn short: move essential functions first, preserve multiple independent sources of truth, maintain offline redundancy, and build a decentralized alternative rather than replacing one manipulative system with a centralized one.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 9.7,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 9.4
+   },
+   "clarity_avg": 7.83,
+   "slop_per_1k": 0.4,
+   "slop_breakdown": {
+    "agentless_passive": 1
+   },
+   "slop_tax": 0.006,
+   "score": 77.8,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 690,
+     "budget": 500,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.38
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "SMS"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.14
+    },
+    "simple_words": {
+     "swaps": {
+      "obtain": "get"
+     },
+     "per_100w": 0.14
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "The goal should not be to destroy or censor the internet, but to move essential social functions away from manipulation-prone platforms while preserving access, rights, and knowledge.",
+    "jargon": "some_jargon",
+    "jargon_quote": "federation",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "where feasible"
+   },
+   "scaffold": {
+    "headings": 11,
+    "list_items": 47,
+    "headings_per_100b": 2.2,
+    "list_items_per_100b": 9.4,
+    "scaffold_score": 9.4
+   },
+   "shape": {
+    "em_dash_per_100w": 0.14,
+    "sentence_cv": 1.22,
+    "frag_ratio": 0.38,
+    "bold_per_100w": 0.0,
+    "comma_per_sent": 1.68,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.051355,
+   "seconds": 27.4
+  },
+  {
+   "id": 6,
+   "genre": "practical_guidance",
+   "response": "Assuming **\u20b930,000 monthly take-home salary** and no other debt:\n\n- Keep your home-loan EMI around **\u20b99,000\u2013\u20b912,000** (30\u201340% of income).\n- At roughly **8.5\u20139% interest for 20 years**, this supports a loan of about **\u20b910\u2013\u20b914 lakh**.\n- A safer target would be **\u20b910\u2013\u20b912 lakh**, especially if you have dependents or variable expenses.\n- With a 20% down payment, that corresponds to a home price around **\u20b912.5\u2013\u20b917.5 lakh**.\n\nAvoid using the bank\u2019s maximum eligibility if the EMI exceeds \u20b912,000\u2013\u20b913,000. Also keep an emergency fund covering at least six months of expenses and EMI. Existing EMIs should be deducted from the affordable EMI amount.",
+   "rules": {
+    "rule2_economy": 10.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 8.52,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 85.2,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 101,
+     "budget": 300,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 0.34
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "EMI",
+      "EMIs"
+     ],
+     "undefined_terms": [],
+     "per_100w": 1.98
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "some_jargon",
+    "jargon_quote": "EMI",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "especially if you have dependents or variable expenses"
+   },
+   "scaffold": {
+    "headings": 0,
+    "list_items": 4,
+    "headings_per_100b": 0.0,
+    "list_items_per_100b": 1.33,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.21,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 5.94,
+    "comma_per_sent": 1.14,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.026145,
+   "seconds": 9.8
+  },
+  {
+   "id": 7,
+   "genre": "practical_guidance",
+   "response": "### Class Objective\n\nBy the end of the class, students will be able to **critically analyze and present how a literary or other source text has been adapted into film**, focusing on changes in narrative, characters, themes, style, and cultural context. They will also evaluate how effectively the film communicates or reinterprets the original work.\n\nAdditional objectives may include:\n\n- Developing presentation and public-speaking skills.\n- Comparing storytelling techniques across different media.\n- Supporting interpretations with examples from both the source text and the film.\n- Engaging respectfully with classmates\u2019 perspectives and providing constructive feedback.",
+   "rules": {
+    "rule2_economy": 7.5,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 7.9,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 7.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 8.97,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 89.7,
+   "facts_delivered": "3/4",
+   "detail": {
+    "economy": {
+     "words": 95,
+     "budget": 250,
+     "facts": 3,
+     "required": 4,
+     "coverage": 0.75,
+     "over_budget": 0.38
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "additional": "more"
+     },
+     "per_100w": 1.05
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     false,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "scaffold": {
+    "headings": 1,
+    "list_items": 4,
+    "headings_per_100b": 0.4,
+    "list_items_per_100b": 1.6,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.79,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 1.05,
+    "comma_per_sent": 1.0,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.021155,
+   "seconds": 10.1
+  },
+  {
+   "id": 8,
+   "genre": "practical_guidance",
+   "response": "## Workshop Use Case: **Smart Campus Event & Fest Management System**\n\n### Scenario\nA college conducts multiple events such as coding contests, hackathons, sports competitions, and cultural programs. Students register individually or as teams, venues are allocated, results are recorded, and prizes are awarded.\n\nStudents will design an RDBMS to manage the entire process.\n\n### Core Entities\n\n1. **Student**\n   - Student_ID\n   - Name\n   - Department\n   - Year\n   - Email\n   - Phone\n\n2. **Event**\n   - Event_ID\n   - Event_Name\n   - Category\n   - Event_Date\n   - Registration_Fee\n   - Max_Participants\n   - Venue_ID\n\n3. **Venue**\n   - Venue_ID\n   - Venue_Name\n   - Capacity\n   - Location\n\n4. **Registration**\n   - Registration_ID\n   - Student_ID\n   - Event_ID\n   - Registration_Date\n   - Payment_Status\n\n5. **Team**\n   - Team_ID\n   - Team_Name\n   - Event_ID\n   - Team_Leader_ID\n\n6. **Team_Member**\n   - Team_ID\n   - Student_ID\n\n7. **Result**\n   - Result_ID\n   - Event_ID\n   - Student_ID or Team_ID\n   - Position\n   - Score\n   - Prize_Amount\n\n### Key Business Rules\n\n- A student can register for multiple events.\n- An event can have many participants.\n- Some events are individual, while others are team-based.\n- A venue cannot host two events at the same time.\n- Registration must stop when the maximum participant limit is reached.\n- A student cannot register twice for the same event.\n- Only registered participants can appear in the results.\n\n### RDBMS Concepts Covered\n\n- Database and table creation\n- Primary and foreign keys\n- One-to-many and many-to-many relationships\n- `NOT NULL`, `UNIQUE`, `CHECK`, and `DEFAULT` constraints\n- Joins and subqueries\n- Aggregate functions\n- Views\n- Stored procedures\n- Triggers\n- Transactions\n- Indexing and normalization\n\n### Interesting SQL Challenges\n\n1. List all events with the number of registered students.\n2. Find the most popular event.\n3. Display students who registered for more than three events.\n4. Find events that still have available slots.\n5. Calculate total registration revenue by event category.\n6. Identify departments with the highest participation.\n7. Display students who won prizes in multiple events.\n8. Detect scheduling conflicts for venues.\n9. Rank students based on total prize money.\n10. Find registered students who did not participate or receive a score.\n\n### Advanced Activities\n\n- Create a **trigger** to prevent registration after an event reaches capacity.\n- Create a **stored procedure** for student registration.\n- Create a **view** showing an event dashboard with registrations, available slots, and revenue.\n- Use a **transaction** to register an entire team atomically.\n- Add indexes and compare query execution performance.\n- Normalize an initially unstructured event-registration table up to **3NF**.\n\n### Sample Dashboard Output\n\n| Event | Category | Registered | Available Slots | Revenue |\n|---|---|---:|---:|---:|\n| Code Sprint | Technical | 85 | 15 | \u20b98,500 |\n| Battle of Bands | Cultural | 40 | 10 | \u20b912,000 |\n| Football | Sports | 96 | 0 | \u20b919,200 |\n\n### Workshop Outcome\nBy the end of the workshop, students will have built a practical database-backed system that handles real-world relationships, constraints, reporting, concurrency, and data integrity. The project can later be extended into a web or mobile application.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 6.1
+   },
+   "clarity_avg": 8.13,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 81.3,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 502,
+     "budget": 450,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.12
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "The project can later be extended into a web or mobile application.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "practical database-backed system that handles real-world relationships, constraints, reporting, concurrency, and data integrity"
+   },
+   "scaffold": {
+    "headings": 9,
+    "list_items": 75,
+    "headings_per_100b": 2.0,
+    "list_items_per_100b": 16.67,
+    "scaffold_score": 6.1
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 1.23,
+    "frag_ratio": 0.22,
+    "bold_per_100w": 2.59,
+    "comma_per_sent": 0.44,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.044735,
+   "seconds": 20.2
+  },
+  {
+   "id": 9,
+   "genre": "practical_guidance",
+   "response": "# GARCH Models in Time Series Analysis\n\nA **GARCH model** is used when the *variability* of a time series changes over time.\n\nThe acronym means:\n\n> **G**eneralized **A**uto**R**egressive **C**onditional **H**eteroskedasticity\n\nDespite the intimidating name, its central idea is simple:\n\n> **Tomorrow\u2019s volatility depends on recent surprises and recent volatility.**\n\nGARCH models are especially common for financial returns, exchange rates, commodity prices, and other series that alternate between calm and turbulent periods.\n\n---\n\n## 1. Why ordinary time-series models are not enough\n\nSuppose \\(r_t\\) is the daily return of a stock. We might begin with\n\n\\[\nr_t=\\mu+\\varepsilon_t,\n\\]\n\nwhere:\n\n- \\(\\mu\\) is the average return,\n- \\(\\varepsilon_t\\) is the unpredictable part.\n\nA simple model might assume\n\n\\[\n\\varepsilon_t\\sim N(0,\\sigma^2),\n\\]\n\nwith one fixed variance \\(\\sigma^2\\).\n\nBut financial data usually do not behave this way. Instead, we observe **volatility clustering**:\n\n- large price changes tend to be followed by large price changes,\n- small price changes tend to be followed by small price changes.\n\nThe direction may be unpredictable, but the *size* of the movement often is not.\n\nFor example, after a major economic announcement, tomorrow\u2019s return might be positive or negative, but it is more likely to be unusually large.\n\nThus we let the variance change with time:\n\n\\[\n\\varepsilon_t=\\sigma_t z_t,\n\\]\n\nwhere:\n\n- \\(\\sigma_t^2\\) is the variance at time \\(t\\),\n- \\(z_t\\) is a standardized random shock with mean \\(0\\) and variance \\(1\\).\n\nUsually \\(z_t\\) is modeled using a standard normal or Student-\\(t\\) distribution.\n\n---\n\n## 2. Conditional variance\n\nThe word **conditional** is crucial.\n\nAt time \\(t-1\\), we already know all previous observations. Let this available information be denoted by \\(\\mathcal F_{t-1}\\). Then\n\n\\[\n\\operatorname{Var}(\\varepsilon_t\\mid \\mathcal F_{t-1})=\\sigma_t^2.\n\\]\n\nSo \\(\\sigma_t^2\\) is tomorrow\u2019s variance given everything known today.\n\nGARCH does not usually claim to predict whether the next movement will be up or down. It predicts how uncertain or volatile that movement is likely to be.\n\n---\n\n## 3. From ARCH to GARCH\n\n### ARCH model\n\nAn ARCH(1) model specifies\n\n\\[\n\\sigma_t^2=\\omega+\\alpha\\varepsilon_{t-1}^2,\n\\]\n\nwhere \\(\\omega>0\\) and \\(\\alpha\\geq 0\\).\n\nInterpretation:\n\n- \\(\\omega\\) is a baseline level of variance;\n- \\(\\varepsilon_{t-1}^2\\) measures the size of yesterday\u2019s surprise;\n- a large surprise yesterday raises today\u2019s predicted variance.\n\nWe square the surprise because both a large positive shock and a large negative shock indicate turbulence.\n\nAn ARCH(\\(q\\)) model uses several past squared shocks:\n\n\\[\n\\sigma_t^2\n=\n\\omega+\\alpha_1\\varepsilon_{t-1}^2+\\cdots+\n\\alpha_q\\varepsilon_{t-q}^2.\n\\]\n\nThe problem is that volatility may remain elevated for a long time, so ARCH can require many lagged terms.\n\n---\n\n## 4. The GARCH model\n\nGARCH improves ARCH by including past variance itself.\n\nA general GARCH(\\(p,q\\)) model is\n\n\\[\n\\sigma_t^2\n=\n\\omega\n+\n\\sum_{i=1}^{q}\\alpha_i\\varepsilon_{t-i}^2\n+\n\\sum_{j=1}^{p}\\beta_j\\sigma_{t-j}^2.\n\\]\n\nHere:\n\n- \\(q\\) is the number of lagged squared shocks;\n- \\(p\\) is the number of lagged conditional variances.\n\nThe most widely used version is **GARCH(1,1)**:\n\n\\[\n\\boxed{\n\\sigma_t^2\n=\n\\omega+\\alpha\\varepsilon_{t-1}^2+\\beta\\sigma_{t-1}^2\n}\n\\]\n\nwith the observation equation\n\n\\[\n\\boxed{\nr_t=\\mu+\\varepsilon_t,\\qquad\n\\varepsilon_t=\\sigma_t z_t.\n}\n\\]\n\nTogether, these equations form the complete model.\n\n---\n\n## 5. Understanding each term\n\nConsider\n\n\\[\n\\sigma_t^2\n=\n\\omega+\\alpha\\varepsilon_{t-1}^2+\\beta\\sigma_{t-1}^2.\n\\]\n\n### Baseline component: \\(\\omega\\)\n\nThe constant \\(\\omega\\) prevents the predicted variance from collapsing to zero. It is connected to the long-run level of volatility.\n\n### News component: \\(\\alpha\\varepsilon_{t-1}^2\\)\n\nThis measures the effect of yesterday\u2019s unexpected movement.\n\nA large value of \\(\\alpha\\) means volatility reacts strongly to new information.\n\n### Persistence component: \\(\\beta\\sigma_{t-1}^2\\)\n\nThis carries previous volatility into the present.\n\nA large value of \\(\\beta\\) means that turbulent periods fade slowly.\n\nA useful analogy is a fire:\n\n- \\(\\omega\\) is the background heat;\n- \\(\\alpha\\varepsilon_{t-1}^2\\) is new fuel thrown onto the fire;\n- \\(\\beta\\sigma_{t-1}^2\\) is heat remaining from the previous period.\n\n---\n\n## 6. Numerical example\n\nSuppose a fitted model is\n\n\\[\n\\sigma_t^2\n=\n0.000002\n+\n0.10\\varepsilon_{t-1}^2\n+\n0.85\\sigma_{t-1}^2.\n\\]\n\nAssume:\n\n\\[\n\\varepsilon_{t-1}=0.02,\n\\qquad\n\\sigma_{t-1}^2=0.0001.\n\\]\n\nThen\n\n\\[\n\\varepsilon_{t-1}^2=(0.02)^2=0.0004.\n\\]\n\nTherefore,\n\n\\[\n\\begin{aligned}\n\\sigma_t^2\n&=0.000002+0.10(0.0004)+0.85(0.0001)\\\\\n&=0.000002+0.000040+0.000085\\\\\n&=0.000127.\n\\end{aligned}\n\\]\n\nThe predicted standard deviation is\n\n\\[\n\\sigma_t=\\sqrt{0.000127}\\approx 0.01127.\n\\]\n\nThus the model predicts volatility of about \\(1.13\\%\\) for the next period.\n\nNotice that GARCH predicts a **range of uncertainty**, not necessarily the direction of the return.\n\n---\n\n## 7. Conditions on the parameters\n\nTo keep the variance nonnegative, standard GARCH(1,1) restrictions are\n\n\\[\n\\omega>0,\\qquad \\alpha\\geq0,\\qquad \\beta\\geq0.\n\\]\n\nA commonly imposed stationarity condition is\n\n\\[\n\\boxed{\\alpha+\\beta<1.}\n\\]\n\nUnder this condition, the long-run\u2014or unconditional\u2014variance is\n\n\\[\n\\boxed{\n\\operatorname{Var}(\\varepsilon_t)\n=\n\\frac{\\omega}{1-\\alpha-\\beta}.\n}\n\\]\n\n### Derivation\n\nTaking expectations in\n\n\\[\n\\sigma_t^2\n=\n\\omega+\\alpha\\varepsilon_{t-1}^2+\\beta\\sigma_{t-1}^2,\n\\]\n\nand using\n\n\\[\nE(\\varepsilon_{t-1}^2)=E(\\sigma_{t-1}^2)=V,\n\\]\n\nwe get\n\n\\[\nV=\\omega+\\alpha V+\\beta V.\n\\]\n\nHence\n\n\\[\nV(1-\\alpha-\\beta)=\\omega,\n\\]\n\nso\n\n\\[\nV=\\frac{\\omega}{1-\\alpha-\\beta}.\n\\]\n\nIf \\(\\alpha+\\beta\\) is close to \\(1\\), volatility shocks are highly persistent.\n\n---\n\n## 8. Why returns can be uncorrelated but still dependent\n\nAn important subtlety is that returns themselves may have little autocorrelation:\n\n\\[\n\\operatorname{Corr}(r_t,r_{t-1})\\approx 0.\n\\]\n\nYet their squares may be strongly autocorrelated:\n\n\\[\n\\operatorname{Corr}(r_t^2,r_{t-1}^2)>0.\n\\]\n\nThis means the direction of movement is hard to predict, while the magnitude is partly predictable.\n\nSo \u201cuncorrelated\u201d does not mean \u201cindependent.\u201d GARCH captures dependence in the conditional variance rather than in the conditional mean.\n\n---\n\n## 9. Volatility forecasting\n\nFor GARCH(1,1), the one-step forecast is\n\n\\[\n\\widehat{\\sigma}_{t+1|t}^2\n=\n\\omega+\\alpha\\varepsilon_t^2+\\beta\\sigma_t^2.\n\\]\n\nThe long-run variance is\n\n\\[\n\\bar{\\sigma}^2=\\frac{\\omega}{1-\\alpha-\\beta}.\n\\]\n\nThe \\(h\\)-step-ahead variance forecast can be written as\n\n\\[\n\\widehat{\\sigma}_{t+h|t}^2\n=\n\\bar{\\sigma}^2\n+\n(\\alpha+\\beta)^{h-1}\n\\left(\n\\widehat{\\sigma}_{t+1|t}^2-\\bar{\\sigma}^2\n\\right).\n\\]\n\nThis formula shows **mean reversion**:\n\n- if current volatility is above its long-run level, forecasts gradually decline;\n- if it is below its long-run level, forecasts gradually rise;\n- the speed is controlled by \\(\\alpha+\\beta\\).\n\n---\n\n## 10. How the parameters are estimated\n\nThe variances \\(\\sigma_t^2\\) are not directly observed. They are generated recursively from the model.\n\nIf\n\n\\[\nz_t\\sim N(0,1),\n\\]\n\nthen\n\n\\[\n\\varepsilon_t\\mid\\mathcal F_{t-1}\n\\sim N(0,\\sigma_t^2).\n\\]\n\nFor each candidate set of parameters, the model calculates the conditional variances and asks how plausible the observed data would be. The parameters are usually selected by **maximum likelihood estimation**.\n\nFinancial returns often have more extreme observations than a normal distribution predicts. Consequently, analysts frequently assume Student-\\(t\\) innovations:\n\n\\[\nz_t\\sim t_\\nu,\n\\]\n\nappropriately standardized to have variance \\(1\\).\n\n---\n\n## 11. Mean model versus variance model\n\nGARCH describes the conditional variance, but it can be combined with a model for the conditional mean.\n\nFor example:\n\n\\[\nr_t\n=\nc+\\phi r_{t-1}+\\varepsilon_t,\n\\]\n\nwith\n\n\\[\n\\varepsilon_t=\\sigma_tz_t,\n\\]\n\nand\n\n\\[\n\\sigma_t^2\n=\n\\omega+\\alpha\\varepsilon_{t-1}^2+\\beta\\sigma_{t-1}^2.\n\\]\n\nThe first equation is an AR(1) mean model. The last equation is the GARCH variance model.\n\nThis separation is useful:\n\n- ARMA-type models explain predictable changes in the level or mean;\n- GARCH models explain predictable changes in variability.\n\n---\n\n## 12. Diagnosing a fitted GARCH model\n\nAfter fitting the model, define standardized residuals\n\n\\[\n\\hat z_t=\\frac{\\hat\\varepsilon_t}{\\hat\\sigma_t}.\n\\]\n\nIf the model is adequate, the standardized residuals should behave approximately like independent, constant-variance noise.\n\nAnalysts usually check:\n\n1. autocorrelation in \\(\\hat z_t\\);\n2. autocorrelation in \\(\\hat z_t^2\\);\n3. remaining ARCH effects;\n4. whether the assumed normal or Student-\\(t\\) distribution fits the tails;\n5. whether parameter constraints are satisfied.\n\nIf squared standardized residuals remain autocorrelated, the variance model has not captured all of the volatility dynamics.\n\n---\n\n## 13. Limitations of standard GARCH\n\n### Symmetric response\n\nStandard GARCH uses \\(\\varepsilon_{t-1}^2\\), so it treats positive and negative shocks of equal size identically.\n\nIn stock markets, bad news often increases volatility more than equally large good news. This is called the **leverage effect**.\n\nModels such as **EGARCH** and **GJR-GARCH** allow asymmetric responses.\n\n### Sudden structural changes\n\nGARCH treats volatility as evolving smoothly. It may struggle when a market undergoes a permanent regime change or abrupt crisis.\n\n### Model risk\n\nForecasts depend on:\n\n- the chosen GARCH order,\n- the innovation distribution,\n- the sample period,\n- the mean specification.\n\n### Variance is not directly observed\n\nConditional volatility is latent, so it must be inferred from the data.\n\n---\n\n## 14. The main idea in one sentence\n\nA GARCH(1,1) model says\n\n\\[\n\\boxed{\n\\text{current variance}\n=\n\\text{baseline}\n+\n\\text{effect of recent news}\n+\n\\text{persisting past variance}.\n}\n\\]\n\nMore formally,\n\n\\[\n\\boxed{\n\\sigma_t^2\n=\n\\omega+\\alpha\\varepsilon_{t-1}^2+\\beta\\sigma_{t-1}^2.\n}\n\\]\n\nIts power comes from recognizing that even when future movements are difficult to predict, the **degree of uncertainty surrounding those movements can often be predicted**.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 9.3,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.12,
+   "slop_per_1k": 1.5,
+   "slop_breakdown": {
+    "ai_vocab": 2
+   },
+   "slop_tax": 0.022,
+   "score": 69.6,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 1352,
+     "budget": 750,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.8
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "ARMA",
+      "EGARCH",
+      "GJR"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.22
+    },
+    "simple_words": {
+     "swaps": {
+      "approximately": "about",
+      "component": "part",
+      "require": "need"
+     },
+     "per_100w": 0.37
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 1,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.07
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "## 11. Mean model versus variance model",
+    "economy": "some_padding",
+    "economy_quote": "Notice that GARCH predicts a **range of uncertainty**, not necessarily the direction of the return.",
+    "jargon": "some_jargon",
+    "jargon_quote": "heteroskedasticity",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Despite the intimidating name, its central idea is simple:"
+   },
+   "scaffold": {
+    "headings": 24,
+    "list_items": 28,
+    "headings_per_100b": 3.2,
+    "list_items_per_100b": 3.73,
+    "scaffold_score": 9.8
+   },
+   "shape": {
+    "em_dash_per_100w": 0.15,
+    "sentence_cv": 0.63,
+    "frag_ratio": 0.17,
+    "bold_per_100w": 1.26,
+    "comma_per_sent": 0.63,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.125225,
+   "seconds": 43.7
+  },
+  {
+   "id": 10,
+   "genre": "seeking_information",
+   "response": "A **single 2.9 GHz CPU core with 1 GB RAM** can typically handle roughly:\n\n- **Modern x86-64 CPU:** about **1\u20133 Gbit/s** of WireGuard throughput\n- **Older/low-power x86 CPU:** about **300 Mbit/s\u20131 Gbit/s**\n- **ARM or heavily shared VPS vCPU:** about **100\u2013800 Mbit/s**\n\nThese are approximate **one-directional, large-packet** figures. Small packets can reduce throughput significantly because packet rate becomes the bottleneck; many small connections may be limited to a few hundred Mbit/s.\n\nOther considerations:\n\n- **1 GB RAM is sufficient** for Linux and WireGuard unless you have many other services or extremely large routing/peer tables.\n- CPU generation, virtualization overhead, packet size, NIC/driver quality, firewall/NAT rules, and whether the provider throttles the vCPU matter more than clock speed alone.\n- Full-duplex traffic may hit the CPU limit sooner when counting upload and download together.\n\nFor capacity planning, a conservative expectation would be **500 Mbit/s\u20131 Gbit/s sustained**. Benchmark the actual server with `iperf3` through the tunnel while watching per-core utilization; when the core reaches 100%, you have found its practical limit.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 8.8,
+    "rule6_filler": 9.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 9.12,
+   "slop_per_1k": 0.0,
+   "slop_breakdown": {},
+   "slop_tax": 0.0,
+   "score": 91.2,
+   "facts_delivered": "2/4",
+   "detail": {
+    "economy": {
+     "words": 169,
+     "budget": 280,
+     "facts": 2,
+     "required": 4,
+     "coverage": 0.5,
+     "over_budget": 0.6
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "sufficient": "enough"
+     },
+     "per_100w": 0.59
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 1,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.59
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     false,
+     true,
+     false
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "tight",
+    "economy_quote": "",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "scaffold": {
+    "headings": 0,
+    "list_items": 6,
+    "headings_per_100b": 0.0,
+    "list_items_per_100b": 2.14,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.48,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 5.92,
+    "comma_per_sent": 1.14,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.032415,
+   "seconds": 17.5
+  }
+ ]
+}

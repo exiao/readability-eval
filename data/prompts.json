@@ -1,103 +1,472 @@
 {
-  "version": "1.0",
-  "system_prompt": "You are a helpful assistant.",
-  "notes": "Each prompt carries a `facts` checklist: the atomic things a complete answer must deliver. Rule 2 scores words-per-fact-delivered, so a short empty answer cannot win. `assumed` lists acronyms the declared audience already knows, so precise terms are not penalized as jargon.",
-  "prompts": [
-    {
-      "id": 1,
-      "genre": "technical_qa",
-      "audience": "backend engineer",
-      "prompt": "Our p99 API latency jumped from 200ms to 3s after yesterday's deploy. Connection pool metrics show high wait times. What do we do?",
-      "facts": ["names connection pool exhaustion as cause", "gives a specific config change", "mentions verifying with metrics after", "mentions restart or rollout requirement"],
-      "assumed": ["API", "P99", "DB", "TTL"]
-    },
-    {
-      "id": 2,
-      "genre": "explain",
-      "audience": "junior developer",
-      "prompt": "Explain the difference between a process and a thread.",
-      "facts": ["processes have separate memory", "threads share memory within a process", "gives a consequence of sharing (races or cheaper switching)"],
-      "assumed": ["CPU", "OS", "RAM"]
-    },
-    {
-      "id": 3,
-      "genre": "bad_news",
-      "audience": "an employee being laid off",
-      "prompt": "Write an email telling a team of 8 that their department is being eliminated at the end of the month.",
-      "facts": ["states the department is eliminated", "gives the date", "states severance or next steps", "names who to contact"],
-      "assumed": ["HR"]
-    },
-    {
-      "id": 4,
-      "genre": "decision",
-      "audience": "a solo founder",
-      "prompt": "Postgres or SQLite for a side project with 3 users that might grow? Pick one.",
-      "facts": ["makes an explicit recommendation", "gives the deciding reason", "names the condition that would change the answer"],
-      "assumed": ["SQL", "DB", "ORM"]
-    },
-    {
-      "id": 5,
-      "genre": "marketing",
-      "audience": "a busy consumer",
-      "prompt": "Write the homepage headline and one paragraph for a note-taking app whose whole pitch is that it opens instantly.",
-      "facts": ["names the speed benefit concretely", "says what the product is", "gives a reason to believe"],
-      "assumed": []
-    },
-    {
-      "id": 6,
-      "genre": "instruction",
-      "audience": "a non-technical person",
-      "prompt": "How do I back up the photos on my phone? Give me steps.",
-      "facts": ["names a specific method or service", "gives ordered steps", "says how to verify it worked"],
-      "assumed": ["OK", "TV"]
-    },
-    {
-      "id": 7,
-      "genre": "chat",
-      "audience": "a friend",
-      "prompt": "Is remote work better than office work? Be honest.",
-      "facts": ["takes a position", "gives at least one concrete tradeoff", "names what it depends on"],
-      "assumed": []
-    },
-    {
-      "id": 8,
-      "genre": "postmortem",
-      "audience": "an engineering team",
-      "prompt": "Write a blameless postmortem for a null pointer in the payment webhook handler that dropped 400 payments over 2 hours.",
-      "facts": ["states the impact with numbers", "names the technical cause", "gives at least one prevention action", "avoids blaming an individual"],
-      "assumed": ["API", "NPE", "SDK"]
-    },
-    {
-      "id": 9,
-      "genre": "critique",
-      "audience": "a designer who worked hard on it",
-      "prompt": "Give honest feedback on a signup form with 14 fields, no error messages until submit, and a CAPTCHA.",
-      "facts": ["names the field count as a problem", "names the late error validation", "names the CAPTCHA cost", "gives at least one concrete fix"],
-      "assumed": ["UX", "UI", "CAPTCHA"]
-    },
-    {
-      "id": 10,
-      "genre": "summary",
-      "audience": "an investor",
-      "prompt": "Summarize this: Q3 revenue was $2.1M, up 8% QoQ but below the $2.4M forecast. Churn rose from 3.1% to 4.7%. Two enterprise deals slipped to Q4. Headcount grew 22%.",
-      "facts": ["gives the revenue number", "notes the miss vs forecast", "names the churn increase", "notes the slipped deals or headcount"],
-      "assumed": ["QoQ", "ARR", "Q3", "Q4"]
-    },
-    {
-      "id": 11,
-      "genre": "rejection",
-      "audience": "a candidate who interviewed 4 times",
-      "prompt": "Write a rejection email to a senior engineer who made it to the final round but lost to another candidate.",
-      "facts": ["states the decision clearly", "gives a reason", "says what happens next or leaves a door open"],
-      "assumed": []
-    },
-    {
-      "id": 12,
-      "genre": "definition",
-      "audience": "a product manager",
-      "prompt": "What does idempotent mean and why should I care?",
-      "facts": ["defines it as safe to repeat with the same result", "gives a concrete example", "says why it matters practically"],
-      "assumed": ["API", "PM", "HTTP"]
-    }
-  ]
+ "version": "3.0",
+ "notes": "Real first-turn English user prompts sampled from allenai/WildChat-1M, vetted for scorability, and sampled to the ChatGPT topic distribution reported in NBER w34255 (Chatterji et al. 2025): practical guidance 29%, seeking information 24%, writing 24% (two-thirds of it editing user text), technical help 5%, self-expression 2%. Prompts are verbatim, typos included. `asks` are what the user wanted addressed, NOT factual-correctness checks: this benchmark scores readability, not truth.",
+ "prompts": [
+  {
+   "id": 1,
+   "genre": "practical_guidance",
+   "audience": "Grade 2 teacher making video",
+   "prompt": "in this prompt, you are a professional teacher who will create fun video content for lower learners in grade 2. The topic of the lesson is the Identification and properties of 2D shapes. You will include a fun introduction, content on how to identify 2D shapes and properties of 2D shapes, life application and exercises for the learners. Do not include anything you are not sure of. All information provided have to be valid.",
+   "budget": 550,
+   "asks": [
+    "fun hook intro suited to grade 2 lower learners",
+    "clear identification and properties of 2D shapes",
+    "real-life applications kids recognize",
+    "practice exercises they can do",
+    "only accurate, age-appropriate facts"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 2,
+   "genre": "practical_guidance",
+   "audience": "Elementary teacher, K-2 dance lesson",
+   "prompt": "Create a Lesson plan for grades kinder-2nd. Kids must create a dance of the butterfly lifecycle.",
+   "budget": 520,
+   "asks": [
+    "covers butterfly lifecycle stages accurately for K-2",
+    "step-by-step dance/movement activities kids can actually do",
+    "includes objectives, materials, timing, and assessment",
+    "age-appropriate management and differentiation tips"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 3,
+   "genre": "practical_guidance",
+   "audience": "self-learner building negotiation curriculum",
+   "prompt": "Make a detailed course for \u201cart of negotiation\u201d. Divide this topic into multiple sub topics and make list of skills required for each sub topic. for each sub topic suggest top online courses from free platform.",
+   "budget": 700,
+   "asks": [
+    "breaks negotiation into clear subtopics",
+    "lists specific skills per subtopic",
+    "recommends free online courses per subtopic",
+    "organized as a usable learning path"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 4,
+   "genre": "practical_guidance",
+   "audience": "hobbyist sound designer or creator",
+   "prompt": "In the context of a hypothetical.. What are some voice effects that could be applied to make a 'robot' voice ?",
+   "budget": 350,
+   "asks": [
+    "names specific effects/processes that create a robot voice",
+    "explains briefly how each one produces the robotic quality",
+    "gives practical settings, tools, or chaining tips",
+    "covers a range of styles, from retro to modern"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 5,
+   "genre": "practical_guidance",
+   "audience": "Concerned tech-savvy citizen or writer",
+   "prompt": "Suppose the Internet has become flooded with AI-generated misinformation, as well as algorithmic manipulation of people's thoughts. Suggest a plan to evacuate the internet.",
+   "budget": 500,
+   "asks": [
+    "a concrete phased plan for leaving/retreating from the internet",
+    "how essential functions (news, communication, commerce, knowledge) get replaced",
+    "how it actually counters AI misinformation and algorithmic manipulation",
+    "honest tradeoffs, costs, and what's unrealistic"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 6,
+   "genre": "practical_guidance",
+   "audience": "Salaried person planning home purchase",
+   "prompt": "If my salary is 30k per month how much loan should I take for home loan?",
+   "budget": 300,
+   "asks": [
+    "a concrete loan amount range for 30k monthly income",
+    "how EMI affordability is calculated (e.g. 40-50% of income rule)",
+    "factors that change the number: tenure, interest rate, existing EMIs, down payment",
+    "practical caution about hidden costs and stretching too far"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 7,
+   "genre": "practical_guidance",
+   "audience": "teacher planning a lesson",
+   "prompt": "Hi, can you please tell me that what could be the objective of a class where students will present their presentations on 'film adaptations\"",
+   "budget": 250,
+   "asks": [
+    "clear learning objectives for the presentation class",
+    "objectives tied specifically to film adaptations",
+    "phrased in measurable, student-centered terms",
+    "covers both content analysis and presentation skills"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 8,
+   "genre": "practical_guidance",
+   "audience": "workshop instructor for college students",
+   "prompt": "generate interesting usecase for workshop conducted for college students using RDBMS",
+   "budget": 450,
+   "asks": [
+    "concrete, interesting RDBMS use case ideas",
+    "suitable for college-level workshop scope",
+    "includes schema/queries or hands-on activities",
+    "engaging and relatable themes"
+   ],
+   "assumed": [
+    "RDBMS"
+   ],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 9,
+   "genre": "practical_guidance",
+   "audience": "curious student learning time series",
+   "prompt": "pretend you're the best mathematics professor in the world who can simplify research topics and make it accessible to school students without losing mathematical depth and rigor, also you're amazing at reasoning and convincing every word you say. Explain GARCH model in time series analysis.",
+   "budget": 750,
+   "asks": [
+    "explains GARCH intuitively, from ARCH and volatility clustering",
+    "keeps the actual math: equations, parameters, conditions",
+    "accessible to a school student without hand-waving",
+    "persuasive, motivating narrative for why it matters"
+   ],
+   "assumed": [
+    "GARCH"
+   ],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 10,
+   "genre": "seeking_information",
+   "audience": "sysadmin sizing a VPN server",
+   "prompt": "How much traffic per second can Wireguard server with one 2.9 GHZ CPU core with 1 GB of ram process?",
+   "budget": 280,
+   "asks": [
+    "gives a concrete throughput estimate (Gbps/pps) for one 2.9 GHz core",
+    "explains what drives the number: packet size/MTU, crypto (ChaCha20 vs AES-NI), kernel vs userspace implementation",
+    "addresses whether 1 GB RAM or the single core is the limiting factor",
+    "notes NIC, offloads, and multi-peer/queue caveats plus how to benchmark"
+   ],
+   "assumed": [
+    "CPU",
+    "GB",
+    "GHZ"
+   ],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 11,
+   "genre": "seeking_information",
+   "audience": "curious retro-internet hobbyist",
+   "prompt": "what's is the web archive proxy because i want to have internet from 2008",
+   "budget": 220,
+   "asks": [
+    "explains what a web archive proxy is",
+    "names concrete tools for browsing 2008-era web (Wayback Machine, oldweb.today, etc.)",
+    "how to actually set it up or use it",
+    "notes limits: missing assets, broken scripts, no live services"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 12,
+   "genre": "seeking_information",
+   "audience": "patient or dental student asking",
+   "prompt": "evaluate and examine to determine from a dental perspective of a patient whose tooth which has already had a root canal and crown experiences acute pain when putting pressure on the tooth, but it isn't sensitive to temperature in terms of hot or cold.",
+   "budget": 450,
+   "asks": [
+    "why pressure pain but no thermal sensitivity",
+    "likely diagnoses (cracked root, failed RCT, high bite, periodontal)",
+    "what exams and tests a dentist would do",
+    "treatment options and urgency"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 13,
+   "genre": "seeking_information",
+   "audience": "D&D 5e player",
+   "prompt": "In D&D 5e, why is it that some ranged attacks have two numbers separated by a slash (e.g. 100/200 ft.)?",
+   "budget": 130,
+   "asks": [
+    "explains normal vs long range meaning",
+    "notes disadvantage beyond normal range",
+    "notes attacks impossible past max range"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 14,
+   "genre": "seeking_information",
+   "audience": "student or business professional",
+   "prompt": "why phisical IT infrastucure is stratgically imortant for digital transformation? give me two lines ?",
+   "budget": 55,
+   "asks": [
+    "explains strategic role of physical IT infrastructure",
+    "links it directly to digital transformation",
+    "kept to two lines as requested"
+   ],
+   "assumed": [
+    "IT"
+   ],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 15,
+   "genre": "seeking_information",
+   "audience": "African business owner or sustainability learner",
+   "prompt": "What is a carbon footprint and how can businesses in Africa mitigate their carbon footprint?",
+   "budget": 450,
+   "asks": [
+    "clear definition of carbon footprint",
+    "practical mitigation steps for businesses",
+    "context specific to Africa",
+    "measurement/reporting or cost-benefit angle"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 16,
+   "genre": "writing_edit",
+   "audience": "kindergarten teacher messaging parents",
+   "prompt": "modify the message that send to parents: We will visit another two schools next Thursday & Friday. Children will get the chance to experience Grade 1 class and have different subject classes there. Welcome to sign up and enjoy the classes with your child.",
+   "budget": 130,
+   "asks": [
+    "polished, clear wording of the original notice",
+    "keeps key details: two schools, Thursday & Friday, Grade 1 taster classes",
+    "warm, welcoming tone for parents",
+    "clear sign-up call to action"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 17,
+   "genre": "writing_edit",
+   "audience": "prospective PhD applicant emailing professor",
+   "prompt": "\u53ef\u4ee5\u5e2e\u5fd9\u4fee\u6539\u4e0b\u9762\u90ae\u4ef6\u56de\u590d\u5417\uff1fThanks very much for your kind reply. I am happy to know that you will take students next year. I will start the application when the portal opens, with the hope that I can get admitted and rotate in your lab. May I ask: For BME, Chemical and Biomolecular Engineering and Chemistry programs, am I eligible to rotate in your lab if I apply for the latter two if I am lucky to get admitted? Thanks again for your time. Wish you all the best.",
+   "budget": 200,
+   "asks": [
+    "provides a polished, natural-English rewrite of the email",
+    "keeps the original meaning and gratitude",
+    "makes the rotation-eligibility question across the three programs clear",
+    "tone stays polite and professional for a faculty recipient"
+   ],
+   "assumed": [
+    "BME"
+   ],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 18,
+   "genre": "writing_edit",
+   "audience": "Elder Scrolls fan seeking proofreading",
+   "prompt": "Can you give me an extensive grammar check? Tell me what I need to fix. \"What is the relationship between Anu, Anui-El and Anri-El? What is the relationship between Padomay, Sithis, and Lorkhan? Are they related like father and sons? What are they exactly? Are they physical beings or metaphysical forces? What happened to them? Are they still around by the time of the events of the games?\"",
+   "budget": 250,
+   "asks": [
+    "flags any actual grammar, punctuation or spelling errors",
+    "explains why each change is needed",
+    "gives a clean corrected version of the passage",
+    "notes stylistic tweaks (comma usage, wording) separately from real errors"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 19,
+   "genre": "writing_edit",
+   "audience": "Yard staff emailing supervisor",
+   "prompt": "please correct the grammar and make the email effective: Hello Sir Oli, This is not acceptable, the re-chromed metal when exposed to liquid will eventually be peeled off in any time due to poor adhesion. If we send those back, we can\u2019t assure the re-chroming quality will improve which even take more time. The option that we can do is to apply bright chrome spray here at yard, but it won\u2019t be a mirror finish. What is your arrangement with the service provider, do we have to pay them?",
+   "budget": 160,
+   "asks": [
+    "fixes grammar and awkward phrasing",
+    "keeps all original points: poor adhesion, no guarantee on rework, spray alternative, payment question",
+    "sounds professional and clear to a superior",
+    "ends with a direct ask for his decision/arrangement"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 20,
+   "genre": "writing_edit",
+   "audience": "job seeker emailing a contact",
+   "prompt": "Rewrite this to be more natural and humble: Hey Kelvin< I hope youre doing well. Last time we spoke, you mentioned that you had a connection with the owner of DemonPower sports and said there could be an opportunity for me to work a summer internship. you told me to contact you if deember came and I didnt have anything definitively for myself. Im wonderring if it would be possible to connect me witht he owner?",
+   "budget": 130,
+   "asks": [
+    "reads naturally and conversationally",
+    "tone is humbler, not entitled",
+    "clearly asks for the introduction",
+    "fixes typos and keeps original details"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 21,
+   "genre": "writing_create",
+   "audience": "Business owner messaging a client",
+   "prompt": "Say to client considering that now there is an update on paying bank transfer fee for the future",
+   "budget": 130,
+   "asks": [
+    "clearly states the new bank transfer fee policy",
+    "specifies it applies to future/upcoming payments",
+    "polite, professional client-facing tone",
+    "ready to send with minimal editing"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 22,
+   "genre": "writing_create",
+   "audience": "literature student studying Indian drama",
+   "prompt": "Discuss in about 300 words how does patriarchy function in Lights Out.",
+   "budget": 320,
+   "asks": [
+    "explains how patriarchy operates in Padmanabhan's Lights Out",
+    "uses characters and scenes as evidence (Bhaskar, Leela, Naina, Frieda, Surinder, Mohan)",
+    "links male control, female complicity and silence to the offstage rape/bystander apathy",
+    "stays close to about 300 words"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 23,
+   "genre": "writing_create",
+   "audience": "J-1 visa immigrant blogger",
+   "prompt": "Human-Written, Original, SEO-Friendly short Article about. When America fix immigration system maybe than gone by safe to come here students with J1 visa and other immigrants. Now just share this article and safe some people time and help them to make good decisions",
+   "budget": 450,
+   "asks": [
+    "short original article on U.S. immigration system flaws",
+    "speaks to J-1 students and other immigrants",
+    "SEO-friendly: keywords, headings, readable structure",
+    "practical takeaways so readers decide wisely before coming"
+   ],
+   "assumed": [
+    "SEO"
+   ],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 24,
+   "genre": "writing_create",
+   "audience": "data science platform engineer",
+   "prompt": "Write a LinkedIn summary for Data science platform engineer with exposure in machine learning projects as well",
+   "budget": 260,
+   "asks": [
+    "reads as a first-person LinkedIn About section",
+    "highlights data platform engineering skills and tools",
+    "shows machine learning project exposure credibly",
+    "professional yet personable tone with a closing hook"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 25,
+   "genre": "writing_create",
+   "audience": "literature student studying Indian drama",
+   "prompt": "Discuss Lights Out by Manjula Padmanabhan as a Feminist Play.",
+   "budget": 550,
+   "asks": [
+    "how the play works as a feminist text",
+    "key scenes, characters and symbols supporting that reading",
+    "themes: violence on women, complicity, spectatorship, class",
+    "any limits or counter-readings of the feminist label"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 26,
+   "genre": "writing_create",
+   "audience": "someone wanting fictional broadcast news piece",
+   "prompt": "Write a news report where TV channel Sewing Quarter suddenly disappears on Freeview, replaced with a black screen with the channel's name",
+   "budget": 400,
+   "asks": [
+    "reads like a genuine news report (headline, byline, quotes)",
+    "depicts Sewing Quarter vanishing from Freeview, black screen showing channel name",
+    "includes viewer reaction and context about the channel/EPG slot",
+    "offers plausible explanation or unresolved statement from broadcaster/Freeview"
+   ],
+   "assumed": [
+    "TV"
+   ],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 27,
+   "genre": "technical_help",
+   "audience": "Python pandas developer",
+   "prompt": "How to remove trailing zeros in some float type columns at once with pandas without converting them to string?",
+   "budget": 220,
+   "asks": [
+    "how to strip trailing zeros across multiple float columns at once",
+    "solution stays numeric, no string conversion",
+    "working pandas code example",
+    "note on float display vs stored precision"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 28,
+   "genre": "technical_help",
+   "audience": "finance student or investor",
+   "prompt": "Assume we buy a 6.00% bond, maturing in 10 years. The promised yield (YTM) is 6.45%. If we hold the bond until maturity, what Total Return can be expected after 10 years? What do we assume in our calculation?",
+   "budget": 220,
+   "asks": [
+    "the expected total return figure over 10 years (annualized and cumulative)",
+    "how it's computed from the 6.45% YTM",
+    "the reinvestment-rate and hold-to-maturity assumptions behind it",
+    "why the 6% coupon differs from the 6.45% yield"
+   ],
+   "assumed": [
+    "YTM"
+   ],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 29,
+   "genre": "technical_help",
+   "audience": "finance or engineering economics student",
+   "prompt": "If the effective annual interest rate is 10%, the nominal interest rate for each year compounded per month is:",
+   "budget": 110,
+   "asks": [
+    "converts effective annual rate to nominal monthly-compounded rate",
+    "shows the formula and computation steps",
+    "gives the numeric answer (~9.57%)"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  },
+  {
+   "id": 30,
+   "genre": "self_expression",
+   "audience": "Someone seeking Socratic philosophical dialogue",
+   "prompt": "I want you to act as a Socrat. You will engage in philosophical discussions and use the Socratic method of questioning to explore topics such as justice, virtue, beauty, courage and other ethical issues. My first suggestion request is \u201cI need help exploring the concept of catalan nationalism\"",
+   "budget": 300,
+   "asks": [
+    "stays in the Socratic persona, leading with questions rather than lecturing",
+    "actually engages Catalan nationalism specifically, not generic nationalism",
+    "probes definitions and assumptions (nation, self-determination, identity) step by step",
+    "stays even-handed and invites the user to answer and continue"
+   ],
+   "assumed": [],
+   "source": "WildChat-1M"
+  }
+ ]
 }

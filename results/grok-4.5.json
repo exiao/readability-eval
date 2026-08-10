@@ -1,52 +1,59 @@
 {
  "summary": {
-  "model": "grok-4.5",
-  "backend": "hermes",
-  "n": 12,
+  "model": "x-ai/grok-4.5",
+  "backend": "openrouter",
+  "condition": "default",
+  "n": 10,
   "errors": 0,
-  "score": 87.3,
-  "clarity_avg": 8.97,
-  "slop_per_1k": 1.9,
-  "avg_words": 156,
+  "score": 72.1,
+  "clarity_avg": 7.36,
+  "slop_per_1k": 1.4,
+  "avg_words": 678,
   "per_rule": {
-   "rule2_economy": 6.08,
-   "rule3_jargon": 9.52,
-   "rule5_simple_words": 9.97,
-   "rule6_filler": 10.0,
-   "rule1_understandable": 10.0,
-   "rule4_imagery": 8.25
+   "rule2_economy": 5.0,
+   "rule3_jargon": 5.5,
+   "rule5_simple_words": 8.41,
+   "rule6_filler": 6.0,
+   "rule1_understandable": 9.0,
+   "rule4_imagery": 9.7,
+   "rule7_form": 7.35
   },
-  "cost_usd": 0.0
+  "cost_usd": 0.2415
  },
  "runs": [
   {
    "id": 1,
-   "genre": "technical_qa",
-   "response": "Raise pool size only after you stop leaks. High wait = requests blocked on a free connection.\n\nDo this now:\n1. Diff yesterday\u2019s deploy for new queries, longer holds, missing close, or more workers.\n2. Check active vs idle connections, pool max, and hold time (who keeps connections).\n3. Kill long transactions and fix N+1 / unclosed sessions first.\n4. Cap concurrency to match pool size (workers \u00d7 in-flight \u2264 max_conn).\n5. Re-probe p99 after each change.\n\nAlso found:\n- Blocking sync I/O in async handlers freezes the loop and piles up waits.\n- Stale pooled conns need reset+retry, not silent catch-all.\n- Bigger pool without a leak fix just delays the next cliff.",
+   "genre": "practical_guidance",
+   "response": "**Fun Video Lesson Script: \u201cShape Superheroes!\u201d**  \n*(For Grade 2 learners \u2013 Identification & Properties of 2D Shapes)*  \n*Designed to be lively, short segments you can film or animate. Keep total video ~6\u20138 minutes. Use bright colors, simple animations, clapping/songs, and real objects.*\n\n### 1. Fun Introduction (\u224845\u201360 seconds)\n*(Teacher on screen with big smile, holding colorful paper shapes or wearing a cape made of shape cut-outs)*\n\n\u201cHi Shape Superheroes! \ud83d\udc4b I\u2019m Teacher [Your Name], and today we\u2019re going on a super-fun shape adventure!  \nLook around you\u2026 shapes are EVERYWHERE! Your book is a rectangle, the clock might be a circle, and that pizza slice? A triangle!  \n\nWe\u2019re going to become Shape Detectives. We\u2019ll learn how to spot 2D shapes and discover their special superpowers (we call them properties). Ready? Give me a big shape clap!  \nClap-clap\u2026 circle! Clap-clap\u2026 square! Awesome! Let\u2019s go!\u201d\n\n*(Quick upbeat jingle or \u201cShape Song\u201d snippet: \u201cCircle, square, triangle too\u2026 shapes are fun for me and you!\u201d)*\n\n### 2. Content: How to Identify 2D Shapes & Their Properties (\u22483\u20134 minutes)\n*(Show one shape at a time with clear visuals, real objects, and simple animations. Speak slowly and clearly. Repeat key words.)*\n\n**What are 2D shapes?**  \n2D shapes are flat. They have length and width but no thickness \u2014 like a drawing on paper. You can trace them!\n\n**Let\u2019s meet our Shape Superheroes:**\n\n1. **Circle** \u2b55  \n   - How to identify: Perfectly round, no corners, no straight sides.  \n   - Properties:  \n     \u2022 0 sides  \n     \u2022 0 vertices (corners)  \n     \u2022 Every point on the edge is the same distance from the center.  \n   - Fun check: Can you roll it? Yes!\n\n2. **Square** \u2b1c  \n   - How to identify: Looks like a perfect box.  \n   - Properties:  \n     \u2022 4 straight sides  \n     \u2022 All 4 sides equal length  \n     \u2022 4 vertices  \n     \u2022 4 right angles (square corners)  \n   - Fun check: All sides match when you measure with your finger!\n\n3. **Rectangle** \u25ad  \n   - How to identify: Like a stretched square or a door.  \n   - Properties:  \n     \u2022 4 straight sides  \n     \u2022 Opposite sides equal and parallel  \n     \u2022 4 vertices  \n     \u2022 4 right angles  \n   - Fun check: Longer than it is tall (or wider than it is high).\n\n4. **Triangle** \ud83d\udd3a  \n   - How to identify: Three sides only.  \n   - Properties:  \n     \u2022 3 straight sides  \n     \u2022 3 vertices  \n     \u2022 Can look different (tall, wide, or equal sides) but always 3.  \n   - Fun check: Count the pointy corners \u2014 one, two, three!\n\n5. **Quick bonus friends** (keep light):  \n   - **Oval / Ellipse**: Like a squashed circle \u2014 curved, no corners.  \n   - **Pentagon**: 5 sides, 5 vertices (like a house).  \n   - **Hexagon**: 6 sides, 6 vertices (like a honeycomb).\n\n**Identification Super Tip for kids:**  \n\u201cCount the sides and corners!  \n- 0 sides + round = circle  \n- 3 sides = triangle  \n- 4 equal sides + square corners = square  \n- 4 sides with opposite sides equal = rectangle\u201d\n\n*(Show side-by-side comparison animation or hold up paper cut-outs. Pause and ask viewers: \u201cHow many sides do you see? Count with me!\u201d)*\n\n### 3. Life Application (\u22481 minute)\n*(Show real photos or quick classroom/home clips)*\n\n\u201cShapes are useful every day!  \n- Circles: wheels on your bike, clocks, coins, plates \u2014 they roll smoothly.  \n- Squares & rectangles: books, windows, phones, doors, chocolate bars \u2014 easy to stack and fit together.  \n- Triangles: roof of a house, a slice of pizza or sandwich, warning signs \u2014 strong and stable.  \n- Hexagons: honeycombs made by bees \u2014 nature\u2019s perfect packing shape!\n\nNext time you eat a sandwich, look at traffic signs, or play with blocks, be a Shape Detective and shout out the name and how many sides it has!\u201d\n\n### 4. Exercises for Learners (\u22481.5\u20132 minutes)\n*(Interactive \u2014 pause the video so kids can answer out loud or on paper. Encourage adult/parent help if needed.)*\n\n**Exercise 1 \u2013 Quick Identify (call-out)**  \nLook at these (show pictures one by one):  \n1. A round ball drawing \u2192 What shape? (Circle) How many corners? (0)  \n2. A book \u2192 What shape? (Rectangle)  \n3. A yield/traffic sign or pizza slice \u2192 What shape? (Triangle)  \n4. A window or napkin \u2192 Square or rectangle? Why?\n\n**Exercise 2 \u2013 Properties Match**  \nSay \u201cYes!\u201d or \u201cNo!\u201d  \n- A square has 4 equal sides? (Yes!)  \n- A circle has 3 corners? (No!)  \n- A triangle has 3 sides? (Yes!)  \n- A rectangle has all sides equal? (No! Only opposite sides.)\n\n**Exercise 3 \u2013 Real-Life Hunt (pause & do)**  \n\u201cPause the video! Find 3 things in your room:  \n- One circle  \n- One rectangle or square  \n- One triangle (or make one with your fingers!)  \nCome back and tell me what you found!\u201d\n\n**Exercise 4 \u2013 Draw & Count**  \nOn paper: Draw a square, a triangle, and a circle.  \nColor them. Write next to each: number of sides and number of corners.\n\n**Closing cheer**  \n\u201cYou did AMAZING, Shape Superheroes! You can now identify 2D shapes and tell their properties. Keep spotting shapes every day. High-five the screen! \u270b  \nSee you next time for more math fun! Bye!\u201d\n\n### Teaching Notes (for you as the creator)\n- Use bright, high-contrast visuals and large clear shapes.  \n- Repeat key vocabulary: sides, vertices/corners, equal, round, straight.  \n- Keep energy high with gestures, sound effects (pop for corners, whoosh for circle), and positive praise.  \n- All facts above are standard, age-appropriate, and accurate for Grade 2 (flat shapes, basic side/vertex counts, common examples).  \n- No advanced concepts (no area formulas, no 3D, no irregular polygons beyond simple mention).\n\nYou now have a complete, ready-to-film fun video lesson! Just add your personality, music, and simple animations. Your Grade 2 learners will love becoming Shape Superheroes! \ud83c\udf89",
    "rules": {
-    "rule2_economy": 1.8,
-    "rule3_jargon": 10.0,
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
     "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
    },
-   "clarity_avg": 8.13,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 81.3,
-   "facts_delivered": "2/4",
+   "clarity_avg": 7.96,
+   "slop_per_1k": 0.3,
+   "slop_breakdown": {
+    "inline_header_list": 3
+   },
+   "slop_tax": 0.004,
+   "score": 79.3,
+   "facts_delivered": "5/5",
    "detail": {
     "economy": {
-     "words": 114,
-     "facts": 2,
-     "required": 4,
-     "coverage": 0.5,
-     "words_per_fact": 57.0
+     "words": 940,
+     "budget": 550,
+     "facts": 5,
+     "required": 5,
+     "coverage": 1.0,
+     "over_budget": 1.71
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -57,530 +64,102 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
    "judge": {
     "facts_delivered": [
      true,
-     false,
      true,
-     false
+     true,
+     true,
+     true
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "abstract_but_fine",
+    "imagery": "concrete",
     "imagery_quote": "",
-    "imagery_suggestion": ""
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "You now have a complete, ready-to-film fun video lesson! Just add your personality, music, and simple animations. Your Grade 2 learners will love becoming Shape Superheroes! \ud83c\udf89",
+    "jargon": "some_jargon",
+    "jargon_quote": "vertices",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Designed to be lively, short segments you can film or animate."
+   },
+   "scaffold": {
+    "headings": 14,
+    "list_items": 44,
+    "headings_per_100b": 2.55,
+    "list_items_per_100b": 8.0,
+    "scaffold_score": 10.0
    },
    "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.67,
-    "frag_ratio": 0.33,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.4
+    "em_dash_per_100w": 0.85,
+    "sentence_cv": 0.83,
+    "frag_ratio": 0.25,
+    "bold_per_100w": 1.81,
+    "comma_per_sent": 0.63,
+    "staccato_runs": 0
    },
-   "cost_usd": 0.0,
-   "seconds": 217.6
+   "cost_usd": 0.025935,
+   "seconds": 38.8
   },
   {
    "id": 2,
-   "genre": "explain",
-   "response": "A process is a running program with its own memory. A thread is a lighter path of work inside a process that shares that memory.\n\n- Process: separate address space, heavier to start/switch\n- Thread: shared memory/files with siblings, faster to create\n- One process can hold many threads\n- Crash in one process usually stays isolated; bad thread can hurt the whole process",
+   "genre": "practical_guidance",
+   "response": "**Lesson Plan: Butterfly Lifecycle Dance**  \n**Grade Levels:** Kindergarten\u20132nd Grade  \n**Duration:** 45\u201360 minutes  \n**Subject Areas:** Science (life cycles), Physical Education/Dance, Arts  \n\n### Learning Objectives\nBy the end of the lesson, students will be able to:  \n- Identify and sequence the four main stages of the butterfly life cycle (egg, larva/caterpillar, pupa/chrysalis, adult butterfly).  \n- Create and perform simple movements or a short group dance that represents each stage.  \n- Work cooperatively, follow directions, and express ideas through movement.  \n\n### Materials\n- Pictures or simple diagrams of the butterfly life cycle (egg \u2192 caterpillar \u2192 chrysalis \u2192 butterfly).  \n- Optional: Soft music (gentle instrumental or nature sounds), scarves or ribbon wands for \u201cwings,\u201d open space for movement.  \n- Chart paper or whiteboard for sequencing.  \n- Optional extension: Simple egg/caterpillar/chrysalis/butterfly coloring sheets or sequencing cards.  \n\n### Vocabulary\nEgg, caterpillar (larva), chrysalis (pupa), butterfly, life cycle, transform/change, hatch, emerge.  \n\n### Lesson Sequence\n\n**1. Introduction / Engage (5\u201310 minutes)**  \n- Gather students in a circle. Show clear pictures of a butterfly and ask: \u201cWhat do you know about butterflies? How do they grow?\u201d  \n- Briefly introduce the life cycle using visuals:  \n  1. Egg (tiny, usually on a leaf)  \n  2. Caterpillar (hatches and eats a lot, grows)  \n  3. Chrysalis (rests and changes inside)  \n  4. Adult butterfly (comes out, flies, lays eggs)  \n- Quick call-and-response or freeze-dance style review: Teacher calls a stage, students freeze in a simple pose (e.g., curl small for egg, wiggle on tummy for caterpillar, still/wrapped for chrysalis, arms out for butterfly).  \n\n**2. Explore the Stages Through Movement (10\u201315 minutes)**  \nModel and practice one simple movement per stage. Keep movements safe, large-motor, and easy to remember:  \n- **Egg:** Curl into a tiny ball on the floor, stay very still.  \n- **Caterpillar:** Lie on belly or crawl on hands and knees; wiggle, inch forward, pretend to munch leaves (exaggerated chewing motions).  \n- **Chrysalis:** Stand or kneel and wrap arms around body (or use a scarf); freeze and \u201csleep/transform\u201d (maybe gentle swaying).  \n- **Butterfly:** Spread arms like wings; gently flap, twirl, float, and \u201cfly\u201d around the space (remind students of personal space).  \n\nPractice transitioning in order several times as a whole group. Add simple cues or counts (e.g., \u201cEgg \u2013 1-2-3-4\u2026 Caterpillar wiggle\u2026 Chrysalis freeze\u2026 Butterfly fly!\u201d).  \n\n**3. Create the Dance (15\u201320 minutes)**  \n- Explain: \u201cNow you will become butterfly life-cycle dancers! We will put the movements in order to tell the whole story.\u201d  \n- Whole-group choreography first (teacher-led): Perform the four stages in sequence to music or a steady beat/clap. Repeat 2\u20133 times so everyone knows the order.  \n- Small-group or partner creation (optional differentiation): In pairs or groups of 3\u20134, students practice the sequence and may add one personal flair (e.g., how their caterpillar wiggles, how their butterfly flies). Emphasize staying in the correct order.  \n- Encourage use of levels (low for egg/caterpillar, medium for chrysalis, high for flying), speed (slow for chrysalis, faster happy flying), and expression.  \n- Safety reminders: Move carefully, watch personal space, freeze when music/stops or teacher signals.  \n\n**4. Perform and Share (5\u201310 minutes)**  \n- Groups or the whole class perform the lifecycle dance.  \n- Audience gives positive feedback (\u201cI liked how you wiggled like a hungry caterpillar!\u201d).  \n- Optional: Perform once more all together as a culminating \u201cButterfly Lifecycle Dance.\u201d  \n\n**5. Cool-Down & Review (5 minutes)**  \n- Slow breathing while pretending to be a resting butterfly.  \n- Quick oral review: \u201cWhat happens first? Next? Then? Last?\u201d Students can show with a movement or point to pictures.  \n- Connect to science: \u201cReal butterflies go through these changes. That\u2019s called metamorphosis / a life cycle.\u201d  \n\n### Assessment\n- Observational: Can students show the stages in correct order through movement?  \n- Participation and cooperation during creation and performance.  \n- Exit ticket (oral or drawing): \u201cDraw or tell me one stage and show me its dance move.\u201d  \n\n### Differentiations & Adaptations\n- **Support:** Provide visual sequence cards on the floor; partner a student with a peer buddy; allow seated or smaller movements.  \n- **Extension:** Add music with clear sections, create a longer dance with repeated cycles, or have students narrate the stages while others dance.  \n- **ELL:** Heavy use of pictures, gestures, and repeated simplified phrases.  \n- **Space/materials limited:** Do the lesson in place (standing spots) with arm and upper-body movements.  \n\n### Extensions / Cross-Curricular Connections\n- Read a picture book about butterfly life cycles (e.g., *The Very Hungry Caterpillar* as a springboard, then clarify real stages).  \n- Science center: Sequencing cards or observe real caterpillars if available.  \n- Art: Make simple butterfly wings or life-cycle collages.  \n- Writing/drawing (1st\u20132nd): \u201cMy Butterfly Dance\u201d \u2013 label the stages they performed.  \n\n### Standards Alignment (examples)\n- Science: Life cycles / organisms have stages of growth.  \n- PE/Dance: Locomotor and non-locomotor movements, sequencing, spatial awareness, creative expression.  \n- Social: Cooperation, following multi-step directions.  \n\nThis lesson is active, memorable, and developmentally appropriate\u2014young learners embody the science content through creative movement. Have fun watching your class transform from tiny eggs into fluttering butterflies!",
    "rules": {
-    "rule2_economy": 9.0,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
+    "rule4_imagery": 10.0,
+    "rule7_form": 9.9
    },
-   "clarity_avg": 9.33,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 93.3,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 64,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 21.3
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.73,
-    "frag_ratio": 0.0,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.67
-   },
-   "cost_usd": 0.0,
-   "seconds": 170.1
-  },
-  {
-   "id": 3,
-   "genre": "bad_news",
-   "response": "Draft only. I will not send this. You approve any broadcast.\n\n---\n\nSubject: Department closing \u2014 end of month\n\nTeam,\n\nI am writing with hard news. Our department is being eliminated. Your last day will be [DATE \u2014 end of this month].\n\nThis is a company decision about structure, not about your work. You have done strong work, and I am sorry we are here.\n\nWhat happens next:\n- HR will meet with each of you this week on severance, benefits, and final pay.\n- [Name] is your point person for questions.\n- Please keep client and internal work orderly through your last day so handoffs stay clean.\n\nI will support references and introductions wherever I can. More detail follows in 1:1s and from HR.\n\nThank you for what you built here.\n\n[Your name]\n\n---\n\nAlso found:\n- Fill bracketed fields before anyone sees this.\n- Run legal/HR review first; local rules vary.\n- Say if you want a colder, warmer, or shorter cut.",
-   "rules": {
-    "rule2_economy": 6.0,
-    "rule3_jargon": 9.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
-   },
-   "clarity_avg": 8.67,
-   "slop_per_1k": 6.1,
+   "clarity_avg": 7.21,
+   "slop_per_1k": 1.2,
    "slop_breakdown": {
+    "filler": 1,
     "rule_of_three": 1
    },
-   "slop_tax": 0.091,
-   "score": 78.7,
+   "slop_tax": 0.018,
+   "score": 70.8,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
-     "words": 164,
+     "words": 826,
+     "budget": 520,
      "facts": 4,
      "required": 4,
      "coverage": 1.0,
-     "words_per_fact": 41.0
+     "over_budget": 1.59
     },
     "jargon": {
      "undefined_acronyms": [
-      "DATE"
+      "PE"
      ],
-     "per_100w": 0.61
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 1.22,
-    "sentence_cv": 0.47,
-    "frag_ratio": 0.12,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.41
-   },
-   "cost_usd": 0.0,
-   "seconds": 223.5
-  },
-  {
-   "id": 4,
-   "genre": "decision",
-   "response": "**SQLite.**\n\n- 3 users now: zero setup, one file, plenty fast.\n- Grows fine to thousands of users on one box.\n- Move to Postgres later if you need multi-writer or hosted scale.\n\nAlso found: most side projects never hit that wall.",
-   "rules": {
-    "rule2_economy": 10.0,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
-   },
-   "clarity_avg": 9.5,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 95.0,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 42,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 14.0
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.12,
-    "frag_ratio": 0.0,
-    "bold_per_100w": 2.38,
-    "comma_per_sent": 0.5
-   },
-   "cost_usd": 0.0,
-   "seconds": 161.1
-  },
-  {
-   "id": 5,
-   "genre": "marketing",
-   "response": "**Headline:** Open. Type. Done.\n\n**Paragraph:** Your notes app should not make you wait. Tap it and the blank page is already there, ready for the thought you almost lost. No splash screen, no sync spinner, no \u201cjust a second.\u201d Write first. Everything else can catch up.",
-   "rules": {
-    "rule2_economy": 9.9,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 9.98,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 99.8,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 46,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 15.3
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.9,
-    "frag_ratio": 0.43,
-    "bold_per_100w": 4.35,
-    "comma_per_sent": 0.43
-   },
-   "cost_usd": 0.0,
-   "seconds": 199.5
-  },
-  {
-   "id": 6,
-   "genre": "instruction",
-   "response": "**Use cloud backup.** Pick your phone.\n\n### iPhone photos (iCloud Photos)\n1. Join Wi\u2011Fi.\n2. Open **Settings \u2192 [your name] \u2192 iCloud \u2192 Photos**.\n3. Turn on **Sync this iPhone** (or iCloud Photos).\n4. Plug in, lock the phone, leave it on Wi\u2011Fi until it finishes.\n\n### Full iPhone backup (settings + apps)\n1. **Settings \u2192 [your name] \u2192 iCloud \u2192 iCloud Backup**.\n2. Turn on **Back Up This iPhone**.\n3. Tap **Back Up Now**. Needs power + Wi\u2011Fi + lock.\n\n### Android photos (Google Photos)\n1. Open **Google Photos** and sign in.\n2. Tap your **profile \u2192 Photos settings \u2192 Backup**.\n3. Turn **Backup** on.\n4. Stay on Wi\u2011Fi; check status under your profile until it says Backup complete.\n\n### Extra copy (both)\n- USB to a computer, or Google Photos / Dropbox / OneDrive as a second place.\n- Free cloud storage fills up fast. Check storage before a big upload.\n\nSay iPhone or Android if you want only one path.",
-   "rules": {
-    "rule2_economy": 3.9,
-    "rule3_jargon": 9.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 8.82,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 88.2,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 163,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 54.3
-    },
-    "jargon": {
-     "undefined_acronyms": [
-      "USB"
-     ],
-     "per_100w": 0.61
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.78,
-    "frag_ratio": 0.39,
-    "bold_per_100w": 5.52,
-    "comma_per_sent": 0.11
-   },
-   "cost_usd": 0.0,
-   "seconds": 237.4
-  },
-  {
-   "id": 7,
-   "genre": "chat",
-   "response": "**No. Not always. Hybrid usually wins.**\n\nDepends on the person, job, and manager.\n\n**Remote often wins for:**\n- Happiness and work-life balance\n- Commute time saved\n- Focus work and fewer interruptions\n- Retention (many quit over forced RTO)\n\n**Office often wins for:**\n- New hires and mentorship\n- Spontaneous collaboration\n- Culture and trust for some teams\n- People who isolate or overwork at home\n\n**What the data says (2025-2026):**\n- Most remote-capable workers want hybrid (~60%). Few want full office.\n- Meta-analyses: remote links to higher job satisfaction and better employee outcomes.\n- Productivity: mixed. Many self-report higher at home; some studies show fully remote slightly lower than hybrid.\n- Burnout is similar across setups. Hybrid often lowest.\n\n**Honest take:** Full remote is better for many knowledge workers who are self-directed. Full office is better when the work needs constant face-to-face or you're early-career. For most teams, 2-3 days remote is the least-bad default.",
-   "rules": {
-    "rule2_economy": 4.3,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
-   },
-   "clarity_avg": 8.55,
-   "slop_per_1k": 6.4,
-   "slop_breakdown": {
-    "rule_of_three": 1
-   },
-   "slop_tax": 0.096,
-   "score": 77.3,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 156,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 52.0
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 1.38,
-    "frag_ratio": 0.38,
-    "bold_per_100w": 3.21,
-    "comma_per_sent": 0.23
-   },
-   "cost_usd": 0.0,
-   "seconds": 205.1
-  },
-  {
-   "id": 8,
-   "genre": "postmortem",
-   "response": "# Blameless postmortem: payment webhook null pointer\n\n**Status:** Resolved  \n**Severity:** High (money path)  \n**Impact:** ~400 payments not recorded over ~2 hours  \n**Trigger:** Null pointer in the payment webhook handler  \n\n## Summary\n\nThe payment provider sent webhooks as usual. The handler crashed on a null field before it could mark the payment complete. Those events were not processed. About 400 payments were dropped in a two-hour window. No customer money moved the wrong way at the processor; our system failed to ingest the events.\n\n## Impact\n\n- ~400 successful charges at the processor had no matching completed state in our app.\n- Window: about 2 hours.\n- Users who paid may have seen pending, failed, or locked access until we repaired records.\n- Support load rose for \u201cI paid but nothing happened.\u201d\n- No evidence of double charge from this bug alone. Confirm with the processor export if needed.\n\n## Timeline (fill real UTC times)\n\n| Time | Event |\n|------|--------|\n| T+0 | Deploy or traffic change that hit the bad path (or first event with null field). |\n| T+0 \u2192 T+2h | Handler throws on null. Webhooks fail or ack without durable processing. ~400 payments dropped. |\n| T+2h | Alert, error spike, or support signal. Incident opened. |\n| +fix | Bad path disabled, rolled back, or null-guarded. Handler stable. |\n| +Repair | Backfill from provider events or dashboard for the window. |\n\nReplace T with wall-clock times from logs and deploy history.\n\n## Root cause\n\nThe webhook handler read a field that was sometimes null (or missing). Code treated it as always present. A null pointer (or equivalent) aborted the request before the payment was written as paid.\n\nThis is a missing null check and a missing assumption test on a real provider payload shape, not a failure of one person.\n\n## Contributing factors (systems, not people)\n\n1. **Payload assumption.** We coded to the happy-path sample, not the full schema and edge cases (omitted fields, partial objects, test vs live shapes).\n2. **Fail-open vs fail-closed.** Crash or non-2xx without a durable retry queue left events unprocessed if the provider did not retry, or if we acked too early.\n3. **Weak contract tests.** No fixture for \u201cfield X is null\u201d on the webhook path.\n4. **Alert lag.** Error rate or dead-letter depth did not page fast enough for a money path.\n5. **Idempotent backfill gap.** No routine \u201cprovider says paid, we say not\u201d reconcile job for the window.\n\n## What went well\n\n- Impact was bounded to about two hours once detected.\n- Processor remained source of truth for charge success.\n- Repair path existed or was buildable from provider logs/export.\n\n## What went poorly\n\n- Money-path code trusted a non-null field without a guard.\n- Detection depended on secondary signals (support, lagging metrics).\n- ~400 customers hit a bad state before fix and backfill.\n\n## Corrective actions\n\n| Action | Owner | Due |\n|--------|--------|-----|\n| Null-guard the field; reject or branch safely; never crash mid-handler without queueing the raw event | Eng | Immediate |\n| Persist raw webhook body first, then process (at-least-once + idempotent apply) | Eng | Short |\n| Contract tests: null, missing, and extra fields for this event type | Eng | Short |\n| Alert: webhook 5xx/error rate and \u201cpaid at provider, unpaid in DB\u201d count | Eng/SRE | Short |\n| One-shot and recurring reconcile: provider export vs our payment rows for the incident window and daily | Eng | Short |\n| Runbook: drop window \u2192 export \u2192 backfill \u2192 customer comms | Eng + Support | Short |\n\n## Customer repair\n\n1. Export successful charges from the provider for the incident window.  \n2. Match to internal payment/user ids.  \n3. Idempotently mark paid and grant entitlement.  \n4. Message affected users only if access or receipt was wrong after repair.  \n5. Spot-check a sample; do not close until count matches ~400 or the export total.\n\n## Lessons\n\n- Webhooks are hostile input. Every field can be null.\n- For payments, store the event before you interpret it.\n- \u201cProcessor charged\u201d and \u201cwe recorded paid\u201d must be reconciled on a timer, not only on the live path.\n\n## Appendix: detection queries (adapt names)\n\n- Error rate on webhook route during the window  \n- Count of provider `succeeded` with no local `paid` in [start, end]  \n- Dead-letter / failed-job depth for payment webhooks  \n\n---\n\nNumbers and times above match only what you stated (~400 payments, ~2 hours, null pointer). Swap in real UTC stamps, field name, deploy SHA, and alert names before you share outside the team.",
-   "rules": {
-    "rule2_economy": 0.0,
-    "rule3_jargon": 9.3,
-    "rule5_simple_words": 9.7,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
-   },
-   "clarity_avg": 7.67,
-   "slop_per_1k": 1.3,
-   "slop_breakdown": {
-    "rule_of_three": 1
-   },
-   "slop_tax": 0.019,
-   "score": 75.2,
-   "facts_delivered": "4/4",
-   "detail": {
-    "economy": {
-     "words": 768,
-     "facts": 4,
-     "required": 4,
-     "coverage": 1.0,
-     "words_per_fact": 192.0
-    },
-    "jargon": {
-     "undefined_acronyms": [
-      "DB",
-      "SHA",
-      "SRE"
-     ],
-     "per_100w": 0.39
+     "undefined_terms": [],
+     "per_100w": 0.12
     },
     "simple_words": {
      "swaps": {
-      "request": "ask"
+      "in order to": "to"
      },
-     "per_100w": 0.13
+     "per_100w": 0.12
     },
     "filler": {
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 1.33,
-    "frag_ratio": 0.2,
-    "bold_per_100w": 1.17,
-    "comma_per_sent": 0.46
-   },
-   "cost_usd": 0.0,
-   "seconds": 209.1
-  },
-  {
-   "id": 9,
-   "genre": "critique",
-   "response": "**Verdict: drop it.** That form will tank completion.\n\n**Why**\n- 14 fields is a wall. People bounce after ~5\u20137 on signup.\n- Errors only on submit = rework loop. Users fill everything, fail, guess what broke.\n- CAPTCHA on top adds friction and mobile pain, especially after a long form.\n\n**Heuristic hits**\n- Error prevention: fail\n- Error recovery: fail (late, vague until submit)\n- Minimal design: fail (too much at once)\n- System status: weak (no inline feedback)\n\n**Fix order**\n1. Cut to essentials (email + password, or magic link). Rest after first value.\n2. Validate inline on blur/change. Clear field-level messages.\n3. Move CAPTCHA later or drop it (rate limits, device checks, Turnstile only if abuse is real).\n4. Progress: multi-step with 3\u20134 fields max per screen if you must collect more.\n\n**Expected impact**\nFewer fields + early errors usually lift signup completion a lot; 14 + late errors + CAPTCHA is a classic kill pattern.",
-   "rules": {
-    "rule2_economy": 6.2,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 9.37,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 93.7,
-   "facts_delivered": "4/4",
-   "detail": {
-    "economy": {
-     "words": 158,
-     "facts": 4,
-     "required": 4,
-     "coverage": 1.0,
-     "words_per_fact": 39.5
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
+     "grammar": 1,
+     "per_100w": 0.12
     }
    },
    "judge": {
@@ -594,178 +173,165 @@
     "clarity_quote": "",
     "imagery": "concrete",
     "imagery_quote": "",
-    "imagery_suggestion": ""
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "This lesson is active, memorable, and developmentally appropriate\u2014young learners embody the science content through creative movement.",
+    "jargon": "some_jargon",
+    "jargon_quote": "locomotor and non-locomotor movements",
+    "simple_words": "some_complex",
+    "simple_words_quote": "culminating",
+    "filler": "some_filler",
+    "filler_quote": "Have fun watching your class transform from tiny eggs into fluttering butterflies!"
+   },
+   "scaffold": {
+    "headings": 14,
+    "list_items": 43,
+    "headings_per_100b": 2.69,
+    "list_items_per_100b": 8.27,
+    "scaffold_score": 9.9
    },
    "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.91,
-    "frag_ratio": 0.35,
-    "bold_per_100w": 3.16,
-    "comma_per_sent": 0.41
+    "em_dash_per_100w": 0.12,
+    "sentence_cv": 0.69,
+    "frag_ratio": 0.11,
+    "bold_per_100w": 2.06,
+    "comma_per_sent": 1.0,
+    "staccato_runs": 0
    },
-   "cost_usd": 0.0,
-   "seconds": 174.6
+   "cost_usd": 0.02429,
+   "seconds": 35.9
   },
   {
-   "id": 10,
-   "genre": "summary",
-   "response": "**Missed forecast.** Revenue $2.1M (+8% QoQ) vs $2.4M expected.\n\n- Churn up: 3.1% \u2192 4.7%\n- Two big deals delayed to Q4\n- Headcount +22%",
+   "id": 3,
+   "genre": "practical_guidance",
+   "response": "**Art of Negotiation: Detailed Course Outline**\n\nThis self-paced course breaks \u201cThe Art of Negotiation\u201d into 8 progressive modules. Each module lists core skills and free (or free-to-audit) online resources from platforms such as Coursera (audit mode), edX (audit), YouTube, Alison, OpenLearn (Open University), and similar. Complete modules in order for best results; practice via role-plays, journaling, and real low-stakes negotiations.\n\n### Module 1: Foundations of Negotiation\n**Description**: Understand what negotiation is, types (distributive vs. integrative), BATNA/WATNA/ZOPA, and the mindset of a skilled negotiator.  \n**Key Skills**:\n- Distinguishing positions from interests\n- Identifying BATNA (Best Alternative to a Negotiated Agreement)\n- Growth mindset & emotional self-awareness\n- Basic ethical framing\n- Setting realistic goals\n\n**Top Free Resources**:\n- Coursera (audit): \u201cIntroduction to Negotiation\u201d / related content from Yale\u2019s \u201cThe Art of Negotiation\u201d (Barry Nalebuff) or University of Michigan\u2019s negotiation offerings\n- YouTube: Harvard Program on Negotiation (PON) free videos and \u201cNegotiation Fundamentals\u201d\n- OpenLearn: Free extracts on negotiation and decision-making\n- Alison: Free introductory negotiation or conflict-resolution courses\n\n### Module 2: Preparation & Planning\n**Description**: Systematic prep\u2014research, goal-setting, agenda design, and power analysis.  \n**Key Skills**:\n- Information gathering & stakeholder mapping\n- Defining target, reservation point, and stretch goals\n- SWOT/power-balance analysis\n- Agenda and concession strategy planning\n- Risk assessment\n\n**Top Free Resources**:\n- Coursera (audit): Preparation-focused modules in Yale or Michigan negotiation courses\n- YouTube: PON Harvard \u201cHow to Prepare for a Negotiation\u201d\n- Alison: Free courses on business planning or strategic preparation\n- edX (audit): Business strategy or decision-making courses with planning components\n\n### Module 3: Communication & Active Listening\n**Description**: Verbal/non-verbal mastery, questioning techniques, and building rapport.  \n**Key Skills**:\n- Active listening & mirroring\n- Open-ended & calibrated questions\n- Reading body language and tone\n- Clear, assertive expression without aggression\n- Summarizing and labeling emotions\n\n**Top Free Resources**:\n- Coursera (audit): \u201cImproving Communication Skills\u201d (University of Pennsylvania) or listening modules in negotiation courses\n- YouTube: Chris Voss / Black Swan method free clips on tactical empathy; TED Talks on body language\n- OpenLearn: Communication skills free courses\n- Alison: Free active-listening and interpersonal-communication courses\n\n### Module 4: Persuasion, Influence & Framing\n**Description**: Ethical influence, anchoring, framing offers, and storytelling.  \n**Key Skills**:\n- Anchoring and framing techniques\n- Reciprocity, social proof, scarcity (Cialdini principles applied ethically)\n- Value creation and storytelling\n- Anchoring math and multiple-equivalent simultaneous offers (MESOs)\n- Confidence without arrogance\n\n**Top Free Resources**:\n- Coursera (audit): Influence/persuasion content (e.g., \u201cSuccessful Negotiation\u201d related modules or Wharton influence courses)\n- YouTube: Free lectures on Cialdini principles and Harvard PON framing videos\n- Alison: Free persuasion and influence courses\n- edX (audit): Leadership or marketing courses covering persuasion\n\n### Module 5: Bargaining, Concessions & Problem-Solving\n**Description**: Distributive tactics, integrative (win-win) creativity, and managing the give-and-take.  \n**Key Skills**:\n- Logrolling and trade-off identification\n- Concession timing and signaling\n- Creative option generation\n- Handling hardball tactics\n- Packaging offers\n\n**Top Free Resources**:\n- Coursera (audit): Yale \u201cArt of Negotiation\u201d or Michigan \u201cSuccessful Negotiation: Essential Strategies and Skills\u201d (free to audit)\n- YouTube: PON Harvard bargaining simulations and debriefs\n- Alison: Negotiation strategy free courses\n- OpenLearn / YouTube: Win-win negotiation technique videos\n\n### Module 6: Conflict Management, Objections & Emotions\n**Description**: De-escalation, objection handling, and emotional regulation under pressure.  \n**Key Skills**:\n- Emotional intelligence & self-regulation\n- Objection reframing\n- De-escalation language\n- Managing deadlocks and walk-aways\n- Empathy under stress\n\n**Top Free Resources**:\n- Coursera (audit): \u201cConflict Resolution\u201d skills courses (e.g., from University of California or related)\n- YouTube: Free emotional-intelligence and de-escalation training (plus Voss \u201ctactical empathy\u201d)\n- Alison: Free conflict-management courses\n- OpenLearn: Managing conflict free modules\n\n### Module 7: Culture, Ethics, Power & Difficult Situations\n**Description**: Cross-cultural negotiation, ethics, power imbalances, multiparty & virtual settings.  \n**Key Skills**:\n- Cultural intelligence (direct vs. indirect styles, high/low context)\n- Ethical bright-line rules & transparency\n- Navigating power asymmetry\n- Multiparty coalition basics\n- Virtual/email/video negotiation etiquette\n\n**Top Free Resources**:\n- Coursera (audit): Cross-cultural communication or global negotiation modules\n- YouTube: Harvard PON cultural negotiation talks; free ethics-in-bargaining videos\n- edX (audit): Intercultural skills courses\n- Alison: Free cultural-awareness and business-ethics courses\n\n### Module 8: Closing, Implementation & Continuous Improvement\n**Description**: Reaching commitment, documenting agreements, building long-term relationships, and reviewing performance.  \n**Key Skills**:\n- Trial closes and confirmation techniques\n- Contract/term-sheet basics (non-legal)\n- Relationship preservation\n- Post-negotiation review & feedback loops\n- Personal negotiation style development\n\n**Top Free Resources**:\n- Coursera (audit): Closing and implementation sections of major negotiation courses (Yale/Michigan)\n- YouTube: PON Harvard \u201cClosing the Deal\u201d style content; review/after-action videos\n- Alison: Free courses on deal-making or professional development\n- OpenLearn / YouTube: Goal-setting and reflective-practice resources\n\n### Overall Course Completion Path & Practice Recommendations\n1. Work through Modules 1\u20138 sequentially (1\u20132 weeks per module).\n2. After each module: perform at least one role-play (use a friend, mirror, or free online partner communities) and write a short reflection.\n3. Maintain a negotiation journal (prep sheet + outcomes + lessons).\n4. Capstone: Prepare and conduct a real negotiation (salary, purchase, project scope, etc.) using the full toolkit; review against BATNA/ZOPA and skills checklists.\n5. Optional free supplemental hubs: Harvard Program on Negotiation blog/videos (many free), free Coursera/edX audit tracks, and YouTube channels from reputable business schools.\n\n**Skills Progress Tracker** (use across all modules): Preparation rigor, Listening quality, Emotional control, Creativity of options, Ethical clarity, Closing confidence, Cultural adaptability.\n\nAll suggested courses/resources have free access tiers (audit, full free courses, or openly available videos). Paid certificates are optional. Start with the Yale or University of Michigan negotiation courses on Coursera (audit) plus Harvard PON YouTube content for the strongest free foundation. Good luck\u2014practice is the real teacher.",
    "rules": {
-    "rule2_economy": 10.0,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 9.8,
+    "rule6_filler": 5.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
+    "rule4_imagery": 7.0,
+    "rule7_form": 8.6
    },
-   "clarity_avg": 10.0,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 100.0,
-   "facts_delivered": "4/4",
-   "detail": {
-    "economy": {
-     "words": 25,
-     "facts": 4,
-     "required": 4,
-     "coverage": 1.0,
-     "words_per_fact": 6.2
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.4,
-    "frag_ratio": 0.0,
-    "bold_per_100w": 4.0,
-    "comma_per_sent": 0.0
-   },
-   "cost_usd": 0.0,
-   "seconds": 154.0
-  },
-  {
-   "id": 11,
-   "genre": "rejection",
-   "response": "Subject: Update on your application\n\nHi [Name],\n\nThank you for the time you put into this process. You made it to the final round, and the bar was high.\n\nWe decided to move forward with another candidate. The call was close. Your experience and the way you approached the problems stood out.\n\nI know this is not the outcome you wanted. I appreciated working with you through the interviews.\n\nIf something opens that fits your background, I would like to reach out. Feel free to stay in touch.\n\nBest,\n[Your name]\n\nAlso found:\n- Swap in real name, role, and company before send.\n- If you want a warmer or shorter version, say which.",
-   "rules": {
-    "rule2_economy": 2.4,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
-   },
-   "clarity_avg": 8.23,
-   "slop_per_1k": 8.8,
+   "clarity_avg": 7.28,
+   "slop_per_1k": 0.8,
    "slop_breakdown": {
-    "rule_of_three": 1
+    "hyphen_pairs": 3
    },
-   "slop_tax": 0.132,
-   "score": 71.5,
-   "facts_delivered": "2/3",
+   "slop_tax": 0.012,
+   "score": 71.9,
+   "facts_delivered": "4/4",
    "detail": {
     "economy": {
-     "words": 114,
-     "facts": 2,
-     "required": 3,
-     "coverage": 0.67,
-     "words_per_fact": 57.0
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     false,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.37,
-    "frag_ratio": 0.09,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.64
-   },
-   "cost_usd": 0.0,
-   "seconds": 156.5
-  },
-  {
-   "id": 12,
-   "genre": "definition",
-   "response": "**Idempotent** means doing something once or many times gives the same result.\n\nExample: setting a light to ON. Flip the switch ten times\u2014it stays ON. Adding +1 is not idempotent.\n\n**Why care:** Safe retries. Networks fail. If your API call, payment, or deploy is idempotent, you can retry without double-charging, double-creating, or breaking state.",
-   "rules": {
-    "rule2_economy": 9.5,
-    "rule3_jargon": 6.9,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 9.4,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 94.0,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 54,
-     "facts": 3,
-     "required": 3,
+     "words": 941,
+     "budget": 700,
+     "facts": 4,
+     "required": 4,
      "coverage": 1.0,
-     "words_per_fact": 18.0
+     "over_budget": 1.34
     },
     "jargon": {
      "undefined_acronyms": [
-      "ON"
+      "WATNA",
+      "ZOPA"
      ],
-     "per_100w": 1.85
+     "undefined_terms": [],
+     "per_100w": 0.21
+    },
+    "simple_words": {
+     "swaps": {
+      "purchase": "buy"
+     },
+     "per_100w": 0.11
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "abstract_but_fine",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "All suggested courses/resources have free access tiers (audit, full free courses, or openly available videos).",
+    "jargon": "some_jargon",
+    "jargon_quote": "WATNA",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Good luck\u2014practice is the real teacher."
+   },
+   "scaffold": {
+    "headings": 26,
+    "list_items": 77,
+    "headings_per_100b": 3.71,
+    "list_items_per_100b": 11.0,
+    "scaffold_score": 8.6
+   },
+   "shape": {
+    "em_dash_per_100w": 0.21,
+    "sentence_cv": 1.04,
+    "frag_ratio": 0.18,
+    "bold_per_100w": 2.76,
+    "comma_per_sent": 2.04,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.025475,
+   "seconds": 44.4
+  },
+  {
+   "id": 4,
+   "genre": "practical_guidance",
+   "response": "**Common voice effects for a \u201crobot\u201d voice:**\n\nHere are frequently used techniques (often combined) to create a classic or modern robot/vocoder-style voice:\n\n1. **Vocoder / Talkbox effect**  \n   The most iconic \u201crobot\u201d sound. A carrier signal (usually a synth tone, sawtooth, or noise) is modulated by the voice\u2019s spectral envelope.  \n   - Classic examples: Daft Punk, many sci-fi robots.  \n   - Tools: iZotope Vocoder, Native Instruments Reaktor/Vocoder, free options like TAL-Vocoder, or built-in vocoders in DAWs (Logic, Ableton, etc.).\n\n2. **Pitch quantization / hard tuning**  \n   Force the pitch to exact semitones or a limited scale with zero or very little transition time (extreme Auto-Tune/Melodyne-style).  \n   - Creates the stepped, unnatural pitch jumps associated with robots.\n\n3. **Ring modulation**  \n   Multiplies the voice by a sine wave (often 20\u2013100 Hz or higher). Produces metallic, inharmonic sidebands.\n\n4. **Bit-crushing / sample-rate reduction**  \n   Lower bit depth (e.g., 8-bit or 4-bit) and/or sample rate for a digital, lo-fi, \u201ccomputerized\u201d character.\n\n5. **Formant shifting**  \n   Shift formants up or down independently of pitch to make the voice sound smaller/tinny or larger/metallic while keeping the same perceived pitch.\n\n6. **Heavy robotic/metallic EQ + resonance**  \n   - Boost high-mids and highs for thinness.  \n   - Add narrow resonant peaks or comb-filtering.  \n   - Sometimes a slight low-cut to remove warmth.\n\n7. **Stutter / granular / buffer effects**  \n   Short loops, freezes, or granular clouds on syllables for glitchy robot articulation.\n\n8. **Chorus, flanger, or subtle pitch chorus**  \n   Multiple slightly detuned copies for a thicker, synthetic ensemble sound (use sparingly so it doesn\u2019t just sound like chorus).\n\n9. **Distortion / waveshaping**  \n   Light to moderate distortion or specific waveshapers for added harmonics and edge.\n\n10. **Amplitude/gate effects or robotic gating**  \n    Hard gating or rhythmic amplitude modulation so the voice feels more synthetic and less continuously human.\n\n### Typical quick recipe (DAW or real-time):\n- Vocoder (voice = modulator, synth saw/square = carrier)  \n- or Pitch correction set to full/hard + formant shift  \n- + mild bit-crush  \n- + EQ (scoop some mids, add presence/air)  \n- + optional light ring-mod or distortion  \n- + reverb/delay that\u2019s short and metallic if desired\n\n### Free/real-time friendly options:\n- Vocoders: TAL-Vocoder, Autotalent/MAutoPitch (for hard tuning), Graillon (pitch/formant), Calf Vocoder (Linux), many mobile apps and games have built-in robot voice filters.  \n- Browser/online: various free voice-changer sites and apps offer \u201crobot\u201d presets.  \n- Hardware: old-school talkboxes, or pedals with vocoder/bit-crush.\n\nThese can be layered and automated for different robot personalities (friendly toy robot vs. menacing AI vs. glitchy android).\n\nIf you want specifics for a particular tool (e.g., Audacity, Adobe Podcast, Voicemod, a DAW, Python/librosa, etc.), a certain era/style of robot, or real-time vs. offline processing, just give more details!",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.96,
+   "slop_per_1k": 1.7,
+   "slop_breakdown": {
+    "hyphen_pairs": 3
+   },
+   "slop_tax": 0.025,
+   "score": 77.6,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 436,
+     "budget": 350,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.25
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [
+      "quantization"
+     ],
+     "per_100w": 0.23
     },
     "simple_words": {
      "swaps": {},
@@ -775,11 +341,13 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
    "judge": {
     "facts_delivered": [
+     true,
      true,
      true,
      true
@@ -788,17 +356,591 @@
     "clarity_quote": "",
     "imagery": "concrete",
     "imagery_quote": "",
-    "imagery_suggestion": ""
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Here are frequently used techniques (often combined) to create a classic or modern robot/vocoder-style voice:",
+    "economy": "some_padding",
+    "economy_quote": "If you want specifics for a particular tool (e.g., Audacity, Adobe Podcast, Voicemod, a DAW, Python/librosa, etc.), a certain era/style of robot, or real-time vs. offline processing, just give more details!",
+    "jargon": "some_jargon",
+    "jargon_quote": "inharmonic sidebands",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "scaffold": {
+    "headings": 3,
+    "list_items": 25,
+    "headings_per_100b": 0.86,
+    "list_items_per_100b": 7.14,
+    "scaffold_score": 10.0
    },
    "shape": {
-    "em_dash_per_100w": 1.85,
-    "sentence_cv": 0.71,
-    "frag_ratio": 0.29,
-    "bold_per_100w": 3.7,
-    "comma_per_sent": 0.71
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 1.16,
+    "frag_ratio": 0.34,
+    "bold_per_100w": 2.52,
+    "comma_per_sent": 0.97,
+    "staccato_runs": 0
    },
-   "cost_usd": 0.0,
-   "seconds": 136.9
+   "cost_usd": 0.022245,
+   "seconds": 28.0
+  },
+  {
+   "id": 5,
+   "genre": "practical_guidance",
+   "response": "**Plan to \u201cEvacuate the Internet\u201d**  \n*(A practical, phased disengagement from the toxic feed-layer while preserving useful connectivity)*\n\nThe goal is not to unplug civilization, but to exit the attention-harvesting, AI-slop, and algorithmic-manipulation zones. Treat the public internet like a flooded city: move people and critical functions to higher ground, then rebuild limited, intentional access.\n\n### Phase 0: Immediate Personal Flotation (Do this today)\n- **Audit & cut the worst vectors**: Uninstall or heavily restrict TikTok, Instagram, X/Twitter, Facebook, YouTube Shorts, Reddit (front page), and any app whose core loop is infinite scroll + recommendation. Use website blockers (uBlock Origin + custom filters, Freedom, Cold Turkey, or router-level Pi-hole/NextDNS).\n- **Switch to deliberate intake**: RSS readers (FreshRSS, Miniflux, NetNewsWire) for chosen sources only. Email newsletters from known humans. Books, long-form, and offline media.\n- **Comms triage**: Move close friends/family to Signal, iMessage, or plain SMS. Leave public group chats and Discord servers that amplify outrage or slop.\n- **Device hygiene**: Separate \u201cwork/useful\u201d profiles or devices from \u201centertainment\u201d ones. Enable highest privacy settings; disable personalized ads and cross-site tracking everywhere.\n\n### Phase 1: Household & Small-Group Evacuation (1\u20134 weeks)\n- **Shared rules**: Agree on screen-time budgets, no-phone zones/times, and \u201cslop-free\u201d defaults. Create a household dashboard of approved tools only.\n- **Local-first replacements**:\n  - Knowledge: Personal wikis (Obsidian, Logseq, Foam), shared network drives, or self-hosted Nextcloud.\n  - Media: Local libraries, purchased/ripped media, physical books, community bulletin boards.\n  - Coordination: Shared calendars, email lists, or simple self-hosted forums (e.g., Discourse, Flarum) on a home server or cheap VPS.\n- **Bandwidth diet**: Throttle or schedule updates; prefer download-once, use-offline. Mirror critical references.\n- **Skill rebuild**: Practice navigating without search omniscience\u2014use local notes, manuals, libraries, and direct human experts.\n\n### Phase 2: Community & Institutional Higher Ground (1\u20136 months)\n- **Private, authenticated networks**: \n  - VPNs + zero-trust access for work.\n  - Small federated or invite-only services (limited Mastodon/Bluesky instances with strict moderation, private Matrix/Element servers, or old-school mailing lists/NNTP).\n  - Industry or professional dark-fiber/collaborative extranets where possible.\n- **Curated information commons**: Support or build human-reviewed repositories, annotated bibliographies, and version-controlled knowledge bases. Prefer sources with reputation systems tied to real identities or long track records.\n- **Algorithmic fasting infrastructure**: Default to chronological feeds, keyword mute lists, and \u201cno recommendation\u201d modes. Run personal classifiers that down-rank known AI-slop patterns if you must stay partially connected.\n- **Economic pressure**: Starve the engagement economy\u2014ad blockers, privacy browsers (Firefox + strict containers, Brave, or Mullvad browser), alternative front-ends (Invidious, Teddit/Libreddit archives where legal, Nitter-like for remaining needs). Pay directly for quality journalism and tools instead of attention.\n\n### Phase 3: Long-term Resilient Architecture (ongoing)\n- **Hybrid existence**:\n  - Keep the \u201cuseful internet\u201d (email, documentation, software updates, banking, scientific literature, open-source repos, emergency alerts) via minimal, monitored channels.\n  - Treat the open social/web as a contaminated zone entered only with protective gear (VMs, throwaway profiles, time-boxing).\n- **Decentralized & local alternatives**: Mesh networks or community wireless for local resilience; self-hosting collectives; digital libraries (similar to Internet Archive principles but smaller and curated); preference for open protocols over platforms.\n- **Cultural norms**: Celebrate boredom, deep work, face-to-face, and verifiable provenance. Teach children (and adults) source criticism, statistical literacy, and the habit of \u201cwhen in doubt, log off.\u201d\n- **Governance & signaling**: Advocate for (or build) provenance standards (C2PA-like content credentials), liability for scaled deception, and default-off recommendation engines. Support competitive non-manipulative tools.\n- **Exit ramps remain open**: Maintain the ability to re-enter specific high-value parts of the network without living there.\n\n### Metrics of Successful Evacuation\n- Hours/day in algorithmic feeds \u2192 near zero.\n- Majority of information diet from chosen, attributable human sources or primary data.\n- Emotional baseline no longer dominated by outrage or FOMO cycles.\n- Critical work, relationships, and learning still function (or function better).\n- Ability to \u201cvisit\u201d the old internet like a controlled museum trip rather than living in the floodplain.\n\n### Realistic Caveats\nComplete disconnection is unnecessary and often counterproductive for most people. The internet still contains irreplaceable tools, records, and coordination mechanisms. The evacuation targets the **manipulation and misinformation layers**, not packets themselves. Some domains (certain jobs, research, activism) require ongoing presence\u2014use isolation, verification rituals, and redundancy there.\n\nStart with Phase 0 this week. The flood is mostly optional once you stop swimming toward it.\n\nIf you want templates (blocker lists, Obsidian starter vaults, self-hosting minimal guides, or a one-page household protocol), say which part you want first.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 9.7,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 7.92,
+   "slop_per_1k": 2.7,
+   "slop_breakdown": {
+    "hyphen_pairs": 1,
+    "inline_header_list": 17
+   },
+   "slop_tax": 0.041,
+   "score": 76.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 734,
+     "budget": 500,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.47
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "FOMO",
+      "SMS",
+      "VPNs",
+      "VPS"
+     ],
+     "undefined_terms": [
+      "bandwidth"
+     ],
+     "per_100w": 0.68
+    },
+    "simple_words": {
+     "swaps": {
+      "require": "need"
+     },
+     "per_100w": 0.14
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "If you want templates (blocker lists, Obsidian starter vaults, self-hosting minimal guides, or a one-page household protocol), say which part you want first.",
+    "jargon": "some_jargon",
+    "jargon_quote": "NNTP",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "The flood is mostly optional once you stop swimming toward it."
+   },
+   "scaffold": {
+    "headings": 7,
+    "list_items": 30,
+    "headings_per_100b": 1.4,
+    "list_items_per_100b": 6.0,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.41,
+    "sentence_cv": 0.54,
+    "frag_ratio": 0.04,
+    "bold_per_100w": 2.59,
+    "comma_per_sent": 1.74,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.023605,
+   "seconds": 40.9
+  },
+  {
+   "id": 6,
+   "genre": "practical_guidance",
+   "response": "**A common guideline is that your home loan EMI should not exceed 40-50% of your monthly take-home salary (for a 30k salary, that\u2019s roughly 12k\u201315k EMI), which typically supports a loan amount in the range of ~\u20b915\u201325 lakh depending on interest rate, tenure, other debts, credit score, and location\u2014though lenders often cap eligibility around 40\u201360 times monthly income or based on fixed obligations.**\n\n### Rough Affordability Estimate (India-focused, as \u201c30k\u201d and \u201chome loan\u201d commonly refer to this context)\n- **Monthly salary**: \u20b930,000\n- **Safe EMI range**: \u20b912,000\u201315,000 (40\u201350% of income). Keep it lower if you have other EMIs, rent, or dependents.\n- **Approximate loan amount** (illustrative, at ~8.5\u20139.5% interest):\n  - 15\u201320 year tenure: roughly \u20b912\u201320 lakh\n  - 20\u201325 year tenure: roughly \u20b915\u201325 lakh\n- Many banks/HFCs use multipliers like 40\u201360\u00d7 gross monthly income for eligibility (so ~\u20b912\u201318 lakh ballpark before FOIR/credit checks), but actual sanction depends on:\n  - Credit score (ideally 750+)\n  - Existing EMIs / obligations (FOIR usually \u226450\u201355%)\n  - Age, employment stability, co-applicant income\n  - Property value & LTV (often max 75\u201390%)\n  - Interest rate and exact tenure\n\n**Example EMI ballpark** (use an online EMI calculator for precision):\n- \u20b920 lakh @ 9% for 20 years \u2248 \u20b918,000 EMI (on the higher side for 30k salary)\n- \u20b915 lakh @ 9% for 20 years \u2248 \u20b913,500 EMI (more comfortable)\n\n### Key Recommendations\n1. **Prioritize affordability over maximum eligibility** \u2014 Aim for EMI \u226440% of take-home so you have buffer for maintenance, inflation, job changes, etc.\n2. **Down payment** \u2014 Plan for at least 10\u201325% + registration/stamp duty/other costs. Larger down payment = smaller loan = lower risk.\n3. **Check exact eligibility** \u2014 Use bank/HFC online calculators (SBI, HDFC, ICICI, LIC Housing, etc.) or speak to a lender. Provide accurate income proofs, existing obligations, and credit report.\n4. **Other factors to improve amount/terms**:\n   - Add a co-applicant (spouse/parent) with income\n   - Longer tenure (lowers EMI but increases total interest)\n   - Better credit score / stable job\n   - Shop rates and consider floating vs fixed\n5. **Total cost of ownership** \u2014 Factor property taxes, maintenance, insurance, and potential rate hikes.\n\n**This is general information only, not personalized financial advice.** Rules, rates, and eligibility vary by lender, city, and your full profile. Consult a bank, certified financial planner, or housing finance expert, and run numbers on official EMI/eligibility calculators before deciding. Borrow only what you can comfortably repay.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 10.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 6.48,
+   "slop_per_1k": 0.5,
+   "slop_breakdown": {
+    "inline_header_list": 2
+   },
+   "slop_tax": 0.007,
+   "score": 64.3,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 397,
+     "budget": 300,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.32
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "EMIs",
+      "HFC",
+      "HFCs"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.76
+    },
+    "simple_words": {
+     "swaps": {},
+     "per_100w": 0.0
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "A common guideline is that your home loan EMI should not exceed 40-50% of your monthly take-home salary (for a 30k salary, that's roughly 12k\u201315k EMI), which typically supports a loan amount in the range of ~\u20b915\u201325 lakh depending on interest rate, tenure, other debts, credit score, and location\u2014though lenders often cap eligibility around 40\u201360 times monthly income or based on fixed obligations.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "This is general information only, not personalized financial advice.",
+    "economy": "some_padding",
+    "economy_quote": "Rules, rates, and eligibility vary by lender, city, and your full profile.",
+    "jargon": "some_jargon",
+    "jargon_quote": "FOIR",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Rough Affordability Estimate (India-focused, as \"30k\" and \"home loan\" commonly refer to this context)"
+   },
+   "scaffold": {
+    "headings": 2,
+    "list_items": 22,
+    "headings_per_100b": 0.67,
+    "list_items_per_100b": 7.33,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 1.26,
+    "sentence_cv": 1.37,
+    "frag_ratio": 0.19,
+    "bold_per_100w": 2.77,
+    "comma_per_sent": 2.38,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.02389,
+   "seconds": 21.1
+  },
+  {
+   "id": 7,
+   "genre": "practical_guidance",
+   "response": "**Possible learning objectives for a class on student presentations about film adaptations:**\n\nHere are clear, instructor-ready objectives you could use or adapt:\n\n- **Analyze adaptation choices**: Students will examine how a film adapts its source material (novel, play, comic, etc.), identifying key similarities, differences, and the reasons behind those changes (narrative structure, character, theme, medium-specific constraints).\n- **Evaluate fidelity vs. transformation**: Students will assess the spectrum from \u201cfaithful\u201d adaptation to loose reinterpretation and articulate what is gained or lost in the move from page/stage to screen.\n- **Apply film-analysis skills**: Students will use formal elements (cinematography, editing, sound, mise-en-sc\u00e8ne, performance) to explain how the film constructs meaning in relation to the source.\n- **Develop research and argumentation**: Students will support claims with evidence from both the original text and the film, plus relevant secondary sources (reviews, adaptation theory, interviews).\n- **Practice oral communication**: Students will deliver a clear, well-organized presentation that engages the audience and handles questions.\n- **Situate adaptations culturally/historically**: Students will consider how context (era, studio system, director\u2019s vision, audience expectations, censorship, technology) shapes the adaptation.\n- **Reflect on medium specificity**: Students will explain why certain stories or techniques work differently in literature/theatre versus cinema.\n\n**Example concise objective statement for a syllabus:**  \n\u201cBy preparing and delivering a presentation on a film adaptation, students will critically compare source text and film, apply core concepts of adaptation studies and film analysis, and communicate their findings effectively to peers.\u201d\n\n**Optional tighter versions:**\n- Compare a source text and its film version and defend an argument about the adaptation\u2019s success or strategy.\n- Demonstrate understanding of adaptation theory through a focused case-study presentation.\n\nIf you share the course level (high school, undergrad intro, advanced), length of presentations, or whether there\u2019s a required theoretical framework, I can refine these further.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 10.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.22,
+   "slop_per_1k": 2.4,
+   "slop_breakdown": {
+    "inline_header_list": 7
+   },
+   "slop_tax": 0.036,
+   "score": 69.6,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 297,
+     "budget": 250,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.19
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "demonstrate": "show"
+     },
+     "per_100w": 0.34
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Here are clear, instructor-ready objectives you could use or adapt:",
+    "economy": "some_padding",
+    "economy_quote": "If you share the course level (high school, undergrad intro, advanced), length of presentations, or whether there's a required theoretical framework, I can refine these further.",
+    "jargon": "some_jargon",
+    "jargon_quote": "mise-en-sc\u00e8ne",
+    "simple_words": "some_complex",
+    "simple_words_quote": "articulate",
+    "filler": "no_filler",
+    "filler_quote": ""
+   },
+   "scaffold": {
+    "headings": 2,
+    "list_items": 9,
+    "headings_per_100b": 0.8,
+    "list_items_per_100b": 3.6,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.65,
+    "frag_ratio": 0.09,
+    "bold_per_100w": 3.37,
+    "comma_per_sent": 2.82,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.019215,
+   "seconds": 15.3
+  },
+  {
+   "id": 8,
+   "genre": "practical_guidance",
+   "response": "Here are **interesting, practical, and student-friendly use cases** you can use for a college RDBMS workshop. They are designed to be engaging, relatable, and suitable for hands-on sessions (schema design \u2192 SQL queries \u2192 simple insights).\n\n### 1. Campus Event & Fest Management System (Most Recommended)\n**Why it\u2019s great:** Every student relates to college fests, clubs, and events.\n\n**Core entities:** Students, Clubs, Events, Registrations, Venues, Volunteers, Sponsors, Attendance.\n\n**Interesting workshop tasks:**\n- Design ER diagram for a multi-day college fest.\n- Track event registrations and prevent overbooking of venues.\n- Find students who registered for overlapping events.\n- Generate \u201cmost popular events\u201d, \u201cclub with highest participation\u201d, \u201cvolunteer workload\u201d.\n- Handle waitlists and cancellation logic with transactions.\n\n**Hook for students:** \u201cBuild the backend that runs your college fest.\u201d\n\n### 2. Smart Canteen / Food Court Order System\n**Why it\u2019s great:** Food + real-time feel + transactions.\n\n**Core entities:** Students (with wallet/mess balance), Menu Items, Orders, Order Items, Payments, Feedback, Peak Hours.\n\n**Interesting tasks:**\n- Place an order only if wallet balance is sufficient (transaction).\n- Find most ordered items by time of day.\n- Detect popular combos.\n- Generate daily sales report and wastage insights.\n- Implement \u201corder status\u201d flow (Placed \u2192 Preparing \u2192 Ready \u2192 Picked).\n\n**Hook:** \u201cDesign the database behind your college canteen app.\u201d\n\n### 3. Student Project & Research Collaboration Platform\n**Why it\u2019s great:** Directly useful for mini-projects, hackathons, and final-year work.\n\n**Core entities:** Students, Faculty Mentors, Projects, Skills, Applications, Milestones, Publications/Repositories, Teams.\n\n**Interesting tasks:**\n- Match students to projects based on skills (junction tables + queries).\n- Ensure a student is not in more than N active projects.\n- Track milestone progress and delayed projects.\n- Find faculty with highest project completion rate.\n- Recommend teammates by complementary skills.\n\n**Hook:** \u201cBuild the data model for a \u2018LinkedIn + GitHub\u2019 for college projects.\u201d\n\n### 4. Library + Digital Resources Hybrid System\n**Why it\u2019s great:** Classic RDBMS case, but modernized.\n\n**Core entities:** Books, E-resources, Members, Issues/Returns, Fines, Reservations, Categories, Author contributions.\n\n**Interesting twists:**\n- Both physical and digital lending rules.\n- Reservation queue when a book is unavailable.\n- Fine calculation with grace periods.\n- \u201cStudents who borrow similar books\u201d style queries.\n- Most overdue categories / peak borrowing times before exams.\n\n**Hook:** \u201cUpgrade the old library system your college still uses.\u201d\n\n### 5. Campus Placement & Internship Portal\n**Why it\u2019s great:** High motivation for college students.\n\n**Core entities:** Students, Companies, Job Profiles, Applications, Eligibility Criteria, Interview Rounds, Offers, Skills.\n\n**Interesting tasks:**\n- Enforce eligibility (CGPA, branch, backlog rules) via queries/constraints.\n- Prevent multiple offers beyond a limit (placement policy).\n- Track conversion rates per company and per round.\n- Find skills most demanded by recruiters vs skills students have.\n- Generate company-wise shortlist reports.\n\n**Hook:** \u201cDesign the database that powers your college\u2019s placement cell.\u201d\n\n### 6. Online Learning & Assignment Platform (Mini LMS)\n**Why it\u2019s great:** Feels like building a piece of Moodle/Google Classroom.\n\n**Core entities:** Courses, Students, Instructors, Enrollments, Assignments, Submissions, Grades, Quizzes, Attendance.\n\n**Interesting tasks:**\n- Late submission handling and grading workflows.\n- Leaderboard queries (top scorers, most improved).\n- Detect plagiarism suspects via simple metadata patterns (same timestamps, etc. \u2014 keep it light).\n- Course completion percentage and at-risk students.\n- Many-to-many: students in multiple courses, group assignments.\n\n### 7. Sports & Recreation Club Management\n**Why it\u2019s great:** Fun, less common than library/fest, still very clear.\n\n**Core entities:** Students, Sports, Teams, Trials, Matches, Equipment Inventory, Coaches, Practice Sessions, Tournament points.\n\n**Interesting tasks:**\n- Team selection with category constraints (year, gender, max players).\n- Equipment issue/return with damage tracking.\n- Fixtures and points table generation.\n- \u201cMost active players\u201d and attendance in practice.\n\n---\n\n## Workshop-Friendly Mini Use Case Pack (2\u20133 hour session)\nIf you need a **single end-to-end use case**, use this:\n\n### \u201cCollege Club Hub\u201d\nStudents can:\n1. Create clubs and appoint core members.\n2. Host events with limited seats.\n3. Register participants (no duplicate registrations).\n4. Mark attendance.\n5. Collect feedback ratings.\n6. Run queries like:\n   - Top 5 active students\n   - Events with highest rating\n   - Clubs with low engagement\n   - Students who attended events but never joined a club\n\nThis covers: **ER modeling, keys, relationships (1:N, M:N), constraints, joins, aggregate queries, and basic transactions**.\n\n---\n\n## How to Make the Workshop Interesting\n- Start with a **story**: \u201cYou\u2019re the tech team for your college fest / placement cell.\u201d\n- Do **live schema design** on a whiteboard first (don\u2019t jump to CREATE TABLE).\n- Give **messy real-world rules** (e.g., \u201ca student can register for max 3 events per day\u201d).\n- Add a mini **competition**: best query challenge or fastest correct report.\n- End with **\u201cwhat would you add for a real app?\u201d** (auth, payments, notifications \u2014 conceptually).\n\n---\n\n## Suggested Tech Stack for the Workshop\n- MySQL / PostgreSQL\n- MySQL Workbench / DBeaver / pgAdmin\n- Optional: simple UI later with Google Sheets as \u201cfrontend\u201d or basic Python/Streamlit (only if time permits)\n\n---\n\nIf you tell me the **workshop duration** (1 hour / half-day / full-day), **student year** (1st year vs final year), and **tool** (MySQL/Oracle/PostgreSQL), I can create a full ready-to-run workshop plan: ER diagram, schema SQL, sample data, and 10 graded exercises.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 9.8,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 7.19,
+   "slop_per_1k": 1.7,
+   "slop_breakdown": {
+    "hyphen_pairs": 2,
+    "rule_of_three": 2
+   },
+   "slop_tax": 0.025,
+   "score": 70.1,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 863,
+     "budget": 450,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.92
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "sufficient": "enough"
+     },
+     "per_100w": 0.12
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Here are **interesting, practical, and student-friendly use cases** you can use for a college RDBMS workshop.",
+    "economy": "some_padding",
+    "economy_quote": "If you tell me the **workshop duration** (1 hour / half-day / full-day), **student year** (1st year vs final year), and **tool** (MySQL/Oracle/PostgreSQL), I can create a full ready-to-run workshop plan: ER diagram, schema SQL, sample data, and 10 graded exercises.",
+    "jargon": "some_jargon",
+    "jargon_quote": "Streamlit",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "Most Recommended"
+   },
+   "scaffold": {
+    "headings": 18,
+    "list_items": 52,
+    "headings_per_100b": 4.0,
+    "list_items_per_100b": 11.56,
+    "scaffold_score": 8.4
+   },
+   "shape": {
+    "em_dash_per_100w": 0.23,
+    "sentence_cv": 0.92,
+    "frag_ratio": 0.15,
+    "bold_per_100w": 4.29,
+    "comma_per_sent": 1.16,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.02566,
+   "seconds": 38.9
+  },
+  {
+   "id": 9,
+   "genre": "practical_guidance",
+   "response": "**GARCH: The Model That Lets Volatility Have a Memory**\n\nImagine you are watching the daily returns of a stock (or the rain in your city, or the number of goals in football matches). The *average* return might be roughly constant, but the *size of the swings*\u2014how wildly the numbers jump up and down\u2014changes over time. Calm periods are followed by calm periods; stormy periods cluster together. That clustering of big moves is called **volatility clustering**.  \n\nOrdinary models (like a simple ARMA) assume the size of the random shocks is always the same. GARCH says: \u201cNo\u2014the size of today\u2019s shock depends on how big the recent shocks were.\u201d That single idea is the heart of the model.\n\n### 1. The basic setup (what we are modelling)\n\nLet \\( r_t \\) be the observed return (or residual) at time \\( t \\).  \nWe write  \n\n\\[\nr_t = \\mu_t + \\varepsilon_t, \\qquad \\varepsilon_t = \\sigma_t z_t\n\\]\n\n- \\( \\mu_t \\) is the predictable part (often just a constant or a simple AR term).  \n- \\( z_t \\) is pure white noise: mean 0, variance 1, usually assumed i.i.d. standard normal (or Student-t).  \n- \\( \\sigma_t > 0 \\) is the **conditional standard deviation**\u2014the volatility that is allowed to change every day.  \n\nThe whole art of GARCH is to write a sensible equation for \\( \\sigma_t^2 \\) (we work with variance because it is easier).\n\n### 2. The GARCH(1,1) equation\u2014the workhorse\n\nThe simplest and most famous version is  \n\n\\[\n\\sigma_t^2 = \\omega + \\alpha \\varepsilon_{t-1}^2 + \\beta \\sigma_{t-1}^2\n\\]\n\nwith three parameters that must satisfy  \n\n\\[\n\\omega > 0, \\quad \\alpha \\ge 0, \\quad \\beta \\ge 0, \\quad \\alpha + \\beta < 1.\n\\]\n\nLet\u2019s read it like a sentence:\n\n- \\( \\omega \\) = a baseline level of variance (the \u201calways-there\u201d rain).  \n- \\( \\alpha \\varepsilon_{t-1}^2 \\) = \u201chow much yesterday\u2019s *actual* shock feeds into today\u2019s variance.\u201d  \n  If yesterday was a huge move (\\( \\varepsilon_{t-1}^2 \\) large), today\u2019s variance jumps up.  \n- \\( \\beta \\sigma_{t-1}^2 \\) = \u201chow much of yesterday\u2019s *variance itself* carries over.\u201d  \n  This is the memory term; it makes volatility persistent.\n\nBecause \\( \\alpha + \\beta < 1 \\), the effect of any shock gradually dies out and the variance is pulled back toward its long-run average  \n\n\\[\n\\bar{\\sigma}^2 = \\frac{\\omega}{1 - \\alpha - \\beta}.\n\\]\n\n(That is why the inequality is required for stationarity.)\n\n### 3. Why the name GARCH?\n\n- **ARCH** (Engle, 1982) = AutoRegressive Conditional Heteroskedasticity:  \n  \\( \\sigma_t^2 = \\omega + \\alpha_1\\varepsilon_{t-1}^2 + \\dots + \\alpha_q\\varepsilon_{t-q}^2 \\).  \n  Only past *squared shocks* matter.  \n\n- **GARCH** (Bollerslev, 1986) = Generalized ARCH:  \n  we also let past *conditional variances* enter, exactly as an ARMA model lets past observations and past errors enter.  \n  GARCH(1,1) is already more parsimonious and more realistic than a high-order ARCH.\n\n### 4. A tiny bit of deeper mathematics (still school-friendly)\n\nTake the unconditional expectation of the GARCH(1,1) equation (assuming stationarity):\n\n\\[\n\\mathbb{E}[\\sigma_t^2] = \\omega + \\alpha\\mathbb{E}[\\varepsilon_{t-1}^2] + \\beta\\mathbb{E}[\\sigma_{t-1}^2].\n\\]\n\nBut \\( \\mathbb{E}[\\varepsilon_{t-1}^2] = \\mathbb{E}[\\sigma_{t-1}^2] \\), so  \n\n\\[\n\\bar{\\sigma}^2 = \\omega + (\\alpha+\\beta)\\bar{\\sigma}^2 \\implies \\bar{\\sigma}^2 = \\frac{\\omega}{1-\\alpha-\\beta},\n\\]\n\nexactly as claimed.  \n\nOne can also show that the *autocorrelation* of the squared process \\( \\varepsilon_t^2 \\) decays geometrically at rate \\( \\alpha+\\beta \\). That is the mathematical expression of \u201cvolatility clustering lasts a while, then fades.\u201d\n\n### 5. How we use it in practice\n\n1. Fit an ARMA (or just a mean) to the returns \u2192 obtain residuals \\( \\hat\\varepsilon_t \\).  \n2. Treat those residuals as the \\( \\varepsilon_t \\) above and estimate \\( \\omega,\\alpha,\\beta \\) by maximum likelihood  \n   (the likelihood is just the product of normal densities with variance \\( \\sigma_t^2 \\)).  \n3. Once you have \\( \\hat\\sigma_t \\), you can  \n   - forecast tomorrow\u2019s volatility,  \n   - construct better confidence intervals,  \n   - price options,  \n   - do risk management (Value-at-Risk), etc.\n\n### 6. A concrete numerical toy\n\nSuppose \\( \\omega=0.01 \\), \\( \\alpha=0.1 \\), \\( \\beta=0.8 \\).  \nLong-run variance = \\( 0.01/(1-0.9)=0.1 \\).  \n\n- If yesterday\u2019s shock was huge, \\( \\varepsilon_{t-1}^2=1 \\), and yesterday\u2019s variance was already 0.1, then  \n  \\( \\sigma_t^2 = 0.01 + 0.1\\cdot1 + 0.8\\cdot0.1 = 0.19 \\)  \n  (almost double the normal level).  \n- The next day, even if the new shock is average, the high variance persists because of the \\( \\beta \\) term, and only slowly returns to 0.1.\n\nThat is volatility clustering in numbers.\n\n### 7. Extensions you will meet later\n\n- GARCH(p,q) \u2013 more lags.  \n- EGARCH, GJR-GARCH \u2013 allow negative shocks to increase volatility more than positive ones (the \u201cleverage effect\u201d).  \n- IGARCH \u2013 \\( \\alpha+\\beta=1 \\), so shocks never die (used in risk management).  \n- Multivariate GARCH \u2013 whole covariance matrices that evolve.\n\nBut everything grows out of the three-line equation  \n\n\\[\n\\sigma_t^2 = \\omega + \\alpha\\varepsilon_{t-1}^2 + \\beta\\sigma_{t-1}^2.\n\\]\n\n**Bottom line for a school student**  \nGARCH is simply a disciplined way of saying: \u201cToday\u2019s uncertainty is a weighted average of a constant, yesterday\u2019s surprise, and yesterday\u2019s uncertainty.\u201d  \nThat sentence is short enough to remember, yet it contains a stationary stochastic process, a well-defined likelihood, and the ability to forecast risk\u2014the same ideas that appear in the most advanced research papers.  \n\nOnce you can write that equation and explain why \\( \\alpha+\\beta<1 \\), you already understand the core of modern volatility modelling.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 5.0,
+    "rule5_simple_words": 9.8,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 10.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
+   },
+   "clarity_avg": 7.93,
+   "slop_per_1k": 1.1,
+   "slop_breakdown": {
+    "ai_vocab": 1
+   },
+   "slop_tax": 0.017,
+   "score": 78.0,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 871,
+     "budget": 750,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.16
+    },
+    "jargon": {
+     "undefined_acronyms": [
+      "EGARCH",
+      "GJR",
+      "IGARCH"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.34
+    },
+    "simple_words": {
+     "swaps": {
+      "obtain": "get"
+     },
+     "per_100w": 0.11
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 1,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.11
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "clear",
+    "clarity_quote": "",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": "",
+    "economy": "some_padding",
+    "economy_quote": "Once you can write that equation and explain why \\( \\alpha+\\beta<1 \\), you already understand the core of modern volatility modelling.",
+    "jargon": "some_jargon",
+    "jargon_quote": "parsimonious",
+    "simple_words": "simple",
+    "simple_words_quote": "",
+    "filler": "some_filler",
+    "filler_quote": "the same ideas that appear in the most advanced research papers"
+   },
+   "scaffold": {
+    "headings": 9,
+    "list_items": 21,
+    "headings_per_100b": 1.2,
+    "list_items_per_100b": 2.8,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.69,
+    "sentence_cv": 0.71,
+    "frag_ratio": 0.18,
+    "bold_per_100w": 0.69,
+    "comma_per_sent": 0.86,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.026375,
+   "seconds": 35.8
+  },
+  {
+   "id": 10,
+   "genre": "seeking_information",
+   "response": "**Roughly 1\u20134+ Gbps** of WireGuard throughput is a realistic range for one 2.9 GHz core with 1 GB RAM, depending on hardware details, packet sizes, directionality, and tuning. 1 GB RAM is not the bottleneck.\n\n### Why this range?\nWireGuard is intentionally lightweight (small codebase, modern crypto like ChaCha20-Poly1305 + Curve25519, minimal state). On a single contemporary x86/ARM core:\n\n- CPU encryption/decryption and packet processing dominate.\n- Real-world single-core numbers commonly fall in the ~1\u20134 Gbps range for mixed/realistic traffic on a ~3 GHz-class core; higher (sometimes multi-Gbps more) is possible with large packets, good NIC/driver support (checksum offload, etc.), multi-queue where applicable, and modern CPUs with strong single-thread performance and crypto instructions.\n- Very small packets, high packet rates, or extra overhead (heavy iptables/nftables, bridging, additional encapsulation, slow NICs, thermal throttling, etc.) drop performance toward the lower end.\n- Symmetric bidirectional traffic roughly halves the \u201cone-way\u201d figure because the same core does both encrypt and decrypt work.\n- Published benchmarks (various x86 servers, newer ARM, etc.) and scaling observations (e.g. from lower-clock devices) support this order of magnitude; a 2.9 GHz core is in a typical mobile/desktop/server range where single-core WireGuard often saturates 1\u201310 Gbps-class links before needing more cores.\n\nRAM usage is tiny (kernel module + per-peer state is modest), so 1 GB is ample even with many peers or some routing/firewall state. You are far more likely to be CPU-, NIC-, or bus-limited than memory-limited.\n\n### Factors that move the number\n- **CPU microarchitecture & features**: Newer cores with better IPC, AES/ChaCha-friendly execution, and good memory bandwidth do more work per GHz. Frequency alone (2.9 GHz) is only part of the story.\n- **Packet size / traffic mix**: Large MTU/packets favor higher Gbps; small packets increase packets-per-second load and lower throughput.\n- **NIC and drivers**: Good multi-queue NICs, XDP/eBPF-friendly paths, checksum/segmentation offloads, and interrupt affinity help. A weak or poorly driven 1 GbE NIC will cap you at ~1 Gbps regardless of CPU.\n- **Config and overhead**: Number of peers, allowed IPs, keepalive, routing rules, NAT, additional qdisc/firewall, userspace vs. kernel, etc.\n- **Direction and measurement**: unidirectional vs bidirectional; iperf-style bulk vs real traffic; whether you count only WireGuard interface throughput.\n- **Platform**: Bare metal usually beats heavily virtualized/shared environments; thermal/power limits can clock the core down.\n\n### Practical takeaway\n- Expect **comfortable multi-hundred Mbps to a few Gbps** on that single core for typical use.\n- For sustained multi-Gbps (especially bidirectional), plan on testing with your actual NIC, kernel, and traffic; add cores or flow hashing if you need more.\n- 1 GB RAM is fine; prioritize CPU headroom, NIC quality, and keeping the data path simple.\n\nExact numbers require a benchmark on the target hardware (`iperf3`/`pktgen` through a WireGuard tunnel, watching CPU softirq and `wg` show). The estimate above is the practical ballpark for a 2.9 GHz core.",
+   "rules": {
+    "rule2_economy": 5.0,
+    "rule3_jargon": 10.0,
+    "rule5_simple_words": 5.0,
+    "rule6_filler": 5.0,
+    "rule1_understandable": 5.0,
+    "rule4_imagery": 10.0,
+    "rule7_form": 5.0
+   },
+   "clarity_avg": 6.48,
+   "slop_per_1k": 1.3,
+   "slop_breakdown": {
+    "inline_header_list": 6
+   },
+   "slop_tax": 0.019,
+   "score": 63.6,
+   "facts_delivered": "4/4",
+   "detail": {
+    "economy": {
+     "words": 473,
+     "budget": 280,
+     "facts": 4,
+     "required": 4,
+     "coverage": 1.0,
+     "over_budget": 1.69
+    },
+    "jargon": {
+     "undefined_acronyms": [],
+     "undefined_terms": [],
+     "per_100w": 0.0
+    },
+    "simple_words": {
+     "swaps": {
+      "additional": "more",
+      "require": "need"
+     },
+     "per_100w": 0.63
+    },
+    "filler": {
+     "filler": 0,
+     "pretentious": 0,
+     "euphemism": 0,
+     "grammar": 0,
+     "per_100w": 0.0
+    }
+   },
+   "judge": {
+    "facts_delivered": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "clarity": "needs_a_reread",
+    "clarity_quote": "Real-world single-core numbers commonly fall in the ~1\u20134 Gbps range for mixed/realistic traffic on a ~3 GHz-class core; higher (sometimes multi-Gbps more) is possible with large packets, good NIC/driver support (checksum offload, etc.), multi-queue where applicable, and modern CPUs with strong single-thread performance and crypto instructions.",
+    "imagery": "concrete",
+    "imagery_quote": "",
+    "imagery_suggestion": "",
+    "form": "some_scaffolding",
+    "form_quote": "Exact numbers require a benchmark on the target hardware (`iperf3`/`pktgen` through a WireGuard tunnel, watching CPU softirq and `wg` show). The estimate above is the practical ballpark for a 2.9 GHz core.",
+    "economy": "some_padding",
+    "economy_quote": "You are far more likely to be CPU-, NIC-, or bus-limited than memory-limited.",
+    "jargon": "plain",
+    "jargon_quote": "",
+    "simple_words": "some_complex",
+    "simple_words_quote": "directionality",
+    "filler": "some_filler",
+    "filler_quote": "WireGuard is intentionally lightweight"
+   },
+   "scaffold": {
+    "headings": 3,
+    "list_items": 14,
+    "headings_per_100b": 1.07,
+    "list_items_per_100b": 5.0,
+    "scaffold_score": 10.0
+   },
+   "shape": {
+    "em_dash_per_100w": 0.0,
+    "sentence_cv": 0.5,
+    "frag_ratio": 0.08,
+    "bold_per_100w": 1.69,
+    "comma_per_sent": 1.54,
+    "staccato_runs": 0
+   },
+   "cost_usd": 0.02478,
+   "seconds": 28.7
   }
  ]
 }

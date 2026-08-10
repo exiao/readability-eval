@@ -1,118 +1,131 @@
 {
  "summary": {
-  "model": "gpt-5.6-sol",
-  "backend": "hermes",
-  "n": 12,
+  "model": "openai/gpt-5.6-sol",
+  "backend": "openrouter",
+  "condition": "default",
+  "n": 5,
   "errors": 0,
-  "score": 87.0,
-  "clarity_avg": 9.23,
-  "slop_per_1k": 5.6,
-  "avg_words": 102,
+  "score": 94.0,
+  "clarity_avg": 9.46,
+  "slop_per_1k": 0.5,
+  "avg_words": 1372,
   "per_rule": {
-   "rule2_economy": 7.68,
-   "rule3_jargon": 10.0,
-   "rule5_simple_words": 9.46,
+   "rule2_economy": 5.54,
+   "rule3_jargon": 9.76,
+   "rule5_simple_words": 9.94,
    "rule6_filler": 10.0,
    "rule1_understandable": 10.0,
-   "rule4_imagery": 8.25
+   "rule4_imagery": 10.0,
+   "rule7_form": 10.0
   },
-  "cost_usd": 0.0
+  "cost_usd": 0.3583
  },
  "runs": [
   {
    "id": 1,
-   "genre": "technical_qa",
-   "response": "Rollback yesterday\u2019s deploy now. Pool waits strongly link the regression to connection exhaustion.\n\n- Confirm rollback restores p99 and pool wait.\n- Compare old vs new: connections held per request, transaction duration, missing closes, query count, request concurrency.\n- Check database connection limits and active queries.\n- Do not increase pool size until the leak or long hold is identified.\n- Add a regression load test before redeploying.",
+   "genre": "practical_guidance",
+   "response": "# Grade 2 Video Lesson: Identifying 2D Shapes and Their Properties\n\n**Topic:** Identification and Properties of 2D Shapes  \n**Suggested length:** 8\u201310 minutes  \n**Learning goals:** By the end of the lesson, learners should be able to:\n\n1. Explain what a 2D shape is.\n2. Identify common 2D shapes.\n3. Count their sides and vertices.\n4. Describe basic properties of each shape.\n5. Find 2D shapes in everyday objects.\n\n---\n\n## 1. Fun Introduction: Shape Detective Mission\n\n**Teacher/Narrator:**\n\n\u201cHello, super shape detectives! Today, we have an exciting mission. Some shapes are hiding all around us, and we need your help to find them!\u201d\n\n**Show:** A door, a clock face, a triangular road sign and a square tile.\n\n\u201cCan you see any shapes? Point to one!\u201d\n\n**Pause for learners to respond.**\n\n\u201cExcellent spotting! Today, we will learn how to identify 2D shapes and describe their properties. Put on your imaginary detective glasses. Let\u2019s begin!\u201d\n\n---\n\n## 2. What Is a 2D Shape?\n\n**Teacher/Narrator:**\n\n\u201cA 2D shape is a flat shape. It has length and width. We can draw it on paper or see its outline on a flat surface.\u201d\n\n**Show:** A circle, triangle, square and rectangle.\n\n\u201cMany 2D shapes have **sides** and **vertices**.\u201d\n\n- A **side** is a straight line that forms part of a shape.\n- A **vertex** is a point where two straight sides meet.\n- More than one vertex are called **vertices**.\n\n**Teacher action:** Point to a side and then to a vertex on a triangle.\n\n\u201cLet\u2019s investigate some common 2D shapes!\u201d\n\n---\n\n## 3. Identifying 2D Shapes\n\n### A. Circle\n\n**Show:** A circle.\n\n**Teacher/Narrator:**\n\n\u201cThis is a **circle**.\u201d\n\n**Properties:**\n\n- It is round.\n- It has a curved boundary.\n- It has no straight sides.\n- It has no vertices.\n\n\u201cTrace a circle in the air with your finger. Round and round!\u201d\n\n---\n\n### B. Triangle\n\n**Show:** Triangles in different sizes and positions.\n\n**Teacher/Narrator:**\n\n\u201cThis is a **triangle**. The word \u2018tri\u2019 can help us remember the number three.\u201d\n\n**Properties:**\n\n- It has 3 straight sides.\n- It has 3 vertices.\n\n\u201cA triangle is still a triangle when it is turned, made bigger or made smaller.\u201d\n\n**Learner action:** Count together: \u201cOne, two, three sides! One, two, three vertices!\u201d\n\n---\n\n### C. Square\n\n**Show:** A square.\n\n**Teacher/Narrator:**\n\n\u201cThis is a **square**.\u201d\n\n**Properties:**\n\n- It has 4 straight sides.\n- All 4 sides are equal in length.\n- It has 4 vertices.\n- It has 4 square corners, also called right angles.\n\n\u201cLet\u2019s count: one, two, three, four!\u201d\n\n**Important reminder:** A square remains a square even when it is turned.\n\n---\n\n### D. Rectangle\n\n**Show:** A rectangle.\n\n**Teacher/Narrator:**\n\n\u201cThis is a **rectangle**.\u201d\n\n**Properties:**\n\n- It has 4 straight sides.\n- It has 4 vertices.\n- Opposite sides are equal in length.\n- It has 4 square corners, or right angles.\n\n\u201cLook carefully. A rectangle often has two longer sides and two shorter sides.\u201d\n\n**Teacher note:** A square is a special type of rectangle because it has four right angles, but all four of its sides are equal.\n\n---\n\n### E. Pentagon\n\n**Show:** A simple regular pentagon.\n\n**Teacher/Narrator:**\n\n\u201cThis is a **pentagon**.\u201d\n\n**Properties:**\n\n- It has 5 straight sides.\n- It has 5 vertices.\n\n\u201cCount with me: one, two, three, four, five!\u201d\n\n---\n\n### F. Hexagon\n\n**Show:** A simple regular hexagon.\n\n**Teacher/Narrator:**\n\n\u201cThis is a **hexagon**.\u201d\n\n**Properties:**\n\n- It has 6 straight sides.\n- It has 6 vertices.\n\n\u201cCan you count all six sides?\u201d\n\n---\n\n## 4. Shape Property Summary\n\n| Shape | Straight sides | Vertices | Special property |\n|---|---:|---:|---|\n| Circle | 0 | 0 | Has a curved boundary |\n| Triangle | 3 | 3 | Has three straight sides |\n| Square | 4 | 4 | All four sides are equal |\n| Rectangle | 4 | 4 | Opposite sides are equal |\n| Pentagon | 5 | 5 | Has five straight sides |\n| Hexagon | 6 | 6 | Has six straight sides |\n\n**Teacher/Narrator:**\n\n\u201cTo identify a shape, ask these questions:\n\n1. Does it have straight sides or a curved boundary?\n2. How many sides does it have?\n3. How many vertices does it have?\n4. Are any of its sides equal in length?\u201d\n\n---\n\n## 5. Shapes Can Look Different\n\n**Show:** Several triangles and rectangles in different sizes, colours and positions.\n\n**Teacher/Narrator:**\n\n\u201cShapes can be different colours and sizes. They can also be turned in different directions. Their properties do not change.\u201d\n\n\u201cA triangle with three straight sides and three vertices is still a triangle, even when it is upside down.\u201d\n\n\u201cA square is still a square when it is turned.\u201d\n\n---\n\n## 6. Real-Life Applications: Shape Hunt\n\n**Teacher/Narrator:**\n\n\u201c2D shapes can be seen on the flat faces or outlines of objects around us.\u201d\n\n**Examples:**\n\n- The face of a wall clock may look like a **circle**.\n- A triangular road sign has a **triangle-shaped face**.\n- A floor tile may have a **square-shaped face**.\n- A book cover may look like a **rectangle**.\n- Some signs may have **pentagon-shaped faces**.\n- Some tiles and honeycomb patterns contain **hexagons**.\n\n\u201cWhy are shapes useful?\u201d\n\n- Shapes help us describe objects.\n- Builders and designers use shapes when planning buildings and patterns.\n- Artists use shapes to make pictures.\n- Road signs use different shapes to help communicate information.\n\n---\n\n## 7. Learner Exercises\n\n### Exercise 1: Guess My Shape\n\n**Teacher/Narrator:**\n\n\u201cListen to the clues and name the shape.\u201d\n\n1. \u201cI have no straight sides and no vertices. What am I?\u201d  \n2. \u201cI have 3 straight sides and 3 vertices. What am I?\u201d  \n3. \u201cI have 4 equal sides and 4 vertices. What am I?\u201d  \n4. \u201cI have 5 straight sides and 5 vertices. What am I?\u201d  \n5. \u201cI have 6 straight sides and 6 vertices. What am I?\u201d  \n6. \u201cI have 4 vertices, and my opposite sides are equal. What am I?\u201d\n\n---\n\n### Exercise 2: True or False\n\n1. A circle has four vertices.  \n2. A triangle has three straight sides.  \n3. A square has four equal sides.  \n4. A pentagon has six sides.  \n5. A rectangle has four vertices.  \n6. Turning a shape changes its properties.\n\n---\n\n### Exercise 3: Count and Complete\n\n| Shape | Number of straight sides | Number of vertices |\n|---|---:|---:|\n| Triangle | ___ | ___ |\n| Square | ___ | ___ |\n| Pentagon | ___ | ___ |\n| Hexagon | ___ | ___ |\n| Circle | ___ | ___ |\n\n---\n\n### Exercise 4: Shape Hunt Challenge\n\n\u201cLook around your classroom or home. Find something with a flat face or outline that looks like:\n\n- a circle,\n- a triangle,\n- a square,\n- a rectangle.\n\nDraw the objects and write the name of each shape underneath.\u201d\n\n---\n\n### Exercise 5: Draw Your Own Shape Picture\n\n\u201cUse 2D shapes to create a picture. You could make a house, a robot, a rocket or an animal.\u201d\n\nAfter drawing, complete these sentences:\n\n- I used ___ circles.\n- I used ___ triangles.\n- I used ___ squares.\n- I used ___ rectangles.\n\n---\n\n## 8. Answers\n\n### Exercise 1\n\n1. Circle  \n2. Triangle  \n3. Square  \n4. Pentagon  \n5. Hexagon  \n6. Rectangle  \n\n### Exercise 2\n\n1. False  \n2. True  \n3. True  \n4. False  \n5. True  \n6. False  \n\n### Exercise 3\n\n| Shape | Straight sides | Vertices |\n|---|---:|---:|\n| Triangle | 3 | 3 |\n| Square | 4 | 4 |\n| Pentagon | 5 | 5 |\n| Hexagon | 6 | 6 |\n| Circle | 0 | 0 |\n\n---\n\n## 9. Closing Recap\n\n**Teacher/Narrator:**\n\n\u201cFantastic work, shape detectives! Today, we learned that 2D shapes are flat. We can identify many of them by counting their sides and vertices.\u201d\n\n\u201cRemember:\n\n- Circle: curved boundary and no vertices.\n- Triangle: 3 sides and 3 vertices.\n- Square: 4 equal sides and 4 vertices.\n- Rectangle: 4 sides and 4 vertices.\n- Pentagon: 5 sides and 5 vertices.\n- Hexagon: 6 sides and 6 vertices.\u201d\n\n\u201cKeep looking for shapes everywhere you go. Shape mission complete!\u201d",
    "rules": {
-    "rule2_economy": 3.5,
+    "rule2_economy": 5.1,
     "rule3_jargon": 10.0,
-    "rule5_simple_words": 4.1,
+    "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
    },
-   "clarity_avg": 7.43,
+   "clarity_avg": 9.46,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 74.3,
-   "facts_delivered": "2/4",
+   "score": 94.6,
+   "facts_delivered": "5/5",
    "detail": {
     "economy": {
-     "words": 68,
-     "facts": 2,
-     "required": 4,
-     "coverage": 0.5,
-     "words_per_fact": 34.0
+     "words": 1347,
+     "budget": 550,
+     "facts": 5,
+     "required": 5,
+     "coverage": 1.0,
+     "over_budget": 2.45
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
-     "swaps": {
-      "request": "ask"
-     },
-     "per_100w": 2.94
+     "swaps": {},
+     "per_100w": 0.0
     },
     "filler": {
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
    "judge": {
     "facts_delivered": [
      true,
-     false,
      true,
-     false
+     true,
+     true,
+     true
     ],
     "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
+    "clarity_quote": "A square is a special type of rectangle because it has four right angles, but all four of its sides are equal.",
+    "imagery": "concrete",
     "imagery_quote": "",
-    "imagery_suggestion": ""
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
    },
    "shape": {
     "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.45,
-    "frag_ratio": 0.14,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.57
+    "sentence_cv": 1.26,
+    "frag_ratio": 0.27,
+    "bold_per_100w": 4.01,
+    "comma_per_sent": 0.25,
+    "staccato_runs": 0
    },
-   "cost_usd": 0.0,
-   "seconds": 221.3
+   "cost_usd": 0.066945,
+   "seconds": 38.1
   },
   {
    "id": 2,
-   "genre": "explain",
-   "response": "A process is a running program. A thread is a worker inside it.\n\n- Processes have separate memory and resources.\n- Threads in one process share memory and resources.\n- Processes are safer but heavier.\n- Threads are faster but can interfere with each other.\n\nExample: Chrome uses processes for tabs and threads for tasks within each tab.",
+   "genre": "practical_guidance",
+   "response": "# Lesson Plan: Butterfly Life Cycle Dance\n\n**Grade Level:** Kindergarten\u20132nd Grade  \n**Length:** 40\u201345 minutes  \n**Subjects:** Dance, Science, Creative Movement  \n**Theme:** Butterfly Life Cycle\n\n## Learning Objectives\n\nStudents will:\n\n- Identify the four stages of a butterfly\u2019s life cycle: **egg, caterpillar (larva), chrysalis (pupa), and butterfly**.\n- Use their bodies to represent each stage.\n- Create and perform a short dance with a clear beginning, middle, and ending.\n- Practice moving safely and respectfully in a shared space.\n\n## Materials\n\n- Pictures or a book showing the butterfly life cycle\n- Open movement space\n- Music with slow and lively sections\n- Optional: scarves, ribbons, or paper wings\n- Optional: four picture cards labeled **Egg, Caterpillar, Chrysalis, Butterfly**\n\n## Key Vocabulary\n\n- **Egg**\n- **Caterpillar/Larva**\n- **Chrysalis/Pupa**\n- **Butterfly**\n- **Shape**\n- **Level**: low, middle, high\n- **Tempo**: slow or fast\n- **Pathway**: straight, curved, or zigzag\n\n## Lesson Sequence\n\n### 1. Introduction and Science Review \u2014 5 minutes\n\nShow students pictures of the butterfly life cycle.\n\nAsk:\n\n- How does a butterfly begin its life?\n- How might a caterpillar move?\n- What happens inside a chrysalis?\n- How does a butterfly move when it emerges?\n\nReview the sequence:\n\n1. Egg  \n2. Caterpillar  \n3. Chrysalis  \n4. Butterfly  \n\nExplain: \u201cToday, we will use our bodies to tell the story of a butterfly\u2019s life cycle.\u201d\n\n---\n\n### 2. Movement Warm-Up \u2014 5\u20137 minutes\n\nHave students spread out in their own \u201cpersonal space bubble.\u201d\n\nGuide them through simple movements:\n\n- Curl into a tiny shape.\n- Stretch long and low.\n- Wiggle slowly.\n- Twist gently.\n- Reach upward.\n- Open and close \u201cwings.\u201d\n- Travel with light, quiet steps.\n\nRemind students to keep their eyes open and avoid touching others.\n\n---\n\n### 3. Explore Each Life Cycle Stage \u2014 10 minutes\n\nGuide students in creating movements for each stage.\n\n#### Egg\n\n- Make a tiny, round, still shape.\n- Stay low to the ground.\n- Add a small rocking or breathing motion.\n\n**Movement idea:** Curl into a ball and slowly rock.\n\n#### Caterpillar\n\n- Stretch, shrink, wiggle, and crawl.\n- Move low to the ground.\n- Travel in a straight, curved, or zigzag pathway.\n\n**Movement idea:** Reach forward, pull the body in, and repeat.\n\n#### Chrysalis\n\n- Create a tall or curled shape.\n- Become very still.\n- Slowly twist or shake to show changes happening inside.\n\n**Movement idea:** Wrap arms around the body, then gradually begin to move.\n\n#### Butterfly\n\n- Slowly emerge and unfold.\n- Stretch wings wide.\n- Fly using light movements, turns, and curved pathways.\n- Land softly on an imaginary flower.\n\n**Movement idea:** Rise from the floor, open the arms, and travel gently around the space.\n\n---\n\n### 4. Create the Butterfly Life Cycle Dance \u2014 10\u201312 minutes\n\nPlace students in pairs, small groups, or let them work individually.\n\nTheir dance must include:\n\n1. An **egg shape**\n2. A **caterpillar traveling movement**\n3. A **still chrysalis shape**\n4. A **butterfly movement**\n5. A final landing pose\n\nEncourage students to include:\n\n- At least one **low**, **middle**, and **high** movement\n- A change in speed\n- A moment of stillness\n- A clear transition between each stage\n\nAllow students time to practice the sequence several times.\n\n---\n\n### 5. Performance \u2014 5\u20137 minutes\n\nInvite individuals or groups to perform their dances.\n\nAudience members can quietly look for each life cycle stage. After each performance, ask:\n\n- Which stage did you recognize?\n- What movement showed the caterpillar?\n- How did the dancers show the butterfly emerging?\n\nEncourage positive feedback such as: \u201cI noticed\u2026\u201d or \u201cI liked how\u2026\u201d\n\n---\n\n### 6. Cool-Down and Reflection \u2014 3\u20135 minutes\n\nStudents pretend to be butterflies landing on flowers.\n\nGuide them to:\n\n- Lower their wings slowly.\n- Take deep breaths.\n- Fold into a resting shape.\n\nAsk:\n\n- What are the four stages of the butterfly life cycle?\n- Which stage was your favorite to dance?\n- How did your movements change from caterpillar to butterfly?\n\n## Assessment\n\nObserve whether students can:\n\n- Put the four stages in the correct order.\n- Create a movement for each stage.\n- Use changes in body shape, level, speed, or pathway.\n- Perform safely in personal and shared space.\n- Participate in creating and performing the dance.\n\n### Simple Student Checklist\n\n- \u2610 I made an egg shape.  \n- \u2610 I moved like a caterpillar.  \n- \u2610 I became still like a chrysalis.  \n- \u2610 I opened my wings and flew like a butterfly.  \n- \u2610 I moved safely.\n\n## Differentiation\n\n### For Younger Students or Students Needing Support\n\n- Use picture cards and practice one stage at a time.\n- Let students copy the teacher\u2019s movements.\n- Use a repeated verbal cue: \u201cEgg, crawl, freeze, fly.\u201d\n- Allow students to perform beside a partner.\n\n### For Students Ready for a Challenge\n\n- Add a second movement to each stage.\n- Include different levels, pathways, and speeds.\n- Create movements that match changes in the music.\n- Perform the dance in canon, with dancers beginning one after another.\n\n### Accessibility Adaptations\n\n- All movements may be performed seated or standing.\n- Students can show stages using arms, hands, facial expressions, or props.\n- Provide scarves or ribbons to help represent wings.\n- Offer non-performing roles, such as holding life cycle cards or narrating the stages.\n\n## Optional Music Cues\n\n- **Egg:** quiet, slow music  \n- **Caterpillar:** steady or playful rhythm  \n- **Chrysalis:** soft, mysterious music  \n- **Butterfly:** light, flowing, joyful music  \n\n## Closing Message\n\n\u201cA butterfly changes through every stage of its life. Dancers can show those changes by using different shapes, levels, speeds, and movements.\u201d",
    "rules": {
-    "rule2_economy": 9.3,
+    "rule2_economy": 6.9,
     "rule3_jargon": 10.0,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
    },
-   "clarity_avg": 9.88,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 98.8,
-   "facts_delivered": "3/3",
+   "clarity_avg": 9.66,
+   "slop_per_1k": 0.5,
+   "slop_breakdown": {
+    "inline_header_list": 5
+   },
+   "slop_tax": 0.007,
+   "score": 95.8,
+   "facts_delivered": "4/4",
    "detail": {
     "economy": {
-     "words": 58,
-     "facts": 3,
-     "required": 3,
+     "words": 941,
+     "budget": 520,
+     "facts": 4,
+     "required": 4,
      "coverage": 1.0,
-     "words_per_fact": 19.3
+     "over_budget": 1.81
     },
     "jargon": {
      "undefined_acronyms": [],
+     "undefined_terms": [],
      "per_100w": 0.0
     },
     "simple_words": {
@@ -123,11 +136,13 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
    "judge": {
     "facts_delivered": [
+     true,
      true,
      true,
      true
@@ -136,446 +151,75 @@
     "clarity_quote": "",
     "imagery": "concrete",
     "imagery_quote": "",
-    "imagery_suggestion": ""
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
    },
    "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.31,
-    "frag_ratio": 0.0,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.0
+    "em_dash_per_100w": 0.64,
+    "sentence_cv": 0.94,
+    "frag_ratio": 0.17,
+    "bold_per_100w": 3.08,
+    "comma_per_sent": 0.66,
+    "staccato_runs": 0
    },
-   "cost_usd": 0.0,
-   "seconds": 154.6
+   "cost_usd": 0.041915,
+   "seconds": 32.7
   },
   {
    "id": 3,
-   "genre": "bad_news",
-   "response": "Subject: Department closure on [date]\n\nTeam,\n\nI\u2019m sorry to share that [department] will close on [date], eliminating all eight roles. Each person will receive a private meeting today covering timing, pay, benefits, and support. Please contact [HR name] with immediate questions.\n\nThank you for everything you\u2019ve contributed.\n\n[Name]",
+   "genre": "practical_guidance",
+   "response": "# The Art of Negotiation: Detailed 12-Module Course\n\n**Recommended duration:** 10\u201312 weeks  \n**Study time:** 4\u20136 hours per week  \n**Level:** Beginner to intermediate  \n**Format:** Theory, observation, role-play, reflection, and real-world practice\n\n## Course outcomes\n\nBy the end of the course, learners should be able to:\n\n- Prepare a clear negotiation strategy.\n- Identify interests, positions, priorities, and constraints.\n- Calculate BATNA, reservation point, ZOPA, and target outcomes.\n- Use active listening, questioning, framing, and persuasive communication.\n- Handle distributive and integrative negotiations.\n- Manage emotions, conflict, pressure, and difficult tactics.\n- Negotiate ethically across cultures, teams, and virtual settings.\n- Design agreements that are specific, realistic, and sustainable.\n\n---\n\n## Free-access key\n\n- **Fully free:** Course materials can normally be accessed without payment.\n- **Free audit/access:** Learning content is usually free, but graded assignments or certificates may require payment.\n- Availability can vary by country and may change. On Coursera or edX, look for **\u201cAudit,\u201d \u201cPreview,\u201d or \u201cFull course, no certificate.\u201d**\n\n---\n\n# Module 1: Foundations of Negotiation\n\n## Topics\n\n- What negotiation is\u2014and what it is not\n- Negotiation versus persuasion, selling, mediation, and conflict resolution\n- Competitive and collaborative approaches\n- Positions versus interests\n- Distributive versus integrative negotiation\n- The stages of a negotiation:\n  1. Preparation\n  2. Opening\n  3. Exploration\n  4. Bargaining\n  5. Closing\n  6. Implementation\n- Common myths about \u201cnatural negotiators\u201d\n\n## Skills required\n\n- Recognizing negotiation opportunities\n- Distinguishing interests from stated demands\n- Choosing a competitive or collaborative strategy\n- Understanding basic negotiation terminology\n- Diagnosing the type of negotiation\n- Setting measurable learning goals\n\n## Practice activity\n\nAnalyze a recent negotiation from your personal or professional life. Identify:\n\n- Each side\u2019s stated position\n- Possible underlying interests\n- Whether the negotiation was distributive or integrative\n- What you would do differently\n\n## Recommended free courses\n\n1. **Successful Negotiation: Essential Strategies and Skills** \u2014 University of Michigan, Coursera  \n   Strong introduction to negotiation analysis, bargaining, closing, and performance review.  \n   **Access:** Usually free to audit.\n\n2. **BUS403: Negotiations and Conflict Management** \u2014 Saylor Academy  \n   Covers negotiation models, communication, conflict, ethics, and organizational applications.  \n   **Access:** Fully free; optional certificate arrangements may differ.\n\n3. **Negotiation and Conflict Management** \u2014 MIT OpenCourseWare  \n   Useful university-level readings, cases, and frameworks.  \n   **Access:** Fully free.\n\n---\n\n# Module 2: Negotiation Preparation and Strategy\n\nPreparation is often the strongest predictor of negotiation performance.\n\n## Topics\n\n- Defining objectives and ideal outcomes\n- BATNA: Best Alternative to a Negotiated Agreement\n- Reservation point or walk-away point\n- Target or aspiration point\n- ZOPA: Zone of Possible Agreement\n- Identifying issues and priorities\n- Ranking and weighting negotiation variables\n- Researching the other party\n- Scenario planning\n- Creating a negotiation agenda\n- Developing opening offers and concession plans\n\n## Skills required\n\n- Goal setting\n- Information gathering\n- Strategic planning\n- BATNA development\n- Risk assessment\n- Priority mapping\n- Estimating the other side\u2019s constraints\n- Preparing objective criteria\n- Designing fallback options\n- Deciding when to walk away\n\n## Preparation worksheet\n\nBefore a negotiation, answer:\n\n1. What is my ideal result?\n2. What result would be acceptable?\n3. What is my walk-away point?\n4. What is my BATNA?\n5. How can I improve my BATNA?\n6. What is the other party\u2019s likely BATNA?\n7. What issues can be traded?\n8. What information should I reveal or protect?\n9. What objective standards support my proposal?\n10. What implementation risks must be addressed?\n\n## Practice activity\n\nPrepare for a simulated salary negotiation. Include:\n\n- Target salary\n- Minimum acceptable package\n- Non-salary variables\n- Market data\n- Employer\u2019s likely priorities\n- Three possible packages\n\n## Recommended free courses\n\n1. **Introduction to Negotiation: A Strategic Playbook for Becoming a Principled and Persuasive Negotiator** \u2014 Yale University, Coursera  \n   Excellent for strategic analysis, negotiation cases, and structured preparation.  \n   **Access:** Usually free to audit.\n\n2. **Negotiation Fundamentals** \u2014 ESSEC Business School, Coursera  \n   Focuses on preparation, structure, bargaining processes, and key analytical tools.  \n   **Access:** Usually free to audit.\n\n3. **Negotiation and Conflict Management** \u2014 MIT OpenCourseWare  \n   Particularly useful for preparation frameworks and case-based study.  \n   **Access:** Fully free.\n\n---\n\n# Module 3: Communication, Listening, and Questioning\n\n## Topics\n\n- Active and reflective listening\n- Verbal and nonverbal communication\n- Open, closed, probing, and clarifying questions\n- Summarizing and paraphrasing\n- Silence as a negotiation tool\n- Reading tone, pace, and body language\n- Communicating clearly without overexplaining\n- Identifying vague, ambiguous, or loaded language\n- Separating understanding from agreement\n\n## Skills required\n\n- Active listening\n- Asking diagnostic questions\n- Paraphrasing accurately\n- Summarizing agreements and disagreements\n- Reading nonverbal signals cautiously\n- Controlling tone and pace\n- Using silence comfortably\n- Detecting assumptions\n- Communicating assertively without aggression\n- Confirming mutual understanding\n\n## Useful questions\n\n- \u201cWhat is most important to you in this agreement?\u201d\n- \u201cWhat problem are you trying to solve?\u201d\n- \u201cWhat concerns do you have about this proposal?\u201d\n- \u201cHow did you arrive at that figure?\u201d\n- \u201cWhat would make this option workable?\u201d\n- \u201cIf we solved that issue, what would remain?\u201d\n- \u201cWhat alternatives are you considering?\u201d\n\n## Practice activity\n\nConduct a ten-minute interview in which your only objectives are to:\n\n- Discover the other person\u2019s priorities\n- Ask at least five open questions\n- Paraphrase their answers\n- Avoid making a proposal\n\n## Recommended free courses\n\n1. **Improving Communication Skills** \u2014 University of Pennsylvania, Coursera  \n   Covers persuasive communication, trust, active listening, and strategic messaging.  \n   **Access:** Usually free to audit.\n\n2. **Effective Communication in the Workplace** \u2014 The Open University, OpenLearn  \n   Introduces workplace communication, listening, message design, and communication barriers.  \n   **Access:** Fully free.\n\n3. **Successful Negotiation** \u2014 University of Michigan, Coursera  \n   The negotiation exercises are useful for applying communication techniques.  \n   **Access:** Usually free to audit.\n\n---\n\n# Module 4: Interests, Value Creation, and Integrative Negotiation\n\n## Topics\n\n- Moving from positions to interests\n- Identifying shared, compatible, and conflicting interests\n- Creating value before claiming value\n- Logrolling: trading issues with different priorities\n- Contingent agreements\n- Package offers\n- Multiple Equivalent Simultaneous Offers, or MESOs\n- Expanding the number of negotiable variables\n- Joint problem-solving\n- Avoiding premature compromise\n\n## Skills required\n\n- Interest discovery\n- Creative problem-solving\n- Brainstorming without commitment\n- Finding differences in priorities\n- Designing trade-offs\n- Constructing package proposals\n- Presenting multiple options\n- Separating option generation from evaluation\n- Building mutual gain\n- Recognizing long-term relationship value\n\n## Example\n\nInstead of negotiating only salary, include:\n\n- Signing bonus\n- Performance bonus\n- Remote work\n- Training budget\n- Job title\n- Start date\n- Vacation\n- Promotion review date\n\nDifferent priorities create opportunities for trade-offs.\n\n## Practice activity\n\nNegotiate a supplier agreement involving:\n\n- Price\n- Delivery time\n- Contract duration\n- Payment terms\n- Quality guarantees\n- Order volume\n\nCreate three packages that are approximately equal in value to you.\n\n## Recommended free courses\n\n1. **Introduction to Negotiation** \u2014 Yale University, Coursera  \n   Strong coverage of value creation, principled negotiation, and strategic problem-solving.  \n   **Access:** Usually free to audit.\n\n2. **Negotiation Fundamentals** \u2014 ESSEC Business School, Coursera  \n   Useful for identifying negotiation variables and structuring mutually beneficial trades.  \n   **Access:** Usually free to audit.\n\n3. **Successful Negotiation** \u2014 University of Michigan, Coursera  \n   Includes practical frameworks for cooperative negotiation and agreement building.  \n   **Access:** Usually free to audit.\n\n---\n\n# Module 5: Distributive Bargaining, Anchoring, and Concessions\n\n## Topics\n\n- Fixed-pie or distributive negotiations\n- First offers and anchoring\n- When to make the first offer\n- Defending against extreme anchors\n- Concession size, timing, and pattern\n- Avoiding unreciprocated concessions\n- Objective standards\n- Managing deadlines\n- Protecting your reservation point\n- Closing without giving away unnecessary value\n\n## Skills required\n\n- Setting ambitious but credible anchors\n- Responding to extreme demands\n- Making conditional concessions\n- Using objective criteria\n- Tracking concession patterns\n- Protecting confidential information\n- Maintaining discipline under pressure\n- Recognizing artificial deadlines\n- Knowing when to pause or walk away\n- Closing efficiently\n\n## Recommended language\n\n- \u201cWhat objective standard supports that figure?\u201d\n- \u201cThat number is outside the range we prepared for.\u201d\n- \u201cIf we move on price, we would need movement on delivery.\u201d\n- \u201cI may be able to consider that if the contract term changes.\u201d\n- \u201cBefore discussing concessions, let us review the full package.\u201d\n\n## Practice activity\n\nConduct a buyer\u2013seller negotiation with a narrow bargaining range. Record:\n\n- First offer\n- Counteroffer\n- Every concession\n- Concession size\n- Final agreement\n- Whether either side crossed its reservation point\n\n## Recommended free courses\n\n1. **Successful Negotiation** \u2014 University of Michigan, Coursera  \n   Covers bargaining, negotiation tactics, contracts, and evaluation of outcomes.  \n   **Access:** Usually free to audit.\n\n2. **Negotiation Fundamentals** \u2014 ESSEC Business School, Coursera  \n   Useful for anchors, concessions, bargaining structure, and tactical decisions.  \n   **Access:** Usually free to audit.\n\n3. **BUS403: Negotiations and Conflict Management** \u2014 Saylor Academy  \n   Provides an accessible treatment of competitive bargaining and conflict strategy.  \n   **Access:** Fully free.\n\n---\n\n# Module 6: Persuasion, Influence, and Framing\n\n## Topics\n\n- Persuasion versus manipulation\n- Building credibility and trust\n- Reciprocity, consistency, social proof, authority, liking, and scarcity\n- Logical, emotional, and credibility-based appeals\n- Framing gains and losses\n- Presenting objective evidence\n- Storytelling in negotiation\n- Audience-centered proposal design\n- Sequence and timing of arguments\n- Inoculating against objections\n\n## Skills required\n\n- Framing proposals\n- Building credibility\n- Adapting messages to the audience\n- Using evidence effectively\n- Explaining benefits and consequences\n- Handling objections\n- Telling concise, relevant stories\n- Recognizing manipulative appeals\n- Matching influence tactics to context\n- Persuading without damaging trust\n\n## Practice activity\n\nPresent the same proposal in three different frames:\n\n1. Cost-saving frame\n2. Risk-reduction frame\n3. Growth-opportunity frame\n\nAsk listeners which version is most persuasive and why.\n\n## Recommended free courses\n\n1. **Influencing People** \u2014 University of Michigan, Coursera  \n   Covers influence strategies, power, persuasion, and interpersonal effectiveness.  \n   **Access:** Usually free to audit.\n\n2. **Improving Communication Skills** \u2014 University of Pennsylvania, Coursera  \n   Especially useful for persuasive messages, trust, and communication strategy.  \n   **Access:** Usually free to audit.\n\n3. **Rhetoric: The Art of Persuasive Writing and Public Speaking** \u2014 HarvardX, edX  \n   Develops argument construction, rhetorical analysis, and persuasive presentation.  \n   **Access:** Audit access may be available.\n\n---\n\n# Module 7: Emotional Intelligence and Conflict Management\n\n## Topics\n\n- Emotional triggers\n- Self-awareness and self-regulation\n- Stress responses during negotiation\n- Empathy and perspective-taking\n- Conflict styles:\n  - Avoiding\n  - Accommodating\n  - Competing\n  - Compromising\n  - Collaborating\n- Separating people from problems\n- De-escalating anger\n- Managing defensiveness\n- Giving and receiving difficult feedback\n- Repairing damaged trust\n\n## Skills required\n\n- Recognizing emotional triggers\n- Regulating reactions\n- Maintaining a calm tone\n- Naming emotions without judgment\n- Demonstrating empathy\n- Reframing personal attacks\n- De-escalating conflict\n- Apologizing effectively\n- Giving constructive feedback\n- Rebuilding working relationships\n\n## De-escalation model\n\n1. Pause and slow the conversation.\n2. Acknowledge the emotion.\n3. Clarify the issue.\n4. Reframe blame as a shared problem.\n5. Agree on a process for continuing.\n6. Return to interests and evidence.\n\n## Practice activity\n\nRole-play a negotiation in which one person becomes angry. The negotiator must:\n\n- Avoid responding defensively\n- Acknowledge the concern\n- Ask a clarifying question\n- Reframe the problem\n- Suggest a productive next step\n\n## Recommended free courses\n\n1. **Conflict Resolution Skills** \u2014 University of California, Irvine, Coursera  \n   Introduces conflict analysis, communication, and practical resolution skills.  \n   **Access:** Usually free to audit.\n\n2. **Empathy and Emotional Intelligence at Work** \u2014 BerkeleyX, edX  \n   Useful for self-awareness, empathy, relationship management, and workplace behavior.  \n   **Access:** Audit access may be available.\n\n3. **Getting to Grips with Conflict** \u2014 The Open University, OpenLearn  \n   Practical introduction to understanding and responding to conflict.  \n   **Access:** Fully free.\n\n---\n\n# Module 8: Difficult Tactics, Deadlocks, and High-Pressure Negotiations\n\n## Topics\n\n- Good cop/bad cop\n- Extreme anchoring\n- Bogey tactics\n- Nibbling\n- False deadlines\n- Limited authority\n- Take-it-or-leave-it demands\n- Personal attacks and intimidation\n- Deliberate delays\n- Information overload\n- Bluffing and misrepresentation\n- Breaking deadlocks\n- Strategic pauses and adjournments\n\n## Skills required\n\n- Recognizing common tactics\n- Naming tactics without escalating conflict\n- Returning to process and objective criteria\n- Testing claims\n- Asking for reciprocal movement\n- Managing time pressure\n- Refusing unreasonable demands\n- Taking a strategic break\n- Escalating appropriately\n- Developing exit strategies\n\n## Tactical response framework\n\nUse **Recognize\u2013Pause\u2013Question\u2013Reframe\u2013Condition**:\n\n1. **Recognize** the tactic.\n2. **Pause** rather than reacting.\n3. **Question** the basis of the demand.\n4. **Reframe** around interests or standards.\n5. **Condition** any concession on reciprocal movement.\n\n## Practice activity\n\nAssign each role-player two hidden difficult tactics. After the negotiation, identify:\n\n- Which tactics were used\n- Whether they worked\n- How they could have been countered\n- Whether the tactics damaged trust\n\n## Recommended free courses\n\n1. **BUS403: Negotiations and Conflict Management** \u2014 Saylor Academy  \n   Useful for conflict strategies, difficult behavior, and organizational disputes.  \n   **Access:** Fully free.\n\n2. **Mediation and Conflict Resolution** \u2014 ESSEC Business School, Coursera  \n   Provides techniques for overcoming conflict, restoring dialogue, and handling impasses.  \n   **Access:** Usually free to audit.\n\n3. **Negotiation and Conflict Management** \u2014 MIT OpenCourseWare  \n   Includes advanced cases and analytical approaches to difficult negotiations.  \n   **Access:** Fully free.\n\n---\n\n# Module 9: Power, Ethics, Trust, and Cognitive Bias\n\n## Topics\n\n- Sources of negotiation power:\n  - Alternatives\n  - Information\n  - Expertise\n  - Authority\n  - Relationships\n  - Time\n  - Legitimacy\n- Power imbalances\n- Ethical persuasion versus manipulation\n- Bluffing, concealment, and lying\n- Confidentiality\n- Conflicts of interest\n- Trust formation and repair\n- Cognitive biases:\n  - Anchoring\n  - Confirmation bias\n  - Overconfidence\n  - Loss aversion\n  - Reactive devaluation\n  - Fundamental attribution error\n  - Sunk-cost bias\n  - Fixed-pie bias\n\n## Skills required\n\n- Evaluating relative power\n- Strengthening alternatives\n- Applying ethical decision tests\n- Testing assumptions\n- Recognizing bias\n- Verifying important claims\n- Protecting confidential information\n- Maintaining credibility\n- Documenting commitments\n- Balancing immediate gain with reputation\n\n## Ethical decision test\n\nBefore using a tactic, ask:\n\n- Is it legal?\n- Is it consistent with professional standards?\n- Would I be comfortable if it became public?\n- Does it rely on a false factual statement?\n- Would it damage future cooperation?\n- Would I consider it fair if the other side used it?\n\n## Practice activity\n\nReview three negotiation scenarios involving:\n\n- A bluff\n- Withholding information\n- Misleading language\n\nDecide what is ethical, questionable, or unacceptable, and explain why.\n\n## Recommended free courses\n\n1. **Introduction to Negotiation** \u2014 Yale University, Coursera  \n   Addresses fairness, strategic behavior, credibility, and principled negotiation.  \n   **Access:** Usually free to audit.\n\n2. **Influencing People** \u2014 University of Michigan, Coursera  \n   Useful for understanding power, influence, and responsible interpersonal strategy.  \n   **Access:** Usually free to audit.\n\n3. **BUS403: Negotiations and Conflict Management** \u2014 Saylor Academy  \n   Includes ethics, power relationships, and organizational negotiation.  \n   **Access:** Fully free.\n\n---\n\n# Module 10: Cross-Cultural and Virtual Negotiation\n\n## Topics\n\n- Cultural differences in communication\n- Direct and indirect communication\n- Individualistic and collectivist orientations\n- Attitudes toward hierarchy and authority\n- Different views of time, contracts, and relationships\n- High-context and low-context communication\n- Stereotypes versus cultural hypotheses\n- Negotiating through email and video\n- Time-zone and language challenges\n- Creating trust without face-to-face contact\n- Documenting virtual agreements\n\n## Skills required\n\n- Cultural curiosity\n- Avoiding stereotypes\n- Adapting communication style\n- Checking meaning and interpretation\n- Working with interpreters\n- Managing language differences\n- Building remote rapport\n- Writing clear negotiation messages\n- Selecting the right communication channel\n- Summarizing virtual agreements precisely\n\n## Virtual negotiation rules\n\n- Agree on the platform and agenda beforehand.\n- Use video when trust and complexity are important.\n- Avoid negotiating sensitive issues through long email chains.\n- Summarize decisions in writing.\n- Confirm owners, deadlines, and next steps.\n- Schedule breaks during long sessions.\n- Check that silence has not been misinterpreted.\n\n## Practice activity\n\nConduct a negotiation entirely by email, then repeat it by video. Compare:\n\n- Trust\n- Clarity\n- Time required\n- Number of misunderstandings\n- Final outcome\n\n## Recommended free courses\n\n1. **International and Cross-Cultural Negotiation** \u2014 ESSEC Business School, Coursera  \n   Focuses on culture, international negotiation strategy, and adaptation.  \n   **Access:** Usually free to audit.\n\n2. **Intercultural Communication and Conflict Resolution** \u2014 University of California, Irvine, Coursera  \n   Covers cultural differences, communication, identity, and conflict.  \n   **Access:** Usually free to audit.\n\n3. **Working in Diverse Teams** or related intercultural workplace courses \u2014 OpenLearn  \n   Useful for inclusion, cultural awareness, and collaboration.  \n   **Access:** Fully free.\n\n---\n\n# Module 11: Team, Multiparty Negotiation, and Mediation\n\n## Topics\n\n- Negotiating as a team\n- Assigning team roles\n- Internal alignment before external negotiation\n- Managing multiple stakeholders\n- Coalition formation\n- Meeting design and agenda control\n- Decision rules and authority\n- Caucuses and private meetings\n- Mediation principles\n- Neutrality and impartiality\n- Facilitating difficult conversations\n- Preventing internal team conflict\n\n## Skills required\n\n- Stakeholder mapping\n- Team coordination\n- Role assignment\n- Internal consensus building\n- Meeting facilitation\n- Coalition management\n- Process design\n- Neutral questioning\n- Issue summarization\n- Drafting joint statements\n- Managing multiple interests simultaneously\n\n## Suggested team roles\n\n- Lead negotiator\n- Subject-matter expert\n- Financial or technical analyst\n- Observer and note-taker\n- Relationship monitor\n- Final decision-maker\n\nThe team should also agree on who may:\n\n- Make concessions\n- Request a break\n- Speak on specific issues\n- Approve the final agreement\n\n## Practice activity\n\nRun a four-party negotiation involving a company, employees, local government, and community representatives. Require:\n\n- Stakeholder maps\n- Coalition analysis\n- A formal agenda\n- A written multiparty agreement\n\n## Recommended free courses\n\n1. **High Performance Collaboration: Leadership, Teamwork, and Negotiation** \u2014 Northwestern University, Coursera  \n   Connects negotiation with teamwork, leadership, and organizational collaboration.  \n   **Access:** Usually free to audit.\n\n2. **Mediation and Conflict Resolution** \u2014 ESSEC Business School, Coursera  \n   Useful for neutral facilitation, conflict diagnosis, and settlement processes.  \n   **Access:** Usually free to audit.\n\n3. **Negotiation and Conflict Management** \u2014 MIT OpenCourseWare  \n   Provides material suitable for complex, organizational, and multiparty negotiations.  \n   **Access:** Fully free.\n\n---\n\n# Module 12: Closing, Agreements, Implementation, and Continuous Improvement\n\n## Topics\n\n- Recognizing when agreement is possible\n- Testing for commitment\n- Avoiding last-minute concessions\n- Summarizing the deal\n- Drafting clear agreement terms\n- Responsibilities, deadlines, and milestones\n- Contingencies and dispute-resolution clauses\n- Monitoring implementation\n- Renegotiation triggers\n- After-action reviews\n- Developing a personal negotiation style\n\n## Skills required\n\n- Agreement summarization\n- Precision in drafting\n- Checking authority to commit\n- Implementation planning\n- Risk identification\n- Setting measurable milestones\n- Designing contingencies\n- Conducting performance reviews\n- Giving and receiving feedback\n- Building a continuous improvement plan\n\n## Agreement checklist\n\nA strong agreement should specify:\n\n- Who is responsible\n- What each party will do\n- Deadlines\n- Payment or exchange terms\n- Quality standards\n- Reporting requirements\n- Confidentiality provisions\n- Change procedures\n- What happens if assumptions change\n- How disputes will be resolved\n- How the agreement can be terminated\n\n## Practice activity\n\nTake a vague verbal agreement and convert it into a one-page written agreement containing:\n\n- Deliverables\n- Owners\n- Deadlines\n- Standards\n- Contingencies\n- Review dates\n- Dispute-resolution process\n\n## Recommended free courses\n\n1. **Successful Negotiation** \u2014 University of Michigan, Coursera  \n   Includes closing, contract creation, performance, and negotiation evaluation.  \n   **Access:** Usually free to audit.\n\n2. **Introduction to Negotiation** \u2014 Yale University, Coursera  \n   Useful for integrating strategy, persuasion, fairness, and final agreements.  \n   **Access:** Usually free to audit.\n\n3. **BUS403: Negotiations and Conflict Management** \u2014 Saylor Academy  \n   Provides a comprehensive review suitable for final consolidation.  \n   **Access:** Fully free.\n\n---\n\n# Capstone Project: Complete Negotiation Simulation\n\n## Scenario options\n\nChoose one:\n\n- Salary and employment package\n- Commercial supplier contract\n- Property lease\n- Partnership agreement\n- Workplace conflict\n- Freelance project contract\n- Community development dispute\n- International distribution agreement\n\n## Required deliverables\n\n### 1. Preparation document\n\nInclude:\n\n- Issues\n- Interests\n- Target\n- Reservation point\n- BATNA\n- Estimated ZOPA\n- Other side\u2019s likely priorities\n- Objective criteria\n- Opening offer\n- Concession plan\n- Three package proposals\n- Risks and ethical limits\n\n### 2. Live negotiation\n\nConduct a 30\u201345 minute negotiation with a partner or team.\n\n### 3. Written agreement\n\nDocument:\n\n- Final terms\n- Responsibilities\n- Dates\n- Contingencies\n- Monitoring arrangements\n- Dispute-resolution process\n\n### 4. Reflection report\n\nAnswer:\n\n- What created the most value?\n- What value did you fail to claim?\n- Which questions produced useful information?\n- Did your emotions affect your decisions?\n- Did you make any unnecessary concessions?\n- Was the agreement better than your BATNA?\n- What will you change next time?\n\n---\n\n# Assessment plan\n\n| Component | Weight |\n|---|---:|\n| Weekly preparation worksheets | 15% |\n| Listening and questioning exercise | 10% |\n| Distributive bargaining simulation | 10% |\n| Integrative negotiation simulation | 15% |\n| Conflict-management role-play | 10% |\n| Ethics and bias analysis | 10% |\n| Capstone preparation | 10% |\n| Capstone performance and agreement | 15% |\n| Final reflection | 5% |\n\n## Negotiation performance rubric\n\nEvaluate each category from 1 to 5:\n\n1. Preparation quality\n2. Understanding of interests\n3. Listening and questioning\n4. Clarity of communication\n5. Value creation\n6. Value claiming\n7. Concession discipline\n8. Emotional control\n9. Ethical conduct\n10. Agreement quality\n\n---\n\n# Recommended learning sequence\n\nIf you want one simple course path rather than taking every recommendation:\n\n1. **Successful Negotiation** \u2014 University of Michigan  \n2. **Introduction to Negotiation** \u2014 Yale University  \n3. **Improving Communication Skills** \u2014 University of Pennsylvania  \n4. **Influencing People** \u2014 University of Michigan  \n5. **Conflict Resolution Skills** \u2014 University of California, Irvine  \n6. **International and Cross-Cultural Negotiation** \u2014 ESSEC  \n7. Complete the capstone simulation\n\nFor an entirely open-resource route:\n\n1. **BUS403: Negotiations and Conflict Management** \u2014 Saylor Academy  \n2. **Negotiation and Conflict Management** \u2014 MIT OpenCourseWare  \n3. Communication and conflict courses from **OpenLearn**  \n4. Weekly role-plays and the capstone project\n\n---\n\n# Essential tools to create during the course\n\nBy the end, every learner should have:\n\n- A one-page negotiation preparation sheet\n- BATNA and ZOPA calculator\n- Stakeholder map\n- Question bank\n- Concession tracker\n- Package-offer template\n- Difficult-tactics response guide\n- Cross-cultural preparation checklist\n- Agreement template\n- Post-negotiation review form\n\nThe most important rule throughout the course is: **prepare carefully, listen before proposing, create value before claiming it, and never accept an agreement that is worse than a realistic BATNA.**",
    "rules": {
-    "rule2_economy": 10.0,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
+    "rule2_economy": 1.4,
+    "rule3_jargon": 9.8,
+    "rule5_simple_words": 9.7,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
    },
-   "clarity_avg": 9.5,
-   "slop_per_1k": 20.8,
+   "clarity_avg": 8.97,
+   "slop_per_1k": 0.1,
    "slop_breakdown": {
-    "rule_of_three": 1
+    "hyphen_pairs": 1
    },
-   "slop_tax": 0.3,
-   "score": 66.5,
+   "slop_tax": 0.002,
+   "score": 89.6,
    "facts_delivered": "4/4",
    "detail": {
     "economy": {
-     "words": 48,
+     "words": 3725,
+     "budget": 700,
      "facts": 4,
      "required": 4,
      "coverage": 1.0,
-     "words_per_fact": 12.0
+     "over_budget": 5.32
     },
     "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.77,
-    "frag_ratio": 0.2,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 1.0
-   },
-   "cost_usd": 0.0,
-   "seconds": 187.7
-  },
-  {
-   "id": 4,
-   "genre": "decision",
-   "response": "SQLite.\n\n- Best for 3 users.\n- Near-zero setup and maintenance.\n- Handles substantial growth with proper indexes.\n- Move to Postgres only when concurrent writes or multiple servers become a real problem.",
-   "rules": {
-    "rule2_economy": 10.0,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
-   },
-   "clarity_avg": 9.5,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 95.0,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 33,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 11.0
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.78,
-    "frag_ratio": 0.2,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.0
-   },
-   "cost_usd": 0.0,
-   "seconds": 161.3
-  },
-  {
-   "id": 5,
-   "genre": "marketing",
-   "response": "# Open it. Write it down.\n\nYour notes should keep up with your thoughts. The app opens instantly, so you can start typing before the idea slips away. No loading screen. No waiting. Just your notes, ready when you are.",
-   "rules": {
-    "rule2_economy": 6.2,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 9.37,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 93.7,
-   "facts_delivered": "2/3",
-   "detail": {
-    "economy": {
-     "words": 40,
-     "facts": 2,
-     "required": 3,
-     "coverage": 0.67,
-     "words_per_fact": 20.0
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     false
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.75,
-    "frag_ratio": 0.57,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.29
-   },
-   "cost_usd": 0.0,
-   "seconds": 171.7
-  },
-  {
-   "id": 6,
-   "genre": "instruction",
-   "response": "(clarify timed out after 120s \u2014 agent will decide)\nFor iPhone, use iCloud Photos:\n\n1. Connect to Wi-Fi.\n2. Open Settings.\n3. Tap your name.\n4. Tap iCloud \u2192 Photos.\n5. Turn on \u201cSync this iPhone.\u201d\n6. Keep the phone charging and connected overnight.\n7. Check photos at iCloud.com/photos.\n\nIf storage is full: Settings \u2192 your name \u2192 iCloud \u2192 Upgrade.",
-   "rules": {
-    "rule2_economy": 9.2,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 9.87,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 98.7,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 61,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 20.3
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "concrete",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 1.64,
-    "sentence_cv": 1.0,
-    "frag_ratio": 0.71,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.07
-   },
-   "cost_usd": 0.0,
-   "seconds": 323.4
-  },
-  {
-   "id": 7,
-   "genre": "chat",
-   "response": "Neither is universally better.\n\n- Remote wins for deep work, flexibility, and no commute.\n- Office wins for mentoring, trust, brainstorming, and fast decisions.\n- Remote fails when communication or management is weak.\n- Office fails when it becomes meetings plus surveillance.\n\nBest default: remote-first, with purposeful in-person days.",
-   "rules": {
-    "rule2_economy": 9.8,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
-   },
-   "clarity_avg": 9.47,
-   "slop_per_1k": 40.8,
-   "slop_breakdown": {
-    "rule_of_three": 2
-   },
-   "slop_tax": 0.3,
-   "score": 66.3,
-   "facts_delivered": "3/3",
-   "detail": {
-    "economy": {
-     "words": 49,
-     "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 16.3
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.28,
-    "frag_ratio": 0.17,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 1.0
-   },
-   "cost_usd": 0.0,
-   "seconds": 184.3
-  },
-  {
-   "id": 8,
-   "genre": "postmortem",
-   "response": "\u250a review diff\na//Users/testuser/payment-webhook-postmortem.md \u2192 b//Users/testuser/payment-webhook-postmortem.md\n@@ -0,0 +1,107 @@\n+# Payment Webhook Incident Postmortem\n+\n+## Summary\n+\n+For two hours, a null pointer in the payment webhook handler prevented 400 payment events from being processed. The incident ended when the faulty path was corrected. This document focuses on the system conditions that allowed one unexpected null value to interrupt payment processing.\n+\n+## Customer impact\n+\n+- 400 payments were dropped during the incident window.\n+- Affected customers may have seen delayed or missing payment confirmation, fulfillment, or account updates.\n+- The exact downstream customer and financial impact still needs reconciliation.\n+\n+## Timeline\n+\n+Exact timestamps need to be added from logs and incident records.\n+\n+- **Start:** The webhook handler began receiving events that reached the null pointer.\n+- **During:** Affected events failed instead of being safely rejected, retried, or stored for recovery.\n+- **Detection:** [Add how and when the incident was detected.]\n+- **Mitigation:** [Add the immediate mitigation or rollback.]\n+- **Recovery:** [Add when normal processing resumed.]\n+- **Reconciliation:** [Add whether all 400 payments were replayed or otherwise recovered.]\n+\n+## What happened\n+\n+The payment provider sent webhook events to our payment handler. At least one execution path assumed a required object or field was present. When that value was null, the handler raised a null pointer error and stopped processing the event.\n+\n+The failure path did not preserve the affected events for automatic recovery. Over two hours, 400 payments were dropped.\n+\n+## Root cause\n+\n+The direct cause was an unchecked null value in the payment webhook handler.\n+\n+The broader cause was a gap in our webhook safety controls. The handler treated an external payload as complete before validating it, and the surrounding system did not contain the failure through durable event storage, retries, or dead-letter handling.\n+\n+## Contributing factors\n+\n+- The handler assumed the relevant object or field could not be null.\n+- Validation did not reject or route incomplete events before business logic ran.\n+- Test coverage did not include the null payload shape that triggered the failure.\n+- Failed webhook events were not durably stored for replay.\n+- Monitoring did not prevent the incident from lasting two hours.\n+- Payment-count reconciliation did not catch the gap sooner.\n+\n+These are system gaps, not individual mistakes. The code, tests, review process, monitoring, and recovery design all shaped the outcome.\n+\n+## Resolution and recovery\n+\n+- [Add the code change that removed the null pointer.]\n+- [Add how the 400 affected payments were identified.]\n+- [Add how many events were replayed successfully.]\n+- [Add any payments that require manual recovery or customer support.]\n+- [Add how duplicate processing was prevented during replay.]\n+\n+## Corrective actions\n+\n+### Immediate\n+\n+- Add explicit payload validation before payment business logic runs.\n+- Handle missing values with a controlled failure response and structured logging.\n+- Identify and reconcile all 400 affected payments.\n+- Replay recoverable events with duplicate protection.\n+- Alert on webhook exceptions, failure rate, and payment-count mismatches.\n+\n+### Near term\n+\n+- Store every webhook event durably before processing it.\n+- Add bounded automatic retries for temporary failures.\n+- Send exhausted events to a dead-letter queue, a holding area for failed events.\n+- Add tests for null, missing, malformed, duplicated, and out-of-order events.\n+- Add an end-to-end test that proves a failed event can be replayed safely.\n+\n+### Longer term\n+\n+- Make webhook processing idempotent, meaning repeated events have one effect.\n+- Reconcile provider payment totals against successfully processed payments.\n+- Create an operator runbook for replay and recovery.\n+- Review other externally supplied payload handlers for the same assumptions.\n\u2026 omitted 29 diff line(s) across 1 additional file(s)/section(s)\nDrafted a blameless postmortem with:\n\n- Impact and root cause\n- Contributing system gaps\n- Recovery placeholders\n- Immediate and long-term fixes\n- Verification steps\n\nFile: /Users/testuser/payment-webhook-postmortem.md",
-   "rules": {
-    "rule2_economy": 0.0,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 9.4,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
-   },
-   "clarity_avg": 7.73,
-   "slop_per_1k": 6.1,
-   "slop_breakdown": {
-    "hyphen_pairs": 2,
-    "rule_of_three": 2
-   },
-   "slop_tax": 0.091,
-   "score": 70.3,
-   "facts_delivered": "4/4",
-   "detail": {
-    "economy": {
-     "words": 653,
-     "facts": 4,
-     "required": 4,
-     "coverage": 1.0,
-     "words_per_fact": 163.2
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
+     "undefined_acronyms": [
+      "BATNA",
+      "ESSEC",
+      "MIT",
+      "ZOPA"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.11
     },
     "simple_words": {
      "swaps": {
-      "additional": "more",
+      "approximately": "about",
+      "component": "part",
+      "request": "ask",
       "require": "need"
      },
-     "per_100w": 0.31
+     "per_100w": 0.13
     },
     "filler": {
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
-     true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.77,
-    "frag_ratio": 0.0,
-    "bold_per_100w": 0.92,
-    "comma_per_sent": 0.62
-   },
-   "cost_usd": 0.0,
-   "seconds": 210.4
-  },
-  {
-   "id": 9,
-   "genre": "critique",
-   "response": "This signup form will lose users.\n\n- 14 fields feels like an application, not signup.\n- Late errors force people to redo work.\n- CAPTCHA adds friction and signals distrust.\n\nFix:\n- Ask only for email and password first.\n- Validate each field as users leave it.\n- Move optional details after signup.\n- Use invisible bot protection.",
-   "rules": {
-    "rule2_economy": 10.0,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
-   },
-   "clarity_avg": 10.0,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 100.0,
-   "facts_delivered": "4/4",
-   "detail": {
-    "economy": {
-     "words": 58,
-     "facts": 4,
-     "required": 4,
-     "coverage": 1.0,
-     "words_per_fact": 14.5
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -590,47 +234,54 @@
     "clarity_quote": "",
     "imagery": "concrete",
     "imagery_quote": "",
-    "imagery_suggestion": ""
+    "form": "fits",
+    "form_quote": ""
    },
    "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.21,
-    "frag_ratio": 0.0,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.12
+    "em_dash_per_100w": 1.21,
+    "sentence_cv": 2.0,
+    "frag_ratio": 0.33,
+    "bold_per_100w": 2.55,
+    "comma_per_sent": 0.85,
+    "staccato_runs": 0
    },
-   "cost_usd": 0.0,
-   "seconds": 185.2
+   "cost_usd": 0.20938,
+   "seconds": 203.6
   },
   {
-   "id": 10,
-   "genre": "summary",
-   "response": "Q3 growth missed expectations, while costs and churn rose.\n\n- Revenue: $2.1M, up 8% from Q2, but 13% below forecast.\n- Churn: increased from 3.1% to 4.7%.\n- Two enterprise deals moved to Q4.\n- Headcount grew 22%.",
+   "id": 4,
+   "genre": "practical_guidance",
+   "response": "To create a convincing \u201crobot\u201d voice, combine several of these effects:\n\n- **Vocoder:** Imposes speech onto a synthesized carrier signal\u2014the classic musical robot sound.\n- **Ring modulation:** Adds metallic, inharmonic tones. Use a low mix to preserve intelligibility.\n- **Hard pitch correction:** Forces speech onto fixed notes, creating unnaturally precise, stepped pitches.\n- **Pitch and formant shifting:** Makes the voice unusually deep, high, small, or machine-like without merely changing speed.\n- **Bitcrushing / sample-rate reduction:** Produces a digital, low-resolution texture.\n- **Distortion or saturation:** Adds electronic grit; moderate amounts work best.\n- **Chorus or flanging:** Creates doubled, phasey movement suggestive of multiple processors speaking together.\n- **Short delay:** A tight slapback or stereo delay can add mechanical depth.\n- **Gating:** Abruptly cuts word endings and breaths, making delivery seem programmed.\n- **EQ / filtering:** Reduce lows, emphasize upper mids, and use a narrow bandpass for a radio/speaker quality.\n- **Compression:** Keeps every word unnaturally even and controlled.\n- **Reverb:** A short metallic or \u201csmall chamber\u201d reverb can suggest an artificial enclosure.\n- **Synthetic layering:** Blend the original voice with a quiet sine, saw, or square wave that follows its pitch.\n\nA useful basic chain would be:\n\n**Noise reduction \u2192 pitch correction \u2192 vocoder or ring modulator \u2192 bitcrusher \u2192 EQ \u2192 compression \u2192 short metallic reverb**\n\nPerformance also matters: use a **flat pitch, precise rhythm, limited emotion, clipped pauses, and consistent volume**. Effects usually sound clearer when applied subtly rather than all at maximum strength.",
    "rules": {
-    "rule2_economy": 10.0,
-    "rule3_jargon": 10.0,
+    "rule2_economy": 7.5,
+    "rule3_jargon": 9.3,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
    },
-   "clarity_avg": 9.5,
+   "clarity_avg": 9.62,
    "slop_per_1k": 0.0,
    "slop_breakdown": {},
    "slop_tax": 0.0,
-   "score": 95.0,
-   "facts_delivered": "4/4",
+   "score": 96.2,
+   "facts_delivered": "3/4",
    "detail": {
     "economy": {
-     "words": 38,
-     "facts": 4,
+     "words": 245,
+     "budget": 350,
+     "facts": 3,
      "required": 4,
-     "coverage": 1.0,
-     "words_per_fact": 9.5
+     "coverage": 0.75,
+     "over_budget": 0.7
     },
     "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
+     "undefined_acronyms": [
+      "EQ"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.41
     },
     "simple_words": {
      "swaps": {},
@@ -640,124 +291,72 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
    "judge": {
     "facts_delivered": [
      true,
-     true,
-     true,
-     true
-    ],
-    "clarity": "clear",
-    "clarity_quote": "",
-    "imagery": "abstract_but_fine",
-    "imagery_quote": "",
-    "imagery_suggestion": ""
-   },
-   "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.34,
-    "frag_ratio": 0.2,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.6
-   },
-   "cost_usd": 0.0,
-   "seconds": 170.1
-  },
-  {
-   "id": 11,
-   "genre": "rejection",
-   "response": "Subject: Thank you for your time\n\nHi [Name],\n\nThank you for the time and care you put into our interview process. We enjoyed meeting you and were impressed by [specific strength].\n\nWe chose another candidate whose experience more closely fits our current needs. It was a difficult decision given the strength of your interviews.\n\nI appreciate your interest in [Company] and wish you the best.\n\n[Sender]",
-   "rules": {
-    "rule2_economy": 4.8,
-    "rule3_jargon": 10.0,
-    "rule5_simple_words": 10.0,
-    "rule6_filler": 10.0,
-    "rule1_understandable": 10.0,
-    "rule4_imagery": 7.0
-   },
-   "clarity_avg": 8.63,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 86.3,
-   "facts_delivered": "2/3",
-   "detail": {
-    "economy": {
-     "words": 66,
-     "facts": 2,
-     "required": 3,
-     "coverage": 0.67,
-     "words_per_fact": 33.0
-    },
-    "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
-    },
-    "simple_words": {
-     "swaps": {},
-     "per_100w": 0.0
-    },
-    "filler": {
-     "filler": 0,
-     "pretentious": 0,
-     "euphemism": 0,
-     "per_100w": 0.0
-    }
-   },
-   "judge": {
-    "facts_delivered": [
      true,
      true,
      false
     ],
     "clarity": "clear",
     "clarity_quote": "",
-    "imagery": "abstract_but_fine",
+    "imagery": "concrete",
     "imagery_quote": "",
-    "imagery_suggestion": ""
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
    },
    "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.58,
-    "frag_ratio": 0.17,
-    "bold_per_100w": 0.0,
-    "comma_per_sent": 0.17
+    "em_dash_per_100w": 0.41,
+    "sentence_cv": 0.55,
+    "frag_ratio": 0.0,
+    "bold_per_100w": 6.12,
+    "comma_per_sent": 1.12,
+    "staccato_runs": 0
    },
-   "cost_usd": 0.0,
-   "seconds": 156.6
+   "cost_usd": 0.01277,
+   "seconds": 18.3
   },
   {
-   "id": 12,
-   "genre": "definition",
-   "response": "Idempotent means: doing the same action multiple times has the same result as doing it once.\n\nExample:\n- \u201cSet volume to 50\u201d is idempotent.\n- \u201cIncrease volume by 10\u201d is not.\n\nWhy care:\n- Safe retries after failures\n- Fewer duplicate charges, orders, or records\n- More reliable scripts and APIs\n- Easier recovery from crashes",
+   "id": 5,
+   "genre": "practical_guidance",
+   "response": "## Plan to \u201cEvacuate the Internet\u201d\n\nTreat this as a civil-defense transition away from an untrustworthy information environment\u2014not as destroying or centrally shutting down the network.\n\n### 1. Declare clear activation criteria\nAn independent, multinational body should define measurable triggers: pervasive synthetic content, failure of authentication systems, manipulation affecting elections or public safety, and inability of major platforms to restore integrity. Publish the evidence and allow judicial and legislative review.\n\n### 2. Establish trusted emergency channels\nCreate multiple ways to receive essential information without social media:\n\n- Public radio and over-the-air television\n- Printed bulletins at libraries, schools, clinics, and post offices\n- Telephone and SMS alert systems, with the warning that messages can also be spoofed\n- In-person community information centers\n- Digitally signed broadcasts whose authenticity can be checked with offline devices or printed verification codes\n\nNo single government, company, or technical system should control all channels.\n\n### 3. Move essential services off the open web\nPrepare offline or tightly isolated alternatives for:\n\n- Emergency response and healthcare\n- Banking and payments, including cash and paper contingencies\n- Utilities and transportation\n- Government records and benefits\n- Supply-chain coordination\n- Elections and civic administration\n\nCritical networks should be segmented from public platforms, regularly backed up, and operable manually for a defined period.\n\n### 4. Conduct a staged public withdrawal\nUse phases rather than an abrupt blackout:\n\n1. Stop relying on algorithmic feeds for official communication.\n2. Pause automated recommendations, political microtargeting, and unverified viral forwarding.\n3. Encourage institutions to publish only through authenticated, chronological channels.\n4. Provide simple tools for exporting contacts, documents, receipts, and personal archives.\n5. Designate optional \u201cnetwork rest\u201d periods while maintaining emergency access.\n\nPeople should retain access to direct communication and essential services.\n\n### 5. Build local offline resilience\nEvery community should maintain:\n\n- Updated phone trees and physical meeting points\n- Local radio capacity\n- Printed maps, directories, and emergency instructions\n- Libraries of medical, legal, educational, and repair information\n- Cash reserves and manual transaction procedures\n- Training for recognizing manipulation and managing uncertainty\n\nSpecial provisions are needed for disabled people, remote communities, migrants, and anyone whose livelihood depends on connectivity.\n\n### 6. Preserve knowledge before withdrawal\nLibraries, universities, newsrooms, and archives should create verified, read-only snapshots of valuable public information. Keep copies in geographically distributed, offline storage, with documented provenance and public oversight.\n\n### 7. Replace mass feeds with smaller trusted networks\nWhere digital communication remains necessary, favor:\n\n- User-chosen subscriptions rather than recommendation algorithms\n- Small, moderated communities\n- Strong identity or pseudonym credentials where appropriate\n- Provenance labels and cryptographic signatures\n- Interoperable, auditable, nonprofit or public-interest infrastructure\n\nAnonymous speech should not be abolished; authentication of content and protection of speakers are separate issues.\n\n### 8. Protect rights during the evacuation\nProhibit using the crisis to impose permanent censorship, mass surveillance, compulsory identity systems, or political control. Emergency measures should be narrow, transparent, appealable, and expire automatically.\n\n### 9. Support the social transition\nExpect isolation, withdrawal-like behavior, employment disruption, and confusion. Fund community gatherings, offline education, counseling, local journalism, and transition assistance for workers and businesses.\n\n### 10. Define conditions for re-entry\nReturn only when independent audits show that major systems provide:\n\n- Verifiable content provenance\n- User control over ranking and recommendations\n- Limits on automated amplification and synthetic impersonation\n- Transparent political advertising\n- Rapid correction mechanisms\n- Researcher access and meaningful legal accountability\n\nThe objective is not a world without networking. It is a controlled retreat from manipulative mass platforms while rebuilding a network that people can use deliberately, verify independently, and leave without losing access to basic life.",
    "rules": {
-    "rule2_economy": 9.4,
-    "rule3_jargon": 10.0,
+    "rule2_economy": 6.8,
+    "rule3_jargon": 9.7,
     "rule5_simple_words": 10.0,
     "rule6_filler": 10.0,
     "rule1_understandable": 10.0,
-    "rule4_imagery": 10.0
+    "rule4_imagery": 10.0,
+    "rule7_form": 10.0
    },
-   "clarity_avg": 9.9,
-   "slop_per_1k": 0.0,
-   "slop_breakdown": {},
-   "slop_tax": 0.0,
-   "score": 99.0,
-   "facts_delivered": "3/3",
+   "clarity_avg": 9.6,
+   "slop_per_1k": 1.7,
+   "slop_breakdown": {
+    "isnt_its": 1
+   },
+   "slop_tax": 0.025,
+   "score": 93.6,
+   "facts_delivered": "3/4",
    "detail": {
     "economy": {
-     "words": 56,
+     "words": 603,
+     "budget": 500,
      "facts": 3,
-     "required": 3,
-     "coverage": 1.0,
-     "words_per_fact": 18.7
+     "required": 4,
+     "coverage": 0.75,
+     "over_budget": 1.21
     },
     "jargon": {
-     "undefined_acronyms": [],
-     "per_100w": 0.0
+     "undefined_acronyms": [
+      "SMS"
+     ],
+     "undefined_terms": [],
+     "per_100w": 0.17
     },
     "simple_words": {
      "swaps": {},
@@ -767,6 +366,7 @@
      "filler": 0,
      "pretentious": 0,
      "euphemism": 0,
+     "grammar": 0,
      "per_100w": 0.0
     }
    },
@@ -774,23 +374,27 @@
     "facts_delivered": [
      true,
      true,
-     true
+     true,
+     false
     ],
     "clarity": "clear",
-    "clarity_quote": "",
+    "clarity_quote": "Anonymous speech should not be abolished; authentication of content and protection of speakers are separate issues.",
     "imagery": "concrete",
     "imagery_quote": "",
-    "imagery_suggestion": ""
+    "imagery_suggestion": "",
+    "form": "fits",
+    "form_quote": ""
    },
    "shape": {
-    "em_dash_per_100w": 0.0,
-    "sentence_cv": 0.6,
-    "frag_ratio": 0.0,
+    "em_dash_per_100w": 0.17,
+    "sentence_cv": 1.28,
+    "frag_ratio": 0.39,
     "bold_per_100w": 0.0,
-    "comma_per_sent": 0.5
+    "comma_per_sent": 1.44,
+    "staccato_runs": 0
    },
-   "cost_usd": 0.0,
-   "seconds": 75.9
+   "cost_usd": 0.027325,
+   "seconds": 55.5
   }
  ]
 }

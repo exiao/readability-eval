@@ -2,7 +2,7 @@
 
 Most models answer a simple question with 500 words, three headings and a bulleted table. This benchmark measures that.
 
-It scores model output on seven clarity rules, then subtracts a penalty for AI slop. The prompts are **real ChatGPT conversations** rather than test cases someone wrote for the occasion.
+It scores model output on seven clarity rules, then subtracts a penalty for AI slop. The prompts are **real ChatGPT conversations**.
 
 ```
 Score = clarity x (1 - slop tax)
@@ -43,11 +43,11 @@ Yes, and it works. `--condition brief` appends *"Answer in 50 words or less"*:
 | `claude-sonnet-4-6` | 72.7 (531w) | 77.2 (49w) | **+4.5** | 89% → 62% |
 | `claude-haiku-4-5` | 75.3 (329w) | 74.7 (51w) | -0.6 | 82% → 60% |
 
-Every model drops to about 48 words when told to, so the length is a default and not a limit. The further over budget a model runs on its own, the more the instruction helps it. It costs something: coverage falls 19 to 27 points, which means a model answering fewer of the things the user asked for. Whether that trade is worth it depends on how this benchmark weights the rules.
+Every model drops to about 48 words when told to, so the length is a default and not a limit. The further over budget a model runs on its own, the more the instruction helps it. It costs coverage, which falls 19 to 27 points.
 
 ## Where the prompts come from
 
-Real first-turn English prompts from [WildChat-1M](https://huggingface.co/datasets/allenai/WildChat-1M), a corpus of a million real ChatGPT conversations. Copied verbatim, typos included.
+Real first-turn English prompts from [WildChat-1M](https://huggingface.co/datasets/allenai/WildChat-1M), a corpus of a million ChatGPT conversations. Copied verbatim, typos included.
 
 They are sampled to match the topic mix OpenAI reported across its 700M users ([NBER w34255](https://www.nber.org/papers/w34255)): practical guidance 29%, seeking information 24%, writing 24%, technical help 5%, self-expression 2%.
 
@@ -69,11 +69,11 @@ Rules 1 to 6 come from Orwell's *Politics and the English Language*. Rule 7 was 
 | 6 | Filler, pretentious diction, euphemism? | Phrase list plus 20 grammar patterns |
 | 7 | Shaped like the answer, or like a report? | Judge quote plus scaffolding density |
 
-Every rule gets judged by a model. Rules 2, 3, 5 and 6 are also counted mechanically, and the score is the worse of the two, so the judge can fail an answer the counter waved through and the counter can fail one the judge enjoyed. Every judged verdict has to quote its evidence: no quote, no penalty. Length is weighted at 0.75 and the other six at 1.0.
+Every rule gets judged by a model. Rules 2, 3, 5 and 6 are also counted mechanically, and the score is the worse of the two. Every judged verdict has to quote its evidence: no quote, no penalty. Length is weighted at 0.75 and the other six at 1.0.
 
 ## Slop detection
 
-Three layers, because a word list on its own catches maybe half of it.
+Three layers. A word list on its own catches maybe half of it.
 
 | Layer | Weight | Catches |
 |---|---|---|
@@ -82,7 +82,7 @@ Three layers, because a word list on its own catches maybe half of it.
 | Structure | 1.0 / 0.5 | verbless noun-list fragments, staccato runs, rule-of-three padding |
 | Formatting | 0.25 / 0.1 | labelled bullets, emoji bullets, hyphenated adjective pairs |
 
-Hits are weighted rather than counted. An unambiguous tell scores 1.0, and a formatting habit that is usually the right choice scores 0.1. Slop only ever subtracts, capped at 30%, so clean writing earns nothing by itself. Code, fences and quotes are stripped first, so a document *about* slop does not score as slop.
+Hits are weighted rather than counted: an unambiguous tell scores 1.0, a formatting habit that is often the right choice scores 0.1. Slop only ever subtracts, capped at 30%, so clean writing earns nothing by itself. Code, fences and quotes are stripped first, so a document *about* slop does not score as slop.
 
 Sources: [Wikipedia's Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), the [humanizer](https://github.com/blader/humanizer) pattern set, and a personal kill list.
 
@@ -90,9 +90,9 @@ Sources: [Wikipedia's Signs of AI writing](https://en.wikipedia.org/wiki/Wikiped
 
 **Truncation still buys points, and this is the largest open problem here.** On the current 338-response corpus, cutting an answer in half improves its score 51% of the time, worst case by 38.1 points. Halving a response cannot make it better, so any gain is the benchmark measuring the wrong thing. Do not read small gaps in these tables as meaningful until it is fixed.
 
-**The judge grades its own family.** `claude-opus-5` scores every model here including itself. It lands fifth rather than first, which is not what naive self-preference looks like, but it is still the one result you should not take on trust. `rejudge.py` re-scores saved responses with a different judge, and a judge swap already moved every score by 2 to 5 points and reordered the bottom of the table.
+**The judge grades its own family.** `claude-opus-5` scores every model here including itself, and lands fifth. `rejudge.py` re-scores saved responses with a different judge, and a judge swap already moved every score by 2 to 5 points and reordered the bottom of the table.
 
-**Most of the detector patterns never fire.** 18 of 21 filler patterns and 43 of 49 first-draft jargon terms appeared zero times on real responses, because they were written against textbook bad writing that current models do not produce. Treat a clean score on rules 3 and 6 as unproven rather than as evidence.
+**Most of the detector patterns never fire.** 18 of 21 filler patterns and 43 of 49 first-draft jargon terms appeared zero times on real responses. They were written against textbook bad writing that current models do not produce. Treat a clean score on rules 3 and 6 as unproven.
 
 Also worth knowing: scores from before commit `cacf8cf` are not comparable, since rules 1, 3, 5 and 6 had no judged half then. The word budgets were set by a model and are not ground truth. 30 prompts is a small sample, so gaps under about 3 points are noise. English only.
 
@@ -115,11 +115,11 @@ Standard library only. A run is 30 prompts plus 30 judge calls, which cost $4 to
 | `ANTHROPIC_API_KEY` | `--backend anthropic` | `ANTHROPIC_TOKEN` is also accepted |
 | `ANTHROPIC_BASE_URL` | `--backend anthropic` | Optional, routes both the model and the judge through one endpoint |
 
-**Keep a run on one backend.** The judge follows `--backend` unless you override it, and the saved summary records both, so a mixed run is visible afterwards instead of silent. Judging across model families is worth doing. Splitting one result across two providers by accident is not.
+**Keep a run on one backend.** The judge follows `--backend` unless you override it, and the saved summary records both, so a mixed run is visible afterwards instead of silent.
 
 `run_all.sh` runs every model, `run_others.sh` the non-Claude models through a proxy judge, `run_brief.sh` the brief condition, `run_claude.sh` the Claude family.
 
-Every run opens with a contamination probe: it asks the backend what tools it has and refuses to start if the answer looks like an agent rather than a bare model. Two full runs were thrown away before that existed, scored through an agent CLI that had quietly attached a persona, memory and a toolset.
+Every run opens with a contamination probe: it asks the backend what tools it has and refuses to start if the answer looks like an agent rather than a bare model. Two full runs were thrown away before that existed.
 
 Use a judge from a different family than the model you are testing, and check it with `rejudge.py`.
 

@@ -121,3 +121,67 @@ def test_trend_normalises_by_step_count():
 
 def test_empty_text_does_not_crash():
     assert metrics.measure("") == {"erosion": 0.0, "verbosity": 0.0}
+
+
+# --- Lists are not clauses -------------------------------------------------
+# The first version counted commas and coordinators, so an enumeration read
+# as deeply nested. On the saved corpus the eight highest-scoring sentences
+# were all materials lists and label lines: every one a false positive, while
+# the genuinely tangled sentences sat below them. These lock that shut.
+
+MATERIALS = ("**Materials:** Shape cards or anchor chart (circle, triangle, "
+             "square, rectangle, rhombus, trapezoid, pentagon, hexagon, "
+             "octagon), whiteboards and markers, worksheet.")
+
+CONTACT = ("If this revised timeline creates issues for your team, or if you "
+           "have questions about the required action, your data, or billing, "
+           "please contact [Name] at [Email] or [Phone].")
+
+NESTED = ("If price updates go straight to the database — or arrive via a "
+          "batch job that doesn't touch the cache — the old entry survives "
+          "until TTL, which is why the divergence only shows up later.")
+
+
+def test_label_line_is_one_clause():
+    assert metrics.clauses(MATERIALS) == 1
+
+
+def test_plain_list_is_one_clause():
+    assert metrics.clauses("Buy eggs, milk, bread and butter.") == 1
+
+
+def test_long_list_never_beats_real_nesting():
+    """The ordering that was inverted. A 9-item materials list must not
+    outrank a genuinely nested sentence."""
+    assert metrics.clauses(MATERIALS) < metrics.clauses(NESTED)
+
+
+def test_list_heavy_sentence_scores_modestly():
+    """Eric flagged this one by eye: readable, mostly a list of nouns, and
+    the metric had it at 10 clauses. It is not clean, but it must not be the
+    worst sentence in the corpus."""
+    assert metrics.clauses(CONTACT) <= 3
+
+
+def test_coordinator_joining_clauses_still_counts():
+    """The fix must not go so far that real coordination stops counting."""
+    joined = "The build failed and we rolled back the release."
+    listy = "The build uses cmake and ninja and clang."
+    assert metrics.clauses(joined) > metrics.clauses(listy)
+
+
+def test_verbless_fragment_is_one_clause():
+    assert metrics.clauses("Data, access, cost, scope, backups.") == 1
+
+
+def test_threshold_flags_the_tail_not_the_bulk():
+    """A metric that fires on everything, or on nothing, is dead either way.
+    Ordinary sentences must sit under the bar."""
+    ordinary = ["We shipped the fix.",
+                "Your migration moves to March 14.",
+                "Call Sam with questions.",
+                "Buy eggs, milk and bread."]
+    assert all(metrics.clauses(s) <= metrics.COMPLEX_CLAUSES
+               for s in ordinary)
+    assert metrics.clauses(NESTED) > metrics.COMPLEX_CLAUSES
+

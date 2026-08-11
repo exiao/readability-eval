@@ -25,17 +25,77 @@ import re
 
 from . import lexicon
 
-# Paper uses CC > 10 with Radon's bounds. The prose equivalent of "this
-# function has too many decision points" is a sentence the reader has to
-# hold open: 4+ clauses. Measured on the control corpus, 4 sits at roughly
-# the same tail position that CC>10 does for Python.
-COMPLEX_CLAUSES = 4
+# Paper uses CC > 10, following Radon's bounds, which puts roughly the top
+# few percent of Python functions over the line. The prose threshold is set
+# to sit in the same tail position, not to match the number.
+#
+# Recalibrated after the clause counter was fixed. Counting list commas
+# inflated everything, so 4 was the tail then. Now that only real nesting
+# counts, the distribution over 2540 measured sentences is 75% at 1 clause,
+# 95% at 3, 99% at 4 -- so >2 marks the top ~6%, which is where CC>10 sits
+# for code. Left at 4 it flagged 50 sentences in the whole corpus and the
+# metric went dead.
+COMPLEX_CLAUSES = 2
 
-_CLAUSE = re.compile(
-    r",|\band\b|\bbut\b|\bor\b|\bwhich\b|\bthat\b|\bwhile\b|\bbecause\b"
-    r"|\bwhen\b|\bif\b|\balthough\b|\bwhereas\b|\bso that\b|;|—| -- ", re.I)
+
+# A CLAUSE needs a verb. An enumeration does not.
+#
+# The first version of this counted commas and conjunctions, which made
+# "your data, or billing, or [Phone]" read as three clauses. On the saved
+# corpus the eight worst-scoring sentences were ALL materials lists and
+# **Objective:** label lines -- "circle, triangle, square, rectangle,
+# rhombus, trapezoid" scored 21. Every one was a false positive, and the
+# real offenders were nowhere near the top.
+#
+# A list is flat: the reader holds one open slot and fills it repeatedly.
+# A clause is nested: each one opens a new slot before the last one closed.
+# That is the difference the metric has to see, and it is why erosion needs
+# to key on subordination rather than punctuation.
+
+# Subordinators and relatives open a dependent clause. These carry a verb
+# by definition, so they are counted directly.
+_SUBORD = re.compile(
+    r"\b(which|who|whom|whose|that|because|although|though|while|whereas|"
+    r"unless|until|since|whenever|wherever|if|when|after|before|"
+    r"so that|even though|in order to|as long as|provided that|given that|"
+    r"despite|however)\b", re.I)
+
+# Coordinators only join clauses when what FOLLOWS has its own subject and
+# verb. "eggs and milk" is a list; "it failed and we rolled back" is two
+# clauses. Approximated by requiring a pronoun or determiner-plus-verb
+# shape after the coordinator, since there is no POS tagger here and adding
+# one for a single counter is not worth the dependency.
+_COORD_CLAUSE = re.compile(
+    r"\b(?:and|but|or|yet|so)\s+"
+    r"(?:i|we|you|he|she|it|they|this|that|these|those|there)\b\s+"
+    r"(?:\w+)", re.I)
+
+# Semicolons and dashes joining two independent statements.
+_HARD_BREAK = re.compile(r";|\s—\s|\s--\s")
+
+# A finite verb somewhere, so fragments and label lines score as one unit
+# rather than accumulating. "**Materials:** cards, markers, worksheet" has
+# no verb at all and must not read as complex.
+_VERBISH = re.compile(
+    r"\b(is|are|was|were|be|been|being|has|have|had|do|does|did|will|would|"
+    r"can|could|should|may|might|must|\w+s|\w+ed|\w+ing)\b", re.I)
 
 _SENT = re.compile(r"[^.!?\n]+[.!?]?")
+
+
+def _is_list_line(sent):
+    """Label lines and enumerations, which are flat rather than nested.
+
+    Three or more comma-separated fragments with no subordinator is a list,
+    however long it gets. Reading it is a scan, not a stack.
+    """
+    if re.match(r"^\*{0,2}[A-Z][\w /-]{0,30}:\*{0,2}\s", sent):
+        return True
+    parts = [p for p in sent.split(",") if p.strip()]
+    if len(parts) >= 3 and not _SUBORD.search(sent):
+        return True
+    return False
+
 
 
 def sentences(text):
@@ -55,8 +115,19 @@ def sentences(text):
 
 
 def clauses(sent):
-    """Decision points. 1 clause minimum, one per clause marker after that."""
-    return 1 + len(_CLAUSE.findall(sent))
+    """Nesting depth: how many things the reader holds open at once.
+
+    Counts subordinate clauses, clause-joining coordinators and hard breaks.
+    Does NOT count list commas, because a list is flat. A sentence with no
+    verb at all is a label or fragment and scores 1 whatever its length.
+    """
+    if _is_list_line(sent) or not _VERBISH.search(sent):
+        return 1
+    return (1
+            + len(_SUBORD.findall(sent))
+            + len(_COORD_CLAUSE.findall(sent))
+            + len(_HARD_BREAK.findall(sent)))
+
 
 
 def mass(sent):

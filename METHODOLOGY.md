@@ -154,8 +154,26 @@ a defect.
 **Erosion** (paper eq. 2-3) is the share of total complexity mass held by
 sentences over the threshold, where `mass = clauses * sqrt(words)`. The square
 root is theirs, and it is load-bearing: it keeps complexity dominant so a long
-plain sentence is not punished for being long. Threshold is 4 clauses, the
-prose analogue of their CC > 10 Radon cutoff.
+plain sentence is not punished for being long.
+
+A clause here means **nesting**, not punctuation. The first version counted
+commas and conjunctions, and it was wrong in a way worth recording: on the
+saved corpus the eight highest-scoring sentences were all materials lists and
+`**Objective:**` label lines. `circle, triangle, square, rectangle, rhombus,
+trapezoid` scored 21. Every one was a false positive and the genuinely tangled
+sentences ranked below them.
+
+A list is flat — the reader holds one slot open and refills it. A clause is
+nested — each one opens a slot before the last closed. So the counter keys on
+subordinators (`which`, `because`, `if`), coordinators that are followed by a
+new subject and verb, and hard breaks. Verbless label lines and 3+ item
+enumerations score 1 however long they run.
+
+Threshold is `> 2` clauses. Over 2540 measured sentences the distribution is
+75% at 1 clause, 95% at 3, 99% at 4, so `> 2` flags the top ~6% — the same
+tail position CC > 10 occupies for Python. The old value of 4 was calibrated
+against the inflated counter; carried over unchanged it flagged 50 sentences
+in the entire corpus and the metric went dead.
 
 **Verbosity** (eq. 4) is `{slop-flagged sentences ∪ clone sentences} / sentences`.
 Union before dividing, as specified, so a sentence that is both counts once.
@@ -170,41 +188,52 @@ step count so an 8-checkpoint problem does not outweigh a 3-checkpoint one.
 The paper's finding is a direction, not a level. A model can start clean and
 still be the worst one to work with.
 
-### What it caught immediately
+### What it caught
 
-`claude-opus-5` on the delay-email chain, four checkpoints:
+3 models, 9 trajectories, 36 checkpoints, $1.29.
+
+| model | erosion C1 → C4 | drift | rising |
+|---|---|---:|---:|
+| `claude-opus-5` | 0.185 → 0.306 | +0.040 | 100% |
+| `gpt-5.6-sol` | 0.046 → 0.154 | +0.036 | 67% |
+| `gemini-3.5-flash` | 0.173 → 0.101 | -0.024 | 0% |
+
+Opus on the delay-email chain:
 
 | | C1 | C2 | C3 | C4 |
 |---|---:|---:|---:|---:|
-| Score | 60.3 | 59.5 | 56.3 | 61.4 |
-| Words | 380 | 633 | 834 | 1395 |
-| Erosion | 0.191 | 0.251 | 0.284 | 0.411 |
+| Score | 52.6 | 77.4 | 77.4 | 82.3 |
+| Words | 398 | 686 | 912 | 1461 |
+| Erosion | 0.106 | 0.373 | 0.518 | 0.328 |
 | Coverage | 3/3 | 5/5 | 7/7 | 9/9 |
 
-Full marks on coverage at every step, and the score ends where it started, so
-the single-shot suite reports nothing wrong. Meanwhile a 320-word email became
-1395 words and erosion doubled. C4's worst sentence:
+The score *rises* 30 points while a 320-word email becomes 1461 words. Full
+coverage at every checkpoint, so the single-shot suite reports a clean
+improvement. That is the paper's finding in prose: the artifact passes every
+test while getting harder to read.
 
-> Data, access, cost, scope, backups, security controls, the end state, and
-> the people.
-
-Every new ask was satisfied by welding a clause onto what was already there
-rather than rewriting. That is the prose form of the paper's central
-observation: agents patch existing functions instead of distributing logic
-across new ones.
+Gemini going the other way is the more interesting result and the reason to
+report drift per model rather than as a universal law. It answers each new
+requirement by restructuring rather than appending. Whether that survives more
+than three problems is untested.
 
 ### Limits
 
 - **3 problems, 12 checkpoints.** Smaller than the single-shot set. Treat
   drift signs as directional, not as a ranking.
+- **Erosion is not monotone within a trajectory.** Opus peaks at C3 and falls
+  at C4. Drift is endpoint-to-endpoint over step count, so it cannot see that
+  shape; read the per-checkpoint table before drawing conclusions.
 - **Chains are serial and fail closed.** One failed checkpoint ends that
   trajectory, because C(n+1) needs C(n)'s text. A model that dies at C2
   contributes nothing rather than a short trajectory.
 - **Erosion has no judge.** Deliberate, since it is cheap and mechanical, but
-  it means a genuinely necessary complex sentence is scored the same as a
-  careless one.
-- **The 4-clause threshold is calibrated on this corpus.** It is the tail of
-  the saved responses, not a universal constant.
+  a genuinely necessary complex sentence scores the same as a careless one.
+- **The clause counter is regex, not a parser.** No POS tagging, so
+  coordinator handling is a heuristic. It was wrong once already; if a result
+  surprises you, print the worst sentences before believing it.
+- **The threshold is calibrated on this corpus.** Recalibrate if the prompt
+  set changes materially.
 
 ## Adding prompts
 

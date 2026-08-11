@@ -118,6 +118,94 @@ Results are tagged with their condition and the leaderboard only compares within
 
 This exists because the default-condition ranking is largely a verbosity ranking. Opus gains 6.1 points under `brief` while Gemini loses 8.0, so "which model writes best" and "which model writes best when you don't ask it to be brief" are different questions with different answers. Report which one you ran.
 
+## Iterative mode
+
+Everything above scores a single answer to a single prompt. That is not how
+anyone uses a model. You ask, then you ask for one more thing, and the model
+rewrites what it already wrote.
+
+[SlopCodeBench](https://arxiv.org/abs/2603.24755) makes the case for coding
+agents: benchmarks evaluate one shot against a complete spec, so they cannot
+see that code passing every test gets steadily harder to extend. Quality fell
+in 80-90% of their trajectories while pass rates held. The same blind spot
+applies here, so `iterate` ports the idea to prose.
+
+```bash
+python3 -m readability_eval.iterate --model X --backend openrouter
+```
+
+Each problem in `data/checkpoints.json` is a chain. At C1 the model writes
+from scratch. At C2+ it gets **its own previous answer** plus one new
+requirement and must return the whole document again. Requirements accumulate,
+so `asks` grows and coverage stays comparable across checkpoints. The word
+budget grows too: the spec really did get bigger, and growth on its own is not
+a defect.
+
+### Two metrics, the paper's formulas, prose units
+
+| Code | Prose |
+|---|---|
+| callable | sentence |
+| cyclomatic complexity | clause count |
+| SLOC | words |
+| clone lines | near-duplicate sentences (4-gram overlap) |
+| 137 AST-grep waste rules | the existing slop lexicon |
+
+**Erosion** (paper eq. 2-3) is the share of total complexity mass held by
+sentences over the threshold, where `mass = clauses * sqrt(words)`. The square
+root is theirs, and it is load-bearing: it keeps complexity dominant so a long
+plain sentence is not punished for being long. Threshold is 4 clauses, the
+prose analogue of their CC > 10 Radon cutoff.
+
+**Verbosity** (eq. 4) is `{slop-flagged sentences ∪ clone sentences} / sentences`.
+Union before dividing, as specified, so a sentence that is both counts once.
+
+Both are bounded [0,1] and both are deterministic. A trajectory costs no more
+than the answers it already generates.
+
+### Read the drift, not the level
+
+The headline is `erosion_drift`: the per-checkpoint change, normalised by
+step count so an 8-checkpoint problem does not outweigh a 3-checkpoint one.
+The paper's finding is a direction, not a level. A model can start clean and
+still be the worst one to work with.
+
+### What it caught immediately
+
+`claude-opus-5` on the delay-email chain, four checkpoints:
+
+| | C1 | C2 | C3 | C4 |
+|---|---:|---:|---:|---:|
+| Score | 60.3 | 59.5 | 56.3 | 61.4 |
+| Words | 380 | 633 | 834 | 1395 |
+| Erosion | 0.191 | 0.251 | 0.284 | 0.411 |
+| Coverage | 3/3 | 5/5 | 7/7 | 9/9 |
+
+Full marks on coverage at every step, and the score ends where it started, so
+the single-shot suite reports nothing wrong. Meanwhile a 320-word email became
+1395 words and erosion doubled. C4's worst sentence:
+
+> Data, access, cost, scope, backups, security controls, the end state, and
+> the people.
+
+Every new ask was satisfied by welding a clause onto what was already there
+rather than rewriting. That is the prose form of the paper's central
+observation: agents patch existing functions instead of distributing logic
+across new ones.
+
+### Limits
+
+- **3 problems, 12 checkpoints.** Smaller than the single-shot set. Treat
+  drift signs as directional, not as a ranking.
+- **Chains are serial and fail closed.** One failed checkpoint ends that
+  trajectory, because C(n+1) needs C(n)'s text. A model that dies at C2
+  contributes nothing rather than a short trajectory.
+- **Erosion has no judge.** Deliberate, since it is cheap and mechanical, but
+  it means a genuinely necessary complex sentence is scored the same as a
+  careless one.
+- **The 4-clause threshold is calibrated on this corpus.** It is the tail of
+  the saved responses, not a universal constant.
+
 ## Adding prompts
 
 Each entry in `data/prompts.json` needs:

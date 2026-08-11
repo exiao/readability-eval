@@ -1,0 +1,90 @@
+{
+ "version": "1.0",
+ "notes": "Iterative problems, in the SlopCodeBench sense: the model extends ITS OWN prior answer under a spec that grows. asks accumulate across checkpoints, so coverage stays comparable. budget grows with the spec, so growth is not automatically a defect.",
+ "problems": [
+  {
+   "id": "onboarding_email",
+   "genre": "bad_news",
+   "audience": "small business owner, non-technical",
+   "checkpoints": [
+    {
+     "spec": "Write an email telling a customer their scheduled data migration slipped by two weeks.",
+     "budget": 150,
+     "asks": ["says the migration slipped", "gives the new date", "says what caused it"]
+    },
+    {
+     "spec": "The customer also asked what happens to their existing data during the delay, and whether they are billed for the extra two weeks. Cover both.",
+     "budget": 220,
+     "asks": ["says what happens to existing data", "answers the billing question"]
+    },
+    {
+     "spec": "Legal now requires the email to state the one action the customer must take before the new date, and a contact for questions.",
+     "budget": 280,
+     "asks": ["names the one required customer action", "gives a contact"]
+    },
+    {
+     "spec": "Support says two other customers read the last version as 'the data is gone'. Make it impossible to read that way, and say what will not change.",
+     "budget": 320,
+     "asks": ["rules out data loss explicitly", "says what stays the same"]
+    }
+   ],
+   "assumed": []
+  },
+  {
+   "id": "cache_explainer",
+   "genre": "explanation",
+   "audience": "backend engineer",
+   "checkpoints": [
+    {
+     "spec": "Explain why our read-through cache is returning stale prices.",
+     "budget": 180,
+     "asks": ["names the cause", "explains why it is stale", "gives a fix"]
+    },
+    {
+     "spec": "Also cover how to verify the fix worked in production, and what metric would catch a regression.",
+     "budget": 260,
+     "asks": ["says how to verify in production", "names a regression metric"]
+    },
+    {
+     "spec": "The same document must now serve on-call. Add what to do at 3am when it happens again.",
+     "budget": 330,
+     "asks": ["gives a 3am mitigation", "says when to escalate"]
+    },
+    {
+     "spec": "Add the tradeoff we accepted and the one case where the fix does not hold.",
+     "budget": 400,
+     "asks": ["states the accepted tradeoff", "names the case where the fix fails"]
+    }
+   ],
+   "assumed": ["API", "TTL", "CDN"]
+  },
+  {
+   "id": "shapes_lesson",
+   "genre": "instruction",
+   "audience": "Grade 2 teacher making a video",
+   "checkpoints": [
+    {
+     "spec": "Write a short lesson script that teaches grade 2 students to identify 2D shapes.",
+     "budget": 250,
+     "asks": ["a hook a 7 year old likes", "how to identify the shapes", "only accurate facts"]
+    },
+    {
+     "spec": "Add properties of each shape, at grade 2 level.",
+     "budget": 340,
+     "asks": ["gives properties of each shape"]
+    },
+    {
+     "spec": "Add real-life examples the kids can point at, and two practice exercises.",
+     "budget": 430,
+     "asks": ["real life examples kids recognise", "two practice exercises"]
+    },
+    {
+     "spec": "The teacher has 5 minutes of video, not 10. Keep everything above and make it fit.",
+     "budget": 380,
+     "asks": ["still covers all of the above", "fits a 5 minute read-aloud"]
+    }
+   ],
+   "assumed": []
+  }
+ ]
+}

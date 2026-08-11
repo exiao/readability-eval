@@ -62,13 +62,20 @@ _SUBORD = re.compile(
 
 # Coordinators only join clauses when what FOLLOWS has its own subject and
 # verb. "eggs and milk" is a list; "it failed and we rolled back" is two
-# clauses. Approximated by requiring a pronoun or determiner-plus-verb
-# shape after the coordinator, since there is no POS tagger here and adding
-# one for a single counter is not worth the dependency.
+# clauses. There is no POS tagger here, so accept pronoun subjects and the
+# common determiner + noun + finite-verb shape. Requiring a determiner keeps
+# bare noun enumerations such as "cards and markers" out of the match.
 _COORD_CLAUSE = re.compile(
     r"\b(?:and|but|or|yet|so)\s+"
+    r"(?:"
     r"(?:i|we|you|he|she|it|they|this|that|these|those|there)\b\s+"
-    r"(?:\w+)", re.I)
+    r"(?:\w+)"
+    r"|"
+    r"(?:a|an|the|this|that|these|those)\s+"
+    r"(?:\w+\s+){1,3}"
+    r"(?:is|are|was|were|be|been|being|has|have|had|does|do|did|"
+    r"will|would|can|could|should|may|might|must|\w+(?:ed|ing))\b"
+    r")", re.I)
 
 # Semicolons and dashes joining two independent statements.
 _HARD_BREAK = re.compile(r";|\s—\s|\s--\s")

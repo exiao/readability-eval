@@ -206,3 +206,13 @@ def test_comma_joined_independent_clauses_are_not_a_list():
     assert not metrics._is_list_line(
         "We ship today, but they receive it tomorrow, so we must prepare.")
     assert metrics._is_list_line("Bring cards, markers, worksheets, and glue.")
+
+
+def test_coordinator_with_noun_subject_still_counts():
+    """Coordinated clauses may start with ordinary noun phrases, not only
+    pronouns. They must not be mistaken for a comma-delimited list.
+    """
+    joined = ("The cache expired, but the database remained stale, so the "
+              "service returned old prices.")
+    assert not metrics._is_list_line(joined)
+    assert metrics.clauses(joined) == 3

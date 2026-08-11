@@ -92,9 +92,15 @@ def _is_list_line(sent):
     if re.match(r"^\*{0,2}[A-Z][\w /-]{0,30}:\*{0,2}\s", sent):
         return True
     parts = [p for p in sent.split(",") if p.strip()]
-    if len(parts) >= 3 and not _SUBORD.search(sent):
-        return True
-    return False
+    if len(parts) < 3 or _SUBORD.search(sent):
+        return False
+    # Comma-separated INDEPENDENT clauses are not a list: "We ship today, but
+    # they receive it tomorrow, so we must prepare" is three clauses to hold,
+    # not three items to scan. A coordinator followed by its own subject and
+    # verb is the tell.
+    if _COORD_CLAUSE.search(sent):
+        return False
+    return True
 
 
 

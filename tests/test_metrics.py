@@ -196,3 +196,13 @@ def test_verbosity_counts_every_duplicate_occurrence():
     """
     sent = "The quick brown fox jumped over the lazy dog today."
     assert metrics.verbosity(" ".join([sent] * 10)) >= 0.8
+
+
+def test_comma_joined_independent_clauses_are_not_a_list():
+    """Three comma-separated INDEPENDENT clauses are load, not a scan.
+
+    Forcing them to one clause hid their weight from the erosion headline.
+    """
+    assert not metrics._is_list_line(
+        "We ship today, but they receive it tomorrow, so we must prepare.")
+    assert metrics._is_list_line("Bring cards, markers, worksheets, and glue.")

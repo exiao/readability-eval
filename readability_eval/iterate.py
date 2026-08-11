@@ -73,11 +73,18 @@ def score_text(text, item):
 
 def run_problem(prob, model, backend, provider, jm, jb, jp, reasoning=None):
     """One trajectory. Sequential by necessity: Cn+1 needs Cn's output."""
-    rows, prior, asks = [], None, []
+    rows, prior, asks, specs = [], None, [], []
     for i, cp in enumerate(prob["checkpoints"], 1):
         asks = asks + cp["asks"]          # requirements accumulate
+        specs = specs + [cp["spec"]]
         prompt = cp["spec"] if prior is None else EXTEND.format(
             prior=prior, spec=cp["spec"])
+        # The judge grades the WHOLE document against "the prompt they
+        # answered", so at C2+ it must see every requirement so far. Given
+        # only the latest delta it reads retained material as padding and
+        # penalises economy, which is the drift this run measures.
+        judged_prompt = specs[0] if len(specs) == 1 else "\n".join(
+            f"{n}. {s}" for n, s in enumerate(specs, 1))
         t0 = time.time()
         try:
             out = call(model, prompt, backend, provider, reasoning=reasoning)
@@ -90,7 +97,7 @@ def run_problem(prob, model, backend, provider, jm, jb, jp, reasoning=None):
             break
 
         item = {"id": f"{prob['id']}#{i}", "genre": prob["genre"],
-                "prompt": cp["spec"], "audience": prob["audience"],
+                "prompt": judged_prompt, "audience": prob["audience"],
                 "asks": asks, "assumed": prob.get("assumed", ()),
                 "budget": cp.get("budget"),
                 "_jm": jm, "_jb": jb, "_jp": jp}

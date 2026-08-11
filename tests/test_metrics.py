@@ -185,3 +185,14 @@ def test_threshold_flags_the_tail_not_the_bulk():
                for s in ordinary)
     assert metrics.clauses(NESTED) > metrics.COMPLEX_CLAUSES
 
+
+
+def test_verbosity_counts_every_duplicate_occurrence():
+    """One sentence repeated 10 times is near-total repetition, not 10%.
+
+    Keying the numerator on sentence TEXT collapsed all repeats into a single
+    entry while the denominator kept all 10, scoring the worst possible input
+    at 0.1.
+    """
+    sent = "The quick brown fox jumped over the lazy dog today."
+    assert metrics.verbosity(" ".join([sent] * 10)) >= 0.8

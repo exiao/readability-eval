@@ -197,12 +197,24 @@ def verbosity(text):
     sents = sentences(text)
     if not sents:
         return 0.0
-    bad = set(clone_sentences(text))
+    # Flag by POSITION, not by text. Keying on the sentence string collapsed
+    # every repeat of a verbatim-duplicated sentence into one numerator entry
+    # while all of its occurrences stayed in the denominator, so the worst
+    # possible input (one sentence repeated N times) scored near 0.
+    clones = clone_sentences(text)
+    remaining = {}
+    for s in clones:
+        remaining[s] = remaining.get(s, 0) + 1
+    bad = 0
     for s in sents:
+        if remaining.get(s):
+            remaining[s] -= 1
+            bad += 1
+            continue
         hits, _ = lexicon.score(s)
         if hits > 0:
-            bad.add(s)
-    return round(len(bad) / len(sents), 3)
+            bad += 1
+    return round(bad / len(sents), 3)
 
 
 def measure(text):

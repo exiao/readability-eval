@@ -107,21 +107,32 @@ def run_problem(prob, model, backend, provider, jm, jb, jp, reasoning=None):
         row["cost_usd"] = round(row["cost_usd"] + out.get("cost_usd", 0.0), 5)
         rows.append(row)
         prior = text
-    return {"problem": prob["id"], "genre": prob["genre"], "checkpoints": rows}
+    return {"problem": prob["id"], "genre": prob["genre"],
+            "expected_checkpoints": len(prob["checkpoints"]),
+            "checkpoints": rows}
 
 
 def summarise(trajectories):
     eros, verb, scores = [], [], []
+    truncated = 0
     for t in trajectories:
         ok = [c for c in t["checkpoints"] if "error" not in c]
+        # A trajectory that died at C3 still has >= 2 checkpoints, so a length
+        # check alone counted a truncated chain as complete and let its early
+        # endpoint into every headline drift number. Require the FULL chain.
+        expected = t.get("expected_checkpoints", len(t["checkpoints"]))
+        if len(ok) < expected:
+            truncated += 1
+            continue
         if len(ok) >= 2:
             eros.append(metrics.trend([c["erosion"] for c in ok]))
             verb.append(metrics.trend([c["verbosity"] for c in ok]))
             scores.append(metrics.trend([c["score"] for c in ok]))
     if not eros:
-        return {"complete_trajectories": 0}
+        return {"complete_trajectories": 0, "truncated_trajectories": truncated}
     return {
         "complete_trajectories": len(eros),
+        "truncated_trajectories": truncated,
         # The paper's headline numbers, in the paper's own form.
         "erosion_drift": round(statistics.mean(eros), 4),
         "verbosity_drift": round(statistics.mean(verb), 4),

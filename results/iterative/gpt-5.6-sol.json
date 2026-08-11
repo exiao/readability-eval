@@ -1,323 +1,324 @@
 {
- "summary": {
-  "model": "openai/gpt-5.6-sol",
-  "backend": "openrouter",
-  "judge_model": "google/gemini-3.5-flash",
-  "judge_backend": "openrouter",
-  "problems": 3,
-  "complete_trajectories": 3,
-  "erosion_drift": 0.0514,
-  "verbosity_drift": -0.0052,
-  "score_drift": -0.22,
-  "pct_erosion_rising": 67,
-  "pct_verbosity_rising": 67
- },
- "trajectories": [
-  {
-   "problem": "onboarding_email",
-   "genre": "bad_news",
-   "checkpoints": [
-    {
-     "checkpoint": 1,
-     "spec": "Write an email telling a customer their scheduled data migration slipped by two weeks.",
-     "response": "**Subject:** Update to Your Data Migration Schedule\n\nHi [Customer Name],\n\nI\u2019m writing to let you know that your scheduled data migration has been delayed by two weeks. The migration is now planned for [New Date], instead of [Original Date].\n\nWe apologize for the disruption and are taking the necessary steps to ensure the migration is completed smoothly and securely. We\u2019ll keep you updated on our progress and let you know promptly if anything changes.\n\nPlease contact me if this revised timeline creates any issues for your team.\n\nBest,  \n[Your Name]  \n[Title]  \n[Company]",
-     "words": 92,
-     "budget": 150,
-     "rules": {
-      "rule2_economy": 6.7,
-      "rule3_jargon": 10.0,
-      "rule5_simple_words": 10.0,
-      "rule6_filler": 10.0,
-      "rule1_understandable": 10.0,
-      "rule4_imagery": 7.0,
-      "rule7_form": 10.0
-     },
-     "clarity_avg": 9.19,
-     "slop_per_1k": 2.7,
-     "score": 88.2,
-     "facts_delivered": "2/3",
-     "cost_usd": 0.01456,
-     "erosion": 0.0,
-     "verbosity": 0.143,
-     "seconds": 9.4
-    },
-    {
-     "checkpoint": 2,
-     "spec": "The customer also asked what happens to their existing data during the delay, and whether they are billed for the extra two weeks. Cover both.",
-     "response": "**Subject:** Update to Your Data Migration Schedule\n\nHi [Customer Name],\n\nI\u2019m writing to let you know that your scheduled data migration has been delayed by two weeks. The migration is now planned for [New Date], instead of [Original Date].\n\nDuring the delay, your existing data will remain securely stored and accessible under the same protections and access controls currently in place. No changes will be made to it as part of the migration until the revised date.\n\nYou will not be billed for the additional two weeks caused by this delay. [If applicable: Your regular service charges will continue as usual.]\n\nWe apologize for the disruption and are taking the necessary steps to ensure the migration is completed smoothly and securely. We\u2019ll keep you updated on our progress and let you know promptly if anything changes.\n\nPlease contact me if this revised timeline creates any issues for your team or if you have questions about your data or billing.\n\nBest,  \n[Your Name]  \n[Title]  \n[Company]",
-     "words": 164,
-     "budget": 220,
-     "rules": {
-      "rule2_economy": 8.0,
-      "rule3_jargon": 10.0,
-      "rule5_simple_words": 8.8,
-      "rule6_filler": 10.0,
-      "rule1_understandable": 10.0,
-      "rule4_imagery": 7.0,
-      "rule7_form": 10.0
-     },
-     "clarity_avg": 9.16,
-     "slop_per_1k": 1.5,
-     "score": 89.5,
-     "facts_delivered": "4/5",
-     "cost_usd": 0.02566,
-     "erosion": 0.233,
-     "verbosity": 0.091,
-     "seconds": 14.0
-    },
-    {
-     "checkpoint": 3,
-     "spec": "Legal now requires the email to state the one action the customer must take before the new date, and a contact for questions.",
-     "response": "**Subject:** Update to Your Data Migration Schedule\n\nHi [Customer Name],\n\nI\u2019m writing to let you know that your scheduled data migration has been delayed by two weeks. The migration is now planned for [New Date], instead of [Original Date].\n\nDuring the delay, your existing data will remain securely stored and accessible under the same protections and access controls currently in place. No changes will be made to it as part of the migration until the revised date.\n\nYou will not be billed for the additional two weeks caused by this delay. [If applicable: Your regular service charges will continue as usual.]\n\n**Action required:** Before [New Date], please [Required Customer Action].\n\nWe apologize for the disruption and are taking the necessary steps to ensure the migration is completed smoothly and securely. We\u2019ll keep you updated on our progress and let you know promptly if anything changes.\n\nIf this revised timeline creates issues for your team, or if you have questions about the required action, your data, or billing, please contact [Contact Name] at [Email Address] or [Phone Number].\n\nBest,  \n[Your Name]  \n[Title]  \n[Company]",
-     "words": 182,
-     "budget": 280,
-     "rules": {
-      "rule2_economy": 8.6,
-      "rule3_jargon": 10.0,
-      "rule5_simple_words": 8.9,
-      "rule6_filler": 10.0,
-      "rule1_understandable": 10.0,
-      "rule4_imagery": 7.0,
-      "rule7_form": 10.0
-     },
-     "clarity_avg": 9.24,
-     "slop_per_1k": 1.4,
-     "score": 90.4,
-     "facts_delivered": "6/7",
-     "cost_usd": 0.02705,
-     "erosion": 0.399,
-     "verbosity": 0.083,
-     "seconds": 12.7
-    },
-    {
-     "checkpoint": 4,
-     "spec": "Support says two other customers read the last version as 'the data is gone'. Make it impossible to read that way, and say what will not change.",
-     "response": "**Subject:** Update to Your Data Migration Schedule\n\nHi [Customer Name],\n\nI\u2019m writing to let you know that your scheduled data migration has been delayed by two weeks. The migration is now planned for [New Date] instead of [Original Date].\n\n**Your data has not been deleted, lost, moved, or changed.** It remains securely stored in its current location and will stay fully accessible to you during the delay. Until the revised migration date:\n\n- Your data, files, and records will remain intact.\n- Your existing access, permissions, and security protections will not change.\n- Your current service will continue to operate as usual.\n- No migration-related changes will be made to your data.\n\nYou will not be billed for the additional two weeks caused by this delay. [If applicable: Your regular service charges will continue as usual.]\n\n**Action required:** Before [New Date], please [Required Customer Action].\n\nWe apologize for the disruption and are taking the necessary steps to ensure the migration is completed smoothly and securely. We\u2019ll keep you updated on our progress and notify you promptly if anything changes.\n\nIf this revised timeline creates issues for your team, or if you have questions about the required action, your data, or billing, please contact [Contact Name] at [Email Address] or [Phone Number].\n\nBest,  \n[Your Name]  \n[Title]  \n[Company]",
-     "words": 216,
-     "budget": 320,
-     "rules": {
-      "rule2_economy": 8.9,
-      "rule3_jargon": 10.0,
-      "rule5_simple_words": 9.1,
-      "rule6_filler": 10.0,
-      "rule1_understandable": 10.0,
-      "rule4_imagery": 10.0,
-      "rule7_form": 10.0
-     },
-     "clarity_avg": 9.74,
-     "slop_per_1k": 1.2,
-     "score": 95.7,
-     "facts_delivered": "8/9",
-     "cost_usd": 0.02876,
-     "erosion": 0.421,
-     "verbosity": 0.059,
-     "seconds": 14.5
-    }
-   ]
+  "summary": {
+    "model": "openai/gpt-5.6-sol",
+    "backend": "openrouter",
+    "judge_model": "google/gemini-3.5-flash",
+    "judge_backend": "openrouter",
+    "problems": 3,
+    "complete_trajectories": 3,
+    "erosion_drift": 0.0359,
+    "verbosity_drift": -0.0052,
+    "score_drift": -0.22,
+    "pct_erosion_rising": 67,
+    "pct_verbosity_rising": 67,
+    "truncated_trajectories": 0
   },
-  {
-   "problem": "cache_explainer",
-   "genre": "explanation",
-   "checkpoints": [
+  "trajectories": [
     {
-     "checkpoint": 1,
-     "spec": "Explain why our read-through cache is returning stale prices.",
-     "response": "A read-through cache returns stale prices when the source price changes **after the value has been cached**. Read-through behavior only loads from the database on a cache miss; it does not automatically detect database updates.\n\nCommon causes:\n\n- **TTL is too long or missing:** Old prices remain valid in the cache longer than intended.\n- **No invalidation on writes:** The price update path changes the database but does not evict or refresh the corresponding cache key.\n- **Incorrect cache keys:** Keys may omit dimensions such as currency, region, customer tier, channel, or promotion.\n- **Race conditions:** A request reads the old database value while an update is in progress, then repopulates the cache after invalidation.\n- **Replica lag:** Cache misses may refill from a read replica that has not received the latest price.\n- **Multi-layer caching:** The application cache may be fresh while a local cache, CDN, or downstream service still holds an older value.\n- **Failed or delayed invalidation:** Event delivery failures, retries, or consumer lag can leave entries stale.\n- **Sliding expiration:** Frequently accessed prices may never expire if each read extends their lifetime.\n\nThe most robust write flow is generally:\n\n1. Commit the new price to the authoritative database.\n2. Evict the exact affected cache keys after the commit.\n3. Let the next read repopulate them, or refresh them explicitly.\n4. Keep a bounded TTL as a fallback.\n5. Prevent stale refill races with versioning, generation numbers, or compare-and-set logic.\n\nTo identify the specific issue, log the cache key, cached price/version, TTL, database source and version, invalidation event status, and whether the refill came from a replica. The first thing to verify is whether every price update path invalidates all relevant keys **after** the database transaction commits.",
-     "words": 290,
-     "budget": 180,
-     "rules": {
-      "rule2_economy": 7.5,
-      "rule3_jargon": 10.0,
-      "rule5_simple_words": 9.3,
-      "rule6_filler": 9.4,
-      "rule1_understandable": 10.0,
-      "rule4_imagery": 7.0,
-      "rule7_form": 10.0
-     },
-     "clarity_avg": 9.09,
-     "slop_per_1k": 3.4,
-     "score": 86.2,
-     "facts_delivered": "3/3",
-     "cost_usd": 0.02558,
-     "erosion": 0.582,
-     "verbosity": 0.056,
-     "seconds": 16.8
+      "problem": "onboarding_email",
+      "genre": "bad_news",
+      "checkpoints": [
+        {
+          "checkpoint": 1,
+          "spec": "Write an email telling a customer their scheduled data migration slipped by two weeks.",
+          "response": "**Subject:** Update to Your Data Migration Schedule\n\nHi [Customer Name],\n\nI\u2019m writing to let you know that your scheduled data migration has been delayed by two weeks. The migration is now planned for [New Date], instead of [Original Date].\n\nWe apologize for the disruption and are taking the necessary steps to ensure the migration is completed smoothly and securely. We\u2019ll keep you updated on our progress and let you know promptly if anything changes.\n\nPlease contact me if this revised timeline creates any issues for your team.\n\nBest,  \n[Your Name]  \n[Title]  \n[Company]",
+          "words": 92,
+          "budget": 150,
+          "rules": {
+            "rule2_economy": 6.7,
+            "rule3_jargon": 10.0,
+            "rule5_simple_words": 10.0,
+            "rule6_filler": 10.0,
+            "rule1_understandable": 10.0,
+            "rule4_imagery": 7.0,
+            "rule7_form": 10.0
+          },
+          "clarity_avg": 9.19,
+          "slop_per_1k": 2.7,
+          "score": 88.2,
+          "facts_delivered": "2/3",
+          "cost_usd": 0.01456,
+          "erosion": 0.0,
+          "verbosity": 0.143,
+          "seconds": 9.4
+        },
+        {
+          "checkpoint": 2,
+          "spec": "The customer also asked what happens to their existing data during the delay, and whether they are billed for the extra two weeks. Cover both.",
+          "response": "**Subject:** Update to Your Data Migration Schedule\n\nHi [Customer Name],\n\nI\u2019m writing to let you know that your scheduled data migration has been delayed by two weeks. The migration is now planned for [New Date], instead of [Original Date].\n\nDuring the delay, your existing data will remain securely stored and accessible under the same protections and access controls currently in place. No changes will be made to it as part of the migration until the revised date.\n\nYou will not be billed for the additional two weeks caused by this delay. [If applicable: Your regular service charges will continue as usual.]\n\nWe apologize for the disruption and are taking the necessary steps to ensure the migration is completed smoothly and securely. We\u2019ll keep you updated on our progress and let you know promptly if anything changes.\n\nPlease contact me if this revised timeline creates any issues for your team or if you have questions about your data or billing.\n\nBest,  \n[Your Name]  \n[Title]  \n[Company]",
+          "words": 164,
+          "budget": 220,
+          "rules": {
+            "rule2_economy": 8.0,
+            "rule3_jargon": 10.0,
+            "rule5_simple_words": 8.8,
+            "rule6_filler": 10.0,
+            "rule1_understandable": 10.0,
+            "rule4_imagery": 7.0,
+            "rule7_form": 10.0
+          },
+          "clarity_avg": 9.16,
+          "slop_per_1k": 1.5,
+          "score": 89.5,
+          "facts_delivered": "4/5",
+          "cost_usd": 0.02566,
+          "erosion": 0.22,
+          "verbosity": 0.091,
+          "seconds": 14.0
+        },
+        {
+          "checkpoint": 3,
+          "spec": "Legal now requires the email to state the one action the customer must take before the new date, and a contact for questions.",
+          "response": "**Subject:** Update to Your Data Migration Schedule\n\nHi [Customer Name],\n\nI\u2019m writing to let you know that your scheduled data migration has been delayed by two weeks. The migration is now planned for [New Date], instead of [Original Date].\n\nDuring the delay, your existing data will remain securely stored and accessible under the same protections and access controls currently in place. No changes will be made to it as part of the migration until the revised date.\n\nYou will not be billed for the additional two weeks caused by this delay. [If applicable: Your regular service charges will continue as usual.]\n\n**Action required:** Before [New Date], please [Required Customer Action].\n\nWe apologize for the disruption and are taking the necessary steps to ensure the migration is completed smoothly and securely. We\u2019ll keep you updated on our progress and let you know promptly if anything changes.\n\nIf this revised timeline creates issues for your team, or if you have questions about the required action, your data, or billing, please contact [Contact Name] at [Email Address] or [Phone Number].\n\nBest,  \n[Your Name]  \n[Title]  \n[Company]",
+          "words": 182,
+          "budget": 280,
+          "rules": {
+            "rule2_economy": 8.6,
+            "rule3_jargon": 10.0,
+            "rule5_simple_words": 8.9,
+            "rule6_filler": 10.0,
+            "rule1_understandable": 10.0,
+            "rule4_imagery": 7.0,
+            "rule7_form": 10.0
+          },
+          "clarity_avg": 9.24,
+          "slop_per_1k": 1.4,
+          "score": 90.4,
+          "facts_delivered": "6/7",
+          "cost_usd": 0.02705,
+          "erosion": 0.239,
+          "verbosity": 0.083,
+          "seconds": 12.7
+        },
+        {
+          "checkpoint": 4,
+          "spec": "Support says two other customers read the last version as 'the data is gone'. Make it impossible to read that way, and say what will not change.",
+          "response": "**Subject:** Update to Your Data Migration Schedule\n\nHi [Customer Name],\n\nI\u2019m writing to let you know that your scheduled data migration has been delayed by two weeks. The migration is now planned for [New Date] instead of [Original Date].\n\n**Your data has not been deleted, lost, moved, or changed.** It remains securely stored in its current location and will stay fully accessible to you during the delay. Until the revised migration date:\n\n- Your data, files, and records will remain intact.\n- Your existing access, permissions, and security protections will not change.\n- Your current service will continue to operate as usual.\n- No migration-related changes will be made to your data.\n\nYou will not be billed for the additional two weeks caused by this delay. [If applicable: Your regular service charges will continue as usual.]\n\n**Action required:** Before [New Date], please [Required Customer Action].\n\nWe apologize for the disruption and are taking the necessary steps to ensure the migration is completed smoothly and securely. We\u2019ll keep you updated on our progress and notify you promptly if anything changes.\n\nIf this revised timeline creates issues for your team, or if you have questions about the required action, your data, or billing, please contact [Contact Name] at [Email Address] or [Phone Number].\n\nBest,  \n[Your Name]  \n[Title]  \n[Company]",
+          "words": 216,
+          "budget": 320,
+          "rules": {
+            "rule2_economy": 8.9,
+            "rule3_jargon": 10.0,
+            "rule5_simple_words": 9.1,
+            "rule6_filler": 10.0,
+            "rule1_understandable": 10.0,
+            "rule4_imagery": 10.0,
+            "rule7_form": 10.0
+          },
+          "clarity_avg": 9.74,
+          "slop_per_1k": 1.2,
+          "score": 95.7,
+          "facts_delivered": "8/9",
+          "cost_usd": 0.02876,
+          "erosion": 0.207,
+          "verbosity": 0.059,
+          "seconds": 14.5
+        }
+      ]
     },
     {
-     "checkpoint": 2,
-     "spec": "Also cover how to verify the fix worked in production, and what metric would catch a regression.",
-     "response": "A read-through cache returns stale prices when the source price changes **after the value has been cached**. Read-through behavior only loads from the database on a cache miss; it does not automatically detect database updates.\n\nCommon causes:\n\n- **TTL is too long or missing:** Old prices remain valid in the cache longer than intended.\n- **No invalidation on writes:** The price update path changes the database but does not evict or refresh the corresponding cache key.\n- **Incorrect cache keys:** Keys may omit dimensions such as currency, region, customer tier, channel, or promotion.\n- **Race conditions:** A request reads the old database value while an update is in progress, then repopulates the cache after invalidation.\n- **Replica lag:** Cache misses may refill from a read replica that has not received the latest price.\n- **Multi-layer caching:** The application cache may be fresh while a local cache, CDN, or downstream service still holds an older value.\n- **Failed or delayed invalidation:** Event delivery failures, retries, or consumer lag can leave entries stale.\n- **Sliding expiration:** Frequently accessed prices may never expire if each read extends their lifetime.\n\nThe most robust write flow is generally:\n\n1. Commit the new price to the authoritative database.\n2. Evict the exact affected cache keys after the commit.\n3. Let the next read repopulate them, or refresh them explicitly.\n4. Keep a bounded TTL as a fallback.\n5. Prevent stale refill races with versioning, generation numbers, or compare-and-set logic.\n\nTo identify the specific issue, log the cache key, cached price/version, TTL, database source and version, invalidation event status, and whether the refill came from a replica. The first thing to verify is whether every price update path invalidates all relevant keys **after** the database transaction commits.\n\nTo verify the fix in production:\n\n1. Update test prices through each production write path and record the committed database version and timestamp.\n2. Read every affected price variant\u2014such as currency, region, customer tier, channel, and promotion\u2014through the normal production read path.\n3. Confirm that each response reaches the new version within the expected invalidation or refresh window and remains correct under concurrent reads and updates.\n4. Verify from logs or traces that invalidation occurred after commit, targeted the correct keys, and that any refill used a source at least as current as the committed version.\n5. Use a gradual rollout and compare stale-read rates, invalidation failures, refill sources, and cache latency with the pre-change baseline.\n\nThe primary regression metric should be the **stale price read rate**: the percentage of sampled cache-served responses whose price version is older than the authoritative database version, measured after an allowed propagation window. Alert on a sustained nonzero rate or a breach of the defined correctness threshold. Supporting metrics should include invalidation failure rate and latency, event-consumer lag, cache-entry age, replica lag, and rejected stale refill attempts.",
-     "words": 473,
-     "budget": 260,
-     "rules": {
-      "rule2_economy": 6.8,
-      "rule3_jargon": 10.0,
-      "rule5_simple_words": 9.6,
-      "rule6_filler": 9.6,
-      "rule1_understandable": 10.0,
-      "rule4_imagery": 7.0,
-      "rule7_form": 10.0
-     },
-     "clarity_avg": 9.08,
-     "slop_per_1k": 2.1,
-     "score": 88.0,
-     "facts_delivered": "5/5",
-     "cost_usd": 0.0356,
-     "erosion": 0.691,
-     "verbosity": 0.037,
-     "seconds": 18.4
+      "problem": "cache_explainer",
+      "genre": "explanation",
+      "checkpoints": [
+        {
+          "checkpoint": 1,
+          "spec": "Explain why our read-through cache is returning stale prices.",
+          "response": "A read-through cache returns stale prices when the source price changes **after the value has been cached**. Read-through behavior only loads from the database on a cache miss; it does not automatically detect database updates.\n\nCommon causes:\n\n- **TTL is too long or missing:** Old prices remain valid in the cache longer than intended.\n- **No invalidation on writes:** The price update path changes the database but does not evict or refresh the corresponding cache key.\n- **Incorrect cache keys:** Keys may omit dimensions such as currency, region, customer tier, channel, or promotion.\n- **Race conditions:** A request reads the old database value while an update is in progress, then repopulates the cache after invalidation.\n- **Replica lag:** Cache misses may refill from a read replica that has not received the latest price.\n- **Multi-layer caching:** The application cache may be fresh while a local cache, CDN, or downstream service still holds an older value.\n- **Failed or delayed invalidation:** Event delivery failures, retries, or consumer lag can leave entries stale.\n- **Sliding expiration:** Frequently accessed prices may never expire if each read extends their lifetime.\n\nThe most robust write flow is generally:\n\n1. Commit the new price to the authoritative database.\n2. Evict the exact affected cache keys after the commit.\n3. Let the next read repopulate them, or refresh them explicitly.\n4. Keep a bounded TTL as a fallback.\n5. Prevent stale refill races with versioning, generation numbers, or compare-and-set logic.\n\nTo identify the specific issue, log the cache key, cached price/version, TTL, database source and version, invalidation event status, and whether the refill came from a replica. The first thing to verify is whether every price update path invalidates all relevant keys **after** the database transaction commits.",
+          "words": 290,
+          "budget": 180,
+          "rules": {
+            "rule2_economy": 7.5,
+            "rule3_jargon": 10.0,
+            "rule5_simple_words": 9.3,
+            "rule6_filler": 9.4,
+            "rule1_understandable": 10.0,
+            "rule4_imagery": 7.0,
+            "rule7_form": 10.0
+          },
+          "clarity_avg": 9.09,
+          "slop_per_1k": 3.4,
+          "score": 86.2,
+          "facts_delivered": "3/3",
+          "cost_usd": 0.02558,
+          "erosion": 0.139,
+          "verbosity": 0.056,
+          "seconds": 16.8
+        },
+        {
+          "checkpoint": 2,
+          "spec": "Also cover how to verify the fix worked in production, and what metric would catch a regression.",
+          "response": "A read-through cache returns stale prices when the source price changes **after the value has been cached**. Read-through behavior only loads from the database on a cache miss; it does not automatically detect database updates.\n\nCommon causes:\n\n- **TTL is too long or missing:** Old prices remain valid in the cache longer than intended.\n- **No invalidation on writes:** The price update path changes the database but does not evict or refresh the corresponding cache key.\n- **Incorrect cache keys:** Keys may omit dimensions such as currency, region, customer tier, channel, or promotion.\n- **Race conditions:** A request reads the old database value while an update is in progress, then repopulates the cache after invalidation.\n- **Replica lag:** Cache misses may refill from a read replica that has not received the latest price.\n- **Multi-layer caching:** The application cache may be fresh while a local cache, CDN, or downstream service still holds an older value.\n- **Failed or delayed invalidation:** Event delivery failures, retries, or consumer lag can leave entries stale.\n- **Sliding expiration:** Frequently accessed prices may never expire if each read extends their lifetime.\n\nThe most robust write flow is generally:\n\n1. Commit the new price to the authoritative database.\n2. Evict the exact affected cache keys after the commit.\n3. Let the next read repopulate them, or refresh them explicitly.\n4. Keep a bounded TTL as a fallback.\n5. Prevent stale refill races with versioning, generation numbers, or compare-and-set logic.\n\nTo identify the specific issue, log the cache key, cached price/version, TTL, database source and version, invalidation event status, and whether the refill came from a replica. The first thing to verify is whether every price update path invalidates all relevant keys **after** the database transaction commits.\n\nTo verify the fix in production:\n\n1. Update test prices through each production write path and record the committed database version and timestamp.\n2. Read every affected price variant\u2014such as currency, region, customer tier, channel, and promotion\u2014through the normal production read path.\n3. Confirm that each response reaches the new version within the expected invalidation or refresh window and remains correct under concurrent reads and updates.\n4. Verify from logs or traces that invalidation occurred after commit, targeted the correct keys, and that any refill used a source at least as current as the committed version.\n5. Use a gradual rollout and compare stale-read rates, invalidation failures, refill sources, and cache latency with the pre-change baseline.\n\nThe primary regression metric should be the **stale price read rate**: the percentage of sampled cache-served responses whose price version is older than the authoritative database version, measured after an allowed propagation window. Alert on a sustained nonzero rate or a breach of the defined correctness threshold. Supporting metrics should include invalidation failure rate and latency, event-consumer lag, cache-entry age, replica lag, and rejected stale refill attempts.",
+          "words": 473,
+          "budget": 260,
+          "rules": {
+            "rule2_economy": 6.8,
+            "rule3_jargon": 10.0,
+            "rule5_simple_words": 9.6,
+            "rule6_filler": 9.6,
+            "rule1_understandable": 10.0,
+            "rule4_imagery": 7.0,
+            "rule7_form": 10.0
+          },
+          "clarity_avg": 9.08,
+          "slop_per_1k": 2.1,
+          "score": 88.0,
+          "facts_delivered": "5/5",
+          "cost_usd": 0.0356,
+          "erosion": 0.34,
+          "verbosity": 0.037,
+          "seconds": 18.4
+        },
+        {
+          "checkpoint": 3,
+          "spec": "The same document must now serve on-call. Add what to do at 3am when it happens again.",
+          "response": "A read-through cache returns stale prices when the source price changes **after the value has been cached**. Read-through behavior only loads from the database on a cache miss; it does not automatically detect database updates.\n\n## Common causes\n\n- **TTL is too long or missing:** Old prices remain valid in the cache longer than intended.\n- **No invalidation on writes:** The price update path changes the database but does not evict or refresh the corresponding cache key.\n- **Incorrect cache keys:** Keys may omit dimensions such as currency, region, customer tier, channel, or promotion.\n- **Race conditions:** A request reads the old database value while an update is in progress, then repopulates the cache after invalidation.\n- **Replica lag:** Cache misses may refill from a read replica that has not received the latest price.\n- **Multi-layer caching:** The application cache may be fresh while a local cache, CDN, or downstream service still holds an older value.\n- **Failed or delayed invalidation:** Event delivery failures, retries, or consumer lag can leave entries stale.\n- **Sliding expiration:** Frequently accessed prices may never expire if each read extends their lifetime.\n\n## Recommended write flow\n\nThe most robust write flow is generally:\n\n1. Commit the new price to the authoritative database.\n2. Evict the exact affected cache keys after the commit.\n3. Let the next read repopulate them, or refresh them explicitly.\n4. Keep a bounded TTL as a fallback.\n5. Prevent stale refill races with versioning, generation numbers, or compare-and-set logic.\n\nTo identify the specific issue, log the cache key, cached price/version, TTL, database source and version, invalidation event status, and whether the refill came from a replica. The first thing to verify is whether every price update path invalidates all relevant keys **after** the database transaction commits.\n\n## On-call runbook: stale prices at 3 a.m.\n\n### 1. Confirm and scope the incident\n\n- Compare an affected response with the authoritative database using the exact product and all price dimensions: currency, region, customer tier, channel, and promotion.\n- Confirm that the allowed propagation window has elapsed.\n- Record:\n  - Incident start time and affected products or variants\n  - Returned and authoritative prices and versions\n  - Cache key, entry age, and remaining TTL\n  - Request ID, region, host, cache layer, and database source\n- Check whether the issue is isolated or widespread using the stale price read rate, recent price updates, customer reports, and regional dashboards.\n- If customers may be charged an incorrect price, page the incident lead and pricing owner and follow the organization\u2019s severity, customer-protection, and communication procedures.\n\n### 2. Stop further stale data from being introduced\n\nChoose the safest available mitigation:\n\n1. **Bypass cache reads** for affected keys or pricing traffic and read from the authoritative database.\n2. If bypass is unsafe because of database capacity, **evict only the affected keys** and temporarily reduce their TTL.\n3. If stale refills are coming from a lagging replica, **route refills to the primary or a sufficiently current replica**.\n4. If invalidation consumers are delayed or failed, **restore or restart them and replay events from the last known-good checkpoint**.\n5. If a recent deployment caused the incident, **pause or roll it back** according to the deployment runbook.\n\nBefore a broad purge or global cache bypass, check database and cache capacity and obtain incident-lead approval. A cache flush can create a thundering herd. Prefer targeted, rate-limited eviction or refresh.\n\nDo not manually change the authoritative price merely to make it match a stale cache value. Preserve the committed database value and version as the source of truth.\n\n### 3. Verify the mitigation\n\n- Read every affected price variant through the normal customer path.\n- Confirm that returned versions are at least as current as the committed authoritative version.\n- Repeat reads long enough to detect a stale refill race.\n- Check each cache layer, including process-local caches, distributed caches, CDNs, and downstream services.\n- Watch:\n  - Stale price read rate\n  - Database load and latency\n  - Cache miss and refill rates\n  - Invalidation failures and latency\n  - Event-consumer and replica lag\n  - Rejected stale refill attempts\n\nKeep the mitigation active until the stale-read rate remains within the defined correctness threshold for the agreed observation period and no affected layer is repopulating old versions.\n\n### 4. Collect evidence before cleanup\n\nPreserve logs, traces, event IDs, cache metadata, database commit timestamps, replica positions, deployment changes, and relevant dashboard snapshots. Build a timeline covering the database commit, invalidation publication and consumption, eviction, refill source and version, and customer reads.\n\n### 5. Escalate when necessary\n\nEscalate to the cache, database, pricing, or event-platform owner if:\n\n- The authoritative value is unclear or inconsistent.\n- Targeted eviction does not remove the stale response.\n- Entries immediately repopulate with an older version.\n- Replica or consumer lag continues to grow.\n- Cache bypass threatens database capacity.\n- Multiple regions, products, or customer segments are affected.\n- Incorrect prices may have been displayed or charged.\n\nCommunicate the customer impact, affected scope, current mitigation, residual risk, and next update time. After recovery, open follow-up work for the root cause, safeguards, tests, and any required customer remediation.\n\n## Verify the permanent fix in production\n\n1. Update test prices through each production write path and record the committed database version and timestamp.\n2. Read every affected price variant\u2014such as currency, region, customer tier, channel, and promotion\u2014through the normal production read path.\n3. Confirm that each response reaches the new version within the expected invalidation or refresh window and remains correct under concurrent reads and updates.\n4. Verify from logs or traces that invalidation occurred after commit, targeted the correct keys, and that any refill used a source at least as current as the committed version.\n5. Test invalidation retries, delayed events, replica lag, and stale refill races.\n6. Use a gradual rollout and compare stale-read rates, invalidation failures, refill sources, and cache latency with the pre-change baseline.\n\n## Monitoring and alerting\n\nThe primary regression metric should be the **stale price read rate**: the percentage of sampled cache-served responses whose price version is older than the authoritative database version, measured after an allowed propagation window. Alert on a sustained nonzero rate or a breach of the defined correctness threshold.\n\nSupporting metrics should include:\n\n- Invalidation failure rate and latency\n- Event-consumer lag\n- Cache-entry age\n- Replica lag\n- Rejected stale refill attempts\n- Cache miss and refill rates\n- Database load during bypass or eviction\n- Stale-read rate by region, cache layer, and price dimension\n\nAlerts should link directly to this runbook and the relevant dashboards, cache-eviction tooling, bypass controls, deployment history, and escalation contacts.",
+          "words": 1101,
+          "budget": 330,
+          "rules": {
+            "rule2_economy": 3.4,
+            "rule3_jargon": 10.0,
+            "rule5_simple_words": 9.5,
+            "rule6_filler": 9.8,
+            "rule1_understandable": 10.0,
+            "rule4_imagery": 7.0,
+            "rule7_form": 5.5
+          },
+          "clarity_avg": 8.05,
+          "slop_per_1k": 1.1,
+          "score": 79.2,
+          "facts_delivered": "7/7",
+          "cost_usd": 0.06231,
+          "erosion": 0.188,
+          "verbosity": 0.08,
+          "seconds": 42.6
+        },
+        {
+          "checkpoint": 4,
+          "spec": "Add the tradeoff we accepted and the one case where the fix does not hold.",
+          "response": "# Stale prices in a read-through cache\n\nA read-through cache returns stale prices when the source price changes **after the value has been cached**. Read-through behavior only loads from the database on a cache miss; it does not automatically detect database updates.\n\n## Common causes\n\n- **TTL is too long or missing:** Old prices remain valid in the cache longer than intended.\n- **No invalidation on writes:** The price update path changes the database but does not evict or refresh the corresponding cache key.\n- **Incorrect cache keys:** Keys may omit dimensions such as currency, region, customer tier, channel, or promotion.\n- **Race conditions:** A request reads the old database value while an update is in progress, then repopulates the cache after invalidation.\n- **Replica lag:** Cache misses may refill from a read replica that has not received the latest price.\n- **Multi-layer caching:** The application cache may be fresh while a local cache, CDN, or downstream service still holds an older value.\n- **Failed or delayed invalidation:** Event delivery failures, retries, or consumer lag can leave entries stale.\n- **Sliding expiration:** Frequently accessed prices may never expire if each read extends their lifetime.\n\n## Recommended write flow\n\nThe most robust write flow is generally:\n\n1. Commit the new price to the authoritative database.\n2. Evict the exact affected cache keys after the commit.\n3. Let the next read repopulate them, or refresh them explicitly.\n4. Keep a bounded TTL as a fallback.\n5. Prevent stale refill races with versioning, generation numbers, or compare-and-set logic.\n\nTo identify the specific issue, log the cache key, cached price and version, TTL, database source and version, invalidation event status, and whether the refill came from a replica. The first thing to verify is whether every price update path invalidates all relevant keys **after** the database transaction commits.\n\n## Accepted tradeoff and known limitation\n\nWe accept a temporary increase in cache misses, database load, and read latency immediately after price updates. Evicting after commit rather than attempting to update cached values in place prioritizes correctness and operational simplicity over the highest possible cache-hit rate. Targeted eviction, bounded TTLs, capacity planning, and rate-limited refreshes contain this cost.\n\nThe fix does not hold when a price is changed outside the supported write paths\u2014for example, through manual SQL or an unintegrated batch job\u2014because no after-commit invalidation or version event is produced. Any such update must either use the normal price-update path or explicitly perform the same post-commit invalidation protocol before it is considered safe for production.\n\n## On-call runbook: stale prices at 3 a.m.\n\n### 1. Confirm and scope the incident\n\n- Compare an affected response with the authoritative database using the exact product and all price dimensions: currency, region, customer tier, channel, and promotion.\n- Confirm that the allowed propagation window has elapsed.\n- Record:\n  - Incident start time and affected products or variants\n  - Returned and authoritative prices and versions\n  - Cache key, entry age, and remaining TTL\n  - Request ID, region, host, cache layer, and database source\n- Check whether the issue is isolated or widespread using the stale price read rate, recent price updates, customer reports, and regional dashboards.\n- Determine whether the price was changed through a supported write path or by an out-of-band operation.\n- If customers may be charged an incorrect price, page the incident lead and pricing owner and follow the organization\u2019s severity, customer-protection, and communication procedures.\n\n### 2. Stop further stale data from being introduced\n\nChoose the safest available mitigation:\n\n1. **Bypass cache reads** for affected keys or pricing traffic and read from the authoritative database.\n2. If bypass is unsafe because of database capacity, **evict only the affected keys** and temporarily reduce their TTL.\n3. If stale refills are coming from a lagging replica, **route refills to the primary or a sufficiently current replica**.\n4. If invalidation consumers are delayed or failed, **restore or restart them and replay events from the last known-good checkpoint**.\n5. If a recent deployment caused the incident, **pause or roll it back** according to the deployment runbook.\n6. If the price was changed outside a supported write path, **perform the required targeted post-commit invalidation** and prevent further out-of-band changes until they use the normal protocol.\n\nBefore a broad purge or global cache bypass, check database and cache capacity and obtain incident-lead approval. A cache flush can create a thundering herd. Prefer targeted, rate-limited eviction or refresh.\n\nDo not manually change the authoritative price merely to make it match a stale cache value. Preserve the committed database value and version as the source of truth.\n\n### 3. Verify the mitigation\n\n- Read every affected price variant through the normal customer path.\n- Confirm that returned versions are at least as current as the committed authoritative version.\n- Repeat reads long enough to detect a stale refill race.\n- Check each cache layer, including process-local caches, distributed caches, CDNs, and downstream services.\n- Watch:\n  - Stale price read rate\n  - Database load and latency\n  - Cache miss and refill rates\n  - Invalidation failures and latency\n  - Event-consumer and replica lag\n  - Rejected stale refill attempts\n\nKeep the mitigation active until the stale-read rate remains within the defined correctness threshold for the agreed observation period and no affected layer is repopulating old versions.\n\n### 4. Collect evidence before cleanup\n\nPreserve logs, traces, event IDs, cache metadata, database commit timestamps, replica positions, deployment changes, and relevant dashboard snapshots. Build a timeline covering the database commit, invalidation publication and consumption, eviction, refill source and version, and customer reads. Record whether the update used a supported write path or bypassed the invalidation protocol.\n\n### 5. Escalate when necessary\n\nEscalate to the cache, database, pricing, or event-platform owner if:\n\n- The authoritative value is unclear or inconsistent.\n- Targeted eviction does not remove the stale response.\n- Entries immediately repopulate with an older version.\n- Replica or consumer lag continues to grow.\n- Cache bypass threatens database capacity.\n- Multiple regions, products, or customer segments are affected.\n- Incorrect prices may have been displayed or charged.\n- An out-of-band writer cannot be stopped or brought under the supported invalidation protocol.\n\nCommunicate the customer impact, affected scope, current mitigation, residual risk, and next update time. After recovery, open follow-up work for the root cause, safeguards, tests, and any required customer remediation.\n\n## Verify the permanent fix in production\n\n1. Update test prices through each production write path and record the committed database version and timestamp.\n2. Read every affected price variant\u2014such as currency, region, customer tier, channel, and promotion\u2014through the normal production read path.\n3. Confirm that each response reaches the new version within the expected invalidation or refresh window and remains correct under concurrent reads and updates.\n4. Verify from logs or traces that invalidation occurred after commit, targeted the correct keys, and that any refill used a source at least as current as the committed version.\n5. Test invalidation retries, delayed events, replica lag, and stale refill races.\n6. Inventory manual tools, scripts, imports, and batch jobs that can change prices. Require them to use the supported write path or implement the same post-commit invalidation protocol.\n7. Measure the accepted increase in cache misses, database load, and read latency after updates, and confirm that it remains within capacity limits.\n8. Use a gradual rollout and compare stale-read rates, invalidation failures, refill sources, cache latency, and database load with the pre-change baseline.\n\n## Monitoring and alerting\n\nThe primary regression metric should be the **stale price read rate**: the percentage of sampled cache-served responses whose price version is older than the authoritative database version, measured after an allowed propagation window. Alert on a sustained nonzero rate or a breach of the defined correctness threshold.\n\nSupporting metrics should include:\n\n- Invalidation failure rate and latency\n- Event-consumer lag\n- Cache-entry age\n- Replica lag\n- Rejected stale refill attempts\n- Cache miss and refill rates\n- Database load during bypass, eviction, or post-update refill\n- Stale-read rate by region, cache layer, and price dimension\n- Price updates performed outside supported write paths\n\nAlerts should link directly to this runbook and the relevant dashboards, cache-eviction tooling, bypass controls, deployment history, write-path audit logs, and escalation contacts.",
+          "words": 1364,
+          "budget": 400,
+          "rules": {
+            "rule2_economy": 3.3,
+            "rule3_jargon": 10.0,
+            "rule5_simple_words": 9.4,
+            "rule6_filler": 9.9,
+            "rule1_understandable": 10.0,
+            "rule4_imagery": 10.0,
+            "rule7_form": 6.2
+          },
+          "clarity_avg": 8.59,
+          "slop_per_1k": 1.1,
+          "score": 84.5,
+          "facts_delivered": "9/9",
+          "cost_usd": 0.09162,
+          "erosion": 0.255,
+          "verbosity": 0.08,
+          "seconds": 36.3
+        }
+      ]
     },
     {
-     "checkpoint": 3,
-     "spec": "The same document must now serve on-call. Add what to do at 3am when it happens again.",
-     "response": "A read-through cache returns stale prices when the source price changes **after the value has been cached**. Read-through behavior only loads from the database on a cache miss; it does not automatically detect database updates.\n\n## Common causes\n\n- **TTL is too long or missing:** Old prices remain valid in the cache longer than intended.\n- **No invalidation on writes:** The price update path changes the database but does not evict or refresh the corresponding cache key.\n- **Incorrect cache keys:** Keys may omit dimensions such as currency, region, customer tier, channel, or promotion.\n- **Race conditions:** A request reads the old database value while an update is in progress, then repopulates the cache after invalidation.\n- **Replica lag:** Cache misses may refill from a read replica that has not received the latest price.\n- **Multi-layer caching:** The application cache may be fresh while a local cache, CDN, or downstream service still holds an older value.\n- **Failed or delayed invalidation:** Event delivery failures, retries, or consumer lag can leave entries stale.\n- **Sliding expiration:** Frequently accessed prices may never expire if each read extends their lifetime.\n\n## Recommended write flow\n\nThe most robust write flow is generally:\n\n1. Commit the new price to the authoritative database.\n2. Evict the exact affected cache keys after the commit.\n3. Let the next read repopulate them, or refresh them explicitly.\n4. Keep a bounded TTL as a fallback.\n5. Prevent stale refill races with versioning, generation numbers, or compare-and-set logic.\n\nTo identify the specific issue, log the cache key, cached price/version, TTL, database source and version, invalidation event status, and whether the refill came from a replica. The first thing to verify is whether every price update path invalidates all relevant keys **after** the database transaction commits.\n\n## On-call runbook: stale prices at 3 a.m.\n\n### 1. Confirm and scope the incident\n\n- Compare an affected response with the authoritative database using the exact product and all price dimensions: currency, region, customer tier, channel, and promotion.\n- Confirm that the allowed propagation window has elapsed.\n- Record:\n  - Incident start time and affected products or variants\n  - Returned and authoritative prices and versions\n  - Cache key, entry age, and remaining TTL\n  - Request ID, region, host, cache layer, and database source\n- Check whether the issue is isolated or widespread using the stale price read rate, recent price updates, customer reports, and regional dashboards.\n- If customers may be charged an incorrect price, page the incident lead and pricing owner and follow the organization\u2019s severity, customer-protection, and communication procedures.\n\n### 2. Stop further stale data from being introduced\n\nChoose the safest available mitigation:\n\n1. **Bypass cache reads** for affected keys or pricing traffic and read from the authoritative database.\n2. If bypass is unsafe because of database capacity, **evict only the affected keys** and temporarily reduce their TTL.\n3. If stale refills are coming from a lagging replica, **route refills to the primary or a sufficiently current replica**.\n4. If invalidation consumers are delayed or failed, **restore or restart them and replay events from the last known-good checkpoint**.\n5. If a recent deployment caused the incident, **pause or roll it back** according to the deployment runbook.\n\nBefore a broad purge or global cache bypass, check database and cache capacity and obtain incident-lead approval. A cache flush can create a thundering herd. Prefer targeted, rate-limited eviction or refresh.\n\nDo not manually change the authoritative price merely to make it match a stale cache value. Preserve the committed database value and version as the source of truth.\n\n### 3. Verify the mitigation\n\n- Read every affected price variant through the normal customer path.\n- Confirm that returned versions are at least as current as the committed authoritative version.\n- Repeat reads long enough to detect a stale refill race.\n- Check each cache layer, including process-local caches, distributed caches, CDNs, and downstream services.\n- Watch:\n  - Stale price read rate\n  - Database load and latency\n  - Cache miss and refill rates\n  - Invalidation failures and latency\n  - Event-consumer and replica lag\n  - Rejected stale refill attempts\n\nKeep the mitigation active until the stale-read rate remains within the defined correctness threshold for the agreed observation period and no affected layer is repopulating old versions.\n\n### 4. Collect evidence before cleanup\n\nPreserve logs, traces, event IDs, cache metadata, database commit timestamps, replica positions, deployment changes, and relevant dashboard snapshots. Build a timeline covering the database commit, invalidation publication and consumption, eviction, refill source and version, and customer reads.\n\n### 5. Escalate when necessary\n\nEscalate to the cache, database, pricing, or event-platform owner if:\n\n- The authoritative value is unclear or inconsistent.\n- Targeted eviction does not remove the stale response.\n- Entries immediately repopulate with an older version.\n- Replica or consumer lag continues to grow.\n- Cache bypass threatens database capacity.\n- Multiple regions, products, or customer segments are affected.\n- Incorrect prices may have been displayed or charged.\n\nCommunicate the customer impact, affected scope, current mitigation, residual risk, and next update time. After recovery, open follow-up work for the root cause, safeguards, tests, and any required customer remediation.\n\n## Verify the permanent fix in production\n\n1. Update test prices through each production write path and record the committed database version and timestamp.\n2. Read every affected price variant\u2014such as currency, region, customer tier, channel, and promotion\u2014through the normal production read path.\n3. Confirm that each response reaches the new version within the expected invalidation or refresh window and remains correct under concurrent reads and updates.\n4. Verify from logs or traces that invalidation occurred after commit, targeted the correct keys, and that any refill used a source at least as current as the committed version.\n5. Test invalidation retries, delayed events, replica lag, and stale refill races.\n6. Use a gradual rollout and compare stale-read rates, invalidation failures, refill sources, and cache latency with the pre-change baseline.\n\n## Monitoring and alerting\n\nThe primary regression metric should be the **stale price read rate**: the percentage of sampled cache-served responses whose price version is older than the authoritative database version, measured after an allowed propagation window. Alert on a sustained nonzero rate or a breach of the defined correctness threshold.\n\nSupporting metrics should include:\n\n- Invalidation failure rate and latency\n- Event-consumer lag\n- Cache-entry age\n- Replica lag\n- Rejected stale refill attempts\n- Cache miss and refill rates\n- Database load during bypass or eviction\n- Stale-read rate by region, cache layer, and price dimension\n\nAlerts should link directly to this runbook and the relevant dashboards, cache-eviction tooling, bypass controls, deployment history, and escalation contacts.",
-     "words": 1101,
-     "budget": 330,
-     "rules": {
-      "rule2_economy": 3.4,
-      "rule3_jargon": 10.0,
-      "rule5_simple_words": 9.5,
-      "rule6_filler": 9.8,
-      "rule1_understandable": 10.0,
-      "rule4_imagery": 7.0,
-      "rule7_form": 5.5
-     },
-     "clarity_avg": 8.05,
-     "slop_per_1k": 1.1,
-     "score": 79.2,
-     "facts_delivered": "7/7",
-     "cost_usd": 0.06231,
-     "erosion": 0.659,
-     "verbosity": 0.08,
-     "seconds": 42.6
-    },
-    {
-     "checkpoint": 4,
-     "spec": "Add the tradeoff we accepted and the one case where the fix does not hold.",
-     "response": "# Stale prices in a read-through cache\n\nA read-through cache returns stale prices when the source price changes **after the value has been cached**. Read-through behavior only loads from the database on a cache miss; it does not automatically detect database updates.\n\n## Common causes\n\n- **TTL is too long or missing:** Old prices remain valid in the cache longer than intended.\n- **No invalidation on writes:** The price update path changes the database but does not evict or refresh the corresponding cache key.\n- **Incorrect cache keys:** Keys may omit dimensions such as currency, region, customer tier, channel, or promotion.\n- **Race conditions:** A request reads the old database value while an update is in progress, then repopulates the cache after invalidation.\n- **Replica lag:** Cache misses may refill from a read replica that has not received the latest price.\n- **Multi-layer caching:** The application cache may be fresh while a local cache, CDN, or downstream service still holds an older value.\n- **Failed or delayed invalidation:** Event delivery failures, retries, or consumer lag can leave entries stale.\n- **Sliding expiration:** Frequently accessed prices may never expire if each read extends their lifetime.\n\n## Recommended write flow\n\nThe most robust write flow is generally:\n\n1. Commit the new price to the authoritative database.\n2. Evict the exact affected cache keys after the commit.\n3. Let the next read repopulate them, or refresh them explicitly.\n4. Keep a bounded TTL as a fallback.\n5. Prevent stale refill races with versioning, generation numbers, or compare-and-set logic.\n\nTo identify the specific issue, log the cache key, cached price and version, TTL, database source and version, invalidation event status, and whether the refill came from a replica. The first thing to verify is whether every price update path invalidates all relevant keys **after** the database transaction commits.\n\n## Accepted tradeoff and known limitation\n\nWe accept a temporary increase in cache misses, database load, and read latency immediately after price updates. Evicting after commit rather than attempting to update cached values in place prioritizes correctness and operational simplicity over the highest possible cache-hit rate. Targeted eviction, bounded TTLs, capacity planning, and rate-limited refreshes contain this cost.\n\nThe fix does not hold when a price is changed outside the supported write paths\u2014for example, through manual SQL or an unintegrated batch job\u2014because no after-commit invalidation or version event is produced. Any such update must either use the normal price-update path or explicitly perform the same post-commit invalidation protocol before it is considered safe for production.\n\n## On-call runbook: stale prices at 3 a.m.\n\n### 1. Confirm and scope the incident\n\n- Compare an affected response with the authoritative database using the exact product and all price dimensions: currency, region, customer tier, channel, and promotion.\n- Confirm that the allowed propagation window has elapsed.\n- Record:\n  - Incident start time and affected products or variants\n  - Returned and authoritative prices and versions\n  - Cache key, entry age, and remaining TTL\n  - Request ID, region, host, cache layer, and database source\n- Check whether the issue is isolated or widespread using the stale price read rate, recent price updates, customer reports, and regional dashboards.\n- Determine whether the price was changed through a supported write path or by an out-of-band operation.\n- If customers may be charged an incorrect price, page the incident lead and pricing owner and follow the organization\u2019s severity, customer-protection, and communication procedures.\n\n### 2. Stop further stale data from being introduced\n\nChoose the safest available mitigation:\n\n1. **Bypass cache reads** for affected keys or pricing traffic and read from the authoritative database.\n2. If bypass is unsafe because of database capacity, **evict only the affected keys** and temporarily reduce their TTL.\n3. If stale refills are coming from a lagging replica, **route refills to the primary or a sufficiently current replica**.\n4. If invalidation consumers are delayed or failed, **restore or restart them and replay events from the last known-good checkpoint**.\n5. If a recent deployment caused the incident, **pause or roll it back** according to the deployment runbook.\n6. If the price was changed outside a supported write path, **perform the required targeted post-commit invalidation** and prevent further out-of-band changes until they use the normal protocol.\n\nBefore a broad purge or global cache bypass, check database and cache capacity and obtain incident-lead approval. A cache flush can create a thundering herd. Prefer targeted, rate-limited eviction or refresh.\n\nDo not manually change the authoritative price merely to make it match a stale cache value. Preserve the committed database value and version as the source of truth.\n\n### 3. Verify the mitigation\n\n- Read every affected price variant through the normal customer path.\n- Confirm that returned versions are at least as current as the committed authoritative version.\n- Repeat reads long enough to detect a stale refill race.\n- Check each cache layer, including process-local caches, distributed caches, CDNs, and downstream services.\n- Watch:\n  - Stale price read rate\n  - Database load and latency\n  - Cache miss and refill rates\n  - Invalidation failures and latency\n  - Event-consumer and replica lag\n  - Rejected stale refill attempts\n\nKeep the mitigation active until the stale-read rate remains within the defined correctness threshold for the agreed observation period and no affected layer is repopulating old versions.\n\n### 4. Collect evidence before cleanup\n\nPreserve logs, traces, event IDs, cache metadata, database commit timestamps, replica positions, deployment changes, and relevant dashboard snapshots. Build a timeline covering the database commit, invalidation publication and consumption, eviction, refill source and version, and customer reads. Record whether the update used a supported write path or bypassed the invalidation protocol.\n\n### 5. Escalate when necessary\n\nEscalate to the cache, database, pricing, or event-platform owner if:\n\n- The authoritative value is unclear or inconsistent.\n- Targeted eviction does not remove the stale response.\n- Entries immediately repopulate with an older version.\n- Replica or consumer lag continues to grow.\n- Cache bypass threatens database capacity.\n- Multiple regions, products, or customer segments are affected.\n- Incorrect prices may have been displayed or charged.\n- An out-of-band writer cannot be stopped or brought under the supported invalidation protocol.\n\nCommunicate the customer impact, affected scope, current mitigation, residual risk, and next update time. After recovery, open follow-up work for the root cause, safeguards, tests, and any required customer remediation.\n\n## Verify the permanent fix in production\n\n1. Update test prices through each production write path and record the committed database version and timestamp.\n2. Read every affected price variant\u2014such as currency, region, customer tier, channel, and promotion\u2014through the normal production read path.\n3. Confirm that each response reaches the new version within the expected invalidation or refresh window and remains correct under concurrent reads and updates.\n4. Verify from logs or traces that invalidation occurred after commit, targeted the correct keys, and that any refill used a source at least as current as the committed version.\n5. Test invalidation retries, delayed events, replica lag, and stale refill races.\n6. Inventory manual tools, scripts, imports, and batch jobs that can change prices. Require them to use the supported write path or implement the same post-commit invalidation protocol.\n7. Measure the accepted increase in cache misses, database load, and read latency after updates, and confirm that it remains within capacity limits.\n8. Use a gradual rollout and compare stale-read rates, invalidation failures, refill sources, cache latency, and database load with the pre-change baseline.\n\n## Monitoring and alerting\n\nThe primary regression metric should be the **stale price read rate**: the percentage of sampled cache-served responses whose price version is older than the authoritative database version, measured after an allowed propagation window. Alert on a sustained nonzero rate or a breach of the defined correctness threshold.\n\nSupporting metrics should include:\n\n- Invalidation failure rate and latency\n- Event-consumer lag\n- Cache-entry age\n- Replica lag\n- Rejected stale refill attempts\n- Cache miss and refill rates\n- Database load during bypass, eviction, or post-update refill\n- Stale-read rate by region, cache layer, and price dimension\n- Price updates performed outside supported write paths\n\nAlerts should link directly to this runbook and the relevant dashboards, cache-eviction tooling, bypass controls, deployment history, write-path audit logs, and escalation contacts.",
-     "words": 1364,
-     "budget": 400,
-     "rules": {
-      "rule2_economy": 3.3,
-      "rule3_jargon": 10.0,
-      "rule5_simple_words": 9.4,
-      "rule6_filler": 9.9,
-      "rule1_understandable": 10.0,
-      "rule4_imagery": 10.0,
-      "rule7_form": 6.2
-     },
-     "clarity_avg": 8.59,
-     "slop_per_1k": 1.1,
-     "score": 84.5,
-     "facts_delivered": "9/9",
-     "cost_usd": 0.09162,
-     "erosion": 0.645,
-     "verbosity": 0.08,
-     "seconds": 36.3
+      "problem": "shapes_lesson",
+      "genre": "instruction",
+      "checkpoints": [
+        {
+          "checkpoint": 1,
+          "spec": "Write a short lesson script that teaches grade 2 students to identify 2D shapes.",
+          "response": "**Lesson Script: Identifying 2D Shapes**\n\n**Teacher:** Today we\u2019re learning about **2D shapes**! A 2D shape is flat. It has length and width, but it is not solid.\n\n**Teacher:** Let\u2019s meet four 2D shapes.\n\n*(Hold up or draw a circle.)*  \n**Teacher:** This is a **circle**. It is round and has no straight sides or corners. Can you draw a circle in the air?\n\n*(Draw a triangle.)*  \n**Teacher:** This is a **triangle**. It has **3 straight sides** and **3 corners**. Let\u2019s count them together!\n\n*(Draw a square.)*  \n**Teacher:** This is a **square**. It has **4 equal sides** and **4 corners**.\n\n*(Draw a rectangle.)*  \n**Teacher:** This is a **rectangle**. It has **4 sides** and **4 corners**. Usually, two sides are long and two are short.\n\n**Teacher:** Now let\u2019s play \u201cShape Detective\u201d! Look around the room and find:\n- Something shaped like a circle\n- Something shaped like a rectangle\n- Something shaped like a square\n- Something with a triangle on it\n\n**Teacher:** Remember, we can identify shapes by counting their **sides** and **corners** and noticing whether their sides are **straight or curved**.\n\n**Exit Question:** What shape has 3 sides and 3 corners?\n\n**Students:** A triangle!",
+          "words": 193,
+          "budget": 250,
+          "rules": {
+            "rule2_economy": 6.7,
+            "rule3_jargon": 10.0,
+            "rule5_simple_words": 10.0,
+            "rule6_filler": 10.0,
+            "rule1_understandable": 10.0,
+            "rule4_imagery": 10.0,
+            "rule7_form": 10.0
+          },
+          "clarity_avg": 9.63,
+          "slop_per_1k": 0.0,
+          "score": 96.3,
+          "facts_delivered": "2/3",
+          "cost_usd": 0.02603,
+          "erosion": 0.0,
+          "verbosity": 0.172,
+          "seconds": 19.4
+        },
+        {
+          "checkpoint": 2,
+          "spec": "Add properties of each shape, at grade 2 level.",
+          "response": "**Lesson Script: Identifying 2D Shapes and Their Properties**\n\n**Teacher:** Today we\u2019re learning about **2D shapes**! A 2D shape is flat. It has length and width, but it is not solid. We can describe a shape by its **properties**, such as the number and type of sides and corners it has.\n\n**Teacher:** Let\u2019s meet four 2D shapes.\n\n*(Hold up or draw a circle.)*  \n**Teacher:** This is a **circle**. It is round and has **1 curved edge**, **no straight sides**, and **no corners**. A circle looks the same even when it is turned. Can you draw a circle in the air?\n\n*(Draw a triangle.)*  \n**Teacher:** This is a **triangle**. It has **3 straight sides** and **3 corners**. Triangles can have sides of different lengths, but they always have 3 sides and 3 corners. Let\u2019s count them together!\n\n*(Draw a square.)*  \n**Teacher:** This is a **square**. It has **4 straight sides** and **4 corners**. All 4 sides are the **same length**, and all 4 corners are square corners.\n\n*(Draw a rectangle.)*  \n**Teacher:** This is a **rectangle**. It has **4 straight sides** and **4 square corners**. Its opposite sides are the same length. Often, 2 sides are long and 2 sides are short. A square is a special kind of rectangle because it also has 4 square corners.\n\n**Teacher:** Shapes can be different sizes, colors, or turned in different directions and still be the same shape. We identify them by their properties.\n\n**Teacher:** Now let\u2019s play \u201cShape Detective\u201d! Look around the room and find:\n- Something shaped like a circle\n- Something shaped like a rectangle\n- Something shaped like a square\n- Something with a triangle on it\n\nFor each object, describe its shape by counting its **sides** and **corners** and deciding whether its edges are **straight or curved**.\n\n**Teacher:** Remember, we can identify shapes by their properties:\n- A **circle** has 1 curved edge and no corners.\n- A **triangle** has 3 straight sides and 3 corners.\n- A **square** has 4 equal straight sides and 4 square corners.\n- A **rectangle** has 4 straight sides, 4 square corners, and opposite sides of equal length.\n\n**Exit Question:** What shape has 3 straight sides and 3 corners?\n\n**Students:** A triangle!",
+          "words": 367,
+          "budget": 340,
+          "rules": {
+            "rule2_economy": 7.2,
+            "rule3_jargon": 10.0,
+            "rule5_simple_words": 10.0,
+            "rule6_filler": 10.0,
+            "rule1_understandable": 10.0,
+            "rule4_imagery": 10.0,
+            "rule7_form": 10.0
+          },
+          "clarity_avg": 9.69,
+          "slop_per_1k": 0.0,
+          "score": 96.9,
+          "facts_delivered": "3/4",
+          "cost_usd": 0.03619,
+          "erosion": 0.0,
+          "verbosity": 0.238,
+          "seconds": 20.1
+        },
+        {
+          "checkpoint": 3,
+          "spec": "Add real-life examples the kids can point at, and two practice exercises.",
+          "response": "**Lesson Script: Identifying 2D Shapes and Their Properties**\n\n**Teacher:** Today we\u2019re learning about **2D shapes**! A 2D shape is flat. It has length and width, but it is not solid. We can describe a shape by its **properties**, such as the number and type of sides and corners it has.\n\n**Teacher:** Let\u2019s meet four 2D shapes and find real-life examples we can point to.\n\n*(Hold up or draw a circle.)*  \n**Teacher:** This is a **circle**. It is round and has **1 curved edge**, **no straight sides**, and **no corners**. A circle looks the same even when it is turned. A clock face, a plate, or a coin may look like a circle. Can you point to something circular in the room? Now draw a circle in the air.\n\n*(Draw a triangle.)*  \n**Teacher:** This is a **triangle**. It has **3 straight sides** and **3 corners**. Triangles can have sides of different lengths, but they always have 3 sides and 3 corners. A triangular road sign, a pennant, or a slice of pizza may look like a triangle. Can you point to a triangle or a picture of one? Let\u2019s count its sides and corners together!\n\n*(Draw a square.)*  \n**Teacher:** This is a **square**. It has **4 straight sides** and **4 corners**. All 4 sides are the **same length**, and all 4 corners are square corners. A floor tile, sticky note, or square window may look like a square. Can you point to something square?\n\n*(Draw a rectangle.)*  \n**Teacher:** This is a **rectangle**. It has **4 straight sides** and **4 square corners**. Its opposite sides are the same length. Often, 2 sides are long and 2 sides are short. A door, book cover, whiteboard, or sheet of paper may look like a rectangle. Can you point to something rectangular? A square is a special kind of rectangle because it also has 4 square corners.\n\n**Teacher:** Shapes can be different sizes, colors, or turned in different directions and still be the same shape. We identify them by their properties.\n\n### Practice Exercise 1: Shape Detective\n\n**Teacher:** Look around the room and find:\n- Something shaped like a circle\n- Something shaped like a rectangle\n- Something shaped like a square\n- Something with a triangle on it\n\nFor each object:\n1. Point to it.\n2. Name its shape.\n3. Count its **sides** and **corners**.\n4. Decide whether its edges are **straight or curved**.\n\n**Teacher:** Remember that real objects are solid, but one of their flat faces or outlines can look like a 2D shape. For example, a clock is a solid object, but its face may look like a circle.\n\n### Practice Exercise 2: Guess My Shape\n\n**Teacher:** Listen to each clue. Point to or draw the shape that matches.\n\n1. I have **1 curved edge**, **no straight sides**, and **no corners**. What am I?  \n   **Students:** A circle!\n\n2. I have **3 straight sides** and **3 corners**. What am I?  \n   **Students:** A triangle!\n\n3. I have **4 equal straight sides** and **4 square corners**. What am I?  \n   **Students:** A square!\n\n4. I have **4 straight sides** and **4 square corners**. My opposite sides are equal in length. What am I?  \n   **Students:** A rectangle!\n\n5. I am turned so that one corner points upward. I still have **4 equal sides** and **4 square corners**. What am I?  \n   **Students:** A square!\n\n**Teacher:** Let\u2019s review how we identify shapes by their properties:\n- A **circle** has 1 curved edge and no corners.\n- A **triangle** has 3 straight sides and 3 corners.\n- A **square** has 4 equal straight sides and 4 square corners.\n- A **rectangle** has 4 straight sides, 4 square corners, and opposite sides of equal length.\n\n**Exit Question:** What shape has 3 straight sides and 3 corners?\n\n**Students:** A triangle!",
+          "words": 628,
+          "budget": 430,
+          "rules": {
+            "rule2_economy": 6.7,
+            "rule3_jargon": 10.0,
+            "rule5_simple_words": 10.0,
+            "rule6_filler": 10.0,
+            "rule1_understandable": 10.0,
+            "rule4_imagery": 10.0,
+            "rule7_form": 10.0
+          },
+          "clarity_avg": 9.63,
+          "slop_per_1k": 0.0,
+          "score": 96.3,
+          "facts_delivered": "5/6",
+          "cost_usd": 0.04709,
+          "erosion": 0.04,
+          "verbosity": 0.23,
+          "seconds": 21.8
+        },
+        {
+          "checkpoint": 4,
+          "spec": "The teacher has 5 minutes of video, not 10. Keep everything above and make it fit.",
+          "response": "**Lesson Script: Identifying 2D Shapes and Their Properties (5 Minutes)**\n\n### 0:00\u20130:30 \u2014 Introduction\n\n**Teacher:** Today we\u2019re learning about **2D shapes**. A 2D shape is flat. It has length and width, but it is not solid. We identify shapes by properties such as their sides, edges, and corners\u2014not by their size, color, or direction.\n\n### 0:30\u20132:30 \u2014 Meet the Shapes\n\n*(Hold up or draw a circle.)*  \n**Teacher:** A **circle** is round. It has **1 curved edge**, **no straight sides**, and **no corners**. It looks the same when turned. A clock face, plate, or coin may look like a circle. Point to something circular, then draw a circle in the air.\n\n*(Draw a triangle.)*  \n**Teacher:** A **triangle** has **3 straight sides** and **3 corners**. Its sides may have different lengths, but it always has 3 sides and 3 corners. A road sign, pennant, or pizza slice may look triangular. Point to a triangle, and let\u2019s count its sides and corners.\n\n*(Draw a square.)*  \n**Teacher:** A **square** has **4 equal straight sides** and **4 square corners**. A floor tile, sticky note, or square window may look like a square. Point to something square.\n\n*(Draw a rectangle.)*  \n**Teacher:** A **rectangle** has **4 straight sides**, **4 square corners**, and opposite sides of equal length. Often, 2 sides are long and 2 are short. A door, book cover, whiteboard, or sheet of paper may look rectangular. Point to something rectangular.\n\n**Teacher:** A square is a special kind of rectangle because it also has 4 square corners. Shapes remain the same when they are resized, recolored, or turned.\n\n### 2:30\u20133:20 \u2014 Practice 1: Shape Detective\n\n**Teacher:** Quickly find or point to:\n\n- Something shaped like a circle  \n- Something shaped like a rectangle  \n- Something shaped like a square  \n- Something with a triangle on it  \n\n**Teacher:** Name each shape. Then count its sides and corners and decide whether its edges are straight or curved.\n\nRemember: Real objects are solid, but their flat faces or outlines can look like 2D shapes. For example, a clock is solid, but its face may look like a circle.\n\n### 3:20\u20134:35 \u2014 Practice 2: Guess My Shape\n\n**Teacher:** Listen to each clue and point to or draw the matching shape.\n\n1. I have **1 curved edge**, **no straight sides**, and **no corners**.  \n   **Students:** A circle!\n\n2. I have **3 straight sides** and **3 corners**.  \n   **Students:** A triangle!\n\n3. I have **4 equal straight sides** and **4 square corners**.  \n   **Students:** A square!\n\n4. I have **4 straight sides**, **4 square corners**, and opposite sides of equal length.  \n   **Students:** A rectangle!\n\n5. I am turned so one corner points upward, but I still have **4 equal sides** and **4 square corners**.  \n   **Students:** A square!\n\n### 4:35\u20135:00 \u2014 Review and Exit Question\n\n**Teacher:** Let\u2019s review:\n\n- A **circle** has 1 curved edge and no corners.\n- A **triangle** has 3 straight sides and 3 corners.\n- A **square** has 4 equal straight sides and 4 square corners.\n- A **rectangle** has 4 straight sides, 4 square corners, and opposite sides of equal length.\n\n**Exit Question:** What shape has 3 straight sides and 3 corners?\n\n**Students:** A triangle!",
+          "words": 524,
+          "budget": 380,
+          "rules": {
+            "rule2_economy": 6.3,
+            "rule3_jargon": 10.0,
+            "rule5_simple_words": 10.0,
+            "rule6_filler": 10.0,
+            "rule1_understandable": 5.0,
+            "rule4_imagery": 10.0,
+            "rule7_form": 10.0
+          },
+          "clarity_avg": 8.85,
+          "slop_per_1k": 0.0,
+          "score": 88.5,
+          "facts_delivered": "6/8",
+          "cost_usd": 0.05581,
+          "erosion": 0.0,
+          "verbosity": 0.185,
+          "seconds": 25.5
+        }
+      ]
     }
-   ]
-  },
-  {
-   "problem": "shapes_lesson",
-   "genre": "instruction",
-   "checkpoints": [
-    {
-     "checkpoint": 1,
-     "spec": "Write a short lesson script that teaches grade 2 students to identify 2D shapes.",
-     "response": "**Lesson Script: Identifying 2D Shapes**\n\n**Teacher:** Today we\u2019re learning about **2D shapes**! A 2D shape is flat. It has length and width, but it is not solid.\n\n**Teacher:** Let\u2019s meet four 2D shapes.\n\n*(Hold up or draw a circle.)*  \n**Teacher:** This is a **circle**. It is round and has no straight sides or corners. Can you draw a circle in the air?\n\n*(Draw a triangle.)*  \n**Teacher:** This is a **triangle**. It has **3 straight sides** and **3 corners**. Let\u2019s count them together!\n\n*(Draw a square.)*  \n**Teacher:** This is a **square**. It has **4 equal sides** and **4 corners**.\n\n*(Draw a rectangle.)*  \n**Teacher:** This is a **rectangle**. It has **4 sides** and **4 corners**. Usually, two sides are long and two are short.\n\n**Teacher:** Now let\u2019s play \u201cShape Detective\u201d! Look around the room and find:\n- Something shaped like a circle\n- Something shaped like a rectangle\n- Something shaped like a square\n- Something with a triangle on it\n\n**Teacher:** Remember, we can identify shapes by counting their **sides** and **corners** and noticing whether their sides are **straight or curved**.\n\n**Exit Question:** What shape has 3 sides and 3 corners?\n\n**Students:** A triangle!",
-     "words": 193,
-     "budget": 250,
-     "rules": {
-      "rule2_economy": 6.7,
-      "rule3_jargon": 10.0,
-      "rule5_simple_words": 10.0,
-      "rule6_filler": 10.0,
-      "rule1_understandable": 10.0,
-      "rule4_imagery": 10.0,
-      "rule7_form": 10.0
-     },
-     "clarity_avg": 9.63,
-     "slop_per_1k": 0.0,
-     "score": 96.3,
-     "facts_delivered": "2/3",
-     "cost_usd": 0.02603,
-     "erosion": 0.178,
-     "verbosity": 0.172,
-     "seconds": 19.4
-    },
-    {
-     "checkpoint": 2,
-     "spec": "Add properties of each shape, at grade 2 level.",
-     "response": "**Lesson Script: Identifying 2D Shapes and Their Properties**\n\n**Teacher:** Today we\u2019re learning about **2D shapes**! A 2D shape is flat. It has length and width, but it is not solid. We can describe a shape by its **properties**, such as the number and type of sides and corners it has.\n\n**Teacher:** Let\u2019s meet four 2D shapes.\n\n*(Hold up or draw a circle.)*  \n**Teacher:** This is a **circle**. It is round and has **1 curved edge**, **no straight sides**, and **no corners**. A circle looks the same even when it is turned. Can you draw a circle in the air?\n\n*(Draw a triangle.)*  \n**Teacher:** This is a **triangle**. It has **3 straight sides** and **3 corners**. Triangles can have sides of different lengths, but they always have 3 sides and 3 corners. Let\u2019s count them together!\n\n*(Draw a square.)*  \n**Teacher:** This is a **square**. It has **4 straight sides** and **4 corners**. All 4 sides are the **same length**, and all 4 corners are square corners.\n\n*(Draw a rectangle.)*  \n**Teacher:** This is a **rectangle**. It has **4 straight sides** and **4 square corners**. Its opposite sides are the same length. Often, 2 sides are long and 2 sides are short. A square is a special kind of rectangle because it also has 4 square corners.\n\n**Teacher:** Shapes can be different sizes, colors, or turned in different directions and still be the same shape. We identify them by their properties.\n\n**Teacher:** Now let\u2019s play \u201cShape Detective\u201d! Look around the room and find:\n- Something shaped like a circle\n- Something shaped like a rectangle\n- Something shaped like a square\n- Something with a triangle on it\n\nFor each object, describe its shape by counting its **sides** and **corners** and deciding whether its edges are **straight or curved**.\n\n**Teacher:** Remember, we can identify shapes by their properties:\n- A **circle** has 1 curved edge and no corners.\n- A **triangle** has 3 straight sides and 3 corners.\n- A **square** has 4 equal straight sides and 4 square corners.\n- A **rectangle** has 4 straight sides, 4 square corners, and opposite sides of equal length.\n\n**Exit Question:** What shape has 3 straight sides and 3 corners?\n\n**Students:** A triangle!",
-     "words": 367,
-     "budget": 340,
-     "rules": {
-      "rule2_economy": 7.2,
-      "rule3_jargon": 10.0,
-      "rule5_simple_words": 10.0,
-      "rule6_filler": 10.0,
-      "rule1_understandable": 10.0,
-      "rule4_imagery": 10.0,
-      "rule7_form": 10.0
-     },
-     "clarity_avg": 9.69,
-     "slop_per_1k": 0.0,
-     "score": 96.9,
-     "facts_delivered": "3/4",
-     "cost_usd": 0.03619,
-     "erosion": 0.234,
-     "verbosity": 0.238,
-     "seconds": 20.1
-    },
-    {
-     "checkpoint": 3,
-     "spec": "Add real-life examples the kids can point at, and two practice exercises.",
-     "response": "**Lesson Script: Identifying 2D Shapes and Their Properties**\n\n**Teacher:** Today we\u2019re learning about **2D shapes**! A 2D shape is flat. It has length and width, but it is not solid. We can describe a shape by its **properties**, such as the number and type of sides and corners it has.\n\n**Teacher:** Let\u2019s meet four 2D shapes and find real-life examples we can point to.\n\n*(Hold up or draw a circle.)*  \n**Teacher:** This is a **circle**. It is round and has **1 curved edge**, **no straight sides**, and **no corners**. A circle looks the same even when it is turned. A clock face, a plate, or a coin may look like a circle. Can you point to something circular in the room? Now draw a circle in the air.\n\n*(Draw a triangle.)*  \n**Teacher:** This is a **triangle**. It has **3 straight sides** and **3 corners**. Triangles can have sides of different lengths, but they always have 3 sides and 3 corners. A triangular road sign, a pennant, or a slice of pizza may look like a triangle. Can you point to a triangle or a picture of one? Let\u2019s count its sides and corners together!\n\n*(Draw a square.)*  \n**Teacher:** This is a **square**. It has **4 straight sides** and **4 corners**. All 4 sides are the **same length**, and all 4 corners are square corners. A floor tile, sticky note, or square window may look like a square. Can you point to something square?\n\n*(Draw a rectangle.)*  \n**Teacher:** This is a **rectangle**. It has **4 straight sides** and **4 square corners**. Its opposite sides are the same length. Often, 2 sides are long and 2 sides are short. A door, book cover, whiteboard, or sheet of paper may look like a rectangle. Can you point to something rectangular? A square is a special kind of rectangle because it also has 4 square corners.\n\n**Teacher:** Shapes can be different sizes, colors, or turned in different directions and still be the same shape. We identify them by their properties.\n\n### Practice Exercise 1: Shape Detective\n\n**Teacher:** Look around the room and find:\n- Something shaped like a circle\n- Something shaped like a rectangle\n- Something shaped like a square\n- Something with a triangle on it\n\nFor each object:\n1. Point to it.\n2. Name its shape.\n3. Count its **sides** and **corners**.\n4. Decide whether its edges are **straight or curved**.\n\n**Teacher:** Remember that real objects are solid, but one of their flat faces or outlines can look like a 2D shape. For example, a clock is a solid object, but its face may look like a circle.\n\n### Practice Exercise 2: Guess My Shape\n\n**Teacher:** Listen to each clue. Point to or draw the shape that matches.\n\n1. I have **1 curved edge**, **no straight sides**, and **no corners**. What am I?  \n   **Students:** A circle!\n\n2. I have **3 straight sides** and **3 corners**. What am I?  \n   **Students:** A triangle!\n\n3. I have **4 equal straight sides** and **4 square corners**. What am I?  \n   **Students:** A square!\n\n4. I have **4 straight sides** and **4 square corners**. My opposite sides are equal in length. What am I?  \n   **Students:** A rectangle!\n\n5. I am turned so that one corner points upward. I still have **4 equal sides** and **4 square corners**. What am I?  \n   **Students:** A square!\n\n**Teacher:** Let\u2019s review how we identify shapes by their properties:\n- A **circle** has 1 curved edge and no corners.\n- A **triangle** has 3 straight sides and 3 corners.\n- A **square** has 4 equal straight sides and 4 square corners.\n- A **rectangle** has 4 straight sides, 4 square corners, and opposite sides of equal length.\n\n**Exit Question:** What shape has 3 straight sides and 3 corners?\n\n**Students:** A triangle!",
-     "words": 628,
-     "budget": 430,
-     "rules": {
-      "rule2_economy": 6.7,
-      "rule3_jargon": 10.0,
-      "rule5_simple_words": 10.0,
-      "rule6_filler": 10.0,
-      "rule1_understandable": 10.0,
-      "rule4_imagery": 10.0,
-      "rule7_form": 10.0
-     },
-     "clarity_avg": 9.63,
-     "slop_per_1k": 0.0,
-     "score": 96.3,
-     "facts_delivered": "5/6",
-     "cost_usd": 0.04709,
-     "erosion": 0.179,
-     "verbosity": 0.23,
-     "seconds": 21.8
-    },
-    {
-     "checkpoint": 4,
-     "spec": "The teacher has 5 minutes of video, not 10. Keep everything above and make it fit.",
-     "response": "**Lesson Script: Identifying 2D Shapes and Their Properties (5 Minutes)**\n\n### 0:00\u20130:30 \u2014 Introduction\n\n**Teacher:** Today we\u2019re learning about **2D shapes**. A 2D shape is flat. It has length and width, but it is not solid. We identify shapes by properties such as their sides, edges, and corners\u2014not by their size, color, or direction.\n\n### 0:30\u20132:30 \u2014 Meet the Shapes\n\n*(Hold up or draw a circle.)*  \n**Teacher:** A **circle** is round. It has **1 curved edge**, **no straight sides**, and **no corners**. It looks the same when turned. A clock face, plate, or coin may look like a circle. Point to something circular, then draw a circle in the air.\n\n*(Draw a triangle.)*  \n**Teacher:** A **triangle** has **3 straight sides** and **3 corners**. Its sides may have different lengths, but it always has 3 sides and 3 corners. A road sign, pennant, or pizza slice may look triangular. Point to a triangle, and let\u2019s count its sides and corners.\n\n*(Draw a square.)*  \n**Teacher:** A **square** has **4 equal straight sides** and **4 square corners**. A floor tile, sticky note, or square window may look like a square. Point to something square.\n\n*(Draw a rectangle.)*  \n**Teacher:** A **rectangle** has **4 straight sides**, **4 square corners**, and opposite sides of equal length. Often, 2 sides are long and 2 are short. A door, book cover, whiteboard, or sheet of paper may look rectangular. Point to something rectangular.\n\n**Teacher:** A square is a special kind of rectangle because it also has 4 square corners. Shapes remain the same when they are resized, recolored, or turned.\n\n### 2:30\u20133:20 \u2014 Practice 1: Shape Detective\n\n**Teacher:** Quickly find or point to:\n\n- Something shaped like a circle  \n- Something shaped like a rectangle  \n- Something shaped like a square  \n- Something with a triangle on it  \n\n**Teacher:** Name each shape. Then count its sides and corners and decide whether its edges are straight or curved.\n\nRemember: Real objects are solid, but their flat faces or outlines can look like 2D shapes. For example, a clock is solid, but its face may look like a circle.\n\n### 3:20\u20134:35 \u2014 Practice 2: Guess My Shape\n\n**Teacher:** Listen to each clue and point to or draw the matching shape.\n\n1. I have **1 curved edge**, **no straight sides**, and **no corners**.  \n   **Students:** A circle!\n\n2. I have **3 straight sides** and **3 corners**.  \n   **Students:** A triangle!\n\n3. I have **4 equal straight sides** and **4 square corners**.  \n   **Students:** A square!\n\n4. I have **4 straight sides**, **4 square corners**, and opposite sides of equal length.  \n   **Students:** A rectangle!\n\n5. I am turned so one corner points upward, but I still have **4 equal sides** and **4 square corners**.  \n   **Students:** A square!\n\n### 4:35\u20135:00 \u2014 Review and Exit Question\n\n**Teacher:** Let\u2019s review:\n\n- A **circle** has 1 curved edge and no corners.\n- A **triangle** has 3 straight sides and 3 corners.\n- A **square** has 4 equal straight sides and 4 square corners.\n- A **rectangle** has 4 straight sides, 4 square corners, and opposite sides of equal length.\n\n**Exit Question:** What shape has 3 straight sides and 3 corners?\n\n**Students:** A triangle!",
-     "words": 524,
-     "budget": 380,
-     "rules": {
-      "rule2_economy": 6.3,
-      "rule3_jargon": 10.0,
-      "rule5_simple_words": 10.0,
-      "rule6_filler": 10.0,
-      "rule1_understandable": 5.0,
-      "rule4_imagery": 10.0,
-      "rule7_form": 10.0
-     },
-     "clarity_avg": 8.85,
-     "slop_per_1k": 0.0,
-     "score": 88.5,
-     "facts_delivered": "6/8",
-     "cost_usd": 0.05581,
-     "erosion": 0.157,
-     "verbosity": 0.185,
-     "seconds": 25.5
-    }
-   ]
-  }
- ]
+  ]
 }

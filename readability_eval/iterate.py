@@ -208,8 +208,9 @@ def main():
     os.makedirs(RESULTS, exist_ok=True)
     label = a.label or a.model.replace("/", "_").replace(":", "_")
     path = os.path.join(RESULTS, f"{label}.json")
-    json.dump({"summary": summary, "trajectories": trajs},
-              open(path, "w"), indent=1)
+    with open(path, "w") as fh:
+        json.dump({"summary": summary, "trajectories": trajs}, fh, indent=2)
+        fh.write("\n")
 
     for t in trajs:
         ok = [c for c in t["checkpoints"] if "error" not in c]

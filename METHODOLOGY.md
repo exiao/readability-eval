@@ -194,9 +194,9 @@ still be the worst one to work with.
 
 | model | erosion C1 → C4 | drift | rising |
 |---|---|---:|---:|
-| `claude-opus-5` | 0.185 → 0.306 | +0.040 | 100% |
-| `gpt-5.6-sol` | 0.046 → 0.154 | +0.036 | 67% |
-| `gemini-3.5-flash` | 0.173 → 0.101 | -0.024 | 0% |
+| `claude-opus-5` | 0.117 → 0.249 | +0.044 | 100% |
+| `gpt-5.6-sol` | 0.044 → 0.116 | +0.024 | 67% |
+| `gemini-3.5-flash` | 0.124 → 0.092 | -0.011 | 33% |
 
 Opus on the delay-email chain:
 
@@ -204,7 +204,7 @@ Opus on the delay-email chain:
 |---|---:|---:|---:|---:|
 | Score | 52.6 | 77.4 | 77.4 | 82.3 |
 | Words | 398 | 686 | 912 | 1461 |
-| Erosion | 0.106 | 0.373 | 0.518 | 0.328 |
+| Erosion | 0.000 | 0.258 | 0.376 | 0.234 |
 | Coverage | 3/3 | 5/5 | 7/7 | 9/9 |
 
 The score *rises* 30 points while a 320-word email becomes 1461 words. Full
@@ -212,10 +212,11 @@ coverage at every checkpoint, so the single-shot suite reports a clean
 improvement. That is the paper's finding in prose: the artifact passes every
 test while getting harder to read.
 
-Gemini going the other way is the more interesting result and the reason to
-report drift per model rather than as a universal law. It answers each new
-requirement by restructuring rather than appending. Whether that survives more
-than three problems is untested.
+Gemini going the other way on net is the more interesting result and the reason
+to report drift per model rather than as a universal law. It answers each new
+requirement by restructuring rather than appending: two of its three
+trajectories fall, the third rises slightly. Whether that survives more than
+three problems is untested.
 
 ### Limits
 

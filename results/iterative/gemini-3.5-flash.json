@@ -6,12 +6,12 @@
     "judge_backend": "openrouter",
     "problems": 3,
     "complete_trajectories": 3,
-    "erosion_drift": -0.0241,
+    "truncated_trajectories": 0,
+    "erosion_drift": -0.0106,
     "verbosity_drift": 0.0016,
     "score_drift": 0.11,
-    "pct_erosion_rising": 0,
-    "pct_verbosity_rising": 67,
-    "truncated_trajectories": 0
+    "pct_erosion_rising": 33,
+    "pct_verbosity_rising": 67
   },
   "trajectories": [
     {
@@ -38,7 +38,7 @@
           "score": 63.8,
           "facts_delivered": "3/3",
           "cost_usd": 0.03068,
-          "erosion": 0.243,
+          "erosion": 0.194,
           "verbosity": 0.056,
           "seconds": 20.2
         },
@@ -62,7 +62,7 @@
           "score": 69.0,
           "facts_delivered": "5/5",
           "cost_usd": 0.02615,
-          "erosion": 0.206,
+          "erosion": 0.162,
           "verbosity": 0.045,
           "seconds": 13.6
         },
@@ -86,7 +86,7 @@
           "score": 64.9,
           "facts_delivered": "7/7",
           "cost_usd": 0.03563,
-          "erosion": 0.19,
+          "erosion": 0.15,
           "verbosity": 0.042,
           "seconds": 19.1
         },
@@ -110,7 +110,7 @@
           "score": 65.5,
           "facts_delivered": "9/9",
           "cost_usd": 0.03748,
-          "erosion": 0.157,
+          "erosion": 0.123,
           "verbosity": 0.034,
           "seconds": 22.6
         }
@@ -140,7 +140,7 @@
           "score": 86.3,
           "facts_delivered": "3/3",
           "cost_usd": 0.03695,
-          "erosion": 0.277,
+          "erosion": 0.177,
           "verbosity": 0.0,
           "seconds": 23.7
         },
@@ -164,7 +164,7 @@
           "score": 86.0,
           "facts_delivered": "5/5",
           "cost_usd": 0.04503,
-          "erosion": 0.186,
+          "erosion": 0.119,
           "verbosity": 0.028,
           "seconds": 24.0
         },
@@ -188,7 +188,7 @@
           "score": 83.9,
           "facts_delivered": "6/7",
           "cost_usd": 0.05678,
-          "erosion": 0.165,
+          "erosion": 0.115,
           "verbosity": 0.029,
           "seconds": 33.5
         },
@@ -212,7 +212,7 @@
           "score": 85.0,
           "facts_delivered": "8/9",
           "cost_usd": 0.06736,
-          "erosion": 0.146,
+          "erosion": 0.103,
           "verbosity": 0.035,
           "seconds": 36.3
         }
@@ -290,7 +290,7 @@
           "score": 93.1,
           "facts_delivered": "6/6",
           "cost_usd": 0.04861,
-          "erosion": 0.0,
+          "erosion": 0.029,
           "verbosity": 0.065,
           "seconds": 25.3
         },
@@ -314,7 +314,7 @@
           "score": 94.2,
           "facts_delivered": "8/8",
           "cost_usd": 0.04158,
-          "erosion": 0.0,
+          "erosion": 0.05,
           "verbosity": 0.061,
           "seconds": 21.1
         }

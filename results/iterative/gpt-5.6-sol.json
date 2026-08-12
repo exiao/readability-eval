@@ -6,12 +6,12 @@
     "judge_backend": "openrouter",
     "problems": 3,
     "complete_trajectories": 3,
-    "erosion_drift": 0.0359,
+    "truncated_trajectories": 0,
+    "erosion_drift": 0.0241,
     "verbosity_drift": -0.0052,
     "score_drift": -0.22,
     "pct_erosion_rising": 67,
-    "pct_verbosity_rising": 67,
-    "truncated_trajectories": 0
+    "pct_verbosity_rising": 67
   },
   "trajectories": [
     {
@@ -140,7 +140,7 @@
           "score": 86.2,
           "facts_delivered": "3/3",
           "cost_usd": 0.02558,
-          "erosion": 0.139,
+          "erosion": 0.131,
           "verbosity": 0.056,
           "seconds": 16.8
         },
@@ -164,7 +164,7 @@
           "score": 88.0,
           "facts_delivered": "5/5",
           "cost_usd": 0.0356,
-          "erosion": 0.34,
+          "erosion": 0.192,
           "verbosity": 0.037,
           "seconds": 18.4
         },
@@ -188,7 +188,7 @@
           "score": 79.2,
           "facts_delivered": "7/7",
           "cost_usd": 0.06231,
-          "erosion": 0.188,
+          "erosion": 0.125,
           "verbosity": 0.08,
           "seconds": 42.6
         },
@@ -212,7 +212,7 @@
           "score": 84.5,
           "facts_delivered": "9/9",
           "cost_usd": 0.09162,
-          "erosion": 0.255,
+          "erosion": 0.141,
           "verbosity": 0.08,
           "seconds": 36.3
         }
@@ -290,7 +290,7 @@
           "score": 96.3,
           "facts_delivered": "5/6",
           "cost_usd": 0.04709,
-          "erosion": 0.04,
+          "erosion": 0.039,
           "verbosity": 0.23,
           "seconds": 21.8
         },

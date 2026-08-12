@@ -190,7 +190,7 @@ still be the worst one to work with.
 
 ### What it caught
 
-3 models, 9 trajectories, 36 checkpoints, $1.29.
+3 models, 9 trajectories, 36 checkpoints, $2.61 (subject plus judge calls, summed from the committed `cost_usd` fields).
 
 | model | erosion C1 → C4 | drift | rising |
 |---|---|---:|---:|

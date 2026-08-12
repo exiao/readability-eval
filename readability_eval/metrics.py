@@ -54,11 +54,38 @@ COMPLEX_CLAUSES = 2
 
 # Subordinators and relatives open a dependent clause. These carry a verb
 # by definition, so they are counted directly.
-_SUBORD = re.compile(
-    r"\b(which|who|whom|whose|that|because|although|though|while|whereas|"
-    r"unless|until|since|whenever|wherever|if|when|after|before|"
-    r"so that|even though|in order to|as long as|provided that|given that|"
-    r"despite)\b", re.I)
+_SUBORD_CLEAR = re.compile(
+    r"\b(which|who|whom|whose|because|although|though|while|whereas|"
+    r"unless|whenever|wherever|if|when|"
+    r"so that|even though|in order to|as long as|provided that|given that)\b",
+    re.I)
+
+# These words are subordinators only SOMETIMES. As determiners or
+# prepositions they open no clause at all: "evict that price key", "despite
+# rising costs", "since the launch". Counting every occurrence pushed
+# ordinary sentences over the erosion threshold. Require visible clause
+# evidence -- a subject followed by a finite verb -- before counting one.
+_SUBORD_AMBIG = re.compile(r"\b(that|after|before|since|until|despite)\b", re.I)
+
+_CLAUSE_EVIDENCE = re.compile(
+    r"^\W*(?:i|we|you|he|she|it|they|this|that|these|those|there|"
+    r"a|an|the|its|his|her|their|our|my|your)\b"
+    r"(?:\s+\w+){0,2}\s+"
+    r"(?:is|are|was|were|be|been|being|has|have|had|do|does|did|will|would|"
+    r"can|could|should|may|might|must|\w+ed|\w+s)\b\s+\S", re.I)
+
+
+def _subord_count(sent):
+    """Dependent clauses opened by a subordinator or relative.
+
+    Unambiguous markers count directly. Ambiguous ones count only when the
+    text right after them looks like a clause rather than a noun phrase.
+    """
+    count = len(_SUBORD_CLEAR.findall(sent))
+    for match in _SUBORD_AMBIG.finditer(sent):
+        if _CLAUSE_EVIDENCE.match(sent[match.end():]):
+            count += 1
+    return count
 
 # Coordinators only join clauses when what FOLLOWS has its own subject and
 # verb. "eggs and milk" is a list; "it failed and we rolled back" is two
@@ -101,10 +128,17 @@ def _is_list_line(sent):
     Three or more comma-separated fragments with no subordinator is a list,
     however long it gets. Reading it is a scan, not a stack.
     """
-    if re.match(r"^\*{0,2}[A-Z][\w /-]{0,30}:\*{0,2}\s", sent):
-        return True
+    label = re.match(r"^\*{0,2}[A-Z][\w /-]{0,30}:\*{0,2}\s+(.*)$", sent)
+    if label:
+        # A label with real prose after it is only flat if that prose is
+        # flat. "**Race conditions:** A request reads X while an update is
+        # in progress" is two clauses the reader holds, and exempting the
+        # whole line let inline-label prose score artificially low.
+        rest = label.group(1)
+        return _subord_count(rest) == 0 and not _COORD_CLAUSE.search(rest) \
+            and not _HARD_BREAK.search(rest)
     parts = [p for p in sent.split(",") if p.strip()]
-    if len(parts) < 3 or _SUBORD.search(sent):
+    if len(parts) < 3 or _subord_count(sent):
         return False
     # Comma-separated INDEPENDENT clauses are not a list: "We ship today, but
     # they receive it tomorrow, so we must prepare" is three clauses to hold,
@@ -142,7 +176,7 @@ def clauses(sent):
     if _is_list_line(sent) or not _VERBISH.search(sent):
         return 1
     return (1
-            + len(_SUBORD.findall(sent))
+            + _subord_count(sent)
             + len(_COORD_CLAUSE.findall(sent))
             + len(_HARD_BREAK.findall(sent)))
 

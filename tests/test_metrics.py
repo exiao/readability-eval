@@ -216,3 +216,21 @@ def test_coordinator_with_noun_subject_still_counts():
               "service returned old prices.")
     assert not metrics._is_list_line(joined)
     assert metrics.clauses(joined) == 3
+
+
+def test_present_tense_verbs_after_noun_subject_count():
+    """Ordinary third-person present verbs ("remains", "returns") open a
+    clause just as auxiliaries and -ed/-ing forms do."""
+    joined = ("The cache expires, but the database remains stale, so the "
+              "service returns old prices.")
+    assert not metrics._is_list_line(joined)
+    assert metrics.clauses(joined) == 3
+    # A trailing noun phrase is still a list, not a clause.
+    assert metrics._is_list_line(
+        "Bring a red apple, a green pear, and the ripe bananas.")
+
+
+def test_however_is_not_a_subordinator():
+    """"However" is a conjunctive adverb: it introduces no clause of its own."""
+    sent = "However, when a price changes rapidly, the cache serves stale data."
+    assert metrics.clauses(sent) == 2

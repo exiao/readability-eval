@@ -58,7 +58,7 @@ _SUBORD = re.compile(
     r"\b(which|who|whom|whose|that|because|although|though|while|whereas|"
     r"unless|until|since|whenever|wherever|if|when|after|before|"
     r"so that|even though|in order to|as long as|provided that|given that|"
-    r"despite|however)\b", re.I)
+    r"despite)\b", re.I)
 
 # Coordinators only join clauses when what FOLLOWS has its own subject and
 # verb. "eggs and milk" is a list; "it failed and we rolled back" is two
@@ -75,6 +75,11 @@ _COORD_CLAUSE = re.compile(
     r"(?:\w+\s+){1,3}"
     r"(?:is|are|was|were|be|been|being|has|have|had|does|do|did|"
     r"will|would|can|could|should|may|might|must|\w+(?:ed|ing))\b"
+    r"|"
+    # Third-person present verbs after a simple determiner + noun subject:
+    # "but the database remains stale". The verb must be followed by more
+    # words, so a trailing noun phrase ("and the ripe bananas.") stays a list.
+    r"(?:a|an|the|this|that|these|those)\s+\w+\s+\w+s\s+\w"
     r")", re.I)
 
 # Semicolons and dashes joining two independent statements.

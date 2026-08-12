@@ -8,7 +8,7 @@
    "audience": "small business owner, non-technical",
    "checkpoints": [
     {
-     "spec": "Write an email telling a customer their scheduled data migration slipped by two weeks.",
+     "spec": "Write an email telling a customer their scheduled data migration slipped by two weeks. Give the new date and say what caused the delay.",
      "budget": 150,
      "asks": ["says the migration slipped", "gives the new date", "says what caused it"]
     },
@@ -36,7 +36,7 @@
    "audience": "backend engineer",
    "checkpoints": [
     {
-     "spec": "Explain why our read-through cache is returning stale prices.",
+     "spec": "Explain why our read-through cache is returning stale prices: name the cause, explain why the data goes stale, and give a fix.",
      "budget": 180,
      "asks": ["names the cause", "explains why it is stale", "gives a fix"]
     },
@@ -64,7 +64,7 @@
    "audience": "Grade 2 teacher making a video",
    "checkpoints": [
     {
-     "spec": "Write a short lesson script that teaches grade 2 students to identify 2D shapes.",
+     "spec": "Write a short lesson script that teaches grade 2 students to identify 2D shapes. Open with a hook a 7 year old likes, and keep every fact accurate.",
      "budget": 250,
      "asks": ["a hook a 7 year old likes", "how to identify the shapes", "only accurate facts"]
     },

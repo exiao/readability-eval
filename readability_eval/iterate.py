@@ -39,10 +39,13 @@ EXTEND = """Here is the current version of the document:
 {prior}
 </document>
 
+Everything the document must still cover:
+{prior_specs}
+
 New requirement: {spec}
 
 Rewrite the document so it satisfies the new requirement along with everything
-it already covers. Return only the document."""
+listed above. Return only the document."""
 
 
 def score_text(text, item):
@@ -78,7 +81,9 @@ def run_problem(prob, model, backend, provider, jm, jb, jp, reasoning=None):
         asks = asks + cp["asks"]          # requirements accumulate
         specs = specs + [cp["spec"]]
         prompt = cp["spec"] if prior is None else EXTEND.format(
-            prior=prior, spec=cp["spec"])
+            prior=prior, spec=cp["spec"],
+            prior_specs="\n".join(f"{n}. {s}" for n, s in
+                                  enumerate(specs[:-1], 1)))
         # The judge grades the WHOLE document against "the prompt they
         # answered", so at C2+ it must see every requirement so far. Given
         # only the latest delta it reads retained material as padding and

@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+  <rect width="1400" height="820" fill="#0f1115"/>
+
+  <text x="60" y="66" fill="#ffffff" font-size="34" font-weight="600">Applying SlopCodeBench to the readability eval</text>
+  <text x="60" y="98" fill="#8b93a7" font-size="19">The paper says quality rots when a model edits its own work. Your eval only ever asks once.</text>
+
+  <!-- TODAY -->
+  <text x="60" y="168" fill="#5b6478" font-size="14" letter-spacing="2">TODAY  ·  SINGLE SHOT</text>
+  <line x1="60" y1="182" x2="1340" y2="182" stroke="#252a35" stroke-width="1"/>
+
+  <rect x="60" y="206" width="180" height="72" rx="10" fill="#1a1e27" stroke="#333a48"/>
+  <text x="150" y="238" fill="#c9d1e0" font-size="17" text-anchor="middle">30 prompts</text>
+  <text x="150" y="261" fill="#6f7889" font-size="14" text-anchor="middle">one ask each</text>
+
+  <path d="M248 242 L318 242" stroke="#3d4553" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="326" y="206" width="180" height="72" rx="10" fill="#1a1e27" stroke="#333a48"/>
+  <text x="416" y="238" fill="#c9d1e0" font-size="17" text-anchor="middle">model answers</text>
+  <text x="416" y="261" fill="#6f7889" font-size="14" text-anchor="middle">once</text>
+
+  <path d="M514 242 L584 242" stroke="#3d4553" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="592" y="206" width="200" height="72" rx="10" fill="#1a1e27" stroke="#333a48"/>
+  <text x="692" y="238" fill="#c9d1e0" font-size="17" text-anchor="middle">7 rules + slop tax</text>
+  <text x="692" y="261" fill="#6f7889" font-size="14" text-anchor="middle">score 0-100</text>
+
+  <rect x="840" y="200" width="500" height="84" rx="10" fill="#2a1c1c" stroke="#7a3b3b"/>
+  <text x="864" y="232" fill="#ff8f8f" font-size="17">Blind spot</text>
+  <text x="864" y="262" fill="#d9a2a2" font-size="15">A first draft is not how anyone actually uses a model.</text>
+
+  <!-- ADDING -->
+  <text x="60" y="360" fill="#5b6478" font-size="14" letter-spacing="2">ADDING  ·  ITERATIVE TRAJECTORY</text>
+  <line x1="60" y1="374" x2="1340" y2="374" stroke="#252a35" stroke-width="1"/>
+
+  <!-- chain -->
+  <g>
+    <rect x="60" y="400" width="230" height="128" rx="10" fill="#161b26" stroke="#2e6b57"/>
+    <text x="78" y="428" fill="#5fd39a" font-size="13" letter-spacing="1">C1</text>
+    <text x="78" y="456" fill="#c9d1e0" font-size="16">write from scratch</text>
+    <text x="78" y="481" fill="#6f7889" font-size="14">3 asks · 150 words</text>
+    <text x="78" y="506" fill="#6f7889" font-size="14">no prior text</text>
+
+    <rect x="330" y="400" width="230" height="128" rx="10" fill="#161b26" stroke="#2e6b57"/>
+    <text x="348" y="428" fill="#5fd39a" font-size="13" letter-spacing="1">C2</text>
+    <text x="348" y="456" fill="#c9d1e0" font-size="16">extend own answer</text>
+    <text x="348" y="481" fill="#6f7889" font-size="14">+2 asks · 220 words</text>
+    <text x="348" y="506" fill="#6f7889" font-size="14">keep everything</text>
+
+    <rect x="600" y="400" width="230" height="128" rx="10" fill="#161b26" stroke="#2e6b57"/>
+    <text x="618" y="428" fill="#5fd39a" font-size="13" letter-spacing="1">C3</text>
+    <text x="618" y="456" fill="#c9d1e0" font-size="16">extend again</text>
+    <text x="618" y="481" fill="#6f7889" font-size="14">+2 asks · 280 words</text>
+    <text x="618" y="506" fill="#6f7889" font-size="14">keep everything</text>
+
+    <rect x="870" y="400" width="230" height="128" rx="10" fill="#161b26" stroke="#2e6b57"/>
+    <text x="888" y="428" fill="#5fd39a" font-size="13" letter-spacing="1">C4</text>
+    <text x="888" y="456" fill="#c9d1e0" font-size="16">extend again</text>
+    <text x="888" y="481" fill="#6f7889" font-size="14">+2 asks · 320 words</text>
+    <text x="888" y="506" fill="#6f7889" font-size="14">keep everything</text>
+
+    <path d="M296 464 L322 464" stroke="#2e6b57" stroke-width="2" marker-end="url(#g)"/>
+    <path d="M566 464 L592 464" stroke="#2e6b57" stroke-width="2" marker-end="url(#g)"/>
+    <path d="M836 464 L862 464" stroke="#2e6b57" stroke-width="2" marker-end="url(#g)"/>
+
+    <!-- feedback -->
+    <path d="M175 534 C175 566, 445 566, 445 534" stroke="#3d4553" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+    <path d="M445 534 C445 578, 715 578, 715 534" stroke="#3d4553" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+    <path d="M715 534 C715 590, 985 590, 985 534" stroke="#3d4553" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+    <text x="580" y="612" fill="#6f7889" font-size="14" text-anchor="middle">its own previous text goes back in as the input</text>
+  </g>
+
+  <rect x="1140" y="400" width="200" height="128" rx="10" fill="#161b26" stroke="#333a48"/>
+  <text x="1240" y="440" fill="#c9d1e0" font-size="16" text-anchor="middle">measured at</text>
+  <text x="1240" y="464" fill="#c9d1e0" font-size="16" text-anchor="middle">every step</text>
+  <text x="1240" y="498" fill="#6f7889" font-size="14" text-anchor="middle">3 problems × 4</text>
+
+  <!-- metrics -->
+  <text x="60" y="676" fill="#5b6478" font-size="14" letter-spacing="2">TWO NEW NUMBERS  ·  PAPER'S FORMULAS, PROSE UNITS</text>
+  <line x1="60" y1="690" x2="1340" y2="690" stroke="#252a35" stroke-width="1"/>
+
+  <rect x="60" y="712" width="400" height="80" rx="10" fill="#171d2a" stroke="#3a4a6b"/>
+  <text x="80" y="742" fill="#8fb4ff" font-size="17">Erosion</text>
+  <text x="80" y="770" fill="#7e879a" font-size="14">share of the text stuck in tangled sentences</text>
+
+  <rect x="490" y="712" width="400" height="80" rx="10" fill="#171d2a" stroke="#3a4a6b"/>
+  <text x="510" y="742" fill="#8fb4ff" font-size="17">Verbosity</text>
+  <text x="510" y="770" fill="#7e879a" font-size="14">share of sentences repeated or padded</text>
+
+  <rect x="920" y="712" width="420" height="80" rx="10" fill="#1b2418" stroke="#3f6b2e"/>
+  <text x="940" y="742" fill="#a6dd7f" font-size="17">The answer you want</text>
+  <text x="940" y="770" fill="#8ba97a" font-size="14">do both go UP as the model edits itself?</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#3d4553"/>
+    </marker>
+    <marker id="g" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#2e6b57"/>
+    </marker>
+  </defs>
+</svg>

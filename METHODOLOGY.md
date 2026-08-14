@@ -118,6 +118,124 @@ Results are tagged with their condition and the leaderboard only compares within
 
 This exists because the default-condition ranking is largely a verbosity ranking. Opus gains 6.1 points under `brief` while Gemini loses 8.0, so "which model writes best" and "which model writes best when you don't ask it to be brief" are different questions with different answers. Report which one you ran.
 
+## Iterative mode
+
+Everything above scores a single answer to a single prompt. That is not how
+anyone uses a model. You ask, then you ask for one more thing, and the model
+rewrites what it already wrote.
+
+[SlopCodeBench](https://arxiv.org/abs/2603.24755) makes the case for coding
+agents: benchmarks evaluate one shot against a complete spec, so they cannot
+see that code passing every test gets steadily harder to extend. Quality fell
+in 80-90% of their trajectories while pass rates held. The same blind spot
+applies here, so `iterate` ports the idea to prose.
+
+```bash
+python3 -m readability_eval.iterate --model X --backend openrouter
+```
+
+Each problem in `data/checkpoints.json` is a chain. At C1 the model writes
+from scratch. At C2+ it gets **its own previous answer** plus one new
+requirement and must return the whole document again. Requirements accumulate,
+so `asks` grows and coverage stays comparable across checkpoints. The word
+budget grows too: the spec really did get bigger, and growth on its own is not
+a defect.
+
+### Two metrics, the paper's formulas, prose units
+
+| Code | Prose |
+|---|---|
+| callable | sentence |
+| cyclomatic complexity | clause count |
+| SLOC | words |
+| clone lines | near-duplicate sentences (4-gram overlap) |
+| 137 AST-grep waste rules | the existing slop lexicon |
+
+**Erosion** (paper eq. 2-3) is the share of total complexity mass held by
+sentences over the threshold, where `mass = clauses * sqrt(words)`. The square
+root is theirs, and it is load-bearing: it keeps complexity dominant so a long
+plain sentence is not punished for being long.
+
+A clause here means **nesting**, not punctuation. The first version counted
+commas and conjunctions, and it was wrong in a way worth recording: on the
+saved corpus the eight highest-scoring sentences were all materials lists and
+`**Objective:**` label lines. `circle, triangle, square, rectangle, rhombus,
+trapezoid` scored 21. Every one was a false positive and the genuinely tangled
+sentences ranked below them.
+
+A list is flat — the reader holds one slot open and refills it. A clause is
+nested — each one opens a slot before the last closed. So the counter keys on
+subordinators (`which`, `because`, `if`), coordinators that are followed by a
+new subject and verb, and hard breaks. Verbless label lines and 3+ item
+enumerations score 1 however long they run.
+
+Threshold is `> 2` clauses. Over 2540 measured sentences the distribution is
+75% at 1 clause, 95% at 3, 99% at 4, so `> 2` flags the top ~6% — the same
+tail position CC > 10 occupies for Python. The old value of 4 was calibrated
+against the inflated counter; carried over unchanged it flagged 50 sentences
+in the entire corpus and the metric went dead.
+
+**Verbosity** (eq. 4) is `{slop-flagged sentences ∪ clone sentences} / sentences`.
+Union before dividing, as specified, so a sentence that is both counts once.
+
+Both are bounded [0,1] and both are deterministic. A trajectory costs no more
+than the answers it already generates.
+
+### Read the drift, not the level
+
+The headline is `erosion_drift`: the per-checkpoint change, normalised by
+step count so an 8-checkpoint problem does not outweigh a 3-checkpoint one.
+The paper's finding is a direction, not a level. A model can start clean and
+still be the worst one to work with.
+
+### What it caught
+
+3 models, 9 trajectories, 36 checkpoints, $2.61 (subject plus judge calls, summed from the committed `cost_usd` fields).
+
+| model | erosion C1 → C4 | drift | rising |
+|---|---|---:|---:|
+| `claude-opus-5` | 0.117 → 0.249 | +0.044 | 100% |
+| `gpt-5.6-sol` | 0.044 → 0.116 | +0.024 | 67% |
+| `gemini-3.5-flash` | 0.124 → 0.092 | -0.011 | 33% |
+
+Opus on the delay-email chain:
+
+| | C1 | C2 | C3 | C4 |
+|---|---:|---:|---:|---:|
+| Score | 52.6 | 77.4 | 77.4 | 82.3 |
+| Words | 398 | 686 | 912 | 1461 |
+| Erosion | 0.000 | 0.258 | 0.376 | 0.234 |
+| Coverage | 3/3 | 5/5 | 7/7 | 9/9 |
+
+The score *rises* 30 points while a 320-word email becomes 1461 words. Full
+coverage at every checkpoint, so the single-shot suite reports a clean
+improvement. That is the paper's finding in prose: the artifact passes every
+test while getting harder to read.
+
+Gemini going the other way on net is the more interesting result and the reason
+to report drift per model rather than as a universal law. It answers each new
+requirement by restructuring rather than appending: two of its three
+trajectories fall, the third rises slightly. Whether that survives more than
+three problems is untested.
+
+### Limits
+
+- **3 problems, 12 checkpoints.** Smaller than the single-shot set. Treat
+  drift signs as directional, not as a ranking.
+- **Erosion is not monotone within a trajectory.** Opus peaks at C3 and falls
+  at C4. Drift is endpoint-to-endpoint over step count, so it cannot see that
+  shape; read the per-checkpoint table before drawing conclusions.
+- **Chains are serial and fail closed.** One failed checkpoint ends that
+  trajectory, because C(n+1) needs C(n)'s text. A model that dies at C2
+  contributes nothing rather than a short trajectory.
+- **Erosion has no judge.** Deliberate, since it is cheap and mechanical, but
+  a genuinely necessary complex sentence scores the same as a careless one.
+- **The clause counter is regex, not a parser.** No POS tagging, so
+  coordinator handling is a heuristic. It was wrong once already; if a result
+  surprises you, print the worst sentences before believing it.
+- **The threshold is calibrated on this corpus.** Recalibrate if the prompt
+  set changes materially.
+
 ## Adding prompts
 
 Each entry in `data/prompts.json` needs:
